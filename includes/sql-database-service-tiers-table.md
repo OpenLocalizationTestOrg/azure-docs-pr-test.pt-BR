@@ -49,4 +49,4 @@ sql-database-service-tiers.md
 | Máximo de sessões simultâneas | 30000| 30000| 30000| 30000|
 |||||||
 
-\* Tamanho máximo de banco de dados refere-se ao tamanho máximo dos dados no banco de dados. 
+\*Tamanho máximo de banco de dados se refere a toohello o tamanho máximo dos dados Olá no banco de dados de saudação. 

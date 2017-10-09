@@ -1,6 +1,6 @@
 ---
-title: Conectar um dispositivo usando o Node.js | Microsoft Docs
-description: "Descreve como conectar um dispositivo à solução pré-configurada de monitoramento remoto do Azure IoT Suite usando um aplicativo escrito em Node.js."
+title: aaaConnect um dispositivo usando o Node. js | Microsoft Docs
+description: "Descreve como tooconnect toohello um dispositivo do Azure IoT Suite pré-configurados de solução de monitoramento remota usando um aplicativo escrito em Node. js."
 services: 
 suite: iot-suite
 documentationcenter: na
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: 6459b6196eb7f4a083b67e5a421bcc0d51d39e5c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 80bf2b70f15f539bfce4f135d533c46dd2b3f5a7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (Node.js)
+# <a name="connect-your-device-toohello-remote-monitoring-preconfigured-solution-nodejs"></a>Conecte-se a sua solução pré-configurada (Node.js) de monitoramento remoto de toohello de dispositivo
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## <a name="create-a-nodejs-sample-solution"></a>Criar uma solução de exemplo do Node.js
 
-Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no computador de desenvolvimento. Você pode executar `node --version` na linha de comando para verificar a versão.
+Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no computador de desenvolvimento. Você pode executar `node --version` na versão de Olá Olá linha de comando toocheck.
 
-1. Crie uma pasta chamada **RemoteMonitoring** no computador de desenvolvimento. Navegue até essa pasta no ambiente de linha de comando.
+1. Crie uma pasta chamada **RemoteMonitoring** no computador de desenvolvimento. Navegue toothis pasta em seu ambiente de linha de comando.
 
-1. Execute os seguintes comandos para baixar e instalar os pacotes de que você precisa para executar o aplicativo de exemplo:
+1. Saudação de execução a seguir comandos toodownload e instalar pacotes de saudação é necessário que o aplicativo de exemplo hello toocomplete:
 
     ```
     npm init
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. Na pasta **RemoteMonitoring**, crie um arquivo chamado **remote_monitoring.js**. Abra esse arquivo em um editor de texto.
+1. Em Olá **RemoteMonitoring** pasta, crie um arquivo chamado **remote_monitoring.js**. Abra esse arquivo em um editor de texto.
 
-1. No arquivo **remote_monitoring.js**, adicione as seguintes instruções `require`:
+1. Em Olá **remote_monitoring.js** de arquivo, adicione o seguinte Olá `require` instruções:
 
     ```nodejs
     'use strict';
@@ -50,14 +50,14 @@ Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no c
     var Message = require('azure-iot-device').Message;
     ```
 
-1. Adicione as declarações de variável a seguir após as instruções `require` . Substitua os valores do espaço reservado [Device Id] e [Device Key] pelos valores que você anotou para o seu dispositivo no painel da solução de monitoramento remoto. Use o nome de host do Hub IoT do painel da solução para substituir [IoTHub Name]. Por exemplo, se o nome de host do Hub IoT for **contoso.azure-devices.net**, substitua [Nome do HubIoT] por **contoso**:
+1. Adicionar Olá declarações de variáveis a seguir após Olá `require` instruções. Substituir valores de espaço reservado de saudação [Id do dispositivo] e [chave do dispositivo] com valores anotados para seu dispositivo no painel solução de monitoramento remoto hello. Use Olá Hostname de Hub IoT do hello solução painel tooreplace [nome do hub IOT]. Por exemplo, se o nome de host do Hub IoT for **contoso.azure-devices.net**, substitua [Nome do HubIoT] por **contoso**:
 
     ```nodejs
     var connectionString = 'HostName=[IoTHub Name].azure-devices.net;DeviceId=[Device Id];SharedAccessKey=[Device Key]';
     var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
-1. Adicione as seguintes variáveis para definir alguns dados base de telemetria:
+1. Adicione Olá toodefine variáveis a seguir alguns dados de telemetria base:
 
     ```nodejs
     var temperature = 50;
@@ -65,7 +65,7 @@ Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no c
     var externalTemperature = 55;
     ```
 
-1. Adicione a seguinte função auxiliar para imprimir os resultados da operação:
+1. Adicione Olá resultados de operação de tooprint de função auxiliar a seguir:
 
     ```nodejs
     function printErrorFor(op) {
@@ -75,7 +75,7 @@ Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no c
     }
     ```
 
-1. Adicione a seguinte função auxiliar para usar para tornar os valores de telemetria aleatórios:
+1. Adicione Olá auxiliar função toouse toorandomize Olá telemetria valores a seguir:
 
     ```nodejs
     function generateRandomIncrement() {
@@ -83,7 +83,7 @@ Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no c
     }
     ```
 
-1. Adicione a seguinte definição para o objeto **DeviceInfo** que o dispositivo envia na inicialização:
+1. Adicionar Olá após a definição de saudação **DeviceInfo** envia de dispositivo de saudação do objeto durante a inicialização:
 
     ```nodejs
     var deviceMetaData = {
@@ -97,7 +97,7 @@ Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no c
     };
     ```
 
-1. Adicione a definição a seguir para os valores relatados para o dispositivo gêmeo. Essa definição inclui descrições dos métodos diretos aos quais dispositivo dá suporte:
+1. Adicione Olá seguinte definição para duas de dispositivo Olá relatado valores. Essa definição inclui descrições dos métodos de direto Olá Olá dispositivo oferece suporte a:
 
     ```nodejs
     var reportedProperties = {
@@ -126,62 +126,62 @@ Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no c
             "Longitude": -122.125497
         },
         "SupportedMethods": {
-            "Reboot": "Reboot the device",
-            "InitiateFirmwareUpdate--FwPackageURI-string": "Updates device Firmware. Use parameter FwPackageURI to specifiy the URI of the firmware file"
+            "Reboot": "Reboot hello device",
+            "InitiateFirmwareUpdate--FwPackageURI-string": "Updates device Firmware. Use parameter FwPackageURI toospecifiy hello URI of hello firmware file"
         },
     }
     ```
 
-1. Adicione a seguinte função para lidar com a chamada de método direta **Reboot**:
+1. Adicionar Olá Olá de toohandle de função a seguir **reinicializar** direcionar a chamada de método:
 
     ```nodejs
     function onReboot(request, response) {
         // Implement actual logic here.
         console.log('Simulated reboot...');
 
-        // Complete the response
+        // Complete hello response
         response.send(200, "Rebooting device", function(err) {
             if(!!err) {
                 console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
+                console.log('Response toomethod \'' + request.methodName + '\' sent successfully.' );
             }
         });
     }
     ```
 
-1. Adicione a função a seguir para lidar com a chamada de método direta **InitiateFirmwareUpdate**. Esse método direto usa um parâmetro para especificar o local da imagem do firmware a ser baixado e inicia a atualização do firmware no dispositivo de forma assíncrona:
+1. Adicionar Olá Olá de toohandle de função a seguir **InitiateFirmwareUpdate** direcionar a chamada de método. Esse método direto usa um local de saudação do parâmetro toospecify de toodownload de imagem de firmware de saudação e inicia Olá atualizar o firmware no dispositivo Olá assíncrona:
 
     ```nodejs
     function onInitiateFirmwareUpdate(request, response) {
         console.log('Simulated firmware update initiated, using: ' + request.payload.FwPackageURI);
 
-        // Complete the response
+        // Complete hello response
         response.send(200, "Firmware update initiated", function(err) {
             if(!!err) {
                 console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
+                console.log('Response toomethod \'' + request.methodName + '\' sent successfully.' );
             }
         });
 
-        // Add logic here to perform the firmware update asynchronously
+        // Add logic here tooperform hello firmware update asynchronously
     }
     ```
 
-1. Adicione o seguinte código para criar uma instância do cliente:
+1. Adicione Olá código toocreate uma instância do cliente a seguir:
 
     ```nodejs
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-1. Adicione o seguinte código a:
+1. Adicione Olá código a seguir:
 
-    * Abra a conexão.
-    * Enviar o objeto **DeviceInfo**.
+    * Abrir conexão hello.
+    * Enviar Olá **DeviceInfo** objeto.
     * Configure um manipulador para as propriedades desejadas.
     * Envie as propriedades relatadas.
-    * Registre manipuladores para os métodos diretos.
+    * Registre manipuladores para métodos diretos hello.
     * Comece a enviar a telemetria.
 
     ```nodejs
@@ -242,9 +242,9 @@ Certifique-se de que o Node.js versão 0.11.5 ou posterior esteja instalado no c
     });
     ```
 
-1. Salve as alterações no arquivo **remote_monitoring.js**.
+1. Salvar Olá alterações toohello **remote_monitoring.js** arquivo.
 
-1. Execute o seguinte comando no prompt de comando para iniciar o aplicativo de exemplo:
+1. Olá executar comandos em um aplicativo de exemplo de saudação do prompt de comando toolaunch a seguir:
    
     ```
     node remote_monitoring.js

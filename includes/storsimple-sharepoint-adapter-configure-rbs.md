@@ -1,54 +1,54 @@
 <!--author=SharS last changed: 1/14/2016 -->
 
 > [!NOTE]
-> Ao fazer alterações na configuração do Adaptador StorSimple para SharePoint RBS, você deve estar conectado com uma conta de usuário que pertença ao grupo Administradores do Domínio. Além disso, você deve acessar a página de configuração em um navegador em execução no mesmo host que a Administração Central.
+> Quando você faz alterações toohello adaptador StorSimple para configuração do SharePoint RBS, você deve fazer logon com uma conta de usuário que pertence o grupo de Admins. do domínio toohello. Além disso, é necessário acessar a página de configuração de saudação de um navegador em execução no hello mesmo host como a Administração Central.
 > 
 > 
 
-#### <a name="to-configure-rbs"></a>Para configurar o RBS
-1. Abra a página Administração Central do SharePoint e navegue até **Configurações do Sistema**. 
-2. Na seção **Azure StorSimple**, clique em **Configurar Adaptador StorSimple**.
+#### <a name="tooconfigure-rbs"></a>tooconfigure RBS
+1. Abra a página de Administração Central do SharePoint hello e procurar muito**configurações do sistema**. 
+2. Em Olá **Azure StorSimple** seção, clique em **configurar adaptador do StorSimple**.
    
-    ![Configurar o Adaptador StorSimple](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
-3. Na página **Configurar Adaptador StorSimple** :
+    ![Configurar Olá adaptador StorSimple](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png) 
+3. Em Olá **configurar adaptador do StorSimple** página:
    
-   1. Verifique se a caixa de seleção **Habilitar edição de caminho** está marcada.
-   2. Na caixa de texto, digite o caminho UNC (Convenção de Nomenclatura Universal) do armazenamento de BLOB.
+   1. Certifique-se de que Olá **habilitar edição de caminho** caixa de seleção é marcada.
+   2. Na caixa de texto de saudação, digite o caminho de convenção de nomenclatura Universal (UNC) de Olá Olá do repositório de BLOB.
       
       > [!NOTE]
-      > O volume de armazenamento de BLOB deve ser hospedado em um volume iSCSI configurado no dispositivo StorSimple.
+      > volume de armazenamento BLOB Olá deve ser hospedado em um volume iSCSI configurado no dispositivo do StorSimple hello.
 
-   3. Clique no botão **Habilitar** abaixo de cada banco de dados de conteúdo que deseja configurar para armazenamento remoto.
+   3. Clique em Olá **habilitar** botão abaixo de cada Olá bancos de dados que você deseja tooconfigure para armazenamento remoto.
       
       > [!NOTE]
-      > O armazenamento de BLOB deve ser compartilhado e poder ser acessado por todos os servidores WFE (Front-End da Web) e a conta do usuário que está configurada para o farm de servidores do SharePoint deve ter acesso ao compartilhamento.
+      > armazenamento de BLOB Olá deve ser compartilhado por todos os servidores web front-end (WFE) e conta de usuário de Olá configurado para o farm do SharePoint server Olá deve ter o compartilhamento de toohello de acesso.
       
-      ![Habilitar o provedor RBS](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
+      ![Habilitar provedor RBS Olá](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS2-include.png)
       
-      Quando você habilita ou desabilita o RBS, a mensagem a seguir é exibida.
+      Quando você habilita ou desabilita o RBS, você também verá seguinte mensagem de saudação.
       
       ![Configurar o Adaptador StorSimple para Habilitado/Desabilitado](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-   4. Clique no botão **Atualizar** para aplicar a configuração. Quando você clica no botão **Atualizar** , o status da configuração do RBS é atualizado em todos os servidores WFE e todo o farm é habilitado para RBS. A seguinte mensagem é exibida.
+   4. Clique em Olá **atualização** configuração de saudação do botão tooapply. Quando você clica em Olá **atualização** botão, Olá status de configuração de RBS será atualizado em todos os servidores WFE e toda a farm Olá será habilitado para RBS. Olá a seguinte mensagem será exibida.
       
       ![Mensagem de configuração do adaptador](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > Se você estiver configurando um RBS para um farm do SharePoint com um número muito grande de bancos de dados (maior que 200), o tempo limite da página da Web da Administração Central do SharePoint poderá se esgotar. Se isso ocorrer, atualize a página. Isso não afeta o processo de configuração.
+      > Se você estiver configurando o RBS para um farm do SharePoint com um número muito grande de bancos de dados (mais de 200), página de web de Administração Central do SharePoint Olá pode atingir o tempo limite. Se isso ocorrer, atualize a página de saudação. Isso não afeta o processo de configuração de saudação.
 
-4. Verifique a configuração:
+4. Verificar configuração hello:
    
-   1. Faça logon no site de Administração Central do SharePoint e navegue até a página **Configurar Adaptador StorSimple** .
-   2. Verifique os detalhes da configuração para garantir que eles correspondam às configurações que você inseriu. 
+   1. Faça logon no site de Administração Central do SharePoint toohello e procurar toohello **configurar adaptador do StorSimple** página.
+   2. Verifique toomake detalhes de configuração de saudação se eles correspondem às configurações de saudação que você inseriu. 
 5. Verifique se o RBS funciona corretamente:
    
-   1. Carregue um documento no SharePoint. 
-   2. Navegue até o caminho UNC que você configurou. Verifique se a estrutura do diretório do RBS foi criada e se ela contém o objeto carregado.
-6. (Opcional) Você pode usar o cmdlet do PowerShell `Migrate()` do Microsoft RBS incluído com o SharePoint para migrar o conteúdo BLOB existente para o dispositivo StorSimple. Para obter mais informações, consulte [migrar conteúdo para dentro ou fora do RBS no SharePoint 2013] [ 6] ou [migrar conteúdo para dentro ou fora do RBS (SharePoint Foundation 2010)] [7].
-7. (Opcional) Em instalações de teste, você pode verificar se os BLOBs foram movidos para fora do banco de dados de conteúdo, como se segue: 
+   1. Carregar um documento tooSharePoint. 
+   2. Procure caminho UNC toohello que você configurou. Certifique-se de que a estrutura de diretório RBS Olá foi criada e que ele contém o objeto Olá carregado.
+6. (Opcional) Você pode usar o hello Microsoft RBS `Migrate()` cmdlet do PowerShell incluído com o SharePoint toomigrate existente BLOB conteúdo toohello dispositivo StorSimple. Para obter mais informações, consulte [migrar conteúdo para dentro ou fora do RBS no SharePoint 2013] [ 6] ou [migrar conteúdo para dentro ou fora do RBS (SharePoint Foundation 2010)] [7].
+7. (Opcional) Em instalações de teste, você pode verificar que Olá BLOBs foram movidos para fora do banco de dados de conteúdo do hello da seguinte maneira: 
    
    1. Inicie o SQL Management Studio.
-   2. Execute a consulta ListBlobsInDB_2010.sql ou ListBlobsInDB_2013.sql como se segue.
+   2. Execute a consulta de ListBlobsInDB_2010.sql ou ListBlobsInDB_2013.sql hello, da seguinte maneira.
       
       ```
       **ListBlobsInDB_2013.sql**
@@ -91,18 +91,18 @@
         GO
       ```
       
-      Se o RBS foi configurado corretamente, um valor NULL deverá aparecer na coluna SizeOfContentInDB para qualquer objeto que foi carregado e externalizado com êxito com o RBS.
-8. (Opcional) Depois de configurar o RBS e mover todo o conteúdo BLOB para o dispositivo StorSimple, você pode mover o banco de dados de conteúdo para o dispositivo. Caso opte por mover o banco de dados de conteúdo, é recomendável configurar o armazenamento de banco de dados de conteúdo no dispositivo como um volume primário. Em seguida, use as práticas recomendadas estabelecidas do SQL Server para migrar o banco de dados de conteúdo para o dispositivo StorSimple. 
+      Se o RBS foi configurado corretamente, um valor NULL aparece na coluna de SizeOfContentInDB Olá para qualquer objeto que foi carregado e externalizado com êxito com RBS.
+8. (Opcional) Depois de configurar o RBS e mover todas as toohello conteúdo BLOB dispositivo StorSimple, você pode mover o dispositivo de toohello do banco de dados de conteúdo de saudação. Se você escolher o banco de dados conteúdo toomove Olá, é recomendável que você configure o armazenamento de banco de dados de conteúdo Olá no dispositivo hello como um volume primário. Em seguida, use estabelecida que dispositivo StorSimple do toomigrate Olá banco de dados de conteúdo toohello de práticas recomendadas do SQL Server. 
    
    > [!NOTE]
-   > Mover o banco de dados de conteúdo para o dispositivo só é permitido no StorSimple série 8000 (não há suporte para essa ação na série 5000 ou 7000).
+   > Dispositivo móvel de toohello de banco de dados de conteúdo Olá somente há suporte para séries Olá StorSimple 8000 (não há suporte para a série de saudação 5000 ou 7000).
    
-   Se você armazenar BLOBs e o banco de dados de conteúdo em volumes separados no dispositivo StorSimple, é recomendável configurá-los no mesmo contêiner de volume. Isso garante que os respectivos backups sejam feitos juntos.
+   Se você armazenar BLOBs e banco de dados de conteúdo do hello em volumes separados no dispositivo do StorSimple Olá, é recomendável que você configure no hello mesmo contêiner de volume. Isso garante que os respectivos backups sejam feitos juntos.
    
    > [!WARNING]
-   > Se você não tiver habilitado o RBS, não é recomendável mover o banco de dados de conteúdo para o dispositivo StorSimple. Essa é uma configuração não testada.
+   > Se você não tiver habilitado o RBS, não recomendamos mover o dispositivo de StorSimple toohello Olá conteúdo do banco de dados. Essa é uma configuração não testada.
    
-9. Vá para a próxima etapa: [Configurar a coleta de lixo](#configure-garbage-collection).
+9. Vá toohello próxima etapa: [configurar coleta de lixo](#configure-garbage-collection).
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx

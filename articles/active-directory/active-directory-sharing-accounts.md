@@ -1,6 +1,6 @@
 ---
-title: Compartilhando contas usando o Azure AD | Microsoft Docs
-description: "Descreve como o Active Directory do Azure permite que as organizações compartilhem com segurança contas para aplicativos locais e serviços de nuvem do consumidor."
+title: contas de aaaSharing usando o Azure AD | Microsoft Docs
+description: "Descreve como o Active Directory do Azure permite que as contas de compartilhamento do organizações toosecurely para aplicativos locais e serviços de nuvem do consumidor."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
-ms.openlocfilehash: b40335eda9dffe75e65d004837a1d67914db15b6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9f98bfa97a6c9ba1566d3f921c1b676d5f3c2a88
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Compartilhar contas com o AD do Azure
 ## <a name="overview"></a>Visão geral
-Às vezes, as organizações precisam usar um único nome de usuário e uma senha para várias pessoas. Isso geralmente ocorre em dois casos:
+Às vezes, as organizações precisam toouse um único nome de usuário e senha para várias pessoas. Isso geralmente ocorre em dois casos:
 
 * Ao acessar aplicativos que exigem um logon exclusivo e uma senha para cada usuário, seja aplicativos locais ou serviços em nuvem do consumidor (por exemplo, contas de mídia social corporativa).
-* Durante a criação de ambientes de vários usuários. Você pode ter uma conta local única com privilégios elevados e que pode ser usada para as principais atividades de instalação, administração e recuperação (por exemplo, a conta "administrador global" local para o Office 365 ou a conta raiz da Salesforce).
+* Durante a criação de ambientes de vários usuários. Você pode ter uma única conta local que tenha privilégios elevados e pode ser usado toodo atividades principais instalação, administração e recuperação (por exemplo, hello "global" conta de administrador local para o Office 365 ou hello conta raiz no Salesforce).
 
-Tradicionalmente, essas contas devem ser compartilhadas distribuindo as credenciais (nome de usuário/senha) para os indivíduos certos ou armazená-las em um local compartilhado onde vários agentes confiáveis podem acessá-los.
+Tradicionalmente, essas contas seriam compartilhadas por distribuir indivíduos direito da saudação credenciais (nome de usuário e senha) toohello ou armazená-los em um local compartilhado onde várias confiável agentes possam acessá-los.
 
-O modelo tradicional de compartilhamento tem várias desvantagens:
+modelo tradicional de compartilhamento Olá tem várias desvantagens:
 
-* Habilitar o acesso a novos aplicativos exige que você distribua credenciais para qualquer pessoa que precise de acesso.
-* Cada aplicativo compartilhado pode exigir seu próprio conjunto exclusivo de credenciais compartilhadas, exigindo que os usuários se lembrem de vários conjuntos de credenciais. Quando os usuários precisam lembrar de várias credenciais, o risco de eles recorrerem a práticas arriscadas aumenta. (Por exemplo, anotar senhas).
-* Você não pode determinar quem tem acesso a um aplicativo.
+* Habilitando acesso toonew aplicativos requer toodistribute credenciais tooeveryone que precisa acessar.
+* Cada aplicativo compartilhado pode exigir o seu próprio conjunto exclusivo de credenciais compartilhadas, exigindo usuários tooremember vários conjuntos de credenciais. Quando os usuários tooremember várias credenciais, o risco de saudação aumenta que eles recorre toorisky práticas. (Por exemplo, anotar senhas).
+* Você não pode determinar quem tem acesso tooan aplicativo.
 * Você não pode determinar quem *acessou* um aplicativo.
-* Quando você precisar remover o acesso a um aplicativo, é necessário atualizar as credenciais e redistribuí-las para todos que precisam acessar o aplicativo.
+* Quando você precisar de aplicativo de tooan tooremove access, ter tooupdate Olá credenciais e distribuí-los novamente tooeveryone que precisa acessar o aplicativo toothat.
 
 ## <a name="azure-active-directory-account-sharing"></a>Compartilhamento de contas do Active Directory do Azure
-O AD do Azure fornece uma nova abordagem para usar contas compartilhadas que elimina essas desvantagens.
+O AD do Azure fornece uma nova abordagem contas toousing compartilhado que elimina essas desvantagens.
 
-O administrador do AD do Azure configura quais aplicativos um usuário pode acessar usando o Painel de Acesso e escolhendo o tipo de logon único mais adequado para o aplicativo. Um desses tipos, *logon único baseado em senha*, permite ao AD do Azure agir como um tipo de “agente” durante o processo de logon do aplicativo.
+Olá administrador do AD Azure configura os aplicativos que um usuário pode acessar usando Olá painel de acesso e escolhendo o tipo de saudação do logon único mais adequado para o aplicativo. Um desses tipos, *baseada em senha de logon único*, permite que o AD do Azure funcione como um tipo de "agente" durante a saudação processo de logon para esse aplicativo.
 
-Os usuários fazem logon uma vez com sua conta institucional. Essa é a mesma conta que eles usam regularmente para acessar a área de trabalho ou o email. Eles podem descobrir e acessar apenas os aplicativos aos quais eles estão atribuídos. Com contas compartilhadas, essa lista de aplicativos pode incluir qualquer número de credenciais compartilhadas. O usuário final não precisa se lembrar ou escrever as diversas contas que podem estar utilizando.
+Os usuários fazem logon uma vez com sua conta institucional. Isso é hello mesma conta usarem regularmente tooaccess sua área de trabalho ou email. Eles podem descobrir e acessar apenas os aplicativos aos quais eles estão atribuídos. Com contas compartilhadas, essa lista de aplicativos pode incluir qualquer número de credenciais compartilhadas. usuário final de saudação não precisa tooremember ou anote Olá várias contas podem estar utilizando.
 
-As contas compartilhadas não apenas aumentam a supervisão e melhoram a utilização, como também aumentam a segurança. Os usuários com permissões para usar as credenciais não vejam a senha compartilhada, mas em vez disso, obtém as permissões para usar a senha como parte de um fluxo de autenticação orquestrado. Além disso, com alguns aplicativos de SSO de senha, você tem a opção de o AD do Azure periodicamente substituir (atualização) a senha usando senhas grandes e complexas, aumentando a segurança da conta. O administrador pode conceder ou revogar facilmente o acesso a um aplicativo e também saber quem tem acesso à conta e quem acessou no passado.
+As contas compartilhadas não apenas aumentam a supervisão e melhoram a utilização, como também aumentam a segurança. Os usuários com permissões toouse Olá credenciais não vir senha compartilhada hello, mas em vez disso, obter senha de saudação toouse permissões como parte de um fluxo de autenticação orquestrada. Além disso, com alguns aplicativos de SSO de senha, você tem Olá opção toohave AD do Azure periodicamente o senha Olá substituição (atualização) está usando senhas grandes e complexas, aumentar a segurança da conta hello. administrador de saudação pode facilmente conceder ou revogar acesso tooan aplicativo e também saber quem tem acesso toohello conta e quem acessou em Olá anterior.
 
-O AD do Azure oferece suporte a contas compartilhadas para qualquer usuário licenciado do Enterprise Mobility Suite (EMS), Premium ou Basic, em todos os tipos de aplicativos de logon único com senha. Você pode compartilhar as contas para qualquer um dos milhares de aplicativos previamente integrados na galeria de aplicativos e pode adicionar seu próprio aplicativo de autenticação de senha com os [aplicativos personalizados de SSO](active-directory-sso-integrate-saas-apps.md).
+O AD do Azure oferece suporte a contas compartilhadas para qualquer usuário licenciado do Enterprise Mobility Suite (EMS), Premium ou Basic, em todos os tipos de aplicativos de logon único com senha. Você pode compartilhar contas para qualquer um dos milhares de aplicativos pré-integrados na Galeria de aplicativo hello e pode adicionar seu próprio aplicativo de autenticação de senha com [aplicativos personalizados de SSO](active-directory-sso-integrate-saas-apps.md).
 
 Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 
@@ -60,14 +60,14 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 * [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Compartilhamento de uma conta
-Para usar o AD do Azure para compartilhar uma conta, você precisará:
+tooshare toouse AD do Azure uma conta que você precisará para:
 
 * Adicionar uma [galeria de aplicativos](https://azure.microsoft.com/marketplace/active-directory/) do aplicativo ou um [aplicativo personalizado](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
-* Configurar o aplicativo para logon único (SSO) com senha
-* Usar a [atribuição baseada em grupo](active-directory-accessmanagement-group-saasapps.md) e selecionar a opção para inserir uma credencial compartilhada
-* Opcional: em alguns aplicativos, como o Facebook, Twitter ou LinkedIn, você pode habilitar a opção para a [Substituição de senha automatizada do AD do Azure](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+* Configurar o aplicativo hello senha Single Sign-On (SSO)
+* Use [atribuição baseada em grupo](active-directory-accessmanagement-group-saasapps.md) e selecione uma credencial compartilhada de opção tooenter Olá
+* Opcional: em alguns aplicativos, como Facebook, Twitter e LinkedIn, você pode habilitar a opção Olá para [AD do Azure automatizada sobreposição de senha](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
 
-Você também pode tornar sua conta compartilhada mais segura com a MFA (Autenticação Multifator) (saiba mais sobre [como proteger os aplicativos com o Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)) e pode delegar a capacidade de gerenciar quem tem acesso ao aplicativo usando o Gerenciamento de Grupo do [Autoatendimento do Azure AD](active-directory-accessmanagement-self-service-group-management.md).
+Você também pode tornar sua conta compartilhada mais segura com o multi-Factor Authentication (MFA) (Saiba mais sobre [proteger aplicativos com o Azure AD](../multi-factor-authentication/multi-factor-authentication-get-started.md)) e você pode delegar Olá capacidade toomanage quem tem acesso toohello aplicativo usando [Autoatendimento do AD do azure](active-directory-accessmanagement-self-service-group-management.md) gerenciamento de grupo.
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)

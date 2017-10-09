@@ -1,6 +1,6 @@
 ---
-title: "Carregar dados no SQL Data Warehouse do Azure – Data Factory | Microsoft Docs"
-description: Este tutorial carrega dados no SQL Data Warehouse do Azure usando o Azure Data Factory e usa um banco de dados SQL Server como a fonte de dados.
+title: "dados de aaaLoad no Azure SQL Data Warehouse – Data Factory | Microsoft Docs"
+description: "Este tutorial carrega dados no Azure SQL Data Warehouse com o uso do Azure Data Factory e usa um banco de dados do SQL Server como fonte de dados de saudação."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,151 +15,151 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 471871d3ee00ab34cc84bb63fbd13a323d14c2b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Carregar dados no SQL Data Warehouse com o Data Factory
 
-Você pode usar o Azure Data Factory para carregar dados no SQL Data Warehouse do Azure de qualquer um dos [repositórios de dados de origem com suporte](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). Por exemplo, é possível carregar dados de um Banco de Dados SQL do Azure ou um Banco de Dados Oracle em um SQL Data Warehouse usando o Data Factory. O tutorial neste artigo mostra como carregar dados de um banco de dados local do SQL Server em um SQL Data Warehouse.
+Você pode usar dados do Azure Data Factory tooload no Azure SQL Data Warehouse de qualquer Olá [suporte para armazenamentos de dados de origem](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats). Por exemplo, é possível carregar dados de um Banco de Dados SQL do Azure ou um Banco de Dados Oracle em um SQL Data Warehouse usando o Data Factory. Tutorial neste artigo mostra como tooload dados do servidor SQL local banco de dados em um data warehouse do SQL.
 
-**Tempo estimado**: este tutorial levará cerca de 10 a 15 minutos para ser concluído depois que os pré-requisitos forem atendidos.
+**Tempo estimado**: neste tutorial leva cerca de toocomplete de 10 a 15 minutos depois de saudação pré-requisitos foram atendidos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você precisa de um **Banco de Dados do SQL Server** com tabelas que contêm os dados a serem copiados para o SQL Data Warehouse.  
+- É necessário um **banco de dados do SQL Server** com tabelas que contêm dados saudação toobe copiou toohello do SQL data warehouse.  
 
-- Você precisa de um **SQL Data Warehouse** online. Se você ainda não tiver um data warehouse, saiba como [Criar um SQL Data Warehouse do Azure](sql-data-warehouse-get-started-provision.md).
+- Você precisa de um **SQL Data Warehouse** online. Se você ainda não tiver um data warehouse, saiba como muito[criar um Data Warehouse do Azure SQL](sql-data-warehouse-get-started-provision.md).
 
-- Você precisa de uma **Conta de Armazenamento do Azure**. Se você ainda não tem uma conta de armazenamento, aprenda como [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Para melhor desempenho, localize a conta de armazenamento e o data warehouse na mesma região do Azure.
+- Você precisa de uma **Conta de Armazenamento do Azure**. Se você não tiver uma conta de armazenamento, saiba como muito[criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Para melhor desempenho, localize a conta de armazenamento hello e saudação do data warehouse em hello mesma região do Azure.
 
 ## <a name="configure-a-data-factory"></a>Configurar uma fábrica de dados
-1. Faça logon no [Portal do Azure][].
-2. Localize seu data warehouse e clique para abri-lo.
-3. Na folha principal, clique em **Carregar Dados** > **Azure Data Factory**.
+1. Faça logon no toohello [portal do Azure][].
+2. Localize o data warehouse e clique em tooopen-lo.
+3. Na folha principal de saudação, clique em **carregar dados** > **do Azure Data Factory**.
 
     ![Iniciar o assistente para Carregar Dados](media/sql-data-warehouse-load-with-data-factory/launch-load-data-wizard.png)
 
-4. Se você não tem uma fábrica de dados na sua assinatura do Azure, você verá uma caixa de diálogo **Nova fábrica de dados** em uma guia separada do navegador. Preencha as informações solicitadas e clique em **Criar**. Depois que a fábrica de dados for criada, a caixa de diálogo **Nova fábrica de dados** será fechada e você verá a caixa de diálogo **Selecionar fábrica de dados**.
+4. Se você não tem uma fábrica de dados em sua assinatura do Azure, você verá um **nova fábrica de dados** caixa de diálogo em uma guia separada do navegador de saudação. Preencha Olá informações solicitadas e clique em **criar**. Após Olá fábrica de dados é criada, Olá **nova fábrica de dados** caixa de diálogo é fechada, e você vê Olá **selecionar Data Factory** caixa de diálogo.
 
-    Se você já tem uma ou mais fábricas de dados na assinatura do Azure, você verá a caixa de diálogo **Selecionar fábrica de dados**. Nessa caixa de diálogo é possível selecionar uma fábrica de dados existente ou clicar em **Criar nova fábrica de dados** para criar uma nova.
+    Se você tiver um ou mais fábricas de dados já está em Olá assinatura do Azure, você verá Olá **selecionar Data Factory** caixa de diálogo. Na caixa de diálogo, você pode selecionar uma fábrica de dados existente ou clique em **criar nova fábrica de dados** toocreate um novo.
 
     ![Configurar o Data Factory](media/sql-data-warehouse-load-with-data-factory/configure-data-factory.png)
 
-5. Na caixa de diálogo **Selecionar Data Factory**, a opção **Carregar dados** é selecionada por padrão. Clique em **Avançar** para começar a criar uma tarefa de carregamento de dados.
+5. Em Olá **selecionar Data Factory** caixa de diálogo, Olá **carregar dados** opção é selecionada por padrão. Clique em **próximo** toostart criando um tarefa de carregamento de dados.
 
-## <a name="configure-the-data-factory-properties"></a>Configurar as propriedades do data factory
-Agora que você criou um data factory, a próxima etapa é configurar o agendamento de carregamento de dados.
+## <a name="configure-hello-data-factory-properties"></a>Configurar propriedades de fábrica de dados Olá
+Agora que você criou uma fábrica de dados, Olá próxima etapa é agenda de carregamento de dados de saudação de tooconfigure.
 
 1. Em **Nome da tarefa**, digite **DWLoadData-fromSQLServer**.
-2. Use a opção padrão **Executar uma vez agora** e clique em **Avançar**.
+2. Usar saudação padrão **executar uma vez agora** opção, clique em **próximo**.
 
     ![Configurar o agendamento de carregamento](media/sql-data-warehouse-load-with-data-factory/configure-load-schedule.png)
 
-## <a name="configure-the-source-data-store-and-gateway"></a>Configurar o gateway e o repositório de dados de origem
-Agora você informa o Data Factory sobre o banco de dados SQL Server local do qual você deseja carregar os dados.
+## <a name="configure-hello-source-data-store-and-gateway"></a>Configurar armazenamento de dados de origem hello e gateway
+Agora você informar a fábrica de dados sobre Olá local do SQL Server banco de dados do qual você deseja que os dados tooload.
 
-1. Escolha **SQL Server** no catálogo de armazenamento de dados de origem com suporte e clique em **Avançar**.
+1. Escolha **do SQL Server** dos dados de origem Olá suporte para armazenar o catálogo e clique em **próximo**.
 
     ![Escolher a fonte do SQL Server](media/sql-data-warehouse-load-with-data-factory/choose-sql-server-source.png)
 
-2. Uma caixa de diálogo **Especificar o banco de dados SQL Server local** será exibida. O primeiro campo **Nome da conexão** é preenchido automaticamente. O segundo campo solicita o nome do **Gateway**. Se estiver usando uma fábrica de dados existente que já tenha um gateway, você poderá reutilizar o gateway, selecionando-o na lista suspensa. Clique no link **Criar Gateway** para criar um Gateway de Gerenciamento de Dados.  
+2. Um **banco de dados de SQL Server local especificar Olá** caixa de diálogo é exibida. Olá primeiro **nome de Conexão** campo é automaticamente preenchido. segundo campo de saudação solicita nome de saudação do hello **Gateway**. Se você estiver usando uma fábrica de dados existente que já tem um gateway, você pode reutilizar o gateway Olá selecionando-o na lista suspensa de saudação. Clique em Olá **criar Gateway** link toocreate um Gateway de gerenciamento de dados.  
 
     > [!NOTE]
-    > Se o armazenamento de dados de origem for local ou estiver em uma máquina virtual do Azure IaaS, será necessário usar um gateway de gerenciamento de dados. Um gateway tem uma relação de 1-1 com uma fábrica de dados. Ele não pode ser usado de outra data factory, mas pode ser usado por várias tarefas de carregamento de dados na mesma fábrica de dados. Um gateway pode ser usado para se conectar a vários repositórios de dados durante a execução de tarefas de carregamento de dados.
+    > Se o repositório de dados de origem de saudação é local ou em uma máquina virtual IaaS do Azure, é necessário um Gateway de gerenciamento de dados. Um gateway tem uma relação de 1-1 com uma fábrica de dados. Ele não pode ser usado em outro fábrica de dados, mas ele pode ser usado por vários dados carregando tarefas com hello mesma fábrica de dados. Um gateway pode ser usado tooconnect toomultiple os armazenamentos de dados ao executar tarefas de carregamento de dados.
     >
-    > Para obter informações detalhadas sobre o gateway, consulte o artigo [Gateway de Gerenciamento de Dados](../data-factory/data-factory-data-management-gateway.md).
+    > Para obter informações detalhadas sobre o gateway hello, consulte [Data Management Gateway](../data-factory/data-factory-data-management-gateway.md) artigo.
 
 3. Uma caixa de diálogo **Criar Gateway** será exibida. Em Nome, insira **GatewayForDWLoading** e clique em **Criar**.
 
-4. Uma caixa de diálogo **Configurar Gateway** será exibida. Clique em **Iniciar a instalação expressa neste computador** para baixar, instalar e registrar automaticamente o Gateway de Gerenciamento de Dados no computador atual. O progresso é mostrado em uma janela pop-up. Se o computador não puder se conectar ao armazenamento de dados, você poderá [baixar e instalar o gateway](https://www.microsoft.com/download/details.aspx?id=39717) manualmente em um computador que possa se conectar ao armazenamento de dados e, em seguida, usar a chave para registrar.
+4. Uma caixa de diálogo **Configurar Gateway** será exibida. Clique em **iniciar a instalação do express no computador** tooautomatically download, instalar e registrar o Gateway de gerenciamento de dados no computador atual. Olá progresso é mostrado em uma janela pop-up. Se a máquina de saudação não pode se conectar a toohello repositório de dados, você pode manualmente [baixar e instalar gateway Olá](https://www.microsoft.com/download/details.aspx?id=39717) em um computador que possa se conectar a dados toohello armazenar e usar tooregister chave hello.
     > [!NOTE]
-    > A instalação expressa funciona nativamente com o Microsoft Edge e o Internet Explorer. Se você estiver usando o Google Chrome, primeiro instale a extensão ClickOnce na loja na Web do Chrome.
+    > a configuração expressa Olá nativamente funciona com o Microsoft Edge e Internet Explorer. Se você estiver usando o Google Chrome, primeiro instale extensão do ClickOnce de saudação do repositório do cromo da web.
 
     ![Iniciar a instalação Expressa](media/sql-data-warehouse-load-with-data-factory/launch-express-setup.png)
 
-5. Aguarde a conclusão da instalação do gateway. Depois que o gateway for registrado com êxito e estiver online, a janela pop-up será fechada e o novo gateway será exibido no campo do gateway. Em seguida, preencha o restante dos campos obrigatórios como se segue e clique em **Avançar**.
-    - **Nome do servidor**: nome do SQL Server local.
+5. Aguarde Olá toocomplete de configuração de gateway. Depois que o gateway de saudação for registrado com êxito e está online, janela pop-up Olá fecha e novo gateway de saudação aparece no campo gateway de saudação. Em seguida, preencha o restante da saudação campos obrigatórios da seguinte maneira, em seguida, clique em **próximo**.
+    - **Nome do servidor**: nome de saudação do SQL Server local.
     - **Nome do banco de dados**: banco de dados SQL Server.
-    - **Criptografia de credencial**: use o padrão "Pelo navegador da Web".
-    - **Tipo de autenticação**: escolha o tipo de autenticação que está sendo usado.
-    - **Nome de usuário** e **senha**: insira o nome de usuário e a senha de um usuário que tem permissão para copiar os dados.
+    - **Criptografia de credencial**: usar o padrão de hello "pelo navegador da web".
+    - **Tipo de autenticação**: escolha o tipo de saudação de autenticação você está usando.
+    - **Nome de usuário** e **senha**: insira Olá nome de usuário e senha para um usuário que tem permissão toocopy Olá dados.
 
     ![Iniciar a instalação Expressa](media/sql-data-warehouse-load-with-data-factory/configure-sql-server.png)
 
-6. A próxima etapa é escolher as tabelas das quais os dados serão copiados. Filtre as tabelas usando palavras-chave. Além disso, você pode visualizar o esquema de dados e tabela no painel inferior. Depois de concluir a seleção, clique em **Avançar**.
+6. Olá próxima etapa é toochoose tabelas de saudação de quais dados de saudação toocopy. Você pode filtrar tabelas hello usando palavras-chave. E você pode visualizar o esquema de dados e tabela de saudação no painel inferior de saudação. Depois de concluir a seleção, clique em **Avançar**.
 
     ![Selecionar tabelas](media/sql-data-warehouse-load-with-data-factory/select-tables.png)
 
-## <a name="configure-the-destination-your-sql-data-warehouse"></a>Configurar o destino, o SQL Data Warehouse
+## <a name="configure-hello-destination-your-sql-data-warehouse"></a>Configurar destino hello, o SQL Data Warehouse
 
-Agora você informa ao Data Factory sobre as informações de destino.
+Agora você informar a fábrica de dados sobre informações de destino hello.
 
-1. As informações de conexão do SQL Data Warehouse são preenchidas automaticamente. Insira a senha para o nome de usuário. e clique em **Avançar**.
+1. As informações de conexão do SQL Data Warehouse são preenchidas automaticamente. Digite a senha de Olá Olá nome de usuário. e clique em **Avançar**.
 
     ![Configurar o destino](media/sql-data-warehouse-load-with-data-factory/configure-destination.png)
 
-2. É exibido um mapeamento de tabela inteligente, que mapeia tabelas de origem para tabelas de destino com base em nomes de tabelas. Se a tabela não existir no destino, o ADF criará uma por padrão com o mesmo nome (isso se aplica ao SQL Server ou ao Banco de Dados SQL do Azure como fonte). Também é possível mapear para uma tabela existente. Examine e clique em **Avançar**.
+2. Um mapeamento de tabela inteligente aparece que mapeia as tabelas de toodestination de origem com base em nomes de tabela. Se a tabela de saudação não existe no destino hello, por padrão ADF criará um com hello mesmo nome (isso se aplica tooSQL servidor ou banco de dados SQL Azure como origem). Você também pode escolher tabela existente de tooan toomap. Examine e clique em **Avançar**.
 
     ![Mapear tabelas](media/sql-data-warehouse-load-with-data-factory/table-mapping.png)
 
-3. Examine o mapeamento de esquema e procure mensagens de erro ou de aviso. O mapeamento inteligente é baseado no nome da coluna. Se houver uma conversão de tipo de dados sem suporte entre a coluna de origem e de destino, você verá uma mensagem de erro juntamente com a tabela correspondente. Se você escolher permitir que o Data Factory crie automaticamente as tabelas, a conversão apropriada de tipo de dados poderá ocorrer se for necessário corrigir a incompatibilidade entre os repositórios de origem e destino.
+3. Examine o mapeamento de esquema Olá e procure por mensagens de erro ou aviso. O mapeamento inteligente é baseado no nome da coluna. Se há uma conversão de tipo de dados sem suporte entre a coluna de origem e destino hello, você verá uma mensagem de erro ao lado da tabela correspondente hello. Se você escolher automática de fábrica de dados toolet criar tabelas hello, conversão de tipo de dados adequado pode acontecer se necessário toofix incompatibilidade de saudação entre repositórios de origem e de destino.
 
     ![Mapear esquema](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
 4. Clique em **Avançar**.
 
-## <a name="configure-the-performance-settings"></a>Definir as configurações de desempenho
-Nas configurações de Desempenho, configure uma conta de armazenamento do Azure usada para preparar os dados antes de carregá-los no de forma definitiva no SQL Data Warehouse usando o [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). Depois que a cópia for concluída, os dados provisórios no armazenamento serão limpos automaticamente.
+## <a name="configure-hello-performance-settings"></a>Definir configurações de desempenho de saudação
+Olá configurações de desempenho, você configurar uma conta de armazenamento do Azure usada para teste antes de ele carrega no SQL Data Warehouse performantly usando Olá [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). Após copiar hello, dados intermediários saudação no armazenamento serão limpas automaticamente.
 
 Selecione uma conta de armazenamento do Azure existente e clique em **Avançar**.
 
 ![Configurar um blob de preparo](media/sql-data-warehouse-load-with-data-factory/configure-staging-blob.png)
 
-## <a name="review-summary-information-and-deploy-the-pipeline"></a>Examinar as informações de resumo e implantar o pipeline
+## <a name="review-summary-information-and-deploy-hello-pipeline"></a>Revisar informações de resumo e implantar o pipeline de saudação
 
-Examine a configuração e clique no botão **Concluir** para implantar o pipeline.
+Examine a configuração de saudação e clique em **concluir** pipeline de saudação do botão toodeploy.
 
 ![Implantar o data factory](media/sql-data-warehouse-load-with-data-factory/deploy-data-factory.png)
 
 ## <a name="monitor-data-loading-progress"></a>Monitorar o progresso do carregamento de dados
 
-Você pode ver o progresso e os resultados da implantação na página **Implantação**.
+Você pode ver o progresso da implantação hello e resulta em Olá **implantação** página.
 
-1. Quando a implantação estiver concluída, clique no link **Clique aqui para monitorar o pipeline de cópia** para monitorar o progresso do carregamento de dados.
+1. Depois de implantação hello, clique o link de saudação que diz **clique aqui pipeline de cópia toomonitor** toomonitor dados progresso do carregamento.
 
     ![Monitorar o pipeline](media/sql-data-warehouse-load-with-data-factory/monitor-pipeline.png)
 
-2. O pipeline de carregamento de dados recém-criado **DWLoadData-fromSQLServer** é automaticamente selecionado no **Gerenciador de Recursos** à esquerda.
+2. Olá recém-criado **DWLoadData fromSQLServer** pipeline de carregamento de dados é automaticamente selecionado do hello esquerdo **Gerenciador de recursos**.
 
     ![Exibir o pipeline](media/sql-data-warehouse-load-with-data-factory/view-pipeline.png)
 
-3. Clique no pipeline, no painel do meio, para ver o status detalhado de cada tabela mapeada para uma Atividade.
+3. Clique no pipeline de saudação no meio Olá Olá do painel toosee status detalhado para cada tabela que mapeia tooan atividade.
 
     ![Exibir a atividade da tabela](media/sql-data-warehouse-load-with-data-factory/view-table-activity.png)
 
-4. Continue clicando em uma atividade e você verá os detalhes do carregamento de dados no painel direito, incluindo tamanho dos dados, linhas, taxa de transferência, etc.
+4. Ainda mais, clique em uma atividade e você vê dados Olá Carregando detalhes no painel direito hello, incluindo o tamanho dos dados, linhas, taxa de transferência, etc.
 
     ![Exibir os detalhes da atividade da tabela](media/sql-data-warehouse-load-with-data-factory/view-table-activity-details.png)
 
-5. Para iniciar esta exibição de monitoramento mais tarde, vá para o SQL Data Warehouse, clique em **Carregar Dados > Azure Data Factory**, selecione seu factory e escolha **Monitorar as tarefas de carregamento existentes**.
+5. toolaunch esse monitoramento exibição posterior, vá tooyour SQL Data Warehouse, clique **carregar dados > Azure Data Factory**, selecione sua fábrica e escolha **monitorar existentes ao carregar tarefas**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para migrar seu banco de dados para o SQL Data Warehouse, consulte [Visão geral da migração](sql-data-warehouse-overview-migrate.md).
+toomigrate tooSQL o banco de dados do Data Warehouse, consulte [visão geral da migração](sql-data-warehouse-overview-migrate.md).
 
-Para saber mais sobre o Azure Data Factory e seus recursos de movimentação de dados, consulte os seguintes artigos:
+toolearn mais sobre Azure Data Factory e seus recursos de movimentação de dados, consulte Olá artigos a seguir:
 
-- [Introdução ao Azure Data Factory](../data-factory/data-factory-introduction.md)
+- [Introdução tooAzure fábrica de dados](../data-factory/data-factory-introduction.md)
 - [Mover dados usando a Atividade de Cópia](../data-factory/data-factory-data-movement-activities.md)
-- [Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+- [Mover tooand de dados de uso do Azure Data Factory do Azure SQL Data Warehouse](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
 
-Para explorar seus dados no SQL Data Warehouse, consulte os seguintes artigos:
+tooexplore seus dados no Data Warehouse do SQL, consulte Olá seguintes artigos:
 
-- [Conectar-se ao SQL Data Warehouse com o Visual Studio e o SSDT](sql-data-warehouse-query-visual-studio.md)
+- [Conecte-se tooSQL Data Warehouse com o Visual Studio e SSDT](sql-data-warehouse-query-visual-studio.md)
 - [Dados visuais com o Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
 <!-- Azure references -->
-[Portal do Azure]: https://portal.azure.com
+[portal do Azure]: https://portal.azure.com

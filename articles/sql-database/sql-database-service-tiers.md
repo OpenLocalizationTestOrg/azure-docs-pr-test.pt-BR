@@ -16,37 +16,37 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
-ms.openlocfilehash: b25ff5331f119efd44c61808f7d1d5decb226bd6
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b27b78788614d32e6c0c4267fe0ce504ebd2f444
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-performance-options-are-available-for-an-azure-sql-database"></a>Quais opções de desempenho estão disponíveis para um Banco de Dados SQL do Azure
 
-O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferece quatro níveis de serviço para bancos de dados individuais e [em pool](sql-database-elastic-pool.md). Esses níveis de serviço são: **Básica**, **Standard**, **Premium** e **Premium RS**. Dentro de cada nível de serviço estão vários níveis de desempenho ([DTUs](sql-database-what-is-a-dtu.md)) e opções de armazenamento para lidar com cargas de trabalho e tamanhos de dados diferentes. Os níveis de desempenho mais elevados fornecem recursos adicionais de computação e armazenamento projetados para oferecer taxa de transferência e capacidade cada vez maiores. Você pode alterar os níveis de serviço, os níveis de desempenho e o armazenamento sem tempo de inatividade. 
+O [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferece quatro níveis de serviço para bancos de dados individuais e [em pool](sql-database-elastic-pool.md). Esses níveis de serviço são: **Básica**, **Standard**, **Premium** e **Premium RS**. Dentro de cada camada de serviço estão vários níveis de desempenho ([DTUs](sql-database-what-is-a-dtu.md)) e as opções de armazenamento toohandle tamanhos diferentes de cargas de trabalho e dados. Altos níveis de desempenho fornecem computação adicional e recursos de armazenamento criado toodeliver progressivos de produtividade e de capacidade. Você pode alterar os níveis de serviço, os níveis de desempenho e o armazenamento sem tempo de inatividade. 
 - Os níveis serviço **Básico**, **Standard** e **Premium** têm um SLA de tempo de atividade de 99,99%, opções de continuidade dos negócios flexíveis, recursos de segurança e cobrança por hora. 
-- O nível **Premium RS** oferece os mesmos níveis de desempenho que o nível Premium, com um SLA reduzido, pois ele é executado com uma quantidade menor de cópias redundantes do que um banco de dados nos outros níveis de serviço. Portanto, em caso de falha de serviço, você precisará recuperar seu banco de dados de um backup com um retardo de até 5 minutos.
+- Olá **Premium RS** camada fornece Olá mesmos níveis de desempenho como hello camada Premium com um SLA reduzido porque ele é executado com um número menor de cópias redundantes que um banco de dados Olá outros níveis de serviço. Portanto, no caso de saudação de uma falha no serviço, talvez seja necessário toorecover seu banco de dados de um backup com backup tooa retardo de 5 minutos.
 
 > [!IMPORTANT]
-> Um Banco de Dados SQL do Azure obtém um conjunto garantido de recursos e as características de desempenho esperadas de seu banco de dados não são afetadas por outro banco de dados no Azure. 
+> Um banco de dados do SQL Azure é um conjunto garantido de recursos e Olá esperado características de desempenho de seu banco de dados não são afetadas por qualquer outro banco de dados no Azure. 
 
 ## <a name="choosing-a-service-tier"></a>Como escolher uma camada de serviço
-A tabela a seguir fornece exemplos das camadas mais adequadas para cargas de trabalho de aplicativos diferentes.
+Olá, tabela a seguir fornece exemplos das camadas de saudação melhor adequados para cargas de trabalho de aplicativo diferente.
 
 | Camada de serviço | Cargas de trabalho de destino |
 | :--- | --- |
 | **Básico** | Mais adequada para um banco de dados pequeno, suporta normalmente uma única operação ativa em um determinado momento. Os exemplos incluem bancos de dados usados para desenvolvimento ou teste ou aplicativos de pequena escala usados com pouca frequência. |
-| **Standard** |Para ele ir para a opção para aplicativos em nuvem com requisitos de desempenho de E/S baixo a médio, oferecendo suporte a várias consultas simultâneas. Os exemplos incluem aplicativos da web ou de grupo de trabalho. |
+| **Standard** |Olá go-toooption para aplicativos em nuvem com requisitos de desempenho de e/s toomedium baixa, permitindo várias consultas simultâneas. Os exemplos incluem aplicativos da web ou de grupo de trabalho. |
 | **Premium** | Projetado para volume transacional alto com requisitos de desempenho de e/s altos, suportando muitos usuários simultâneos. Os exemplos são bancos de dados com suporte a aplicativos de missão críticos. |
-| **Premium RS** | Projetado para cargas de trabalho com uso intensivo de E/S que não exigem garantias de alta disponibilidade. Exemplos de cargas de trabalho de alto desempenho ou uma carga de trabalho analítica onde o banco de dados não é o sistema de registro. |
+| **Premium RS** | Projetado para cargas de trabalho com uso intensivo de e/s que não necessitam de garantias do hello mais altas disponibilidade. Exemplos de teste de cargas de trabalho de alto desempenho, ou uma carga de trabalho analítica onde o banco de dados de saudação não é sistema saudação do registro. |
 |||
 
-Você pode criar bancos de dados individuais com recursos dedicados dentro de um nível de serviço em um [nível de desempenho](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) específico ou você também pode criar bancos de dados dentro de um [pool elástico de SQL](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus). Em um pool elástico de SQL, os recursos de computação e armazenamento são compartilhados entre vários bancos de dados dentro de um único servidor lógico. 
+Você pode criar bancos de dados individuais com recursos dedicados dentro de um nível de serviço em um [nível de desempenho](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) específico ou você também pode criar bancos de dados dentro de um [pool elástico de SQL](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus). Em um pool Elástico do SQL, os recursos de computação e armazenamento Olá são compartilhados entre vários bancos de dados dentro de um único servidor lógico. 
 
 Os recursos disponíveis para bancos de dados individuais são expressos em termos de DTUs (Unidades de Transmissão de Dados), e os recursos para pools elásticos de SQL são expressos em termos de eDTUs (Unidades de Transação de Banco de Dados Elástico). Para saber mais sobre DTUs e eDTUs, confira [O que são DTUs e eDTUs?](sql-database-what-is-a-dtu.md).
 
-Para decidir sobre uma camada de serviço, inicie determinando os recursos de banco de dados mínimos que você precisa:
+toodecide em uma camada de serviço, inicie determinando recursos de banco de dados mínimo Olá que você precisa:
 
 | **Recursos de camada de serviço** | **Básico** | **Standard** | **Premium** | **Premium RS**|
 | :-- | --: | --: | --: | --: |
@@ -60,18 +60,18 @@ Para decidir sobre uma camada de serviço, inicie determinando os recursos de ba
 ||||||
 
 > [!IMPORTANT]
-> O armazenamento de até 4 TB está atualmente disponível nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. Consulte [Limitações atuais 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
+> Armazenamento de too4 TB está disponível em Olá seguintes regiões: US East2, oeste dos EUA, nos Gov Virgínia, Europa Ocidental, Alemanha Central, Sul Leste da Ásia, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá. Consulte [Limitações atuais 4 TB](sql-database-service-tiers.md#current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize)
 >
 
-Depois de determinar o nível de serviço apropriado, você estará pronto para determinar o nível de desempenho (o número de DTUs) e a quantidade de armazenamento para o banco de dados. 
+Depois de ter determinado da camada de serviço apropriado hello, você está pronto toodetermine nível de desempenho de saudação (número de saudação de DTUs) e a quantidade de armazenamento Olá para o banco de dados de saudação. 
 
-- Os níveis de desempenho S2 e S3 no nível **Standard** são quase sempre um bom ponto de partida. 
-- Para bancos de dados com requisitos altos de CPU ou E/S, os níveis de desempenho no nível **Premium** são o ponto de partida correto. 
-- O nível **Premium** oferece mais CPU e começa com 10 vezes mais E/S em comparação com o nível de desempenho mais alto no nível **Standard**.
-- O nível **PremiumRS** oferece o desempenho do nível **Premium** por um custo menor, mas com um SLA reduzido.
+- Olá S2 e S3 níveis de desempenho em Olá **padrão** camada geralmente são um bom ponto de partida. 
+- Para bancos de dados com altas exigências de CPU ou e/s, Olá níveis de desempenho em Olá **Premium** camada são o ponto de partida direita hello. 
+- Olá **Premium** camada oferece mais CPU e inicia em 10 vezes mais e/s em comparação com toohello mais alto nível de desempenho em Olá **padrão** camada.
+- Olá **PremiumRS** camada oferece desempenho de saudação do hello **Premium** camada a um custo menor, mas com um SLA reduzido.
 
 > [!IMPORTANT]
-> Examine o tópico [Pools elásticos de SQL](sql-database-elastic-pool.md) para obter os detalhes sobre o agrupamento de bancos de dados nos pools elásticos de SQL para compartilhar recursos de computação e armazenamento. O restante deste tópico se concentra em níveis de serviço e níveis de desempenho para bancos de dados único.
+> Saudação de revisão [pools Elásticos SQL](sql-database-elastic-pool.md) tópico para obter detalhes de saudação sobre agrupamento de bancos de dados em Elástico SQL pools de recursos de computação e armazenamento tooshare. Olá restante neste tópico se concentra em camadas de serviço e níveis de desempenho para bancos de dados único.
 >
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Camadas de serviço e níveis de desempenho de banco de dados individual
@@ -86,45 +86,45 @@ Depois de escolher inicialmente um nível de desempenho e da camada de serviço,
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
-A alteração da camada de serviço e/ou nível de desempenho de um banco de dados cria uma réplica do banco de dados original com o novo nível de desempenho e então faz a transição das conexões para réplica. Nenhum dado é perdido durante esse processo, mas durante o breve momento em que realizamos a transição para a réplica, conexões com o banco de dados são desabilitadas, então algumas transações em andamento podem ser revertidas. O período da transição varia, mas fica geralmente abaixo de 4 segundos e menos de 30 segundos 99% do tempo. Se houver muitas transações em andamento no momento de desabilitação das conexões, o período de transição poderá ser maior.  
+Alterar o nível de camada e/ou o desempenho de serviço de saudação de um banco de dados cria uma réplica de banco de dados original Olá no novo nível de desempenho hello e alterna conexões toohello réplica. Nenhum dado seja perdido durante esse processo, mas durante a saudação breve momento em que podemos passar toohello réplica, toohello de conexões de banco de dados são desabilitadas, portanto algumas transações em trânsito podem ser revertidas. Olá período de tempo para alterar Olá varia, mas é geralmente em 4 segundos é menor que 30 segundos 99% de tempo de saudação. Se houver grandes números de transações em trânsito em conexões de momento Olá estão desabilitadas, hello período de tempo para alterar Olá pode ser maior.  
 
-A duração de todo o processo de expansão depende a camada tamanho e de serviço do banco de dados antes e após a alteração. Por exemplo, um banco de dados de 250 GB que está mudando para, de ou dentro de uma camada de serviço Standard deverá ser concluída dentro de 6 horas. Um banco de dados do mesmo tamanho cujos níveis de desempenho estão mudando dentro da camada de serviço Premium deverá ser concluído dentro de 3 horas.
+durante todo o processo de expansão Olá Olá depende tanto o tamanho da saudação e camada de serviço de saudação do banco de dados antes e depois alterar hello. Por exemplo, um banco de dados de 250 GB que está mudando para, de ou dentro de uma camada de serviço Standard deverá ser concluída dentro de 6 horas. Para um banco de dados de saudação mesmo tamanho alterando níveis de desempenho dentro da camada de serviço Premium Olá, ele deve ser concluída dentro de 3 horas.
 
 > [!TIP]
-> Para verificar o status de uma operação de colocação em escala de Banco de Dados SQL em andamento, use a seguinte consulta: ```select * from sys.dm_operation_status```.
+> toocheck status de saudação de um banco de dados SQL em andamento a operação de dimensionamento, você pode usar o hello consulta a seguir: ```select * from sys.dm_operation_status```.
 >
 
-* Se você estiver atualizando para um nível de serviço ou desempenho mais alto, o tamanho máximo do banco de dados não aumenta, a menos que você especifique explicitamente um tamanho máximo maior.
-* Para fazer downgrade de um banco de dados, este deve ter um tamanho menor do que o máximo permitido para a camada de serviço de destino. 
-* Ao atualizar um banco de dados com [replicação geográfica](sql-database-geo-replication-portal.md) habilitada, atualize seus bancos de dados secundários para o nível de desempenho desejado antes de atualizar o banco de dados primário (orientação geral). Ao atualizar para uma edição diferente ugrading banco de dados secundário primeiro é necessário. 
-* Ao atualizar um banco de dados com [replicação geográfica](sql-database-geo-replication-portal.md) habilitada, faça downgrade de seus bancos de dados primários para o nível de desempenho desejado antes de fazer downgrade do banco de dados primário (orientação geral). Quando é necessário fazer o downgrade para uma edição diferente, fazer o downgrade do banco de dados primário pela primeira vez. 
+* Se você estiver atualizando tooa nível mais alto de camadas ou de desempenho do serviço, tamanho máximo Olá não aumenta, a menos que você especificar explicitamente um tamanho máximo maior.
+* toodowngrade um banco de dados, banco de dados de saudação deve ser menor que o tamanho máximo permitido de saudação da camada de serviço de destino hello. 
+* Ao atualizar um banco de dados com [georeplicação](sql-database-geo-replication-portal.md) habilitado, atualize seu nível de desempenho desejado toohello bancos de dados secundários antes de atualizar o banco de dados primário do hello (guia Geral). Ao atualizar tooa diferente edição ugrading Olá banco de dados secundário primeiro é necessário. 
+* Ao fazer o downgrade de um banco de dados com [georeplicação](sql-database-geo-replication-portal.md) habilitado, fazer o downgrade de sua camada de desempenho desejado toohello bancos de dados primário antes de rebaixar o banco de dados secundário do hello (guia Geral). Ao fazer o downgrade tooa diferente edição downgrade Olá banco de dados primário primeiro é necessário. 
 
-* As ofertas de serviço de restauração são diferentes para as várias camadas de serviço. Se você estiver fazendo downgrade do nível **Básico**, você terá um período de retenção de backup inferior - confira [Backups de Banco de Dados SQL do Azure](sql-database-automated-backups.md).
-* As novas propriedades do banco de dados não serão aplicadas até que as alterações sejam concluídas.
+* Olá ofertas de serviço de restauração são diferentes para Olá várias camadas de serviço. Se você estiver fazendo downgrade toohello **básica** camada, você terá um período de retenção de backup inferior - consulte [Backups de banco de dados do SQL Azure](sql-database-automated-backups.md).
+* novas propriedades de saudação do banco de dados de saudação não são aplicadas até Olá alterações forem concluídas.
 
 
 ## <a name="current-limitations-of-p11-and-p15-databases-with-4-tb-maxsize"></a>Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB
 
-Há suporte para um tamanho máximo de 4 TB para banco de dados P11 e P15 em algumas regiões (conforme discutido anteriormente). As seguintes considerações e limitações se aplicam aos bancos de dados P11 e P15 com tamanho máximo de 4 TB:
+Há suporte para um tamanho máximo de 4 TB para banco de dados P11 e P15 em algumas regiões (conforme discutido anteriormente). Olá considerações e limitações a seguir se aplicam tooP11 e bancos de dados P15 com maxsize de 4 TB:
 
-- Se você escolher a opção de tamanho máximo de 4 TB ao criar um banco de dados (usando um valor de 4 TB ou 4096 GB), o comando create falhará com um erro se o banco de dados for provisionado em uma região sem suporte.
-- Para bancos de dados P11 e P15 existentes localizados em uma das regiões com suporte, você pode aumentar o maxsize do armazenamento para 4 TB. Isso pode ser verificado usando [SELECT DATABASEPROPERTYEX](https://msdn.microsoft.com/library/ms186823.aspx) ou inspecionando o tamanho do banco de dados no portal do Azure. A atualização de um banco de dados existente P11 ou P15 só pode ser executada por um logon principal no nível de servidor ou por membros da função de banco de dados dbmanager. 
-- Se uma operação de atualização for executada em uma região com suporte, a configuração será atualizada imediatamente. O banco de dados permanece online durante o processo de atualização. No entanto, não é possível utilizar os 4 TB completos de armazenamento até que os arquivos de banco de dados reais sejam atualizados para o novo tamanho máximo. O período de tempo necessário depende do tamanho do banco de dados que está sendo atualizado.  
-- Ao criar ou atualizar um banco de dados P11 ou P15, você só pode escolher entre 1 TB e 4 TB de tamanho máximo. Atualmente, não há suporte para tamanhos de armazenamento intermediários. Ao criar um P11/P15, a opção de armazenamento padrão de 1 TB é pré-selecionada. Para bancos de dados localizados em uma das regiões com suporte, você pode aumentar o número máximo de armazenamento para 4 TB para um banco de dados individual novo ou existente. Para todas as outras regiões, o tamanho máximo não pode ultrapassar 1 TB. O preço não é alterado quando você seleciona 4 TB de armazenamento incluído.
-- O tamanho máximo do banco de dados de 4 TB não pode ser alterado para 1 TB, mesmo que o armazenamento real usado esteja abaixo de 1 TB. Portanto, não é possível transformar um P11-4TB/P15-4TB em um P11-1TB/P15-1TB ou um nível de desempenho mais baixo, por exemplo, para P1-P6, até que estejamos fornecendo opções adicionais de armazenamento para o restante dos níveis de desempenho. Esta restrição também se aplica aos cenários de restauração e de cópia, incluindo restauração pontual e geográfica, retenção de backup a longo prazo e cópia de banco de dados. Quando um banco de dados é configurado com a opção de 4 TB, todas as operações de restauração desse banco de dados devem ser executadas em um P11/P15 com tamanho máximo de 4 TB.
-- Ao criar ou atualizar um banco de dados P11/P15 em uma região sem suporte, a operação de criação ou atualização falhará com a seguinte mensagem de erro: **Os bancos de dados P11 e P15 com até 4 TB de armazenamento estão disponíveis no Leste dos EUA 2, Oeste dos EUA, Gov. EUA - Virgínia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá.**
+- Se você escolher a opção de maxsize de 4 TB Olá durante a criação de um banco de dados (usando um valor de 4 TB ou 4096 GB), Olá criar comando falhará com um erro se o banco de dados de saudação é provisionado em uma região sem suporte.
+- P11 e P15 bancos de dados existentes localizados em uma das regiões Olá com suporte, você pode aumentar Olá maxsize armazenamento too4 TB. Isso pode ser verificado usando Olá [DATABASEPROPERTYEX selecione](https://msdn.microsoft.com/library/ms186823.aspx) ou inspecionando o tamanho do banco de dados de saudação em Olá portal do Azure. Atualizando um P11 existente ou P15 banco de dados pode somente ser executado por um logon principal no nível de servidor ou por membros da função de banco de dados dbmanager hello. 
+- Se uma operação de atualização é executada em uma configuração de saudação de região com suporte é atualizada imediatamente. Olá permanecerá online durante o processo de atualização de saudação. No entanto, você não pode utilizar Olá completo 4 TB de armazenamento até que os arquivos de banco de dados real Olá foram atualizados toohello maxsize de novo. comprimento de saudação do tempo necessário depende no tamanho de saudação do banco de dados hello está sendo atualizado.  
+- Ao criar ou atualizar um banco de dados P11 ou P15, você só pode escolher entre 1 TB e 4 TB de tamanho máximo. Atualmente, não há suporte para tamanhos de armazenamento intermediários. Ao criar um P11/P15, opção de armazenamento saudação padrão de 1 TB é pré-selecionada. Para bancos de dados localizados em uma das regiões Olá com suporte, você pode aumentar Olá too4TB máximo do armazenamento de banco de dados único novo ou existente. Para todas as outras regiões, o tamanho máximo não pode ultrapassar 1 TB. preço de saudação não altera quando você seleciona 4 TB de armazenamento incluído.
+- Olá maxsize do banco de dados de 4 TB não pode ser alterado too1 TB mesmo se o armazenamento real do hello usado está abaixo de 1 TB. Portanto, você não pode fazer downgrade de um tooa P11 - 4 TB/P15 - 4 TB P11 - 1 TB/P15 - 1 TB ou uma camada de desempenho inferior, por exemplo, tooP1-P6) até que estamos fornecendo opções adicionais de armazenamento para o restante de saudação do hello níveis de desempenho. Essa restrição também se aplica a restauração de toohello e cenários de cópia, incluindo o point-in-time, a restauração geográfica, longo-prazo-backup-retenção e cópia de banco de dados. Quando um banco de dados está configurado com a opção de 4 TB hello, todas as operações de restauração desse banco de dados devem ser executadas em um P11/P15 com maxsize de 4 TB.
+- Quando criar ou atualizar um banco de dados em uma região sem suporte, P11/P15 hello cria ou operação de atualização falha com a seguinte mensagem de erro de saudação: **P11 e P15 banco de dados com backup too4TB de armazenamento estão disponíveis nos East2, oeste dos EUA, nós Gov Virgínia, Europa Ocidental, Alemanha Central, Sudeste da Ásia, Leste do Japão, Leste da Austrália, Central do Canadá e Leste do Canadá.**
 - Para cenários com replicação geográfica ativa:
-   - Configurar uma relação de replicação geográfica: se o banco de dados primário for P11 ou P15, os secundários também devem ser P11 ou P15; os níveis de desempenho inferiores serão rejeitadas como secundários porque não são capazes de dar suporte a 4 TB.
-   - Atualizando o banco de dados primário em uma relação de replicação geográfica: alterar o tamanho máximo de 4 TB em um banco de dados primário disparará a mesma alteração no banco de dados secundário. As duas atualizações devem ser bem-sucedidas para que a alteração no primário entre em vigor. Limitações de região para a opção de 4TB se aplicam (confira acima). Se o secundário estiver em uma região que não oferece suporte a 4 TB, o primário não será atualizado.
-- Não há suporte para o uso do serviço de Importação/Exportação para carregar bancos de dados P11-4TB/P15-4TB. Use SqlPackage.exe para [importar](sql-database-import.md) e [exportar](sql-database-export.md) dados.
+   - Configurar uma relação de replicação geográfica: se o banco de dados primário Olá é P11 ou P15, Olá secondary(ies) também deve ser P11 ou P15; níveis de desempenho inferiores são rejeitadas como secundários, desde que eles não são capazes de dar suporte a 4 TB.
+   - Atualizando Olá banco de dados primário em uma relação de replicação geográfica: alterar Olá maxsize too4 TB em um banco de dados principal dispara Olá mesmo alterar no banco de dados secundário hello. As duas atualizações devem ser bem-sucedidas para alteração de saudação em efeito do hello tootake primário. Região para a opção de 4TB Olá limitações (veja acima). Se for Olá secundário em uma região que não oferece suporte a 4 TB, Olá primário não está atualizado.
+- Não há suporte para o usando o serviço de importação/exportação Olá para carregar bancos de dados P11 - 4TB/P15 - 4TB. Use SqlPackage.exe muito[importar](sql-database-import.md) e [exportar](sql-database-export.md) dados.
 
-## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-portal"></a>Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando o Portal do Azure
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-hello-azure-portal"></a>Gerenciar as camadas de serviço único banco de dados e níveis de desempenho usando Olá portal do Azure
 
-Para definir ou alterar o nível de serviço, o nível de desempenho ou a quantidade de armazenamento para um banco de dados SQL do Azure novo ou existente usando o Portal do Azure, abra a janela **Configurar desempenho** para o banco de dados clicando em **Tipo de preço (DTUs de escala)** - conforme mostra a captura de tela a seguir. 
+Olá de tooset ou alteração da camada de serviço, o nível de desempenho ou a quantidade de armazenamento para um novo ou existente do Azure SQL banco de dados usando Olá portal do Azure, abra Olá **Configure desempenho** janela para o banco de dados clicando em  **Tipo de preço (escala DTUs)** - conforme Olá captura de tela a seguir. 
 
-- Definir ou alterar o nível de serviço selecionando o nível de serviço para sua carga de trabalho. 
-- Definir ou alterar o nível de desempenho (**DTUs**) dentro de um nível de serviço usando o controle deslizante de **DTU**.
-- Definir ou alterar a quantidade de armazenamento para o nível de desempenho usando o controle deslizante de **Armazenamento**. 
+- Definir ou alterar a camada de serviço Olá selecionando a camada de serviço Olá para sua carga de trabalho. 
+- Definir ou alterar o nível de desempenho da saudação (**DTUs**) dentro de uma camada de serviço usando Olá **DTU** controle deslizante.
+- Definir ou alterar a quantidade de armazenamento Olá para nível de desempenho hello usando Olá **armazenamento** controle deslizante. 
 
   ![Definir o nível de serviço e o nível de desempenho](./media/sql-database-service-tiers/service-tier-performance-level.png)
 
@@ -134,7 +134,7 @@ Para definir ou alterar o nível de serviço, o nível de desempenho ou a quanti
 
 ## <a name="manage-single-database-service-tiers-and-performance-levels-using-powershell"></a>Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando o PowerShell
 
-Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento do Bancos de Dados SQL do Azure usando o PowerShell, use os seguintes cmdlets do PowerShell. Se você precisa instalar ou atualizar o PowerShell, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+camadas de serviço de bancos de dados SQL do Azure tooset ou alteração, níveis de desempenho e a quantidade de armazenamento usando o PowerShell, usam Olá cmdlets do PowerShell a seguir. Se você precisa tooinstall ou atualize o PowerShell, consulte [instalar o módulo PowerShell Azure](/powershell/azure/install-azurerm-ps). 
 
 | Cmdlet | Descrição |
 | --- | --- |
@@ -144,11 +144,11 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 
 
 > [!TIP]
-> Para um script do PowerShell de exemplo que monitora as métricas de desempenho de um banco de dados, dimensiona-o para um nível de desempenho mais alto e cria uma regra de alerta em uma das métricas de desempenho, consulte [Monitorar e escalar um banco de dados SQL individual usando PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Para um script de exemplo do PowerShell que monitora as métricas de desempenho de saudação de um banco de dados, redimensiona tooa mais alto nível de desempenho e cria uma regra de alerta em uma saudação métricas de desempenho, consulte [monitorar e escala de um único SQL de banco de dados usando PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
-## <a name="manage-single-database-service-tiers-and-performance-levels-using-the-azure-cli"></a>Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando a CLI do Azure
+## <a name="manage-single-database-service-tiers-and-performance-levels-using-hello-azure-cli"></a>Gerenciar as camadas de serviço único banco de dados e níveis de desempenho usando Olá CLI do Azure
 
-Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento do Bancos de Dados SQL do Azure usando a CLI do Azure, use os seguintes cmdlets da [CLI do Azure do Banco de Dados SQL](/cli/azure/sql/db). Use o [Cloud Shell](/azure/cloud-shell/overview) para executar a CLI no seu navegador ou [instale-o](/cli/azure/install-azure-cli) no macOS, Linux ou Windows. Para criar e gerenciar pools elásticos de SQL, consulte [Pools elásticos](sql-database-elastic-pool.md).
+camadas de serviço de bancos de dados SQL do Azure tooset ou alteração, níveis de desempenho e a quantidade de armazenamento usando Olá CLI do Azure, usam o seguinte de Olá [banco de dados do SQL Azure CLI](/cli/azure/sql/db) comandos. Saudação de uso [nuvem Shell](/azure/cloud-shell/overview) toorun Olá CLI em seu navegador, ou [instalar](/cli/azure/install-azure-cli) -la no Windows, Linux ou macOS. Para criar e gerenciar pools elásticos de SQL, consulte [Pools elásticos](sql-database-elastic-pool.md).
 
 | Cmdlet | Descrição |
 | --- | --- |
@@ -160,33 +160,33 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 |[az sql db update](/cli/azure/sql/db#update)|Atualiza um banco de dados|
 
 > [!TIP]
-> Para ver um script de exemplo da CLI do Azure que escala um único Banco de Dados SQL do Azure para um nível de desempenho diferente depois de consultar as informações de tamanho do banco de dados, consulte [Usar a CLI para monitorar e escalar um único Banco de Dados SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Para um script de exemplo da CLI do Azure que se expande um único nível de desempenho diferentes de tooa de banco de dados SQL do Azure depois de consultar informações sobre o tamanho do banco de dados de saudação hello, consulte [toomonitor CLI Use e escala de um único banco de dados do SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-single-database-service-tiers-and-performance-levels-using-transact-sql"></a>Gerenciar níveis de serviço e níveis de desempenho de banco de dados individual usando Transact-SQL
 
-Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento do Bancos de Dados SQL do Azure com Transact-SQL, use os seguintes comando T-SQL. Você pode emitir esses comandos usando o Portal do Azure, o [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), o [Visual Studio Code](https://code.visualstudio.com/docs) ou qualquer outro programa que pode se conectar a um servidor de Banco de Dados SQL e passar comandos Transact-SQL. 
+camadas de serviço de bancos de dados SQL do Azure tooset ou alteração, níveis de desempenho e a quantidade de armazenamento com o Transact-SQL, usam Olá comandos T-SQL a seguir. Você pode executar esses comandos usando Olá portal do Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [código do Visual Studio](https://code.visualstudio.com/docs), ou qualquer outro programa que pode conectar-se o servidor de banco de dados do Azure SQL tooan e passar o Transact-SQL comandos. 
 
 | Command | Descrição |
 | --- | --- |
-|[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria um novo banco de dados. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
+|[CREATE DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Cria um novo banco de dados. Você deve ser conectado toohello banco de dados mestre toocreate um novo banco de dados.|
 | [ALTER DATABASE (Banco de Dados SQL do Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifica um Banco de Dados SQL do Azure. |
-|[sys.database_service_objectives (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna a edição (nível de serviço), o objetivo do serviço (tipo de preço) e o nome do pool elástico, se houver um, para um Banco de Dados SQL do Azure ou um SQL Data Warehouse do Azure. Se estiver conectado ao banco de dados mestre em um servidor de Banco de Dados SQL do Azure, retornará informações sobre todos os bancos de dados. Para o SQL Data Warehouse do Azure, você deve estar conectado ao banco de dados mestre.|
-|[sys.database_usage (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Lista o número, o tipo e a duração dos bancos de dados em um servidor de Banco de Dados SQL do Azure.|
+|[sys.database_service_objectives (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Retorna Olá edition (camada de serviço), o objetivo de serviço (preço) e o nome do pool Elástico, se houver, para um banco de dados do SQL Azure ou um Azure SQL Data Warehouse. Se conectado no banco de dados mestre em um servidor de banco de dados do Azure SQL toohello, retorna informações sobre todos os bancos de dados. Para o Azure SQL Data Warehouse, você deve ser conectado toohello banco de dados mestre.|
+|[sys.database_usage (Banco de Dados SQL do Azure)](/sql/relational-databases/system-catalog-views/sys-database-usage-azure-sql-database)|Lista o número hello, tipo e duração de bancos de dados em um servidor de banco de dados SQL.|
 
-O exemplo a seguir mostra o maxsize sendo alterado usando o comando ALTER DATABASE:
+Olá, exemplo a seguir mostra Olá maxsize que está sendo alterada usando o comando ALTER DATABASE de saudação:
 
  ```sql
 ALTER DATABASE <myDatabaseName> 
    MODIFY (MAXSIZE = 4096 GB);
 ```
 
-## <a name="manage-single-databases-using-the-rest-api"></a>Gerenciar bancos de dados individuais usando a API REST
+## <a name="manage-single-databases-using-hello-rest-api"></a>Gerenciar bancos de dados único usando a API REST de saudação
 
-Para definir ou alterar os níveis de serviço, níveis de desempenho e a quantidade de armazenamento do Bancos de Dados SQL do Azure usando a API REST, confira [API REST do Banco de Dados SQL do Azure](/rest/api/sql/).
+camadas de serviço de bancos de dados SQL do Azure tooset ou alteração, níveis de desempenho e a quantidade de armazenamento usando Olá API REST, consulte [API de REST de banco de dados SQL do Azure](/rest/api/sql/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [DTUs](sql-database-what-is-a-dtu.md).
-* Para saber mais sobre como monitorar o uso de DTU, consulte [Monitoramento e ajuste de desempenho](sql-database-troubleshoot-performance.md).
+* toolearn sobre como monitorar o uso de DTU, consulte [monitoramento e ajuste de desempenho](sql-database-troubleshoot-performance.md).
 

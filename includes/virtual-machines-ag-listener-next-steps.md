@@ -1,7 +1,7 @@
-Além de conectar automaticamente os clientes com a réplica primária, um ouvinte pode ser usado para redirecionar cargas de trabalho apenas de leitura às secundárias. Esse uso pode melhorar o desempenho e a escalabilidade da sua solução geral. Para obter mais informações, consulte [Usar o Roteamento de ReadIntebt com o ouvinte do grupo de disponibilidade AlwaysOn do Azure](http://go.microsoft.com/fwlink/?LinkId=522515).
+Em adição tooautomatically de conectar-se a réplica primária de toohello de clientes, um ouvinte pode ser usado tooredirect cargas de trabalho somente leitura toohello secundários. Esse uso pode melhorar o desempenho de saudação e a escalabilidade de sua solução geral. Para obter mais informações, consulte [Usar o Roteamento de ReadIntebt com o ouvinte do grupo de disponibilidade AlwaysOn do Azure](http://go.microsoft.com/fwlink/?LinkId=522515).
 
 > [!NOTE]
-> Para obter as dicas de solução de problemas sobre ouvintes do Azure, confira [Troubleshooting Availability Group Listener in Azure](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) (Solução de problemas de ouvintes do grupo de disponibilidade no Azure) no [blog](http://blogs.msdn.com/b/alwaysonpro/) da Equipe de Suporte do AlwaysOn.
+> Para obter dicas sobre ouvintes do Azure de solução de problemas, consulte [ouvinte do grupo de disponibilidade de solução de problemas no Azure](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) em Olá, equipe de suporte do AlwaysOn [blog](http://blogs.msdn.com/b/alwaysonpro/).
 > 
 > 
 

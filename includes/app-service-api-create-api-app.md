@@ -1,15 +1,15 @@
 
-Crie um [aplicativo de API](../articles/app-service-api/app-service-api-apps-why-best-platform.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/appservice/web#create). 
+Criar um [aplicativo de API](../articles/app-service-api/app-service-api-apps-why-best-platform.md) em Olá `myAppServicePlan` plano de serviço de aplicativo com hello [az webapp criar](/cli/azure/appservice/web#create) comando. 
 
-O aplicativo Web fornece um espaço de hospedagem para sua API e fornece uma URL para exibir o aplicativo implantado.
+Olá web app fornece um espaço de hospedagem para a sua API e fornece um aplicativo do URL tooview Olá implantado.
 
-No comando a seguir, substitua *\<nome_do_aplicativo >* por um nome exclusivo. Se `<app_name>` não for exclusivo, você obterá a mensagem de erro "O site com o nome <nome_do_aplicativo> fornecido já existe." A URL padrão do aplicativo Web é `https://<app_name>.azurewebsites.net`. 
+Olá a seguir de comando, substitua  *\<app_name >* com um nome exclusivo. Se `<app_name>` for não exclusivo, você obter mensagem de erro hello "Site com determinado nome < app_name > já existe". Olá URL do aplicativo web de saudação padrão é `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-Quando o aplicativo Web tiver sido criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
+Quando o aplicativo da web de saudação tiver sido criado, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir:
 
 ```json
 {

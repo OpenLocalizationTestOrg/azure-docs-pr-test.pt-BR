@@ -1,5 +1,5 @@
 ---
-title: "Criar um novo relatório de um conjunto de dados no Azure Power BI Embedded | Microsoft Docs"
+title: "aaaCreate um novo relatório de um conjunto de dados no Azure Power BI inserido | Microsoft Docs"
 description: "Os relatórios do Power BI Embedded agora podem ser criados de um conjunto de dados em seu próprio aplicativo."
 services: power-bi-embedded
 documentationcenter: 
@@ -15,29 +15,29 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 457f53aa76059dbb2faed6b264102f1f59b9918a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 41a0a52e4c833313f495bb5ff14749203fef9b41
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-embedded"></a>Criar um novo relatório de um conjunto de dados no Power BI Embedded
 
 Os relatórios do Power BI Embedded agora podem ser criados de um conjunto de dados em seu próprio aplicativo. 
 
-O método de autenticação é semelhante ao de inserir relatório. Ele se baseia em tokens de acesso que são específicos para um conjunto de dados. Tokens usados para o PowerBI.com são emitidos pelo AAD (Azure Active Directory) e tokens do Power BI Embedded são emitidos por seu próprio serviço.
+Olá método de autenticação é semelhante inserir toothat do relatório. Ele se baseia em tokens de acesso que são o conjunto de dados tooa específico. Tokens usados para o PowerBI.com são emitidos pelo AAD (Azure Active Directory) e tokens do Power BI Embedded são emitidos por seu próprio serviço.
 
-Ao criar um relatório inserido, os tokens emitidos são para um conjunto de dados específico. Tokens devem ser associados com a URL de inserção no mesmo elemento para assegurar que cada um tenha um token exclusivo. Para criar um relatório inserido, os escopos *Dataset.Read e Workspace.Report.Create* devem ser fornecidos no token de acesso.
+Quando érmino um relatório inserido, Olá tokens emitidos são um conjunto de dados específico. Tokens devem ser associados com hello inserir a URL no hello mesmo tooensure elemento cada tem um token exclusivo. Em ordem toocreate um relatório inserido, *Dataset.Read e Workspace.Report.Create* escopos devem ser fornecidos no token de acesso de saudação.
 
-## <a name="create-access-token-needed-to-create-new-report"></a>Criar o token de acesso necessário para criar um novo relatório
+## <a name="create-access-token-needed-toocreate-new-report"></a>Criar novo relatório do access token toocreate necessários
 
-O Power BI Embedded usa tokens de inserção, que são Tokens Web JSON assinados por HMAC. Os tokens são assinados com a tecla de acesso da sua coleção de espaço de trabalho do Azure Power BI Embedded. Tokens de inserção, por padrão, são usados para fornecer acesso somente leitura a um relatório a ser inserido em um aplicativo. Tokens de inserção são emitidos para um relatório específico e devem ser associados uma URL de inserção.
+O Power BI Embedded usa tokens de inserção, que são Tokens Web JSON assinados por HMAC. Olá tokens são assinados com a chave de acesso Olá da coleção de espaço de trabalho do Azure Power BI inserido. Inserir tokens, por padrão, são usada tooprovide ler apenas acesso tooa tooembed de relatório em um aplicativo. Tokens de inserção são emitidos para um relatório específico e devem ser associados uma URL de inserção.
 
-Tokens de acesso devem ser criados no servidor conforme as chaves de acesso são usadas para assinar/criptografar os tokens. Para obter informações sobre como criar um token de acesso, consulte [Autenticação e autorização com o Power BI Embedded](power-bi-embedded-app-token-flow.md). Você também pode examinar o método [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_). Aqui está um exemplo de qual seria a aparência disso usando o SDK do .NET para o Power BI.
+Tokens de acesso devem ser criados no servidor de saudação como chaves de acesso hello são usadas toosign/criptografar tokens de saudação. Para obter informações sobre como toocreate um token de acesso, consulte [autenticando e autorizar com o Power BI Embedded](power-bi-embedded-app-token-flow.md). Você também pode analisar Olá [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) método. Aqui está um exemplo de como isso seria usando o SDK .NET de saudação do Power BI.
 
-Neste exemplo, temos nossa ID de conjunto de dados na qual desejamos criar o novo relatório. Também precisamos adicionar escopos para *Dataset.Read e Workspace.Report.Create*.
+Neste exemplo, temos nosso id de conjunto de dados que queremos novo relatório do toocreat Olá no. Também precisamos escopos Olá tooadd *Dataset.Read e Workspace.Report.Create*.
 
-A *classe PowerBIToken* exige que você instale o [pacote NuGet do Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+Olá *PowerBIToken classe* exige que você instale Olá [NuGut do pacote do Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
 **Instalar o pacote NuGet**
 
@@ -59,10 +59,10 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>Criar um novo relatório em branco
 
-Para criar um novo relatório, a configuração de criação deve ser fornecida. Isso deve incluir o token de acesso, o embedURL e o datasetID com base nos quais desejamos criar o relatório. Isso exige que você instale o [pacote JavaScript Power BI](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/) do NuGet. O embedUrl será apenas https://embedded.powerbi.com/appTokenReportEmbed.
+Em ordem toocreate um novo relatório, criar hello configuração deve ser fornecida. Inclua token de acesso de hello, Olá embedURL e datasetID Olá que desejamos relatório Olá toocreate. Isso requer que você instalar o nuget Olá [pacote Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). Olá embedUrl será apenas https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
-> Você pode usar a [Amostra de inserção de relatório JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/) para testar a funcionalidade. Ele também fornece exemplos de código para as diferentes operações que estão disponíveis.
+> Você pode usar o hello [JavaScript relatório incorporar exemplo](https://microsoft.github.io/PowerBI-JavaScript/demo/) tootest funcionalidade. Ele também fornece exemplos de código para operações diferentes de saudação que estão disponíveis.
 
 **Instalar o pacote NuGet**
 
@@ -81,23 +81,23 @@ var embedCreateConfiguration = {
         datasetId: '5dac7a4a-4452-46b3-99f6-a25915e0fe55',
     };
     
-    // Grab the reference to the div HTML element that will host the report
+    // Grab hello reference toohello div HTML element that will host hello report
     var reportContainer = $('#reportContainer')[0];
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
 ```
 
-Chamar *powerbi.createReport()* fará com que uma tela em branco no modo de edição apareça dentro do elemento *div*.
+Chamando *powerbi.createReport()* fará com que uma tela em branco no modo de edição apareçam em Olá *div* elemento.
 
 ![](media/power-bi-embedded-create-report-from-dataset/pbi-embedded-create-new-report.png)
 
 ## <a name="save-new-reports"></a>Salvar novos relatórios
 
-O relatório não será realmente criado até que você chame a operação **salvar como**. Isso pode ser feito do menu Arquivo ou do JavaScript.
+relatório de saudação não será realmente criado até que você chame Olá **Salvar como** operação. Isso pode ser feito do menu Arquivo ou do JavaScript.
 
 ```
- // Get a reference to the embedded report.
+ // Get a reference toohello embedded report.
     report = powerbi.get(reportContainer);
     
     var saveAsParameters = {
@@ -109,13 +109,13 @@ O relatório não será realmente criado até que você chame a operação **sal
 ```
 
 > [!IMPORTANT]
-> Um novo relatório é criado somente depois que **salvar como** é chamada. Depois de você salvar, a tela ainda mostrará o conjunto de dados no modo de edição e não no relatório. Você precisará recarregar o novo relatório como faria com qualquer outro relatório.
+> Um novo relatório é criado somente depois que **salvar como** é chamada. Depois de salvar, tela hello ainda mostrará Olá conjunto de dados no relatório de modo e não Olá de edição. Você precisará novo relatório do tooreload hello como faria com qualquer outro relatório.
 
 ![](media/power-bi-embedded-create-report-from-dataset/pbi-embedded-save-new-report.png)
 
-## <a name="load-the-new-report"></a>Carregar o novo relatório
+## <a name="load-hello-new-report"></a>Saudação de carga novo relatório
 
-Para interagir com o novo relatório você precisa inseri-lo da mesma maneira que o aplicativo insere um relatório normal, ou seja, um novo token deve ser emitido especificamente para o novo relatório e, em seguida, o método de inserção deve ser chamado.
+Toointeract ordem com o novo relatório de saudação precisar tooembed no hello mesmo modo aplicativo hello incorpora um regular de relatório, que significa, um novo token deve ser emitido especificamente para o novo relatório de saudação e, em seguida, chamada hello incorporar o método.
 
 ```
 <div id="reportContainer"></div>
@@ -126,16 +126,16 @@ var embedConfiguration = {
         reportId: '5dac7a4a-4452-46b3-99f6-a25915e0fe54',
     };
     
-    // Grab the reference to the div HTML element that will host the report
+    // Grab hello reference toohello div HTML element that will host hello report
     var reportContainer = $('#reportContainer')[0];
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
 ```
 
-## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatizar as ações de salvar e carregar um novo relatório usando o evento "saved"
+## <a name="automate-save-and-load-of-a-new-report-using-hello-saved-event"></a>Automatizar salvamento e carregamento de um novo relatório usando hello "Salvar" evento
 
-Para automatizar o processo de "salvar como" e em seguida carregar o novo relatório, você pode fazer uso do evento "saved". Este evento é disparado quando a operação save for concluída e retorna um objeto JSON que contém o novo reportId, o nome do relatório, o antigo reportId (se houver algum) e se a operação foi saveAs ou save.
+No processo de saudação tooautomate ordem de "Salvar como" e, em seguida, carregar relatório novo hello, você pode fazer uso do hello "Salvar" evento. Esse evento é acionado quando Olá operação de gravação estiver concluída e retorna um objeto Json que contém o reportId novo Olá, nome do relatório, reportId antigo hello (se houver algum) e se a operação de saudação foi saveAs ou salvar.
 
 ```
 {
@@ -146,7 +146,7 @@ Para automatizar o processo de "salvar como" e em seguida carregar o novo relat�
 }
 ```
 
-Para automatizar o processo, você pode ouvir o evento de "saved", usar o novo reportId, crie o novo token e inseri-lo no novo relatório.
+processo de saudação do tooAutomate pode escutar eventos hello "Salvar", levar reportId novo hello, criar um novo token de saudação e inserir um novo relatório de saudação com ele.
 
 ```
 <div id="reportContainer"></div>
@@ -157,7 +157,7 @@ var embedCreateConfiguration = {
         datasetId: '5dac7a4a-4452-46b3-99f6-a25915e0fe55',
     };
     
-    // Grab the reference to the div HTML element that will host the report
+    // Grab hello reference toohello div HTML element that will host hello report
     var reportContainer = $('#reportContainer')[0];
 
     // Create report
@@ -171,14 +171,14 @@ var embedCreateConfiguration = {
     // SaveAs report
     report.saveAs(saveAsParameters);
 
-    // report.on will add an event handler which prints to Log window.
+    // report.on will add an event handler which prints tooLog window.
     report.on("saved", function(event) {
         
          // get new Token
          var newReportId =  event.detail.reportObjectId;
 
-        // create new Token. This is a function that the application should provide
-        var newToken = createAccessToken(newReportId,scopes /*provide the wanted scopes*/);
+        // create new Token. This is a function that hello application should provide
+        var newToken = createAccessToken(newReportId,scopes /*provide hello wanted scopes*/);
         
         
     var embedConfiguration = {
@@ -205,4 +205,4 @@ var embedCreateConfiguration = {
 [Amostra de inserção de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Pacote NuGet do Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Pacote JavaScript do Power BI](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
-Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
+Mais perguntas? [Tente Olá comunidade do Power BI](http://community.powerbi.com/)

@@ -1,4 +1,4 @@
-<a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura.
+<a name="virtual-networking-limits-classic"></a>Olá seguintes limites se aplicam somente gerenciados por meio do modelo de implantação clássico Olá por assinatura de recursos de rede.
 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -18,7 +18,7 @@
 | ACLs (Listas de Controle de Acesso de Pontos de Extremidade) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede – Azure Resource Manager
-Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura.
+Olá seguintes limites se aplicam somente gerenciados por meio do Gerenciador de recursos do Azure por região por assinatura de recursos de rede.
 
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
@@ -44,5 +44,5 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Certificados raiz de ponto a site por gateway de VPN |20 |20 |
 | Configurações de IP secundárias por rede virtual |1000 |entre em contato com o suporte |
 
-[Entre em contato com o suporte](../articles/azure-supportability/resource-manager-core-quotas-request.md ) caso precise aumentar esses limites.
+[Entre em contato com o suporte](../articles/azure-supportability/resource-manager-core-quotas-request.md ) caso você precise tooincrease limites padrão.
 

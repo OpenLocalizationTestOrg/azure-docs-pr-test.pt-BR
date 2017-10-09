@@ -1,0 +1,2 @@
+Se o problema do Azure não é abordado neste artigo, visite Olá fóruns do Azure em [MSDN e Olá estouro de pilha](https://azure.microsoft.com/support/forums/). Você pode lançar o problema desses fóruns ou lançar muito[ @AzureSupport no Twitter](https://twitter.com/AzureSupport). Você também pode enviar uma solicitação de suporte do Azure. toosubmit uma solicitação de suporte em Olá [suporte do Azure](https://azure.microsoft.com/support/options/) página, selecione **obter suporte**.
+

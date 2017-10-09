@@ -1,6 +1,6 @@
 ---
-title: Copiar ou mover dados para o Armazenamento do Azure com o AzCopy no Windows | Microsoft Docs
-description: "Use o utilitário AzCopy no Windows para mover ou copiar dados para ou de conteúdo de blob, tabela e arquivo. Copie dados para o Armazenamento do Azure de arquivos locais ou copie dados dentro na mesma conta ou entre contas de armazenamento. Migre facilmente seus dados para o Armazenamento do Azure."
+title: aaaCopy ou mover dados tooAzure armazenamento com AzCopy no Windows | Microsoft Docs
+description: "Use Olá AzCopy Windows utilitário toomove ou copiar dados tooor do blob, tabela e o conteúdo do arquivo. Copiar dados tooAzure armazenamento de arquivos locais, ou copie dados dentro ou entre contas de armazenamento. Migre facilmente o armazenamento de tooAzure de dados."
 services: storage
 documentationcenter: 
 author: seguler
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2017
 ms.author: seguler
-ms.openlocfilehash: 045778822022752295bb634bdf734daaf36ab938
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a77db84c3a3e06f0ad4e87d02b14a5c62ed8d9ad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com AzCopy no Windows
-O AzCopy é um utilitário de linha de comando projetado para copiar dados entre o Armazenamento de Blobs, de Arquivos e de Tabelas do Microsoft Azure usando comandos simples com o desempenho ideal. Você pode copiar dados de um objeto para outro dentro de sua conta de armazenamento, ou entre contas de armazenamento.
+# <a name="transfer-data-with-hello-azcopy-on-windows"></a>Transferência de dados com hello AzCopy no Windows
+AzCopy é um utilitário de linha de comando projetado para copiar dados tooand do armazenamento de BLOBs do Microsoft Azure, o arquivo e a tabela usando comandos simples com um desempenho ideal. Você pode copiar dados de um tooanother de objeto dentro de sua conta de armazenamento, ou entre contas de armazenamento.
 
 Há duas versões do AzCopy que podem ser baixadas. O AzCopy no Windows se baseia no .NET Framework e oferece opções de linha de comando no estilo Windows. O [AzCopy no Linux](storage-use-azcopy-linux.md) se baseia no .NET Core Framework, que se destina a plataformas Linux que oferecem opções de linha de comando no estilo POSIX. Este artigo aborda o AzCopy no Windows.
 
 ## <a name="download-and-install-azcopy"></a>Baixar e instalar o AzCopy
 ### <a name="azcopy-on-windows"></a>AzCopy no Windows
-Baixe a [versão mais recente do AzCopy no Windows](http://aka.ms/downloadazcopy).
+Baixar Olá [versão mais recente do AzCopy no Windows](http://aka.ms/downloadazcopy).
 
 #### <a name="installation-on-windows"></a>Instalação no Windows
-Depois de instalar o AzCopy no Windows usando o instalador, abra uma janela de comando e navegue até o diretório de instalação do AzCopy em seu computador, onde o executável `AzCopy.exe` está localizado. Se quiser, você pode alterar o local da instalação do AzCopy para o caminho do sistema. Por padrão, o AzCopy é instalado em `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` ou em `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
+Depois de instalar o AzCopy no Windows usando o instalador hello, abra uma janela de comando e navegue toohello AzCopy diretório de instalação no seu computador - onde hello `AzCopy.exe` executável está localizado. Se desejar, você pode adicionar o caminho de sistema de tooyour Olá AzCopy instalação local. Por padrão, AzCopy é instalado muito`%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` ou `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 ## <a name="writing-your-first-azcopy-command"></a>Como escrever seu primeiro comando do AzCopy
-A sintaxe básica dos comandos do AzCopy é:
+Olá a sintaxe básica para comandos do AzCopy é:
 
 ```azcopy
 AzCopy /Source:<source> /Dest:<destination> [Options]
 ```
 
-Os exemplos a seguir demonstram vários cenários para cópia de dados entre os Blobs, os Arquivos e as Tabelas do Microsoft Azure. Confira a seção [Parâmetros do AzCopy](#azcopy-parameters) para obter uma explicação detalhada dos parâmetros usados em cada exemplo.
+Olá exemplos a seguir demonstram uma variedade de cenários para copiar dados tooand de Blobs do Microsoft Azure, arquivos e tabelas. Consulte toohello [AzCopy parâmetros](#azcopy-parameters) seção para obter uma explicação detalhada de parâmetros de saudação usados em cada exemplo.
 
 ## <a name="blob-download"></a>Blob: baixar
 ### <a name="download-single-blob"></a>Baixar um único blob
@@ -48,7 +48,7 @@ Os exemplos a seguir demonstram vários cenários para cópia de dados entre os 
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-Observe que se a pasta `C:\myfolder` não existir, o AzCopy a criará no e baixará `abc.txt ` na nova pasta.
+Observe que, se pasta Olá `C:\myfolder` não existir, AzCopy irá criá-lo e baixar `abc.txt ` na nova pasta de saudação.
 
 ### <a name="download-single-blob-from-secondary-region"></a>Baixe um único blob de região secundária
 
@@ -64,7 +64,7 @@ Observe que você deve ter um armazenamento com redundância geográfica e acess
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /S
 ```
 
-Suponhamos que os seguintes blobs residam no contêiner especificado:  
+Suponha seguinte Olá blobs residem no contêiner especificado hello:  
 
     abc.txt
     abc1.txt
@@ -72,7 +72,7 @@ Suponhamos que os seguintes blobs residam no contêiner especificado:
     vd1\a.txt
     vd1\abcd.txt
 
-Após a operação de download, o diretório `C:\myfolder` incluirá os seguintes arquivos:
+Após a operação de download de Olá Olá diretório `C:\myfolder` incluirá Olá seguintes arquivos:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -88,7 +88,7 @@ Se você não especificar a opção `/S`, nenhum blob será baixado.
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
 ```
 
-Suponhamos que os blobs a seguir residam no contêiner especificado. Todos os blobs que começarem com o prefixo `a` serão baixados:
+Suponha seguinte Olá blobs residem no contêiner especificado hello. Todos os blobs que começam com o prefixo Olá `a` serão baixados:
 
     abc.txt
     abc1.txt
@@ -97,27 +97,27 @@ Suponhamos que os blobs a seguir residam no contêiner especificado. Todos os bl
     vd1\a.txt
     vd1\abcd.txt
 
-Após a operação de download, a pasta `C:\myfolder` incluirá os seguintes arquivos:
+Após a operação de download de Olá Olá pasta `C:\myfolder` incluirá Olá seguintes arquivos:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-O prefixo se aplica ao diretório virtual, que forma a primeira parte do nome do blob. No exemplo mostrado acima, como não corresponde ao prefixo especificado, o diretório virtual não é baixado. Além disso, se a opção `\S` não for especificada, o AzCopy não baixará qualquer blob.
+prefixo de saudação aplica diretório virtual toohello, que constitui Olá primeira parte do nome do blob hello. Exemplo hello mostrado acima, diretório virtual Olá não coincide com prefixo especificado de hello, portanto ele não será baixado. Além disso, se hello opção `\S` não for especificado, AzCopy não baixará todos os blobs.
 
-### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Defina a hora da última modificação dos arquivos exportados como sendo a mesma dos blobs de origem
+### <a name="set-hello-last-modified-time-of-exported-files-toobe-same-as-hello-source-blobs"></a>Definir a hora da última modificação Olá dos arquivos exportados toobe mesmo Olá blobs de origem
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT
 ```
 
-Você também pode excluir blobs da operação de download com base na hora da última modificação Por exemplo, se você quiser excluir blobs cuja hora da última modificação for a mesma ou mais recente do que o arquivo de destino, adicione a opção `/XN`:
+Você também pode excluir blobs de operação de download de saudação com base em sua hora da última modificação. Por exemplo, se você quiser blobs tooexclude cuja hora da última modificação é hello igual ou mais recente do que o arquivo de destino hello, adicionar Olá `/XN` opção:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XN
 ```
 
-Ou, se você quiser excluir blobs cuja hora da última modificação for a mesma ou mais antiga do que o arquivo de destino, adicione a opção `/XO`:
+Ou se você quiser blobs tooexclude cuja hora da última modificação é hello mesmo ou mais antigo que o arquivo de destino hello, adicione Olá `/XO` opção:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /MT /XO
@@ -130,15 +130,15 @@ AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfo
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:"abc.txt"
 ```
 
-Se o contêiner de destino especificado não existir, o AzCopy o criará e carregará o arquivo nele.
+Se Olá contêiner de destino especificado não existe, AzCopy será criá-lo e carregar o arquivo hello nele.
 
-### <a name="upload-single-file-to-virtual-directory"></a>Carregar arquivo único no diretório virtual
+### <a name="upload-single-file-toovirtual-directory"></a>Carregar arquivo único diretório toovirtual
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-Se o diretório virtual especificado não existir, o AzCopy carregará o arquivo para incluir o diretório virtual em seu nome (*por exemplo*, `vd/abc.txt` no exemplo acima).
+Se Olá especificado não existe um diretório virtual, AzCopy carregará Olá arquivo tooinclude Olá diretório virtual em seu nome (*, por exemplo,*, `vd/abc.txt` no exemplo hello acima).
 
 ### <a name="upload-all-files"></a>Carregar todos os arquivos
 
@@ -146,7 +146,7 @@ Se o diretório virtual especificado não existir, o AzCopy carregará o arquivo
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /S
 ```
 
-A especificação da opção `/S` carrega o conteúdo do diretório especificado no armazenamento de blobs de maneira recursiva, o que significa que todas as subpastas e seus arquivos serão carregados também. Por exemplo, suponhamos que os seguintes arquivos residam na pasta `C:\myfolder`:
+Especificando a opção `/S` carregamentos conteúdo Olá Olá especificado diretório tooBlob armazenamento recursivamente, que significa que todas as subpastas e seus arquivos serão carregados também. Por exemplo, suponha que a seguir Olá arquivos residem na pasta `C:\myfolder`:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -154,7 +154,7 @@ A especificação da opção `/S` carrega o conteúdo do diretório especificado
     C:\myfolder\subfolder\a.txt
     C:\myfolder\subfolder\abcd.txt
 
-Depois da operação de carregamento, o contêiner incluirá os seguintes arquivos:
+Após a operação de carregamento de saudação contêiner Olá incluirá Olá seguintes arquivos:
 
     abc.txt
     abc1.txt
@@ -162,7 +162,7 @@ Depois da operação de carregamento, o contêiner incluirá os seguintes arquiv
     subfolder\a.txt
     subfolder\abcd.txt
 
-Se você não especificar a opção `/S`, o AzCopy não carregará de forma recursiva. Depois da operação de carregamento, o contêiner incluirá os seguintes arquivos:
+Se você não especificar a opção `/S`, o AzCopy não carregará de forma recursiva. Após a operação de carregamento de saudação contêiner Olá incluirá Olá seguintes arquivos:
 
     abc.txt
     abc1.txt
@@ -174,7 +174,7 @@ Se você não especificar a opção `/S`, o AzCopy não carregará de forma recu
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
 ```
 
-Vamos supor que a pasta `C:\myfolder`contenha os seguintes arquivos:
+Suponha seguinte Olá arquivos residem na pasta `C:\myfolder`:
 
     C:\myfolder\abc.txt
     C:\myfolder\abc1.txt
@@ -183,7 +183,7 @@ Vamos supor que a pasta `C:\myfolder`contenha os seguintes arquivos:
     C:\myfolder\subfolder\a.txt
     C:\myfolder\subfolder\abcd.txt
 
-Depois da operação de carregamento, o contêiner incluirá os seguintes arquivos:
+Após a operação de carregamento de saudação contêiner Olá incluirá Olá seguintes arquivos:
 
     abc.txt
     abc1.txt
@@ -197,14 +197,14 @@ Se você não especificar a opção `/S`, o AzCopy carregará somente os blobs q
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>Especificar o tipo de conteúdo MIME de um blob de destino
-Por padrão, o AzCopy define o tipo de conteúdo de um blob de destino para `application/octet-stream`. A partir da versão 3.1.0, você pode especificar explicitamente o tipo de conteúdo por meio da opção `/SetContentType:[content-type]`. Essa sintaxe define o tipo de conteúdo para todos os blobs em uma operação de carregamento.
+### <a name="specify-hello-mime-content-type-of-a-destination-blob"></a>Especifique o tipo de conteúdo MIME Olá de um blob de destino
+Por padrão, AzCopy define Olá de tipo de conteúdo de um blob de destino muito`application/octet-stream`. A partir da versão 3.1.0, você pode especificar explicitamente o tipo de conteúdo Olá por meio da opção Olá `/SetContentType:[content-type]`. Essa sintaxe define o tipo de conteúdo Olá para todos os blobs em uma operação de carregamento.
 
 ```azcopy
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType:video/mp4
 ```
 
-Se você especificar `/SetContentType` sem um valor, o AzCopy definirá o tipo de conteúdo de cada blob ou arquivo de acordo com sua extensão de arquivo.
+Se você especificar `/SetContentType` sem um valor, em seguida, AzCopy definirá cada blob ou tipo de conteúdo do arquivo de acordo com tooits extensão de arquivo.
 
 ```azcopy
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.blob.core.windows.net/myContainer/ /DestKey:key /Pattern:ab /SetContentType
@@ -227,7 +227,7 @@ AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:ht
 
 Quando você copia um blob entre contas de armazenamento, uma operação de [cópia no servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) é realizada.
 
-### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Copiar um único blob de região secundária para região primária
+### <a name="copy-single-blob-from-secondary-region-tooprimary-region"></a>Copiar um único blob da região de tooprimary região secundária
 
 ```azcopy
 AzCopy /Source:https://myaccount1-secondary.blob.core.windows.net/mynewcontainer1 /Dest:https://myaccount2.blob.core.windows.net/mynewcontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
@@ -241,22 +241,22 @@ Observe que você deve ter um armazenamento com redundância geográfica e acess
     AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt /Snapshot
 ```
 
-Depois da operação de cópia, o contêiner de destino incluirá o blob e seus instantâneos. Supondo que o blob no exemplo acima tenha dois instantâneos, o contêiner incluirá os seguintes blob e instantâneos:
+Após a operação de cópia hello, o contêiner de destino Olá incluirá Olá blob e seus instantâneos. Supondo que o blob de saudação no exemplo hello acima tem dois instantâneos, contêiner Olá incluirá a seguir Olá blob e instantâneos:
 
     abc.txt
     abc (2013-02-25 080757).txt
     abc (2014-02-21 150331).txt
 
 ### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Copiar blobs em regiões entre contas de armazenamento de forma síncrona.
-O AzCopy por padrão copia dados entre dois pontos de extremidade de armazenamento assincronamente. Portanto, a operação de cópia será executada em segundo plano usando capacidade de largura de banda extra sem nenhum SLA em termos da velocidade de como o blob será copiado e o AzCopy verificará periodicamente o status da cópia até que a cópia esteja concluída ou tenha ocorrido uma falha.
+O AzCopy por padrão copia dados entre dois pontos de extremidade de armazenamento assincronamente. Então, a operação de cópia de saudação será executado no plano de fundo de saudação utilizando a capacidade de largura de banda sobressalente com nenhum SLA em termos de rapidez com que um blob será copiado e AzCopy verificará periodicamente o status da cópia Olá até Olá cópia é concluída ou falha.
 
-A opção `/SyncCopy` garante que a operação de cópia obterá uma velocidade consistente. O AzCopy realiza a cópia síncrona baixando os blobs para copiar da fonte especificada para a memória local, e, em seguida, carregá-los para o destino de armazenamento de Blob.
+Olá `/SyncCopy` opção garante que a operação de cópia Olá obterá velocidade consistente. AzCopy executa cópia síncrona Olá ao baixar blobs Olá toocopy de saudação especificado fonte toolocal da memória e, em seguida, carregá-las toohello destino de armazenamento de Blob.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 ```
 
-Talvez o `/SyncCopy` gere um custo de saída adicional comparando à cópia assíncrona. A abordagem recomendada é usar essa opção na VM do Azure que está na mesma região que a sua conta de armazenamento de origem, a fim de evitar o custo de saída.
+`/SyncCopy`pode gerar saída adicional de custo cópia tooasynchronous comparados, hello a abordagem recomendada é toouse essa opção em uma VM do Azure que está em Olá mesma região que o custo de egresso fonte armazenamento conta tooavoid.
 
 ## <a name="file-download"></a>Arquivo: baixar
 ### <a name="download-single-file"></a>Baixar um único arquivo
@@ -265,7 +265,7 @@ Talvez o `/SyncCopy` gere um custo de saída adicional comparando à cópia ass�
 AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-Se a origem especificada for um compartilhamento de arquivos do Azure, você deverá especificar o nome exato do arquivo, (*por exemplo*, `abc.txt`) para baixar um único arquivo ou especificar a opção `/S` para baixar todos os arquivos do compartilhamento de maneira recursiva. A tentativa de especificar um padrão de arquivo e uma opção `/S` simultaneamente resultará em um erro.
+Se Olá especificado fonte for um compartilhamento de arquivos do Azure, você deve especificar nome de arquivo exatos Olá, (*, por exemplo,* `abc.txt`) toodownload um único arquivo, ou especifique a opção `/S` toodownload todos os arquivos no compartilhamento de saudação recursivamente. Tentativa de toospecify um padrão de arquivo e a opção `/S` juntos resultará em erro.
 
 ### <a name="download-all-files"></a>Baixar todos os arquivos
 
@@ -304,31 +304,31 @@ AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:http
 ```
 Quando você copia um arquivo entre compartilhamentos de arquivos, é executada uma operação [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
 
-### <a name="copy-from-file-share-to-blob"></a>Copiar de compartilhamento de arquivos para blob
+### <a name="copy-from-file-share-tooblob"></a>Copiar de tooblob de compartilhamento de arquivo
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Quando você copia um arquivo do compartilhamento de arquivos no blob, é executada uma operação [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
+Quando você copia um arquivo de tooblob de compartilhamento de arquivo, uma [cópia do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
 
 
-### <a name="copy-from-blob-to-file-share"></a>Copiar do blob para compartilhamento de arquivos
+### <a name="copy-from-blob-toofile-share"></a>Copiar de blob toofile compartilhamento
 
 ```azcopy
 AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
 ```
-Quando você copia um arquivo do blob no compartilhamentos de arquivos, é executada uma operação [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
+Quando você copia um arquivo de compartilhamento de toofile de blob, um [cópia do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
 
 ### <a name="synchronously-copy-files"></a>Copiar arquivos de forma síncrona
-Você pode especificar a opção `/SyncCopy` para copiar dados do Armazenamento de Arquivos para o Armazenamento de Arquivos, do Armazenamento de Arquivos para o Armazenamento de Blobs e vice-versa de forma síncrona. O AzCopy faz isso baixando os dados de origem para a memória local e carregando-os novamente no destino. O custo de saída padrão será aplicado.
+Você pode especificar Olá `/SyncCopy` opção toocopy dados de armazenamento de arquivo tooFile armazenamento, de armazenamento de arquivo tooBlob armazenamento e de armazenamento de Blob tooFile armazenamento de forma síncrona, AzCopy faz isso baixando memória de toolocal de dados de origem hello e carregá-lo novamente, toodestination. O custo de saída padrão será aplicado.
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 ```
 
-Durante a cópia do Armazenamento de Arquivos para o Armazenamento de Blobs, o tipo de blob padrão é o blob de blocos, e o usuário pode especificar a opção `/BlobType:page` para alterar o tipo de blob de destino.
+Ao copiar do armazenamento de arquivo tooBlob armazenamento, tipo de blob saudação padrão é o blob de blocos, o usuário pode especificar a opção `/BlobType:page` toochange tipo de blob de destino de saudação.
 
-Observe que `/SyncCopy` pode gerar custo de saída adicional comparando a cópia assíncrona. A abordagem recomendada é usar essa opção na VM do Azure que está na mesma região que a sua conta de armazenamento de origem para evitar o custo de saída.
+Observe que `/SyncCopy` pode gerar saída adicional comparando cópia de tooasynchronous de custo, hello, abordagem recomendada é toouse essa opção Olá VM do Azure que está na saudação mesma região que o custo de egresso fonte armazenamento conta tooavoid.
 
 ## <a name="table-export"></a>Tabela: exportar
 ### <a name="export-table"></a>Exportar tabela
@@ -337,11 +337,11 @@ Observe que `/SyncCopy` pode gerar custo de saída adicional comparando a cópia
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
 ```
 
-O AzCopy grava um arquivo de manifesto na pasta de destino especificada. O arquivo do manifesto é usado pelo processo de importação para localizar os arquivos de dados necessários e executar a validação de dados. O arquivo de manifesto usa a seguinte convenção de nomenclatura por padrão:
+AzCopy grava uma pasta de destino especificado do arquivo de manifesto toohello. arquivo de manifesto Olá é usado em arquivos de dados necessários de Olá Olá importação processo toolocate e executar a validação de dados. arquivo de manifesto Olá usa Olá seguindo a convenção de nomenclatura por padrão:
 
     <account name>_<table name>_<timestamp>.manifest
 
-O usuário também pode especificar a opção `/Manifest:<manifest file name>` para definir o nome do arquivo de manifesto.
+Usuário também pode especificar a opção de saudação `/Manifest:<manifest file name>` tooset nome de arquivo de manifesto de saudação.
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
@@ -353,25 +353,25 @@ AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfold
 AzCopy /Source:https://myaccount.table.core.windows.net/mytable/ /Dest:C:\myfolder /SourceKey:key /S /SplitSize:100
 ```
 
-O AzCopy usa um *índice de volume* nos nomes dos arquivos de dados da divisão para diferenciar diversos arquivos. O índice do volume é composto em duas partes: um *índice de intervalo de chaves de partição* e um *índice de arquivos de divisão*. Os dois índices são de base zero.
+AzCopy usa um *índice de volume* na Olá dividir os dados de arquivo nomes toodistinguish vários arquivos. índice de volume Olá consiste em duas partes, um *índice de intervalo de chave de partição* e um *índice de divisão de arquivo*. Os dois índices são de base zero.
 
-O índice do intervalo de chaves de partição será 0 se o usuário não especificar a opção `/PKRS`.
+índice de intervalo de chave de partição Olá será 0 se o usuário não especificar a opção `/PKRS`.
 
-Por exemplo, digamos que o AzCopy gere dois arquivos de dados depois que o usuário especifica a opção `/SplitSize`. Os nomes dos arquivos de dados resultantes podem ser:
+Por exemplo, suponha que AzCopy gera dois arquivos de dados depois que o usuário Olá Especifica a opção `/SplitSize`. Olá resultante nomes de arquivo de dados pode ser:
 
     myaccount_mytable_20140903T051850.8128447Z_0_0_C3040FE8.json
     myaccount_mytable_20140903T051850.8128447Z_0_1_0AB9AC20.json
 
-Observe que o menor valor possível para a opção `/SplitSize` é 32 MB. Se o destino especificado for um armazenamento de Blobs, o AzCopy dividirá o arquivo de dados quando alcançar o tamanho limite do blob (200 GB), sem levar em conta se o usuário especificou ou não a opção `/SplitSize` .
+Observe que Olá mínimo valor possível para a opção `/SplitSize` é de 32 MB. Se Olá especificado destino é o armazenamento de Blob, AzCopy será dividir o arquivo de dados de saudação uma vez seu limite de tamanho de tamanhos atingir Olá blob (200GB), independentemente de se a opção `/SplitSize` tiver sido especificado pelo usuário hello.
 
-### <a name="export-table-to-json-or-csv-data-file-format"></a>Exportar tabela para o formato de arquivo de dados JSON ou CSV
-Por padrão, o AzCopy exporta tabelas para arquivos de dados JSON. Você pode especificar a opção `/PayloadFormat:JSON|CSV` para exportar as tabelas como JSON ou CSV.
+### <a name="export-table-toojson-or-csv-data-file-format"></a>Exportar tabela tooJSON ou formato de arquivo de dados CSV
+AzCopy por padrão exporta arquivos de dados de tooJSON de tabelas. Você pode especificar a opção de saudação `/PayloadFormat:JSON|CSV` tooexport tabelas de saudação como JSON ou CSV.
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
 ```
 
-Ao especificar o formato de carga CSV, o AzCopy também gera um arquivo de esquema com extensão `.schema.csv` para cada arquivo de dados.
+Ao especificar o formato de carga CSV hello, AzCopy também irá gerar um arquivo de esquema com extensão de arquivo `.schema.csv` para cada arquivo de dados.
 
 ### <a name="export-table-entities-concurrently"></a>Exportar entidades de tabela simultaneamente
 
@@ -379,23 +379,23 @@ Ao especificar o formato de carga CSV, o AzCopy também gera um arquivo de esque
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PKRS:"aa#bb"
 ```
 
-O AzCopy inicia operações simultâneas para exportar entidades quando o usuário especifica a opção `/PKRS`. Cada operação exporta um intervalor de chaves de partição.
+AzCopy começará a entidades de tooexport operações simultâneas ao usuário Olá Especifica a opção `/PKRS`. Cada operação exporta um intervalor de chaves de partição.
 
-Observe que a opção `/NC`também controla a quantidade de operações simultâneas. O AzCopy usa a quantidade de processadores de núcleo como valor padrão de `/NC` ao copiar entidades de tabela, mesmo que `/NC` não tenha sido especificado. Quando o usuário especifica a opção `/PKRS`, o AzCopy usa o menor valor dos dois valores (intervalos de chaves de partição versus operações simultâneas especificadas implícita ou explicitamente) para determinar quantas operações simultâneas devem ser iniciadas. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando.
+Observe que o número de saudação de operações simultâneas também é controlado pela opção `/NC`. AzCopy usa o número de saudação de processadores de núcleo como valor padrão Olá `/NC` ao copiar entidades de tabela, mesmo se `/NC` não foi especificado. Quando o usuário Olá Especifica opção `/PKRS`, AzCopy usa Olá menor de saudação dois valores - partição intervalos de chaves versus operações simultâneas implicitamente ou explicitamente especificados - toodetermine Olá inúmeros toostart operações simultâneas. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando hello.
 
-### <a name="export-table-to-blob"></a>Exportar tabela para blob
+### <a name="export-table-tooblob"></a>Exportar a tabela tooblob
 
 ```azcopy
 AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:https://myaccount.blob.core.windows.net/mycontainer/ /SourceKey:key1 /Destkey:key2
 ```
 
-O AzCopy gerará um arquivo de dados JSON no contêiner do blob, seguindo esta convenção de nomenclatura:
+AzCopy irá gerar um arquivo de dados JSON no contêiner de blob Olá com a seguinte convenção de nomenclatura:
 
     <account name>_<table name>_<timestamp>_<volume index>_<CRC>.json
 
-O arquivo de dados JSON gerado segue o formato de carga para metadados mínimos. Para obter detalhes sobre esse formado de carga, confira [Formato de carga para operações do serviço Tabela](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+arquivo de dados JSON Olá gerado segue o formato de carga de saudação para metadados mínimos. Para obter detalhes sobre esse formado de carga, confira [Formato de carga para operações do serviço Tabela](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Observe que ao exportar tabelas para blobs, o AzCopy baixará as entidades de tabela para arquivos de dados temporários locais e, em seguida, carregará essas entidades no blob. Esses arquivos de dados temporários são colocados na pasta de arquivos do diário com o caminho padrão "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>" e você pode especificar a opção /Z:[pasta-de-arquivo-do-diário] para alterar o local da pasta de arquivo do diário e, portanto, alterar o local dos arquivos de dados temporários. O tamanho dos arquivos de dados temporários é decidido pelo tamanho das entidades da tabela e pelo tamanho especificado com a opção /SplitSize, embora o arquivo de dados temporários no disco local será excluído imediatamente depois que ele tiver sido carregado para o blob, verifique que você tem espaço em disco local suficiente para armazenar esses arquivos de dados temporários antes de serem excluídos.
+Observe que, ao exportar tabelas tooblobs, AzCopy será baixar arquivos de dados temporários Olá tabela entidades toolocal e, em seguida, carregar o blob de toohello essas entidades. Esses arquivos de dados temporários são colocados na pasta de arquivo de diário Olá com caminho de padrão de hello "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>", você pode especificar a opção/z [pasta de arquivo diário] toochange Olá local de pasta do arquivo de diário e, portanto, alterar o local dos arquivos de dados temporários hello. tamanho dos arquivos é decidido por de suas entidades de tabela tamanho e Olá especificado com hello opção /SplitSize, embora o arquivo de dados temporário Olá no disco local será excluído imediatamente depois de ter sido os dados temporários Hello carregados toohello blob, certifique-se de ter toostore de espaço suficiente em disco local desses arquivos de dados temporários antes de serem excluídos.
 
 ## <a name="table-import"></a>Tabela: importar
 ### <a name="import-table"></a>Importar tabela
@@ -404,31 +404,31 @@ Observe que ao exportar tabelas para blobs, o AzCopy baixará as entidades de ta
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 ```
 
-A opção `/EntityOperation` indica como inserir entidades na tabela. Os valores possíveis são:
+Olá opção `/EntityOperation` indica como entidades tooinsert em Olá tabela. Os valores possíveis são:
 
-* `InsertOrSkip`: ignora uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
-* `InsertOrMerge`: mescla uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
-* `InsertOrReplace`: substitui uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
+* `InsertOrSkip`: Ignora uma entidade existente ou insere uma nova entidade se ele não existe na tabela de saudação.
+* `InsertOrMerge`: Mescla uma entidade existente ou insere uma nova entidade se ele não existe na tabela de saudação.
+* `InsertOrReplace`: Substitui uma entidade existente ou insere uma nova entidade se ele não existe na tabela de saudação.
 
-Observe que não é possível especificar a opção `/PKRS` no cenário de importação. Diferente do cenário de exportação, no qual é necessário especificar a opção `/PKRS` para iniciar operações simultâneas, por padrão, o AzCopy iniciará as operações simultâneas quando você importar a tabela. A quantidade padrão de operações simultâneas iniciadas é igual à quantidade de processadores de núcleo. No entanto, você pode especificar uma quantidade diferente com a opção `/NC`. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando.
+Observe que você não pode especificar a opção `/PKRS` no cenário de importação de saudação. Ao contrário do cenário de exportação hello, em que você deve especificar a opção `/PKRS` toostart as operações simultâneas, AzCopy por padrão iniciará operações simultâneas quando você importa uma tabela. número de operações simultâneas de Introdução do Hello padrão é toohello igual número de processadores de núcleo; No entanto, você pode especificar um número diferente de simultâneas com a opção `/NC`. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando hello.
 
-Observe que o AzCopy dá suporte apenas à importação para JSON, não para CSV. O AzCopy não dá suporte a importações de tabela de arquivos JSON e de manifesto criados pelo usuário. Ambos os arquivos devem vir de uma exportação de tabela AzCopy. Para evitar erros, não modifique o arquivo JSON ou de manifesto exportado.
+Observe que o AzCopy dá suporte apenas à importação para JSON, não para CSV. O AzCopy não dá suporte a importações de tabela de arquivos JSON e de manifesto criados pelo usuário. Ambos os arquivos devem vir de uma exportação de tabela AzCopy. erros de tooavoid, não modifique hello exportada JSON ou arquivo de manifesto.
 
-### <a name="import-entities-to-table-using-blobs"></a>Importar entidades na tabela usando blobs
-Vamos supor que um contêiner de Blob contenha o seguinte: um arquivo JSON que representa uma Tabela do Azure, e seu arquivo de manifesto.
+### <a name="import-entities-tootable-using-blobs"></a>Importar entidades tootable usando blobs
+Suponha que um contêiner de Blob contenha seguinte Olá: arquivo JSON de um que representa uma tabela do Azure e seu arquivo de manifesto que o acompanha.
 
     myaccount_mytable_20140103T112020.manifest
     myaccount_mytable_20140103T112020_0_0_0AF395F1DC42E952.json
 
-Você pode executar o comando a seguir para importar entidades em uma tabela usando o arquivo de manifesto nesse mesmo contêiner de blob:
+Você pode executar Olá entidades de tooimport de comando a seguir em uma tabela usando o arquivo de manifesto Olá desse contêiner de blob:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:https://myaccount.table.core.windows.net/mytable /SourceKey:key1 /DestKey:key2 /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:"InsertOrReplace"
 ```
 
 ## <a name="other-azcopy-features"></a>Outros recursos do AzCopy
-### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Copiar apenas os dados que não existem no destino
-Os parâmetros `/XO` e `/XN` permitem a exclusão de recursos de origem mais antigos ou mais recentes da cópia, respectivamente. Se você quiser copiar apenas os recursos de origem que não existem no destino, especifique os dois parâmetros no comando AzCopy:
+### <a name="only-copy-data-that-doesnt-exist-in-hello-destination"></a>Copiar somente os dados que não existem no destino de saudação
+Olá `/XO` e `/XN` parâmetros permitem que os recursos de origem mais antiga ou mais recente de tooexclude que está sendo copiado, respectivamente. Se você desejar somente toocopy os recursos de origem que não existem no destino Olá, você pode especificar ambos os parâmetros em Olá AzCopy comando:
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /XO /XN
 
@@ -436,17 +436,17 @@ Os parâmetros `/XO` e `/XN` permitem a exclusão de recursos de origem mais ant
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
 
-Observe que isso não terá suporte quando a origem ou o destino for uma tabela.
+Observe que isso não é suportado quando Olá origem ou destino é uma tabela.
 
-### <a name="use-a-response-file-to-specify-command-line-parameters"></a>Usar um arquivo de resposta para especificar parâmetros de linha de comando
+### <a name="use-a-response-file-toospecify-command-line-parameters"></a>Usar parâmetros de linha de comando do arquivo toospecify uma resposta
 
 ```azcopy
 AzCopy /@:"C:\responsefiles\copyoperation.txt"
 ```
 
-É possível incluir qualquer parâmetro de linha de comando do AZCopy em um arquivo de resposta. O AzCopy processa os parâmetros no arquivo como se eles tivessem sido especificados na linha de comando, realizando uma substituição direta pelo conteúdo do arquivo.
+É possível incluir qualquer parâmetro de linha de comando do AZCopy em um arquivo de resposta. AzCopy processos Olá parâmetros no arquivo hello como se eles tivessem sido especificados na linha de comando hello, executar uma substituição direta com o conteúdo de saudação do arquivo hello.
 
-Vamos supor que um arquivo de resposta chamado `copyoperation.txt`contenha as linhas a seguir. Cada parâmetro do AzCopy pode ser especificado em uma única linha
+Suponha que um arquivo de resposta chamado `copyoperation.txt`, que contém Olá linhas a seguir. Cada parâmetro do AzCopy pode ser especificado em uma única linha
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
@@ -458,7 +458,7 @@ ou, em linhas separadas:
     /S
     /Y
 
-O AzCopy falhará se você dividir o parâmetro em duas linhas, conforme mostrado aqui para o parâmetro `/sourcekey` :
+AzCopy falhará se você dividir o parâmetro hello em duas linhas, conforme mostrado aqui para Olá `/sourcekey` parâmetro:
 
     http://myaccount.blob.core.windows.net/mycontainer
      C:\myfolder
@@ -467,12 +467,12 @@ O AzCopy falhará se você dividir o parâmetro em duas linhas, conforme mostrad
     /S
     /Y
 
-### <a name="use-multiple-response-files-to-specify-command-line-parameters"></a>Usar vários arquivos de resposta para especificar parâmetros de linha de comando
+### <a name="use-multiple-response-files-toospecify-command-line-parameters"></a>Usar vários parâmetros de linha de comando de toospecify resposta arquivos
 Vamos supor um arquivo de resposta chamado `source.txt` que especifique um contêiner de origem:
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer
 
-E um arquivo de resposta chamado `dest.txt` que especifique uma pasta de destino no sistema de arquivos:
+E um arquivo de resposta chamado `dest.txt` que especifica uma pasta de destino no sistema de arquivos de saudação:
 
     /Dest:C:\myfolder
 
@@ -480,13 +480,13 @@ E um arquivo de resposta chamado `options.txt` que especifique opções para o A
 
     /S /Y
 
-Para chamar o AzCopy usando esses arquivos de resposta, todos eles residindo em um diretório `C:\responsefiles`, use este comando:
+toocall AzCopy com esses arquivos de resposta, que residem em um diretório `C:\responsefiles`, use este comando:
 
 ```azcopy
 AzCopy /@:"C:\responsefiles\source.txt" /@:"C:\responsefiles\dest.txt" /SourceKey:<sourcekey> /@:"C:\responsefiles\options.txt"   
 ```
 
-O AzCopy processa esse comando assim como faria se você tivesse incluído todos os parâmetros individuais na linha de comando:
+AzCopy processa este comando exatamente como seria se você incluiu todos os parâmetros individuais na linha de comando Olá Olá:
 
 ```azcopy
 AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
@@ -498,40 +498,40 @@ AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfol
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceSAS:SAS1 /DestSAS:SAS2 /Pattern:abc.txt
 ```
 
-Você também pode especificar um SAS no URI do contêiner:
+Você também pode especificar uma SAS no URI do contêiner hello:
 
 ```azcopy
 AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1/?SourceSASToken /Dest:C:\myfolder /S
 ```
 
 ### <a name="journal-file-folder"></a>Pasta de arquivo de diário
-Sempre que você emite um comando para o AzCopy, ele verifica se um arquivo de diário existe na pasta padrão ou se está em uma pasta especificada por meio dessa opção. Se o arquivo de diário não estiver em nenhum dos lugares, o AzCopy tratará a operação como nova e gerar um novo arquivo de diário.
+Cada vez que você emitir um comando tooAzCopy, ele verifica se um arquivo de diário existe na pasta padrão de hello, ou se ela existir em uma pasta que você especificou com esta opção. Se o arquivo de diário Olá não existir em qualquer lugar, AzCopy trata operação hello como novo e gera um novo arquivo de diário.
 
-Se o arquivo de diário existir, o AzCopy verificará se a linha de comando inserida corresponde à linha de comando no arquivo de diário. Se as duas linhas de comando forem correspondentes, o AzCopy retomará a operação incompleta. Se elas não forem correspondentes, será solicitado que você substitua o arquivo de diário para iniciar uma nova operação ou que cancele a operação atual.
+Se existir um arquivo de diário hello, o AzCopy verificará se Olá linha de comando que você inserir corresponde Olá a linha de comando no arquivo de diário hello. Se duas linhas de comando Olá corresponder, AzCopy reinicia a operação de incompleta de saudação. Se eles não coincidirem, você será solicitada tooeither substituir Olá diário arquivo toostart uma nova operação ou toocancel Olá atual operação.
 
-Se você quiser usar o local padrão para o arquivo de diário:
+Se desejar que o local do toouse saudação padrão para o arquivo de diário hello:
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 ```
 
-Se você omitir a opção `/Z` ou especificar a opção `/Z` sem o caminho da pasta, conforme mostrado acima, o AzCopy criará o arquivo de diário no local padrão, que é `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Se o arquivo de diário já existir, o AzCopy retomará a operação com base no arquivo de diário.
+Se você omitir a opção `/Z`, ou especifique a opção `/Z` sem o caminho da pasta hello, como mostrado acima, AzCopy cria o arquivo de diário Olá no local padrão de saudação, que é `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Se já existir um arquivo de diário Olá, AzCopy retoma operação Olá com base no arquivo de diário hello.
 
-Se você quiser especificar um local personalizado para o arquivo de diário:
+Se você desejar toospecify um local personalizado para o arquivo de diário hello:
 
 ```azcopy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z:C:\journalfolder\
 ```
 
-Este exemplo criará o arquivo de diário se ele ainda não existir. Se ele existir, o AzCopy retomará a operação com base no arquivo de diário.
+Este exemplo cria o arquivo de diário Olá se ele ainda não existir. Se ele existir, AzCopy retoma operação Olá com base no arquivo de diário hello.
 
-Se você quiser retomar uma operação do AzCopy:
+Se você desejar tooresume uma operação AzCopy:
 
 ```azcopy
 AzCopy /Z:C:\journalfolder\
 ```
 
-Este exemplo retoma a última operação, cuja conclusão pode ter falhado.
+Este exemplo retoma Olá última operação, que pode ter falhado toocomplete.
 
 ### <a name="generate-a-log-file"></a>Gerar um arquivo de log
 
@@ -539,7 +539,7 @@ Este exemplo retoma a última operação, cuja conclusão pode ter falhado.
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 ```
 
-Se você especificar a opção `/V` sem fornecer um caminho de arquivo para o log detalhado, o AzCopy criará o arquivo de log no local padrão, que é `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
+Se você especificar a opção `/V` sem fornecer um log detalhado do toohello de caminho de arquivo, em seguida, AzCopy cria Olá arquivo de log no local padrão de saudação, que é `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
 
 Caso contrário, você pode criar um arquivo de log em um local personalizado:
 
@@ -547,13 +547,13 @@ Caso contrário, você pode criar um arquivo de log em um local personalizado:
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V:C:\myfolder\azcopy1.log
 ```
 
-Observe que, se você especificar um caminho relativo depois da opção `/V`, como `/V:test/azcopy1.log`, o log detalhado será criado no diretório de trabalho atual dentro de uma subpasta chamada `test`.
+Observe que, se você especificar um caminho relativo a opção a seguir `/V`, como `/V:test/azcopy1.log`, log detalhado Olá será criado no diretório de trabalho atual hello dentro de uma subpasta chamada `test`.
 
-### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Especificar o número de operações simultâneas para começar
-A opção `/NC` especifica o número de operações de cópia simultâneas. Por padrão, o AzCopy inicia uma determinada quantidade de operações simultâneas para aumentar a taxa de transferência de dados. Para operações de tabela, o número de operações simultâneas é igual ao número de processadores que você tem. Para operações de blob e arquivo, o número de operações simultâneas é igual a oito vezes o número de processadores que você tem. Se estiver executando o AzCopy em uma rede de baixa largura de banda, você poderá especificar um número menor para essa /NC a fim de evitar uma falha causada pela concorrência de recursos.
+### <a name="specify-hello-number-of-concurrent-operations-toostart"></a>Saudação de número de operações simultâneas toostart
+Opção `/NC` Especifica o número de saudação de operações simultâneas de cópia. Por padrão, AzCopy inicia um determinado número de operações simultâneas tooincrease Olá transferência de transferência de dados. Para operações de tabela, o número de saudação de operações simultâneas é igual toohello número de processadores que você tem. Para operações de Blob e arquivo, número de saudação de operações simultâneas é ser igual 8 vezes Olá número de processadores que você tem. Se você estiver executando o AzCopy através de uma rede de baixa largura de banda, você pode especificar um número menor para /NC tooavoid falha causada por divisão dos recursos.
 
 ### <a name="run-azcopy-against-azure-storage-emulator"></a>Executar o AzCopy em um emulador de armazenamento do Azure
-Você pode executar o AzCopy no [emulador de armazenamento do Azure](storage-use-emulator.md) para Blobs:
+Você pode executar AzCopy em Olá [emulador de armazenamento do Azure](storage-use-emulator.md) para Blobs:
 
 ```azcopy
 AzCopy /Source:https://127.0.0.1:10000/myaccount/mycontainer/ /Dest:C:\myfolder /SourceKey:key /SourceType:Blob /S
@@ -566,88 +566,88 @@ AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /Sou
 ```
 
 ## <a name="azcopy-parameters"></a>Parâmetros do AzCopy
-Veja abaixo uma descrição dos parâmetros do AzCopy. Também é possível digitar um dos comandos a seguir na linha de comando para obter ajuda no uso do AzCopy:
+Veja abaixo uma descrição dos parâmetros do AzCopy. Você também pode digitar um dos comandos a seguir na linha de comando Olá para obter ajuda usando AzCopy de saudação:
 
 * Para obter ajuda detalhada da linha de comando para o AzCopy: `AzCopy /?`
 * Para obter ajuda detalhada para qualquer parâmetro do AzCopy: `AzCopy /?:SourceKey`
 * Para obter exemplos da linha de comando: `AzCopy /?:Samples`
 
 ### <a name="sourcesource"></a>/Source:"origem"
-Especifica os dados de origem para cópia. A origem pode ser um diretório do sistema de arquivos, um contêiner de blob, um diretório virtual de blob, um compartilhamento de arquivos de armazenamento, um diretório de arquivos de armazenamento ou uma tabela do Azure.
+Especifica os dados de origem de saudação da qual toocopy. origem de saudação pode ser um diretório de sistema de arquivos, um contêiner de blob, um diretório virtual de blob, um compartilhamento de arquivos de armazenamento, um diretório de arquivos de armazenamento ou uma tabela do Azure.
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### <a name="destdestination"></a>/Dest: "destino"
-Especifica o destino da cópia. O destino pode ser um diretório do sistema de arquivos, um contêiner de blob, um diretório virtual de blob, um compartilhamento de arquivos de armazenamento, um diretório de arquivos de armazenamento ou uma tabela do Azure.
+Especifica a saudação toocopy de destino para. destino de saudação pode ser um diretório de sistema de arquivos, um contêiner de blob, um diretório virtual de blob, um compartilhamento de arquivos de armazenamento, um diretório de arquivos de armazenamento ou uma tabela do Azure.
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### <a name="patternfile-pattern"></a>/Pattern:"padrão de arquivo"
-Especifica um padrão de arquivo que indica quais arquivos devem ser copiados. O comportamento do parâmetro /Pattern é determinado pelo local dos dados de origem e pela presença da opção do modo recursivo. O modo recursivo é especificado pela opção /S.
+Especifica um padrão de arquivo que indica qual toocopy de arquivos. comportamento de saudação do parâmetro de /Pattern Olá é determinado pelo local Olá Olá dos dados de origem e Olá presença da opção de modo recursivo hello. O modo recursivo é especificado pela opção /S.
 
-Se a origem especificada for um diretório no sistema de arquivos, os curingas padrão estão em vigor, e o padrão de arquivo fornecido é comparado com os arquivos dentro do diretório. Se a opção /S for especificada, o AzCopy também compara o padrão especificado com todos os arquivos em todas as subpastas do diretório.
+Se a origem especificada Olá é um diretório no sistema de arquivos hello, caracteres curinga padrão está em vigor e padrão do arquivo de saudação fornecido é comparado com arquivos no diretório hello. Se opção que /s for especificado, em seguida, AzCopy também corresponder ao padrão de saudação especificado em relação a todos os arquivos em todas as subpastas abaixo do diretório de saudação.
 
-Se a origem especificada for um contêiner de blob ou um diretório virtual, os curingas não são aplicados. Se a opção /S for especificada, o AzCopy interpreta o padrão do arquivo especificado como um prefixo de blob. Se a opção /S não for especificada, o AzCopy compara o padrão do arquivo com os nomes de blob exatos.
+Se a origem de saudação especificado é um contêiner de blob ou diretório virtual, curingas não são aplicados. Se a opção que /s for especificado, em seguida, AzCopy interpreta padrão de saudação de arquivo especificado como um prefixo de blob. Se a opção que /s não for especificado, em seguida, AzCopy faz a correspondência de padrão de arquivo hello com nomes de blob exato.
 
-Se a origem especificada for um compartilhamento de arquivos do Azure, você deve especificar o nome exato do arquivo (por exemplo, abc.txt) para copiar um único arquivo ou especificar a opção /S para copiar todos os arquivos recursivamente no compartilhamento. A tentativa de especificar, ao mesmo tempo, um padrão de arquivo e uma opção /S resultará em erro.
+Se Olá especificado origem é um compartilhamento de arquivos do Azure e, em seguida, você deve especificar nome do arquivo exato Olá, (por exemplo, abc.txt) toocopy um único arquivo, ou especifique a opção /S toocopy todos os arquivos no hello compartilhamento recursivamente. Tentativa toospecify um padrão de arquivo e a opção /S juntos resultará em erro.
 
-O AzCopy diferencia maiúsculas de minúsculas quando /Source é um contêiner de blob ou diretório virtual de blob, e não diferencia maiúsculas de minúsculas em todos os outros casos.
+AzCopy usa a correspondência diferencia maiusculas de minúsculas quando Olá /Source é um contêiner de blob ou diretório virtual de blob e Olá de usa maiusculas de minúsculas correspondentes em todos os outros casos.
 
-O padrão de arquivo usado quando nenhum padrão de arquivo é especificado é *.* para uma localização do sistema de arquivos, ou um prefixo vazio para uma localização de armazenamento do Azure. Não é possível especificar diversos padrões para os arquivos.
+Olá padrão de arquivo padrão usado quando nenhum padrão de arquivo especificado é *.* para uma localização do sistema de arquivos, ou um prefixo vazio para uma localização de armazenamento do Azure. Não é possível especificar diversos padrões para os arquivos.
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="destkeystorage-key"></a>/DestKey:"chave de armazenamento"
-Especifica a chave de conta de armazenamento do recurso de destino.
+Especifica a chave de conta de armazenamento Olá para o recurso de destino hello.
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### <a name="destsassas-token"></a>/DestSAS:"sas-token"
-Especifica uma SAS (Assinatura de acesso compartilhado) com as permissões de LEITURA e GRAVAÇÃO para o destino (se for aplicável). Coloque a SAS entre aspas duplas, porque ela pode conter caracteres de linha de comando especiais.
+Especifica uma assinatura de acesso compartilhado (SAS) com permissões de leitura e gravação para o destino da saudação (se aplicável). Olá surround SAS com aspas duplas, como ele pode contém caracteres especiais de linha de comando.
 
-Se o recurso de destino for um contêiner de blob, compartilhamento de arquivo ou tabela, você poderá especificar essa opção seguida pelo token da SAS, ou a SAS como parte do URI do contêiner de blob, compartilhamento de arquivo ou tabela de destino, sem essa opção.
+Se o recurso de destino Olá é um contêiner de blob, compartilhamento de arquivo ou tabela, você pode especificar essa opção, seguida por um token SAS hello, ou você pode especificar Olá SAS como parte do contêiner de blob de destino hello, compartilhamento de arquivos ou URI da tabela, sem essa opção.
 
-Se a origem e o destino forem blobs, ambos devem residir na mesma conta de armazenamento.
+Se Olá origem e destino são ambos os blobs, o blob de destino Olá deve residir no hello mesmo conta de armazenamento como um blob de origem hello.
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### <a name="sourcekeystorage-key"></a>/Sourcekey: "chave de armazenamento"
-Especifica a chave de conta de armazenamento para o recurso de origem.
+Especifica a chave de conta de armazenamento Olá para o recurso de fonte de saudação.
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### <a name="sourcesassas-token"></a>/SourceSAS:"sas-token"
-Especifica uma Assinatura de acesso compartilhado com as permissões de LEITURA e LISTAGEM para a origem (se for aplicável). Coloque a SAS entre aspas duplas, porque ela pode conter caracteres de linha de comando especiais.
+Especifica uma assinatura de acesso compartilhado com permissões de leitura e a lista de origem de saudação (se aplicável). Olá surround SAS com aspas duplas, como ele pode contém caracteres especiais de linha de comando.
 
-Se o recurso da fonte foir um contêiner de blob e não for fornecida uma chave nem uma SAS, o contêiner será lido por meio de acesso anônimo.
+Se o recurso de fonte de saudação é um contêiner de blob e uma chave, nem uma SAS é fornecida, o contêiner de blob hello serão lidos por meio do acesso anônimo.
 
-Se a origem for um compartilhamento de arquivo ou uma tabela, será necessário fornecer uma chave ou SAS.
+Se a fonte de saudação é um compartilhamento de arquivo ou tabela, uma chave ou um SAS deve ser fornecido.
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### <a name="s"></a>/S
-Especifica o modo recursivo para operações de cópia. No modo recursivo, o AzCopy copiará todos os blobs ou arquivos correspondentes ao padrão do arquivo, inclusive os presentes nas subpastas.
+Especifica o modo recursivo para operações de cópia. No modo recursivo, AzCopy copiar todos os blobs ou arquivos que correspondem a saudação padrão de arquivo especificado, incluindo aqueles em subpastas.
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="blobtypeblock--page--append"></a>/BlobType:"bloco" | "página" | "anexo"
-Especifica se o blob de destino é um blob de blocos, um blob de páginas ou um blob anexo. Essa opção só será possível quando você estiver carregando um blob. Caso contrário, um erro é gerado. Se o destino é um blob e essa opção não está especificada, por padrão, o AzCopy cria um blob de blocos.
+Especifica se o blob de destino Olá é um blob de bloco, um blob de página ou um blob de acréscimo. Essa opção só será possível quando você estiver carregando um blob. Caso contrário, um erro é gerado. Se o destino de saudação é um blob e essa opção não for especificada, por padrão, AzCopy cria um blob de bloco.
 
 **Aplicável a:** Blobs
 
 ### <a name="checkmd5"></a>/CheckMD5
-Calcula um hash MD5 para dados baixados e certifica que o hash MD5 armazenado no blob, ou a propriedade Content-MD5 do arquivo, corresponde ao hash calculado. Como, por padrão, a verificação MD5 permanece desativada, você deve especificar essa opção para realizar a verificação MD5 ao baixar os dados.
+Calcula um hash MD5 para dados baixados e verifica se o hash MD5 Olá armazenados no blob hello ou hash Olá calculado corresponde a propriedade de Content-MD5 do arquivo. seleção de saudação MD5 é desativada por padrão, para que você deve especificar essa verificação de MD5 Olá opção tooperform durante o download de dados.
 
-O Azure Storage não assegura que o hash MD5 armazenado para o blob ou o arquivo esteja atualizado. É de responsabilidade do cliente atualizar o MD5 sempre que o blob ou o arquivo é modificado.
+Observe que o armazenamento do Azure não garante que Olá hash MD5 armazenado para Olá blob ou arquivo é atualizado. Olá tooupdate de responsabilidade do cliente MD5 é sempre que Olá blob ou arquivo é modificado.
 
-O AzCopy sempre define a propriedade Content-MD5 para um blob ou um arquivo do Azure depois de carregá-lo no serviço.  
+AzCopy sempre define Olá Content-MD5 propriedade um blob do Azure ou arquivo após carregá-lo toohello serviço.  
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="snapshot"></a>/Snapshot
-Indica se é necessário transferir ou não os instantâneos. Essa opção só é válida quando a origem é um blob.
+Indica se tootransfer instantâneos. Essa opção é válida somente quando a fonte de saudação for um blob.
 
-Os instantâneos de blob transferidos são renomeados neste formato: nome-do-blob (hora-do-instantâneo).extensão
+Olá instantâneos de blob transferidos são renomeados neste formato: nome de blob (hora do instantâneo) .extension
 
 Por padrão, os instantâneos não são copiados.
 
@@ -656,7 +656,7 @@ Por padrão, os instantâneos não são copiados.
 ### <a name="vverbose-log-file"></a>/V: [arquivo de log detalhado]
 Produz mensagens de status detalhadas em um arquivo de log.
 
-Por padrão, o arquivo de log detalhado é chamado de AzCopyVerbose.log no `%LocalAppData%\Microsoft\Azure\AzCopy`. Se você especificar um local de arquivo existente para essa opção, o log detalhado será acrescentado a esse arquivo.  
+Por padrão, o arquivo de log detalhado Olá é denominado AzCopyVerbose.log em `%LocalAppData%\Microsoft\Azure\AzCopy`. Se você especificar um local de arquivo existente para essa opção, log detalhado hello serão acrescentadas toothat arquivo.  
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 
@@ -665,24 +665,24 @@ Especifica uma pasta de arquivo de diário para retomar uma operação.
 
 O AzCopy sempre dará suporte à retomada caso uma operação tenha sido interrompida.
 
-Se essa opção não for especificada ou for especificada sem um caminho de pasta, o AzCopy criará o arquivo de diário no local padrão, que é %LocalAppData%\Microsoft\Azure\AzCopy.
+Se essa opção não for especificada, ou ele é especificado sem um caminho de pasta, AzCopy irá criar o arquivo de diário Olá no local padrão de saudação, que é % LocalAppData%\Microsoft\Azure\AzCopy.
 
-Sempre que você emite um comando para o AzCopy, ele verifica se um arquivo de diário existe na pasta padrão ou se está em uma pasta especificada por meio dessa opção. Se o arquivo de diário não estiver em nenhum dos lugares, o AzCopy tratará a operação como nova e gerar um novo arquivo de diário.
+Cada vez que você emitir um comando tooAzCopy, ele verifica se um arquivo de diário existe na pasta padrão de hello, ou se ela existir em uma pasta que você especificou com esta opção. Se o arquivo de diário Olá não existir em qualquer lugar, AzCopy trata operação hello como novo e gera um novo arquivo de diário.
 
-Se o arquivo de diário existir, o AzCopy verificará se a linha de comando inserida corresponde à linha de comando no arquivo de diário. Se as duas linhas de comando forem correspondentes, o AzCopy retomará a operação incompleta. Se elas não forem correspondentes, será solicitado que você substitua o arquivo de diário para iniciar uma nova operação ou que cancele a operação atual.
+Se existir um arquivo de diário hello, o AzCopy verificará se Olá linha de comando que você inserir corresponde Olá a linha de comando no arquivo de diário hello. Se duas linhas de comando Olá corresponder, AzCopy reinicia a operação de incompleta de saudação. Se eles não coincidirem, você será solicitada tooeither substituir Olá diário arquivo toostart uma nova operação ou toocancel Olá atual operação.
 
-O arquivo de diário é excluído mediante a conclusão bem-sucedida da operação.
+arquivo de diário de saudação é excluído após a conclusão bem-sucedida da operação de saudação.
 
 A retomada de uma operação de um arquivo de diário criado por uma versão anterior do AzCopy não é compatível.
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### <a name="parameter-file"></a>/@: “arquivo de parâmetro”
-Especifica um arquivo que contém parâmetros. O AzCopy processa os parâmetros no arquivo como se eles tivessem sido especificados na linha de comando.
+Especifica um arquivo que contém parâmetros. AzCopy processos Olá parâmetros no arquivo hello como se eles tivessem sido especificados na linha de comando hello.
 
 Em um arquivo de resposta, é possível especificar vários parâmetros em um único arquivo ou especificar cada parâmetro na própria linha. Um parâmetro individual não pode abranger várias linhas.
 
-Os arquivos de resposta podem incluir linhas de comentários iniciadas pelo símbolo #.
+Arquivos de resposta podem incluir linhas de comentários que começam com hello # símbolo.
 
 É possível especificar vários arquivos de resposta. No entanto, o AzCopy não permite arquivos de resposta aninhados.
 
@@ -696,36 +696,36 @@ Suprime todas as solicitações de confirmação do AzCopy.
 ### <a name="l"></a>/L
 Especifica uma operação de listagem apenas. Nenhum dado é copiado.
 
-O AzCopy interpretará o uso dessa opção como uma simulação para execução da linha de comando sem essa opção /L, e contará quantos objetos serão copiados. Você pode especificar a opção /V ao mesmo tempo para verificar quais objetos serão copiados no log detalhado.
+AzCopy interpretará hello usando dessa opção como uma simulação de linha de comando Olá em execução sem essa opção /L e contagem de quantos objetos serão copiados, você pode especificar a opção /V no Olá a mesma hora toocheck quais objetos serão copiados em log detalhado hello.
 
-O comportamento dessa opção também é determinado pelo local dos dados de origem e pela presença da opção no modo recursivo /S e pela opção de padrão de arquivo /Pattern.
+comportamento de saudação dessa opção também é determinado pelo local Olá Olá dos dados de origem e a presença de Olá Olá recursiva modo opção /S e arquivo padrão da opção de /Pattern.
 
 O AzCopy exige a permissão de LISTAGEM e de LEITURA deste local de origem ao usar essa opção.
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="mt"></a>/MT
-Define a hora da última modificação do arquivo baixado como a mesma do blob de origem ou do arquivo.
+Define a hora da última modificação do arquivo baixado Olá toobe Olá mesmo como o blob de origem hello ou do arquivo.
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="xn"></a>/XN
-Exclui um recurso de origem mais novo. O recurso não será copiado se a hora da última modificação na origem for igual ou mais recente do que o destino.
+Exclui um recurso de origem mais novo. recurso de saudação não será copiado se hora da última modificação do código-fonte Olá Olá é hello igual ou mais recente do que o destino.
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="xo"></a>/XO
-Exclui um recurso de origem mais antigo. O recurso não será copiado se a hora da última modificação da origem for igual ou anterior à do destino.
+Exclui um recurso de origem mais antigo. recurso Olá não será copiado se a hora da última modificação do código-fonte Olá Olá é hello mesmo ou mais antigo que o destino.
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="a"></a>/A
-Carrega apenas arquivos que tenham o atributo Archive definido.
+Carrega somente os arquivos que têm o atributo de arquivo morto de saudação configurado.
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="iarashcnetoi"></a>/IA:[RASHCNETOI]
-Carrega apenas arquivos que tenham algum dos atributos especificados definido.
+Carrega somente os arquivos que têm algum Olá especificado de atributos.
 
 Entre os atributos disponíveis estão:
 
@@ -743,7 +743,7 @@ Entre os atributos disponíveis estão:
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="xarashcnetoi"></a>/XA:[RASHCNETOI]
-Exclui arquivos que tenham qualquer dos atributos especificados definido.
+Exclui os arquivos que têm algum Olá especificado conjunto de atributos.
 
 Entre os atributos disponíveis estão:
 
@@ -761,37 +761,37 @@ Entre os atributos disponíveis estão:
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="delimiterdelimiter"></a>/Delimiter: "delimitador"
-Indica o caractere delimitador usado para delimitar diretórios virtuais em um nome de blob.
+Indica o caractere delimitador de saudação usado diretórios virtuais toodelimit em um nome de blob.
 
-Por padrão, o AzCopy usa / como o caractere delimitador. No entanto, o AzCopy dá suporte ao uso de qualquer caractere comum (como @, # ou %) como delimitador. Se precisar incluir um desses caracteres especiais na linha de comando, coloque o nome do arquivo entre aspas duplas.
+Por padrão, usa AzCopy / como o caractere delimitador de saudação. No entanto, o AzCopy dá suporte ao uso de qualquer caractere comum (como @, # ou %) como delimitador. Se você precisar tooinclude um desses caracteres especiais na linha de comando hello, inclua o nome do arquivo de saudação com aspas duplas.
 
 Essa opção só é aplicável para o download de blobs.
 
 **Aplicável a:** Blobs
 
 ### <a name="ncnumber-of-concurrent-operations"></a>/NC: "número-de-operações-simultâneas"
-Especifica o número de operações simultâneas.
+Especifica o número de saudação de operações simultâneas.
 
-Por padrão, o AzCopy inicia uma determinada quantidade de operações simultâneas para aumentar a taxa de transferência dos dados. O grande número de operações simultâneas em um ambiente com baixa largura de banda pode sobrecarregar a conexão de rede, evitando que as operações sejam concluídas. Limite operações simultâneas com base na largura de banda real de rede disponível.
+AzCopy por padrão inicia um determinado número de operações simultâneas tooincrease Olá transferência de transferência de dados. Observe que o grande número de operações simultâneas em um ambiente de baixa largura de banda pode sobrecarregar a conexão de rede de saudação e evitar operações de saudação de ser totalmente concluída. Limite operações simultâneas com base na largura de banda real de rede disponível.
 
-O limite máximo de operações simultâneas é 512.
+limite superior de saudação para as operações simultâneas é 512.
 
 **Aplicável a:** Blobs, Arquivos, Tabelas
 
 ### <a name="sourcetypeblob--table"></a>/SourceType:"Blob" | "Table"
-Especifica se o recurso `source` é um blob disponível no ambiente de desenvolvimento local, em execução no emulador de armazenamento.
+Especifica que Olá `source` recurso é um blob disponível no ambiente de desenvolvimento local hello, em execução no emulador de armazenamento hello.
 
 **Aplicável a:** Blobs, Tabelas
 
 ### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
-Especifica se o recurso `destination` é um blob disponível no ambiente de desenvolvimento local, em execução no emulador de armazenamento.
+Especifica que Olá `destination` recurso é um blob disponível no ambiente de desenvolvimento local hello, em execução no emulador de armazenamento hello.
 
 **Aplicável a:** Blobs, Tabelas
 
 ### <a name="pkrskey1key2key3"></a>/PKRS: "chave1#chave2#chave3#..."
-Divide o intervalo de chaves de partição para possibilitar a exportação paralela dos dados, o que aumenta a velocidade dessa operação.
+Divisões Olá tooenable de intervalo de chave de partição, exportação de dados de tabela em paralelo, o que aumenta a velocidade de Olá Olá da operação de exportação.
 
-Se essa opção não for especificada, o AzCopy usa um único thread para exportar entidades de tabela. Por exemplo, se o usuário especifica /PKRS:"aa#bb", o AzCopy inicia três operações simultâneas.
+Se essa opção não for especificada, o AzCopy usa entidades de tabela tooexport de thread único. Por exemplo, se hello usuário Especifica /PKRS: "aa #bb" e, em seguida, AzCopy inicia três operações simultâneas.
 
 Cada operação exporta um dos três intervalos de chaves de partição, como mostramos abaixo:
 
@@ -804,52 +804,52 @@ Cada operação exporta um dos três intervalos de chaves de partição, como mo
 **Aplicável a:** Tabelas
 
 ### <a name="splitsizefile-size"></a>/Splitsize: "tamanho do arquivo"
-Especifica o tamanho da divisão do arquivo exportado em MB, o valor mínimo permitido é de 32.
+Especifica Olá arquivo exportado de dividir o tamanho em MB, Olá valor mínimo permitido é 32.
 
-Se essa opção não for especificada, o AzCopy exporta os dados da tabela para um único arquivo.
+Se essa opção não for especificada, AzCopy será Exportar arquivo de toosingle de dados de tabela.
 
-Se os dados da tabela forem exportados para um blob e o tamanho do arquivo exportado alcançar o limite de 200 GB, o AzCopy divide o arquivo exportado, mesmo que essa opção não seja especificada.
+Se dados de tabela de saudação são exportado tooa blob e hello, tamanho do arquivo exportado atinge Olá limite de 200 GB para o tamanho do blob, AzCopy dividirá arquivo exportado do hello, mesmo se essa opção não for especificada.
 
 **Aplicável a:** Tabelas
 
 ### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
-Especifica o comportamento da importação dos dados da tabela.
+Especifica o comportamento de importação de dados de tabela hello.
 
-* InsertOrSkip — Ignora uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
-* InsertOrMerge — Mescla uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
-* InsertOrReplace — Substitui uma entidade existente ou insere uma nova entidade, caso ela não exista na tabela.
+* InsertOrSkip - ignora uma entidade existente ou insere uma nova entidade se ele não existe na tabela de saudação.
+* InsertOrMerge - mescla uma entidade existente ou insere uma nova entidade se ele não existe na tabela de saudação.
+* InsertOrReplace - substitui uma entidade existente ou insere uma nova entidade se ele não existe na tabela de saudação.
 
 **Aplicável a:** Tabelas
 
 ### <a name="manifestmanifest-file"></a>/Manifesto: "arquivo de manifesto"
-Especifica o arquivo de manifesto para a operação de exportação e importação de tabela.
+Especifica o arquivo de manifesto Olá para tabela Olá exportar e importar a operação.
 
-Essa opção é opcional durante a operação de exportação. O AzCopy gerará um arquivo de manifesto com nome predefinido se essa opção não for especificada.
+Essa opção é opcional durante a operação de exportação hello, AzCopy irá gerar um arquivo de manifesto com nome pré-definido se essa opção não for especificada.
 
-Essa opção é exigida durante a operação de importação para localização dos arquivos de dados.
+Essa opção é necessária durante a operação de importação Olá para localizar os arquivos de dados de saudação.
 
 **Aplicável a:** Tabelas
 
 ### <a name="synccopy"></a>/SyncCopy
-Indica se devem ser copiados de forma síncrona blobs ou arquivos entre dois pontos de extremidade de armazenamento do Azure.
+Indica se toosynchronously copiar blobs ou arquivos entre dois pontos de extremidade de armazenamento do Azure.
 
-O AzCopy por padrão usa cópia assíncrona no servidor. Especifique essa opção para executar uma cópia síncrona, que baixa blobs ou arquivos para a memória local e, em seguida, carrega-as para o armazenamento do Azure.
+O AzCopy por padrão usa cópia assíncrona no servidor. Especifique esse tooperform opção um síncrono copiar, que faz o download de blobs ou arquivos toolocal memória e, em seguida, carrega tooAzure armazenamento.
 
-Você pode usar essa opção ao copiar arquivos no armazenamento de Blob no armazenamento de arquivo ou do armazenamento de Blob para armazenamento de arquivos ou vice-versa.
+Você pode usar essa opção ao copiar arquivos no armazenamento de Blob no armazenamento de arquivo ou Blob storage tooFile armazenamento ou vice-versa.
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="setcontenttypecontent-type"></a>/SetContentType:"content-type"
-Especifica o tipo de conteúdo MIME para blobs ou arquivos de destino.
+Especifica o tipo de conteúdo MIME Olá para blobs de destino ou arquivos.
 
-O AzCopy define o tipo de conteúdo para um blob ou arquivo application/octet-stream por padrão. Você pode definir o tipo de conteúdo para todos os blobs ou arquivos explicitamente especificando um valor para essa opção.
+Conjuntos de AzCopy Olá o tipo de conteúdo para um blob ou arquivo tooapplication/octet-stream por padrão. Você pode definir o tipo de conteúdo Olá para todos os blobs ou arquivos especificando explicitamente um valor para essa opção.
 
-Se você especificar essa opção sem um valor, AzCopy definirá cada blob ou tipo de conteúdo do arquivo de acordo com a sua extensão de arquivo.
+Se você especificar essa opção sem um valor, AzCopy definirá cada blob ou tipo de conteúdo do arquivo de acordo com tooits extensão de arquivo.
 
 **Aplicável a:** Blobs, Arquivos
 
 ### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
-Especifica o formato do arquivo de dados exportados da tabela.
+Especifica o formato de Olá Olá tabela exportada do arquivo de dados.
 
 Se essa opção não for especificada, por padrão, o AzCopy exportará o arquivo de dados da tabela no formato JSON.
 
@@ -857,15 +857,15 @@ Se essa opção não for especificada, por padrão, o AzCopy exportará o arquiv
 
 ## <a name="known-issues-and-best-practices"></a>Problemas Conhecidos e Práticas Recomendadas
 ### <a name="limit-concurrent-writes-while-copying-data"></a>Limite gravações simultâneas durante a cópia de dados
-Ao copiar blobs ou arquivos usando o AZCopy, lembre-se de que outro aplicativo pode estar modificando os dados enquanto você os copia. Se possível, verifique se os dados que está copiando não estão sendo modificados durante a cópia. Por exemplo, ao copiar um VHD associado a uma máquina virtual do Azure, verifique se nenhum outro aplicativo está gravando no VHD, no momento. Uma boa maneira de fazer isso é ceder o recurso para ser copiado. Também é possível criar um instantâneo do VHD primeiro e, em seguida, copiar o instantâneo.
+Quando você copia blobs ou arquivos com AzCopy, tenha em mente que outro aplicativo esteja modificando dados saudação enquanto você estiver copiando-lo. Se possível, certifique-se de que dados Olá que você está copiando não está sendo modificados durante a operação de cópia de saudação. Por exemplo, ao copiar um VHD associado a uma máquina virtual do Azure, certifique-se de que nenhum outro aplicativo no momento está escrevendo toohello VHD. Toodo uma boa maneira trata concedendo Olá recurso toobe copiado. Como alternativa, você pode criar um instantâneo de saudação VHD primeiro e copie instantâneo hello.
 
-Se não for possível evitar que outros aplicativos gravem em blobs ou arquivos enquanto são copiados, lembre-se que, quando o trabalho terminar, os recursos copiados não poderão mais ter paridade total com os recursos de origem.
+Se você não pode impedir que outros aplicativos gravando tooblobs ou arquivos enquanto eles estão sendo copiados, em seguida, tenha em mente que, pelo trabalho de Olá Olá tempo termina, hello recursos copiados não podem mais ter paridade completa com os recursos de origem hello.
 
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>Execute uma instância de AzCopy em um computador.
-O AzCopy foi projetado para maximizar a utilização de seu recurso de máquina para acelerar a transferência de dados, é recomendável executar apenas uma instância de AzCopy em um único computador e especifique a opção `/NC` se precisar de mais operações em simultâneo. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando.
+AzCopy é projetado toomaximize Olá utilização sua máquina recurso tooaccelerate Olá de transferência de dados, é recomendável executar apenas uma instância de AzCopy em um computador e especificar a opção Olá `/NC` se você precisar de operações simultâneas mais. Para obter mais detalhes, digite `AzCopy /?:NC` na linha de comando hello.
 
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>Habilite algoritmos MD5 compatíveis com FIPS para o AzCopy quando você "Usar algoritmos compatíveis com FIPS para criptografia, hash e assinatura".
-Por padrão, o AzCopy usa a implementação MD5 do .NET para calcular o MD5 ao copiar objetos, mas há alguns requisitos de segurança que precisam do AzCopy para permitir a configuração de MD5 compatível com FIPS.
+AzCopy por padrão usa Olá toocalculate da implementação .NET MD5 MD5 ao copiar objetos, mas há alguns requisitos de segurança que precisam de configuração FIPS MD5 compatível tooenable AzCopy.
 
 Você pode criar um arquivo app.config `AzCopy.exe.config` com a propriedade `AzureStorageUseV1MD5` e reservá-lo com o AzCopy.exe.
 
@@ -876,20 +876,20 @@ Você pode criar um arquivo app.config `AzCopy.exe.config` com a propriedade `Az
       </appSettings>
     </configuration>
 
-Para a propriedade "AzureStorageUseV1MD5" • True – valor padrão, o AzCopy usará a implementação MD5 do .NET.
+Para a propriedade "AzureStorageUseV1MD5" • True - valor saudação padrão AzCopy usará implementação .NET MD5.
 • False – o AzCopy usará o algoritmo MD5 compatível com FIPS.
 
 Observe que os algoritmos compatíveis com FIPS estão desabilitados por padrão em seu computador com Windows. Digite secpol.msc na janela Executar e marque essa opção em Configuração de Segurança -> Segurança -> Políticas Locais > Opções de Segurança > Criptografia do Sistema: usar algoritmos compatíveis com FIPS para criptografia, hash e assinatura.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre o Armazenamento do Azure e o AzCopy, consulte os recursos a seguir.
+Para obter mais informações sobre o armazenamento do Azure e AzCopy, consulte toohello recursos a seguir.
 
 ### <a name="azure-storage-documentation"></a>Documentação do Armazenamento do Azure:
-* [Introdução ao Armazenamento do Azure](storage-introduction.md)
-* [Como usar o Armazenamento de blob do .NET](storage-dotnet-how-to-use-blobs.md)
-* [Como usar o Armazenamento de Arquivos no .NET](storage-dotnet-how-to-use-files.md)
-* [Como usar o Armazenamento de Tabela do .NET](storage-dotnet-how-to-use-tables.md)
-* [Como criar, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md)
+* [Introdução tooAzure armazenamento](storage-introduction.md)
+* [Como toouse armazenamento de BLOBs no .NET](storage-dotnet-how-to-use-blobs.md)
+* [Como toouse armazenamento de arquivo do .NET](storage-dotnet-how-to-use-files.md)
+* [Como toouse o armazenamento de tabela do .NET](storage-dotnet-how-to-use-tables.md)
+* [Como toocreate, gerenciar ou excluir uma conta de armazenamento](storage-create-storage-account.md)
 * [Transferir dados com o AzCopy no Linux](storage-use-azcopy-linux.md)
 
 ### <a name="azure-storage-blog-posts"></a>Postagens de blog de armazenamento do Azure:

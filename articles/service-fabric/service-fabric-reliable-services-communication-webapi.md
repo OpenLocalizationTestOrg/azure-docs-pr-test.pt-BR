@@ -1,6 +1,6 @@
 ---
-title: "Comunicação de serviço com a API Web ASP.NET | Microsoft Docs"
-description: "Saiba como implementar passo a passo a comunicação de serviço usando a API Web ASP.NET com auto-hospedagem OWIN na API dos Reliable Services."
+title: "comunicação aaaService com hello ASP.NET Web API | Microsoft Docs"
+description: "Saiba como comunicação de serviço tooimplement passo a passo usando Olá API da Web ASP.NET com OWIN auto-hospedagem em Olá confiável API de serviços."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -15,35 +15,35 @@ ms.workload: required
 ms.date: 02/10/2017
 ms.author: vturecek
 redirect_url: /azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore
-ms.openlocfilehash: 73b7e1c0cb93ae7c54780a3aab837b0e5bcdb0a0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3fb18fcb141ada0d79a0acda3dccbc7fb044346d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-service-fabric-web-api-services-with-owin-self-hosting"></a>Introdução aos serviços de API Web do Service Fabric com auto-hospedagem OWIN
-Com o Service Fabric, você decide como deseja que seus serviços se comuniquem com os usuários e entre si. Este tutorial se concentra na implementação da comunicação de serviço usando a API Web ASP.NET com auto-hospedagem OWIN (Open Web Interface for .NET) na API dos Reliable Services do Service Fabric. Vamos abordar detalhadamente a API de comunicação conectável dos Reliable Services. Também usaremos a API Web em um exemplo passo a passo para mostrar a você como configurar um ouvinte de comunicação personalizado.
+Malha do Azure do serviço coloca power Olá em suas mãos ao decidir como deseja que seu toocommunicate serviços com usuários e entre si. Este tutorial se concentra na implementação da comunicação de serviço usando a API Web ASP.NET com auto-hospedagem OWIN (Open Web Interface for .NET) na API dos Reliable Services do Service Fabric. Será examinarmos profundamente Olá comunicação de serviços confiáveis conectável API. Também usaremos API da Web em um exemplo passo a passo tooshow você como tooset a um ouvinte de comunicação personalizados.
 
-## <a name="introduction-to-web-api-in-service-fabric"></a>Introdução à API Web no Service Fabric
-O API Web ASP.NET é uma estrutura popular e poderosa para criar APIs HTTP sobre o .NET Framework. Se você não ainda estiver familiarizado com a estrutura, confira [Getting started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) para saber mais.
+## <a name="introduction-tooweb-api-in-service-fabric"></a>Introdução tooWeb API no serviço de malha
+API da Web do ASP.NET é uma estrutura popular e avançada para a criação de APIs de HTTP na parte superior de saudação do .NET Framework. Se você não ainda estiver familiarizado com o framework hello, consulte [guia de Introdução ao ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) toolearn mais.
 
-A API Web na Malha de Serviço é o mesma API Web ASP.NET que você conhece e adora. A diferença está em como você *hospeda* um aplicativo de API Web. Você não usará o IIS (Serviços de Informações da Internet) da Microsoft. Para compreender melhor a diferença, vamos dividir isso em duas partes:
+API da Web no serviço de malha é Olá mesmo ASP.NET Web API você conhece e adora. Olá diferença é como você *host* um aplicativo de API da Web. Você não usará o IIS (Serviços de Informações da Internet) da Microsoft. toobetter entender a diferença Olá, vamos dividi-lo em duas partes:
 
-1. O aplicativo de API Web (incluindo controladores e modelos)
-2. O host (o servidor web, geralmente IIS)
+1. aplicativo de API da Web Hello (incluindo controladores e modelos)
+2. host de saudação (servidor web hello, geralmente IIS)
 
-O aplicativo de API Web, em si, não muda. Ele não é diferente dos aplicativos de API Web que você possa ter desenvolvido no passado, e você poderá simplesmente mover a maioria dos códigos do aplicativo diretamente. Mas, se você usava a hospedagem no IIS, onde você hospedará o aplicativo pode ser um pouco diferente do que você estava acostumado. Antes de adentrarmos na parte de hospedagem, vamos começar com algo mais familiar: o aplicativo de API Web.
+O aplicativo de API Web, em si, não muda. Ele não é diferente de aplicativos de API da Web que você pode ter escrito em Olá anterior, e você deve ser toosimply capaz de mover grande parte do código do aplicativo. Mas se você foi hospedando no IIS, onde você hospedar o aplicativo hello pode ser um pouco diferente do que você está acostumado. Antes de entrarmos toohello parte de hospedagem, vamos começar com algo mais familiar: Olá aplicativo de API da Web.
 
-## <a name="create-the-application"></a>Criar o aplicativo
+## <a name="create-hello-application"></a>Criar um aplicativo hello
 Comece criando um novo aplicativo do Service Fabric com um único serviço sem estado no Visual Studio 2015.
 
-Existe um modelo do Visual Studio para um serviço sem estado usando a API Web à sua disposição. Neste tutorial, vamos criar um projeto de API da Web do zero que resulta no que você obteria se você selecionasse esse modelo.
+Um modelo do Visual Studio para um serviço sem monitoração de estado usando a API da Web é tooyou disponível. Neste tutorial, vamos criar um projeto de API da Web do zero que resulta no que você obteria se você selecionasse esse modelo.
 
-Selecione um projeto de serviço sem estado em branco para aprender a criar um projeto de API Web do zero. Você também pode começar com o modelo de API Web do serviço sem estado e simplesmente acompanhá-lo.  
+Selecione um toolearn de projeto de serviço sem monitoração de estado em branco como toobuild um projeto de API da Web do zero, ou você pode iniciar com o serviço sem monitoração de estado de saudação modelo API da Web e simplesmente acompanhar.  
 
-A primeira etapa é obter alguns pacotes NuGet para o API Web. O pacote que queremos usar é o Microsoft.AspNet.WebApi.OwinSelfHost. Esse pacote inclui todos os pacotes de API Web necessários e os pacotes de *hospedagem* . Isso será importante mais tarde.
+Olá primeira etapa é toopull em alguns pacotes do NuGet para a API da Web. pacote de saudação queremos toouse é Microsoft.AspNet.WebApi.OwinSelfHost. Este pacote inclui todos os pacotes necessários de API da Web hello e Olá *host* pacotes. Isso será importante mais tarde.
 
-Depois que os pacotes tiverem sido instalados, você poderá começar a criar a estrutura do projeto básico de API Web. Se você usou o API Web, a estrutura do projeto deve ser bastante familiar. Comece adicionando um diretório `Controllers` e um controlador de valores simples:
+Depois que os pacotes de saudação foram instalados, você pode começar a criação de estrutura de projeto de API da Web básica hello. Se você tiver usado um API da Web, a estrutura do projeto Olá deve ser bastante familiar. Comece adicionando um diretório `Controllers` e um controlador de valores simples:
 
 **ValuesController.cs**
 
@@ -86,7 +86,7 @@ namespace WebService.Controllers
 
 ```
 
-Em seguida, adicione uma classe de Inicialização à raiz do projeto para registrar o roteamento, formatadores e qualquer outra configuração. Este também é o local onde o API Web se conecta ao *host*, que será revisto novamente mais tarde. 
+Em seguida, adicione uma classe de inicialização em Olá Olá projeto raiz tooregister roteamento formatadores e qualquer outra configuração. Isso também é onde o API da Web conecta-se em toohello *host*, que será revisto novamente mais tarde. 
 
 **Startup.cs**
 
@@ -115,12 +115,12 @@ namespace WebService
 }
 ```
 
-Isso é tudo para a parte do aplicativo. Nesse ponto, configuramos apenas o layout do projeto básico de API Web. Até agora, esse processo não parece muito diferente dos projetos de API Web que você possa ter desenvolvido no passado ou do modelo básico de API Web. A lógica de negócios vai para os controladores e modelos como de costume.
+Isso é tudo para parte do aplicativo hello. Neste ponto, criamos apenas Olá API da Web projeto layout básico. Até agora, não deve ser muito diferente de projetos Web API que você pode ter escrito em Olá anterior ou de modelo de API da Web básico hello. Sua lógica de negócios fica em modelos e controladores hello como de costume.
 
 Agora o que fazemos com a hospedagem para que possamos executá-la de fato?
 
 ## <a name="service-hosting"></a>Hospedagem do serviço
-No Service Fabric, seu serviço é executado em um *processo de host do serviço*, um arquivo executável que executa o código do serviço. Quando você escreve um serviço usando a API dos Reliable Services, seu projeto de serviço é compilado em um arquivo executável que registra o tipo de serviço e executa o código. Isso se aplica à maioria dos casos em que você escreve um serviço no Service Fabric no .NET. Ao abrir o Program.cs no projeto de serviço sem estado, você deverá ver:
+No Service Fabric, seu serviço é executado em um *processo de host do serviço*, um arquivo executável que executa o código do serviço. Quando você escreve um serviço usando Olá confiável API de serviços, o seu projeto de serviço apenas compila tooan arquivo executável que registra o tipo de serviço e execute seu código. Isso se aplica à maioria dos casos em que você escreve um serviço no Service Fabric no .NET. Quando você abrir Program.cs no projeto de serviço sem monitoração de estado hello, você verá:
 
 ```csharp
 using System;
@@ -152,22 +152,22 @@ internal static class Program
 
 ```
 
-Se parecer anormalmente o ponto de entrada para um aplicativo de console, é porque é.
+Se isso se parece anormalmente com o aplicativo de console de tooa de ponto de entrada hello, isso ocorre porque é.
 
-Neste artigo, não entraremos em mais detalhes sobre o processo de host do serviço e o registro do serviço. Mas é importante saber, por enquanto, que *o código de serviço está em execução em seu próprio processo*.
+Mais detalhes sobre o processo de host do serviço de hello e registro de serviço estão além do escopo deste artigo hello. Mas é importante tooknow para agora que *seu código de serviço está em execução em seu próprio processo*.
 
 ## <a name="self-host-web-api-with-an-owin-host"></a>Auto-hospedar a API Web com um host OWIN
-Uma vez que o código do aplicativo de API Web está hospedado em seu próprio processo, como você o conecta a um servidor Web? Digite [OWIN](http://owin.org/). OWIN é simplesmente um contrato entre aplicativos web do .NET e servidores web. Normalmente, quando o ASP.NET (até o MVC 5) é usado, o aplicativo Web é rigidamente associado ao IIS por meio do System.Web. No entanto, a API Web implementa o OWIN para que você possa escrever um aplicativo Web que seja dissociado do servidor Web que o hospeda. Por isso, você pode usar um servidor Web OWIN *auto-hospedado* que pode ser iniciado em seu próprio processo. Isso se ajusta perfeitamente com o modelo de hospedagem do Service Fabric que acabamos de descrever.
+Considerando que o código do aplicativo de API da Web é hospedado em seu próprio processo, como associá-lo tooa servidor de web? Digite [OWIN](http://owin.org/). OWIN é simplesmente um contrato entre aplicativos web do .NET e servidores web. Tradicionalmente quando ASP.NET (backup tooMVC 5) é usado, o aplicativo de web de saudação é firmemente acopladas tooIIS por meio de System. Web. No entanto, a API da Web implementa OWIN, portanto você pode escrever um aplicativo web que é separado do servidor da web hello que o hospeda. Por isso, você pode usar um servidor Web OWIN *auto-hospedado* que pode ser iniciado em seu próprio processo. Isso se ajusta perfeitamente com o modelo de host de malha do serviço do hello que acabamos de descrever.
 
-Neste artigo, vamos usar Katana como host OWIN para o aplicativo API Web. Katana é uma implementação de host do OWIN de software livre baseada em [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) e na [API de Servidor HTTP](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx) do Windows.
+Neste artigo, vamos usar Katana como host do OWIN Olá para Olá aplicativo de API da Web. Katana é uma implementação de host do código-fonte aberto OWIN criada em [System.Net.HttpListener](https://msdn.microsoft.com/library/system.net.httplistener.aspx) e Olá Windows [HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx).
 
 > [!NOTE]
-> Para saber mais sobre o Katana, acesse o [site do Katana](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Para obter uma visão geral rápida de como usar o Katana para a auto-hospedagem da API Web, confira [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api)(Usar o OWIN para auto-hospedar a API Web ASP.NET).
+> toolearn mais sobre Katana, vá toohello [Katana site](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). Para uma visão geral de como toouse Katana tooself host da Web API, consulte [OWIN de uso tooSelf Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
 > 
 > 
 
-## <a name="set-up-the-web-server"></a>Configuração do servidor Web
-A API dos Reliable Services fornece um ponto de entrada de comunicação no qual você pode conectar pilhas de comunicação que permitem aos usuários e clientes se conectarem ao serviço:
+## <a name="set-up-hello-web-server"></a>Configurar o servidor de web Olá
+Olá confiável API de serviços fornece um ponto de entrada de comunicação em que você pode conectar pilhas de comunicação que permitem que os usuários e o serviço de toohello de tooconnect de clientes:
 
 ```csharp
 
@@ -178,7 +178,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ```
 
-O servidor Web (e qualquer outra pilha de comunicação que você possa usar no futuro, como WebSockets) deve usar a interface ICommunicationListener para se integrar corretamente ao sistema. As razões para isso ficarão mais evidentes nas etapas a seguir.
+servidor web de saudação (e qualquer pilha de comunicação que você usar Olá futura, como WebSockets) devem usar Olá ICommunicationListener interface toointegrate corretamente com o sistema de saudação. motivos Olá se tornará mais aparentes na Olá etapas a seguir.
 
 Primeiro, crie uma classe chamada OwinCommunicationListener que implementa ICommunicationListener:
 
@@ -213,13 +213,13 @@ namespace WebService
 }
 ```
 
-A interface ICommunicationListener fornece três métodos para gerenciar um ouvinte de comunicação para seu serviço:
+interface de ICommunicationListener Olá fornece três toomanage de métodos um ouvinte de comunicação para seu serviço:
 
 * *OpenAsync*. Começar a ouvir solicitações.
 * *CloseAsync*. Parar de ouvir solicitações, concluir todas as solicitações em andamento e desligar normalmente.
 * *Anular*. Cancelar tudo e parar imediatamente.
 
-Para começar, adicione membros de classe privada para coisas de que o ouvinte precisa para funcionar. Eles serão inicializados por meio do construtor e usados posteriormente quando você configurar a URL de escuta.
+tooget iniciado, adicionar membros de classe particular para escuta de saudação coisas, será preciso toofunction. Esses serão inicializados pelo construtor hello e usados mais tarde, quando você configura o hello escutando URL.
 
 ```csharp
 internal class OwinCommunicationListener : ICommunicationListener
@@ -274,12 +274,12 @@ internal class OwinCommunicationListener : ICommunicationListener
 ```
 
 ## <a name="implement-openasync"></a>Implementar o OpenAsync
-Para configurar o servidor Web, você precisa de duas informações:
+tooset servidor de web hello, você precisa de duas informações:
 
-* *Um prefixo de caminho de URL*. Embora seja opcional, é bom configurar isso agora para que você possa hospedar com segurança vários serviços Web em seu aplicativo.
+* *Um prefixo de caminho de URL*. Embora seja opcional, é bom para você tooset esse backup agora para que você com segurança pode hospedar vários serviços web em seu aplicativo.
 * *Uma porta*.
 
-Antes de obter uma porta para o servidor Web, é importante compreender que o Service Fabric fornece uma camada de aplicativo que age como um buffer entre seu aplicativo e o sistema operacional subjacente em que ele é executado. Dessa forma, a Malha de Serviços fornece uma maneira de configurar *pontos de extremidade* para seus serviços. O Service Fabric garante que os pontos de extremidade estejam disponíveis para o serviço a ser usado. Dessa forma, você não precisa configurá-los no ambiente do sistema operacional subjacente. Você pode hospedar facilmente seu aplicativo do Service Fabric em diferentes ambientes sem a necessidade de fazer alterações nele. (Por exemplo, é possível hospedar o mesmo aplicativo no Azure ou em seu próprio datacenter.)
+Antes de obter uma porta para o servidor de web hello, é importante entender que o Service Fabric fornece uma camada de aplicativo que atua como um buffer entre seu aplicativo e o sistema operacional subjacente Olá que ele é executado em. Dessa forma, o Service Fabric fornece uma maneira tooconfigure *pontos de extremidade* para seus serviços. Service Fabric garante que os pontos de extremidade estão disponíveis para seu serviço toouse. Dessa forma, você não tem tooconfigure-las por conta própria Olá subjacente do ambiente de sistema operacional. Facilmente, você pode hospedar seu aplicativo de serviço de malha em ambientes diferentes sem ter que toomake qualquer aplicativo tooyour de alterações. (Por exemplo, você pode hospedar Olá mesmo aplicativo no Azure ou em seu próprio datacenter.)
 
 Configure um ponto de extremidade de HTTP em PackageRoot\ServiceManifest.xml:
 
@@ -292,9 +292,9 @@ Configure um ponto de extremidade de HTTP em PackageRoot\ServiceManifest.xml:
 
 ```
 
-Essa etapa é importante porque o processo de host do serviço é executado com credenciais restritas (Serviço de Rede no Windows). Isso significa que o serviço não terá acesso para configurar um ponto de extremidade HTTP por si só. Ao usar a configuração de ponto de extremidade, o Service Fabric sabe como definir a ACL (lista de controle de acesso) apropriada para a URL na qual o serviço escutará. O Service Fabric também fornece um local padrão para configurar pontos de extremidade.
+Esta etapa é importante porque o processo de host de serviço Olá é executado sob credenciais restritas (serviço de rede no Windows). Isso significa que seu serviço não terá acesso tooset um ponto de extremidade HTTP por conta própria. Usando a configuração de ponto de extremidade Olá, Service Fabric sabe tooset a lista de controle de acesso (ACL) Olá para Olá URL Olá serviço escutará. Serviço de malha também fornece um local padrão tooconfigure pontos de extremidade.
 
-Em OwinCommunicationListener.cs, você pode começar a implementar o OpenAsync. É onde você inicia o servidor Web. Primeiro, obtenha as informações do ponto de extremidade e crie a URL que o serviço escutará. A URL será diferente dependendo do ouvinte ser usado em um serviço sem estado ou com estado. Para um serviço com estado, o ouvinte deve criar um endereço exclusivo para cada réplica de serviço com estado que ele escuta. Para serviços sem estado, o endereço pode ser muito mais simples. 
+Em OwinCommunicationListener.cs, você pode começar a implementar o OpenAsync. Isso é onde você iniciar o servidor de web hello. Primeiro, obter informações de ponto de extremidade hello e criar URL Olá que serviço Olá escutará. Olá URL será diferente dependendo se o ouvinte de saudação é usado em um serviço sem monitoração de estado ou de um serviço com monitoração de estado. Para um serviço com monitoração de estado, o ouvinte Olá precisa toocreate um único endereço para cada réplica de serviço com monitoração de estado ele escuta em. Para serviços sem monitoração de estado, o endereço de saudação pode ser muito mais simples. 
 
 ```csharp
 public Task<string> OpenAsync(CancellationToken cancellationToken)
@@ -339,11 +339,11 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 ```
 
-Observe que "http://+" é usado aqui. Isso é para garantir que o servidor Web esteja escutando em todos os endereços disponíveis, incluindo localhost, FQDN e o IP da máquina.
+Observe que "http://+" é usado aqui. Isso é toomake-se de que o servidor web hello está escutando em todos os endereços disponíveis, incluindo localhost, o FQDN e o IP da máquina de saudação.
 
-A implementação do OpenAsync é um dos motivos mais importantes pelos quais o servidor Web (ou qualquer pilha de comunicação) é implementado como um ICommunicationListener, em vez de apenas tê-lo aberto diretamente do `RunAsync()` no serviço. O valor de retorno de OpenAsync é o endereço que o servidor Web está escutando. Quando esse endereço é retornado ao sistema, ele registra o endereço com o serviço. O Service Fabric fornece uma API que permite a clientes e outros serviços pedir esse endereço pelo nome do serviço. Isso é importante porque o endereço do serviço não é estático. Os serviços são movimentados no cluster para fins de disponibilidade e balanceamento de recursos. Esse é o mecanismo que permite aos clientes resolver o endereço de escuta de um serviço.
+Olá OpenAsync implementação é um dos motivos mais importantes hello, por que o servidor de web hello (ou qualquer pilha de comunicação) é implementada como um ICommunicationListener, em vez de apenas com ele aberto diretamente do `RunAsync()` no serviço de saudação. valor de retorno de saudação do OpenAsync é endereço Olá Olá servidor web está escutando. Quando esse endereço é retornado toohello sistema, ele registra o endereço Olá com serviço Olá. Serviço de malha fornece uma API que permite que os clientes e outros serviços toothen peça para este endereço por nome de serviço. Isso é importante porque o endereço do serviço Olá não é estático. Os serviços são movidos em torno de cluster Olá para fins de disponibilidade e balanceamento de recursos. Esse é o mecanismo de saudação que permite que os clientes tooresolve Olá endereço para um serviço de escuta.
 
-Com isso em mente, o OpenAsync inicia o servidor Web e retorna o endereço em que está escutando. Observe que ele escuta em "http://+", mas antes de o OpenAsync retornar o endereço, o "+" é substituído pelo IP ou FQDN do nó em que ele está no momento. O endereço retornado por esse método é o que está registrado no sistema. Também é o que os clientes e outros serviços veem quando eles solicitam um endereço do serviço. Para que os clientes se conectem corretamente a ele, eles precisam de um IP ou FQDN real no endereço.
+Com isso em mente, OpenAsync inicia Olá web server e retorna endereço Olá que ele está escutando. Observe que escuta "http://+", mas antes de OpenAsync retorna o endereço de hello, Olá "+" é substituído pelo Olá IP ou FQDN do nó hello está em. endereço de saudação que é retornado por esse método é o que está registrado no sistema de saudação. Também é o que os clientes e outros serviços veem quando eles solicitam um endereço do serviço. Para clientes toocorrectly conectar tooit, eles precisam de um IP ou o FQDN real no endereço hello.
 
 ```csharp
     ...
@@ -362,7 +362,7 @@ Com isso em mente, o OpenAsync inicia o servidor Web e retorna o endereço em qu
     }
     catch (Exception ex)
     {
-        this.eventSource.Message("Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
+        this.eventSource.Message("Web server failed tooopen endpoint {0}. {1}", this.endpointName, ex.ToString());
 
         this.StopWebServer();
 
@@ -372,12 +372,12 @@ Com isso em mente, o OpenAsync inicia o servidor Web e retorna o endereço em qu
 
 ```
 
-Observe que isso faz referência à classe Startup que foi passada para OwinCommunicationListener no construtor. Essa instância de inicialização é usada pelo servidor Web para inicializar o aplicativo de API Web.
+Observe que isso faz referência a classe de inicialização de saudação que foi passado toohello OwinCommunicationListener no construtor de saudação. Esta instância de inicialização é usada pelo Olá web server toobootstrap Olá aplicativo de API da Web.
 
-A linha `ServiceEventSource.Current.Message()` aparecerá na janela de Eventos de Diagnóstico mais tarde, quando você executar o aplicativo para confirmar que o servidor Web foi iniciado com êxito.
+Olá `ServiceEventSource.Current.Message()` linha aparecerá na janela de eventos de diagnóstico hello mais tarde, quando você executa Olá aplicativo tooconfirm que o servidor web hello foi iniciado com êxito.
 
 ## <a name="implement-closeasync-and-abort"></a>Implementar CloseAsync e Abort
-Finalmente, implemente o CloseAsync e o Abort para interromper o servidor Web. O servidor Web pode ser interrompido eliminando-se o indicador de servidor que foi criado durante o OpenAsync.
+Finalmente, implemente CloseAsync e anulação de servidor de web toostop hello. servidor de web Hello pode ser interrompida com a eliminação de identificador de servidor de saudação que foi criado durante OpenAsync.
 
 ```csharp
 public Task CloseAsync(CancellationToken cancellationToken)
@@ -412,10 +412,10 @@ private void StopWebServer()
 }
 ```
 
-Nesse exemplo de implementação, CloseAsync e Abort simplesmente interrompem o servidor Web. Você pode optar por executar um desligamento mais coordenado do servidor Web no CloseAsync. Por exemplo, o desligamento pode aguardar que as solicitações em andamento sejam concluídas antes de retornar.
+Neste exemplo de implementação, CloseAsync e anular simplesmente parar servidor de web de saudação. Você pode optar por tooperform um desligamento mais normalmente coordenado saudação do servidor de web em CloseAsync. Por exemplo, desligamento Olá podia aguardar toobe de solicitações em andamento, concluído antes de retornar de saudação.
 
-## <a name="start-the-web-server"></a>Inicie o servidor Web.
-Agora você está pronto para criar e retornar uma instância de OwinCommunicationListener para iniciar o servidor web. De volta à classe de serviço (WebService.cs), substitua o método `CreateServiceInstanceListeners()`:
+## <a name="start-hello-web-server"></a>Iniciar o servidor de web Olá
+Você agora está pronto toocreate e retorna uma instância de servidor de web OwinCommunicationListener toostart hello. Olá a classe de serviço (WebService.cs), em Substituir Olá `CreateServiceInstanceListeners()` método:
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -429,12 +429,12 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-É nesse ponto que o *aplicativo* de API Web e o *host* OWIN finalmente se encontram. O host (OwinCommunicationListener) recebe uma instância do *aplicativo* (API Web) por meio da classe de Inicialização. O Service Fabric gerencia seu ciclo de vida. Esse mesmo padrão normalmente pode ser seguido com qualquer pilha de comunicação.
+Isso é onde Olá API da Web *aplicativo* e Olá OWIN *host* finalmente atender. host de saudação (OwinCommunicationListener) é fornecido como uma instância de saudação *aplicativo* (API da Web) por meio de saudação classe de inicialização. O Service Fabric gerencia seu ciclo de vida. Esse mesmo padrão normalmente pode ser seguido com qualquer pilha de comunicação.
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
-Neste exemplo, você não precisa fazer nada no método `RunAsync()` , de forma que a substituição pode ser simplesmente removida.
+Neste exemplo, você não precisa toodo tudo em Olá `RunAsync()` método, portanto essa substituição simplesmente pode ser removida.
 
-A implementação do serviço final deve ser muito simples. Ele só precisa criar o ouvinte de comunicação:
+implementação de serviço final Olá deve ser bem simple. Ele só precisa de ouvinte de comunicação Olá toocreate:
 
 ```csharp
 using System;
@@ -466,7 +466,7 @@ namespace WebService
 }
 ```
 
-A classe `OwinCommunicationListener` completa:
+Olá completa `OwinCommunicationListener` classe:
 
 ```csharp
 using System;
@@ -579,7 +579,7 @@ namespace WebService
             }
             catch (Exception ex)
             {
-                this.eventSource.Message("Web server failed to open endpoint {0}. {1}", this.endpointName, ex.ToString());
+                this.eventSource.Message("Web server failed tooopen endpoint {0}. {1}", this.endpointName, ex.ToString());
 
                 this.StopWebServer();
 
@@ -621,22 +621,22 @@ namespace WebService
 }
 ```
 
-Agora que você juntou todas as peças, seu projeto deve se parecer com um típico aplicativo de API Web, com pontos de entrada API dos Reliable Services e um host OWIN.
+Agora que você colocou todas as partes da saudação em vigor, o projeto deve parecer com um aplicativo de API da Web típico com pontos de entrada da API de serviços confiável e um host OWIN.
 
 ## <a name="run-and-connect-through-a-web-browser"></a>Execução e conexão por meio de um navegador da Web
 [Configure seu ambiente de desenvolvimento](service-fabric-get-started.md), caso ainda não tenha feito isso.
 
-Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio para compilar e implantar o aplicativo. Na janela Eventos de Diagnóstico, você deverá ver uma mensagem indicando que o servidor Web foi aberto em http://localhost:8281/.
+Agora você pode criar e implantar seu serviço. Pressione **F5** no Visual Studio toobuild e implantar o aplicativo hello. Na janela de eventos de diagnóstico hello, você verá uma mensagem que indica que o servidor web hello aberto em http://localhost:8281 /.
 
 > [!NOTE]
-> Se a porta já tiver sido aberta por outro processo em seu computador, você poderá ver um erro aqui. Isso indica que o ouvinte não pôde ser aberto. Se esse for o caso, tente usar outra porta na configuração do ponto de extremidade em ServiceManifest.xml.
+> Se a porta de saudação já foi aberta por outro processo no seu computador, você verá um erro aqui. Isso indica que esse ouvinte Olá não pôde ser aberto. Se esse for o caso de Olá, tente usar uma porta diferente para a configuração de ponto de extremidade de saudação em ServiceManifest.xml.
 > 
 > 
 
-Quando o serviço estiver em execução, abra um navegador e navegue para [http://localhost:8281/api/values](http://localhost:8281/api/values) para testá-lo.
+Quando o serviço de saudação estiver em execução, abra um navegador e navegue muito[http://localhost:8281/api/valores](http://localhost:8281/api/values) tootest-lo.
 
 ## <a name="scale-it-out"></a>Escalar horizontalmente
-Escalar horizontalmente aplicativos Web sem estado, normalmente, significa adicionar mais computadores e fazer um rodízio de aplicativos Web neles. O mecanismo de orquestração da Malha de Serviço pode fazer isso para você sempre que novos nós forem adicionados a um cluster. Ao criar instâncias de um serviço sem estado, você pode especificar o número de instâncias que deseja criar. O Service Fabric coloca esse número de instâncias em nós no cluster. Isso garante que não se crie mais de uma instância em algum nó. Você também pode orientar o Service Fabric a sempre criar uma instância em cada nó, especificando **-1** para a contagem de instâncias. Isso garante que sempre que você adicionar nós para escalar horizontalmente o cluster, uma instância do seu serviço sem estado será criada em novos nós. Esse valor é uma propriedade da instância do serviço, de modo que ele é definido quando você cria uma instância de serviço. Você pode fazer isso usando o PowerShell:
+Dimensionar aplicativos web sem monitoração de estado geralmente significa adicionando mais máquinas e girando Olá web apps neles. Mecanismo de orquestração do Service Fabric pode fazer isso para você sempre que novos nós forem adicionados tooa cluster. Quando você cria instâncias de um serviço sem monitoração de estado, você pode especificar o número de saudação de instâncias que você deseja toocreate. Malha do serviço coloca esse número de instâncias em nós de cluster de saudação. E torna-se de que não toocreate mais de uma instância em qualquer nó. Você também pode instruir tooalways Service Fabric cria uma instância em todos os nós especificando **-1** para contagem de instâncias de saudação. Isso garante que sempre que você adicionar nós tooscale-out do seu cluster, uma instância do serviço sem monitoração de estado será criada em novos nós de saudação. Esse valor é uma propriedade de instância de serviço hello, para que ele é definido quando você cria uma instância de serviço. Você pode fazer isso usando o PowerShell:
 
 ```powershell
 
@@ -658,7 +658,7 @@ Ou ao definir um serviço padrão em um projeto de serviço sem estado do Visual
 
 ```
 
-Para obter mais informações sobre como criar aplicativos e instâncias de serviço, confira [Implantar um aplicativo](service-fabric-deploy-remove-applications.md).
+Para obter mais informações sobre como o aplicativo toocreate e instâncias de serviço, consulte [implantar um aplicativo](service-fabric-deploy-remove-applications.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)

@@ -1,6 +1,6 @@
 ---
-title: Alterar suas senhas do StorSimple | Microsoft Docs
-description: "Descreve como usar o serviço Gerenciador de Dispositivos do StorSimple para alterar suas senhas de administrador do dispositivo e do StorSimple Snapshot Manager."
+title: aaaChange suas senhas StorSimple | Microsoft Docs
+description: "Descreve como toouse Olá toochange de serviço do Gerenciador de dispositivos de StorSimple suas senhas de administrador do StorSimple Snapshot Manager e o dispositivo."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,40 +14,40 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 7762f8499c67672f0a2ffed99e98baea4c940fa0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cf884be31b4bbf9e372c0aa11b9da2eadcda35dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para alterar suas senhas do StorSimple
+# <a name="use-hello-storsimple-device-manager-service-toochange-your-storsimple-passwords"></a>Usar toochange de serviço do Gerenciador de dispositivos de StorSimple Olá suas senhas de StorSimple
 
 ## <a name="overview"></a>Visão geral
-A opção **Configurações de dispositivo** do Portal do Azure contém todos os parâmetros de dispositivo que podem ser reconfigurados em um dispositivo StorSimple gerenciado por um serviço do Gerenciador de Dispositivos do StorSimple. Este tutorial explica como você pode usar a opção **Segurança** nas **Configurações do dispositivo** para alterar sua senha de administrador do dispositivo ou do StorSimple Snapshot Manager.
+Olá portal do Azure **configurações do dispositivo** opção contém todos os parâmetros de dispositivo de saudação que você pode reconfigurar em um dispositivo StorSimple que é gerenciado por um serviço de Gerenciador de dispositivos do StorSimple. Este tutorial explica como você pode usar o hello **segurança** opção em **configurações do dispositivo** toochange o administrador do dispositivo ou a senha do StorSimple Snapshot Manager.
 
-## <a name="change-the-device-administrator-password"></a>Alterar a senha de administrador do dispositivo
-Quando você usar a interface do Windows PowerShell para acessar o dispositivo StorSimple, será solicitada a inserção de uma senha de administrador do dispositivo. Quando o primeiro dispositivo StorSimple é registrado em um serviço, a senha padrão para essa interface é *Password1*. Para a segurança de seus dados, você deve alterar essa senha no fim do processo de registro. Não é possível sair do processo de registro sem alterar essa senha. Para obter mais informações, consulte a [Etapa 3: configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+## <a name="change-hello-device-administrator-password"></a>Senha de administrador de dispositivo de Olá de alteração
+Quando você usar o dispositivo StorSimple do Windows PowerShell interface tooaccess hello, você está tooenter necessária uma senha de administrador do dispositivo. Quando o primeiro dispositivo de StorSimple Olá é registrado com um serviço, a senha de padrão de saudação para essa interface é *Password1*. Para segurança de saudação dos seus dados, você está toochange necessária essa senha no final de saudação do processo de registro de saudação. Você não pode sair do processo de registro de saudação sem alterar essa senha. Para obter mais informações, consulte [etapa 3: configurar e registrar o dispositivo Olá por meio do Windows PowerShell para StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-A senha que foi definida pela primeira vez por meio da interface do Windows PowerShell durante o registro pode ser alterada mais tarde no Portal do Azure. Execute as etapas a seguir para alterar a senha de administrador do dispositivo.
+senha Olá primeiro definida por meio da interface do Windows PowerShell Olá durante o registro pode ser alterada posteriormente por meio de saudação portal do Azure. Execute Olá senha de administrador etapas toochange Olá dispositivo a seguir.
 
-#### <a name="to-change-the-device-administrator-password"></a>Para alterar a senha de administrador do dispositivo
-1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**.
+#### <a name="toochange-hello-device-administrator-password"></a>senha de administrador de dispositivo toochange Olá
+1. Serviço de Gerenciador de dispositivos de StorSimple tooyour go e clique em **dispositivos**.
 
-2. Na listagem tabular dos dispositivos, selecione e clique no dispositivo cuja senha você deseja alterar.
+2. Na listagem tabular de saudação de dispositivos, selecione e clique em dispositivo Olá cuja senha você pretende toochange.
 
     ![](./media/storsimple-8000-change-passwords/changepwd1.png)
 
-3. Na folha **Configurações**, acesse **Configurações do dispositivo > Segurança**.
+3. Em Olá **configurações** folha, ir muito**configurações do dispositivo > segurança**.
 
     ![](./media/storsimple-8000-change-passwords/changepwd2.png)
 
-4. Na folha **Configurações de segurança**, clique em **Senha** para alterar a senha de administrador do dispositivo.
+4. Em Olá **as configurações de segurança** folha, clique em **senha** toochange senha de administrador de dispositivo de saudação.
 
     ![](./media/storsimple-8000-change-passwords/changepwd3.png)
 
-5. Na folha **Senha**, forneça uma senha do administrador contendo de 8 a 15 caracteres. A senha deve ser uma combinação de três ou mais caracteres maiúsculos, minúsculos, numéricos e especiais.
+5. Em Olá **senha** folha, forneça uma senha de administrador que contenha de 8 caracteres too15. senha Olá deve ser uma combinação de 3 ou mais caracteres maiusculo, minúsculo, numérico e especial.
 
-6. Confirme a senha.
+6. Confirme senha hello.
 
     ![](./media/storsimple-8000-change-passwords/changepwd4.png)
 
@@ -55,33 +55,33 @@ A senha que foi definida pela primeira vez por meio da interface do Windows Powe
 
     ![](./media/storsimple-8000-change-passwords/changepwd6.png)
 
-A senha do administrador do dispositivo agora deve estar atualizada. Você pode usar essa senha modificada para acessar a interface do Windows PowerShell.
+senha de administrador do dispositivo Olá agora deve ser atualizada. Você pode usar essa senha modificada tooaccess saudação do Windows PowerShell interface.
 
-## <a name="set-the-storsimple-snapshot-manager-password"></a>Definir a senha do StorSimple Snapshot Manager
-O software Gerenciador de Instantâneos StorSimple software reside no host Windows e permite que os administradores gerenciem backups do seu dispositivo StorSimple na forma de instantâneos locais e de nuvem.
+## <a name="set-hello-storsimple-snapshot-manager-password"></a>Definir senha do StorSimple Snapshot Manager Olá
+Gerenciador de instantâneos StorSimple software reside no host do Windows e permite que os administradores toomanage backups do seu dispositivo StorSimple na forma de saudação de locais e instantâneos em nuvem.
 
-Ao configurar um dispositivo no StorSimple Snapshot Manager, será solicitado que você forneça o endereço IP e a senha do dispositivo para autenticar o dispositivo de armazenamento.
+Ao configurar um dispositivo no Gerenciador de instantâneos do StorSimple, você será solicitado tooprovide Olá tooauthenticate de endereço e a senha IP de dispositivo de seu dispositivo de armazenamento.
 
-Você pode definir ou alterar a senha do StorSimple Snapshot Manager pelo Portal do Azure. Realize as etapas a seguir para definir ou alterar a senha do StorSimple Snapshot Manager.
+Você pode definir ou alterar a senha Olá para o Gerenciador de instantâneos do StorSimple via Olá portal do Azure. Execute Olá tooset as etapas a seguir ou alterar a senha do StorSimple Snapshot Manager hello.
 
-#### <a name="to-set-the-storsimple-snapshot-manager-password"></a>Para definir a senha do StorSimple Snapshot Manager
-1. Acesse o serviço Gerenciador de Dispositivo StorSimple e clique em **Dispositivos**.
+#### <a name="tooset-hello-storsimple-snapshot-manager-password"></a>senha do tooset Olá Gerenciador de instantâneos StorSimple
+1. Serviço de Gerenciador de dispositivos de StorSimple tooyour go e clique em **dispositivos**.
 
-2. Na listagem tabular dos dispositivos, selecione e clique no dispositivo cuja senha do StorSimple Snapshot Manager você deseja definir ou alterar.
+2. Na listagem tabular de saudação de dispositivos, selecione e clique em dispositivo Olá cuja senha do StorSimple Snapshot Manager pretende tooset ou alterar.
 
      ![](./media/storsimple-8000-change-passwords/changepwd1.png)
 
-3. Na folha **Configurações**, acesse **Configurações do dispositivo > Segurança**.
+3. Em Olá **configurações** folha, ir muito**configurações do dispositivo > segurança**.
 
      ![](./media/storsimple-8000-change-passwords/changepwd2.png)
 
-4. Na folha **Configurações de segurança**, clique em **Senha** para definir ou alterar a senha do StorSimple Snapshot Manager.
+4. Em Olá **as configurações de segurança** folha, clique em **senha** tooset ou alteração de senha do StorSimple Snapshot Manager hello.
 
      ![](./media/storsimple-8000-change-passwords/changepwd3.png) 
 
-5. Na folha **Senha**, insira uma senha que tenha 14 ou 15 caracteres. Verifique se a senha contém uma combinação de três ou mais caracteres maiúsculos, minúsculos, numéricos e especiais.
+5. Em Olá **senha** folha, digite uma senha que é 14 ou 15 caracteres. Verifique se que essa senha Olá contém uma combinação de 3 ou mais caracteres maiusculo, minúsculo, numérico e especial.
 
-6. Confirme a senha.
+6. Confirme senha hello.
 
      ![](./media/storsimple-8000-change-passwords/changepwd5.png)
 
@@ -89,10 +89,10 @@ Você pode definir ou alterar a senha do StorSimple Snapshot Manager pelo Portal
 
      ![](./media/storsimple-8000-change-passwords/changepwd6.png)
 
-A senha do StorSimple Snapshot Manager agora deve ser atualizada.
+senha do StorSimple Snapshot Manager Olá agora deve ser atualizada.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [segurança do StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre [como modificar a configuração do dispositivo](storsimple-8000-modify-device-config.md).
-* Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Saiba mais sobre [usando Olá tooadminister de serviço do Gerenciador de dispositivos do StorSimple em seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

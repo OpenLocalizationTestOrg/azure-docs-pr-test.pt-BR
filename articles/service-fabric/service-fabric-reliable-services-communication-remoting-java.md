@@ -1,6 +1,6 @@
 ---
-title: "Comunicação remota do serviço no Azure Service Fabric | Microsoft Docs"
-description: "A comunicação remota do Service Fabric permite que os clientes e serviços se comuniquem com serviços que usam a chamada de procedimento remoto."
+title: "comunicação remota do aaaService no Azure Service Fabric | Microsoft Docs"
+description: "Comunicação remota do Service Fabric permite que os clientes e serviços toocommunicate com serviços usando uma chamada de procedimento remoto."
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1177a5ede91352dc61422f2df7424b0d5645147d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicação remota de serviço com o Reliable Services
 > [!div class="op_single_selector"]
@@ -26,15 +26,15 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-A estrutura do Reliable Services fornece um mecanismo de comunicação remota rápida para configurar de forma fácil e rápida a chamada de procedimento remoto para serviços.
+Olá confiável Services framework fornece um tooquickly do mecanismo de comunicação remota e configurar com facilidade a chamada de procedimento remoto de serviços.
 
 ## <a name="set-up-remoting-on-a-service"></a>Configurar a comunicação remota em um serviço
 A configuração da comunicação remota de um serviço é feita em duas etapas simples:
 
-1. Crie uma interface para implementar o serviço. Essa interface define os métodos disponíveis para uma chamada de procedimento remoto no seu serviço. Os métodos devem ser métodos assíncronos que retornam tarefas. A interface deve implementar `microsoft.serviceFabric.services.remoting.Service` para sinalizar que o serviço tem uma interface de comunicação remota.
-2. Use um ouvinte de comunicação remota em seu serviço. Esta é uma implementação de `CommunicationListener` que fornece recursos de comunicação remota. `FabricTransportServiceRemotingListener` pode ser usado para criar um ouvinte de comunicação remota usando o protocolo de transporte de comunicação remota padrão.
+1. Crie uma interface para o serviço tooimplement. Essa interface define os métodos de saudação que estão disponíveis para uma chamada de procedimento remoto em seu serviço. métodos de saudação devem ser retorno métodos assíncronos. interface Olá deve implementar `microsoft.serviceFabric.services.remoting.Service` toosignal que Olá serviço tem uma interface de comunicação remota.
+2. Use um ouvinte de comunicação remota em seu serviço. Esta é uma implementação de `CommunicationListener` que fornece recursos de comunicação remota. `FabricTransportServiceRemotingListener`pode ser usado toocreate um ouvinte de comunicação remota usando o protocolo de transporte de comunicação remota saudação padrão.
 
-Por exemplo, o serviço sem estado a seguir expõe um único método para obter "Hello World" pela chamada de procedimento remoto.
+Por exemplo, hello seguinte serviço sem monitoração de estado expõe um único método tooget "Hello World" passar por uma chamada de procedimento remoto.
 
 ```java
 import java.util.ArrayList;
@@ -69,12 +69,12 @@ class MyServiceImpl extends StatelessService implements MyService {
 ```
 
 > [!NOTE]
-> Os argumentos e os tipos de retorno na interface de serviço podem ser de tipos simples, complexos ou personalizados, mas devem ser serializáveis.
+> Olá e argumentos Olá retornam tipos na interface de serviço Olá podem ser qualquer tipo simple, complexo ou personalizado, mas eles devem ser serializáveis.
 >
 >
 
 ## <a name="call-remote-service-methods"></a>Chamar métodos de serviços remotos
-A chamada de métodos em um serviço usando a pilha de comunicação remota é feita usando um proxy local para o serviço por meio da classe `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` . O método `ServiceProxyBase` cria um proxy local usando a mesma interface que o serviço implementa. Com esse proxy, você pode simplesmente chamar métodos na interface remotamente.
+Chamar métodos em um serviço usando a pilha de comunicação remota Olá é feito por meio de um serviço de toohello de proxy local por meio de saudação `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` classe. Olá `ServiceProxyBase` método cria um proxy local usando Olá mesma interface que Olá serviço implementa. Com o proxy, você pode simplesmente chamar métodos na interface Olá remotamente.
 
 ```java
 
@@ -84,24 +84,24 @@ CompletableFuture<String> message = helloWorldClient.helloWorldAsync();
 
 ```
 
-A estrutura remota propaga exceções lançadas no serviço para o cliente. A lógica de manipulação de exceção no cliente usando `ServiceProxyBase` pode manipular diretamente as exceções que o serviço lança.
+estrutura de comunicação remota Olá propaga exceções geradas no cliente do serviço de saudação toohello. Lógica de tratamento de exceção assim no cliente hello usando `ServiceProxyBase` diretamente pode lidar com exceções que Olá lança de serviço.
 
 ## <a name="service-proxy-lifetime"></a>Tempo de vida de Proxy do Serviço
-A criação do ServiceProxy é uma operação simples, logo, o usuário pode criar quantos precisar. O Proxy do Serviço pode ser reutilizado desde que o usuário precise. O usuário pode reutilizar o mesmo proxy em caso de exceção. Cada ServiceProxy contém um cliente de comunicação usado para enviar mensagens durante a transmissão. Ao invocar a API, temos uma verificação interna para saber se o cliente de comunicação usado é válido. Com base nesse resultado, recriamos o cliente da comunicação. Portanto, o usuário não precisa recriar serviceproxy em caso de exceção.
+A criação do ServiceProxy é uma operação simples, logo, o usuário pode criar quantos precisar. O Proxy do Serviço pode ser reutilizado desde que o usuário precise. Usuário possa reutilizar Olá proxy mesmo em caso de exceção. Cada ServiceProxy contém mensagens de toosend de cliente usado de comunicação durante transmissão hello. Ao chamar a API, temos toosee verificação interna, se o cliente de comunicação usado é válido. Com base no resultado, podemos criar novamente cliente de comunicação de saudação. Portanto, o usuário não precisa serviceproxy toorecreate em caso de exceção.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Tempo de vida de ServiceProxyFactory
 [FabricServiceProxyFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._fabric_service_proxy_factory) é um alocador que cria um proxy para interfaces remotas diferentes. Se você usar a API `ServiceProxyBase.create` para criar um proxy, o framework cria um `FabricServiceProxyFactory`.
-É útil para criá-lo manualmente quando você precisa substituir propriedades [ServiceRemotingClientFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory).
+É útil toocreate um manualmente quando precisar toooverride [ServiceRemotingClientFactory](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.client._service_remoting_client_factory) propriedades.
 Alocador é uma operação cara. `FabricServiceProxyFactory` mantém o cache dos clientes de comunicação.
-A prática recomendada é armazenar em cache `FabricServiceProxyFactory` por mais tempo possível.
+A prática recomendada é toocache `FabricServiceProxyFactory` por tempo possível.
 
 ## <a name="remoting-exception-handling"></a>Tratamento de exceções remotas
-Todas as exceções remotas lançadas pela API de serviço são reenviadas para o cliente como RuntimeException ou FabricException.
+Todos os Olá remoto exceção pela API de serviço, são enviadas como RuntimeException ou FabricException toohello back cliente.
 
-ServiceProxy trata todas as exceções de failover da partição de serviço para a qual foi criado. Ele resolverá novamente os pontos de extremidade se houver exceções de failover (exceções não transitórias) e repetirá a chamada com o ponto de extremidade correto. O número de tentativas da exceção de failover é indefinido.
-No caso de TransientExceptions, ele repete apenas a chamada.
+ServiceProxy lidar com todas as exceções de Failover para a partição de serviço de hello, ele é criado para. Novamente, ele resolve os pontos de extremidade de saudação se houver Failover Exceptions(Non-Transient Exceptions) e repetições chamada hello com ponto de extremidade correto hello. O número de tentativas da exceção de failover é indefinido.
+No caso de TransientExceptions, ele repete apenas chamada hello.
 
-Os parâmetros de repetição padrão são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) O usuário pode configurar esses valores passando o objeto OperationRetrySettings para o construtor ServiceProxyFactory.
+Os parâmetros de repetição padrão são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) Usuário pode configurar esses valores, passando o construtor de tooServiceProxyFactory OperationRetrySettings objeto.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)

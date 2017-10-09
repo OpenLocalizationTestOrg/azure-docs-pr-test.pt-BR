@@ -8,22 +8,22 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obter a cadeia de conexão no portal do Azure
-Obtenha no [portal do Azure](https://portal.azure.com/) a cadeia de conexão necessária para o seu programa cliente interagir com o Banco de Dados SQL do Azure: 
+### <a name="obtain-hello-connection-string-from-hello-azure-portal"></a>Obter cadeia de caracteres de conexão de saudação do hello portal do Azure
+Saudação de uso [portal do Azure](https://portal.azure.com/) tooobtain Olá conexão cadeia de caracteres necessária para sua toointeract de programa do cliente com o banco de dados do SQL Azure: 
 
 1. Clique em **PROCURAR** > **bancos de dados SQL**.
-2. Insira o nome do banco de dados na caixa de texto de filtro próximo ao canto superior esquerdo da folha dos **bancos de dados SQL** .
-3. Clique na linha do banco de dados.
-4. Depois que a folha aparecer para o banco de dados, para conveniência visual, você pode clicar nos controles padrão de minimização para recolher as folhas usadas para navegação e filtragem do banco de dados. 
+2. Insira o nome de saudação do seu banco de dados na caixa de texto de filtro Olá próximo Olá superior esquerdo de saudação **bancos de dados SQL** folha.
+3. Clique em linha de saudação para seu banco de dados.
+4. Depois de folha de saudação aparece para o banco de dados, para conveniência visual, você pode clicar em saudação padrão minimizar folhas de saudação toocollapse controles usados para navegação e filtragem de banco de dados. 
    
-    ![Filtrar para isolar o banco de dados][10-FilterDatabase]
-5. Na folha do banco de dados, clique em **Mostrar cadeias de conexão de banco de dados**.
-6. Se você pretende usar a biblioteca de conexão do ADO.NET, copie a cadeia de caracteres rotulada **ADO**. 
+    ![Filtrar tooisolate seu banco de dados][10-FilterDatabase]
+5. Na folha de saudação do banco de dados, clique em **Mostrar cadeias de conexão de banco de dados**.
+6. Se você pretende biblioteca de conexão de ADO.NET toouse hello, copie a cadeia de caracteres de saudação rotulada **ADO**. 
    
-    ![Copie a cadeia de conexão do ADO do banco de dados][20-CopyAdoConnectionString]
-7. Em um formato ou outro, cole as informações da cadeia de conexão no código do programa cliente.
+    ![Copie a cadeia de caracteres de conexão ADO de saudação do banco de dados][20-CopyAdoConnectionString]
+7. Em um formato ou outro, cole informações da cadeia de conexão Olá seu código de programa do cliente.
 
-Para obter mais informações, veja:<br/>[Cadeias de conexão e arquivos de configuração](http://msdn.microsoft.com/library/ms254494.aspx).
+Para obter mais informações, consulte:<br/>[Cadeias de conexão e arquivos de configuração](http://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

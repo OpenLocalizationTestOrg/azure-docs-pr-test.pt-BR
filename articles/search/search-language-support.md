@@ -1,5 +1,5 @@
 ---
-title: "Vários idiomas do Azure Search | Microsoft Docs"
+title: "aaaAzure vários idiomas de pesquisa | Microsoft Docs"
 description: "A Pesquisa do Azure dá suporte a 56 idiomas, aproveitando os analisadores de linguagem da Lucene e a tecnologia Processamento de Linguagem Natural da Microsoft."
 services: search
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: jlembicz
-ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9a2e567a82ee563521c12ea320f6c484a8e73f04
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Crie um índice para documentos em vários idiomas na Pesquisa do Azure
 > [!div class="op_single_selector"]
@@ -29,50 +29,50 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-Ampliar o poder dos analisadores de linguagem é tão fácil quanto definir uma propriedade em um campo pesquisável na definição de índice. Agora você pode realizar esta etapa no portal.
+Unleashing power Olá de analisadores de idioma é tão fácil quanto uma propriedade de configuração em um campo de pesquisa na definição de índice de saudação. Agora você pode executar esta etapa no portal de saudação.
 
-Veja abaixo as capturas de tela das folhas do Portal do Azure para a Pesquisa do Azure que permitem que os usuários definam um esquema de índice. Nesta folha, os usuários podem criar todos os campos e definir a propriedade do analisador de cada um deles.
+Abaixo estão capturas de tela de saudação folhas de Portal do Azure para pesquisa do Azure que permitem que os usuários toodefine um esquema de índice. Desta folha, os usuários podem criar todos os campos de saudação e defina a propriedade de analisador de saudação para cada um deles.
 
 > [!IMPORTANT]
-> Você pode definir um analisador de linguagem apenas durante a definição de campo, como ao criar um novo índice do zero ou ao adicionar um novo campo a um índice existente. Lembre-se de especificar por completo todos os atributos, incluindo o analisador, ao criar o campo. Você não poderá editar os atributos ou alterar o tipo de analisador depois de salvar suas alterações.
+> Somente você pode definir um analisador de idioma durante a definição de campo, como em quando criar um novo índice de saudação de plano de fundo para cima ou ao adicionar um novo índice de campo tooan existente. Verifique se que você especificar completamente todos os atributos, incluindo analyzer hello, ao criar o campo de saudação. Você não ser capaz de tooedit atributos hello ou altere o tipo de analisador de hello quando você salvar as alterações.
 >
 >
 
 ## <a name="define-a-new-field-definition"></a>Definir uma nova definição de campo
-1. Entre no [Portal do Azure](https://portal.azure.com) e abra a folha de serviço do seu serviço de pesquisa.
-2. Clique em **Adicionar índice** na barra de comandos localizada na parte superior do painel do serviço para iniciar um novo índice, ou abra um índice existente para definir um analisador nos novos campos que você está adicionando a um índice existente.
-3. A folha Campos é exibida, oferecendo opções para definir o esquema do índice, incluindo a guia Analisador, usada para escolher um analisador de linguagem.
-4. Em Campos, inicie uma definição de campo fornecendo um nome, escolhendo o tipo de dados e definindo atributos para marcar o campo como texto completo pesquisável, recuperável nos resultados da pesquisa, usável em estruturas de navegação facetada, classificável e assim por diante.
-5. Antes de passar para o próximo campo, abra a guia **Analisador** .
+1. Entrar toohello [portal do Azure](https://portal.azure.com) e abra Olá blade de serviço do seu serviço de pesquisa.
+2. Clique em **Adicionar índice** no comando Olá barra na parte superior de saudação do hello serviço painel toostart um novo índice, ou abra um tooset de índice existente em novos campos que você está adicionando um analisador de índice existente tooan.
+3. folha de campos de saudação for exibida, fornecendo opções para definir o esquema de saudação do índice hello, incluindo Olá analisador guia usado para escolher um analisador de linguagem.
+4. Nos campos, inicie uma definição de campo fornecendo um nome, escolhendo o tipo de dados de saudação e a configuração atributos toomark Olá campo como texto completo pesquisável, recuperáveis nos resultados da pesquisa, pode ser usados em estruturas de navegação de faceta, classificável e assim por diante.
+5. Antes de avançarmos toohello próximo campo, abra Olá **analisador** guia.
 
 ![][1]
-*Para selecionar um analisador, clique na guia Analisador na folha Campos*
+*tooselect um analisador, clique em Guia do analisador Olá na folha de campos de saudação*
 
 ## <a name="choose-an-analyzer"></a>Escolha um analisador
-1. Role para encontrar o campo que você está definindo.
-2. Se ainda não tiver marcado o campo como pesquisável, clique na caixa de seleção agora para marcá-la como **Pesquisável**.
-3. Clique na área do Analisador para exibir a lista de analisadores disponíveis.
-4. Escolha o analisador que deseja usar.
+1. Role o campo de saudação toofind que você está definindo.
+2. Se você ainda não marcado como campo hello como pesquisa, clique em Olá caixa de seleção agora toomark como **pesquisável**.
+3. Clique em Olá analisador área toodisplay Olá lista de analisadores disponíveis.
+4. Escolha o analisador Olá toouse desejado.
 
 ![][2]
-*Selecione um dos analisadores com suporte para cada campo*
+*Selecione um dos analisadores de saudação com suporte para cada campo*
 
-Por padrão, todos os campos pesquisáveis usam o [analisador padrão da Lucene](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) que é independente de linguagem. Para exibir a lista completa de analisadores com suporte, veja [Suporte de idioma na Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Por padrão, todos os campos pesquisáveis usam Olá [analisador padrão Lucene](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) que é independente do idioma. lista completa de saudação de tooview de analisadores de suporte, consulte [suporte de idioma na pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
-Quando o analisador de linguagem for selecionado para um campo, ele será usado com cada solicitação de indexação e pesquisa para esse campo. Quando uma consulta é executada em vários campos usando analisadores diferentes, a consulta será processada de modo independente pelos analisadores certos para cada campo.
+Analisador de linguagem Olá selecionada para um campo, ele será usado com cada solicitação de indexação e pesquisa para esse campo. Quando uma consulta é feita em vários campos usando analisadores de diferentes, consulta hello será processada independentemente por analisadores de saudação à direita de cada campo.
 
-Muitos aplicativos web e móveis atendem usuários em todo o mundo usando diferentes idiomas. É possível definir um índice para um cenário como esse criando um campo para cada idioma com suporte.
+Muitos aplicativos web e móveis servem os usuários em todo o mundo hello usando diferentes idiomas. É possível toodefine um índice para um cenário de como isso criando um campo para cada idioma com suporte.
 
 ![][3]
 *Definição de índice com um campo de descrição para cada idioma com suporte*
 
-Se o idioma do agente emissor de uma consulta for conhecido, uma solicitação de pesquisa pode ser definida como escopo para um campo específico usando o parâmetro de consulta **searchFields** . A seguinte consulta será emitida apenas com a descrição em polonês:
+Se o idioma de saudação do agente Olá emitindo uma consulta for conhecido, uma solicitação de pesquisa pode ser campo específico do escopo tooa usando Olá **searchFields** parâmetro de consulta. Olá consulta a seguir será emitida somente em relação a descrição de saudação em polonês:
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
 
-Você pode consultar o índice do portal, usando o **Search Explorer** para colar uma consulta semelhante à mostrado acima. O Search Explorer está disponível na barra de comandos na folha de serviço. Confira [Consultar seu Índice de Pesquisa do Azure no portal](search-explorer.md) para obter detalhes.
+Você pode consultar o índice do portal de saudação usando **pesquisar no Explorador de** toopaste em uma toohello semelhante de consulta mostrada acima. Gerenciador de pesquisa está disponível na barra de comandos de saudação na folha de serviço hello. Consulte [consultar seu índice de pesquisa do Azure no portal de saudação](search-explorer.md) para obter detalhes.
 
-Às vezes, o idioma do agente emissor de uma consulta não é conhecido; nesse caso, a consulta pode ser emitida em todos os campos simultaneamente. Se necessário, a preferência de resultados em um determinado idioma pode ser definida usando os [perfis de pontuação](https://msdn.microsoft.com/library/azure/dn798928.aspx). No exemplo abaixo, as correspondências encontradas na descrição em inglês terão uma pontuação superior em relação às correspondências em polonês e francês:
+Às vezes, hello idioma do agente Olá emitindo uma consulta não for conhecida, no qual caso Olá consulta pode ser emitida em relação a todos os campos simultaneamente. Se necessário, a preferência de resultados em um determinado idioma pode ser definida usando os [perfis de pontuação](https://msdn.microsoft.com/library/azure/dn798928.aspx). O exemplo hello abaixo, correspondências encontradas na descrição de saudação em inglês serão totalizadas toomatches relativo mais alto em polonês e francês:
 
     "scoringProfiles": [
       {
@@ -85,7 +85,7 @@ Você pode consultar o índice do portal, usando o **Search Explorer** para cola
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
 
-Se você é um desenvolvedor do .NET, é importante lembrar que você pode configurar os analisadores de linguagem usando o [SDK do .NET da Pesquisa do Azure](http://www.nuget.org/packages/Microsoft.Azure.Search). A versão mais recente também inclui o suporte para os analisadores de linguagem da Microsoft.
+Se você for um desenvolvedor do .NET, observe que você pode configurar os analisadores de idioma usando Olá [SDK .NET da pesquisa do Azure](http://www.nuget.org/packages/Microsoft.Azure.Search). versão mais recente de saudação inclui suporte para analisadores de idioma de Microsoft hello também.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

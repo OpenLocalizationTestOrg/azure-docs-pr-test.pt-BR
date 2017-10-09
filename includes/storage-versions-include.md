@@ -1,0 +1,3 @@
+### <a name="storage-service-versions"></a>Versões do serviço de armazenamento
+Serviços de armazenamento do Azure Olá são atualizados regularmente com suporte para os novos recursos. Olá referência de API REST de serviços de armazenamento do Azure descreve cada versão com suporte e seus recursos. É recomendável que você use a versão mais recente do hello sempre que possível. Para obter informações sobre a versão mais recente Olá dos serviços de armazenamento do Azure hello, bem como informações sobre versões anteriores, consulte [controle de versão para Olá serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd894041.aspx).  
+

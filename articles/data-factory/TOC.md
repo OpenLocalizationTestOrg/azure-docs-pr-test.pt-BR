@@ -1,12 +1,12 @@
 # Visão geral
-## [Introdução ao Azure Data Factory](data-factory-introduction.md)
+## [Introdução tooAzure fábrica de dados](data-factory-introduction.md)
 ## Conceitos
 ### [Pipelines e atividades](data-factory-create-pipelines.md)
 ### [Conjunto de dados](data-factory-create-datasets.md)
 ### [Agendamento e execução](data-factory-scheduling-and-execution.md)
 
 # Introdução
-## [Tutorial: Criar um pipeline para copiar dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+## [Tutorial: Criar um pipeline de dados de toocopy](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
 ### [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
@@ -14,7 +14,7 @@
 ### [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 ### [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 ### [API do .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-## [Tutorial: Criar um pipeline para transformar dados](data-factory-build-your-first-pipeline.md)
+## [Tutorial: Criar um pipeline de dados de tootransform](data-factory-build-your-first-pipeline.md)
 ### [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
@@ -64,7 +64,7 @@
 ### Gateway de gerenciamento de dados
 #### [Visão geral](data-factory-data-management-gateway.md)
 #### [Alta disponibilidade e escalabilidade (visualização)](data-factory-data-management-gateway-high-availability-scalability.md)
-#### [Passo a passo: mover dados de um SQL Server local para o armazenamento de Blobs do Azure](data-factory-move-data-between-onprem-and-cloud.md)
+#### [Passo a passo: Mover dados de um SQL Server de local tooAzure armazenamento de Blob](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Transformar dados](data-factory-data-transformation-activities.md)

@@ -1,6 +1,6 @@
 ---
-title: "Integração do SDK do Windows Phone Silverlight para o Engagement"
-description: Como integrar o Azure Mobile Engagement com aplicativos do Windows Phone Silverlight
+title: "aaaWindows integração do SDK do contrato Phone Silverlight"
+description: Como tooIntegrate Azure Mobile Engagement com aplicativos do Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 29b18aecff783cebf617995e2a19f16f0b68b51b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f65683a62e5256cea469a3a73d99ade4331cb6bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Integração do SDK do Windows Phone Silverlight para o Engagement
 > [!div class="op_single_selector"]
@@ -29,41 +29,41 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Este procedimento descreve a maneira mais simples para ativar as funções de monitoramento e de análise do Azure Mobile Engagement em seu aplicativo do Windows Phone Silverlight.
+Este procedimento descreve hello mais simples maneira tooactivate do Azure Mobile Engagement análise e monitoramento de funções em seu aplicativo do Windows Phone Silverlight.
 
-As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessário para calcular outras estatísticas, como eventos, erros e trabalhos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no aplicativo Windows Phone](mobile-engagement-windows-phone-use-engagement-api.md) abaixo) já que essas estatísticas são dependentes do aplicativo.
+Olá, as etapas a seguir é que suficientes relatório de saudação tooactivate dos logs necessário toocompute todas as estatísticas sobre usuários, sessões, atividades, falhas e Technicals. Olá relatório dos logs necessário toocompute outras estatísticas como trabalhos, erros e eventos devem ser feitos manualmente usando Olá contrato de API (consulte [como toouse Olá avançado Mobile Engagement marcação API em seu aplicativo do Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md) abaixo) desde que essas estatísticas são dependentes do aplicativo.
 
 ## <a name="supported-versions"></a>Versões com suporte
-O SDK do Mobile Engagement do Windows Silverlight só pode ser integrado a aplicativos destinados ao:
+Olá Mobile Engagement SDK para Windows Silverlight somente pode ser integrado em aplicativos voltados para:
 
 * Windows Phone 8.0
 * Windows Phone 8.1 Silverlight
 
 > [!NOTE]
-> Se o destino for o Windows Phone 8.1 (sem Silverlight), então consulte o [procedimento de integração do Windows Universal](mobile-engagement-windows-store-integrate-engagement.md).
+> Se você tiver como alvo o Windows Phone 8.1 (não Silverlight), consulte toohello [procedimento de integração Universal do Windows](mobile-engagement-windows-store-integrate-engagement.md).
 > 
 > 
 
-## <a name="install-the-mobile-engagement-silverlight-sdk"></a>Instalação do SDK do Silverlight do Mobile Engagement
-O SDK do Mobile Engagement Windows Silverlight está disponível como um pacote do Nuget chamado *MicrosoftAzure.MobileEngagement*. Você pode instalá-lo do Visual Studio Nuget Package Manager. 
+## <a name="install-hello-mobile-engagement-silverlight-sdk"></a>Instalar Olá Silverlight SDK do Mobile Engagement
+Olá Mobile Engagement SDK para Windows Silverlight está disponível como um pacote do Nuget chamado *MicrosoftAzure.MobileEngagement*. Você pode instalá-lo de saudação Nuget Package Manager do Visual Studio. 
 
-## <a name="add-the-capabilities"></a>Adicione recursos
-O SDK do Engagement precisa de alguns recursos do SDK do Windows Phone Silverlight para funcionar corretamente.
+## <a name="add-hello-capabilities"></a>Adicionar recursos de saudação
+Olá contrato SDK precisa de alguns recursos de saudação do Windows Phone Silverlight SDK em ordem toowork corretamente.
 
-Abra o seu arquivo `WMAppManifest.xml` e certifique-se de que os seguintes recursos estão declarados no painel `Capabilities`:
+Abra o `WMAppManifest.xml` de arquivos e certifique-se de que Olá recursos a seguir são declarados no hello `Capabilities` painel:
 
 * `ID_CAP_NETWORKING`
 * `ID_CAP_IDENTITY_DEVICE`
 
-## <a name="initialize-the-engagement-sdk"></a>Inicialize o SDK do Engagement
+## <a name="initialize-hello-engagement-sdk"></a>Inicializar Olá contrato SDK
 ### <a name="engagement-configuration"></a>Configuração do Engagement
-A configuração do Engagement está centralizada no arquivo `Resources\EngagementConfiguration.xml` do seu projeto.
+configuração do contrato de saudação é centralizada em Olá `Resources\EngagementConfiguration.xml` arquivo do projeto.
 
-Edite esse arquivo para especificar :
+Edite esse arquivo toospecify:
 
 * A cadeia de conexão do aplicativo entre as marcas `<connectionString>` and `<\connectionString>`.
 
-Se você quiser especificá-lo em tempo de execução, você pode chamar o método a seguir antes da inicialização do agente do Engagement:
+Se você quiser toospecify em tempo de execução em vez disso, você pode chamar a seguir Olá método antes da inicialização de agente do hello contrato:
 
     /* Engagement configuration. */
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -72,23 +72,23 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(engagementConfiguration);
 
-A cadeia de conexão do seu aplicativo é exibida no Portal Clássico do Azure.
+cadeia de caracteres de conexão de saudação para seu aplicativo é exibida em Olá Portal clássico do Azure.
 
 ### <a name="engagement-initialization"></a>Inicialização do Engagement
-Quando você cria um novo projeto, um arquivo `App.xaml.cs` é gerado. Essa classe herda de `Application` e contém vários métodos importantes. Também poderá ser usado para inicializar o SDK do Engagement.
+Quando você cria um novo projeto, um arquivo `App.xaml.cs` é gerado. Essa classe herda de `Application` e contém vários métodos importantes. Ele também será usado tooinitialize Olá SDK do contrato.
 
-Modifique o `App.xaml.cs`:
+Modificar Olá `App.xaml.cs`:
 
-* Adicione às suas instruções `using`:
+* Adicionar tooyour `using` instruções:
   
       using Microsoft.Azure.Engagement;
-* Insira `EngagementAgent.Instance.Init` no método `Application_Launching` :
+* Inserir `EngagementAgent.Instance.Init` em Olá `Application_Launching` método:
   
       private void Application_Launching(object sender, LaunchingEventArgs e)
       {
         EngagementAgent.Instance.Init();
       }
-* Insira `EngagementAgent.Instance.OnActivated` no método `Application_Activated` :
+* Inserir `EngagementAgent.Instance.OnActivated` em Olá `Application_Activated` método:
   
       private void Application_Activated(object sender, ActivatedEventArgs e)
       {
@@ -96,20 +96,20 @@ Modifique o `App.xaml.cs`:
       }
 
 > [!WARNING]
-> Nós não recomendamos adicionar a inicialização do Engagement em outro lugar do seu aplicativo. No entanto, lembre-se que o método `EngagementAgent.Instance.Init` é executado em um thread dedicado e não no thread da interface do usuário.
+> Altamente Desencorajamos você tooadd Olá contrato inicialização em outro lugar do seu aplicativo. No entanto, lembre-se que Olá `EngagementAgent.Instance.Init` método é executado em um thread dedicado e não Olá thread de interface do usuário.
 > 
 > 
 
 ## <a name="basic-reporting"></a>Relatórios básicos
 ### <a name="recommended-method--overload-your-phoneapplicationpage-classes"></a>Método recomendado: sobrecarregar suas classes `PhoneApplicationPage`
-Para ativar o relatório de todos os logs exigidos pelo Engagement para os usuários, sessões, atividades, falhas e das estatísticas técnicas de computação, você pode simplesmente fazer todas as suas subclasses `PhoneApplicationPage` herdarem das classes `EngagementPage`.
+No relatório de saudação tooactivate de ordem de todos os logs de saudação exigido pelo contrato toocompute usuários, sessões, atividades, falhas e estatísticas técnicas, você pode simplesmente fazer todas as suas `PhoneApplicationPage` subclasses herdam Olá `EngagementPage` classes.
 
-Este é um exemplo de como fazer isso em uma página do seu aplicativo. Você pode fazer a mesma coisa em todas as páginas do seu aplicativo.
+Aqui está um exemplo de como toodo isso para uma página do seu aplicativo. Você pode fazer Olá igual para todas as páginas do seu aplicativo.
 
 #### <a name="c-source-file"></a>Arquivo de código-fonte C#
 Modifique o arquivo `.xaml.cs` de paginação :
 
-* Adicione às suas instruções `using`:
+* Adicionar tooyour `using` instruções:
   
       using Microsoft.Azure.Engagement;
 * Substituir `PhoneApplicationPage` por `EngagementPage` :
@@ -137,14 +137,14 @@ Modifique o arquivo `.xaml.cs` de paginação :
         }
 
 > [!WARNING]
-> Se sua página herdar o método `OnNavigatedTo`, lembre-se de permitir a chamada `base.OnNavigatedTo(e)`. Caso contrário, a atividade não será registrada. Na verdade, o `EngagementPage` está chamando `StartActivity` dentro do método `OnNavigatedTo`.
+> Se sua página herda de saudação `OnNavigatedTo` método, seja cuidadoso toolet Olá `base.OnNavigatedTo(e)` chamar. Caso contrário, a atividade de saudação não será reportada. Na verdade, Olá `EngagementPage` está chamando `StartActivity` dentro Olá `OnNavigatedTo` método.
 > 
 > 
 
 #### <a name="xaml-file"></a>Arquivo XAML
 Modifique o arquivo `.xaml` de paginação :
 
-* Adicione às suas declarações de namespaces :
+* Adicione declarações de namespaces tooyour:
   
       xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
 * Substituir `phone:PhoneApplicationPage` por `engagement:EngagementPage` :
@@ -163,31 +163,31 @@ Modifique o arquivo `.xaml` de paginação :
             <!-- layout -->
         </engagement:EngagementPage >
 
-#### <a name="override-the-default-behavior"></a>Substitua o comportamento padrão
-Por padrão, o nome da classe da página é relatado como o nome da atividade, com e sem extras. Se a classe usa o sufixo "Página", o Engagement irá removê-lo também.
+#### <a name="override-hello-default-behavior"></a>Substituir o comportamento padrão de saudação
+Por padrão, nome de classe de saudação da página de Olá será relatado como nome da atividade hello, com e sem extras. Se a classe Olá usa Olá sufixo "Página", o contrato também removê-la.
 
-Se você quiser substituir o comportamento padrão para o nome, basta adicionar isso ao seu código:
+Se você quiser comportamento do toooverride saudação padrão para nome hello, basta adicione este código tooyour:
 
-        // in the .xaml.cs file
+        // in hello .xaml.cs file
         protected override string GetEngagementPageName()
         {
            /* your code */
            return "new name";
         }
 
-Se você desejar relatar algumas informações adicionais com a sua atividade, você pode adicionar isso ao seu código:
+Se você quiser tooreport informações extras com sua atividade, você pode adicionar esse código tooyour:
 
-        // in the .xaml.cs file
+        // in hello .xaml.cs file
         protected override Dictionary<object,object> GetEngagementPageExtra()
         {
            /* your code */
            return extra;
         }
 
-Esses métodos são chamados de dentro do método `OnNavigatedTo` da página.
+Esses métodos são chamados de dentro de saudação `OnNavigatedTo` método da página.
 
 ### <a name="alternate-method-call-startactivity-manually"></a>Método alternativo: chame `StartActivity()` manualmente
-Se você não pode ou não quer sobrecarregar as classes `PhoneApplicationPage`, em vez disso, você pode iniciar suas atividades chamando os métodos `EngagementAgent` diretamente.
+Se você não pode ou não toooverload seu `PhoneApplicationPage` classes, em vez disso, você pode iniciar suas atividades chamando `EngagementAgent` métodos diretamente.
 
 Recomendamos chamar `StartActivity` dentro do método `OnNavigatedTo` da sua PhoneApplicationPage.
 
@@ -200,31 +200,31 @@ Recomendamos chamar `StartActivity` dentro do método `OnNavigatedTo` da sua Pho
 > [!IMPORTANT]
 > Certifique-se de encerrar a sua sessão corretamente.
 > 
-> O SDK do iOS chama automaticamente o método `EndActivity` quando o aplicativo é fechado. Portanto, é **ALTAMENTE** recomendado chamar o método `StartActivity` sempre que a atividade do usuário for alterada e **NUNCA** chamar o método `EndActivity`. Esse método envia uma mensagem para o servidor Engagement que o usuário atual tenha deixado o aplicativo e isso afeta todos os logs de aplicativo.
+> Olá SDK chama automaticamente Olá `EndActivity` método quando o aplicativo hello está fechado. Portanto, é **altamente** recomendado Olá toocall `StartActivity` sempre que alterar a atividade de saudação do usuário Olá e muito**nunca** chamada hello `EndActivity` método. Esse método envia um servidor de contrato de toohello mensagens que o usuário atual Olá saiu aplicativo hello e isso afeta todos os logs de aplicativo.
 > 
 > 
 
 ## <a name="advanced-reporting"></a>Relatórios avançados
-Opcionalmente, convém relatar eventos específicos do aplicativo, erros e trabalhos, para fazer isso, use os outros métodos encontrados na classe `EngagementAgent` . A API do Engagement permite usar todos os recursos avançados do Engagement.
+Opcionalmente, convém tooreport eventos específicos do aplicativo, erros e trabalhos, toodo assim, use Olá outros métodos encontrados no hello `EngagementAgent` classe. Olá contrato de API permite que toouse todos os recursos avançados do contrato.
 
-Para obter mais informações, consulte [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo da Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
+Para obter mais informações, consulte [como toouse Olá avançado Mobile Engagement marcação API em seu aplicativo do Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 ### <a name="disable-automatic-crash-reporting"></a>Desabilitar o relatório de falhas automático
-Você pode desabilitar a recurso relatório de falhas automático do Engagement. Então, quando uma exceção não tratada ocorrer, o Engagement não fará nada.
+Você pode desabilitar o recurso de contrato de relatório de falha automático do hello. Então, quando uma exceção não tratada ocorrer, o Engagement não fará nada.
 
 > [!WARNING]
-> Se você planeja desabilitar esse recurso, lembre-se de que, quando uma falha não tratada ocorrer em seu aplicativo, o Engagement não enviará a falha **E** ele não fechará a sessão e trabalhos.
+> Se você planejar toodisable esse recurso, lembre-se de que, quando uma falha sem tratamento ocorrerá em seu aplicativo, contrato não enviará falha Olá **AND** não fechará sessão hello e trabalhos.
 > 
 > 
 
-Para desativar o relatório de falhas automático, apenas personalize a configuração dependendo de como você o declarou :
+Falha automático de toodisable reporting, apenas personalizar a configuração dependendo da maneira Olá você declarado:
 
 #### <a name="from-engagementconfigurationxml-file"></a>No arquivo `EngagementConfiguration.xml`
-Defina a falha do relatório para `false` entre as marcas `<reportCrash>` e `</reportCrash>`.
+Definir o relatório de falhas muito`false` entre `<reportCrash>` e `</reportCrash>` marcas.
 
 #### <a name="from-engagementconfiguration-object-at-run-time"></a>No objeto `EngagementConfiguration` em tempo de execução
-Defina a falha do relatório como false usando o objeto EngagementConfiguration.
+Definir toofalse de falha de relatório usando o objeto EngagementConfiguration.
 
         /* Engagement configuration. */
 
@@ -232,18 +232,18 @@ Defina a falha do relatório como false usando o objeto EngagementConfiguration.
         /\* Disable Engagement crash reporting. \*/ engagementConfiguration.Agent.ReportCrash = false;
 
 ### <a name="burst-mode"></a>Modo intermitente
-Por padrão, o serviço Engagement reporta logs em tempo real. Se seu aplicativo relata logs com muita frequência, é melhor armazenar em buffer os logs e relatá-los todos de uma vez regularmente (isso é chamado de "modo intermitente").
+Por padrão, os relatórios de serviço de contrato de saudação logs em tempo real. Se seu aplicativo relatórios logs com muita frequência, é melhor toobuffer Olá logs e tooreport-los todos de uma vez em um base de tempo regulares (Isso é chamado hello "modo de disparo").
 
-Para fazer isso, chame o método:
+toodo assim, chame o método hello:
 
         EngagementAgent.Instance.SetBurstThreshold(int everyMs);
 
-O argumento é um valor em **milissegundos**. A qualquer momento, se você deseja reativar o registro em log em tempo real, basta chamar o método sem nenhum parâmetro, ou com o valor 0.
+Olá argumento for um valor em **milissegundos**. A qualquer momento, se desejar que o log em tempo real do tooreactivate hello, apenas chame método de saudação sem nenhum parâmetro, ou com valor de saudação 0.
 
-O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem um impacto no Monitor do Engagement: a duração de todas as sessões e trabalhos será arredondada para o limite de intermitência (portanto, as sessões e trabalhos mais curtos do que o limite de intermitência podem não estar visíveis). É recomendável usar um limite de intermitência não maior que 30.000 (30s). Você deve estar ciente de que os logs salvos são limitados a 300 itens. Se o envio for muito longo, você poderá perder alguns logs.
+Olá modo intermitente ligeiramente aumentar bateria Olá vida mas tem um impacto em Olá contrato Monitor: todas as sessões e trabalhos a duração será arredondado toohello intermitência limite (portanto, sessões e menor do que o limite de disparo Olá pode não estar visível de trabalhos). É recomendável toouse um limite de disparo não mais que 30000 (30 s). Você tem toobe reconhece que salva os logs são itens too300 limitado. Se o envio for muito longo, você poderá perder alguns logs.
 
 > [!WARNING]
-> O limite de intermitência não pode ser configurado para um período menor que um segundo. Se você tentar fazer isso, o SDK mostrará um rastreamento com o erro e será redefinido automaticamente como o valor padrão, que é de, zero segundo. Isso irá disparar o SDK para relatar os logs em tempo real.
+> Olá limite de disparo não pode ser configurado tooa período menor que um segundo. Se você tentar toodo, portanto, Olá SDK mostrará um rastreamento com o erro hello e será automaticamente redefinir valor padrão de toohello, isto é, zero segundos. Isso vai disparar Olá SDK tooreport Olá logs em tempo real.
 > 
 > 
 

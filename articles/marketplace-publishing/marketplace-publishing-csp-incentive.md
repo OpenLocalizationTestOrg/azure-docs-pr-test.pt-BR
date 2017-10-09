@@ -1,6 +1,6 @@
 ---
-title: "Como exibir e alterar o incentivo de revendedor do provedor de soluções de nuvem | Microsoft Docs"
-description: "Como exibir e alterar a seleção de Incentivo ao revendedor CSP"
+title: "aaaHow tooview e alteração Olá incentivo de revendedor do provedor de soluções de nuvem | Microsoft Docs"
+description: "Como tooview e alterar a seleção de CSP revendedor incentivo"
 services: marketplace-publishing
 documentationcenter: na
 author: DavidBosland
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: DavidBosland
-ms.openlocfilehash: d6e6e13f352dea5c27939c39ecb8be97bf6990ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4702d0167c38d100755a872f9b23e49cc7a46ba2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>Exibir e alterar o provedor de soluções de nuvem "Incentivo ao Revendedor" no Azure Marketplace
-Em 15 de março de 2016, nós disponibilizaremos a solução CSPs (provedores nuvem) "Incentivo ao Revendedor" para editores de Marketplace.  A configuração padrão para este valor de incentivo é **Sim**.  Como um editor, você pode decidir sair do programa de incentivo.  Este artigo mostra como alterar a configuração em seu perfil do editor para que você possa recusar.
+# <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-hello-azure-marketplace"></a>Exibir e alterar seu provedor de soluções de nuvem "Revendedor incentivo" no hello Azure Marketplace
+Em 15 de março de 2016, faremos Olá solução CSPs (provedores nuvem) "Revendedor incentivo" editores de tooMarketplace disponíveis.  Olá a configuração padrão para esse valor incentivo é **Sim**.  Como um editor, você pode decidir tooopt-out de um programa de incentivo hello.  Este artigo mostra como configuração de saudação toochange em seu editor de perfil para que você pode recusar.
 
-Para exibir ou alterar seu status de "Incentivo do Revendedor", siga estas etapas:
+tooview ou alterar seu status de "Revendedor incentivo", siga estas etapas:
 
-1. Faça logon na sua [Conta de publicação do Microsoft Azure](https://publish.windowsazure.com/workspace)
+1. Faça logon no tooyour [conta de publicação do Microsoft Azure](https://publish.windowsazure.com/workspace)
 
    ![Tela inicial do perfil][1]
 2. Clique em **Editores**
 
    ![Tela inicial do perfil - link de editores][2]
-3. Observe as informações do seu perfil sobre CSPs.  Há um **Alternar para dizer que Sim ou não** para o "Incentivo ao Revendedor" - o status padrão é "Sim".
+3. Observe a informações de saudação em seu perfil sobre CSPs.  Há um **alternar toosay Sim ou não** toohello "Revendedor incentivo" - status da saudação padrão é "Sim".
 
    ![Perfil - Editores][3]
-4. Para alterar o status do "Incentivo ao Revendedor", acesse o seu perfil do editor, selecione e salve a sua escolha:
+4. toochange seu status de "Revendedor incentivo" acessar seu perfil do publicador, em seguida, selecione e salve sua escolha:
 
-   * Selecione **Sim** para escolher fornecer o desconto de 20% para os CSPs que estão revendendo os aplicativos e serviços listados no Azure Marketplace.  Ou selecione **Não** para recusar o programa de incentivo.  Em ambos os casos, o editor recebe o mesmo pagamento.
-   * Depois de fazer uma seleção, certifique-se de clicar em **Salvar** no canto superior direito.
+   * Selecione **Sim** toochoose tooprovide Olá 20% de desconto toohello CSPs que são revenda aplicativos de saudação e serviços que estejam listadas no hello Azure Marketplace.  Ou selecione **não** tooopt fora deste programa incentivo.  Em qualquer caso Olá publicador recebe Olá mesmo pagamento.
+   * Depois de fazer uma seleção Verifique se você clicar em **salvar** no canto superior direito de saudação.
 
    ![Perfil - Editores - Caixas de alteração][4]
 

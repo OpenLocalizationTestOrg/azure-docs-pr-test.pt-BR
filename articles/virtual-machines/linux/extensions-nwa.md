@@ -1,6 +1,6 @@
 ---
-title: "Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux | Microsoft Docs"
-description: "Implante o Agente do Observador de Rede do Azure na máquina virtual Linux usando uma extensão da máquina virtual."
+title: "aaaAzure extensão de máquina virtual do agente do Inspetor de rede para Linux | Microsoft Docs"
+description: "Implante Olá agente do Inspetor de rede na máquina virtual do Linux usando uma extensão de máquina virtual."
 services: virtual-machines-linux
 documentationcenter: 
 author: dennisg
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: eaadd531b9e05a54446e61f98584ae9d75470a5f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 84bed132cbda83d0917be490f9a50914578952a1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux
 
 ## <a name="overview"></a>Visão geral
 
-[Observador de Rede do Azure](https://review.docs.microsoft.com/en-us/azure/network-watcher/) é um serviço de monitoramento de desempenho, diagnóstico e análise de rede que permite o monitoramento de redes do Azure. A extensão da máquina virtual do Agente do Observador de Rede é um requisito para alguns dos recursos do Observador de Rede em máquinas virtuais do Azure. Isso inclui capturar o tráfego de rede sob demanda e outra funcionalidade avançada.
+[Observador de Rede do Azure](https://review.docs.microsoft.com/en-us/azure/network-watcher/) é um serviço de monitoramento de desempenho, diagnóstico e análise de rede que permite o monitoramento de redes do Azure. Olá extensão do agente do Inspetor de rede de máquina virtual é um requisito para alguns dos recursos de rede Inspetor Olá em máquinas virtuais do Azure. Isso inclui capturar o tráfego de rede sob demanda e outras funcionalidades avançadas.
 
-Este documento detalha as plataformas com opções de plataformas e implantação com suporte para a extensão da máquina virtual do Agente do Observador de Rede para Linux.
+Saudação de detalhes neste documento suporte a plataformas e opções de implantação para Olá extensão do agente do Inspetor de rede de máquina virtual para Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão do Agente do Observador de rede pode ser executada nessas distribuições do Linux:
+Olá extensão do agente do Inspetor de rede pode ser executada em relação a essas distribuições do Linux:
 
 | Distribuição | Versão |
 |---|---|
@@ -49,11 +49,11 @@ Observe que o CoreOS não tem suporte neste momento.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-Algumas das funcionalidades do Agente do Observador de Rede exigem que a máquina virtual de destino esteja conectada à Internet. Sem a capacidade de estabelecer conexões de saída, alguns dos recursos do Agente do Observador de Rede podem apresentar problemas ou se tornar indisponíveis. Para obter mais detalhes, confira a [documentação do Observador de Rede](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
+Alguns Olá funcionalidade de agente do Inspetor de rede requer que a máquina virtual Olá destino ser toohello conectado à Internet. Sem conexões de saída Olá capacidade tooestablish alguns dos recursos de agente do Inspetor de rede Olá podem mau funcionamento ou se tornar indisponível. Para obter mais detalhes, consulte Olá [documentação do observador de rede](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão do Agente do Observador de Rede. A extensão não requer nem oferece suporte a nenhuma configuração fornecida pelo usuário no momento e se baseia em sua configuração padrão.
+Olá JSON a seguir mostra esquema Olá Olá extensão do agente do Inspetor de rede. extensão de saudação não requer nem dá suporte a todas as configurações fornecidas pelo usuário no momento e se baseia em sua configuração padrão.
 
 ```json
 {
@@ -84,11 +84,11 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Observador de Red
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a extensão do Agente do Observador de Rede durante uma implantação do modelo do Azure Resource Manager.
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. esquema JSON Olá detalhada na seção anterior Olá pode ser usada em uma saudação de toorun de modelo do Azure Resource Manager extensão do agente do Inspetor de rede durante uma implantação de modelo do Gerenciador de recursos do Azure.
 
 ## <a name="azure-cli-deployment"></a>Implantação da CLI do Azure
 
-A CLI do Azure pode ser usado para implantar a extensão da VM do Agente do Observador de Rede para uma máquina virtual existente.
+Olá CLI do Azure pode ser usado toodeploy Olá rede Inspetor agente VM extensão tooan máquina virtual existente.
 
 ```azurecli
 azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
@@ -98,13 +98,13 @@ azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft
 
 ### <a name="troubleshooting"></a>Solucionar problemas
 
-Dados sobre o estado das implantações de extensão podem ser recuperados do Portal do Azure usando a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando a CLI do Azure.
+Dados sobre o estado de saudação de implantações de extensão podem ser recuperados da saudação portal do Azure e usando Olá CLI do Azure. estado da implantação Olá toosee de extensões para uma determinada VM, execute hello usando o comando a seguir Olá CLI do Azure.
 
 ```azurecli
 azure vm extension get myResourceGroup1 myVM1
 ```
 
-A saída de execução da extensão é registrada nos arquivos localizados no seguinte diretório:
+Execução de extensão é conectado toofiles encontrado no hello após o diretório de saída:
 
 `
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
@@ -112,4 +112,4 @@ A saída de execução da extensão é registrada nos arquivos localizados no se
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda a qualquer momento neste artigo, consulte a documentação do Observador de Rede ou entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
+Se você precisar de mais ajuda a qualquer momento neste artigo, você pode consulte a documentação do observador de rede toohello ou entre em contato com o hello Azure especialistas em Olá [fóruns MSDN Azure e o estouro de pilha](https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá toohello [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione obter suporte. Para obter informações sobre como usar o suporte do Azure, leia Olá [perguntas frequentes sobre o suporte da Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).

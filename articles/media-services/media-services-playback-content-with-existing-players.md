@@ -1,6 +1,6 @@
 ---
-title: "Usar players existentes para reproduzir seu conteúdo - Azure | Microsoft Docs"
-description: "Este tópico lista os players existentes que você pode usar para reproduzir conteúdo."
+title: "aaaUse existente players tooplayback seu conteúdo - Azure | Microsoft Docs"
+description: "Este tópico lista os players existentes que você pode usar tooplayback seu conteúdo."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: juliako
-ms.openlocfilehash: 48f373b013b1192c353352b801876d706d91dd28
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 54817345a19a9d3b18f1e7b352c3342043a569b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reprodução de seu conteúdo com players existentes
-Os serviços de mídia do Microsoft Azure suporta muitos formatos populares de streaming, como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico aponta para players existentes que você pode usar para testar os fluxos.
+Os serviços de mídia do Microsoft Azure suporta muitos formatos populares de streaming, como Smooth Streaming, HTTP Live Streaming e MPEG-Dash. Este tópico indica players tooexisting que você pode usar tootest os fluxos.
 
-### <a name="the-azure-portal-media-services-content-player"></a>Player de conteúdo dos Serviços de Mídia do Portal do Azure
-O portal do **Azure** fornece um player de conteúdo que você pode usar para testar o vídeo.
+### <a name="hello-azure-portal-media-services-content-player"></a>player de conteúdo Olá portal do Azure Media Services
+Olá **Azure** portal fornece um player de conteúdo que você pode usar tootest o vídeo.
 
-Clique no vídeo desejado (verifique se ele foi [publicado](media-services-portal-publish.md)) e clique no botão **Reproduzir** na parte inferior do portal.
+Clique em Olá desejado vídeo (Verifique se ele foi [publicado](media-services-portal-publish.md)) e clique em Olá **reproduzir** botão na parte inferior de saudação do portal de saudação.
 
 Algumas considerações se aplicam:
 
-* O **PLAYER DE CONTEÚDO DOS SERVIÇOS DE MÍDIA** é reproduzido por meio do ponto de extremidade de streaming padrão. Se você deseja reproduzir por meio de um ponto de extremidade de streaming não padrão, use outro reprodutor. Por exemplo, [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Olá **PLAYER de conteúdo de serviços de mídia** reproduz do ponto de extremidade de streaming de padrão de saudação. Se você quiser tooplay de um ponto de extremidade de streaming não padrão, use outro player. Por exemplo, [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
-Use o [Media Player do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para reproduzir conteúdo (protegido ou não) em qualquer um dos seguintes formatos:
+Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) tooplayback seu conteúdo (limpar ou protegido) em qualquer um dos formatos a seguir de saudação:
 
 * Smooth Streaming
 * MPEG DASH
@@ -58,14 +58,14 @@ Use o [Media Player do Azure](http://amsplayer.azurewebsites.net/azuremediaplaye
 
 [http://dashif.org](http://dashif.org)
 
-### <a name="other"></a>Outros
-Para testar as URLs de HLS, você também pode usar:
+### <a name="other"></a>outro
+tootest URLs de HLS, você também pode usar:
 
 * **Safari** em um dispositivo iOS ou
 * **Player 3ivx HLS** no Windows.
 
 ## <a name="developing-video-players"></a>Desenvolvendo players de vídeo
-Para obter informações sobre como desenvolver seus próprios players, consulte [Desenvolvendo players de vídeo](media-services-develop-video-players.md)
+Para obter informações sobre como toodevelop seus próprio players, consulte [desenvolver players de vídeo](media-services-develop-video-players.md)
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,6 +1,6 @@
 ---
-title: Como redirecionar dispositivos USB no Azure RemoteApp? | Microsoft Docs
-description: Saiba como usar o redirecionamento para dispositivos USB no Azure RemoteApp.
+title: "aaaHow você redirecionar dispositivos USB no Azure RemoteApp? | Microsoft Docs"
+description: Saiba como redirecionamento de toouse para dispositivos USB no Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,75 +13,75 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 3d7165d2c3dafe87b829e588b9e7f2c377552a35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 661b90c0910167d76ac3886b5af7a32d00b3943f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-do-you-redirect-usb-devices-in-azure-remoteapp"></a>Como redirecionar dispositivos USB no Azure RemoteApp?
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-O redirecionamento de dispositivo permite que os usuários usem os dispositivos USB conectados ao seu computador ou tablet com os aplicativos no Azure RemoteApp. Por exemplo, se você compartilhou o Skype por meio do Azure RemoteApp, os usuários terão de conseguir usar as câmeras de seus dispositivos.
+Redirecionamento do dispositivo permite que os usuários a usar o computador do hello USB dispositivos anexados tootheir ou tablet com hello aplicativos no Azure RemoteApp. Por exemplo, se você compartilhou Skype por meio do Azure RemoteApp, os usuários precisam ter toouse capaz de toobe câmeras seu dispositivo.
 
-Antes de continuar, lembre-se de ler as informações de redirecionamento de USB em [Usando o redirecionamento no Azure RemoteApp](remoteapp-redirection.md). No entanto, o nusbdevicestoredirect:s:* recomendado não funcionará para webcams USB e pode não funcionar para algumas impressoras USB ou dispositivos USB multifuncionais. Por motivos de design e de segurança, o administrador do Azure RemoteApp precisa habilitar o redirecionamento por GUID de classe de dispositivo ou por ID de instância de dispositivo antes que seus usuários possam usar esses dispositivos.
+Antes de ir adiante, certifique-se de ler informações de redirecionamento de USB Olá em [usando redirecionamento no Azure RemoteApp](remoteapp-redirection.md). No entanto Olá recomendado nusbdevicestoredirect:s: * não funcionará para webcams USB e pode não funcionar por algumas impressoras USB ou dispositivos de múltiplas funções USB. Por design e por motivos de segurança, hello Azure RemoteApp administrador tem tooenable redirecionamento por GUID de classe de dispositivo ou por ID de instância do dispositivo antes que os usuários podem usar esses dispositivos.
 
-Embora este artigo fale sobre o redirecionamento da webcam, você pode usar uma abordagem semelhante para redirecionar impressoras USB e outros dispositivos USB multifuncionais que não são redirecionados pelo comando **nusbdevicestoredirect:s:***.
+Embora este artigo trata de redirecionamento de câmera da web, você pode usar um impressoras USB semelhante abordagem tooredirect e outros dispositivos USB de múltiplas funções não são redirecionados pelos Olá **nusbdevicestoredirect:s:*** comando.
 
 ## <a name="redirection-options-for-usb-devices"></a>Opções de redirecionamento para dispositivos USB
-O Azure RemoteApp usa mecanismos muito semelhantes para redirecionar dispositivos USB como os que estão disponíveis para os Serviços de Área de Trabalho Remota. A tecnologia subjacente permite que você escolha o método de redirecionamento correto para um determinado dispositivo, para obter o melhor do redirecionamento de dispositivo USB de alto nível e RemoteFX usando o comando **usbdevicestoredirect:s:** . Há quatro elementos neste comando:
+O Azure RemoteApp usa mecanismos muito semelhantes para redirecionar os dispositivos USB como Olá aquelas disponíveis para os serviços de área de trabalho remota. Olá tecnologia subjacente permite que você escolher método de redirecionamento correto Olá para um determinado dispositivo, tooget Olá melhor de ambos de alto nível e o redirecionamento do dispositivo USB do RemoteFX usando Olá **usbdevicestoredirect:s:** comando. Há quatro elementos toothis comando:
 
 | Ordem de processamento | Parâmetro | Descrição |
 | --- | --- | --- |
 | 1 |* |Seleciona todos os dispositivos que não são captados pelo redirecionamento de alto nível. Observação: por design, o * não funciona para webcams USB. |
-| {GUID de classe do dispositivo} |Seleciona todos os dispositivos que correspondem à classe de instalação do dispositivo especificado. | |
-| USB\InstanceID |Seleciona um dispositivo USB especificado para a ID de instância indicada. | |
-| 2 |-USB\Instance ID |Remove as configurações de redirecionamento para o dispositivo especificado. |
+| {GUID de classe do dispositivo} |Seleciona todos os dispositivos que correspondam a saudação especificada classe de instalação. | |
+| USB\InstanceID |Seleciona um dispositivo USB especificado para Olá dada a ID de instância. | |
+| 2 |-USB\Instance ID |Remove as configurações de redirecionamento de Olá para o dispositivo especificado hello. |
 
-## <a name="redirecting-a-usb-device-by-using-the-device-class-guid"></a>Redirecionando um dispositivo USB usando o GUID de classe do dispositivo
-Há duas maneiras para encontrar o GUID de classe do dispositivo que pode ser usado no redirecionamento. 
+## <a name="redirecting-a-usb-device-by-using-hello-device-class-guid"></a>Redirecionando um dispositivo USB usando o GUID de classe de dispositivo Olá
+Há duas maneiras de classe de dispositivo toofind Olá GUID que pode ser usado para redirecionamento. 
 
-A primeira opção é usar as [Classes de instalação de dispositivo definidas pelo sistema disponíveis para fornecedores](https://msdn.microsoft.com/library/windows/hardware/ff553426.aspx). Selecione a classe que mais se aproxima do dispositivo conectado ao computador local. Para câmeras digitais, isso pode ser uma classe de Dispositivo de Imagem ou de Dispositivo de Captura de Vídeo. Você precisará fazer alguns testes com as classes de dispositivo para encontrar o GUID de classe correto que funciona com o dispositivo USB conectado localmente (em nosso caso, a webcam).
+Olá primeira opção é Olá toouse [tooVendors disponível para Classes de instalação do dispositivo System-Defined](https://msdn.microsoft.com/library/windows/hardware/ff553426.aspx). Escolha classe hello mais parecido com o computador local do hello dispositivo toohello anexado. Para câmeras digitais, isso pode ser uma classe de Dispositivo de Imagem ou de Dispositivo de Captura de Vídeo. Você precisará toodo experimentá-los com Olá dispositivo classes toofind Olá correto de classe GUID que funciona com hello localmente anexado dispositivo USB (no nosso webcam Olá maiusculas).
 
-Uma maneira melhor, ou a segunda opção, é seguir estas etapas para encontrar o GUID de classe de dispositivo específico:
+Uma opção de segundo hello, ou a melhor maneira é toofollow GUID de classe de dispositivo específico do toofind Olá estas etapas:
 
-1. Abra o Gerenciador de Dispositivos, localize o dispositivo que será redirecionado e clique com o botão direito do mouse nele e, em seguida, abra as propriedades.
-   ![Abrir o Gerenciador de Dispositivos](./media/remoteapp-usbredir/ra-devicemanager.png)
-2. Na guia **Detalhes**, escolha a propriedade **Guid de Classe**. O valor que aparece é o GUID de Classe para esse tipo de dispositivo.
+1. Abrir Olá Gerenciador de dispositivos, localizar dispositivo Olá que será redirecionado e clique duas vezes e, em seguida, abrir as propriedades de saudação.
+   ![Olá abrir Gerenciador de dispositivos](./media/remoteapp-usbredir/ra-devicemanager.png)
+2. Em Olá **detalhes** guia, selecione a propriedade Olá **Guid de classe**. valor de saudação que aparece é hello GUID de classe para esse tipo de dispositivo.
    ![Propriedades da câmera](./media/remoteapp-usbredir/ra-classguid.png)
-3. Use o valor de GUID de classe para redirecionar dispositivos que correspondem a ele.
+3. Use valor de Guid de classe de saudação tooredirect dispositivos que correspondem a ele.
 
 Por exemplo:
 
         Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
 
-É possível combinar vários redirecionamentos de dispositivo no mesmo cmdlet. Por exemplo: para redirecionar o armazenamento local e uma webcam USB, o cmdlet tem esta aparência:
+Você pode combinar vários redirecionamentos de dispositivo em Olá mesmo cmdlet. Por exemplo: armazenamento local tooredirect e USB web câmera, cmdlet tem esta aparência:
 
         Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
 
-Ao definir o redirecionamento de dispositivo pelo GUID de classe, todos os dispositivos que correspondem ao GUID de classe na coleção especificada são redirecionados. Por exemplo, se houver vários computadores na rede local que tenham as mesmas webcams USB, você poderá executar um único cmdlet para redirecionar todas as webcams.
+Quando você definir o redirecionamento do dispositivo pela classe GUID todos os dispositivos que correspondem a classe GUID no hello especificado coleção são redirecionados. Por exemplo, se houver vários computadores na rede local Olá que têm Olá mesmo webcams USB, você pode executar um único cmdlet tooredirect todos webcams hello.
 
-## <a name="redirecting-a-usb-device-by-using-the-device-instance-id"></a>Redirecionando um dispositivo USB usando a ID de instância do dispositivo
-Se desejar um controle mais refinado e controlar o redirecionamento por dispositivo, você poderá usar o parâmetro de redirecionamento **USB\InstanceID**.
+## <a name="redirecting-a-usb-device-by-using-hello-device-instance-id"></a>Redirecionando um dispositivo USB usando a ID de instância de dispositivo Olá
+Se você quiser um controle mais refinado e deseja toocontrol redirecionamento por dispositivo, você pode usar o hello **USB\InstanceID** parâmetro de redirecionamento.
 
-A parte mais difícil deste método é encontrar a ID de instância do dispositivo USB. Você precisará ter acesso ao computador e ao dispositivo USB específico. Depois, siga estas etapas:
+a parte mais difícil Olá desse método é Localizando ID de instância de dispositivo Olá USB Você vai precisar acessar toohello computador e dispositivo USB específico de saudação. Depois, siga estas etapas:
 
-1. Habilite o redirecionamento de dispositivo na Sessão de Área de Trabalho Remota, como descrito em [Como posso usar meus dispositivos e recursos em uma sessão de Área de Trabalho Remota?](http://windows.microsoft.com/en-us/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
+1. Habilitar o redirecionamento de dispositivo de saudação na sessão de área de trabalho remota conforme descrito em [como posso usar meus dispositivos e recursos em uma sessão de área de trabalho remota?](http://windows.microsoft.com/en-us/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
 2. Abra uma Conexão de Área de Trabalho Remota e clique em **Mostrar Opções**.
-3. Clique em **Salvar como** para salvar as configurações atuais de conexão em um arquivo RDP.  
-    ![Salvar as configurações como um arquivo RDP](./media/remoteapp-usbredir/ra-saveasrdp.png)
-4. Escolha um nome de arquivo e um local, por exemplo, “MyConnection.rdp” e “This PC\Documents” e salve o arquivo.
-5. Abra o arquivo MyConnection.rdp usando um editor de texto e encontre a ID de instância do dispositivo que você deseja redirecionar.
+3. Clique em **Salvar como** toosave Olá atual conexão tooan RDP arquivo de configurações.  
+    ![Salvar configurações de saudação como um arquivo RDP](./media/remoteapp-usbredir/ra-saveasrdp.png)
+4. Escolha um nome de arquivo e um local, por exemplo, MyConnection.rdp e este PC\Documents e salvar arquivo hello.
+5. Abra hello MyConnection.rdp arquivo usando um editor de texto e localizar a ID de instância de saudação do dispositivo Olá deseja tooredirect.
 
-Agora, use a ID de instância no seguinte cmdlet:
+Agora, use o ID de instância de saudação em Olá cmdlet a seguir:
 
     Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB\<Device InstanceID value>"
 
 
 
 ### <a name="help-us-help-you"></a>Ajude-nos a ajudar você
-Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
+Você sabia que na adição toorating neste artigo e fazer comentários para baixo abaixo, você pode fazer alterações toohello artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** toomake alterações - aqueles virão toous para revisão e, em seguida, uma vez que saia neles, você verá suas alterações e aprimoramentos aqui.
 

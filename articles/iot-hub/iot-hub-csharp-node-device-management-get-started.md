@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao gerenciamento de dispositivo de Hub IoT do Azure (.NET/Node) | Microsoft Docs"
-description: "Como usar o gerenciamento de dispositivos do Hub IoT do Azure para iniciar uma reinicialização do dispositivo remoto. Use o SDK do dispositivo IoT do Azure para Node.js para implementar um aplicativo de dispositivo simulado que inclui um método direto e o SDK do serviço do Azure IoT para .NET para implementar um aplicativo de serviço que invoca o método direto."
+title: "aaaGet de Introdução ao gerenciamento de dispositivos do Azure IoT Hub (.NET/nó) | Microsoft Docs"
+description: "Como tooinitiate de gerenciamento de dispositivo de Azure IoT Hub toouse um dispositivo remoto reinicializar. Você usar o dispositivo de IoT do Azure de saudação SDK para Node.js tooimplement um aplicativo de dispositivo simulado que inclui um método direto e hello serviço IoT do Azure SDK para .NET tooimplement um aplicativo de serviço que invoca o método direto hello."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
-ms.openlocfilehash: d97fc5493570985f94c23032c870628d6a089dcd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ea6d50dfac1c222d7836e3bf5503c6c9b8c89dfa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-device-management-netnode"></a>Introdução ao gerenciamento de dispositivos (.NET/Node)
 
@@ -26,43 +26,43 @@ ms.lasthandoff: 08/18/2017
 
 Este tutorial mostra como:
 
-* Usar o portal do Azure para criar um Hub IoT e criar uma identidade de dispositivo em seu Hub IoT.
-* Crie um aplicativo de dispositivo simulado contendo um método direto que reinicia o dispositivo. Métodos diretos são invocados da nuvem.
-* Criar um aplicativo de console .NET que chama um método direto de reinicialização no aplicativo de dispositivo simulado por meio do Hub IoT.
+* Use Olá toocreate portal do Azure um IoT Hub e criar uma identidade de dispositivo em seu hub IoT.
+* Crie um aplicativo de dispositivo simulado contendo um método direto que reinicia o dispositivo. Métodos diretos são chamados de nuvem hello.
+* Crie um aplicativo de console .NET que chama o método direto de reinicialização Olá no aplicativo do dispositivo simulado Olá por meio de seu hub IoT.
 
-Ao final deste tutorial, você terá um aplicativo de dispositivo de console Node.js e um aplicativo de back-end do console .NET (C#):
+No final da saudação deste tutorial, você tem um aplicativo de dispositivo do console Node. js e um aplicativo de back-end do console .NET (c#):
 
-**dmpatterns_getstarted_device.js**, que conecta seu hub IoT com a identidade do dispositivo criada anteriormente, recebe um método direto de reinicialização, simula uma reinicialização física e informa a hora da última reinicialização.
+**dmpatterns_getstarted_device.js**, que conecta o hub IoT de tooyour com a identidade do dispositivo Olá criada anteriormente, recebe um método direto de reinicialização, simula uma reinicialização física e relata o tempo para a última reinicialização do Olá Olá.
 
-**TriggerReboot**, que chama um método direto no aplicativo de dispositivo simulado, exibe a resposta e exibe as propriedades relatadas atualizadas.
+**TriggerReboot**, que chama um método direto no aplicativo do dispositivo simulado hello, exibe a resposta de saudação e exibe Olá atualizado relatado propriedades.
 
-Para concluir este tutorial, você precisará do seguinte:
+toocomplete neste tutorial, você precisa Olá a seguir:
 
 * Visual Studio 2015 ou Visual Studio 2017.
-* Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
+* Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento] [ lnk-dev-setup] descreve como tooinstall Node. js para este tutorial no Windows ou Linux.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Disparar uma reinicialização remota no dispositivo usando um método direto
-Nesta seção, você criará um aplicativo do console .NET (usando C#) que inicia uma reinicialização remota em um dispositivo usando um método direto. O aplicativo usa consultas de dispositivo gêmeo para descobrir o último horário de reinicialização para esse dispositivo.
+## <a name="trigger-a-remote-reboot-on-hello-device-using-a-direct-method"></a>Disparar uma reinicialização remota no dispositivo hello usando um método direto
+Nesta seção, você criará um aplicativo do console .NET (usando C#) que inicia uma reinicialização remota em um dispositivo usando um método direto. aplicativo Hello usa Olá de toodiscover hora da última reinicialização do dispositivo duas consultas para o dispositivo.
 
-1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# a uma nova solução usando o modelo de projeto **Aplicativo do Console (.NET Framework)**. Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Nomeie o projeto como **TriggerReboot**.
+1. No Visual Studio, adicione uma solução do Visual C# Windows clássico Desktop projeto tooa novo usando Olá **aplicativo de Console (.NET Framework)** modelo de projeto. Certifique-se de versão do .NET Framework Olá é 4.5.1 ou posterior. Projeto de saudação do nome **TriggerReboot**.
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][img-createapp]
 
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **TriggerReboot** e, em seguida, clique em **Gerenciar Pacotes NuGet**.
-3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
+2. No Gerenciador de soluções, clique com botão direito Olá **TriggerReboot** do projeto e, em seguida, clique em **gerenciar pacotes NuGet**.
+3. Em Olá **NuGet Package Manager** janela, selecione **procurar**, procure **microsoft.azure.devices**, selecione **instalar** tooinstall Olá **Microsoft.Azure.Devices** empacotar e aceitar os termos de uso do hello. Este procedimento faz o download, instala e adiciona uma referência toohello [SDK do serviço de Azure IoT] [ lnk-nuget-service-sdk] NuGet pacote e suas dependências.
 
     ![Janela do Gerenciador de Pacotes NuGet][img-servicenuget]
-4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+4. Adicione o seguinte Olá `using` instruções na parte superior de saudação do hello **Program.cs** arquivo:
    
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. Adicione os seguintes campos à classe **Program** . Substitua o valor do espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior e no dispositivo de destino.
+5. Adicionar Olá toohello campos a seguir **programa** classe. Substitua o valor de espaço reservado Olá Olá cadeia de caracteres de conexão de IoT Hub hub Olá que você criou na seção anterior hello e o dispositivo de destino de saudação.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -70,7 +70,7 @@ Nesta seção, você criará um aplicativo do console .NET (usando C#) que inici
         static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Adicione o seguinte método à classe **Programa**.  Esse código obtém o dispositivo gêmeo para o dispositivo de reinicialização e gera as propriedades relatadas.
+6. Adicionar Olá após o método toohello **programa** classe.  Este dispositivo duas do código obtém Olá para Olá Olá dispositivo e saídas de reinicialização relatado propriedades.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -78,7 +78,7 @@ Nesta seção, você criará um aplicativo do console .NET (usando C#) que inici
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Adicione o seguinte método à classe **Programa**.  Esse código inicia uma reinicialização no dispositivo usando um método direto.
+7. Adicionar Olá após o método toohello **programa** classe.  Esse código inicia Olá reinicialização no dispositivo hello usando um método direto.
 
         public static async Task StartReboot()
         {
@@ -91,35 +91,35 @@ Nesta seção, você criará um aplicativo do console .NET (usando C#) que inici
             Console.WriteLine("Invoked firmware update on device.");
         }
 
-7. Por fim, adicione as seguintes linhas ao método **Main** :
+7. Finalmente, adicione Olá toohello linhas a seguir **principal** método:
    
         registryManager = RegistryManager.CreateFromConnectionString(connString);
         StartReboot().Wait();
         QueryTwinRebootReported().Wait();
-        Console.WriteLine("Press ENTER to exit.");
+        Console.WriteLine("Press ENTER tooexit.");
         Console.ReadLine();
         
-8. Compilar a solução.
+8. Compile a solução de saudação.
 
 ## <a name="create-a-simulated-device-app"></a>Criar um aplicativo de dispositivo simulado
 Nesta seção, você irá
 
-* Criar um aplicativo de console do Node.js que responde a um método direto chamado pela nuvem
+* Criar um aplicativo de console do Node. js que responde tooa método direto chamado pela nuvem Olá
 * Disparar uma reinicialização do dispositivo simulado
-* Usar as propriedades relatadas para habilitar consultas de dispositivo gêmeo para identificar dispositivos e a última reinicialização
+* Olá Use relatado propriedades tooenable dispositivos duas consultas tooidentify dispositivos e quando eles reiniciado pela última vez
 
-1. Criar uma nova pasta vazia denominada **manageddevice**.  Na pasta **manageddevice**, crie um arquivo package.json usando o comando a seguir no prompt de comando.  Aceite todos os padrões:
+1. Criar uma nova pasta vazia denominada **manageddevice**.  Em Olá **manageddevice** pasta, crie um arquivo Package. JSON usando Olá comando no prompt de comando a seguir.  Aceite todos os padrões de saudação:
    
     ```
     npm init
     ```
-2. No prompt de comando na pasta **manageddevice**, execute o seguinte comando para instalar o pacote **azure-iot-device** do SDK do Dispositivo e o pacote **azure-iot-device-mqtt**:
+2. O prompt de comando no hello **manageddevice** pasta, execute Olá Olá de tooinstall de comando a seguir **dispositivo de iot do azure** pacote do SDK do dispositivo e **azure iot dispositivo-mqtt**pacote:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Usando um editor de texto, crie um novo arquivo **dmpatterns_getstarted_device.js** na pasta **manageddevice**.
-4. Adicione as seguintes instruções ‘require’ no início do arquivo **dmpatterns_getstarted_device.js**:
+3. Usando um editor de texto, crie um novo **dmpatterns_getstarted_device.js** arquivo hello **manageddevice** pasta.
+4. Adicionar instruções no início de saudação do hello seguinte Olá 'requer' **dmpatterns_getstarted_device.js** arquivo:
    
     ```
     'use strict';
@@ -127,27 +127,27 @@ Nesta seção, você irá
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Adicione uma variável **connectionString** e use-a para criar um **Cliente** do dispositivo.  Substitua a cadeia de conexão de dispositivo pela cadeia de conexão do seu dispositivo.  
+5. Adicionar um **connectionString** variável e use-toocreate uma **cliente** instância.  Substitua a cadeia de caracteres de conexão de saudação com a cadeia de caracteres de conexão do dispositivo.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Adicione a seguinte função para implementar o método direto no dispositivo
+6. Adicionar Olá seguinte função tooimplement Olá ao método direto no dispositivo Olá
    
     ```
     var onReboot = function(request, response) {
    
-        // Respond the cloud app for the direct method
+        // Respond hello cloud app for hello direct method
         response.send(200, 'Reboot started', function(err) {
             if (!err) {
                 console.error('An error occured when sending a method response:\n' + err.toString());
             } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+                console.log('Response toomethod \'' + request.methodName + '\' sent successfully.');
             }
         });
    
-        // Report the reboot before the physical restart
+        // Report hello reboot before hello physical restart
         var date = new Date();
         var patch = {
             iothubDM : {
@@ -174,7 +174,7 @@ Nesta seção, você irá
         console.log('Rebooting!');
     };
     ```
-7. Adicione o seguinte código para abrir a conexão com o Hub IoT e inicie o ouvinte do método direto:
+7. Adicione o seguinte Olá hub IoT do tooopen Olá conexão tooyour de código e iniciar o ouvinte de método direto de saudação:
    
     ```
     client.open(function(err) {
@@ -186,23 +186,23 @@ Nesta seção, você irá
         }
     });
     ```
-8. Salve e feche o arquivo **dmpatterns_getstarted_device.js**.
+8. Salve e feche o hello **dmpatterns_getstarted_device.js** arquivo.
    
 > [!NOTE]
-> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), como sugerido no artigo [Tratamento de falhas transitórias][lnk-transient-faults] do MSDN.
+> coisas tookeep simples, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (por exemplo, uma retirada exponencial), conforme sugerido no artigo do MSDN Olá [tratamento de falhas transitórias][lnk-transient-faults].
 
 
-## <a name="run-the-apps"></a>Executar os aplicativos
-Agora você está pronto para executar os aplicativos.
+## <a name="run-hello-apps"></a>Executar aplicativos Olá
+Agora você está pronto toorun Olá aplicativos.
 
-1. No prompt de comando da pasta **manageddevice**, execute o seguinte comando para iniciar a escutar o método direto de reinicialização.
+1. No prompt de comando de saudação de saudação **manageddevice** pasta, execute Olá toobegin comando escuta para o método direto de reinicialização Olá a seguir.
    
     ```
     node dmpatterns_getstarted_device.js
     ```
-2. Execute o aplicativo de console do C# **TriggerReboot**. Clique com o botão direito do mouse no projeto **TriggerReboot**, selecione **Depurar** e, em seguida, **Iniciar nova instância**.
+2. Aplicativo de console Olá execução c# **TriggerReboot**. Saudação de atalho **TriggerReboot** projeto, selecione **depurar**e, em seguida, selecione **iniciar nova instância**.
 
-3. Você verá a resposta do dispositivo para o método direto no console.
+3. Consulte o hello dispositivo resposta toohello método direto no console de saudação.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
@@ -216,7 +216,7 @@ Agora você está pronto para executar os aplicativos.
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure portal]: https://portal.azure.com/
-[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
+[Using resource groups toomanage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md

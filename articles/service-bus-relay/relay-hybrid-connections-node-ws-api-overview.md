@@ -1,5 +1,5 @@
 ---
-title: "Visão geral das APIs de Nó de Retransmissão do Azure | Microsoft Docs"
+title: "aaaOverview de saudação APIs de nó de retransmissão do Azure | Microsoft Docs"
 description: "Visão geral da API de Nó de Retransmissão"
 services: service-bus-relay
 documentationcenter: na
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: sethm
-ms.openlocfilehash: 28526c05c7f364f0fcaaa362fc97857f850040ee
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d231acc854be0eaa965dec0229cf63b08ff27067
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API do Nó de Conexões Híbridas de Retransmissão
 
 ## <a name="overview"></a>Visão geral
 
-O [ `hyco-ws` ](https://www.npmjs.com/package/hyco-ws) pacote de nó para as conexões de retransmissão híbridas do Azure baseia-se e estende o ['ws'](https://www.npmjs.com/package/ws) pacote NPM. Este pacote novamente exporta todas as exportações do pacote base e adiciona novos exportações que permitem a integração com o recurso de conexões híbridas do serviço de retransmissão do Azure. 
+Olá [ `hyco-ws` ](https://www.npmjs.com/package/hyco-ws) pacote de nó para as conexões de retransmissão híbridas Azure baseia-se e estende Olá ['ws'](https://www.npmjs.com/package/ws) pacote NPM. Este pacote novamente exporta todas as exportações de pacote básico e adiciona novos exportações que habilitar a integração com o recurso de conexões híbridas do serviço de retransmissão do Azure de saudação. 
 
-Os aplicativos existentes que `require('ws')` pode usar esse pacote com `require('hyco-ws')` em vez disso, que também permite cenários híbridos em que um aplicativo pode escutar conexões WebSocket localmente do "dentro do firewall" e por meio de conexões híbridas, tudo ao mesmo tempo.
+Os aplicativos existentes que `require('ws')` pode usar esse pacote com `require('hyco-ws')` em vez disso, que também permite cenários híbridos em que um aplicativo pode escutar conexões WebSocket localmente do "dentro do firewall de hello" e por meio de conexões híbridas, todos Olá mesmo tempo.
   
 ## <a name="documentation"></a>Documentação
 
-As APIs estão [documentadas no pacote principal 'ws'](https://github.com/websockets/ws/blob/master/doc/ws.md). Este artigo descreve como esse pacote difere essa linha de base. 
+Olá APIs são [documentado no pacote de principal 'ws' hello](https://github.com/websockets/ws/blob/master/doc/ws.md). Este artigo descreve como esse pacote difere essa linha de base. 
 
-As principais diferenças entre o pacote básico e essa 'hyco-ws' é que ele adiciona uma nova classe de servidor exportada com `require('hyco-ws').RelayedServer`e alguns métodos auxiliares.
+Olá principais diferenças entre o pacote básico hello e este 'hyco-ws' é que ele adiciona uma nova classe de servidor, exportada por meio de `require('hyco-ws').RelayedServer`e alguns métodos auxiliares.
 
 ### <a name="package-helper-methods"></a>Métodos auxiliares de pacote
 
-Há vários métodos de utilitário disponível na exportação do pacote que você pode fazer referência da seguinte maneira:
+Há vários métodos de utilitário disponível na exportação de pacote de saudação que você pode fazer referência da seguinte maneira:
 
 ```JavaScript
 const WebSocket = require('hyco-ws');
@@ -47,7 +47,7 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-Os métodos auxiliares para uso com este pacote, mas também podem ser usados por um servidor de nó para habilitar clientes da web ou dispositivo criar ouvintes ou remetentes. O servidor usa esses métodos, passando-os URIs que incorporar tokens de curta duração. Esses URIs também pode ser usado com pilhas WebSocket comuns que não oferecem suporte a cabeçalhos HTTP de configuração para o handshake do WebSocket. A incorporação de tokens de autorização no URI é suportada principalmente para os cenários de uso da biblioteca externa. 
+métodos de auxiliares de saudação são para uso com este pacote, mas também podem ser usados por um servidor de nó para habilitar ouvintes toocreate de clientes da web ou dispositivo ou remetentes. servidor de saudação usa esses métodos passando os URIs que insira tokens de curta duração. Esses URIs também pode ser usado com comuns pilhas de WebSocket que não dão suporte a cabeçalhos HTTP de configuração para o handshake do WebSocket hello. Incorporar tokens de autorização hello, há suporte para o URI principalmente para os cenários de uso da biblioteca externa. 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
 
@@ -55,14 +55,14 @@ Os métodos auxiliares para uso com este pacote, mas também podem ser usados po
 var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 ```
 
-Cria um URI do ouvinte da Conexão Híbrida de Retransmissão do Azure para determinado namespace e caminho. Esse URI, em seguida, pode ser usado com a versão de retransmissão da classe WebSocketServer.
+Cria um ouvinte de Azure retransmissão híbrida Conexão URI válido para Olá dado namespace e o caminho. Esse URI, em seguida, pode ser usado com versão de retransmissão de saudação do hello WebSocketServer classe.
 
-- `namespaceName` (obrigatório) – o nome de domínio qualificado do namespace de retransmissão do Azure a ser usado.
-- `path` (obrigatório) – o nome de uma Conexão Híbrida de Retransmissão do Azure no namespace.
-- `token` (opcional) – um token de acesso de retransmissão emitido anteriormente que é incorporado no ouvinte da URI (consulte o exemplo a seguir).
+- `namespaceName`(obrigatório) - Olá nome qualificado do domínio do hello Azure retransmissão namespace toouse.
+- `path`(obrigatório) - Olá o nome de uma Conexão existente de híbrida de retransmissão do Azure no namespace.
+- `token`(opcional) - um acesso de retransmissão emitido anteriormente token que é inserida no URI de escuta de saudação (consulte Olá exemplo a seguir).
 - `id` (opcional) – um identificador de acompanhamento que permite o acompanhamento de diagnóstico de ponta a ponta de solicitações.
 
-O valor `token` é opcional e só deve ser usado quando não for possível enviar cabeçalhos HTTP junto com o handshake do WebSocket, como é o caso com a pilha do WebSocket do W3C.                  
+Olá `token` valor é opcional e só deve ser usado quando não é possível toosend HTTP cabeçalhos junto com o handshake do WebSocket hello, como Olá caso com pilha de W3C WebSocket hello.                  
 
 
 #### <a name="createrelaysenduri"></a>createRelaySendUri
@@ -71,14 +71,14 @@ O valor `token` é opcional e só deve ser usado quando não for possível envia
 var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 ```
 
-Cria um envio de Conexão do Azure retransmissão híbrida URI válido para o namespace específico e o caminho. Esse URI pode ser usado com qualquer cliente WebSocket.
+Cria um envio de Azure retransmissão híbrida Conexão URI válido para Olá dado espaço para nome e caminho. Esse URI pode ser usado com qualquer cliente WebSocket.
 
-- `namespaceName` (obrigatório) – o nome de domínio qualificado do namespace de retransmissão do Azure a ser usado.
-- `path` (obrigatório) – o nome de uma Conexão Híbrida de Retransmissão do Azure no namespace.
-- `token` (opcional) – um token de acesso de retransmissão emitido anteriormente que é inserido no URI de envio (consulte o exemplo a seguir).
+- `namespaceName`(obrigatório) - Olá nome qualificado do domínio do hello Azure retransmissão namespace toouse.
+- `path`(obrigatório) - Olá o nome de uma Conexão existente de híbrida de retransmissão do Azure no namespace.
+- `token`enviar um token de acesso de retransmissão emitido anteriormente inserida no hello (opcional) - URI (consulte Olá exemplo a seguir).
 - `id` (opcional) – um identificador de acompanhamento que permite o acompanhamento de diagnóstico de ponta a ponta de solicitações.
 
-O valor `token` é opcional e só deve ser usado quando não for possível enviar cabeçalhos HTTP junto com o handshake do WebSocket, como é o caso com a pilha do WebSocket do W3C.                   
+Olá `token` valor é opcional e só deve ser usado quando não é possível toosend HTTP cabeçalhos junto com o handshake do WebSocket hello, como Olá caso com pilha de W3C WebSocket hello.                   
 
 
 #### <a name="createrelaytoken"></a>createRelayToken 
@@ -87,14 +87,14 @@ O valor `token` é opcional e só deve ser usado quando não for possível envia
 var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-Cria um token de Assinatura de Acesso Compartilhado (SAS) da Retransmissão do Azure para o URI, a regra SAS e a chave da regra SAS de destino especificados válidos para o número de segundos determinado ou para uma hora a partir do instante atual caso o argumento de expiração seja omitido.
+Cria um token de assinatura de acesso compartilhado (SAS) do Azure retransmissão para o URI de destino Olá fornecido, a regra SAS e a chave da regra SAS é válido para Olá fornecido o número de segundos ou de uma hora de saudação atual instantânea se Olá expiração argumento for omitido.
 
-- `uri` (obrigatório) – o URI para o qual o token deve ser emitido. O URI é normalizado para usar o esquema HTTP e informações de cadeia de caracteres de consulta serão removidas.
-- `ruleName` (obrigatório) – nome de regra SAS para uma entidade representada por determinado URI ou para o namespace representado pela parte do host do URI.
-- `key` (obrigatório) – chave válida para a regra de SAS. 
-- `expirationSeconds` (opcional) – o número de segundos até que o token gerado deve expirar. O padrão é 1 hora (3600) se não for especificado.
+- `uri`(obrigatório) - Olá URI para o qual Olá token é toobe emitido. Olá URI é normalizado toouse esquema HTTP de saudação e informações de cadeia de caracteres de consulta será removido.
+- `ruleName`(obrigatório) - nome para a entidade de saudação representada por Olá fornecido URI da regra SAS ou para Olá namespace representado pela Olá parte do host URI.
+- `key`(obrigatório) - chave válida para a regra SAS hello. 
+- `expirationSeconds`(opcional) - número de saudação de segundos até Olá gerado token deve expirar. Se não for especificado, o padrão de saudação é 1 hora (3.600).
 
-O token emitido confere os direitos associados a regra SAS especificada para o período especificado.
+token Olá emitido confere direitos Olá Olá especificado regra SAS para Olá dada duração.
 
 #### <a name="appendrelaytoken"></a>appendRelayToken
 
@@ -102,13 +102,13 @@ O token emitido confere os direitos associados a regra SAS especificada para o p
 var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-Esse método é funcionalmente equivalente ao método `createRelayToken` documentado anteriormente, mas retorna o token anexado corretamente para a URI de entrada.
+Esse método é funcionalmente equivalente toohello `createRelayToken` método documentado anteriormente, mas retorna Olá token toohello corretamente acrescentados entrada URI.
 
 ### <a name="class-wsrelayedserver"></a>Classe ws.RelayedServer
 
-O `hycows.RelayedServer` classe é uma alternativa para o `ws.Server` classe não escuta na rede local, mas delegados escuta para o serviço de retransmissão do Azure.
+Olá `hycows.RelayedServer` classe é uma alternativa toohello `ws.Server` classe que não escutam na rede local hello, mas delega escuta toohello serviço de retransmissão do Azure.
 
-As duas classes são em geral compatíveis em termos de contrato, o que significa que um aplicativo existente usando a classe `ws.Server` pode ser facilmente alterado para usar a versão retransmitida. As principais diferenças são no construtor e nas opções disponíveis.
+classes de saudação dois são principalmente contrato compatível, o que significa que um aplicativo existente usando Olá `ws.Server` classe pode ser facilmente versão de hello retransmitida toouse alterados. Olá principais diferenças são no construtor de saudação e nas opções disponíveis de saudação.
 
 #### <a name="constructor"></a>Construtor  
 
@@ -123,16 +123,16 @@ var wss = new server(
     });
 ```
 
-O construtor `RelayedServer` dá suporte a um conjunto diferente de argumentos do que o `Server`, porque ele não é nem um ouvinte autônomo, nem pode ser inserido em uma estrutura de ouvinte HTTP existente. Também há menos opções disponíveis desde que o gerenciamento do WebSocket amplamente é delegado ao serviço de retransmissão.
+Olá `RelayedServer` construtor oferece suporte a um conjunto diferente de argumentos que Olá `Server`, porque ele não é um ouvinte autônomo ou capaz de toobe inserido em uma estrutura de ouvinte HTTP. Também há menos opções disponíveis como Olá gerenciamento WebSocket é amplamente delegado toohello serviço de retransmissão.
 
 Argumentos do Construtor:
 
-- `server` (obrigatório) – o URI totalmente qualificado para um nome de Conexão Híbrida a escutar costuma ser construído com o método auxiliar WebSocket.createRelayListenUri().
-- `token` (obrigatório) – esse argumento contém uma cadeia de caracteres de token emitida anteriormente ou uma função de retorno de chamada que pode ser chamada para obter uma cadeia de caracteres tal token. A opção de retorno de chamada é preferencial, pois permite renovação de tokens.
+- `server`(obrigatório) - Olá totalmente qualificado URI para um nome de Conexão híbrida na qual toolisten, costuma ser construído com hello método auxiliar de WebSocket.createRelayListenUri().
+- `token`(obrigatório) - este argumento contém uma cadeia de caracteres de token emitida anteriormente ou uma função de retorno de chamada que pode ser chamada tooobtain tal token de cadeia de caracteres. opção de retorno de chamada de saudação é preferencial, pois permite renovação de tokens.
 
 #### <a name="events"></a>Eventos
 
-`RelayedServer`instâncias de emitem três eventos que permitem lidar com solicitações de entrada, estabelecer conexões e detectar condições de erro. Você deve assinar o evento `connect` para lidar com mensagens. 
+`RelayedServer`instâncias de emissão de três eventos que permitem a você toohandle solicitações de entrada, estabelecem conexões e detectam condições de erro. Você deve assinar toohello `connect` mensagens de toohandle de eventos. 
 
 ##### <a name="headers"></a>headers
 
@@ -140,7 +140,7 @@ Argumentos do Construtor:
 function(headers)
 ```
 
-O evento `headers` é gerado antes de uma conexão de entrada ser aceita, permitindo a modificação dos cabeçalhos a enviar ao cliente. 
+Olá `headers` evento é gerado antes de uma conexão de entrada é aceito, permitindo que a modificação do cliente do hello cabeçalhos toosend toohello. 
 
 ##### <a name="connection"></a>connection
 
@@ -148,7 +148,7 @@ O evento `headers` é gerado antes de uma conexão de entrada ser aceita, permit
 function(socket)
 ```
 
-Emitido quando uma nova conexão WebSocket é aceita. O objeto é do tipo `ws.WebSocket`, igual ao do pacote básico.
+Emitido quando uma nova conexão WebSocket é aceita. objeto Olá é do tipo `ws.WebSocket`, mesmo que com o pacote básico da saudação.
 
 
 ##### <a name="error"></a>error
@@ -157,11 +157,11 @@ Emitido quando uma nova conexão WebSocket é aceita. O objeto é do tipo `ws.We
 function(error)
 ```
 
-Se o servidor subjacente emite um erro, ele é encaminhado aqui.  
+Se o servidor subjacente Olá emite um erro, ele é encaminhado aqui.  
 
 #### <a name="helpers"></a>Auxiliares
 
-Para simplificar a inicialização de um servidor de retransmissão e a assinatura imediata conexões de entrada, o pacote expõe uma função auxiliar simples, que também é usada nos exemplos, da seguinte maneira:
+toosimplify iniciar um servidor retransmitido e imediatamente assinando tooincoming conexões, hello pacote expõe uma função auxiliar simples, que também é usada nos exemplos hello, da seguinte maneira:
 
 ##### <a name="createrelayedlistener"></a>createRelayedListener
 
@@ -190,11 +190,11 @@ var wss = WebSocket.createRelayedServer(
 var server = createRelayedServer([options], [connectCallback] )
 ```
 
-Esse método chama o construtor para criar uma nova instância de RelayedServer e, em seguida, assina o retorno de chamada fornecido para o evento 'conexão'.
+Este método chama Olá construtor toocreate uma nova instância da saudação RelayedServer e, em seguida, assina Olá fornecido de retorno de chamada toohello 'conexão' eventos.
  
 ##### <a name="relayedconnect"></a>relayedConnect
 
-O espelhamento simplesmente o `createRelayedServer` auxiliar na função, `relayedConnect` cria uma conexão de cliente e assina o evento 'open' no soquete resultante.
+Espelhamento simplesmente Olá `createRelayedServer` auxiliar na função, `relayedConnect` cria uma conexão de cliente e assina o evento de 'open' toohello no soquete resultante Olá.
 
 ```JavaScript
 var uri = WebSocket.createRelaySendUri(ns, path);
@@ -208,6 +208,6 @@ WebSocket.relayedConnect(
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a Retransmissão do Azure, visite estes links:
+toolearn mais informações sobre a retransmissão do Azure, visite esses links:
 * [O que é Retransmissão do Azure?](relay-what-is-it.md)
 * [APIs de Retransmissão Disponíveis](relay-api-overview.md)

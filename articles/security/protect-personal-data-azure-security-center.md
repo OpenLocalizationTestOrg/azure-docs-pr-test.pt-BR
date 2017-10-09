@@ -1,5 +1,5 @@
 ---
-title: "Proteger dados pessoais com a Central de Segurança do Azure | Microsoft Docs"
+title: "dados pessoais de aaaProtect na Central de segurança do Azure | Microsoft Docs"
 description: "proteger dados pessoais usando a central de segurança do Azure"
 services: security
 documentationcenter: na
@@ -15,38 +15,38 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8e2c893d13318392f47fa912089d52618f9e7b45
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Proteger dados pessoais contra violações e ataques: Central de Segurança do Azure
 
-Este artigo ajudará você a entender como usar a Central de Segurança do Azure para proteger dados pessoais contra violações e ataques.
+Este artigo ajuda você a entender como os dados pessoais do toouse Central de segurança do Azure tooprotect de violar e ataques.
 
 ## <a name="scenario"></a>Cenário 
 
-Uma empresa de cruzeiro de grande porte, com sede nos Estados Unidos, está expandindo suas operações para oferecer roteiros nos mares Mediterrâneo e Báltico, bem como nas Ilhas Britânicas. Para ajudar nesses esforços, ela adquiriu várias linhas de cruzeiro menores localizadas na Itália, na Alemanha, na Dinamarca e no Reino Unido.
+Uma empresa cruzeiro grandes, com sede em Olá Estados Unidos, está expandindo suas roteiros de toooffer operações Olá Mediterrâneo e mares báltico, bem como Olá Britânicas. toohelp nesses esforços, ela adquiriu várias linhas de cruzeiro menores com base na Itália, Alemanha, Dinamarca e Olá Reino Unido
 
-A empresa usa o Microsoft Azure para armazenar dados corporativos na nuvem. Eles incluem informações de identificação pessoal, como nomes, endereços, números de telefone e informações de cartão de crédito. Também incluem informações de Recursos Humanos, como:
+empresa de saudação usa dados corporativos do Microsoft Azure toostore na nuvem hello. Eles incluem informações de identificação pessoal, como nomes, endereços, números de telefone e informações de cartão de crédito. Também incluem informações de Recursos Humanos, como:
 
 - Endereços
 - Números de telefone
 - Números de identificação fiscal
 - Informações de saúde
 
-A linha de cruzeiro também mantém um banco de dados grande de membros do programa de recompensa e fidelidade. Os funcionários corporativos acessam a rede de escritórios remotos da empresa e os agentes de viagem localizados no mundo todo têm acesso a alguns recursos da empresa.
-Os dados pessoais viajam pela rede entre essas localizações e o data center da Microsoft.
+linha de cruzeiro Olá também mantém um banco de dados grande de membros do programa de recompensa e fidelidade. Os funcionários corporativos acesso Olá rede da empresa Olá escritórios remotos e agentes espalhados Olá, mundo têm acesso toosome recursos da empresa.
+Dados pessoais viajam pela rede Olá entre esses locais e o data center da Microsoft hello.
 
 ## <a name="problem-statement"></a>Problema declarado
 
-A empresa se preocupa com a ameaça de ataques a seus recursos do Azure. Ela deseja prevenir a exposição dos dados pessoais de clientes e funcionários a pessoas não autorizadas. Também deseja obter diretrizes de prevenção e resposta/correção, bem como uma maneira eficaz de monitorar a segurança contínua de seus recursos de nuvem.
+empresa de saudação está preocupada a ameaça de saudação de ataques a seus recursos do Azure. Eles querem tooprevent exposição de pessoas de toounauthorized dados pessoais dos funcionários e clientes. Eles desejam obter orientação sobre a prevenção e resposta/correção, bem como uma maneira eficiente toomonitor Olá contínuo de segurança de seus recursos de nuvem.
 Ela precisa de uma linha forte de proteção contra os invasores sofisticados e organizados de hoje.
 
 ## <a name="company-goal"></a>Meta da empresa
 
-Uma das metas da empresa é garantir a privacidade dos dados pessoais de clientes e funcionários protegendo-os contra ameaças. Uma de suas metas é responder imediatamente aos sinais de violação para atenuar o impacto. Ela precisa de uma maneira para avaliar o estado atual da segurança, identificar configurações vulneráveis e corrigi-las.
+Uma das metas da empresa Olá é privacidade de saudação tooensure dos dados pessoais dos funcionários e clientes protegê-lo contra ameaças. Um dos seus objetivos é toorespond imediatamente toosigns de violação toomitigate Olá impacto. Requer uma maneira tooassess Olá estado atual da segurança, identificar configurações vulneráveis e corrigi-los.
 
 ## <a name="solutions"></a>Soluções
 
@@ -54,154 +54,154 @@ O ASC (Central de Segurança do Microsoft Azure) fornece uma solução integrada
 
 ### <a name="prevention"></a>Prevenção
 
-O ASC ajuda a prevenir violações, permitindo definir políticas de segurança, fornecer acesso Just-In-Time e implementar recomendações de segurança.
+ASC ajuda a evitar violações, permitindo que você tooset as políticas de segurança, forneça acesso just-in-time e implementar as recomendações de segurança.
 
-Uma política de segurança define o conjunto de controles recomendados para os recursos na assinatura especificada. O acesso Just-In-Time pode ser usado para bloquear o tráfego de entrada nas VMs do Azure, reduzindo a exposição a ataques. Recomendações de segurança são criadas pelo ASC depois de analisar o estado de segurança dos recursos do Azure.
+Uma política de segurança define o conjunto de saudação de controles recomendado para recursos em Olá especificado assinatura. No momento o acesso pode ser usado toolock para baixo tráfego de entrada tooyour VMs do Azure, reduzindo a exposição tooattacks. Recomendações de segurança são criadas pelo ASC depois de analisar o estado de segurança Olá seus recursos do Azure.
 
 #### <a name="how-do-i-set-security-policies-in-asc"></a>Como fazer para definir políticas de segurança no ASC?
 
-É possível configurar políticas de segurança para cada assinatura. Para modificar uma política de segurança, você deve ser um proprietário ou colaborador dessa assinatura. No portal do Azure, faça o seguinte:
+É possível configurar políticas de segurança para cada assinatura. toomodify uma política de segurança, você deve ser um proprietário ou colaborador da assinatura. No portal do Azure de Olá, Olá a seguir:
 
-1. Selecione **Política** no painel do ASC.
+1. Selecione **política** no painel de controle do hello ASC.
 
-2. Selecione a assinatura na qual você deseja habilitar a política.
+2. Selecione a assinatura de saudação no qual você deseja tooenable política de saudação.
 
-3. Escolha **Política prevenção** para configurar as políticas por assinatura. A opção **Coletar dados de máquinas virtuais** deve ser definida como **Ativado.**
+3. Escolha **política de prevenção de** tooconfigure políticas por assinatura. **Coletar dados de máquinas virtuais** deve ser definido muito**em.**
 
-4. Nas opções de **Política de prevenção**, selecione **Ativado** para habilitar as recomendações de segurança que são relevantes para a assinatura.
+4. Em Olá **política de prevenção de** opções, selecionadas **na** tooenable Olá as recomendações de segurança que são relevantes para a assinatura de saudação.
 
 ![](media/protect-personal-data-azure-security-center/prevention-policy.png)
 
-Para obter instruções mais detalhadas e uma explicação de cada uma das recomendações de política que podem ser habilitadas, consulte [Definir políticas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-policies#set-security-policies).
+Para obter mais instruções e uma explicação de cada uma das recomendações de política de saudação que podem ser habilitadas, consulte [definir políticas de segurança na Central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-policies#set-security-policies).
 
 #### <a name="how-do-i-configure-just-in-time-access-jit"></a>Como fazer para configurar o acesso JIT (Just-In-Time)?
 
-Quando o JIT está habilitado, a Central de Segurança bloqueia o tráfego de entrada às VMs do Azure, criando uma regra do NSG. Você seleciona as portas na VM para as quais o tráfego de entrada será bloqueado. Para usar o acesso JIT, faça o seguinte:
+Quando JIT está habilitada, a Central de segurança bloqueia o tráfego de entrada tooyour VMs do Azure, criando uma regra NSG. Selecione as portas de saudação em Olá VM toowhich o tráfego de entrada será bloqueado para baixo. toouse JIT acessar, Olá a seguir:
 
-1. Selecione o **bloco de acesso de VM Just-In-Time** na folha do ASC.
+1. Selecione Olá **logo no bloco de acesso VM tempo** na folha ASC hello.
 
-2. Selecione a guia **Recomendado**.
+2. Selecione Olá **recomendado** guia.
 
-3. Em **VMs**, selecione as VMs que você deseja habilitar. Isso coloca uma marca de seleção ao lado de uma VM. 
+3. Em **VMs**, selecione Olá VMs que você deseja tooenable. Isso coloca uma tooa de marca de seleção próxima VM. 
 4. Selecione **Habilitar JIT** nas VMs.
 5. Selecione **Salvar**.
 
-Em seguida, você pode ver as portas padrão que o ASC recomenda que sejam habilitadas para o JIT. Também adicione e configure uma nova porta na qual você deseja habilitar a solução Just-In-Time. O bloco **Acesso de VM Just-In-Time** na Central de Segurança mostra o número de VMs configuradas para o acesso JIT. Ele também mostra o número de solicitações de acesso aprovadas feitas na última semana.
+Em seguida, você pode ver as portas padrão Olá ASC recomenda habilitar de JIT. Você também pode adicionar e configurar uma nova porta na qual você deseja tooenable Olá apenas na solução de tempo. Olá **apenas no acesso de tempo de VM** lado a lado na Central de segurança de saudação mostra o número de saudação de máquinas virtuais configuradas para acesso JIT. Ele também mostra o número de Olá aprovados de solicitações de acesso feitas no hello última semana.
 
 ![](media/protect-personal-data-azure-security-center/jit-vm.png)
 
-Para obter instruções sobre como fazer isso, além de mais informações sobre o acesso Just-In-Time, consulte [Gerenciar o acesso de máquina virtual usando o Just-In-Time.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+Para obter instruções sobre como toodo, e informações adicionais sobre apenas no acesso de tempo, consulte [gerenciar o acesso de máquina virtual usando no momento.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 
 #### <a name="how-do-i-implement-asc-security-recommendations"></a>Como fazer para implementar as recomendações de segurança do ASC?
 
-Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, cria recomendações. As recomendações o orientam ao longo do processo de configuração dos controles necessários. 
-1. Selecione o bloco **Recomendações** no painel do ASC.
+Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, cria recomendações. recomendações de saudação orientará você durante processo de saudação do configurando controles de saudação necessário. 
+1. Selecione Olá **recomendações** bloco no painel ASC hello.
 
-2. Exiba as recomendações, que são mostradas em um formato de tabela, em que cada linha representa uma recomendação.
+2. Exibir recomendações de saudação, que são mostradas em um formato de tabela em que cada linha representa uma recomendação.
 
-3. Para filtrar recomendações, selecione **Filtrar** e selecione os valores de gravidade e estado que você deseja ver.
+3. recomendações de toofilter, selecione **filtro** e selecione os valores de severidade e estado de saudação desejar toosee.
 
-4. Para ignorar uma recomendação que não é aplicável, clique com o botão direito do mouse e selecione **Ignorar.**
+4. toodismiss uma recomendação não é aplicável, você pode clique com botão direito e selecione **ignorar.**
 
 5. Avalie qual recomendação deve ser aplicada primeiro.
 
-6. Aplique as recomendações em ordem de prioridade.
+6. Aplica recomendações de saudação em ordem de prioridade.
 
-Para obter uma lista de possíveis recomendações e passos a passos sobre como aplicar cada uma, consulte [Gerenciando recomendações de segurança na Central de Segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+Para obter uma lista de recomendações possíveis e instruções passo a passo sobre como tooapply cada, consulte [Gerenciando recomendações de segurança na Central de segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
 
 ### <a name="detection-and-response"></a>Detecção e resposta
 
-A detecção e resposta funcionam juntas, quando você deseja responder o mais rápido possível após a detecção de uma ameaça.
-A detecção de ameaças do ASC funciona com a coleta automática das informações de segurança dos recursos do Azure, da rede e das soluções de parceiros conectados. O ASC pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Para obter informações mais detalhadas sobre como funciona a detecção de ameaças do ASC, consulte [Funcionalidades de detecção da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities).
+Detecção e resposta vá juntas, conforme desejar toorespond assim que possível após uma ameaça é detectada.
+A detecção de ameaças ASC funciona automaticamente Coletando informações de segurança de seus recursos do Azure, rede hello e soluções de parceiros conectado. O ASC pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Para obter informações mais detalhadas sobre como funciona a detecção de ameaças do ASC, consulte [Funcionalidades de detecção da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities).
 
-#### <a name="how-do-i-manage-and-respond-to-security-alerts"></a>Como fazer para gerenciar e responder a alertas de segurança?
+#### <a name="how-do-i-manage-and-respond-toosecurity-alerts"></a>Como gerenciar e responder a alertas toosecurity?
 
-Uma lista de alertas de segurança priorizados é mostrada na Central de Segurança, junto com as informações necessárias para investigar rapidamente o problema. A Central de Segurança também inclui recomendações sobre como corrigir um ataque. Para gerenciar os alertas de segurança, faça o seguinte:
+É mostrada uma lista de alertas de segurança priorizados na Central de segurança junto com hello informações que você precisa tooquickly investigar o problema de saudação. Central de segurança também inclui recomendações sobre como tooremediate um ataque. toomanage a segurança de alertas, fazer Olá a seguir:
 
-1. Selecione o bloco **Alertas de segurança** no painel do ASC. Isso mostra detalhes de cada alerta.
+1. Selecione Olá **alertas de segurança** bloco no painel de controle do hello ASC. Isso mostra detalhes de cada alerta.
 
-2. Para filtrar os alertas com base na data, no estado e na gravidade, selecione **Filtrar** e, em seguida, os valores que você deseja ver.
+2. Selecione toofilter alertas com base na data, estado e gravidade, **filtro** e selecione os valores hello deseja toosee.
 
-3. Para responder a um alerta, selecione-o, examine as informações e, em seguida, selecione o recurso que foi atacado.
+3. toorespond tooan alerta, selecioná-la e examinar as informações de saudação, selecione Olá recurso que foi atacado.
 
-4. No campo **Descrição**, você verá os detalhes, incluindo a correção recomendada.
+4. Em Olá **descrição** campo, você verá os detalhes, incluindo correção recomendada.
 
 ![](media/protect-personal-data-azure-security-center/security-alerts.png)
 
-Para obter instruções mais detalhadas sobre como responder a alertas de segurança, consulte [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+Para obter mais instruções sobre alertas de toosecurity está respondendo, consulte [toosecurity está respondendo e gerenciamento de alertas na Central de segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
-Para obter ajuda na investigação de alertas de segurança, a empresa pode integrar os alertas do ASC à sua própria solução SIEM, usando a [Integração de Logs do Azure](https://aka.ms/AzLog).
+Para obter ajuda na investigação de alertas de segurança, a empresa Olá pode integrar alertas ASC com sua própria solução SIEM, usando [integração do Azure Log](https://aka.ms/AzLog).
 
 #### <a name="how-do-i-manage-security-incidents"></a>Como fazer para gerenciar incidentes de segurança?
 
-No ASC, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com os padrões da cadeia de encerramento. Um Incidente revelará a lista de alertas relacionados, o que permite a obtenção de mais informações sobre cada ocorrência. Os incidentes são exibidos no bloco e na folha Alertas de Segurança.
+No ASC, um incidente de segurança é uma agregação de todos os alertas de um recurso que se alinham com os padrões da cadeia de encerramento. Um incidente revelará a lista de saudação de alertas relacionados, que permite que você tooobtain obter mais informações sobre cada ocorrência. Incidentes aparecem na hello bloco alertas de segurança e de folha.
 
-Para examinar e gerenciar incidentes de segurança, faça o seguinte:
+tooreview e gerenciar incidentes de segurança, Olá a seguir:
 
-1. Selecione o bloco **Alertas de segurança**. Se um incidente de segurança for detectado, ele será exibido no gráfico de alertas de segurança. Ele terá um ícone diferente dos outros alertas.
+1. Selecione Olá **alertas de segurança** lado a lado. Se for detectado um incidente de segurança, ele será exibido no gráfico de alertas de segurança hello. Ele terá um ícone diferente dos outros alertas.
 
-2. Selecione o incidente para ver mais detalhes sobre esse incidente de segurança. Detalhes adicionais incluem sua descrição completa, sua gravidade, seu estado atual, o recurso atacado, as etapas de correção do incidente e os alertas que foram incluídos nesse incidente.
+2. Selecione toosee incidente hello mais detalhes sobre este incidente de segurança. Detalhes adicionais incluem sua descrição completa, sua severidade, seu estado atual, Olá atacado recursos, etapas de correção de saudação incidente hello e Olá alertas que foram incluídos neste incidente.
 
-Filtre para ver **somente incidentes**, **somente alertas** ou **ambos**.
+Você pode filtrar toosee **incidentes apenas**, **alertas somente**, ou **ambos**.
 
-#### <a name="how-do-i-access-the-threat-intelligence-report"></a>Como fazer para acessar o Relatório de Inteligência contra Ameaças?
+#### <a name="how-do-i-access-hello-threat-intelligence-report"></a>Como acessar o relatório de inteligência de ameaça de Olá?
 
-O ASC analisa informações de várias fontes para identificar ameaças. Para ajudar as equipes de resposta a incidentes a investigar e a corrigir ameaças, a Central de Segurança inclui um relatório de inteligência contra ameaças que contém informações sobre a ameaça detectada.
+ASC analisa informações contra ameaças de tooidentify várias fontes. as equipes de resposta a incidentes tooassist investigam e corrigir ameaças, Central de segurança inclui um relatório de inteligência de ameaça que contém informações sobre a ameaça de saudação que foi detectada.
 
 A Central de Segurança tem três tipos de relatórios de ameaça, que podem variar de acordo com o ataque.
-Os relatórios disponíveis são:
+Olá relatórios disponíveis são:
 
 - Relatório de Grupo de Atividade: fornece análises avançadas sobre os invasores, seus objetivos e táticas.
 
 - Relatório de Campanha: concentra-se nos detalhes de campanhas de ataque específicas.
 
-- Relatório de Resumo de Ameaças: abrange todos os itens dos dois relatórios anteriores.
+- Relatório de resumo de ameaça: abrange todos os itens em dois relatórios de saudação anterior.
 
-Esse tipo de informação é muito útil durante o processo de resposta a incidentes, em que há uma investigação em andamento para compreender a origem do ataque, as motivações do invasor e o que fazer para atenuar esse problema no futuro.
+Esse tipo de informação é muito útil durante o processo de resposta a incidentes hello, onde houver uma fonte de saudação toounderstand investigação em andamento de ataque hello, Olá motivações do invasor e quais toomitigate toodo esse problema futuramente.
 
-1. Para acessar o relatório de inteligência contra ameaças, faça o seguinte:
+1. tooaccess Olá inteligência de ameaça de relatório, Olá a seguir:
 
-2. Selecione o bloco **Alertas de segurança** no painel do ASC.
+2. Selecione Olá **alertas de segurança** bloco no painel ASC hello.
 
-3. Selecione o alerta de segurança do qual você deseja obter mais informações.
+3. Selecione o alerta de segurança de saudação do qual você deseja tooobtain obter mais informações.
 
-4. No campo **Relatórios**, clique no link para o relatório de inteligência contra ameaças.
+4. Em Olá **relatórios** , clique em relatório de inteligência de ameaça Olá link toohello.
 
-5. Isso abrirá o arquivo PDF, que pode ser baixado.
+5. Isso abrirá o arquivo PDF hello, o que pode ser baixado.
 
 ![](media/protect-personal-data-azure-security-center/security-alerts-suspicious-process.png)
 
-Para obter mais informações sobre o relatório de inteligência contra ameaças do ASC, consulte [Relatório de Inteligência contra Ameaças da Central de Segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-threat-report)
+Para obter informações adicionais sobre Olá relatório de inteligência de ameaça ASC, consulte [o relatório de inteligência de ameaça do Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-threat-report)
 
 ### <a name="assessment"></a>Avaliação
 
-Para ajudar no teste, na avaliação e na avaliação de sua postura de segurança, o ASC fornece uma avaliação de vulnerabilidade integrada com agentes de nuvem Qualys, como parte de seu componente de recomendações de máquina virtual.
+toohelp com avaliação, teste e avaliação de sua postura de segurança, ASC fornece para avaliação de vulnerabilidade integrado com Qualys agentes de nuvem, como parte de seu componente de recomendações de máquina virtual.
 
-O agente Qualys relata os dados de vulnerabilidade para a plataforma de gerenciamento do Qualys, que, por sua vez, envia os dados de monitoramento de integridade e vulnerabilidade novamente para o ASC. A recomendação para adicionar uma solução de avaliação de vulnerabilidade é exibida na folha **Recomendações** do painel do ASC.
+Olá Qualys agente relatórios vulnerabilidade dados toohello Qualys plataforma de gerenciamento, que envia dados de monitoramento de integridade e vulnerabilidade fazer tooASC. Olá recomendação tooadd uma solução de avaliação de vulnerabilidade é exibida no hello **recomendações** folha no painel de controle do hello ASC.
 
-Após a instalação da solução de avaliação de vulnerabilidade na VM de destino, a Central de Segurança examinará a VM para detectar e identificar vulnerabilidades de aplicativos e do sistema. Os problemas detectados são exibidos na opção **Recomendações de Máquinas Virtuais**.
+Após a solução de avaliação de vulnerabilidade hello está instalada na VM de destino Olá, verificações de segurança central Olá toodetect VM e identificam vulnerabilidades do sistema e do aplicativo. Detectados problemas são mostrados em Olá **recomendações de máquinas virtuais** opção.
 
 #### <a name="how-do-i-implement-a-vulnerability-assessment-solution"></a>Como fazer para implementar uma solução de avaliação de vulnerabilidade? 
 
 Se uma Máquina Virtual não tem uma solução de avaliação de vulnerabilidade integrada já implantada, a Central de Segurança recomenda que ela seja instalada.
 
-1. No painel do ASC, na folha **Recomendações**, selecione **Adicionar uma solução de avaliação de vulnerabilidade.**
+1. No painel ASC hello, em Olá **recomendações** folha, selecione **adicionar uma solução de avaliação de vulnerabilidade.**
 
-2. Selecione as VMs em que você deseja instalar a solução de avaliação de vulnerabilidade.
+2. Selecione VMs Olá onde deseja que a solução de avaliação de vulnerabilidade tooinstall hello.
 
 3. Clique em **Instalar em [número de] VMs.**
 
-4. Selecione uma solução de parceiro no Azure Marketplace ou, em **Usar solução existente**, selecione **Qualys.**
+4. Selecione uma solução de parceiro no hello Azure Marketplace ou em **usar solução existente,** selecione **Qualys.**
 
-5. Ative ou desative as configurações de atualização automática na folha **Soluções de Parceiros**.
+5. Você pode ativar as configurações de atualização do hello automática ou desativar Olá **soluções de parceiros** folha.
 
-Para obter mais instruções sobre como implementar uma solução de avaliação de vulnerabilidade, consulte [Avaliação de vulnerabilidade na Central de Segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+Para obter mais instruções sobre como tooimplement uma solução de avaliação de vulnerabilidade, consulte [avaliação de vulnerabilidade na Central de segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Guia de início rápido da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-- [Introdução à Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Introdução tooAzure Central de segurança](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 - [Integrando alertas da Central de Segurança do Azure com a integração de logs do Azure](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration)
 

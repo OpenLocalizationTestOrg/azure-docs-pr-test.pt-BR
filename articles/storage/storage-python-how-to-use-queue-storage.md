@@ -1,6 +1,6 @@
 ---
-title: Como usar o Armazenamento de filas do Python | Microsoft Docs
-description: "Saiba como usar o serviço Fila do Azure do Python para criar e excluir filas, bem como para inserir, obter e excluir mensagens."
+title: aaaHow toouse armazenamento de fila do Python | Microsoft Docs
+description: "Saiba como toouse Olá serviço de fila do Azure do Python toocreate e excluir filas, inserir, obter e excluir mensagens."
 services: storage
 documentationcenter: python
 author: robinsh
@@ -14,32 +14,32 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.openlocfilehash: 1ad3ba6853edda93034b84996823262cb017c71a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ce8d999d9fafaef0dab48442560d004c034c0804
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-queue-storage-from-python"></a>Como usar o Armazenamento de fila do Python
+# <a name="how-toouse-queue-storage-from-python"></a>Como toouse armazenamento de fila do Python
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Visão geral
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python](SDK do Armazenamento do Microsoft Azure para Python). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas].
+Este guia mostra como os cenários comuns de tooperform usando Olá serviço de armazenamento de fila do Azure. exemplos de saudação são escritos em Python e usar Olá [Microsoft Azure Storage SDK para Python]. Olá cenários abordados incluem **inserindo**, **inspecionar**, **obtendo**, e **excluindo** Enfileirar mensagens, bem como  **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção toohello [próximas etapas].
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="how-to-create-a-queue"></a>Como criar uma fila
-O objeto **QueueService** permite que você trabalhe com filas. O código a seguir cria um objeto **QueueService** . Adicione o seguinte próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente:
+Olá **QueueService** objeto permite que você trabalhe com filas. Olá código a seguir cria um **QueueService** objeto. Adicione a seguinte Olá superior de saudação de qualquer arquivo Python no qual você deseja acesso tooprogrammatically armazenamento do Azure:
 
 ```python
 from azure.storage.queue import QueueService
 ```
 
-O código a seguir cria um objeto **QueueService** usando o nome da conta de armazenamento e a chave da conta. Substitua “myaccount” e “mykey” pelo nome da sua conta e sua chave.
+Olá código a seguir cria um **QueueService** objeto usando a chave de nome e uma conta de conta de armazenamento do hello. Substitua “myaccount” e “mykey” pelo nome da sua conta e sua chave.
 
 ```python
 queue_service = QueueService(account_name='myaccount', account_key='mykey')
@@ -48,14 +48,14 @@ queue_service.create_queue('taskqueue')
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Como inserir uma mensagem em uma fila
-Para inserir uma mensagem em uma fila, use o método **put\_message** para criar uma nova mensagem e adicioná-la à fila.
+tooinsert uma mensagem em uma fila, use Olá **colocar\_mensagem** método para criar uma nova mensagem e adicioná-lo toohello fila.
 
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Como: espiar a próxima mensagem
-Você pode inspecionar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek\_messages**. Por padrão, **peek\_messages()** inspeciona uma única mensagem.
+## <a name="how-to-peek-at-hello-next-message"></a>Como: Espiar a próxima mensagem de saudação
+Você pode inspecionar mensagem de saudação na frente de saudação de uma fila sem removê-la da fila de saudação por chamada hello **inspeção\_mensagens** método. Por padrão, **peek\_messages()** inspeciona uma única mensagem.
 
 ```python
 messages = queue_service.peek_messages('taskqueue')
@@ -64,7 +64,7 @@ for message in messages:
 ```
 
 ## <a name="how-to-dequeue-messages"></a>Como: remover mensagens da fila
-Seu código remove uma mensagem de uma fila em duas etapas. Ao chamar **get\_messages**, você receberá a próxima mensagem em uma fila por padrão. Uma mensagem retornada de **get\_messages** torna-se invisível para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos. Para terminar de remover a mensagem da fila, você também deve chamar **delete\_message**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. Seu código chama **delete\_message** logo depois que a mensagem é processada.
+Seu código remove uma mensagem de uma fila em duas etapas. Quando você chama **obter\_mensagens**, obter próxima mensagem de saudação em uma fila por padrão. Uma mensagem retornada de **obter\_mensagens** se torna invisível tooany outro código de leitura de mensagens dessa fila. Por padrão, essa mensagem permanece invisível por 30 segundos. toofinish mensagem de saudação remover da fila hello, você também deve chamar **excluir\_mensagem**. Esse processo de duas etapas de remoção de uma mensagem garante que, quando falha tooprocess uma mensagem devido à falha de hardware ou software no seu código, outra instância do seu código pode obter a mesma mensagem de erro e tente novamente. Seu código chama **excluir\_mensagem** logo depois que a mensagem de saudação foi processada.
 
 ```python
 messages = queue_service.get_messages('taskqueue')
@@ -74,7 +74,7 @@ for message in messages:
 ```
 
 Há duas maneiras de personalizar a recuperação da mensagem de uma fila.
-Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O seguinte exemplo de código usa o método **get\_messages** para receber 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
+Primeiro, você pode obter um lote de mensagens (até too32). Em seguida, você pode definir um tempo limite de invisibilidade maiores ou menores, permitindo que o código mais ou menos tempo toofully processam cada mensagem. usos de exemplo de código a seguir de saudação do **obter\_mensagens** mensagens tooget 16 de método em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de saudação para cinco minutos para cada mensagem.
 
 ```python
 messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
@@ -83,8 +83,8 @@ for message in messages:
     queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como: alterar o conteúdo de uma mensagem em fila
-Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho. O código a seguir usa o método **update\_message** para atualizar uma mensagem. O tempo limite de visibilidade está definido como 0, indicando que a mensagem será exibida imediatamente e o conteúdo será atualizado.
+## <a name="how-to-change-hello-contents-of-a-queued-message"></a>Como: Alterar o conteúdo de saudação de uma mensagem na fila
+Você pode alterar o conteúdo de saudação de um mensagem no local na fila de saudação. Se a mensagem representa uma tarefa de trabalho, você pode usar tooupdate esse recurso o status da tarefa de trabalho hello. código de saudação abaixo usa Olá **atualizar\_mensagem** método tooupdate uma mensagem. tempo limite de visibilidade de saudação é definido too0, indicando que a mensagem será exibida imediatamente e Olá conteúdo é atualizado.
 
 ```python
 messages = queue_service.get_messages('taskqueue')
@@ -92,8 +92,8 @@ for message in messages:
     queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Como obter o comprimento da fila
-Você pode obter uma estimativa do número de mensagens em uma fila. O método **get\_queue\_metadata** solicita que o serviço Fila retorne os metadados sobre a fila e a **approximate_message_count**. O resultado é aproximado apenas porque as mensagens podem ser adicionadas ou removidas depois que o serviço de fila responde à sua solicitação.
+## <a name="how-to-get-hello-queue-length"></a>Como Obter Olá comprimento da fila
+Você pode obter uma estimativa do número de saudação de mensagens em uma fila. O **obter\_fila\_metadados** método pergunta Olá fila serviço tooreturn metadados sobre fila hello e Olá **approximate_message_count**. resultado de Olá só é aproximado, pois mensagens podem ser adicionadas ou removidas depois que o serviço de fila responde tooyour solicitação.
 
 ```python
 metadata = queue_service.get_queue_metadata('taskqueue')
@@ -101,19 +101,19 @@ count = metadata.approximate_message_count
 ```
 
 ## <a name="how-to-delete-a-queue"></a>Como excluir uma fila
-Para excluir uma fila e todas as mensagens contidas nela, chame o método **delete\_queue**.
+toodelete uma fila e todas as mensagens de saudação contidos nela, chame o **excluir\_fila** método.
 
 ```python
 queue_service.delete_queue('taskqueue')
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu os conceitos básicos do Armazenamento de Filas, siga estes links para saber mais.
+Agora que você aprendeu as Noções básicas de saudação do armazenamento de fila, siga essas toolearn links mais.
 
 * [Centro de desenvolvedores do Python](/develop/python/)
 * [API REST de serviços de armazenamento do Azure](http://msdn.microsoft.com/library/azure/dd179355)
 * [Blog da equipe de Armazenamento do Azure]
-* [Microsoft Azure Storage SDK for Python]
+* [Microsoft Azure Storage SDK para Python]
 
 [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-[Microsoft Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
+[Microsoft Azure Storage SDK para Python]: https://github.com/Azure/azure-storage-python

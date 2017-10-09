@@ -1,5 +1,5 @@
 ---
-title: "(preterido) Diferença no teste de proporções — Azure | Microsoft Docs"
+title: "AAA(deprecated) diferença proporções teste - o Azure | Microsoft Docs"
 description: "(preterido) Diferença no teste de proporções"
 services: machine-learning
 documentationcenter: 
@@ -16,47 +16,47 @@ ms.date: 01/06/2017
 ms.author: aniedea
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: a08f91ca76eef2562caeb9eb64cec5e549ed2f5f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 820aad377f9dec12b0ef455974aaa95f6e8d723a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-difference-in-proportions-test"></a>(preterido) Diferença no teste de proporções
 
 > [!NOTE]
-> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> Olá Microsoft DataMarket está sendo desativado e esta API foi preterida. 
 > 
-> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Você pode encontrar várias APIs e experiências de exemplo útil no hello [Cortana Intelligence galeria](http://gallery.cortanaintelligence.com). Para obter mais informações sobre Olá galeria, consulte [compartilhamento e descobrir recursos na Olá Cortana Intelligence galeria](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Duas proporções são estatisticamente diferentes? Suponha que um usuário deseje comparar dois filmes para determinar se um filme tem uma proporção significativamente maior de 'curtidas' quando comparado a o outro. Com uma amostra grande, pode haver uma diferença estatisticamente significativa entre as proporções 0.50 e 0.51. Com uma pequena amostra, pode não haver dados suficientes para determinar se essas proporções são realmente diferentes. 
+Duas proporções são estatisticamente diferentes? Suponha que um usuário deseja toocompare dois filmes toodetermine se um filme tem uma impacto significativamente maior proporção de 'gosta' quando comparado a outros toohello. Com um grande exemplo, pode haver uma diferença estatisticamente significativa entre as proporções de saudação 0,50 e 0.51. Com uma pequena amostra, pode não haver suficiente toodetermine dados se essas proporções são realmente diferentes. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Este [serviço Web](https://datamarket.azure.com/dataset/aml_labs/prop_test) realiza um teste de hipóteses da diferença de duas proporções com base na entrada do usuário do número de sucessos e do número total de tentativas para os dois grupos de comparação. Em um cenário possível, esse serviço Web poderia ser chamado de dentro de um aplicativo de comparação de filme, informando ao usuário se um dos filmes recebe “Likes” com mais frequência do que o outro, com base nas classificações de filmes.
+Isso [serviço web](https://datamarket.azure.com/dataset/aml_labs/prop_test) conduz um teste de hipóteses de diferença de saudação em dois proporções com base na entrada do usuário do número de saudação de êxitos e número total de saudação de tentativas para grupos de comparação de saudação 2. Em uma situação, esse serviço da web poderia ser chamado de dentro de um aplicativo de comparação de filme, informando ao usuário Olá se um dos filmes Olá é 'gostou' com mais frequência do que outros, Olá com base na classificação de filme.
 
-> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Azure Machine Learning pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – sem qualquer infraestrutura configurada pelo autor do serviço Web.
+> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas finalidade de saudação do serviço web de saudação também é tooserve como um exemplo de como o aprendizado de máquina do Azure pode ser usado toocreate os serviços da web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. serviço web de saudação pode ser publicado toohello Azure Marketplace e consumido por usuários e dispositivos em Olá, mundo com nenhuma configuração de infraestrutura pelo autor de saudação do serviço web de saudação.
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Consumo do serviço Web
 Esse serviço aceita quatro argumentos e forma uma hipótese de teste de proporções.
 
-Os argumentos de entrada são:
+argumentos de entrada Hello são:
 
 * Successes1 - número de eventos de sucesso na amostra 1.
 * Successes2 - número de eventos de sucesso na amostra 2.
 * Total1 - tamanho da amostra 1.
 * Total2 - tamanho da amostra 2.
 
-A saída do serviço é o resultado do teste de hipóteses juntamente com o valor da estatística do qui-quadrado, df, valor p, proporção em 1/2 amostra e limites de intervalo de confiança.
+saída de saudação do serviço de saudação é resultado de saudação da hipótese Olá juntamente com hello chi-square estatística, df, p-valor de teste e proporção em limites de 1/2 e o intervalo de confiança de exemplo.
 
-> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET. 
+> Esse serviço, como hospedado em hello Azure Marketplace é um serviço OData; Esses podem ser chamados por meio de métodos POST ou GET. 
 > 
 > 
 
-Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)).
+Há várias maneiras de consumo de serviço de saudação de forma automática (um aplicativo de exemplo é [aqui](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Iniciando o código C# para consumo de serviço Web:
     public class Input
@@ -90,11 +90,11 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
 
 ## <a name="creation-of-web-service"></a>Criação de serviço Web
-> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do experimento Olá que criou o código de exemplo e o serviço da web hello para cada um dos módulos Olá experimento hello.
 > 
 > 
 
-De dentro do Azure Machine Learning, uma nova experiência em branco foi criada com dois módulos [Executar Script R][execute-r-script]. No primeiro módulo, o esquema de dados é definido, enquanto o segundo módulo usa o comando prop.test dentro do R para realizar o teste de hipóteses para duas proporções. 
+De dentro do Azure Machine Learning, uma nova experiência em branco foi criada com dois módulos [Executar Script R][execute-r-script]. Módulo primeiro Olá Olá esquema de dados é definido, enquanto o segundo módulo de saudação usa o comando de prop.test Olá no teste de hipóteses R tooperform Olá para 2 proporções. 
 
 ### <a name="experiment-flow"></a>Fluxo de teste:
 ![Fluxo de teste][2]
@@ -102,7 +102,7 @@ De dentro do Azure Machine Learning, uma nova experiência em branco foi criada 
 #### <a name="module-1"></a>Módulo 1:
     ####Schema definition  
     data.set=data.frame(successes1=50,successes2=60,total1=100,total2=100);
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
     dataset1 = maml.mapInputPort(1) #read data from input port
 
 
@@ -110,8 +110,8 @@ De dentro do Azure Machine Learning, uma nova experiência em branco foi criada 
     test=prop.test(c(dataset1$successes1[1],dataset1$successes2[1]),c(dataset1$total1[1],dataset1$total2[1])) #conduct hypothesis test
 
     result=data.frame(
-    result=ifelse(test$p.value<0.05,"The proportions are different!",
-    "The proportions aren't different statistically."),
+    result=ifelse(test$p.value<0.05,"hello proportions are different!",
+    "hello proportions aren't different statistically."),
     ChiSquarestatistic=round(test$statistic,2),df=test$parameter,
     pvalue=round(test$p.value,4),
     proportion1=round(test$estimate[1],4),
@@ -123,10 +123,10 @@ De dentro do Azure Machine Learning, uma nova experiência em branco foi criada 
 
 
 ## <a name="limitations"></a>Limitações
-Este é um exemplo muito simples para um teste de diferença em duas proporções. Como se pode ver no exemplo de código acima, nenhuma captura de erro é implementada e o serviço presume que todas as variáveis são contínuas.
+Este é um exemplo muito simples para um teste de diferença em duas proporções. Como pode ser visto no código de exemplo hello acima, nenhum erro capturando é implementado e serviço Olá pressupõe que todas as variáveis de saudação são contínuas.
 
 ## <a name="faq"></a>Perguntas frequentes
-Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publicação no Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
+Para perguntas frequentes sobre o consumo do serviço web de saudação ou publicação toohello Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
 [2]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img2.png

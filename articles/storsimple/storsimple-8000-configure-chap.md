@@ -1,6 +1,6 @@
 ---
-title: "Configurar o CHAP para o dispositivo StorSimple série 8000 | Microsoft Docs"
-description: Descreve como configurar o CHAP (Challenge Handshake Authentication Protocol) em um dispositivo StorSimple.
+title: "aaaConfigure CHAP para o dispositivo da série StorSimple 8000 | Microsoft Docs"
+description: "Descreve como tooconfigure Olá Challenge Handshake Authentication Protocol (CHAP) em um dispositivo StorSimple."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,160 +14,160 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3351184b0317da7e3deae398bc0d63c3e5bd930f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Configure o CHAP para seu dispositivo StorSimple
 
-Este tutorial explica como configurar o CHAP para seu dispositivo StorSimple. O procedimento detalhado neste artigo aplica-se aos dispositivos StorSimple da série 8000.
+Este tutorial explica como tooconfigure CHAP para seu dispositivo StorSimple. procedimento de saudação detalhado neste artigo se aplica a dispositivos da série 8000 tooStorSimple.
 
-CHAP significa Challenge Handshake Authentication Protocol. É um esquema de autenticação usado pelos servidores para validar a identidade de clientes remotos. A verificação baseia-se em uma senha ou segredo compartilhado. O protocolo CHAP pode ter um sentido (unidirecional) ou sentido mútuo (bidirecional). O CHAP unidirecional é quando o destino autentica um iniciador. No CHAP mútuo ou inverso, o destino autentica o iniciador e, em seguida, o iniciador autentica o destino. A autenticação do iniciador pode ser implementada sem a autenticação do destino. No entanto, a autenticação do destino pode ser implementada somente se a autenticação do iniciador também for implementada.
+CHAP significa Challenge Handshake Authentication Protocol. É um esquema de autenticação usado por servidores toovalidate Olá identidade de clientes remotos. verificação de saudação baseia-se em uma senha secreta ou compartilhada. O protocolo CHAP pode ter um sentido (unidirecional) ou sentido mútuo (bidirecional). Uma maneira CHAP é quando o destino de saudação autentica um iniciador. No CHAP mútuo ou reverso, destino Olá autentica o iniciador hello e, em seguida, o iniciador Olá autentica o destino de saudação. A autenticação do iniciador pode ser implementada sem a autenticação do destino. No entanto, a autenticação do destino pode ser implementada somente se a autenticação do iniciador também for implementada.
 
-Como prática recomendada, é sugerimos usar o CHAP para aumentar a segurança do iSCSI.
+Como melhor prática, recomendamos que você use a segurança CHAP tooenhance iSCSI.
 
 > [!NOTE]
 > Tenha em mente que não há suporte para IPSEC no momento em dispositivos StorSimple.
 
-As configurações do CHAP no dispositivo StorSimple podem ser definidas das seguintes maneiras:
+as configurações de CHAP Olá no dispositivo do StorSimple Olá podem ser configuradas no hello maneiras a seguir:
 
 * Autenticação unidirecional ou de uma via
 * Autenticação inversa bidirecional ou mútua
 
-Em cada um desses casos, o Portal para o dispositivo e o software do iniciador iSCSI do servidor precisam ser configurados. O tutorial a seguir descreve as etapas detalhadas para essa configuração.
+Em cada um desses casos, o portal de saudação para dispositivo hello e Olá software do iniciador iSCSI precisa toobe configurado. Olá a etapas detalhadas para essa configuração são descritas em Olá tutorial a seguir.
 
 ## <a name="unidirectional-or-one-way-authentication"></a>Autenticação unidirecional ou de uma via
 
-Na autenticação unidirecional, o destino autentica o iniciador. Essa autenticação exige que você defina as configurações do iniciador CHAP no dispositivo StorSimple e o software Iniciador iSCSI no host. Os procedimentos detalhados para seu dispositivo StorSimple e o host do Windows são descritos a seguir.
+Na autenticação unidirecional, o destino de saudação autentica o iniciador de saudação. Esta autenticação exige que você configure configurações do iniciador CHAP Olá no dispositivo do StorSimple hello e Olá software iSCSI no host de saudação. Olá procedimentos detalhados para seu dispositivo StorSimple e host do Windows são descritos a seguir.
 
-#### <a name="to-configure-your-device-for-one-way-authentication"></a>Para configurar seu dispositivo para autenticação unidirecional
+#### <a name="tooconfigure-your-device-for-one-way-authentication"></a>tooconfigure seu dispositivo para autenticação unidirecional
 
-1. No Portal do Azure, acesse seu serviço do Gerenciador de Dispositivos do StorSimple. Clique em **Dispositivos** e selecione e clique em um dispositivo para o qual você deseja configurar o CHAP. Acesse **Configurações do dispositivo > Segurança**. Na folha **Configurações de segurança**, clique em **CHAP**.
+1. No hello portal do Azure, vá tooyour serviço de Gerenciador de dispositivos do StorSimple. Clique em **dispositivos** e selecione e clique em um dispositivo que você deseja tooconfigure CHAP para. Vá muito**configurações do dispositivo > segurança**. Em Olá **as configurações de segurança** folha, clique em **CHAP**.
    
     ![Iniciador CHAP](./media/storsimple-8000-configure-chap/configure-chap5.png)
-2. Na folha **CHAP** e na seção **Iniciador CHAP**:
+2. Em Olá **CHAP** folha e em Olá **iniciador CHAP** seção:
    
    1. Forneça um nome de usuário para o iniciador CHAP.
    2. Forneça uma senha para o iniciador CHAP.
       
     > [!IMPORTANT]
-    > O nome de usuário do CHAP deve conter menos de 233 caracteres. A senha do CHAP deve conter entre 12 e 16 caracteres. Um nome de usuário ou senha mais longo resultará em uma falha de autenticação no host do Windows.
+    > nome de usuário CHAP Olá deve conter menos de 233 caracteres. senha CHAP de saudação deve ter entre 12 e 16 caracteres. Um nome de usuário ou a senha mais longo resulta em uma falha de autenticação no host do Windows hello.
    
-   3. Confirme a senha.
+   3. Confirme senha hello.
 
        ![Iniciador CHAP](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. Clique em **Salvar**. Uma mensagem de confirmação é exibida. Clique em **OK** para salvar as alterações.
+3. Clique em **Salvar**. Uma mensagem de confirmação é exibida. Clique em **Okey** toosave alterações de saudação.
 
-#### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Para configurar a autenticação unidirecional no servidor de host do Windows
-1. No servidor de host do Windows, inicie o Iniciador iSCSI.
-2. Na janela **Propriedades do Iniciador iSCSI** , execute as seguintes etapas:
+#### <a name="tooconfigure-one-way-authentication-on-hello-windows-host-server"></a>servidor de host de autenticação unidirecional de tooconfigure no Windows hello
+1. No servidor de host do Windows hello, inicie o iniciador iSCSI de saudação.
+2. Em Olá **propriedades do iniciador iSCSI** janela, executar Olá etapas a seguir:
    
-   1. Clique na guia **Descoberta** .
+   1. Clique em Olá **descoberta** guia.
       
        ![Propriedades do Iniciador iSCSI](./media/storsimple-configure-chap/IC740944.png)
    2. Clique em **Descobrir Portal**.
-3. Na caixa de diálogo **Descobrir Portal de Destino** :
+3. Em Olá **descobrir Portal de destino** caixa de diálogo:
    
-   1. Especifique o endereço IP do seu dispositivo.
+   1. Especifique o endereço IP de saudação do seu dispositivo.
    2. Clique em **Avançado**.
       
        ![Descobrir Portal de Destino](./media/storsimple-configure-chap/IC740945.png)
-4. Na caixa de diálogo **Configurações Avançadas** :
+4. Em Olá **configurações avançadas** caixa de diálogo:
    
-   1. Marque a caixa de seleção **Habilitar logon CHAP** .
-   2. No campo **Nome** , forneça o nome de usuário especificado para o Iniciador CHAP no Portal clássico.
-   3. No campo **Segredo de destino** , forneça a senha especificada para o Iniciador CHAP no Portal clássico.
+   1. Selecione Olá **habilitar CHAP logon** caixa de seleção.
+   2. Em Olá **nome** campo, o nome de usuário de saudação de fonte que você especificou para Olá iniciador do CHAP no portal clássico do hello.
+   3. Em Olá **segredo de destino** campo, uma senha de saudação de fonte que você especificou para Olá iniciador do CHAP no portal clássico do hello.
    4. Clique em **OK**.
       
        ![Configurações gerais avançadas](./media/storsimple-configure-chap/IC740946.png)
-5. Na guia **Destinos** da janela **Propriedades do Iniciador iSCSI**, o status do dispositivo deve aparecer como **Conectado**. Se você estiver usando um dispositivo StorSimple 1200, cada volume será montado como um destino iSCSI. Portanto, as etapas 3 a 4 precisarão ser repetidas para cada volume.
+5. Em Olá **destinos** guia da saudação **propriedades do iniciador iSCSI** janela, o status do dispositivo Olá devem aparecer como **conectado**. Se você estiver usando um dispositivo StorSimple 1200, cada volume será montado como um destino iSCSI. Portanto, as etapas 3 a 4 precisará toobe repetido para cada volume.
    
     ![Volumes montados como destinos separados](./media/storsimple-configure-chap/chap4.png)
    
    > [!IMPORTANT]
-   > Se você alterar o nome iSCSI, o novo nome será usado para novas sessões do iSCSI. Novas configurações não são usadas para sessões existentes até que você faça logoff e logon novamente.
+   > Se você alterar o nome do iSCSI hello, Olá novo nome é usado para novas sessões do iSCSI. Novas configurações não são usadas para sessões existentes até que você faça logoff e logon novamente.
 
-Para saber mais sobre como configurar o CHAP no servidor de host do Windows, vá para [Considerações adicionais](#additional-considerations).
+Para obter mais informações sobre como configurar o CHAP no servidor de host do Windows hello, ir muito[considerações adicionais](#additional-considerations).
 
 ## <a name="bidirectional-or-mutual-authentication"></a>Autenticação bidirecional ou mútua
 
-Na autenticação bidirecional, o destino autentica o iniciador e, em seguida, o iniciador autentica o destino. Esse procedimento exige que o usuário defina as configurações do iniciador CHAP, as configurações de CHAP inversas no dispositivo e no software Iniciador iSCSI no host. Os procedimentos a seguir descrevem as etapas para configurar a autenticação mútua no dispositivo e no host do Windows.
+Na autenticação bidirecional, destino Olá autentica o iniciador hello e, em seguida, o iniciador Olá autentica o destino de saudação. Este procedimento requer configurações do iniciador do CHAP Olá Olá usuário tooconfigure, reverter as configurações de CHAP no dispositivo hello e software iSCSI no host de saudação. Olá procedimentos a seguir descrevem autenticação mútua do hello etapas tooconfigure no dispositivo de saudação e no host do Windows hello.
 
-#### <a name="to-configure-your-device-for-mutual-authentication"></a>Para configurar seu dispositivo para autenticação mútua
+#### <a name="tooconfigure-your-device-for-mutual-authentication"></a>tooconfigure seu dispositivo para autenticação mútua
 
-1. No Portal do Azure, acesse seu serviço do Gerenciador de Dispositivos do StorSimple. Clique em **Dispositivos** e selecione e clique em um dispositivo para o qual você deseja configurar o CHAP. Acesse **Configurações do dispositivo > Segurança**. Na folha **Configurações de segurança**, clique em **CHAP**.
+1. No hello portal do Azure, vá tooyour serviço de Gerenciador de dispositivos do StorSimple. Clique em **dispositivos** e selecione e clique em um dispositivo que você deseja tooconfigure CHAP para. Vá muito**configurações do dispositivo > segurança**. Em Olá **as configurações de segurança** folha, clique em **CHAP**.
    
     ![Destino do CHAP](./media/storsimple-8000-configure-chap/configure-chap5.png)
-2. Role para baixo nessa página e, na seção **Destino do CHAP** :
+2. Role para baixo nesta página e em Olá **CHAP de destino** seção:
    
    1. Forneça um **Nome de usuário de CHAP reverso** para seu dispositivo.
    2. Forneça uma **Senha de CHAP reversa** para seu dispositivo.
-   3. Confirme a senha.
-3. Na seção **Iniciador CHAP** :
+   3. Confirme senha hello.
+3. Em Olá **iniciador CHAP** seção:
    
    1. Forneça um **nome de usuário** para seu dispositivo.
    2. Forneça uma **senha** para seu dispositivo.
-   3. Confirme a senha.
+   3. Confirme senha hello.
 
        ![Iniciador CHAP](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. Clique em **Salvar**. Uma mensagem de confirmação é exibida. Clique em **OK** para salvar as alterações.
+4. Clique em **Salvar**. Uma mensagem de confirmação é exibida. Clique em **Okey** toosave alterações de saudação.
 
-#### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Para configurar a autenticação bidirecional no servidor de host do Windows
+#### <a name="tooconfigure-bidirectional-authentication-on-hello-windows-host-server"></a>servidor de host de tooconfigure bidirecional autenticação no Windows hello
 
-1. No servidor de host do Windows, inicie o Iniciador iSCSI.
-2. Na janela **Propriedades do Iniciador iSCSI**, clique na guia **Configuração**.
+1. No servidor de host do Windows hello, inicie o iniciador iSCSI de saudação.
+2. Em Olá **propriedades do iniciador iSCSI** janela, clique em Olá **configuração** guia.
 3. Clique em **CHAP**.
-4. Na caixa de diálogo **Segredo do CHAP Mútuo do Iniciador iSCSI** :
+4. Em Olá **segredo CHAP mútuo do iniciador de iSCSI** caixa de diálogo:
    
-   1. Digite a **Senha do CHAP Inverso** que você configurou no Portal do Azure.
+   1. Saudação de tipo **senha do CHAP reverso** que você configurou no hello portal do Azure.
    2. Clique em **OK**.
       
        ![Segredo do CHAP Mútuo do Iniciador iSCSI](./media/storsimple-configure-chap/IC740949.png)
-5. Clique na guia **Destinos** .
-6. Clique no botão **Conectar** . 
-7. Na caixa de diálogo **Conectar ao Destino**, clique em **Avançado**.
-8. Na caixa de diálogo **Propriedades Avançadas** :
+5. Clique em Olá **destinos** guia.
+6. Clique em Olá **conectar** botão. 
+7. Em Olá **conectar tooTarget** caixa de diálogo, clique em **avançado**.
+8. Em Olá **propriedades avançadas** caixa de diálogo:
    
-   1. Marque a caixa de seleção **Habilitar logon CHAP** .
-   2. No campo **Nome** , forneça o nome de usuário especificado para o Iniciador CHAP no Portal clássico.
-   3. No campo **Segredo de destino** , forneça a senha especificada para o Iniciador CHAP no Portal clássico.
-   4. Marque a caixa de seleção **Executar a autenticação mútua** .
+   1. Selecione Olá **habilitar CHAP logon** caixa de seleção.
+   2. Em Olá **nome** campo, o nome de usuário de saudação de fonte que você especificou para Olá iniciador do CHAP no portal clássico do hello.
+   3. Em Olá **segredo de destino** campo, uma senha de saudação de fonte que você especificou para Olá iniciador do CHAP no portal clássico do hello.
+   4. Selecione Olá **realizar autenticação mútua** caixa de seleção.
       
        ![Configurações avançadas de autenticação mútua](./media/storsimple-configure-chap/IC740950.png)
-   5. Clique em **OK** para concluir a configuração CHAP
+   5. Clique em **Okey** configuração do CHAP Olá toocomplete
 
-Para saber mais sobre como configurar o CHAP no servidor de host do Windows, vá para [Considerações adicionais](#additional-considerations).
+Para obter mais informações sobre como configurar o CHAP no servidor de host do Windows hello, ir muito[considerações adicionais](#additional-considerations).
 
 ## <a name="additional-considerations"></a>Considerações adicionais
 
-O recurso **Conexão Rápida** não dá suporte a conexões com o CHAP habilitado. Quando o CHAP estiver habilitado, use o botão **Conectar** disponível na guia **Destinos** para se conectar a um destino.
+Olá **conexão rápida** não oferece suporte a conexões que têm o CHAP habilitado. Quando o CHAP está habilitado, certifique-se de que você use Olá **conectar** botão está disponível em Olá **destinos** destino do guia tooconnect tooa.
 
-![Conectar-se ao destino](./media/storsimple-configure-chap/IC740947.png)
+![Conecte-se tootarget](./media/storsimple-configure-chap/IC740947.png)
 
-Na caixa de diálogo **Conectar-se ao Destino** apresentada, marque a caixa de seleção **Adicionar esta conexão à lista de Destinos Favoritos**. Essa seleção garante que, sempre que o computador for reiniciado, ocorrerá uma tentativa de restaurar a conexão com os destinos favoritos de iSCSI.
+Em Olá **conectar tooTarget** caixa de diálogo que é apresentado, selecione hello **adicionar esta lista de toohello de conexão de destinos favoritos** caixa de seleção. Essa seleção garante que sempre Olá computador for reiniciado, uma tentativa de destinos favoritos do iSCSI de toohello de conexão do toorestore hello.
 
 ## <a name="errors-during-configuration"></a>Erros durante a configuração
 
-Se a sua configuração do CHAP estiver incorreta, provavelmente você verá uma mensagem de erro de **Falha na autenticação** .
+Se a configuração do CHAP estiver incorreta, são provavelmente toosee um **falha de autenticação** mensagem de erro.
 
 ## <a name="verification-of-chap-configuration"></a>Verificação da configuração do CHAP
 
-Você pode verificar se o CHAP está sendo usado executando as etapas a seguir.
+Você pode verificar que o CHAP está sendo usado por concluir Olá etapas a seguir.
 
-#### <a name="to-verify-your-chap-configuration"></a>Para verificar a configuração do CHAP
+#### <a name="tooverify-your-chap-configuration"></a>tooverify a configuração do CHAP
 1. Clique em **Destinos Favoritos**.
-2. Selecione o destino para o qual você habilitou a autenticação.
+2. Selecione o destino Olá para o qual você habilitou a autenticação.
 3. Clique em **Detalhes**.
    
     ![Destinos favoritos das propriedades do Iniciador iSCSI](./media/storsimple-configure-chap/IC740951.png)
-4. Na caixa de diálogo **Detalhes do Destino Favorito**, observe a entrada no campo **Autenticação**. Se a configuração for bem-sucedida, ela deverá dizer **CHAP**.
+4. Em Olá **detalhes do destino favorito** caixa de diálogo, observe entrada Olá Olá **autenticação** campo. Se a configuração de saudação foi bem-sucedida, ele deve indicar **CHAP**.
    
     ![Detalhes do destino favorito](./media/storsimple-configure-chap/IC740952.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre a [segurança do StorSimple](storsimple-8000-security.md).
-* Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Saiba mais sobre [usando Olá tooadminister de serviço do Gerenciador de dispositivos do StorSimple em seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

@@ -1,5 +1,5 @@
 ---
-title: "Referência da sintaxe SQLRuleAction no Azure | Microsoft Docs"
+title: "referência de sintaxe aaaSQLRuleAction no Azure | Microsoft Docs"
 description: "Detalhes sobre a gramática de SQLRuleAction."
 services: service-bus-messaging
 documentationcenter: na
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
-ms.openlocfilehash: 7379b7f58563675f28d77928d933c0d9c7992e71
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8ef281f942847bcc535b83a5ffb30d03539734f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sqlruleaction-syntax"></a>Sintaxe SQLRuleAction
 
-Um *SqlRuleAction* é uma instância da classe [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) e representa um conjunto de ações gravadas na sintaxe baseada na linguagem SQL executada em uma [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+Um *SqlRuleAction* é uma instância da saudação [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) classe e representa o conjunto de ações gravadas na linguagem SQL com base em sintaxe é executada em um [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
-Este tópico lista os detalhes sobre a gramática de ação de regras do SQL.  
+Este tópico lista detalhes sobre Olá gramática de ação de regra SQL.  
   
 ```  
 <statements> ::=
@@ -64,11 +64,11 @@ Este tópico lista os detalhes sobre a gramática de ação de regras do SQL.
   
 ## <a name="arguments"></a>Argumentos  
   
--   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [Classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
+-   `<scope>`é uma cadeia de caracteres opcional que indica o escopo Olá Olá `<property_name>`. Os valores válidos são `sys` ou `user`. Olá `sys` valor indica o escopo do sistema onde `<property_name>` é um nome de propriedade pública da saudação [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica o escopo do usuário onde `<property_name>` é uma chave de saudação [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dicionário. `user`escopo é o escopo padrão de saudação se `<scope>` não for especificado.  
   
 ### <a name="remarks"></a>Comentários  
 
-Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao passo que uma tentativa de acessar uma propriedade de usuário inexistente não é um erro. Em vez disso, uma propriedade de usuário inexistente é internamente avaliada como um valor desconhecido. Um valor desconhecido é tratado especialmente durante a avaliação de operador.  
+Uma tentativa de tooaccess uma propriedade do sistema não existente é um erro, enquanto uma propriedade de usuário tentativa tooaccess não existente não é um erro. Em vez disso, uma propriedade de usuário inexistente é internamente avaliada como um valor desconhecido. Um valor desconhecido é tratado especialmente durante a avaliação de operador.  
   
 ## <a name="propertyname"></a>property_name  
   
@@ -83,7 +83,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
 ```  
   
 ### <a name="arguments"></a>Argumentos  
- `<regular_identifier>` é uma cadeia de caracteres representada pela seguinte expressão regular:  
+ `<regular_identifier>`é uma cadeia de caracteres representada por Olá seguinte expressão regular:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
@@ -97,7 +97,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
  Um `<regular_identifier>` não pode ser uma palavra-chave reservada.  
   
- `<delimited_identifier>` é qualquer cadeia de caracteres incluída em colchetes esquerdo/direito ([]). Um colchete direito é representado como dois colchetes direitos. Estes são exemplos de `<delimited_identifier>`:  
+ `<delimited_identifier>` é qualquer cadeia de caracteres incluída em colchetes esquerdo/direito ([]). Um colchete direito é representado como dois colchetes direitos. Olá, estes são exemplos de `<delimited_identifier>`:  
   
 ```  
 [Property With Space]  
@@ -105,7 +105,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ```  
   
- `<quoted_identifier>` é qualquer cadeia de caracteres entre aspas duplas. Aspas duplas no identificador são representadas como duas aspas duplas. Não é recomendável usar identificadores entre aspas, porque pode ser confundido facilmente por uma constante de cadeia de caracteres. Use um identificador delimitado, se possível. Este é um exemplo de `<quoted_identifier>`:  
+ `<quoted_identifier>` é qualquer cadeia de caracteres entre aspas duplas. Aspas duplas no identificador são representadas como duas aspas duplas. Não é recomendável toouse identificadores entre aspas porque ele pode facilmente ser confundido com uma constante de cadeia de caracteres. Use um identificador delimitado, se possível. Olá, a seguir é um exemplo de `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -120,7 +120,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ### <a name="remarks"></a>Comentários
   
- `<pattern>` deve ser uma expressão avaliada como uma cadeia de caracteres. Usado como um padrão para o operador LIKE.      Pode conter os seguintes caracteres curinga:  
+ `<pattern>` deve ser uma expressão avaliada como uma cadeia de caracteres. Ele é usado como um padrão de saudação operador LIKE.      Ele pode conter Olá caracteres curinga a seguir:  
   
 -   `%`: qualquer cadeia de caracteres com zero ou mais caracteres.  
   
@@ -135,7 +135,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ### <a name="remarks"></a>Comentários
   
- `<escape_char>` deve ser uma expressão avaliada como uma cadeia de caracteres de comprimento 1. Usado como um caractere de escape para o operador LIKE.  
+ `<escape_char>` deve ser uma expressão avaliada como uma cadeia de caracteres de comprimento 1. Ele é usado como um caractere de escape para Olá operador LIKE.  
   
  Por exemplo, `property LIKE 'ABC\%' ESCAPE '\'` corresponde a `ABC%`, em vez de a uma cadeia de caracteres que começa com `ABC`.  
   
@@ -148,27 +148,27 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ### <a name="arguments"></a>Argumentos  
   
--   `<integer_constant>` é uma cadeia de números que não são incluídos em aspas e que não contêm pontos decimais. Os valores são armazenados como `System.Int64` internamente e seguem o mesmo intervalo.  
+-   `<integer_constant>` é uma cadeia de números que não são incluídos em aspas e que não contêm pontos decimais. Olá valores são armazenados como `System.Int64` internamente, e siga Olá mesmo intervalo.  
   
-     Estes são exemplos de constantes longas:  
+     Olá seguem exemplos de constantes de tempo:  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>` é uma cadeia de números que não são incluídos em aspas e que contêm um ponto decimal. Os valores são armazenados como `System.Double` internamente e seguem o mesmo intervalo e a mesma precisão.  
+-   `<decimal_constant>` é uma cadeia de números que não são incluídos em aspas e que contêm um ponto decimal. Olá valores são armazenados como `System.Double` internamente e siga Olá mesmo intervalo/precisão.  
   
-     Em uma versão futura, esse número poderá ser armazenado em outro tipo de dados para dar suporte à semântica de número exato; portanto, você não deve se basear no fato de que o tipo de dados subjacente é `System.Double` para `<decimal_constant>`.  
+     Em uma versão futura, esse número pode ser armazenado em uma dados diferentes tipo toosupport número semântica exata, portanto você não deve confiar Olá fatos Olá subjacente tipo de dados é `System.Double` para `<decimal_constant>`.  
   
-     Estes são exemplos de constantes decimais:  
+     Olá seguem exemplos de constantes decimais:  
   
     ```  
     1894.1204  
     2.0  
     ```  
   
--   `<approximate_number_constant>` é um número escrito em notação científica. Os valores são armazenados como `System.Double` internamente e seguem o mesmo intervalo e a mesma precisão. Estes são exemplos de constantes de número aproximado:  
+-   `<approximate_number_constant>` é um número escrito em notação científica. Olá valores são armazenados como `System.Double` internamente e siga Olá mesmo intervalo/precisão. Olá seguem exemplos de constantes de número aproximados de:  
   
     ```  
     101.5E5  
@@ -184,7 +184,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ### <a name="remarks"></a>Comentários
   
-Constantes boolianas são representadas pelas palavras-chave `TRUE` ou `FALSE`. Os valores são armazenados como `System.Boolean`.  
+Constantes booleanas são representados por palavras-chave de saudação `TRUE` ou `FALSE`. Olá valores são armazenados como `System.Boolean`.  
   
 ## <a name="stringconstant"></a>string_constant  
   
@@ -206,18 +206,18 @@ Constantes de cadeia de caracteres são incluídas em aspas simples e incluem ca
   
 ### <a name="remarks"></a>Comentários  
 
-A função `newid()` retorna um **System.Guid** gerado pelo método `System.Guid.NewGuid()`.  
+Olá `newid()` função retorna um **GUID** gerado pelo Olá `System.Guid.NewGuid()` método.  
   
-A função `property(name)` retorna o valor da propriedade referenciada por `name`. O valor `name` pode ser qualquer expressão válida que retorna um valor de cadeia de caracteres.  
+Olá `property(name)` função retorna o valor de saudação da propriedade Olá referenciado pelo `name`. Olá `name` valor pode ser qualquer expressão válida que retorna um valor de cadeia de caracteres.  
   
 ## <a name="considerations"></a>Considerações
 
-- SET é usado para criar uma nova propriedade ou atualizar o valor de uma propriedade existente.
-- REMOVE é usado para remover uma propriedade.
-- SET executa uma conversão implícita, se possível, quando o tipo de expressão e o tipo de propriedade existente são diferentes.
+- O conjunto é usado toocreate um novo valor de saudação de propriedade ou atualização de uma propriedade existente.
+- REMOVER é uma propriedade de tooremove usado.
+- SET executa a conversão implícita se possível quando o tipo de expressão hello e tipo de propriedade existente Olá são diferentes.
 - A ação falhará se propriedades do sistema inexistentes forem referenciadas.
 - A ação não falhará se propriedades de usuário inexistentes forem referenciadas.
-- Uma propriedade de usuário inexistente é avaliada como “Desconhecida” internamente, seguindo a mesma semântica de [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar operadores.
+- Uma propriedade de usuário inexistente é avaliada como "Desconhecido", internamente, seguinte Olá a mesma semântica de [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) ao avaliar a operadores.
 
 ## <a name="next-steps"></a>Próximas etapas
 

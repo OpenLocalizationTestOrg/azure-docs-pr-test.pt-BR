@@ -1,6 +1,6 @@
 ---
-title: "Trabalhando com módulos de Node.js"
-description: "Aprenda a trabalhar com os módulos de Node.js ao usar o Serviço de Aplicativo ou Serviços de Nuvem do Azure."
+title: "aaaWorking com módulos de Node. js"
+description: "Saiba como toowork com módulos Node.js ao usar o serviço de aplicativo do Azure ou serviços de nuvem."
 services: 
 documentationcenter: nodejs
 author: TomArcher
@@ -14,53 +14,53 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.openlocfilehash: 1418c19594f19a15402d494880514298826445df
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 926358b7eb80a659dbc1015686b06a30d8c9b8f0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Usando Módulos no Node.js com aplicativos do Microsoft Azure
 Este documento fornece orientação sobre como usar módulos no Node.js com aplicativos hospedados no Microsoft Azure. Fornece orientação para garantir que seu aplicativo use uma versão específica do módulo, bem como para usar módulos nativos com o Microsoft Azure.
 
-Se já estiver acostumado a usar os módulos no Node.js e os arquivos **package.json** e **npm-shrinkwrap.json**, as informações a seguir apresentam um rápido resumo do que será discutido neste artigo:
+Se você já estiver familiarizado com o uso de módulos Node.js, **Package. JSON** e **shrinkwrap.json npm** arquivos, Olá informações a seguir fornece um resumo de como o que é discutido neste artigo:
 
 * O Serviço de Aplicativo do Azure compreende arquivos **package.json** e **npm-shrinkwrap.json** e podem instalar módulos com base em entradas nestes arquivos.
 
-* Os Serviços de Nuvem do Microsoft Azure esperam que todos os módulos sejam instalados no ambiente de desenvolvimento e que o diretório **node\_modules** seja incluído como parte do pacote de implantação. É possível habilitar o suporte para instalar módulos usando arquivos **package.json** ou **npm-shrinkwrap.json** nos Serviços de Nuvem; no entanto, essa configuração requer uma personalização dos scripts padrão usados por projetos do Serviço de Nuvem. Para um exemplo de como configurar esse ambiente, consulte [Tarefa de Inicialização do Azure para executar npm install e evitar a implantação de módulos de nó](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
+* Serviços de nuvem do Azure espera que todos os toobe de módulos instalados no ambiente de desenvolvimento hello e hello **nó\_módulos** toobe directory incluído como parte do pacote de implantação de saudação. É possível tooenable suporte para a instalação de módulos usando **Package. JSON** ou **shrinkwrap.json npm** arquivos nos serviços de nuvem; no entanto, essa configuração requer a personalização do padrão de saudação scripts usados por projetos de serviço de nuvem. Para obter um exemplo de como tooconfigure nesse ambiente, consulte [inicialização Azure tarefa toorun npm instalar tooavoid Implantando módulos de nó](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [!NOTE]
-> As Máquinas Virtuais do Azure não são discutidas neste artigo, já que a experiência de implantação em uma VM depende do sistema operacional hospedado pela Máquina Virtual.
+> Máquinas virtuais do Azure não são abordados neste artigo, pois Olá experiência de implantação em uma VM depende do sistema de operacional Olá hospedado pelo Olá Máquina Virtual.
 > 
 > 
 
 ## <a name="nodejs-modules"></a>Módulos no Node.js
-Os módulos são pacotes carregáveis do JavaScript que fornecem funcionalidade específica para seu aplicativo. Em geral, instalam-se módulos com a ferramenta de linha de comando **npm**. Porém, alguns módulos (como http) são fornecidos como parte do pacote central do Node.js.
+Os módulos são pacotes carregáveis do JavaScript que fornecem funcionalidade específica para seu aplicativo. Módulos são geralmente instalados usando Olá **npm** de linha de comando ferramenta, no entanto alguns módulos (por exemplo, o módulo http do hello) são fornecidos como parte do pacote hello core Node. js.
 
-Quando os módulos são instalados, são armazenados no diretório **node\_modules**, na raiz da estrutura do diretório de seu aplicativo. Cada módulo dentro do diretório **node\_modules** mantém seu próprio diretório **node\_modules**, que contém todos os módulos dos quais ele depende. Esse comportamento se repete para cada módulo em toda a cadeia de dependência. Esse ambiente permite que cada módulo instalado tenha seus próprios requisitos de versão para os módulos dos quais depende, porém, o resultado pode ser uma estrutura de diretório muito grande.
+Quando os módulos são instalados, eles são armazenados no hello **nó\_módulos** diretório raiz de saudação da sua estrutura de diretório de aplicativo. Cada módulo dentro de saudação **nó\_módulos** directory mantém seu próprio **nó\_módulos** diretório que contém todos os módulos que ela depende e esse comportamento se repete para cada módulo todo caminho de saudação para baixo de cadeia de dependência de saudação. Esse ambiente permite que cada módulo instalado toohave seus próprios requisitos de versão para os módulos de saudação depende, no entanto, isso pode resultar em uma estrutura de diretório grande.
 
-Implantar o diretório **node\_modules** como parte de seu aplicativo aumenta o tamanho da implantação em comparação ao uso de um arquivo **package.json** ou **npm-shrinkwrap.json**, mas assegura que a versão dos módulos usados na produção seja igual à dos módulos usados no desenvolvimento.
+Implantando Olá **nó\_módulos** diretório como parte do seu aplicativo aumenta o tamanho de saudação da implantação de saudação quando comparado toousing um **Package. JSON** ou  **NPM shrinkwrap.json** arquivo; no entanto, ele garante que versões Olá dos módulos de saudação usadas na produção são Olá mesmo como módulos Olá usados no desenvolvimento.
 
 ### <a name="native-modules"></a>Módulos Nativos
-Enquanto a maioria dos módulos são simples arquivos de texto JavaScript, outros são imagens binárias específicas de plataforma. Estes módulos são compilados no momento da instalação, geralmente usando o Python e o node-gyp. Uma vez que os Serviços de Nuvem do Microsoft Azure contam com a pasta **node\_modules** sendo implantada como parte do aplicativo, qualquer módulo nativo incluído como parte dos módulos instalados deve funcionar em um serviço de nuvem, desde que tenha sido instalado e compilado em um sistema de desenvolvimento do Windows.
+Enquanto a maioria dos módulos são simples arquivos de texto JavaScript, outros são imagens binárias específicas de plataforma. Estes módulos são compilados no momento da instalação, geralmente usando o Python e o node-gyp. Como os serviços de nuvem do Azure dependem de saudação **nó\_módulos** pasta que está sendo implantada como parte do aplicativo hello, qualquer módulo nativo incluído como parte dos módulos Olá instalado deve funcionar em um serviço de nuvem, desde que ele foi instalado e compilado em um sistema de desenvolvimento do Windows.
 
 O Serviço de Aplicativo do Azure não dá suporte a todos os módulos nativos e pode falhar ao compilar módulos com pré-requisitos específicos. Embora alguns módulos populares como o MongoDB tenham dependências nativas opcionais e funcionem bem sem elas, duas soluções alternativas foram comprovadamente bem-sucedidas com quase todos os módulos nativos disponíveis hoje:
 
-* Execute a **npm install** em uma máquina do Windows que tenha todos os pré-requisitos do módulo nativo. Em seguida, implante a pasta **node\_modules** criada como parte do aplicativo no Serviço de Aplicativo do Azure.
+* Executar **de instalação de npm** em um computador Windows que tenha os pré-requisitos de todos os Olá nativo do módulo instalados. Em seguida, implante Olá criado **nó\_módulos** pasta como parte da saudação tooAzure de aplicativo do serviço de aplicativo.
 
-  * Antes de compilar, verifique se sua instalação local do Node.js tem arquitetura correspondente e se a versão é a mais próxima possível da usada no Azure (os valores atuais podem ser verificados no tempo de execução das propriedades **process.arch** e **process.version**).
+  * Antes de compilar, verifique se sua instalação local do Node. js tem correspondentes de arquitetura e versão hello está mais próximo possível toohello usado no Azure (valores atuais Olá podem ser verificados em tempo de execução das propriedades **process.arch**e **process.version**).
 
-* O Serviço de Aplicativo do Azure podem ser configurados para executar scripts bash ou de shell personalizados durante a implantação, oferecendo a você a oportunidade de executar comandos personalizados e configurar com precisão a maneira como o **npm install** é executado. Para obter um vídeo mostrando como configurar esse ambiente, consulte [Scripts de implantação de site personalizado com Kudu].
+* Serviço de aplicativo do Azure pode ser bash personalizados tooexecute configurado ou scripts de shell durante a implantação, fornecendo Olá comandos personalizados de tooexecute oportunidade e configurar precisamente Olá maneira **de instalação de npm** está sendo executado. Para um vídeo mostrando como tooconfigure nesse ambiente, consulte [Scripts de implantação de site personalizado com Kudu].
 
 ### <a name="using-a-packagejson-file"></a>Usando um arquivo package.json
-O arquivo **package.json** é uma maneira de especificar as dependências de nível superior que seu aplicativo requer para que a plataforma de hospedagem possa instalar as dependências, em vez de exigir a inclusão da pasta **node\_packages** como parte da implantação. Após o aplicativo ser implantado, o comando **instalar npm** é usado para analisar o arquivo **package.json** e instalar todas as dependências listadas.
+Olá **Package. JSON** arquivo é uma maneira toospecify Olá nível superior dependências seu aplicativo exige para que hello plataforma de hospedagem pode instalar dependências hello, em vez de exigir que você tooinclude Olá **nó \_pacotes** pasta como parte da implantação de saudação. Após a implantação de aplicativo hello, Olá **npm instalar** comando é usado tooparse Olá **Package. JSON** de arquivo e instalar todas as dependências de saudação listadas.
 
-Ao instalar módulos durante o desenvolvimento, você pode usar os parâmetros **--save**, **--save-dev** ou **--save-optional** para adicionar, automaticamente, uma entrada para o módulo de seu arquivo **package.json**. Para obter mais informações, consulte [instalar-npm](https://docs.npmjs.com/cli/install).
+Durante o desenvolvimento, você pode usar o hello **– salvar**, **-dev salvar**, ou **– opcional a save** parâmetros durante a instalação de módulos tooadd uma entrada para o módulo de saudação tooyour **Package. JSON** arquivos automaticamente. Para obter mais informações, consulte [instalar-npm](https://docs.npmjs.com/cli/install).
 
-Um problema potencial com o arquivo **package.json** é que este só especifica a versão para dependências de nível superior. Cada módulo instalado pode ou não especificar a versão dos módulos da qual depende e, desta forma, é possível que você acabe com uma cadeia de dependências diferente daquele usada no desenvolvimento.
+Um problema potencial com hello **Package. JSON** arquivo é que ela especifica apenas versão Olá para dependências de nível superior. Cada módulo instalado pode ou não pode especificar a versão de saudação dos módulos Olá depende, e assim, é possível que você pode acabar com uma cadeia de dependência diferentes que Olá usado no desenvolvimento.
 
 > [!NOTE]
-> Quando estiver implantando no Serviço de Aplicativo do Azure, se o seu arquivo <b>package.json</b> fizer referência a um módulo nativo, você poderá ver um erro semelhante ao exemplo a seguir ao publicar o aplicativo usando Git:
+> Ao implantar tooAzure do serviço de aplicativo, se seu <b>Package. JSON</b> arquivo faz referência a um módulo nativo, talvez você veja uma toohello semelhante erro exemplo a seguir ao publicar o aplicativo hello usando Git:
 > 
 > npm ERR! Instalar module-name@0.6.0: 'node-gyp configure build'
 > 
@@ -69,12 +69,12 @@ Um problema potencial com o arquivo **package.json** é que este só especifica 
 > 
 
 ### <a name="using-a-npm-shrinkwrapjson-file"></a>Usando um arquivo npm-shrinkwrap.json
-O arquivo **npm-shrinkwrap.json** é uma tentativa de resolver as limitações da versão do módulo do arquivo **package.json**. Enquanto o arquivo **package.json** inclui apenas versões para os módulos de nível superior, o arquivo **npm-shrinkwrap.json** contém os requisitos de versão para a cadeia de dependências de módulo completo.
+Olá **npm shrinkwrap.json** arquivo é uma tentativa de tooaddress Olá módulo controle de versão limitações Olá **Package. JSON** arquivo. Durante a saudação **Package. JSON** arquivo inclui somente versões para módulos de nível superior hello, hello **shrinkwrap.json npm** arquivo contém requisitos de versão de saudação para cadeia de dependência de módulo completo hello.
 
-Quando seu aplicativo estiver pronto para produção, você poderá bloquear os requisitos de versão e criar um arquivo **npm-shrinkwrap.json** usando o comando **npm shrinkwrap**. Esse comando usará as versões atualmente instaladas na pasta **node\_modules** e registrará essas versões no arquivo **npm-shrinkwrap.json**. Após o aplicativo ser implantado no ambiente de hospedagem, o comando **instalar npm** é usado para analisar o arquivo **npm-shrinkwrap.json** e instalar todas as dependências listadas. Para obter mais informações, consulte [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
+Quando seu aplicativo está pronto para produção, você pode bloquear os requisitos de versão e criar um **npm shrinkwrap.json** arquivo usando Olá **shrinkwrap npm** comando. Este comando usará versões Olá atualmente instaladas no hello **nó\_módulos** pasta e registrar essas versões toohello **shrinkwrap.json npm** arquivo. Depois que o aplicativo hello tenha sido implantado toohello ambiente de hospedagem, Olá **npm instalar** comando é usado tooparse Olá **shrinkwrap.json npm** de arquivo e instalar todas as dependências de saudação listadas. Para obter mais informações, consulte [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
 
 > [!NOTE]
-> Quando estiver implantando no Serviço de Aplicativo do Azure, se o seu arquivo <b>npm-shrinkwrap.json</b> fizer referência a um módulo nativo, você poderá ver um erro semelhante ao exemplo a seguir ao publicar o aplicativo usando Git:
+> Ao implantar tooAzure do serviço de aplicativo, se seu <b>shrinkwrap.json npm</b> arquivo faz referência a um módulo nativo, talvez você veja uma toohello semelhante erro exemplo a seguir ao publicar o aplicativo hello usando Git:
 > 
 > npm ERR! Instalar module-name@0.6.0: 'node-gyp configure build'
 > 
@@ -83,10 +83,10 @@ Quando seu aplicativo estiver pronto para produção, você poderá bloquear os 
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu como usar os módulos no Node.js com o Azure, aprenda como [especificar a versão do Node.js], [compilar e implantar um aplicativo Web Node.js](app-service-web/app-service-web-get-started-nodejs.md) e [Como usar a Interface de Linha de Comando do Azure para Mac e Linux].
+Agora que você sabe como toouse Node. js módulos com o Azure, saiba como muito[especificar Olá Node. js versão], [criar e implantar um aplicativo de web Node.js](app-service-web/app-service-web-get-started-nodejs.md), e [como toouse Olá de linha de comando do Azure Interface para Mac e Linux].
 
-Para saber mais, confira o [Centro de desenvolvedores do Node.js](/nodejs/azure/).
+Para obter mais informações, consulte Olá [Node. js Developer Center](/nodejs/azure/).
 
-[especificar a versão do Node.js]: nodejs-specify-node-version-azure-apps.md
-[Como usar a Interface de Linha de Comando do Azure para Mac e Linux]:cli-install-nodejs.md
+[especificar Olá Node. js versão]: nodejs-specify-node-version-azure-apps.md
+[como toouse Olá de linha de comando do Azure Interface para Mac e Linux]:cli-install-nodejs.md
 [Scripts de implantação de site personalizado com Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo

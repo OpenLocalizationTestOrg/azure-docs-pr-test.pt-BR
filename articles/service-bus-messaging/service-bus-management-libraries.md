@@ -1,5 +1,5 @@
 ---
-title: "Bibliotecas de gerenciamento do Barramento de Serviço do Azure | Microsoft Docs"
+title: "bibliotecas de gerenciamento do barramento de serviço aaaAzure | Microsoft Docs"
 description: "Gerencie namespaces e entidades de mensagens do Barramento de Serviço no .NET."
 services: service-bus-messaging
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: sethm
-ms.openlocfilehash: 1db00dc1f91e8976b622030450445babbe547ad8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9e4ad91f22815ca0838e6e4647a3606109b2b441
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gerenciamento do Barramento de Serviço
 
-As bibliotecas de gerenciamento do Barramento de Serviço do Azure podem provisionar dinamicamente namespaces e entidades do Barramento de Serviço. Isso permite implantações e cenários de mensagens complexos e possibilita determinar de forma programática quais entidades provisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
+bibliotecas de gerenciamento do Azure Service Bus Olá dinamicamente podem provisionar entidades e namespaces de barramento de serviço. Isso permite cenários de mensagens e implantações complexas e torna possível tooprogrammatically determinar quais tooprovision de entidades. Essas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidade com suporte
 
@@ -33,26 +33,26 @@ As bibliotecas de gerenciamento do Barramento de Serviço do Azure podem provisi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a usar as bibliotecas de gerenciamento do Barramento de Serviço, você deve se autenticar com o serviço AAD (Azure Active Directory). AAD exige que você autentique como uma entidade de serviço, que fornece acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
+tooget iniciado usando bibliotecas de gerenciamento do Service Bus Olá, deve autenticar com hello serviço Azure Active Directory (AAD). AAD requer que você se autenticar como uma entidade de serviço, que fornece acesso tooyour recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 
-* [Usar o portal do Azure para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Use o aplicativo do hello toocreate portal do Azure Active Directory e a entidade de serviço que pode acessar os recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Usar Azure PowerShell toocreate um serviço principal tooaccess recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Usar um serviço principal tooaccess recursos de toocreate CLI do Azure](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-Estes tutoriais fornecem uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todas usadas para autenticação pelas bibliotecas de gerenciamento. Você deve ter as permissões **Proprietário** para o grupo de recursos no qual você deseja executar.
+Esses tutoriais fornecem uma `AppId` (ID do cliente), `TenantId`, e `ClientSecret` (chave de autenticação), que são usados para autenticação, as bibliotecas de gerenciamento de saudação. Você deve ter **proprietário** permissões para grupo de recursos de saudação no qual você deseja toorun.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 
-O padrão para manipular qualquer recurso do Barramento de Serviço segue um protocolo comum:
+Olá padrão toomanipulate qualquer recurso de barramento de serviço segue um protocolo comum:
 
-1. Obtenha um token do Azure Active Directory usando a biblioteca **Microsoft.IdentityModel.Clients.ActiveDirectory**.
+1. Obter um token do Active Directory do Azure usando Olá **ActiveDirectory** biblioteca.
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
 
-1. Crie o objeto `ServiceBusManagementClient`.
+1. Criar hello `ServiceBusManagementClient` objeto.
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -62,7 +62,7 @@ O padrão para manipular qualquer recurso do Barramento de Serviço segue um pro
    };
    ```
 
-1. Defina os parâmetros `CreateOrUpdate` com os valores especificados.
+1. Saudação de conjunto `CreateOrUpdate` valores de parâmetros tooyour especificados.
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -72,7 +72,7 @@ O padrão para manipular qualquer recurso do Barramento de Serviço segue um pro
    };
    ```
 
-1. Execute a chamada.
+1. Olá chamada execute.
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);

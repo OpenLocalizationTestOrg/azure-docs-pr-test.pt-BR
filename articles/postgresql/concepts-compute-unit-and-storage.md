@@ -1,6 +1,6 @@
 ---
 title: "Explicando Unidades de Computação no Banco de Dados do Azure para PostgreSQL | Microsoft Docs"
-description: "Banco de dados do Azure para PostgreSQL: este artigo explica o conceito de Unidades de Computação e o que acontece quando sua carga de trabalho atinge o máximo de Unidades de Computação."
+description: "Banco de dados do Azure para PostgreSQL: Este artigo explica conceitos de saudação de unidades de computação e o que acontece quando sua carga de trabalho atinge Olá unidades máximas de computação."
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -9,38 +9,38 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/23/2017
-ms.openlocfilehash: 6077e52f60c7ef0afe7df9201ec05081ba81c179
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 42ec766ff6ce82ceee34d42e0f4a4ad86bc7b45d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Explicando Unidades de Computação no Banco de Dados do Azure para PostgreSQL
-Este artigo explica o conceito de Unidades de Computação e o que acontece quando sua carga de trabalho atinge o máximo de Unidades de Computação.
+Este artigo explica o conceito de saudação de unidades de computação e o que acontece quando sua carga de trabalho atinge Olá unidades máximas de computação.
 
 ## <a name="what-are-compute-units"></a>O que são unidades de computação?
-Unidades de computação são uma medida de taxa de transferência de processamento da CPU que possuem disponibilidade garantida para um único Banco de Dados do Azure para o servidor PostgreSQL. Uma unidade de computação é uma medida combinada de recursos de CPU e memória. Em geral, 50 Unidades de Computação equivalem a metade de um núcleo. Cem Unidades de Computação equivalem a um núcleo. Duas mil Unidades de Computação equivalem a vinte núcleos de produtividade de processamento garantida disponível para o servidor.
+Computação unidades são uma medida de taxa de transferência de processamento de CPU que tem a garantia tooa disponível toobe única de banco de dados do Azure para servidor PostgreSQL. Uma unidade de computação é uma medida combinada de recursos de CPU e memória. Em geral, 50 unidades de computação serão iguais a toohalf de um núcleo. 100 unidades de computação serão iguais tooone core. Unidades de computação de 2000 igualar tootwenty núcleos do servidor de tooyour disponíveis de taxa de transferência garantida de processamento.
 
-A quantidade de memória por Unidade de Computação é otimizada para os tipos de preço Basic e Standard. Dobrar as unidades de computação aumentando o nível de desempenho equivale a dobrar o conjunto de recursos disponíveis para esse Banco de Dados do Azure único para PostgreSQL.
+quantidade de saudação de memória por unidade de computação é otimizada para hello Basic e Standard camadas de preços. Duplicar Olá unidades de computação, aumentando o nível de desempenho de saudação é igual a toodoubling conjunto de saudação do toothat disponíveis do recurso único banco de dados do Azure para PostgreSQL.
 
-Por exemplo, um tipo Standard de 800 Unidades de Computação fornece 8 vezes mais taxa de transferência de CPU e memória que uma configuração Standard com 100 Unidades de Computação. No entanto, apesar das 100 Unidades de Computação do tipo Standard fornecerem a mesma taxa de transferência de CPU em comparação com 100 Unidades de Computação da tipo Basic, a quantidade de memória que é pré-configurada no tipo de preços Standard é o dobro da quantidade de memória configurada para o tipo de preços Basic. Portanto, o tipo de preço Standard fornece um melhor desempenho de carga de trabalho e menor latência de transação que o tipo de preço Basic com as mesmas Unidades de Computação selecionadas.
+Por exemplo, um tipo Standard de 800 Unidades de Computação fornece 8 vezes mais taxa de transferência de CPU e memória que uma configuração Standard com 100 Unidades de Computação. No entanto, enquanto fornecem unidades de computação padrão de 100 Olá mesmo taxa de transferência de CPU comparados tooBasic 100 unidades de computação, quantidade de saudação de memória que é pré-configurado de preços padrão é duplo de Olá quantidade de memória configurada para Basic preço. Portanto, preços padrão fornece um melhor desempenho de carga de trabalho e menor latência de transação de camada de preços básico com hello que unidades de computação mesmo selecionada.
 
-## <a name="how-can-i-determine-the-number-of-compute-units-needed-for-my-workload"></a>Como posso determinar o número de unidades de computação necessárias para a minha carga de trabalho?
-Se você estiver pretendendo migrar um servidor PostgreSQL local ou em uma máquina virtual, poderá determinar o número de Unidades de Computação estimando quantos núcleos de taxa de transferência de processamento são necessários para a sua carga de trabalho. 
+## <a name="how-can-i-determine-hello-number-of-compute-units-needed-for-my-workload"></a>Como determinar o número de saudação de unidades de computação necessária para meu carga de trabalho?
+Se você estiver procurando toomigrate um servidor existente do PostgreSQL executados localmente ou em uma máquina virtual, você pode determinar o número de saudação de unidades de computação por estimativa precisa de sua carga de trabalho quantos núcleos de processamento de taxa de transferência. 
 
 Se o seu servidor local ou de máquina virtual existente estiver utilizando 4 núcleos (sem contar o hyperthread da CPU), comece configurando 400 Unidades de Computação para o seu Banco de Dados do Azure para o servidor PostgreSQL. É possível aumentar ou diminuir dinamicamente as Unidades de Computação conforme as suas necessidades de carga de trabalho sem praticamente nenhum tempo de inatividade do aplicativo. 
 
-Monitorar o gráfico de métricas no Portal do Azure ou gravar comandos de CLI do Azure para medir as Unidades de Computação. As métricas relevantes para monitorar são a porcentagem de Unidade de Computação e o limite de Unidade de Computação.
+Gráfico de métricas do monitor Olá no hello Azure portal ou gravação CLI do Azure comandos - toomeasure unidades de computação. Toomonitor relevante de métricas são porcentagem de unidade de computação hello e limite de unidade de computação.
 
 >[!IMPORTANT]
-> Se você achar que não está usando a capacidade máxima do IOPS de armazenamento, monitore também a utilização de Unidades de Computação. Aumentar as Unidades de Computação pode permitir maior taxa de transferência de E/S, diminuindo o afunilamento de desempenho devido a limites de CPU ou memória.
+> Se você encontrar armazenamento IOPS não são totalmente utilizados toohello máximo, considere a possibilidade de monitorar Olá computação unidades utilização. Gerar Olá unidades de computação pode permitir maior taxa de transferência de e/s, reduzindo o afunilamento de desempenho Olá devido toolimited CPU ou memória.
 
 ## <a name="what-happens-when-i-hit-my-maximum-compute-units"></a>O que acontece quando eu atinjo o máximo de Unidades de Computação?
-Os níveis de desempenho são calibrados e controlados para fornecer os recursos para executar sua carga de trabalho de banco de dados até os limites máximos para o tipo de preços e o nível de desempenho selecionados. 
+Níveis de desempenho são calibrados e regido tooprovide recursos toorun sua carga de trabalho do banco de dados se os limites máximo toohello para a camada de preços selecionada hello e nível de desempenho. 
 
-Se a sua carga de trabalho atingir os limites máximos de Unidades de Computação ou IOPS provisionado, você continuará a utilizar os recursos no nível máximo permitido, mas provavelmente suas consultas apresentarão latências maiores. Esses limites não resultam em erros, mas apenas em uma lentidão na carga de trabalho, a menos que a lentidão se torne tão grave que as consultas atinjam o tempo limite. 
+Se sua carga de trabalho atingir limites máximos de saudação em uma saudação computação unidades ou limites IOPS provisionados, você pode continuar a recursos de saudação tooutilize nível Olá máximo permitido, mas as consultas são provavelmente toosee aumentado latências. Esses limites não resultam em erros, mas em vez disso, uma diminuição na carga de trabalho hello, a menos que lentidão Olá fica tão grave que consulta o tempo limite. 
 
-Se sua carga de trabalho atingir os limites máximo no número de conexões, erros explícitos serão gerados. Para saber mais sobre os limites de recursos, veja [Limites no Banco de Dados do Azure para PostgreSQL](concepts-limits.md).
+Se sua carga de trabalho atingir limites máximos de saudação no número de conexões, são gerados erros explícitos. Para saber mais sobre os limites de recursos, veja [Limites no Banco de Dados do Azure para PostgreSQL](concepts-limits.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre tipos de preço, confira [Tipos de preço do Banco de Dados do Azure para PostgreSQL](./concepts-service-tiers.md).

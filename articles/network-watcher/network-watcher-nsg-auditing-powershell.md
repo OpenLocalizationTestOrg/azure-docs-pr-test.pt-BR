@@ -1,6 +1,6 @@
 ---
-title: "Automatizar a auditoria do NSG com a exibição de grupo de segurança do Observador de Rede do Azure | Microsoft Docs"
-description: "Esta página fornece instruções sobre como configurar a auditoria de um Grupo de Segurança de Rede"
+title: "aaaAutomate NSG auditoria com o modo de exibição de grupo de segurança do Inspetor de rede do Azure | Microsoft Docs"
+description: "Esta página fornece instruções sobre como tooconfigure a auditoria de um grupo de segurança de rede"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: a91da330e677c85f16f6f4e506613576b6507d7c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 24fc418c433fceaf55a74b7c3b0e354dc46c8729
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizar a auditoria do NSG com a exibição de grupo de segurança do Observador de Rede do Azure
 
-Os clientes normalmente enfrentam o desafio de verificar a postura de segurança de sua infraestrutura. Esse desafio não é diferente para as VMs no Azure. É importante ter um perfil de segurança semelhante com base nas regras do NSG (Grupo de Segurança de Rede) aplicadas. Com a exibição do Grupo de segurança, agora você pode obter a lista de regras aplicadas a uma VM dentro de um NSG. Você pode definir um perfil de ouro de segurança do NSG e iniciar a Exibição do grupo de segurança com uma cadência semanal e comparar a saída para o perfil de ouro e criar um relatório. Dessa forma, você pode identificar com facilidade todas as VMs que não estão de acordo com o perfil de segurança recomendado.
+Os clientes são geralmente enfrentam Olá verificar postura de segurança de saudação da infra-estrutura. Esse desafio não é diferente para as VMs no Azure. É importante toohave um perfil de segurança semelhante com base nas regras de grupo de segurança de rede (NSG) de saudação aplicadas. Usando Olá exibição de grupo de segurança, agora você pode obter lista de saudação de regras aplicadas tooa VM dentro de um NSG. Você pode definir um perfil de segurança NSG dourado e iniciar o modo de exibição de grupo de segurança em um ritmo semanal e comparar Olá saída toohello dourada perfil e criar um relatório. Dessa forma você pode identificar com facilidade todas as VMs de saudação que não são compatíveis toohello prescrita perfil de segurança.
 
 Se você estiver familiarizado com os Grupos de segurança de rede, visite [Visão geral de segurança de rede](../virtual-network/virtual-networks-nsg.md)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Nesse cenário, você compara uma linha de base válida com os resultados da exibição do grupo de segurança retornados para uma máquina virtual.
+Nesse cenário, você comparar a um grupo de segurança conhecidos boa linha de base toohello exibir os resultados retornados para uma máquina virtual.
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede. O cenário também pressupõe que exista um grupo de recursos com uma máquina virtual válida a ser usada.
+Este cenário pressupõe que você já seguiu etapas Olá [criar um observador de rede](network-watcher-create.md) toocreate um observador de rede. cenário de Olá também pressupõe que um grupo de recursos com uma máquina virtual válida existe toobe usado.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo obtém a exibição do grupo de segurança de uma máquina virtual.
+cenário de saudação abordado neste artigo obtém o modo de exibição do grupo de segurança de saudação para uma máquina virtual.
 
 Neste cenário, você:
 
@@ -45,7 +45,7 @@ Neste cenário, você:
 
 ## <a name="retrieve-rule-set"></a>Recuperar o conjunto de regras
 
-A primeira etapa neste exemplo é trabalhar com uma linha de base existente. O exemplo a seguir é um json extraído de um Grupo de Segurança de Rede existente usando o cmdlet `Get-AzureRmNetworkSecurityGroup`, que é usado como a linha de base para este exemplo.
+a primeira etapa Olá neste exemplo é toowork com uma linha de base existente. Olá, exemplo a seguir é alguns json extraído de um grupo de segurança de rede existente usando Olá `Get-AzureRmNetworkSecurityGroup` cmdlet que é usada como linha de base de saudação para este exemplo.
 
 ```json
 [
@@ -112,9 +112,9 @@ A primeira etapa neste exemplo é trabalhar com uma linha de base existente. O e
 ]
 ```
 
-## <a name="convert-rule-set-to-powershell-objects"></a>Converter o conjunto de regras em objetos do PowerShell
+## <a name="convert-rule-set-toopowershell-objects"></a>Converter objetos tooPowerShell do conjunto de regra
 
-Nesta etapa, lemos um arquivo json criado anteriormente com as regras que devem estar no Grupo de Segurança de Rede para este exemplo.
+Nesta etapa, podemos está lendo um arquivo json que foi criado anteriormente com as regras de saudação são toobe esperado em hello grupo de segurança de rede para este exemplo.
 
 ```powershell
 $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
@@ -122,7 +122,7 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Recuperar o Observador de Rede
 
-A próxima etapa é recuperar a instância do Observador de Rede. A variável `$networkWatcher` é passada para o cmdlet `AzureRmNetworkWatcherSecurityGroupView`.
+Olá próxima etapa é a instância do tooretrieve Olá observador de rede. Olá `$networkWatcher` variável é passada toohello `AzureRmNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
 $nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
@@ -131,7 +131,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 
 ## <a name="get-a-vm"></a>Obter uma VM
 
-Uma máquina virtual é necessária para executar o cmdlet `Get-AzureRmNetworkWatcherSecurityGroupView`. O exemplo a seguir obtém um objeto de VM.
+Uma máquina virtual é necessário toorun Olá `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet contra. saudação de exemplo a seguir obtém um objeto da VM.
 
 ```powershell
 $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
@@ -139,17 +139,17 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 
 ## <a name="retrieve-security-group-view"></a>Recuperar o modo de exibição de grupo de segurança
 
-A próxima etapa é recuperar o resultado de exibição do grupo de segurança. Esse resultado é comparado com o json de "linha de base" mostrado anteriormente.
+Olá próxima etapa é o resultado de exibição de grupo de segurança do tooretrieve hello. Esse resultado é comparado toohello "baseline" json que foi mostrado anteriormente.
 
 ```powershell
 $secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
-## <a name="analyzing-the-results"></a>Analisar os resultados
+## <a name="analyzing-hello-results"></a>Analisar resultados de saudação
 
-A resposta é agrupada por interfaces de rede. Os diferentes tipos de regras retornados são regras de segurança padrão e eficazes. O resultado é dividido pela forma de aplicação, em uma sub-rede ou uma NIC virtual.
+resposta de saudação é agrupada por interfaces de rede. Olá diferentes tipos de regras retornadas são efetivos e padrão de regras de segurança. resultado de saudação é dividido por como ela é aplicada, em uma sub-rede ou uma NIC virtual.
 
-O script PowerShell a seguir compara os resultados da Exibição de grupo de segurança para uma saída existente de um NSG. O exemplo a seguir é um exemplo simples de como os resultados podem ser comparados com o cmdlet `Compare-Object`.
+Hello seguinte script do PowerShell compara os resultados de saudação do hello saída existente do modo de exibição de grupo de segurança tooan de um NSG. Olá, exemplo a seguir é um exemplo simples de como os resultados de saudação possam ser comparados com `Compare-Object` cmdlet.
 
 ```powershell
 Compare-Object -ReferenceObject $nsgbaserules `
@@ -157,7 +157,7 @@ Compare-Object -ReferenceObject $nsgbaserules `
 -Property Name,Description,Protocol,SourcePortRange,DestinationPortRange,SourceAddressPrefix,DestinationAddressPrefix,Access,Priority,Direction
 ```
 
-O exemplo a seguir é o resultado. Você pode ver que duas das regras que estavam no primeiro conjunto de regras não estavam presentes na comparação.
+saudação de exemplo a seguir é o resultado de saudação. Você pode ver duas regras de saudação que estavam no primeiro conjunto de regras Olá não estavam presentes na comparação de saudação.
 
 ```
 Name                     : My2ndRuleDoNotDelete
@@ -187,7 +187,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se as configurações foram alteradas, confira [Gerenciar grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para rastrear as regras de segurança e o Grupo de Segurança de Rede que estão em questão.
+Se as configurações foram alteradas, consulte [gerenciar grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) tootrack para baixo Olá rede segurança e o grupo de regras de segurança que estão em questão.
 
 
 

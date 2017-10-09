@@ -1,6 +1,6 @@
 > [!NOTE]
-> Este artigo foi escrito para o modelo de implantação clássico. Se você for novo no Azure, recomendamos o uso do modelo de implantação do Resource Manager. O modelo de implantação do Resource Manager é o modelo de implantação mais recente e oferece mais opções e compatibilidade de recursos do que o modelo de implantação clássico. Para saber mais sobre os modelos de implantação, consulte [Noções básicas sobre os modelos de implantação](../articles/resource-manager-deployment-model.md).
+> Este artigo foi escrito para o modelo de implantação clássico hello. Se você for novo tooAzure, recomendamos que você use o modelo de implantação do Gerenciador de recursos de saudação em vez disso. modelo de implantação do Gerenciador de recursos de saudação é Olá modelo de implantação mais recente e oferece mais opções e compatibilidade do recurso que o modelo de implantação clássico hello. Para obter mais informações sobre modelos de implantação hello, consulte [Noções básicas sobre modelos de implantação](../articles/resource-manager-deployment-model.md).
 
-> Para ver a versão do Resource Manager deste artigo, selecione-o na lista suspensa ou no sumário à esquerda.
+> Para a versão do Gerenciador de recursos de saudação deste artigo, selecione-o na lista suspensa de Olá abaixo ou Olá sumário Olá esquerda.
 >
 >

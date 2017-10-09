@@ -1,5 +1,5 @@
 ---
-title: "Comparação do Azure Data Lake Store com o Armazenamento de Blobs do Azure | Microsoft Docs"
+title: "aaaAzure comparação do repositório Data Lake com blobs de armazenamento do Azure | Microsoft Docs"
 description: "Comparação do Azure Data Lake Store com o Armazenamento de Blobs do Azure"
 services: data-lake-store
 documentationcenter: 
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: 29f074f1ced5a3f4305d961a98f45e4a3b7792ef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a86553260853b4527992d54782ab1b4d7d20e27f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparar o Azure Data Lake Store e o Armazenamento de Blobs do Azure
-A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Armazenamento de Blobs do Azure em alguns aspectos fundamentais do processamento de big data. O Armazenamento de Blobs do Azure é um repositório de objetos escalonável de finalidade geral que foi criado para uma ampla variedade de cenários de armazenamento. O Azure Data Lake Store é um repositório de grande escala otimizado para cargas de trabalho de análise de big data.
+tabela de saudação neste artigo resume diferenças de saudação entre repositório Azure Data Lake e armazenamento de BLOBs do Azure ao longo de alguns aspectos fundamentais de processamento de big data. O Armazenamento de Blobs do Azure é um repositório de objetos escalonável de finalidade geral que foi criado para uma ampla variedade de cenários de armazenamento. O Azure Data Lake Store é um repositório de grande escala otimizado para cargas de trabalho de análise de big data.
 
 |  | Repositório Azure Data Lake | Armazenamento do Blobs do Azure |
 | --- | --- | --- |
 | Finalidade |Armazenamento otimizado para cargas de trabalho de análise de big data |Repositório de objetos de finalidade geral para uma ampla variedade de cenários de armazenamento |
 | Casos de uso |Análise de streaming interativa em lotes e dados de aprendizado de máquina, como arquivos de log, dados da IoT, fluxos de cliques, grandes conjuntos de dados |Qualquer tipo de dados de texto ou binários, como back-end de aplicativo, dados de backup, armazenamento de mídia para streaming e dados de finalidade geral |
-| Principais Conceitos |A conta do Data Lake Store contém pastas, que, por sua vez, contêm dados armazenados como arquivos |A conta de armazenamento tem contêineres, que, por sua vez, têm dados na forma de blobs |
+| Principais Conceitos |A conta do Data Lake Store contém pastas, que, por sua vez, contêm dados armazenados como arquivos |Conta de armazenamento tem contêineres, que por sua vez, tem dados na forma de saudação de blobs |
 | Estrutura |Sistema de arquivos hierárquico |Repositório de objetos com namespace simples |
 | API |API REST sobre HTTPS |API REST sobre HTTP/HTTPS |
 | API no servidor |[API REST compatível com WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST do Armazenamento de Blobs do Azure](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Cliente do sistema de arquivos Hadoop |Sim |Sim |
 | Operações de dados – autenticação |Com base em [Identidades do Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Com base em segredos compartilhados – [Chaves de Acesso de Conta](../storage/common/storage-create-storage-account.md#manage-your-storage-account) e [Chaves de Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
-| Operações de dados – protocolo de autenticação |OAuth 2.0. As chamadas devem conter um JWT (Token Web JSON) válido emitido pelo Azure Active Directory |HMAC (Código de Autenticação de Mensagem Baseado em Hash). As chamadas devem conter um hash SHA-256 codificado na Base64 em uma parte da solicitação HTTP. |
+| Operações de dados – protocolo de autenticação |OAuth 2.0. As chamadas devem conter um JWT (Token Web JSON) válido emitido pelo Azure Active Directory |HMAC (Código de Autenticação de Mensagem Baseado em Hash). Chamadas devem conter um hash SHA-256 codificada em Base64 sobre uma parte da solicitação HTTP hello. |
 | Operações de dados – autorização |ACLs (Listas de Controle de Acesso) POSIX.  ACLs baseadas em Identidades do Azure Active Directory podem ser definidas com nível de arquivo e pasta. |Para autorização no nível de conta — use [Chaves de Acesso da Conta](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Para autorização de conta, contêiner ou blob — use [Chaves de Assinatura de Acesso Compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operações de dados – auditoria |Disponível. Veja mais informações [aqui](data-lake-store-diagnostic-logs.md) . |Disponível |
 | Dados de criptografia em repouso |Transparente, lado do servidor <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciados pelo cliente no Cofre de Chaves do Azure</li></ul> |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciados pelo cliente no Cofre de Chaves do Azure (em breve)</li></ul><li>Criptografia do cliente</li></ul> |

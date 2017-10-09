@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar potência de computação no SQL Data Warehouse do Azure (Visão geral) | Microsoft Docs"
-description: "Funcionalidades de escala horizontal de desempenho no SQL Data Warehouse do Azure. Escale horizontalmente por meio de ajuste de DWUs ou, para economizar custos, pause e retome os recursos de computação."
+title: "aaaManage computação power no Azure SQL Data Warehouse (visão geral) | Microsoft Docs"
+description: "Funcionalidades de escala horizontal de desempenho no SQL Data Warehouse do Azure. Expansão ajustando DWUs ou pausar e retomar os custos de toosave de recursos de computação."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/22/2017
 ms.author: elbutter
-ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1ffbe8d694ac181eaeb6f585a2cee87a570ed7d5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>Gerenciar poder de computação no SQL Data Warehouse do Azure (Visão Geral)
 > [!div class="op_single_selector"]
@@ -31,16 +31,16 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-A arquitetura do SQL Data Warehouse separa armazenamento e computação, permitindo que cada um seja dimensionado independentemente. Como resultado, a computação pode ser dimensionada para atender às demandas de desempenho independentemente da quantidade de dados. Uma consequência natural dessa arquitetura é que a [cobrança][billed] pela computação e pelo armazenamento é separada. 
+arquitetura de saudação do SQL Data Warehouse separa o armazenamento e computação, permitindo que cada tooscale independentemente. Como resultado, computação pode ser dimensionado toomeet as demandas de desempenho independente do valor de saudação de dados. Uma consequência natural dessa arquitetura é que a [cobrança][billed] pela computação e pelo armazenamento é separada. 
 
-Esta visão geral descreve como o escalonamento horizontal funciona com o SQL Data Warehouse e como utilizar os recursos de pausar, retomar e dimensionar do SQL Data Warehouse. Consulte a página [DWUs (unidades do Data Warehouse)][data warehouse units (DWUs)] para saber como as DWUs e o desempenho estão relacionados. 
+Esta visão geral descreve como expandir funciona com o SQL Data Warehouse e como tooutilize Olá pausar, retomar e recursos de escala do SQL Data Warehouse. Consulte Olá [unidades (DWUs) do data warehouse] [ data warehouse units (DWUs)] toolearn de página como DWUs e desempenho estão relacionados. 
 
 ## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>Como as operações de gerenciamento de computação funcionam no SQL Data Warehouse
-A arquitetura para o SQL Data Warehouse consiste em um nó de controle, nós de computação e a camada de armazenamento espalhados por 60 distribuições. 
+arquitetura de saudação do SQL Data Warehouse consiste em um nó de controle, nós de computação e Olá disseminadas por 60 distribuições de camada de armazenamento. 
 
-Durante uma sessão ativa normal no SQL Data Warehouse, o nó principal do sistema que gerencia os metadados e contém o otimizador de consulta distribuída. Sob esse nó principal estão os nós de computação e a camada de armazenamento. Para um DWU 400, seu sistema tem um nó principal, quatro nós de computação e a camada de armazenamento, consistindo de 60 distribuições. 
+Durante uma sessão ativa normal no SQL Data Warehouse, nó principal do sistema gerencia os metadados de saudação e contém o otimizador de consulta Olá distribuída. Sob esse nó principal estão os nós de computação e a camada de armazenamento. Para um DWU 400, o sistema tem um nó principal, quatro nós de computação e camada de armazenamento hello, consistindo de 60 distribuições. 
 
-Quando você passar por uma escala ou operação de pausa, o sistema primeiro interrompe todas as consultas de entrada e, em seguida, reverte as transações para assegurar um estado consistente. Para operações de escala, o dimensionamento só ocorrerá após a conclusão dessa reversão transacional. Para uma operação de escalonamento vertical, o sistema provisiona o número desejado de nós de computação adicionais desejado e começa a reconectar os nós de computação à camada de armazenamento. Para uma operação de redução de escala, os nós desnecessários são liberados e os demais nós de computação reconectam-se ao número adequado de distribuições. Para uma operação de pausa, todos os nós de computação são liberados e o sistema passará por uma variedade de operações de metadados para deixar o sistema final em um estado estável.
+Quando você passar por uma escala ou pausa a operação, o sistema de saudação primeiro elimina todas as consultas de entrada e, em seguida, reverte as transações tooensure um estado consistente. Para operações de escala, o dimensionamento só ocorrerá após a conclusão dessa reversão transacional. Para uma operação de expansão, provisões de sistema Olá Olá número de nós de computação extra desejado e começa a reanexação de camada de armazenamento toohello de nós de computação hello. Para uma operação de redução de escala, hello nós desnecessários são liberados e nós de computação restantes Olá reconecte toohello o número apropriado de distribuições. Para uma operação de pausa de computação todos os nós são liberados e o sistema passará por uma variedade de metadados operações tooleave seu sistema final em um estado estável.
 
 | DWU  | \# de nós de computação | \# de distribuições por nó |
 | ---- | ------------------ | ---------------------------- |
@@ -57,15 +57,15 @@ Quando você passar por uma escala ou operação de pausa, o sistema primeiro in
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
 
-As três funções principais para o gerenciamento de computação são:
+Olá três principais funções de gerenciamento de computação são:
 
 1. Pausar
 2. Continuar
 3. Escala
 
-Cada uma dessas operações pode levar vários minutos para ser concluída. Se você estiver dimensionando/pausando/retomando automaticamente, talvez você queira implementar a lógica para assegurar que determinadas operações tenham sido concluídas antes de prosseguir com outra ação. 
+Cada uma dessas operações pode levar vários toocomplete de minutos. Se você estiver dimensionando/interrompendo/retomando automaticamente, convém lógica tooimplement tooensure que determinadas operações tenham sido concluídas antes de continuar com a outra ação. 
 
-Verificar o estado do banco de dados por meio de vários pontos de extremidade permitirá que você implemente corretamente a automação dessas operações. O portal fornecerá uma notificação após a conclusão de uma operação e o estado atual do bancos de dados, mas não permite a verificação de estado programática. 
+Verificando o estado do banco de dados Olá por meio de vários pontos de extremidade permitirá toocorrectly implementar automação dessas operações. portal de saudação fornecerá notificação após a conclusão da operação e hello bancos de dados atual estado, mas não permite a verificação programático do estado. 
 
 >  [!NOTE]
 >
@@ -86,12 +86,12 @@ Verificar o estado do banco de dados por meio de vários pontos de extremidade p
 
 ## <a name="scale-compute"></a>Computação de escala
 
-O desempenho no SQL Data Warehouse é medido em [DWUs (unidades do data warehouse)][data warehouse units (DWUs)], que é uma medida abstrata de recursos de computação como CPU, memória e E/S de largura de banda. Um usuário que deseja dimensionar o desempenho do seu sistema pode fazer isso de várias maneiras, por exemplo, por meio do portal, T-SQL e APIs REST. 
+O desempenho no SQL Data Warehouse é medido em [DWUs (unidades do data warehouse)][data warehouse units (DWUs)], que é uma medida abstrata de recursos de computação como CPU, memória e E/S de largura de banda. Um usuário que deseja tooscale o desempenho do seu sistema pode fazer isso através de várias maneiras, como por meio do portal hello, T-SQL e APIs REST. 
 
 ### <a name="how-do-i-scale-compute"></a>Como eu dimensiono a computação?
-O poder de computação é gerenciado pelo seu SQL Data Warehouse alterando a configuração de DWU. O desempenho aumenta [linearmente][linearly] conforme você adiciona mais DWUs para determinadas operações.  Temos ofertas de DWU que asseguram que o desempenho será alterado visivelmente quando você escalar ou reduzir verticalmente seu sistema. 
+Capacidade de computação é gerenciada por você SQL Data Warehouse, alterando a configuração de DWU de saudação. O desempenho aumenta [linearmente][linearly] conforme você adiciona mais DWUs para determinadas operações.  Temos ofertas de DWU que asseguram que o desempenho será alterado visivelmente quando você escalar ou reduzir verticalmente seu sistema. 
 
-Para ajustar DWUs, você pode usar qualquer um destes métodos individuais.
+tooadjust DWUs, você pode usar qualquer um desses métodos individuais.
 
 * [Dimensionar a potência de computação com o Portal do Azure][Scale compute power with Azure portal]
 * [Dimensionar a potência de computação com o PowerShell][Scale compute power with PowerShell]
@@ -100,41 +100,41 @@ Para ajustar DWUs, você pode usar qualquer um destes métodos individuais.
 
 ### <a name="how-many-dwus-should-i-use"></a>Quantas DWUs devo usar?
 
-Para entender qual é o valor ideal de DWU é, tente escalar verticalmente, para cima e para baixo, e executar algumas consultas após carregar os dados. Como o dimensionamento é rápido, você pode experimentar vários níveis de desempenho diferentes durante uma hora ou menos. 
+toounderstand é que o valor DWU ideal, tente dimensionamento para cima e para baixo e executando consultas alguns após o carregamento de dados. Como o dimensionamento é rápido, você pode experimentar vários níveis de desempenho diferentes durante uma hora ou menos. 
 
 > [!Note] 
-> O SQL Data Warehouse é projetado para processar grandes quantidades de dados. Para ver suas verdadeiras capacidades de dimensionamento, especialmente com DWUs maiores, é melhor você usar um grande conjunto de dados que se aproxime de 1 TB ou ultrapasse esse tamanho.
+> SQL Data Warehouse é projetado tooprocess grandes quantidades de dados. toosee seus recursos true para dimensionar, especialmente em DWUs maior, você deseja toouse um grande conjunto de dados que se aproxima ou exceder 1 TB.
 
-Recomendações para encontrar a melhor DWU para sua carga de trabalho:
+Recomendações para encontrar hello DWU melhor para sua carga de trabalho:
 
 1. Para um data warehouse em desenvolvimento, comece selecionando um nível de desempenho de DWU menor.  Um bom ponto de partida é DW400 ou DW200.
-2. Monitore o desempenho do seu aplicativo, observando o número de DWUs selecionadas comparado ao desempenho que você observar.
-3. Determine quão rápido ou lento o desempenho deve ser para você obter o nível de desempenho ideal para seus requisitos, presumindo uma escala linear.
-4. Aumente ou diminua o número de DWUs proporcionalmente à velocidade desejada do desempenho de sua carga de trabalho. 
+2. Monitorar o desempenho do seu aplicativo, observar o número de saudação do DWUs selecionado em comparação com o desempenho toohello que você observar.
+3. Determine quanto de desempenho mais rápido ou mais lento para você tooreach Olá nível de desempenho ideal para suas necessidades, supondo que a escala linear.
+4. Aumentar ou diminuir o número de saudação de DWUs em proporção toohow muito mais rápida ou mais lenta do que você deseja tooperform sua carga de trabalho. 
 5. Continue fazendo ajustes até alcançar um nível de desempenho ideal para seus requisitos de negócios.
 
 > [!NOTE]
 >
-> O desempenho de consulta só aumentará com mais paralelização se o trabalho puder ser dividido entre nós de computação. Se você achar que o dimensionamento não está alterando seu desempenho, verifique nossos artigos sobre ajuste de desempenho para verificar se os dados são distribuídos sem uniformidade ou se você está implantando uma grande quantidade de movimentação de dados. 
+> Desempenho de consultas só aumenta com mais de paralelização se trabalho Olá pode ser dividido entre nós de computação. Se você encontrar o dimensionamento não está alterando seu desempenho, faça check-out nossos artigos toocheck se seus dados são distribuídos ou se você está implantando uma grande quantidade de movimentação de dados de ajuste de desempenho. 
 
 ### <a name="when-should-i-scale-dwus"></a>Quando devo dimensionar as DWUs?
-O dimensionamento de DWUs altera os seguintes cenários importantes:
+Dimensionamento DWUs altera Olá cenários importantes a seguir:
 
-1. Alteração linear do desempenho do sistema para verificações, agregações e instruções de CTAS
-2. Aumento do número de leitores e gravadores ao carregar com o PolyBase
+1. Alterando o desempenho do sistema de verificações, agregações e instruções CTAS Olá linearmente
+2. Aumentar o número de saudação de leitores e gravadores ao carregar com PolyBase
 3. Número máximo de consultas simultâneas e slots de simultaneidade
 
-Recomendações para quando dimensionar DWUs:
+Recomendações de quando tooscale DWUs:
 
 1. Antes de executar uma operação de transformação ou carregamento de dados pesados, escale verticalmente as DWUs para que os dados fiquem disponíveis mais rapidamente.
-2. Durante o horário comercial de pico, dimensione para acomodar um número maior de consultas simultâneas. 
+2. Durante o horário comercial de pico, dimensione tooaccommodate um número maior de consultas simultâneas. 
 
 <a name="pause-compute-bk"></a>
 
 ## <a name="pause-compute"></a>Pausar computação
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Para pausar um banco de dados, use qualquer um destes métodos individuais.
+toopause um banco de dados, use qualquer um desses métodos individuais.
 
 * [Pausar a computação com o Portal do Azure][Pause compute with Azure portal]
 * [Pausar a computação com o PowerShell][Pause compute with PowerShell]
@@ -145,7 +145,7 @@ Para pausar um banco de dados, use qualquer um destes métodos individuais.
 ## <a name="resume-compute"></a>Retomar a computação
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Para retomar um banco de dados, use qualquer um destes métodos individuais.
+tooresume um banco de dados, use qualquer um desses métodos individuais.
 
 * [Retomar a computação com o Portal do Azure][Resume compute with Azure portal]
 * [Retomar a computação com o PowerShell][Resume compute with PowerShell]
@@ -155,7 +155,7 @@ Para retomar um banco de dados, use qualquer um destes métodos individuais.
 
 ## <a name="check-database-state"></a>Verificar estado do banco de dados 
 
-Para retomar um banco de dados, use qualquer um destes métodos individuais.
+tooresume um banco de dados, use qualquer um desses métodos individuais.
 
 - [Verificar estado do banco de dados com o T-SQL][Check database state with T-SQL]
 - [Verificar estado do banco de dados com o PowerShell][Check database state with PowerShell]
@@ -163,12 +163,12 @@ Para retomar um banco de dados, use qualquer um destes métodos individuais.
 
 ## <a name="permissions"></a>Permissões
 
-Dimensionar o banco de dados exige as permissões descritas em [ALTERAR BANCO DE DADOS][ALTER DATABASE].  Pausar e Retomar exigirá a permissão [Colaborador do BD SQL][SQL DB Contributor], especificamente Microsoft.Sql/servers/databases/action.
+Banco de dados de Olá escala requer permissões Olá descritas [ALTER DATABASE][ALTER DATABASE].  Pausar e retomar exigem Olá [Colaborador de banco de dados SQL] [ SQL DB Contributor] permissão, especificamente Microsoft.Sql/servers/databases/action.
 
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte os artigos a seguir para ajudar a entender alguns dos principais conceitos de desempenho adicionais:
+Consulte toohello artigos toohelp entender alguns conceitos chave de desempenho adicionais a seguir:
 
 * [Gerenciamento da carga de trabalho e simultaneidade][Workload and concurrency management]
 * [Visão geral do design da tabela][Table design overview]

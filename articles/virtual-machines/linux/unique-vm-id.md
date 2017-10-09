@@ -1,6 +1,6 @@
 ---
-title: Obter uma ID de VM em Linux do Azure | Microsoft Docs
-description: Descreve como obter e usar uma ID Exclusiva de VM Linux do Azure.
+title: aaaGet uma ID de VM do Linux do Azure | Microsoft Docs
+description: Descreve como tooget e use um exclusivo de VM do Linux Azure ID.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: kmouss
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/23/2017
 ms.author: kmouss
-ms.openlocfilehash: 258ce425d5692730011cf2f4468dc0ba77f4cb79
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4c8ddfc2e892824581e77649285ee8adbccd5def
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="accessing-and-using-azure-vm-unique-id"></a>Acessando e usando a ID exclusiva da VM do Azure
 A ID exclusiva da VM do Azure é um identificador de 128 bits codificado e armazenado em todos os SMBIOS da VM IaaS do Azure e, atualmente, pode ser lida usando comandos BIOS da plataforma.
 
-A ID exclusiva da VM do Azure é uma propriedade somente leitura. A ID exclusiva da VM do Azure não mudará no desligamento para reinicialização (planejado ou não planejado), no início/parada de desalocação, na recuperação de serviço ou na restauração in-loco. No entanto, se a VM for um instantâneo e se for copiada para criar uma nova instância, uma nova ID da VM do Azure será configurada.
+A ID exclusiva da VM do Azure é uma propriedade somente leitura. A ID exclusiva da VM do Azure não mudará no desligamento para reinicialização (planejado ou não planejado), no início/parada de desalocação, na recuperação de serviço ou na restauração in-loco. No entanto, se Olá VM for um instantâneo e copiado toocreate uma nova instância, nova ID de VM do Azure está configurado.
 
 > [!NOTE]
-> Se você tiver VMs antigas criadas e em execução desde o lançamento desse novo recurso (18 de setembro de 2014), reinicie sua VM para obter automaticamente uma ID exclusiva do Azure.
+> Se você tiver máquinas virtuais mais antigas criadas e, em execução desde que este novo recurso foi distribuído (18 de setembro de 2014), reinicie a VM tooautomatically obter uma ID exclusiva do Azure.
 > 
 > 
 
-Para acessar a ID exclusiva da VM do Azure de dentro da VM:
+tooaccess ID exclusiva de VM do Azure de dentro de saudação VM:
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 Para obter mais informações, veja [Criar uma máquina virtual](../windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="connect-to-the-vm"></a>Conectar-se à VM
+## <a name="connect-toohello-vm"></a>Conecte-se toohello VM
 Para obter mais informações, veja [SSH no Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="query-vm-unique-id"></a>Consultar ID exclusiva da VM
@@ -51,11 +51,11 @@ Exemplo de resultados esperados:
 UUID: 090556DA-D4FA-764F-A9F1-63614EDA019A
 ```
 
-Devido à ordenação de bits Big Endian, a ID exclusiva da VM, neste caso, será:
+Devido a tooBig bit Endian ordenação, hello real ID exclusiva da VM nesse caso será:
 
 ```bash
 DA 56 05 09 – FA D4 – 4f 76 - A9F1-63614EDA019A
 ```
 
-A ID exclusiva da VM do Azure poderá ser usada em cenários diferentes se a VM estiver em execução no Azure ou no local, além de poder ajudar com os requisitos de licenciamento, de relatórios ou de rastreamento geral que você tenha em suas implantações IaaS do Azure. Muitos fornecedores independentes de software que criam aplicativos e os certificam no Azure podem exigir a identificação de uma VM do Azure durante todo seu ciclo de vida, bem como para informar se a VM está em execução no Azure, no local ou em outros provedores de nuvem. Esse identificador de plataforma pode, por exemplo, ajudar a detectar se o software está licenciado corretamente ou ajudar a correlacionar quaisquer dados da VM com sua fonte, como auxiliar na configuração das métricas certas para a plataforma certa e rastrear e correlacionar essas métricas entre outros usuários.
+ID exclusiva de VM do Azure pode ser usada em cenários diferentes se hello VM está em execução no Azure ou no local e pode ajudar a seus requisitos de controle geral licenciamento ou relatório que você pode ter suas implantações de IaaS do Azure. Muitos fornecedores independentes de software criar aplicativos e certifica-los no Azure podem exigir tooidentify uma VM do Azure ao longo de seu ciclo de vida e tootell se Olá VM estiver em execução no Azure, local ou em outros provedores de nuvem. Esse identificador de plataforma por exemplo pode ajudar a detectar se o software de saudação é licenciado corretamente ou ajudar toocorrelate qualquer fonte de tooits de dados VM como tooassist sobre a configuração de métricas de direito Olá para plataforma hello e tootrack e correlacionar essas métricas entre outros usos.
 

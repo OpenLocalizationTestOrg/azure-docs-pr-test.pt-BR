@@ -1,6 +1,6 @@
 ---
-title: "Habilitar a replicação para VMs do Azure para outra região do Azure com o Azure Site Recovery | Microsoft Docs"
-description: "Resume as etapas necessárias para habilitar a replicação para outra região do Azure para VMs do Azure, utilizando o serviço do Azure Site Recovery"
+title: "a replicação para máquinas virtuais do Azure tooanother região do Azure com o Azure Site Recovery aaaEnable | Microsoft Docs"
+description: "Resume as etapas de saudação precisar tooenable replicação tooanother região do Azure para máquinas virtuais do Azure, usando o serviço do Azure Site Recovery Olá"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 8/01/2017
 ms.author: raynew
-ms.openlocfilehash: f426ba4341e61d3c7da820d7d5097b217e94ca0e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2fa03db45a18ccb8b9f31ed05589be0dd6d5f031
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="step-5-enable-replication-for-azure-vms"></a>Etapa 5: habilitar replicação para VMs do Azure
 
 
-Após configurar um [Cofre de Serviços de Recuperação](azure-to-azure-walkthrough-vault.md), utilize este artigo para habilitar a replicação de VMs (Máquinas Virtuais) para outra região do Azure, com o [Azure Site Recovery](site-recovery-overview.md). Para habilitar a replicação, você define as configurações de origem e destino, verifica a política de replicação e seleciona as VMs que deseja replicar.
+Depois de configurar um [Cofre de serviços de recuperação](azure-to-azure-walkthrough-vault.md), use a replicação de tooenable de artigo de máquinas virtuais (VMs) tooanother região do Azure, com [do Azure Site Recovery](site-recovery-overview.md). replicação tooenable, você definir as configurações de origem e de destino, verifique se a política de replicação hello e selecione VMs que você deseja tooreplicate.
 
-- Ao concluir o artigo, suas VMs do Azure deverão ser replicadas para a região do Azure secundária.
-- Publique eventuais comentários no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
+- Quando você terminar de artigo hello, suas VMs do Azure deve estar replicando toohello região secundária do Azure.
+- Lançar os comentários na parte inferior da saudação deste artigo, ou fazer perguntas no hello [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
 >[!NOTE]
 >
 > Atualmente, a replicação de VM do Azure está em versão prévia.
 
 
-## <a name="select-the-source"></a>Selecione a origem 
+## <a name="select-hello-source"></a>Selecione a fonte de saudação 
 
-1. Em cofres dos Serviços de Recuperação, clique no nome do cofre > **+Replicar**.
+1. Cofres de serviços de recuperação, clique em nome do cofre hello > **+ replicar**.
 2. Em **fonte**, selecione **Azure - VISUALIZAÇÃO**.
-2. Em **Local de origem**, selecione a fonte de região do Azure em que suas VMs estão sendo executados.
-3. Selecione o **modelo de implantação de máquina virtual do Azure** para VMs: **Gerenciador de Recursos** ou **Clássico**.
-4. Selecione o **Grupo de recursos de origem** para VMs do Gerenciador de Recursos ou **serviço de nuvem** para VMs clássicas.
-5. Clique em **OK** para salvar as configurações.
+2. Em **local de origem**, selecione origem Olá região do Azure em que suas VMs estão sendo executados.
+3. Selecione Olá **modelo de implantação de máquina virtual do Azure** para VMs: **Gerenciador de recursos de** ou **clássico**.
+4. Selecione Olá **grupo de recursos de origem** para VMs do Gerenciador de recursos, ou **serviço de nuvem** para VMs clássicas.
+5. Clique em **Okey** toosave configurações de saudação.
 
-    ![Configure a origem](./media/azure-to-azure-walkthrough-enable-replication/source.png)
+    ![Configurar fonte Olá](./media/azure-to-azure-walkthrough-enable-replication/source.png)
 
-## <a name="select-the-vms"></a>Selecione as VMs
+## <a name="select-hello-vms"></a>Selecione Olá VMs
 
-O Site Recovery recupera uma lista das VMs associadas ao serviço de nuvem/grupo de recursos e assinatura.
+Recuperação de site recupera uma lista de saudação que VMs associadas com assinatura hello e serviço de nuvem/grupo de recursos.
 
-1. Em **Máquinas Virtuais**, selecione as VMs que deseja replicar.
+1. Em **máquinas virtuais**, selecione VMs Olá deseja tooreplicate.
 2. Clique em **OK**.
 
     ![Selecione as máquinas virtuais](./media/azure-to-azure-walkthrough-enable-replication/vms.png)
@@ -56,52 +56,52 @@ O Site Recovery recupera uma lista das VMs associadas ao serviço de nuvem/grupo
 
 ## <a name="configure-settings"></a>Configurar definições
 
-O Site Recovery provisiona configurações padrão para a região de destino (baseado nas configurações da região de origem) e a política de replicação:
+Recuperação de site fornece configurações padrão para a região de destino da saudação (com base nas configurações de região de origem de saudação) e a política de replicação hello:
 
-   - **Localização de destino**: a região de destino que você deseja utilizar para recuperação de desastre. É recomendável que a localização de destino corresponda à localização do cofre do Site Recovery.
-   - **Grupo de recursos de destino**: grupo de recursos para o qual as VMs do Azure na região de destino pertencerão após o failover. Por padrão, o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". 
-   - **Rede virtual de destino**: a rede na qual as VMs Azure na região alvo serão localizadas após o failover. Por padrão, o Site Recovery cria uma nova rede virtual (e sub-redes) na região de destino com um sufixo "asr". Essa rede é mapeada para sua rede de origem. Observe que é possível atribuir um endereço IP específico após o failover de uma VM, se você precisar reter o mesmo endereço IP nas localizações de origem e destino. 
-   - **Contas de armazenamento de cache**: o Site Recovery utiliza uma conta de armazenamento na região de origem. As alterações nas VMs de origem são enviadas para essa conta, antes da replicação para a localização de destino. 
-   - **Contas de armazenamento de destino**: por padrão, o Site Recovery cria uma nova conta de armazenamento na região de destino, para espelhar a conta de armazenamento da VM de origem.
-   -  **Conjuntos de disponibilidade de destino**: por padrão, o Site Recovery cria um novo conjunto de disponibilidade na região de destino, com o sufixo "asr". 
+   - **Local de destino**: região de destino Olá desejar toouse para recuperação de desastres. É recomendável que o local de destino Olá corresponde ao local de Olá do Cofre de recuperação de Site hello.
+   - **Grupo de recursos de destino**: toowhich do grupo de recursos VMs do Azure na região de destino Olá pertencerão após o failover. Por padrão, a recuperação de Site cria um novo grupo de recursos na região de destino Olá com um sufixo "asr". 
+   - **Rede virtual de destino**: rede Olá em qual VMs do Azure no hello região de destino serão localizado após o failover. Por padrão, a recuperação de Site cria uma nova rede virtual (e sub-redes) na região de destino Olá com um sufixo "asr". Esta rede é mapeada tooyour rede de origem. Observe que você pode atribuir um endereço IP específico após o failover de uma máquina virtual, se você precisar tooretain Olá mesmo endereço IP em locais de origem e destino hello. 
+   - **Contas de armazenamento de cache**: recuperação de Site usa uma conta de armazenamento na região de origem de saudação. Alterações nas máquinas virtuais de origem são enviadas toothis conta, antes do local de destino do toohello de replicação. 
+   - **Contas de armazenamento de destino**: por padrão, a recuperação de Site cria uma nova conta de armazenamento na região de destino hello, origem de saudação toomirror conta de armazenamento da VM.
+   -  **Conjuntos de disponibilidade de destino**: por padrão, a recuperação de Site cria uma novo conjunto de disponibilidade no região de destino hello, com o sufixo de "asr" hello. 
    - **Nome da política de replicação**: nome da política.
    - **Retenção de ponto de recuperação**: por padrão, o Site Recovery mantém os pontos de recuperação por 24 horas. É possível configurar um valor entre 1 e 72 horas.
    - **Frequência de instantâneo consistente com o aplicativo**: por padrão, o Site Recovery obtém um instantâneo consistente com o aplicativo a cada 4 horas. É possível configurar qualquer valor entre 1 e 12 horas. Os dados são replicados continuamente:
-    - Os pontos de recuperação consistentes com falha mantêm uma ordem de gravação de dados consistente quando criados. Este tipo de ponto de recuperação geralmente é suficiente se o seu aplicativo for projetado para recuperar de uma falha sem inconsistências de dados
-    - Os pontos de recuperação consistentes com falha são gerados a cada poucos minutos. O uso desses pontos de recuperação para fazer failover e recuperar suas VMs fornece um RPO (Objetivo do Ponto de Recuperação) na ordem dos minutos.
-    - Pontos de recuperação consistente com o aplicativo (além da consistência de ordem de gravação) garantem que a execução de aplicativos conclua todas as operações e libere os buffers para disco (fechando o aplicativo). É recomendável utilizar esses pontos de recuperação para aplicativos de banco de dados, como SQL Server, Oracle e Exchange.
+    - Os pontos de recuperação consistentes com falha mantêm uma ordem de gravação de dados consistente quando criados. Esse tipo de ponto de recuperação é geralmente suficiente se seu aplicativo é projetado toorecover em caso de falha sem inconsistências de dados
+    - Os pontos de recuperação consistentes com falha são gerados a cada poucos minutos. Usando essas toofail de pontos de recuperação sobre e recuperar suas VMs fornece um ponto de RPO (objetivo recuperação) na ordem de saudação de minutos.
+    - Pontos de recuperação consistentes com o aplicativo (na consistência de ordem de toowrite adição) Verifique se os aplicativos em execução concluir todas as operações e liberar buffers toodisk (pausas de aplicativo). É recomendável utilizar esses pontos de recuperação para aplicativos de banco de dados, como SQL Server, Oracle e Exchange.
         
     ![Configurar definições](./media/azure-to-azure-walkthrough-enable-replication/settings.png)
 
 
 ### <a name="modify-settings"></a>Modificar configurações
 
-Se deseja modificar as configurações de política de replicação e destino, faça o seguinte:
+Se você quiser toomodify configurações de política de replicação e de destino, Olá a seguir:
 
-1. Para exibir ou modificar as configurações de destino, clique em **Configurações**.
-2. Para substituir as configurações de destino padrão, clique em **Personalizar**. É possível especificar um grupo de recursos de destino, uma rede virtual, um conjunto de disponibilidade e uma conta de armazenamento de destino. Somente será possível adicionar conjuntos de disponibilidade se as VMs forem parte de um conjunto na região de origem.
+1. tooview ou modificar as configurações de destino, clique em **configurações**.
+2. configurações de destino do toooverride saudação padrão, clique em **personalizar**. É possível especificar um grupo de recursos de destino, uma rede virtual, um conjunto de disponibilidade e uma conta de armazenamento de destino. Você só pode adicionar conjuntos de disponibilidade se as VMs são parte de um conjunto na região de origem de saudação.
 
     ![Configurar definições](./media/azure-to-azure-walkthrough-enable-replication/customize-target.png)
 
-3. Para substituir as configurações de replicação para pontos de recuperação e snapshots consistentes com o aplicativo, clique em **Personalizar** próximo à **Política de Replicação**.
+3. configurações de replicação de toooverride para pontos de recuperação e instantâneos consistentes com o aplicativo, clique em **personalizar** Avançar muito**política de replicação**.
  
     ![Configurar definições](./media/azure-to-azure-walkthrough-enable-replication/customize-policy.png)
 
-4. Para iniciar o provisionamento de recursos de destino, clique em **Criar recursos de destino**. O provisionamento demora alguns minutos. Não feche a folha durante o provisionamento ou será necessário começar tudo novamente.
+4. provisionar recursos de destino de saudação toostart, clique em **criar recursos de destino**. O provisionamento demora alguns minutos. Não feche a folha de saudação durante o provisionamento, ou você terá toostart sobre.
 
 
 
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
-1. Em **Configurações**, clique em **Habilitar replicação**. Isso permite a replicação inicial das VMs selecionadas. O status da replicação inicial pode levar algum tempo para atualizar. Clique em **Atualizar** para obter o status mais recente.
+1. Em **Configurações**, clique em **Habilitar replicação**. Isso permite que a replicação inicial da saudação VMs que você selecionou. Status de replicação inicial pode levar algum tempo toorefresh. Clique em **atualização** status mais recente do tooget hello.
 
-2. Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**.
+2. Você pode acompanhar o progresso da saudação **Habilitar proteção** trabalho em **configurações** > **trabalhos** > **trabalhos de recuperação de Site**.
 
-3. Em **Configurações** > **Itens Replicados**, você pode exibir o status das máquinas virtuais e o andamento da replicação inicial. Clique em VM para fazer uma busca detalhada em suas configurações.
+3. Em **configurações** > **itens replicados**, você pode exibir o status de saudação de VMs e Olá andamento da replicação inicial. Clique em Olá VM toodrill abaixo em suas configurações.
 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Acesse a [Etapa 6: executar um failover de teste](azure-to-azure-walkthrough-test-failover.md)
+Vá muito[etapa 6: executar um failover de teste](azure-to-azure-walkthrough-test-failover.md)

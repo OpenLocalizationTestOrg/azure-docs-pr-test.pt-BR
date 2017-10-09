@@ -1,6 +1,6 @@
 ---
-title: "Introdução à captura de pacote no Observador de Rede do Azure | Microsoft Docs"
-description: "Esta página fornece uma visão geral do recurso de captura de pacote do Observador de Rede"
+title: captura de tooPacket aaaIntroduction no Inspetor de rede do Azure | Microsoft Docs
+description: "Esta página fornece uma visão geral do recurso de captura de pacote hello observador de rede"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 4fdd007c2cfad7b42f26ab2cacfba06d95c8dad3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2ce01b391b9c1a1c19aa29c8620628c55586df03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Introdução à captura de pacote de varáveis no Observador de Rede do Azure
+# <a name="introduction-toovariable-packet-capture-in-azure-network-watcher"></a>Captura de pacote toovariable introdução em observador de rede do Azure
 
-A captura de pacote de variáveis do Observador de Rede permite que você crie sessões de captura de pacote para controlar o tráfego em uma máquina virtual. A captura de pacote ajuda a diagnosticar anomalias de rede reativas e proativas. Outros usos incluem a coleta de estatísticas de rede, obter informações sobre as invasões de rede, para depurar comunicações cliente-servidor e muito mais.
+Captura de pacote de variável do Inspetor de rede permite que você toocreate pacote captura sessões tootrack tooand de tráfego de uma máquina virtual. Captura de pacote ajuda toodiagnose anomalias na rede ambos os reativa e proactivity. Outros usos incluem a coleta de estatísticas de rede, obtenção de informações de invasões de rede, toodebug cliente-servidor comunicações e muito mais.
 
-A captura de pacote é uma extensão de máquina virtual iniciada remotamente por meio do Observador de Rede. Esse recurso alivia o transtorno que é executar manualmente uma captura de pacote na máquina virtual desejada, o que economiza um tempo precioso. A captura de pacote pode ser disparada por meio do portal, do PowerShell, da CLI ou da API REST. Os alertas de Máquina Virtual são um exemplo de como a captura de pacote pode ser disparada. Os filtros são fornecidos para a sessão de captura a fim de garantir que somente o tráfego que você deseja monitorar seja capturado. Os filtros têm base em informações de cinco tuplas (protocolo, endereço IP local, endereço IP remoto, porta local e porta remota). Os dados capturados são armazenados no disco local ou um blob de armazenamento. Há um limite de 10 sessões de captura de pacote por região e assinatura. Esse limite se aplica somente às sessões e não aos arquivos de captura de pacote salvos localmente na VM ou em uma conta de armazenamento.
+A captura de pacote é uma extensão de máquina virtual iniciada remotamente por meio do Observador de Rede. Esse recurso facilita a carga Olá da execução de uma captura de pacote manualmente na máquina virtual Olá desejado, o que economiza tempo. Captura de pacote pode ser acionada por meio do portal de saudação, o PowerShell, CLI ou API REST. Os alertas de Máquina Virtual são um exemplo de como a captura de pacote pode ser disparada. Os filtros são fornecidos para tooensure de sessão de captura Olá você capturar o tráfego que você deseja toomonitor. Os filtros têm base em informações de cinco tuplas (protocolo, endereço IP local, endereço IP remoto, porta local e porta remota). Olá capturado dados são armazenados no disco local hello ou um blob de armazenamento. Há um limite de 10 sessões de captura de pacote por região e assinatura. Esse limite se aplica somente a sessões de toohello e não se aplica a toohello salva arquivos de captura de pacote localmente no hello VM ou em uma conta de armazenamento.
 
 > [!IMPORTANT]
-> A captura de pacotes requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> A captura de pacotes requer uma extensão da máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão de saudação em uma VM do Windows, visite [extensão de máquina virtual do agente do Inspetor de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a visita de VM do Linux [extensão de máquina virtual do agente do Inspetor de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
-Para reduzir as informações capturadas apenas às informações desejadas, as opções a seguir estão disponíveis para uma sessão de captura de pacote:
+informações de saudação tooreduce capturar informações de saudação tooonly desejado, Olá as opções a seguir está disponível para uma sessão de captura de pacote:
 
 **Configuração da captura**
 
 |Propriedade|Descrição|
 |---|---|
-|**Máximo de bytes por pacote (bytes)** | O número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco. O número de bytes capturados de cada pacote; todos os bytes serão capturados se deixado em branco. Se você precisar apenas do cabeçalho IPv4 – indique 34 aqui |
-|**Máximo de bytes por sessão (bytes)** | Número total de bytes capturados, quando o valor for atingido, a sessão terminará.|
-|**Tempo limite (segundos)** | Define uma restrição de tempo na sessão de captura de pacote. O valor padrão é 18000 segundos, ou cinco horas.|
+|**Máximo de bytes por pacote (bytes)** | Olá o número de bytes de cada pacote que são capturadas, todos os bytes são capturados se deixado em branco. Olá o número de bytes de cada pacote que são capturadas, todos os bytes são capturados se deixado em branco. Se você precisar somente cabeçalho de IPv4 hello – indicar 34 aqui |
+|**Máximo de bytes por sessão (bytes)** | Número total de bytes em que é capturado, quando o valor de saudação é atingido Olá término da sessão.|
+|**Tempo limite (segundos)** | Define uma restrição de tempo no pacote de saudação capturar a sessão. valor padrão de saudação é 18000 segundos ou cinco horas.|
 
 **Filtragem (opcional)**
 
 |Propriedade|Descrição|
 |---|---|
-|**Protocolo** | O protocolo de filtragem da captura de pacote. Os valores disponíveis são TCP, UDP e Todos.|
-|**Endereço IP local** | Esse valor filtra a captura de pacotes para os pacotes cujo endereço IP local corresponde ao valor do filtro.|
-|**Porta local** | Esse valor filtra a captura de pacotes para os pacotes cuja porta local corresponde ao valor do filtro.|
-|**Endereço IP remoto** | Esse valor filtra a captura de pacotes para os pacotes cujo IP remoto corresponde ao valor do filtro.|
-|**Porta remota** | Esse valor filtra a captura de pacotes para os pacotes cuja porta remota corresponde ao valor do filtro.|
+|**Protocolo** | Olá toofilter de protocolo para o pacote de saudação de captura. os valores disponíveis Olá são TCP, UDP e todos.|
+|**Endereço IP local** | Esse valor filtra Olá toopackets de captura de pacote em que o endereço IP local Olá corresponde esse valor de filtro.|
+|**Porta local** | Este pacote de saudação do valor filtros capturar toopackets onde porta local Olá corresponde a esse valor de filtro.|
+|**Endereço IP remoto** | Este pacote de saudação do valor filtros capturar toopackets onde IP remoto Olá corresponde a esse valor de filtro.|
+|**Porta remota** | Este pacote de saudação do valor filtros capturar toopackets onde porta remota Olá corresponde a esse valor de filtro.|
 
 ### <a name="next-steps"></a>Próximas etapas
 
-Saiba como você pode gerenciar as capturas de pacote no portal visitando [Gerenciar captura de pacote no Portal do Azure](network-watcher-packet-capture-manage-portal.md) ou com o PowerShell visitando [Gerenciar captura de pacote com o PowerShell](network-watcher-packet-capture-manage-powershell.md).
+Saiba como você pode gerenciar a captura de pacote por meio do portal Olá visitando [gerenciar captura de pacote no portal do Azure de saudação](network-watcher-packet-capture-manage-portal.md) ou com o PowerShell visitando [gerenciar de captura de pacote com o PowerShell](network-watcher-packet-capture-manage-powershell.md).
 
-Saiba como criar capturas de pacote proativas com base em alertas de máquina virtual visitando [Criar uma captura de pacote disparada por alerta](network-watcher-alert-triggered-packet-capture.md)
+Saiba como o pacote pró-ativo toocreate captura com base em alertas de máquina virtual visitando [criar uma captura de pacote de disparo de alerta](network-watcher-alert-triggered-packet-capture.md)
 
 <!--Image references-->
 [1]: ./media/network-watcher-packet-capture-overview/figure1.png

@@ -1,6 +1,6 @@
 ---
-title: "Replicar máquinas virtuais do Azure entre regiões do Azure para necessidades de recuperação de desastres: do Azure para o Azure | Microsoft Docs"
-description: "Resume as etapas que você precisa para replicar máquinas virtuais do Azure entre regiões do Azure (Azure para Azure) com o serviço do Azure Site Recovery para necessidades de recuperação de desastres."
+title: "Replicar máquinas virtuais do Azure entre regiões do Azure para necessidades de recuperação de desastres: tooAzure do Azure | Microsoft Docs"
+description: "Resume as etapas de saudação necessário tooreplicate Azure VMs entre regiões do Azure (Azure para Azure) com o serviço do Azure Site Recovery Olá para necessidades de recuperação de desastres."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,66 +14,66 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: raynew
-ms.openlocfilehash: 9ca33057f6030fdcc233f6053fdc392d62f8f9f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c4c425af260a9bcc3dd4dcc13da26109e20f03bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Você pode replicar VMs do Azure entre regiões usando o Site Recovery
 
 >[!NOTE]
 >
-> Replicação de recuperação de site para máquinas virtuais (VMs) do Azure está atualmente em visualização.
+> A replicação do Azure Site Recovery para as máquinas virtuais (VMs) do Azure está atualmente na versão prévia.
 
-Este artigo descreve como replicar computadores físicos locais para o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
+Este artigo descreve como tooreplicate VMs do Azure entre regiões do Azure usando Olá [recuperação de Site](site-recovery-overview.md) serviço Olá portal do Azure.
 
-Publique perguntas e comentários na parte inferior deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Postar perguntas e comentários na parte inferior da saudação deste artigo ou em Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="disaster-recovery-in-azure"></a>Recuperação de desastre no Azure
 
-Recursos internos de infraestrutura do Azure contribuem para uma estratégia de disponibilidade robusta e flexível para cargas de trabalho que são executados em máquinas virtuais do Azure. No entanto, há muitas razões por que você precisa para planejar a recuperação de desastres entre regiões do Azure:
+Recursos internos de infraestrutura do Azure contribuem tooa estratégia de disponibilidade robusta e flexível para cargas de trabalho que são executados em máquinas virtuais do Azure. No entanto, há muitos motivos para você usar tooplan para recuperação de desastres entre regiões do Azure por conta própria:
 
-- Você precisa atender às diretrizes de conformidade para cargas de trabalho que exigem uma estratégia de recuperação de desastres (BCDR) e continuidade dos negócios e aplicativos específicos.
-- Você quer que a capacidade de proteger e recuperar máquinas virtuais do Azure seja com base em suas decisões de negócios e não apenas com base na funcionalidade do Azure embutido.
-- Você precisa testar o failover e recuperação de acordo com suas necessidades de negócios e de conformidade, sem afetar a produção.
-- Você precisa fazer failover para a região de recuperação em caso de desastre e failback diretamente para a região de origem original.
+- Você precisa toomeet diretrizes de conformidade para cargas de trabalho que exigem uma estratégia de recuperação (BCDR) de desastres e continuidade dos negócios e aplicativos específicos.
+- Você deseja Olá capacidade tooprotect e recupere máquinas virtuais do Azure com base em suas decisões de negócios e não apenas com base na funcionalidade do Azure embutida.
+- É necessário tootest failover e recuperação de acordo com suas necessidades de negócios e de conformidade, sem afetar a produção.
+- Você precisa toofail toohello região de recuperação em caso de saudação de um desastre e falha a região de origem original toohello back perfeitamente.
 
-Use a recuperação de Site para replicação de VM do Azure para o Azure para ajudá-lo a fazer todas essas tarefas.
+Usar o Site Recovery para a VM do Azure para o Azure replicação toohelp você fazer todas essas tarefas.
 
 
 ## <a name="why-use-site-recovery"></a>Por que usar a Recuperação de Site?      
 
-Recuperação de site fornece uma maneira simples para replicar máquinas virtuais do Azure entre regiões:
+Recuperação de site fornece uma maneira simples de tooreplicate VMs do Azure entre regiões:
 
-- **Implantação automática**. Ao contrário de um modelo de replicação ativa, não há necessidade para uma infraestrutura cara e complexa na região secundária. Quando você habilitar a replicação, a recuperação de Site cria automaticamente os recursos necessários na região de destino, com base nas configurações de região de origem.
-- **Controlar regiões**. Com a Recuperação de Site, você pode replicar de qualquer região para qualquer região dentro de um continente. Compare isso com o armazenamento com redundância geográfica com acesso de leitura, que replica de forma assíncrona entre apenas o padrão de [regiões emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Armazenamento com redundância geográfica com acesso de leitura fornece acesso somente de leitura aos dados na região de destino.
+- **Implantação automática**. Ao contrário de um modelo de replicação ativa, não é necessário para uma infraestrutura caro e complexo na região secundária hello. Quando você habilitar a replicação, recuperação de Site cria automaticamente recursos Olá necessários na região de destino hello, com base nas configurações de região de origem.
+- **Controlar regiões**. Recuperação de Site, é possível replicar qualquer região tooany região dentro de um continente. Compare isso com o armazenamento com redundância geográfica com acesso de leitura, que replica de forma assíncrona entre apenas o padrão de [regiões emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Armazenamento com redundância geográfica com acesso de leitura fornece dados de toohello de acesso somente leitura na região de destino hello.
 - **A replicação automatizada**. Recuperação de site fornece replicação contínua automatizada. Failover e failback podem ser disparados com um único clique.
-- **RTO e RPO**. Recuperação de site aproveita a infraestrutura de rede do Azure que se conecta a regiões para manter o RTO e RPO muito baixos.
+- **RTO e RPO**. Recuperação de site aproveita hello Azure da infraestrutura de rede que conecta regiões tookeep RTO e RPO muito baixo.
 - **Testando**. Você pode executar os exercícios de recuperação de desastres com failovers de teste sob demanda, conforme a necessidade, sem afetar a cargas de trabalho de produção ou de replicação contínua.
-- **Planos de recuperação**. Você pode usar planos de recuperação para fazer failover e failback de todo o aplicativo em execução em várias VMs. O recurso de plano de recuperação tem integração avançada de primeira classe com runbooks de automação do Azure.
+- **Planos de recuperação**. Você pode usar planos de recuperação tooorchestrate failover e failback de todo o aplicativo hello em execução em várias VMs. recurso de plano de recuperação de saudação tem integração avançada de primeira classe com runbooks de automação do Azure.
 
 
 ## <a name="deployment-summary"></a>Resumo da implantação
 
-Aqui está um resumo do que você precisa fazer para configurar a replicação de máquinas virtuais entre regiões do Azure:
+Aqui está um resumo do que você precisa tooset toodo a replicação de máquinas virtuais entre regiões do Azure:
 
-1. Crie um cofre dos Serviços de Recuperação. O cofre contém definições de configuração e organiza a replicação.
-2. Habilite a replicação para as VMs do Azure.
-3. Execute um failover de teste para verificar se tudo está funcionando como esperado.
-
->[!IMPORTANT]
->
-> Você pode verificar a [matriz de suporte para replicação de VM do Azure](./site-recovery-support-matrix-azure-to-azure.md).
+1. Crie um cofre dos Serviços de Recuperação. cofre Olá contém definições de configuração e coordena a replicação.
+2. Habilite a replicação para Olá VMs do Azure.
+3. Execute um toomake de failover de teste se tudo está funcionando conforme o esperado.
 
 >[!IMPORTANT]
 >
-> Para obter informações sobre como configurar a conectividade de saída de rede necessária para VMs do Azure para replicação de recuperação de Site, consulte o [documento de diretrizes de rede](./site-recovery-azure-to-azure-networking-guidance.md).
+> Você pode verificar Olá [matriz de suporte para replicação de VM do Azure](./site-recovery-support-matrix-azure-to-azure.md).
+
+>[!IMPORTANT]
+>
+> Para obter informações sobre como tooconfigure Olá necessária conectividade de saída de rede para máquinas virtuais do Azure para replicação de recuperação de Site, consulte Olá [documento de diretrizes de rede](./site-recovery-azure-to-azure-networking-guidance.md).
 
 ### <a name="before-you-start"></a>Antes de começar
 
-* Sua conta de usuário do Azure precisa ter certas [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) para habilitar a replicação de uma nova máquina virtual para o Azure.
-* Sua assinatura deve ser habilitada para criar VMs do Azure na região de destino que você planeja usar como a região de recuperação de desastres. Contate o suporte para habilitar a cota necessária.
+* Sua conta de usuário do Azure precisa toohave determinados [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) tooenable de replicação de uma máquina virtual do Azure.
+* Sua assinatura do Azure deve ser habilitado toocreate VMs no local de destino Olá que você deseja toouse como a região de recuperação de desastres de saudação. Contate o suporte tooenable Olá cota necessária.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -81,67 +81,67 @@ Aqui está um resumo do que você precisa fazer para configurar a replicação d
 
 >[!NOTE]
 >
-> É recomendável que você crie o cofre de serviços de recuperação no local onde você deseja suas VMs para replicar. Por exemplo, se o local de destino é centro dos EUA, crie o cofre no **centro dos EUA**.
+> É recomendável que você crie Olá Cofre de serviços de recuperação no local de saudação onde você deseja que seu tooreplicate VMs. Por exemplo, se o local de destino é hello central nos, criar hello cofre no **centro dos EUA**.
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
-Em **Cofres dos Serviços de Recuperação**, selecione o cofre. No cofre, clique no botão **+ replicar**.
+Em **os cofres de serviços de recuperação**, clique em nome do cofre hello. No cofre hello, clique em Olá **+ replicar** botão.
 
-### <a name="step-1-configure-the-source"></a>Etapa 1. Configure a origem
+### <a name="step-1-configure-hello-source"></a>Etapa 1. Configurar fonte Olá
 1. Em **fonte**, selecione **Azure - VISUALIZAÇÃO**.
-2. Em **Local de origem**, selecione a fonte de região do Azure em que suas VMs estão sendo executados.
-3. Especifique o modelo de implantação a ser usado: **Gerenciador de Recursos** ou **Clássico**.
-4. Selecione o **Grupo de recursos de origem** para máquinas virtuais do Gerenciador de Recursos ou **serviço de nuvem** para VMs clássicas.
+2. Em **local de origem**, selecione origem Olá região do Azure em que suas VMs estão sendo executados.
+3. Modelo de implantação de saudação Select das suas máquinas virtuais: **Gerenciador de recursos de** ou **clássico**.
+4. Selecione Olá **grupo de recursos de origem** para máquinas virtuais do Gerenciador de recursos ou **serviço de nuvem** para VMs clássicas.
 
-    ![Configure a origem](./media/site-recovery-azure-to-azure/source.png)
+    ![Configurar fonte Olá](./media/site-recovery-azure-to-azure/source.png)
 
 ### <a name="step-2-select-virtual-machines"></a>Etapa 2. Selecionar máquinas virtuais
 
-* Selecione as máquinas virtuais que você deseja replicar e, em seguida, clique em **Ok**.
+* Selecione Olá VMs você deseja tooreplicate e, em seguida, clique em **Okey**.
 
     ![Selecione as máquinas virtuais](./media/site-recovery-azure-to-azure/vms.png)
 
 ### <a name="step-3-configure-settings"></a>Etapa 3. Configurar definições
 
-1. Para substituir as configurações padrão de destino e especificar as configurações de sua escolha, clique em **Personalizar**. Para obter mais informações, consulte [Personalizar recursos de destino](site-recovery-replicate-azure-to-azure.md##customize-target-resources).
+1. padrão de saudação toooverride configurações de destino e especifique as configurações de saudação de sua escolha, clique em **personalizar**. Para obter mais informações, consulte [Personalizar recursos de destino](site-recovery-replicate-azure-to-azure.md##customize-target-resources).
 
     ![Configurar definições](./media/site-recovery-azure-to-azure/settings.png)
 
 
-2. Por padrão, a recuperação de Site cria uma política de replicação que usa instantâneos consistentes com o aplicativo a cada 4 horas e retém pontos de recuperação por 24 horas. Para criar uma política com configurações diferentes, clique em **Personalizar** lado a **Política de Replicação**.
+2. Por padrão, a recuperação de Site cria uma política de replicação que usa instantâneos consistentes com o aplicativo a cada 4 horas e retém pontos de recuperação por 24 horas. toocreate uma política com configurações diferentes, clique em **personalizar** Avançar muito**política de replicação**.
 
     ![Personalizar política](./media/site-recovery-azure-to-azure/customize-policy.png)
 
-3. Para iniciar o provisionamento de recursos de destino, clique em **Criar recursos de destino**. O provisionamento demora alguns minutos. Não feche a folha durante o provisionamento, ou você precisará começar novamente.
+3. provisionar recursos de destino de saudação toostart, clique em **criar recursos de destino**. O provisionamento demora alguns minutos. Não feche a folha de saudação durante o provisionamento ou precisar de toostart.
 
-4. Para disparar a replicação da máquina virtual selecionada, clique em **Habilitar replicação**.
+4. replicação de tootrigger de saudação selecionada de VM, clique em **habilitar replicação**.
 
-5. Você pode acompanhar o progresso do trabalho **Habilitar Proteção** em **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**.
+5. Você pode acompanhar o progresso da saudação **Habilitar proteção** trabalho em **configurações** > **trabalhos** > **trabalhos de recuperação de Site**.
 
-6. Em **Configurações** > **Itens Replicados**, você pode exibir o status das máquinas virtuais e o andamento da replicação inicial. Clique em VM para fazer uma busca detalhada em suas configurações.
+6. Em **configurações** > **itens replicados**, você pode exibir o status de saudação de VMs e Olá andamento da replicação inicial. Clique em Olá VM toodrill abaixo em suas configurações.
 
 ## <a name="run-a-test-failover"></a>Execute um teste de failover
 
-Depois de configurar tudo, execute um failover de teste para garantir que tudo esteja funcionando conforme o esperado:
+Depois de configurar tudo, execute um toomake de failover de teste se que tudo está funcionando conforme o esperado:
 
-1. Para fazer failover em um único computador, em **Configurações** > **Itens Replicados**, clique no ícone da VM **+Failover de Teste**.
+1. toofail em um único computador, em **configurações** > **itens duplicados**, clique em Olá VM **+ Failover de teste** ícone.
 
-2. Para fazer failover de um plano de recuperação, em **Configurações** > **Planos de Recuperação**, clique com o botão direito do mouse no plano **Failover de Teste**. Para criar um plano de recuperação, [siga estas instruções](site-recovery-create-recovery-plans.md). 
+2. Planejar toofail sobre a recuperação, em **configurações** > **planos de recuperação**, plano de saudação do botão direito do mouse **Failover de teste**. um plano de recuperação de toocreate [, siga estas instruções](site-recovery-create-recovery-plans.md). 
 
-3. Em **Failover de Teste**, selecione a rede do Azure à qual as VMs do Azure serão conectadas após o failover.
+3. Em **Failover de teste**, selecione toowhich de rede virtual do Azure de destino Olá VMs do Azure conectadas após o failover de saudação.
 
-4. Para iniciar o failover, clique em **Ok**. Para acompanhar o progresso, clique na VM para abrir suas propriedades. Ou você pode clicar no trabalho **Failover de teste** no nome do cofre > **Configurações** > **Trabalhos** > **Trabalhos de Recuperação de Site**.
+4. toostart Olá failover, clique em **Okey**. tootrack de andamento, clique em Olá VM tooopen suas propriedades. Ou você pode clicar em Olá **Failover de teste** trabalho em nome do cofre hello > **configurações** > **trabalhos** > **ostrabalhosderecuperaçãodeSite**.
 
-5. Após a conclusão do failover, você também deve conseguir ver a réplica do computador Azure exibida no Portal do Azure > **Máquinas Virtuais**. Verifique se a VM é do tamanho apropriado, se está conectada à rede adequada e se está em execução.
+5. Depois de saudação failover for concluído, réplica Olá máquina do Azure aparece no portal do Azure de saudação > **máquinas virtuais**. Certifique-se de que Olá VM é o tamanho apropriado hello, que tenha se conectado toohello apropriado, e rede que está sendo executado.
 
-6. Para excluir as VMs que foram criadas durante o failover de teste, clique em **Failover de teste de limpeza** no item replicado ou no plano de recuperação. Em **Observações**, registre e salve todas as observações associadas ao failover de teste. 
+6. Olá toodelete VMs que foram criados durante a saudação failover de teste, clique em **failover de teste de limpeza** em Olá replicadas item ou hello plano de recuperação. Em **notas**, gravar e salvar todas as observações associadas Olá failover de teste. 
 
 [Saiba mais](site-recovery-test-failover-to-azure.md) sobre failovers de teste.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de você testar a implantação:
+Depois de testar a implantação de saudação:
 
-- [Saiba mais](site-recovery-failover.md) sobre diferentes tipos de failovers e como executá-los.
-- Saiba mais sobre [usando planos de recuperação](site-recovery-create-recovery-plans.md) para reduzir o RTO.
+- [Saiba mais](site-recovery-failover.md) sobre os diferentes tipos de failovers e como toorun-los.
+- Saiba mais sobre [usando planos de recuperação](site-recovery-create-recovery-plans.md) tooreduce RTO.

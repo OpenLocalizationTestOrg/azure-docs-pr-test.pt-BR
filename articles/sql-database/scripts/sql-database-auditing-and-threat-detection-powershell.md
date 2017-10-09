@@ -1,6 +1,6 @@
 ---
-title: "Exemplo do PowerShell para detecção de ameaças e auditoria do Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Script de exemplo do Azure PowerShell para configurar a detecção de ameaças e auditoria em um Banco de Dados SQL do Azure"
+title: "detecção de ameaças auditoria exemplo aaaPowerShell Azure banco de dados SQL | Microsoft Docs"
+description: "Azure PowerShell exemplo script tooconfigure auditoria & ameaça detecção em um banco de dados do SQL Azure"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,13 +16,13 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: e039d35474bff3b066a6605a97e04d4a81c365eb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 97e057ac6efe5e730404ae796bc01e7e5c70df35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Use o PowerShell para configurar a detecção de ameaças e auditoria do Banco de Dados SQL
+# <a name="use-powershell-tooconfigure-sql-database-auditing-and-threat-detection"></a>Use o PowerShell tooconfigure detecção de ameaças e auditoria do banco de dados SQL
 
 Este exemplo de script do PowerShell configura a detecção de ameaças e auditoria do Banco de Dados SQL. 
 
@@ -30,11 +30,11 @@ Este exemplo de script do PowerShell configura a detecção de ameaças e audito
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configurar a auditoria e detecção de ameaças")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=13-14 "Configure auditing and threat detection")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
-Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Após a execução do exemplo de script hello, Olá comando a seguir pode ser usado tooremove grupo de recursos de saudação e todos os recursos associados a ele.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
@@ -42,7 +42,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa Olá comandos a seguir. Cada comando na documentação específica do toocommand Olá tabela links.
 
 | Command | Observações |
 |---|---|
@@ -50,13 +50,13 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Cria um servidor lógico que hospeda um banco de dados ou pool elástico. |
 | [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Cria um banco de dados em um servidor lógico como um banco de dados individual ou em pool. |
 | [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Cria uma conta de armazenamento. |
-| [Set-AzureRmSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabaseauditingpolicy) | Define a política de auditoria para um banco de dados. |
+| [Set-AzureRmSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabaseauditingpolicy) | Define a política de auditoria de saudação para um banco de dados. |
 | [Set-AzureRmSqlDatabaseThreatDetectionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasethreatdetectionpolicy) | Define uma política de detecção de ameaças em um banco de dados. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre hello Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
 
-Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser encontrados nos [scripts do PowerShell do Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).
+Exemplos de script do PowerShell do banco de dados SQL adicionais podem ser encontrados no hello [scripts de banco de dados do SQL Azure PowerShell](../sql-database-powershell-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: "Notificar usuários nos Hubs de Notificação do Azure com o back-end do .NET"
-description: "Saiba como enviar notificações por push seguro no Azure. Amostras de código escrito em C# usando a API .NET."
+title: "aaaAzure notificar usuários de Hubs de notificação com o back-end .NET"
+description: "Saiba como toosend segura notificações por push no Azure. Exemplos de código escritos em c# usando Olá API .NET."
 documentationcenter: windows
 author: ysxu
 manager: erikre
@@ -14,32 +14,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a366181faa81e78adf4de61435ef2790c3aa29d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-notification-hubs-notify-users-with-net-backend"></a>Notificar usuários nos Hubs de Notificação do Azure com o back-end do .NET
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Visão geral
-O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end de WebAPI do ASP.NET é usado para autenticar clientes. Usando o usuário cliente autenticado e a marca será automaticamente adicionada pelo back-end para o registro de notificação. Essa marca será usada para enviar pelo back-end para gerar notificações para um usuário específico. Para obter mais informações sobre como se registrar para receber notificações usando um back-end do aplicativo, consulte o tópico de diretrizes [Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial baseia-se no hub de notificação que você criou no tutorial [Introdução aos Hubs de Notificação] .
+Suporte de notificação por push no Azure permite que você tooaccess uma fácil de usar, multiplatform e infraestrutura de envio expandido, o que simplifica bastante a implementação de saudação de notificações por push para aplicativos de consumidor e empresariais para dispositivos móveis plataformas. Este tutorial mostra como toouse Hubs de notificação do Azure toosend envio usuário de aplicativo específico de tooa notificações em um dispositivo específico. Um back-end ASP.NET WebAPI é usado tooauthenticate clientes. Usar Olá autenticou o usuário do cliente e marca será adicionada automaticamente pelo registro de toonotification Olá back-end. Essa marca será toosend usado por notificações de toogenerate Olá back-end para um usuário específico. Para obter mais informações sobre como registrar para notificações de usar um back-end do aplicativo, consulte o tópico de orientação de saudação [registro do seu back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial baseia-se no projeto que você criou no hello e hub de notificação Olá [começar com Hubs de notificação] tutorial.
 
-Este tutorial também é um pré-requisito para o tutorial [Push Seguro] . Depois de concluir as etapas deste tutorial, você pode prosseguir para o tutorial [Push Seguro] , que mostra como modificar o código neste tutorial para enviar uma notificação por push com segurança.
+Este tutorial também é toohello pré-requisito Olá [proteger Push] tutorial. Depois de concluir as etapas de saudação neste tutorial, você poderá toohello [proteger Push] tutorial, que mostra como toomodify Olá código neste tutorial toosend uma notificação por push com segurança.
 
 ## <a name="before-you-begin"></a>Antes de começar
-Levamos seus comentários a sério. Se você tiver alguma dificuldade para concluir este tópico ou recomendações para melhorar este conteúdo, apreciaremos seus comentários na parte inferior da página.
+Levamos seus comentários a sério. Se você tiver dificuldade para concluir este tópico ou recomendações para melhorar este conteúdo, Apreciamos seus comentários na parte inferior da saudação da página de saudação.
 
-O código completo para este tutorial pode ser encontrado no GitHub [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 
+código de saudação concluído para este tutorial pode ser encontrado no GitHub [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais dos Serviços Móveis:
 
-* [Introdução aos Hubs de Notificação]<br/>Você cria seu hub de notificação, reserva o nome do aplicativo e se registra para receber notificações nesse tutorial. Este tutorial presume que você já concluiu essas etapas. Do contrário, siga as etapas descritas em [Introdução aos Hubs de Notificação (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md); especificamente, as seções [Registrar seu aplicativo para a Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store) e [Configurar seu Hub de Notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Especificamente, não se esqueça de inserir os valores de **SID do Pacote** e **Segredo do Cliente** no portal, na guia **Configurar** de seu hub de notificação. Esse procedimento de configuração é descrito na seção [Configurar seu Hub de Notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Esta é uma etapa importante: se as credenciais no portal não corresponderem àquelas especificadas para o nome do aplicativo escolhido, a notificação por push não será bem-sucedida.
+* [começar com Hubs de notificação]<br/>Criar seu hub de notificação e reservar nome do aplicativo hello e registrar notificações tooreceive neste tutorial. Este tutorial presume que você já concluiu essas etapas. Se não estiver, siga as etapas de saudação em [Introdução aos Hubs de notificação (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md); especificamente, Olá seções [registrar seu aplicativo para saudação da Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store) e [configurar o Hub de notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Em particular, certifique-se de que você inseriu Olá **SID do pacote** e **segredo do cliente** valores no portal de saudação em hello **configurar** guia hub de notificação. Este procedimento de configuração é descrito na seção de saudação [configurar seu Hub de notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Essa é uma etapa importante: se credenciais Olá no portal de saudação não correspondem àquelas especificadas para o nome do aplicativo hello escolhido, notificação por push de saudação não terá êxito.
 
 > [!NOTE]
-> Se você estiver usando Aplicativos Móveis no Serviço de Aplicativo do Azure como serviço de back-end, consulte a [versão dos Aplicativos Móveis](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) deste tutorial.
+> Se você estiver usando aplicativos móveis no serviço de aplicativo do Azure como seu serviço de back-end, consulte Olá [versão de aplicativos móveis](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) deste tutorial.
 > 
 > 
 
@@ -47,18 +47,18 @@ Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais do
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="update-the-code-for-the-client-project"></a>Atualizar o código para o projeto cliente
-Nesta seção, você atualiza o código no projeto concluído no tutorial [Introdução aos Hubs de Notificação] . Ele já deve estar associado à loja e configurado para o hub de notificação. Nesta seção, você adicionará código para chamar o novo back-end da WebAPI e o usará para se registrar e enviar notificações.
+## <a name="update-hello-code-for-hello-client-project"></a>Atualizar o código de saudação do projeto de cliente de saudação
+Nesta seção, você atualizar o código de saudação no projeto Olá concluída para Olá [começar com Hubs de notificação] tutorial. Olá já deve ser associado com o repositório de saudação e configurado para o hub de notificação. Nesta seção, você irá adicionar código toocall Olá novo WebAPI back-end e usá-lo para registrar e enviar notificações.
 
-1. No Visual Studio, abra a solução criada no tutorial [Introdução aos Hubs de Notificação] .
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **(Windows 8.1)** e clique em **Gerenciar Pacotes NuGet**.
-3. No lado esquerdo, clique em **Online**.
-4. Na caixa **Pesquisar**, digite **Http Client**.
-5. Na lista de resultados, clique em **Bibliotecas de Cliente HTTP da Microsoft** e em **Instalar**. Conclua a instalação.
-6. De volta à caixa **Pesquisar** do NuGet, digite **Json.net**. Instale o pacote **Json.NET** e feche a janela do Gerenciador de Pacotes NuGet.
-7. Repita as etapas acima para o projeto **(Windows Phone 8.1)** para instalar o pacote NuGet **JSON.NET** para o projeto do Windows Phone.
-8. No Gerenciador de Soluções, no projeto **(Windows Phone 8.1)**, clique duas vezes em **MainPage.xaml** para abri-lo no editor do Visual Studio.
-9. No código de XML de **MainPage.xaml**, substitua a seção `<Grid>` pelo código a seguir. Este código adiciona uma caixa de texto de nome de usuário e de senha com as quais o usuário irá autenticar. Ele também adiciona caixas de texto para a mensagem de notificação e a marca de nome de usuário que deve receber a notificação:
+1. No Visual Studio, abra a solução de saudação de saudação criada para Olá [começar com Hubs de notificação] tutorial.
+2. No Gerenciador de soluções, clique com botão direito Olá **(Windows 8.1)** do projeto e, em seguida, clique em **gerenciar pacotes NuGet**.
+3. No lado esquerdo do hello, clique em **Online**.
+4. Em Olá **pesquisa** , digite **cliente Http**.
+5. Na lista de resultados de saudação, clique em **bibliotecas de cliente HTTP Microsoft**e, em seguida, clique em **instalar**. Concluir a instalação de saudação.
+6. Em Olá NuGet **pesquisa** , digite **Json.net**. Instalar Olá **Json.NET** pacote e feche Olá NuGet Package Manager janela.
+7. Repita as etapas de saudação acima para Olá **(Windows Phone 8.1)** saudação do projeto tooinstall **JSON.NET** pacote NuGet para o projeto do Windows Phone hello.
+8. No Solution Explorer, no hello **(Windows 8.1)** de projeto, clique duas vezes em **MainPage. XAML** tooopen-lo no editor do Visual Studio hello.
+9. Em Olá **MainPage. XAML** código XML, substitua Olá `<Grid>` seção com hello código a seguir. Esse código adiciona uma caixa de texto nome de usuário e senha que Olá usuário será autenticado com. Ele também adiciona caixas de texto de mensagem de notificação de saudação e marca de nome de usuário de saudação que deve receber a notificação de saudação:
    
         <Grid>
             <Grid.RowDefinitions>
@@ -100,7 +100,7 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
                     <ToggleButton Name="toggleGCM" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Content="GCM" />
                     <ToggleButton Name="toggleAPNS" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" Content="APNS" />
    
-                    <TextBlock Grid.Row="6" Grid.ColumnSpan="3" Text="Username Tag To Send To" FontSize="24" Margin="20,0,20,0"/>
+                    <TextBlock Grid.Row="6" Grid.ColumnSpan="3" Text="Username Tag tooSend To" FontSize="24" Margin="20,0,20,0"/>
                     <TextBox Name="ToUserTagTextBox" Grid.Row="7" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
                     <TextBlock Grid.Row="8" Grid.ColumnSpan="3" Text="Enter Notification Message" FontSize="24" Margin="20,0,20,0"/>
                     <TextBox Name="NotificationMessageTextBox" Grid.Row="9" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
@@ -108,10 +108,10 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
                 </Grid>
             </StackPanel>
         </Grid>
-10. No Gerenciador de Soluções, no projeto **(Windows Phone 8.1)**, abra **MainPage.xaml** e substitua a seção Windows Phone 8.1 `<Grid>` com esse mesmo código acima. A interface deve ser semelhante ao que está mostrado a seguir.
+10. No Solution Explorer, no hello **(Windows Phone 8.1)** projeto, abra **MainPage. XAML** e substitua Olá Windows Phone 8.1 `<Grid>` seção com esse mesmo código acima. interface Olá deve ter aparência semelhante toowhats mostrado abaixo.
     
     ![][13]
-11. No Gerenciador de Soluções, abra o arquivo **MainPage.xaml.cs** para os projetos **(Windows 8.1)** e **(Windows Phone 8.1)**. Adicione as seguintes instruções `using` na parte superior dos dois arquivos:
+11. No Gerenciador de soluções, abra Olá **MainPage.xaml.cs** arquivo hello **(Windows 8.1)** e **(Windows Phone 8.1)** projetos. Adicione o seguinte Olá `using` instruções na parte superior da saudação dos dois arquivos:
     
         using System.Net.Http;
         using Windows.Storage;
@@ -119,14 +119,14 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
         using Windows.Networking.PushNotifications;
         using Windows.UI.Popups;
         using System.Threading.Tasks;
-12. Em **MainPage.xaml.cs** para os projetos **(Windows 8.1)** e **(Windows Phone 8.1)**, adicione o membro a seguir para a classe `MainPage`. Substitua `<Enter Your Backend Endpoint>` pelo ponto de extremidade de back-end real obtido anteriormente. Por exemplo: `http://mybackend.azurewebsites.net`.
+12. Em **MainPage.xaml.cs** para Olá **(Windows 8.1)** e **(Windows Phone 8.1)** projetos, adicionar Olá toohello membro a seguir `MainPage` classe. Ser tooreplace se `<Enter Your Backend Endpoint>` com hello seu ponto de extremidade de back-end real obtido anteriormente. Por exemplo: `http://mybackend.azurewebsites.net`.
     
         private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
-13. Adicione o código a seguir à classe MainPage em **MainPage.xaml.cs** para os projetos **(Windows 8.1)** e **(Windows Phone 8.1)**.
+13. Adicione código Olá abaixo classe MainPage toohello **MainPage.xaml.cs** para Olá **(Windows 8.1)** e **(Windows Phone 8.1)** projetos.
     
-    O método `PushClick` é o manipulador de cliques para o botão **Enviar por Push** . Ele chama o back-end para disparar uma notificação para todos os dispositivos com uma marca de nome de usuário que corresponde ao parâmetro `to_tag` . A mensagem de notificação é enviada como conteúdo JSON no corpo da solicitação.
+    Olá `PushClick` método é hello manipulador de clique do hello **enviar por Push** botão. Chama Olá back-end tootrigger tooall uma notificação dispositivos com uma marca de nome de usuário que corresponde a saudação `to_tag` parâmetro. mensagem de notificação de saudação é enviada como conteúdo JSON no corpo da solicitação de saudação.
     
-    O método `LoginAndRegisterClick` é o manipulador de cliques para o botão **Fazer logon e registrar** . Ele armazena o token de autenticação básica localmente (observe que isso representa qualquer token usado pelo seu esquema de autenticação) e utiliza `RegisterClient` para o registro de notificações usando o back-end.
+    Olá `LoginAndRegisterClick` método é hello manipulador de clique do hello **efetuar login e registrar** botão. Ele armazena Olá basic, em seguida, usa o token de autenticação no armazenamento local (Observe que isso representa qualquer token usa o esquema de autenticação), `RegisterClient` tooregister para notificações usando Olá back-end.
 
         private async void PushClick(object sender, RoutedEventArgs e)
         {
@@ -162,7 +162,7 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
                 }
                 catch (Exception ex)
                 {
-                    MessageDialog alert = new MessageDialog(ex.Message, "Failed to send " + pns + " message");
+                    MessageDialog alert = new MessageDialog(ex.Message, "Failed toosend " + pns + " message");
                     alert.ShowAsync();
                 }
             }
@@ -174,12 +174,12 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
 
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-            // The "username:<user name>" tag gets automatically added by the message handler in the backend.
-            // The tag passed here can be whatever other tags you may want to use.
+            // hello "username:<user name>" tag gets automatically added by hello message handler in hello backend.
+            // hello tag passed here can be whatever other tags you may want toouse.
             try
             {
-                // The device handle used will be different depending on the device and PNS. 
-                // Windows devices use the channel uri as the PNS handle.
+                // hello device handle used will be different depending on hello device and PNS. 
+                // Windows devices use hello channel uri as hello PNS handle.
                 await new RegisterClient(BACKEND_ENDPOINT).RegisterAsync(channel.Uri, new string[] { "myTag" });
 
                 var dialog = new MessageDialog("Registered as: " + UsernameTextBox.Text);
@@ -189,7 +189,7 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
             }
             catch (Exception ex)
             {
-                MessageDialog alert = new MessageDialog(ex.Message, "Failed to register with RegisterClient");
+                MessageDialog alert = new MessageDialog(ex.Message, "Failed tooregister with RegisterClient");
                 alert.ShowAsync();
             }
         }
@@ -205,17 +205,17 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
 
 
 
-1. No Gerenciador de Soluções, sob o projeto **Compartilhado**, abra o arquivo **App.xaml.cs**. Localize a chamada para `InitNotificationsAsync()` in the `OnLaunched()` . Comentar ou excluir a chamada para `InitNotificationsAsync()`. O manipulador do botão adicionado acima irá inicializar os registros de notificação.
+1. No Gerenciador de soluções, em Olá **compartilhado** projeto, abra Olá **App.xaml.cs** arquivo. Localizar chamada hello muito`InitNotificationsAsync()` em Olá `OnLaunched()` manipulador de eventos. Comentar ou excluir chamada hello muito`InitNotificationsAsync()`. manipulador de saudação do botão adicionado acima inicializará registros de notificação.
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             //InitNotificationsAsync();
 
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **Compartilhado**, clique em **Adicionar** e em **Classe**. Nomeie a classe como **RegisterClient.cs** e clique em **OK** para gerar a classe.
+1. No Gerenciador de soluções, clique com botão direito Olá **compartilhado** projeto e, em seguida, clique em **adicionar**e, em seguida, clique em **classe**. Nome de classe Olá **RegisterClient.cs**, em seguida, clique em **Okey** toogenerate classe de saudação.
    
-   Essa classe irá encapsular as chamadas do REST necessárias para entrar em contato com o back-end do aplicativo de modo a se registrar para as notificações por push. Ele também armazena localmente os *registrationIds* criados pelo Hub de Notificação, conforme detalhado em [Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx). Observe que ele usa um token de autorização armazenado localmente quando você clica no botão **Fazer logon e registrar-se** .
-2. Adicione as seguintes instruções `using` à parte superior do arquivo RegisterClient.cs:
+   Essa classe será ajustado Olá REST chamadas toocontact necessário Olá aplicativo back-end, em ordem tooregister para notificações por push. Também localmente armazena Olá *registrationIds* criado pelo Olá Hub de notificação, conforme detalhado no [registro do seu back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx). Observe que ele usa um token de autorização armazenado no armazenamento local quando você clica em Olá **efetuar login e registrar** botão.
+2. Adicione o seguinte Olá `using` instruções na parte superior de saudação do arquivo de RegisterClient.cs hello:
    
        using Windows.Storage;
        using System.Net;
@@ -224,7 +224,7 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
        using Newtonsoft.Json;
        using System.Threading.Tasks;
        using System.Linq;
-3. Adicione o código a seguir à definição de classe `RegisterClient` .
+3. Adicionar Olá seguindo o código dentro de saudação `RegisterClient` definição da classe.
    
        private string POST_URL;
    
@@ -311,23 +311,23 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
        }
 4. Salve todas as alterações.
 
-## <a name="testing-the-application"></a>Testando o aplicativo
-1. Inicie o aplicativo no Windows 8.1 e no Windows Phone 8.1. Para o Windows Phone 8.1, você pode executar a instância no emulador ou em um dispositivo real.
-2. Na instância Windows 8.1 do aplicativo, insira um **Nome de Usuário** e **Senha** conforme mostrado na tela abaixo. Eles devem diferir do nome de usuário e senha que você insere no Windows Phone.
-3. Clique em **Fazer logon e registrar** e verifique se um diálogo mostra que você fez logon. Isso também habilitará o botão **Enviar por Push** .
+## <a name="testing-hello-application"></a>Aplicativo em teste
+1. Inicie o aplicativo hello no Windows 8.1 e Windows Phone 8.1. Para Windows Phone 8.1, você pode executar instância Olá no emulador de saudação ou um dispositivo real.
+2. Na instância de saudação do Windows 8.1 do aplicativo hello, insira um **Username** e **senha** conforme mostrado na tela hello abaixo. Ele deve diferir de saudação nome e a senha que você inserir no Windows Phone.
+3. Clique em **Fazer logon e registrar** e verifique se um diálogo mostra que você fez logon. Isso também permitirá Olá **enviar por Push** botão.
    
     ![][14]
-4. Na instância do Windows Phone 8.1, insira uma cadeia de caracteres de nome de usuário nos campos **nome de usuário** e **senha** e clique em **Fazer logon e registrar**.
-5. Em seguida, no campo **Marca de Nome de Usuário do Destinatário** , insira o nome de usuário registrado no Windows 8.1. Digite uma mensagem de notificação e clique em **Enviar notificação por push**.
+4. Na instância de saudação Windows Phone 8.1, insira uma cadeia de caracteres de nome de usuário em ambos os Olá **Username** e **senha** campos, em seguida, clique em **logon e registrar**.
+5. Em seguida, em Olá **marca de nome de usuário do destinatário** , digite o nome de usuário Olá registrado no Windows 8.1. Digite uma mensagem de notificação e clique em **Enviar notificação por push**.
    
     ![][16]
-6. Apenas os dispositivos que foram registrados com o nome de usuário correspondente recebem a mensagem de notificação.
+6. Somente os dispositivos de saudação que foram registrados com marca de nome de usuário correspondente Olá recebem a mensagem de notificação de saudação.
    
     ![][15]
 
 ## <a name="next-steps"></a>Próximas etapas
-* Se desejar segmentar os usuários por grupos de interesse, você poderá ler [Usar Hubs de Notificação para enviar notícias mais recentes].
-* Para saber mais sobre como usar Hubs de Notificação, consulte [Diretrizes dos Hubs de Notificação].
+* Se você quiser toosegment os usuários, grupos de interesse, consulte [toosend de Hubs de notificação de uso últimas notícias].
+* toolearn mais informações sobre como toouse Hubs de notificação, consulte [orientação de Hubs de notificação].
 
 [9]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push9.png
 [10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
@@ -341,7 +341,7 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
 
 
 <!-- URLs. -->
-[Introdução aos Hubs de Notificação]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Push Seguro]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
-[Usar Hubs de Notificação para enviar notícias mais recentes]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Diretrizes dos Hubs de Notificação]: http://msdn.microsoft.com/library/jj927170.aspx
+[começar com Hubs de notificação]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[proteger Push]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
+[toosend de Hubs de notificação de uso últimas notícias]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[orientação de Hubs de notificação]: http://msdn.microsoft.com/library/jj927170.aspx

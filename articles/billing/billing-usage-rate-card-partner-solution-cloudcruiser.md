@@ -1,6 +1,6 @@
 ---
-title: "Integração da API de Cobrança do Microsoft Azure e do Cloud Cruiser | Microsoft Docs"
-description: "Fornece uma perspectiva exclusiva do parceiro de cobrança Cloud Cruiser do Microsoft Azure em suas experiências de integração das APIs de Cobrança do Azure em seus produtos.  Isso é especialmente útil para clientes do Azure e do Cloud Cruiser que estejam interessados em usar/experimentar o Cloud Cruiser para o pacote do Microsoft Azure."
+title: "aaaCloud cruiser em e integração de API de cobrança do Microsoft Azure | Microsoft Docs"
+description: "Fornece uma perspectiva exclusiva do parceiro de cobrança do Microsoft Azure cruiser em nuvem, em suas experiências integrar Olá APIs de cobrança do Azure em seus produtos.  Isso é especialmente útil para clientes do Azure e do Cloud Cruiser que estejam interessados em usar/experimentar o Cloud Cruiser para o pacote do Microsoft Azure."
 services: 
 documentationcenter: 
 author: BryanLa
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 02/03/2017
 ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: a05fe5e610f1f0ce216a4b84bf2873b0d081875d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 74cc19bdeed26c6684210736caa0cb365e8f8821
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Integração da API de Cobrança do Microsoft Azure e Cloud Cruiser
-Este artigo descreve como as informações coletadas nas novas APIs de Cobrança Microsoft Azure podem ser usadas no Cloud Cruiser para análise e simulação de custo do fluxo de trabalho.
+Este artigo descreve como informações de saudação coletadas Olá que novas APIs de cobrança do Microsoft Azure pode ser usado em cruiser em nuvem para o fluxo de trabalho custam simulação e análise.
 
 ## <a name="azure-ratecard-api"></a>API RateCard do Azure
-A API RateCard fornece informações de taxa do Azure. Depois de autenticar com as credenciais apropriadas, você pode consultar a API para reunir metadados sobre os serviços disponíveis no Azure, juntamente com as taxas associadas com a sua ID de Oferta.
+Olá API RateCard fornece informações de taxa do Azure. Depois de autenticar com credenciais apropriadas hello, você pode consultar Olá API toocollect metadados sobre os serviços de saudação disponíveis no Azure, junto com as taxas de saudação associadas com sua ID de oferta
 
-Veja a seguir um exemplo de resposta da API mostrando os preços para a instância A0 (Windows):
+Olá, a seguir está um exemplo de resposta da API de saudação mostrando preços Olá para Olá A0 (Windows) instância:
 
     {
         "MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
@@ -44,105 +44,105 @@ Veja a seguir um exemplo de resposta da API mostrando os preços para a instânc
         "MeterStatus": "Active"
     },
 
-### <a name="cloud-cruisers-interface-to-azure-ratecard-api"></a>Interface do Cliud Cruiser para a API RateCard do Azure
-O Cloud Cruiser pode aproveitar as informações da API RateCard de diferentes maneiras. Neste artigo, mostraremos como ele pode ser usado para fazer a análise e a simulação de custo de fluxo de trabalho IaaS.
+### <a name="cloud-cruisers-interface-tooazure-ratecard-api"></a>TooAzure de Interface do cruiser em RateCard API de nuvem
+Cruiser em de nuvem pode aproveitar informações de API RateCard Olá maneiras diferentes. Neste artigo, mostramos como ela pode ser usado toomake IaaS cargas de trabalho custo simulação e análise.
 
-Para demonstrar este caso de uso, imagine uma carga de trabalho de várias instâncias em execução no Microsoft Azure Pack (WAP). O objetivo é simular essa mesma carga de trabalho no Azure e estimar os custos de fazer essa migração. Para criar esta simulação, há duas tarefas principais a serem executadas:
+toodemonstrate esse caso de uso, imagine uma carga de trabalho de várias instâncias em execução no Microsoft Azure Pack (WAP). meta de saudação é toosimulate essa mesma carga de trabalho no Azure e os custos de saudação de estimativa de fazer essa migração. Em ordem toocreate esta simulação, há dois toobe principais tarefas executadas:
 
-1. **Importe e processe as informações de serviço coletadas da API RateCard.** Essa tarefa também é executada em pastas de trabalho, onde a extração da API RateCard é transformada e publicada para um novo plano de taxa. Esse novo plano de taxa será usado em simulações para estimar os preços do Azure.
-2. **Normalizar serviços WAP e serviços do Azure para IaaS.** Por padrão, os serviços WAP se baseiam em recursos individuais (CPU, tamanho da memória, tamanho do disco, etc.) enquanto os serviços do Azure baseiam-se no tamanho da instância (A0 A1, A2, etc.). A primeira tarefa pode ser executada pelo mecanismo ETL do Cloud Cruiser, chamado de pastas de trabalho, onde esses recursos podem ser incorporados em tamanhos de instância, semelhantes aos serviços de instância do Azure.
+1. **Importação e processo Olá serviço informações coletadas de saudação RateCard API.** Essa tarefa também é executada em pastas de trabalho hello, onde a extração de saudação da saudação RateCard API é tooa transformados e publicados novo plano de taxa. Este novo plano de taxa será usado nos tooestimate de simulações Olá Olá preços do Azure.
+2. **Normalizar serviços WAP e serviços do Azure para IaaS.** Por padrão, os serviços WAP se baseiam em recursos individuais (CPU, tamanho da memória, tamanho do disco, etc.) enquanto os serviços do Azure baseiam-se no tamanho da instância (A0 A1, A2, etc.). A primeira tarefa pode ser realizada pelo mecanismo ETL do cruiser em nuvem, chamado de pastas de trabalho, onde esses recursos podem ser incorporados em tamanhos de instância, análogo tooAzure instância services.
 
-### <a name="import-data-from-the-ratecard-api"></a>Importar dados da API RateCard
-As pastas de trabalho do Cloud Cruiser fornecem uma forma automatizada para coletar e processar informações da API RateCard.  As pastas de trabalho do ETL (extrair, transformar e carregar) permitem configurar a coleta, transformação e publicação de dados no banco de dados do Cloud Cruiser.
+### <a name="import-data-from-hello-ratecard-api"></a>Importar dados de saudação RateCard API
+Pastas de trabalho de cruiser em nuvem fornecem uma forma automatizada toocollect e processo de informações de saudação RateCard API.  Pastas de trabalho ETL (extrair, transformar e carregar) permitem a coleção de saudação tooconfigure, transformação e publicação de dados no banco de dados do hello cruiser em nuvem.
 
-Cada pasta de trabalho pode ter uma ou mais coleções, permitindo que você correlacione informações de diferentes fontes para complementar ou aumentar os dados de uso. As duas capturas de tela a seguir mostram como criar uma nova *coleção* em uma pasta de trabalho existente e como importar as informações para a *coleção* na API do RateCard:
+Cada pasta de trabalho pode ter uma ou várias coleções, permitindo que você toocorrelate informações toocomplement de origens diferentes ou aumentar dados de uso de saudação. Olá mostrar dois de capturas de tela a seguir como toocreate um novo *coleção* em uma pasta de trabalho e a importação de informações para hello *coleção* de saudação RateCard API:
 
 ![Figura 1 — Criando uma nova coleção][1]
 
-![Figura 2 — Importar dados da nova coleção][2]
+![Figura 2: importar dados do novo conjunto de saudação][2]
 
-Depois de importar os dados na pasta de trabalho, é possível criar várias etapas e processos de transformação, para modificar e modelar os dados. Neste exemplo, como só estamos interessados em infraestrutura como um serviço (IaaS), podemos usar as etapas de transformação para remover linhas desnecessárias ou registros relacionados a serviços diferentes do IaaS.
+Depois de importar dados saudação na pasta de trabalho Olá, é possível toocreate várias etapas e os processos de transformação, toomodify e modelo Olá dados. Neste exemplo, já que estamos interessados apenas na infraestrutura-como-um-serviço (IaaS), podemos usar linhas desnecessárias do hello transformação etapas tooremove ou registros, relacionadas tooservices diferente de IaaS.
 
-A captura de tela a seguir mostra as etapas de transformação usadas para processar os dados coletados pela API RateCard:
+Hello seguinte captura de tela mostra as etapas de transformação de saudação usados dados de saudação tooprocess coletados da API RateCard:
 
-![Figura 3 — Etapas de transformação para processar os dados coletados da API RateCard][3]
+![Figura 3 - transformação etapas tooprocess coletados dados de API RateCard][3]
 
 ### <a name="defining-new-services-and-rate-plans"></a>Definindo novos serviços e a planos de taxa
-Há diferentes maneiras de definir os serviços no Cloud Cruiser. Uma das opções é importar os serviços de dados de uso. Esse método é normalmente usado quando se trabalha com nuvens públicas, onde os serviços já estão definidos pelo provedor.
+Existem serviços de toodefine de diferentes maneiras cruiser em nuvem. Uma das opções de saudação é tooimport serviços de Olá Olá de dados de uso. Esse método normalmente é usado quando se trabalha com nuvens públicas, onde os serviços de saudação já são definidos pelo provedor de saudação.
 
-Um plano de taxa é um conjunto de taxas ou de preços que podem ser aplicados a serviços diferentes, com base nas datas reais ou grupo de clientes, entre outras opções. Os planos de taxa também podem ser usados em Cloud Cruiser para criar uma simulação ou cenários hipotéticos, para entender como as alterações nos serviços podem afetar o custo total de uma carga de trabalho ou simulação.
+Um plano de taxas é um conjunto de taxas ou preços que podem ser aplicado toodifferent serviços, com base em datas de efetivação ou grupo de clientes, entre outras opções. Planos de taxa também podem ser usados em simulação de toocreate cruiser em nuvem ou "" cenários, toounderstand como as alterações em serviços podem afetar o custo total de saudação de uma carga de trabalho.
 
-Neste exemplo, usaremos as informações do serviço da API RateCard para definir novos serviços no Cloud Cruiser. Da mesma forma, podemos usar as taxas associadas aos serviços para criar um novo plano de taxa no Cloud Cruiser.
+Neste exemplo, usaremos informações do serviço de saudação de novos serviços de saudação RateCard API toodefine em cruiser em nuvem. Em Olá mesmo propósito, podemos usar taxas Olá associadas toohello serviços toocreate um novo plano de taxa no cruiser em nuvem.
 
-No final do processo de transformação, é possível criar uma nova etapa e publicar os dados da API RateCard como novos serviços e taxas.
+No final de saudação do processo de transformação de Olá, é possível toocreate uma nova etapa e publicar dados Olá Olá RateCard API como taxas e novos serviços.
 
-![Figura 4 — Publicando os dados da API RateCard como novos Serviços e Taxas][4]
+![Figura 4: publicando dados de saudação do hello RateCard API como novos serviços e taxas][4]
 
 ### <a name="verify-azure-services-and-rates"></a>Verificação das taxas e os serviços do Azure
-Depois de publicar os serviços e as taxas, você pode verificar a lista de serviços importados na guia *Serviços* do Cloud Cruiser:
+Depois de publicar serviços hello e taxas, você pode verificar a lista de saudação de serviços importados do cruiser em nuvem *serviços* guia:
 
-![Figura 5 — Verificando os novos serviços][5]
+![Figura 5 - verificando Olá novos serviços][5]
 
-Na guia *Planos de taxa* , você pode verificar o novo plano de taxa chamado "AzureSimulation" com as taxas importadas da API RateCard.
+Em Olá *taxa planos* guia, você pode verificar Olá novo taxa plano chamado "AzureSimulation" com taxas de saudação importado de saudação RateCard API.
 
-![Figura 6 — Verificando o novo Plano de Taxas e as taxas associadas][6]
+![Figura 6: verificando Olá novo plano de taxa e as taxas associadas][6]
 
 ### <a name="normalize-wap-and-azure-services"></a>Normalização WAP e Serviços do Azure
-Por padrão, o WAP fornece informações de uso com base no uso de recursos de computação, memória e rede. No Cloud Cruiser, você pode definir os serviços com base diretamente na alocação ou uso limitado desses recursos. Por exemplo, você pode definir uma taxa básica de cada hora do uso da CPU ou cobrar o GB de memória alocada para uma instância.
+Por padrão, o WAP fornece informações de uso com base no uso de saudação de computação, memória e recursos de rede. No cruiser em nuvem, você pode definir sua alocação de saudação diretamente em serviços com base ou limitado uso desses recursos. Por exemplo, você pode definir uma taxa básica para cada hora de uso da CPU ou custos Olá GB de memória alocada tooan instância.
 
-Neste exemplo, para comparar os custos entre WAP e o Azure, precisamos agregar a utilização de recursos WAP em pacotes, que pode ser mapeada para os serviços do Azure. Essa transformação pode ser facilmente implementada nas pastas de trabalho:
+Neste exemplo, nos custos de toocompare ordem entre WAP e o Azure, é preciso tooaggregate Olá utilização de recursos WAP em pacotes, que pode ser mapeado tooAzure serviços. Essa transformação pode ser implementada facilmente em pastas de trabalho hello:
 
-![Figura 7 — Transformando dados WAP para normalizar serviços][7]
+![Figura 7: transformar os serviços de dados do toonormalize WAP][7]
 
-A última etapa na pasta de trabalho é publicar os dados no banco de dados do Cloud Cruiser. Durante esta etapa, os dados de uso são empacotados em serviços (que mapeiam para os Serviços do Azure) e vinculados a taxas padrões para criar os encargos.
+Olá última etapa na pasta de trabalho de saudação é dados de saudação toopublish no banco de dados do hello cruiser em nuvem. Durante essa etapa, os dados de uso de saudação são fornecidos para os serviços (que mapeiam toohello serviços do Azure) e ligado encargos de saudação do toodefault taxas toocreate.
 
-Depois de concluir a pasta de trabalho, você pode automatizar o processamento de dados, adicionando uma tarefa no agendador e especificando a frequência e a hora para a pasta de trabalho ser executada.
+Depois de terminar de pasta de trabalho de Olá, você pode automatizar processamento Olá de dados Olá, adicionando uma tarefa no Agendador de saudação e especificando a frequência de saudação e a hora de saudação toorun de pasta de trabalho.
 
 ![Figura 8 — Planejamento de pasta de trabalho][8]
 
 ### <a name="create-reports-for-workload-cost-simulation-analysis"></a>Criação de relatórios para análise de custo de simulação de carga de trabalho
-Após a coleta do uso e a cobrança dos encargos no banco de dados do Cloud Cruiser, podemos aproveitar o módulo Insights do Cloud Cruiser para criar a simulação de custo de carga de trabalho desejado.
+Depois de uso de saudação é coletado e encargos são carregados no banco de dados do hello cruiser em nuvem, podemos aproveitar Olá Insights de cruiser em nuvem módulo toocreate Olá cargas de trabalho custo simulação é desejado.
 
-Para demonstrar esse cenário, criamos o relatório a seguir:
+Em ordem toodemonstrate neste cenário, criamos Olá relatórios a seguir:
 
 ![Comparação de custos][9]
 
-O gráfico superior mostra uma comparação de custo por serviços, comparando o preço da execução da carga de trabalho para cada serviço específico entre WAP (azul escuro) e o Azure (azul claro).
+gráfico de saudação superior mostra uma comparação de custo por serviços, comparando o preço de saudação de carga de trabalho de saudação em execução para cada serviço específico entre WAP (azul escuro) e o Azure (azul claro).
 
-O gráfico inferior mostra os mesmos dados, mas divididos por departamento. Isso mostra os custos de cada departamento para executar sua carga de trabalho no WAP e no Azure, juntamente com a diferença entre eles na barra Economia (verde).
+gráfico do Hello inferior mostra Olá mesmo dados mas divididos por departamento. Isso mostra Olá custos para cada departamento toorun sua carga de trabalho WAP e no Azure, junto com a diferença de saudação entre eles na barra de economia de saudação (verde).
 
 ## <a name="azure-usage-api"></a>API de Uso do Azure
 ### <a name="introduction"></a>Introdução
-Recentemente, a Microsoft apresentou a API de Uso do Azure, a qual permite que os assinantes efetuem pull de dados de uso de forma programática para obter informações sobre o consumo. Trata-se de uma ótima notícia para clientes do Cloud Cruiser, que podem aproveitar o mais completo conjunto de dados disponível por meio dessa API.
+Recentemente, a Microsoft introduziu Olá API de uso do Azure, permitindo que os assinantes pull tooprogrammatically no ideias de toogain de dados de uso sobre seu consumo. Isso é uma ótima notícia para clientes cruiser em nuvem que pode se beneficiar da saudação mais rico conjunto de dados disponível por essa API.
 
-O Cloud Cruiser pode aproveitar a integração à API de Uso de várias maneiras. A granularidade (informações de uso por hora) e as informações de metadados de recursos disponíveis por meio da API fornecem o conjunto de dados necessário para dar suporte a modelos flexíveis de Showback ou de Chargeback. 
+Cruiser em de nuvem pode Aproveite a integração de saudação com hello API de uso de várias maneiras. granularidade da saudação (informações de uso por hora) e informações de metadados de recursos disponíveis por meio de saudação que API fornece Olá necessário do conjunto de dados toosupport flexível Showback ou estorno modelos. 
 
-Neste tutorial, apresentaremos um exemplo de como o Cloud Cruiser pode tirar proveito das informações da API de Uso. Mais especificamente, criaremos um Grupo de Recursos no Azure, associaremos marcas à estrutura da conta e descreveremos o processo de pull e de processamento das informações de marcas no Cloud Cruiser.
+Neste tutorial, apresentaremos um exemplo de como cruiser em nuvem pode se beneficiar de saudação informações de uso de API. Mais especificamente, podemos será criar um grupo de recursos no Azure, associar marcas para estrutura de conta Olá e descrevem Olá o processo de extração e processamento das informações de marca de saudação em cruiser em nuvem.
 
-A meta final é poder criar relatórios, como o seguinte, bem como analisar o custo e o consumo com base na estrutura da conta preenchida pelas marcas.
+objetivo final de saudação é toobe toocreate capaz de relatórios como Olá seguindo um e ser capaz de tooanalyze de custo e consumo com base na estrutura de conta Olá preenchida por marcas de saudação.
 
 ![Figura 10 — Relatório com divisões usando marcações][10]
 
 ### <a name="microsoft-azure-tags"></a>Marcas do Microsoft Azure
-Os dados disponíveis por meio da API de Uso do Azure incluem não apenas informações de consumo, mas também metadados de recursos, inclusive qualquer marca associada a eles. As marcas facilitam a organização dos recursos, mas para serem eficazes, você precisa verificar se:
+dados de saudação disponíveis por meio de saudação API de uso do Azure incluem não apenas informações de consumo, mas também metadados de recursos, incluindo marcas associadas a ele. Marcas fornecem uma maneira fácil tooorganize seus recursos, mas em toobe ordem eficaz, você precisa tooensure que:
 
-* As marcas são aplicadas corretamente aos recursos no momento do provisionamento
-* As marcas são usadas corretamente no processo de Showback/Chargeback para vincular o uso à estrutura de conta da organização.
+* Marcas são aplicadas corretamente toohello recursos em tempo de provisão
+* Marcas corretamente são usadas na estrutura de conta Olá Showback/estorno processo tootie Olá uso toohello da organização.
 
-Esses dois requisitos podem ser um desafio, principalmente quando há um processo manual no lado do provisionamento ou da cobrança. Marcas com erros de digitação, incorretas ou até mesmo ausentes constituem reclamações comuns dos clientes quando as usam e esses erros podem dificultar em muito a vida no lado da cobrança.
+Estes dois requisitos podem ser desafiadoras, especialmente quando há um processo manual sobre como provisionar hello ou carregar lado. Marcas de digitação, incorretas ou ausentes ainda são reclamações comuns dos clientes quando usando marcas e esses erros pode tornar a vida em Olá Carregando lado muito difícil.
 
-Com a nova API de Uso do Azure, o Cloud Cruiser pode efetuar pull das informações de marcação dos recursos e, com uma ferramenta ETL sofisticada chamada pastas de trabalho, corrigir esses erros comuns de marcação. Por meio de etapas de transformação que usam expressões regulares e correlação de dados, o Cloud Cruiser pode identificar recursos marcados incorretamente e aplicar as marcas corretas, assegurando a associação correta dos recursos ao consumidor.
+Com hello nova API de uso do Azure, cruiser em nuvem pode extrair informações de identificação de recurso e através de uma ferramenta ETL sofisticada, chamada de pastas de trabalho, corrigir esses erros comuns de marcação. Por meio de transformações usando expressões regulares e correlação de dados, cruiser em nuvem pode identificar recursos marcados incorretamente e aplicar marcas correto do hello, garantindo a associação correta Olá dos recursos de saudação com consumidor hello.
 
-No lado da cobrança, o Cloud Cruiser automatiza o processo de Showback/Chargeback e pode aproveitar as informações de marcas para relacionar o uso ao consumidor adequado (Departamento, Divisão, Projeto, etc.). Essa automação é um enorme aprimoramento e pode assegurar um processo de cobrança consistente e auditável.
+Em Olá Carregando lado, cruiser nuvem em automatiza Olá Showback/estorno processo e podem utilizar Olá marca informações tootie Olá uso toohello apropriado consumidor (departamento, divisão, projeto, etc.). Essa automação é um enorme aprimoramento e pode assegurar um processo de cobrança consistente e auditável.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Criando um grupo de recursos com marcas no Microsoft Azure
-A primeira etapa neste tutorial é criar um Grupo de Recursos no portal do Azure, em seguida, criar novas marcações para associar aos recursos. Neste exemplo, criaremos as seguintes marcas: Departamento, Ambiente, Proprietário, Projeto.
+Olá primeira etapa deste tutorial é toocreate um grupo de recursos no hello portal do Azure, então, criar novas marcas tooassociate toohello recursos. Neste exemplo, estamos criando Olá marcas a seguir: departamento, ambiente, proprietário, o projeto.
 
-A captura de tela abaixo mostra um exemplo de Grupo de Recursos com as marcas associadas.
+saudação de captura de tela abaixo mostra um exemplo de que marcas associada ao grupo de recursos com hello.
 
 ![Figura 11 — Grupo de Recursos com as marcações associadas no Portal do Azure][11]
 
-A próxima etapa é efetuar pull das informações da API de Uso para o Cloud Cruiser. No momento, a API de Uso fornece respostas em formato JSON. Veja um exemplo dos dados recuperados:
+Olá próxima etapa é toopull Olá informações das Olá API uso cruiser em nuvem. Olá API de uso no momento fornece respostas em formato JSON. Aqui está um exemplo de hello dados recuperados:
 
     {
       "id": "/subscriptions/bb678b04-0e48-4b44-XXXX-XXXXXXX/providers/Microsoft.Commerce/UsageAggregates/Daily_BRSDT_20150623_0000",
@@ -167,59 +167,59 @@ A próxima etapa é efetuar pull das informações da API de Uso para o Cloud Cr
     },
 
 
-### <a name="import-data-from-the-usage-api-into-cloud-cruiser"></a>Importar dados da API de Uso para o Cloud Cruiser
-As pastas de trabalho do Cloud Cruiser fornecem uma forma automatizada para coletar e processar informações da API de Uso. As pastas de trabalho ETL (extrair, transformar e carregar) permitem configurar a coleta, a transformação e a publicação de dados no banco de dados do Cloud Cruiser.
+### <a name="import-data-from-hello-usage-api-into-cloud-cruiser"></a>Importar dados de saudação API de uso para cruiser em nuvem
+Pastas de trabalho de cruiser em nuvem fornecem uma forma automatizada toocollect e processo de informações de Olá API de uso. Uma pasta de trabalho ETL (extrair, transformar e carregar) permite a coleta de saudação tooconfigure, transformação e publicação de dados no banco de dados do hello cruiser em nuvem.
 
-Cada pasta de trabalho pode ter uma ou várias coleções. Isso permite que você correlacione informações de diferentes fontes para complementar ou aumentar os dados de uso. Para este exemplo, criaremos uma nova planilha na pasta de trabalho de modelo do Azure (*UsageAPI)* e definiremos uma nova *coleção* para importar informações da API de Uso.
+Cada pasta de trabalho pode ter uma ou várias coleções. Isso permite que informações toocorrelate fontes diferentes toocomplement ou ampliar Olá de dados de uso. Neste exemplo, vamos criar uma nova planilha na pasta de trabalho de modelo do Azure hello (*UsageAPI)* e definir uma nova *coleção* informações tooimport Olá API de uso.
 
-![Figura 3 — Dados da API de uso importados para a planilha UsageAPI][12]
+![Figura 3: dados de uso API importados para a folha de UsageAPI Olá][12]
 
-Observe que a pasta de trabalho já tem outras planilhas para importar os serviços do Azure (*ImportServices*) e para processar as informações de consumo da API de Cobrança (*PublishData*).
+Observe que esta pasta de trabalho já possui outra folhas tooimport serviços do Azure (*ImportServices*) e processar informações de consumo de saudação do hello API de cobrança (*PublishData*).
 
-Em seguida, usaremos a API de Uso para preencher a planilha *UsageAPI* e correlacionaremos as informações aos dados de consumo da API de Cobrança na planilha *PublishData*.
+Em seguida, usaremos Olá Olá de toopopulate de API de uso *UsageAPI* folha e informações de Olá correlacionar com os dados de consumo de saudação do hello API de cobrança em Olá *PublishData* folha.
 
-### <a name="processing-the-tag-information-from-the-usage-api"></a>Processando as informações de marcas da API de Uso
-Depois de importar os dados para a pasta de trabalho, criaremos etapas de transformação na planilha *UsageAPI* para processar as informações da API. A primeira etapa é usar um processador de "divisão JSON" para extrair as marcas de um único campo e criar campos para cada uma delas (Departamento, Projeto, Proprietário e Ambiente).
+### <a name="processing-hello-tag-information-from-hello-usage-api"></a>Processar informações de marca de saudação do hello API de uso
+Depois de importar dados saudação na pasta de trabalho Olá, vamos criar etapas de transformação em Olá *UsageAPI* planilha nas informações de saudação tooprocess ordem de saudação API. Primeira etapa é toouse uma saudação "JSON dividir" tooextract do processador marcas de um único campo, em seguida, criar campos para cada um deles (departamento, projeto, proprietário e ambiente).
 
-![Figura 4 — Criar novos campos para as informações de marcação][13]
+![Figura 4 - criar novos campos de informações de marca de saudação][13]
 
-Observe que as informações de marcas do serviço "Rede" estão ausentes (caixa amarela), mas podemos verificar que esse serviço faz parte do mesmo Grupo de Recursos ao examinar o campo *ResourceGroupName* . Como temos as marcas dos outros recursos no Grupo de Recursos, podemos usar essas informações para aplicar as marcas ausentes a esse recurso posteriormente no processo.
+Saudação de aviso "Rede" serviço não tem informações de marca hello (caixa amarela), mas podemos verificar que faz parte de saudação mesmo grupo de recursos, observando Olá *ResourceGroupName* campo. Como temos marcas Olá para Olá outros recursos do grupo de recursos, podemos usar esta saudação de tooapply informações marcas toothis recurso posteriormente no processo de saudação ausente.
 
-A próxima etapa é criar uma tabela de pesquisa ao associar as informações das marcas a *ResourceGroupName*. Essa tabela de pesquisa será usada na próxima etapa para enriquecer os dados de consumo com informações de marcas.
+Olá, próxima etapa é toocreate uma pesquisa associando Olá informações da tabela de saudação marcas toohello *ResourceGroupName*. Essa tabela de pesquisa será usada na próxima etapa tooenrich Olá consumo dados saudação com informações de marca.
 
-### <a name="adding-the-tag-information-to-the-consumption-data"></a>Adicionando as informações de marcas aos dados de consumo
-Agora podemos passar para a planilha *PublishData* , que processa as informações de consumo da API de Cobrança, e adicionar os campos extraídos das marcas. Esse processo é executado ao examinar a tabela de pesquisa criada na etapa anterior usando *ResourceGroupName* como a chave para as pesquisas.
+### <a name="adding-hello-tag-information-toohello-consumption-data"></a>Adicionando dados de consumo Olá marca informações toohello
+Agora podemos pode saltar toohello *PublishData* folha, quais processos Olá informações de consumo de saudação API de cobrança e adicionar campos Olá extraídos de marcas de saudação. Esse processo é executado examinando a tabela de pesquisa de saudação criada na etapa anterior de saudação, usando Olá *ResourceGroupName* como chave Olá para pesquisas de saudação.
 
-![Figura 5 — Preenchendo a estrutura da conta com as informações das pesquisas][14]
+![Figura 5 - populando a estrutura de conta Olá com informações de saudação do pesquisas Olá][14]
 
-Observe que os campos apropriados da estrutura da conta para o serviço "Rede" foram aplicados, corrigindo o problema com as marcas ausentes. Nós também preenchemos os campos da estrutura da conta dos recursos que não são do nosso Grupo de Recursos de destino com "Outros", para diferenciá-los nos relatórios.
+Observe que foram aplicados a campos de estrutura Olá conta apropriada para o serviço de "Rede" Olá, corrigir o problema de saudação com hello ausente marcas. É populado também campos de estrutura de conta Olá para recursos que não seja nosso grupo de recursos de destino com "Outros", em ordem toodifferentiate em Olá relatórios.
 
-Agora, só precisamos adicionar uma etapa para publicar os dados de uso. Durante esta etapa, as taxas apropriadas de cada serviço definidas no nosso Plano de Taxas serão aplicadas às informações de uso, com a cobrança resultante sendo carregada no banco de dados.
+Agora precisamos apenas tooadd dados de uso uma etapa toopublish hello. Durante esta etapa, taxas de saudação apropriadas para cada serviço definidos no nosso plano de taxa será aplicada toohello as informações de uso com custos resultante de saudação carregados no banco de dados de saudação.
 
-A melhor parte é que você só precisa passar por esse processo uma vez. Quando a pasta de trabalho for concluída, basta adicioná-la ao agendador e ela será executada por hora ou por dia, no horário agendado. Em seguida, é apenas uma questão de criar novos relatórios, ou personalizar os existentes, para analisar os dados a fim de obter informações significativas do uso da nuvem.
+Olá mais importante é que você só tem toogo esse processo por meio de uma vez. Quando a pasta de trabalho de saudação for concluída, você precisa apenas tooadd-Agendador toohello e ele serão executado por hora ou diariamente Olá agendado. Em seguida, ele é apenas uma questão de criar novos relatórios, ou personalizar os existentes, em ordem tooanalyze Olá tooget significativo análises de dados com o uso de nuvem.
 
 ### <a name="next-steps"></a>Próximas etapas
-* Para obter instruções detalhadas sobre como criar relatórios e pastas de trabalho do Cloud Cruiser, consulte a [documentação](http://docs.cloudcruiser.com/) online do Cloud Cruiser (logon válido necessário).  Para obter mais informações sobre o Cloud Cruiser, entre em contato com [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
-* Consulte [Obter informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md) para uma visão geral das APIs RateCard e de Uso dos recursos do Azure.
-* Confira a [referência da API REST de Cobrança do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) para obter mais informações sobre as duas APIs, que fazem parte do conjunto de APIs fornecidas pelo Gerenciador de Recursos do Azure.
-* Se você gostaria de se aprofundar no exemplo de código, confira nossos exemplos de código da API de Cobrança do Microsoft Azure em [Exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
+* Para obter instruções detalhadas sobre a criação de pastas de trabalho cruiser em nuvem e relatórios, consulte tooCloud cruiser em do on-line [documentação](http://docs.cloudcruiser.com/) (logon válido necessário).  Para obter mais informações sobre o Cloud Cruiser, entre em contato com [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
+* Consulte [obter ideias sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md) para uma visão geral das APIs de RateCard e Olá uso de recursos do Azure.
+* Check-out Olá [referência da API REST do Azure cobrança](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) para obter mais informações sobre as duas APIs, que fazem parte do conjunto de saudação de APIs fornecidas pelo hello Azure Resource Manager.
+* Se você quiser toodive diretamente no código de exemplo hello, check-out de nosso Microsoft Azure cobrança API exemplos de código em [exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ### <a name="learn-more"></a>Saiba mais
-* Consulte o artigo [Visão geral do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md) para saber mais sobre o Gerenciador de Recursos do Azure.
+* Consulte Olá [visão geral do Gerenciador de recursos do Azure](../azure-resource-manager/resource-group-overview.md) artigo toolearn mais sobre hello Azure Resource Manager.
 
 <!--Image references-->
 
 [1]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Create-New-Workbook-Collection.png "Figura 1 — Criando uma nova coleção"
-[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Figura 2 — Importar dados da nova coleção"
-[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Figura 3 — Etapas de transformação para processar os dados coletados da API RateCard"
-[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "Figura 4 — Publicando os dados da API RateCard como novos Serviços e Taxas"
-[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "Figura 5 — Verificando os novos serviços"
-[6]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png "Figura 6 — Verificando o novo Plano de Taxas e as taxas associadas"
-[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "Figura 7 — Transformando dados WAP para normalizar serviços"
+[2]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Import-Data-From-RateCard.png "Figura 2: importar dados do novo conjunto de saudação"
+[3]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transformation-Steps-Process-RateCard-Data.png "Figura 3 - transformação etapas tooprocess coletados dados de API RateCard"
+[4]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Publish-RateCard-Data-New-Services-Rates.png "Figura 4: publicando dados de saudação do hello RateCard API como novos serviços e taxas"
+[5]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing1.png "Figura 5 - verificando Olá novos serviços"
+[6]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Verify-Azure-Services-And-Pricing2.png "Figura 6: verificando Olá novo plano de taxa e as taxas associadas"
+[7]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Transforming-WAP-Normalize-Services.png "Figura 7: transformar os serviços de dados do toonormalize WAP"
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Figura 8 — Planejamento de pasta de trabalho"
-[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figura 9 — Relatório de exemplo para o cenário de comparação de custo de carga de trabalho"
+[9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Figura 9 - relatório de exemplo de cenário de comparação de custo de carga de trabalho Olá"
 [10]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/1_ReportWithTags.png "Figura 10 — Relatório com divisões usando marcações"
 [11]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/2_ResourceGroupsWithTags.png "Figura 11 — Grupo de Recursos com as marcações associadas no Portal do Azure"
-[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figura 12 — Dados da API de uso importados para a planilha UsageAPI"
-[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figura 13 — Criar novos campos para as informações de marcação"
-[14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figura 14 — Preenchendo a estrutura da conta com as informações das pesquisas"
+[12]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/3_ImportIntoUsageAPISheet.png "Figura 12 - dados de uso API importados para a folha de UsageAPI Olá"
+[13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figura 13 - criar novos campos de informações de marca de saudação"
+[14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figura 14 - populando a estrutura de conta Olá com informações de saudação do pesquisas Olá"

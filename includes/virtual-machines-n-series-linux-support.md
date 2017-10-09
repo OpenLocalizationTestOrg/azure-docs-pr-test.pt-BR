@@ -16,5 +16,5 @@
 
 
 > [!WARNING] 
-> A instalação de software de terceiros em produtos do Red Hat pode afetar os termos de suporte do Red Hat. Consulte o [artigo da Base de conhecimento do Red Hat](https://access.redhat.com/articles/1067).
+> Instalação do software de terceiros em produtos do Red Hat pode afetar termos de suporte do Red Hat hello. Consulte Olá [artigo da Base de conhecimento do Red Hat](https://access.redhat.com/articles/1067).
 >

@@ -1,6 +1,6 @@
 ---
-title: O que aconteceu ao meu projeto do ASP.NET? | Microsoft Docs
-description: "Descreve o que acontece após a adição do Armazenamento do Azure a um projeto do ASP.NET usando os serviços conectados do Visual Studio"
+title: aaaWhat aconteceu toomy ASP.NET projeto? | Microsoft Docs
+description: "Descreve o que acontece depois de adicionar o projeto do armazenamento do Azure tooa ASP.NET usando o Visual Studio conectada a serviços"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
-ms.openlocfilehash: e2cdc2ff4df85f0224352bd32a3ec62480c3e6e5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a78f4b46bb1f5e6bc258723ebebad96ca7da5f67
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>O que aconteceu ao meu projeto do ASP.NET (serviço conectado do Armazenamento do Azure do Visual Studio)?
+# <a name="what-happened-toomy-aspnet-project-visual-studio-azure-storage-connected-service"></a>O projeto do ASP.NET com toomy (Visual Studio Azure Storage conectado serviço)?
 ## <a name="references-added"></a>Referências adicionadas
-O pacote do NuGet do armazenamento do Azure foi adicionado ao seu projeto do Visual Studio.  
-Esse pacote adiciona as referências de .NET a seguir:
+pacote do NuGet do armazenamento do Azure Olá foi adicionado tooyour o projeto do Visual Studio.  
+Esse pacote adiciona Olá referências .NET a seguir:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -35,7 +35,7 @@ Esse pacote adiciona as referências de .NET a seguir:
 * **System.Spatial**
 
 ## <a name="connection-string-for-azure-storage-added"></a>Cadeia de conexão do Armazenamento do Azure adicionada
-No arquivo web.config do seu projeto, foi criado um elemento com a cadeia de conexão e chave da conta de armazenamento selecionada.
+No arquivo Web. config de saudação do seu projeto, um elemento foi criado com a cadeia de caracteres de conexão e a chave da conta de armazenamento Olá selecionado.
 
 Para obter mais informações, consulte [ASP.NET](http://www.asp.net).
 

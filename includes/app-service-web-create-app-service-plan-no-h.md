@@ -1,14 +1,14 @@
-Criar um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan#create).
+Criar um plano de serviço de aplicativo com hello [criar plano de serviço de aplicativo az](/cli/azure/appservice/plan#create) comando.
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 
-O exemplo a seguir cria um plano do Serviço de Aplicativo denominado `myAppServicePlan` usando o tipo de preço **Gratuita**:
+Olá, exemplo a seguir cria um plano de serviço de aplicativo chamado `myAppServicePlan` em Olá **livre** preço:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Quando o Plano do Serviço de Aplicativo for criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
+Quando Olá plano de serviço de aplicativo tiver sido criado, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir:
 
 ```json
 { 

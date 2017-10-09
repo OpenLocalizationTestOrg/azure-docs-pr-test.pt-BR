@@ -1,5 +1,5 @@
 ---
-title: Auditoria de tabela, redirecionamento TDS e pontos de extremidade IP para Banco de Dados SQL do Azure | Microsoft Docs
+title: aaaTable auditoria, redirecionamento de TDS e pontos de extremidade IP para o banco de dados do SQL Azure | Microsoft Docs
 description: "Saiba mais sobre alterações de auditoria, redirecionamento TDS e ponto de extremidade IP ao implementar a auditoria de tabela no Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: 
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: giladm
-ms.openlocfilehash: d4a7e6658ec65a70bd7e07859e2a69acee58b7b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 966c23f92fab6fa459a515ad841bb2d5f75436aa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Banco de Dados SQL – Suporte a clientes de versão anterior e alterações de ponto de extremidade IP para Auditoria de tabela
 
 > [!IMPORTANT]
-> Este documento se aplica somente à Auditoria de Tabela, que **agora foi preterida**.<br>
-> Use o novo método de [Auditoria de Blob](sql-database-auditing.md), que **não** exige modificações de cadeia de conexão de cliente de nível inferior. Informações adicionais sobre a Auditoria de Blob podem ser encontradas em [Introdução à auditoria de banco de dados SQL](sql-database-auditing.md).
+> Este documento se aplica somente auditoria tooTable, que é **substituído**.<br>
+> Use Olá novo [Blob auditoria](sql-database-auditing.md) método, que **não** exigem modificações de cadeia de caracteres de conexão de cliente de nível inferior. Informações adicionais sobre a Auditoria de Blob podem ser encontradas em [Introdução à auditoria de banco de dados SQL](sql-database-auditing.md).
 
-A [Auditoria de Banco de Dados](sql-database-auditing.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS. Observe que o redirecionamento não se aplica ao usar o método Auditoria de Blob.
+A [Auditoria de Banco de Dados](sql-database-auditing.md) funciona automaticamente com clientes SQL que dão suporte ao redirecionamento de TDS. Observe que o redirecionamento não se aplica ao usar o método de auditoria de Blob hello.
 
 ## <a id="subheading-1"></a>Suporte a clientes de versão anterior
-Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a redirecionamento. As exceções incluem o JDBC 4.0, no qual o recurso de redirecionamento não tem suporte completo, e o Tedious para Node.JS, no qual o redirecionamento não foi implementado.
+Qualquer cliente que implemente o protocolo TDS 7.4 também deve dar suporte a redirecionamento. Exceções toothis incluem JDBC 4.0 no qual recurso de redirecionamento Olá não é totalmente compatível e tediosas para Node. js em que o redirecionamento não foi implementado.
 
-Para "clientes de versão anterior", ou seja, que oferecem suporte ao TDS versão 7.3 e inferior - o FQDN do servidor na cadeia de conexão deve ser modificado:
+Para clientes de nível inferior"", ou seja, que suporte o protocolo TDS versão 7.3 e abaixo - Olá FQDN do servidor na cadeia de caracteres de conexão Olá deve ser modificado:
 
-FQDN original do servidor na cadeia de conexão: <*nome do servidor*>.database.windows.net
+FQDN do servidor original na cadeia de caracteres de conexão Olá: <*nome do servidor*>. t
 
-FQDN do servidor modificado na cadeia de conexão: <*nome do servidor*>.database.**secure**.windows.net
+FQDN do servidor modificado na cadeia de caracteres de conexão de saudação: <*nome do servidor*>. Database. **seguro**. windows.net
 
 Uma lista parcial de "Clientes de versão anterior" inclui:
 
 * .NET 4.0 e inferior,
 * ODBC 10.0 e inferior.
-* JDBC (embora o JDBC dê suporte ao TDS 7.4, o recurso de redirecionamento de TDS não recebe suporte total)
+* JDBC (enquanto JDBC suporta TDS 7.4, Olá recurso de redirecionamento do protocolo TDS não tem suporte total)
 * Tedious (para o Node.JS)
 
-**Comentário:** a modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de Auditoria no Nível do SQL Server sem a necessidade de uma etapa de configuração em cada banco de dados (redução temporária).
+**Comentário:** Olá acima modificação FQDN do servidor pode ser útil também para aplicar uma política de auditoria de nível de servidor do SQL sem a necessidade de uma configuração de etapa em cada banco de dados (temporário mitigação).
 
 ## <a id="subheading-2"></a>Alterações de ponto de extremidade IP ao habilitar a Auditoria
-Observe que, quando você habilita a Auditoria de Tabela, o ponto de extremidade IP do seu banco de dados é alterado. Se você tiver configurações de firewall estritas, atualize as configurações de firewall adequadamente.
+Observe que, quando você habilitar a auditoria de tabela, ponto de extremidade IP de saudação do banco de dados será alterado. Se você tiver configurações de firewall estritas, atualize as configurações de firewall adequadamente.
 
-O novo ponto de extremidade IP do banco de dados dependerá da região de banco de dados:
+Olá novo banco de dados ponto de extremidade IP dependerá da região do banco de dados de saudação:
 
 | Região do Banco de Dados | Possíveis de extremidade IP possíveis |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: "Analisar dados de atraso de voo com o Hive no HDInsight – Azure | Microsoft Docs"
-description: Saiba como usar o Hive para analisar dados de voos usando no HDInsight baseado em Linux e exportar os dados para um Banco de Dados SQL do Azure usando o Sqoop.
+title: dados de atraso de voo aaaAnalyze com Hive no HDInsight - Azure | Microsoft Docs
+description: "Saiba como toouse Hive dados de voo tooanalyze no HDInsight baseados em Linux, em seguida, exportar Olá dados tooSQL usando Sqoop de banco de dados."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 8cdc19ac8a517b6d8eefabb5476a686aa252a332
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7830457a7100880dff1c647dde1b4d203bfea3c6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Analisar dados de atraso de voo usando o Hive no HDInsight baseado em Linux
 
-Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado em Linux e exporte os dados para um Banco de Dados SQL do Azure usando o Sqoop.
+Saiba como dados de atraso de voo tooanalyze usando Hive no HDInsight baseados em Linux, em seguida, exportar Olá dados tooAzure banco de dados SQL usando Sqoop.
 
 > [!IMPORTANT]
-> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> etapas de saudação neste documento exigem um cluster HDInsight que usa o Linux. Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,13 +35,13 @@ Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado e
 
 * **Banco de dados SQL do Azure**. Você usa um banco de dados SQL do Azure como um repositório de dados de destino. Se você ainda não tem um Banco de Dados SQL, confira [Tutorial do Banco de Dados SQL: Criar um banco de dados SQL em minutos](../sql-database/sql-database-get-started.md).
 
-* **CLI do Azure**. Se você não tiver instalado a CLI do Azure, confira [Instalar e configurar a CLI do Azure](../cli-install-nodejs.md) para ver mais etapas.
+* **CLI do Azure**. Se você não tiver instalado o hello CLI do Azure, consulte [instalar e configurar Olá CLI do Azure](../cli-install-nodejs.md) para mais etapas.
 
-## <a name="download-the-flight-data"></a>Baixar os dados de voos
+## <a name="download-hello-flight-data"></a>Baixar dados de voo Olá
 
-1. Navegue para [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
+1. Procurar muito[pesquisa e administração de tecnologia inovadora, agência de transporte estatísticas][rita-website].
 
-2. Na página, selecione os valores a seguir:
+2. Na página de saudação, selecione Olá valores a seguir:
 
    | Nome | Valor |
    | --- | --- |
@@ -51,26 +51,26 @@ Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado e
 
 3. Clique em **Download**.
 
-## <a name="upload-the-data"></a>Carregar os dados
+## <a name="upload-hello-data"></a>Carregar dados de saudação
 
-1. Use o comando a seguir para carregar o arquivo zip no nó principal do cluster HDInsight:
+1. Use Olá comando tooupload Olá zip arquivo toohello HDInsight nó principal do cluster a seguir:
 
     ```
     scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
     ```
 
-    Substitua **NOMEDOARQUIVO** pelo nome do arquivo zip. Substitua **NOMEDEUSUÁRIO** pelo logon SSH para o cluster HDInsight. Substitua NOMEDOCLUSTER pelo nome do seu cluster HDInsight.
+    Substituir **FILENAME** com nome de saudação do arquivo zip de saudação. Substituir **nome de usuário** com logon SSH Olá para o cluster do HDInsight hello. Substitua CLUSTERNAME com nome de saudação do cluster do HDInsight hello.
 
    > [!NOTE]
-   > Se você usar uma senha para autenticar seu logon SSH, a senha será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` e especificar a chave privada correspondente. Por exemplo: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+   > Se você usar uma senha tooauthenticate seu logon SSH, você será solicitado senha hello. Se você usou uma chave pública, talvez seja necessário Olá toouse `-i` parâmetro e especifique Olá caminho toohello correspondência de chave privada. Por exemplo: `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
-2. Quando o upload for concluído, conecte-se ao cluster usando SSH:
+2. Depois de concluído o carregamento de saudação, conecte-se toohello cluster usando o SSH:
 
     ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
 
     Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Uma vez conectado, use o seguinte para descompactar o arquivo .zip:
+3. Uma vez conectado, use Olá seguir toounzip hello. ZIP arquivo:
 
     ```
     unzip FILENAME.zip
@@ -78,28 +78,28 @@ Saiba como analisar dados de atraso de voos usando o Hive no HDInsight baseado e
 
     Este comando extrai um arquivo .csv com aproximadamente 60 MB.
 
-4. Use o seguinte comando para criar um diretório no armazenamento do HDInsight e, em seguida, copie o arquivo para o diretório:
+4. Use Olá após o comando toocreate um diretório no armazenamento de HDInsight e copie toohello diretório do arquivo de saudação:
 
     ```
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
     ```
 
-## <a name="create-and-run-the-hiveql"></a>Criar e executar o HiveQL
+## <a name="create-and-run-hello-hiveql"></a>Criar e executar Olá HiveQL
 
-Use as etapas a seguir para importar dados do arquivo CSV para uma tabela do Hive chamada **Delays**.
+Use Olá as etapas a seguir tooimport dados de arquivo CSV de saudação em uma tabela de Hive nomeada **atrasos**.
 
-1. Use o comando a seguir para criar e editar um novo arquivo chamado **flightdelays.hql**:
+1. A seguir use Olá toocreate de comando e editar um novo arquivo denominado **flightdelays.hql**:
 
     ```
     nano flightdelays.hql
     ```
 
-    Use o seguinte texto como o conteúdo deste arquivo:
+    Use Olá depois do texto como o conteúdo deste arquivo hello:
 
     ```hiveql
     DROP TABLE delays_raw;
-    -- Creates an external table over the csv file
+    -- Creates an external table over hello csv file
     CREATE EXTERNAL TABLE delays_raw (
         YEAR string,
         FL_DATE string,
@@ -123,16 +123,16 @@ Use as etapas a seguir para importar dados do arquivo CSV para uma tabela do Hiv
         NAS_DELAY float,
         SECURITY_DELAY float,
         LATE_AIRCRAFT_DELAY float)
-    -- The following lines describe the format and location of the file
+    -- hello following lines describe hello format and location of hello file
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
     LOCATION '/tutorials/flightdelays/data';
 
-    -- Drop the delays table if it exists
+    -- Drop hello delays table if it exists
     DROP TABLE delays;
-    -- Create the delays table and populate it with data
-    -- pulled in from the CSV file (via the external table defined previously)
+    -- Create hello delays table and populate it with data
+    -- pulled in from hello CSV file (via hello external table defined previously)
     CREATE TABLE delays AS
     SELECT YEAR AS year,
         FL_DATE AS flight_date,
@@ -157,24 +157,24 @@ Use as etapas a seguir para importar dados do arquivo CSV para uma tabela do Hiv
     FROM delays_raw;
     ```
 
-2. Use **Ctrl + X** seguido de **Y** para salvar o arquivo.
+2. arquivo de saudação toosave, use **Ctrl + X**, em seguida, **Y** .
 
-3. Use o seguinte comando para iniciar o Hive e executar o arquivo **flightdelays.hql**:
+3. toostart Hive e execução Olá **flightdelays.hql** de arquivos, use Olá comando a seguir:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
    > [!NOTE]
-   > Neste exemplo, `localhost` é usado, pois você está conectado ao nó principal do cluster HDInsight, que é onde o HiveServer2 está em execução.
+   > Neste exemplo, `localhost` é usado, pois você está conectado toohello o nó principal do cluster do HDInsight hello, que é onde HiveServer2 está em execução.
 
-4. Uma vez o __flightdelays__ fim da execução de script, use o seguinte comando para abrir uma sessão interativa de Beeline:
+4. Uma vez Olá __flightdelays.hql__ termina em execução, tooopen uma sessão interativa do Beeline comando a seguir de saudação do uso de script:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-5. Quando você receber o prompt do `jdbc:hive2://localhost:10001/>`, use a seguinte consulta para recuperar dados usando os dados importados de voos atrasados.
+5. Quando você receber Olá `jdbc:hive2://localhost:10001/>` prompt, use Olá seguir tooretrieve os dados da consulta de dados de atraso de voo Olá importado.
 
     ```hiveql
     INSERT OVERWRITE DIRECTORY '/tutorials/flightdelays/output'
@@ -186,47 +186,47 @@ Use as etapas a seguir para importar dados do arquivo CSV para uma tabela do Hiv
     GROUP BY origin_city_name;
     ```
 
-    Essa consulta recupera uma lista de cidades em que houve atrasos causados pelo clima, além do tempo médio de atrasos, e a salva em `/tutorials/flightdelays/output`. Posteriormente, o Sqoop lerá os dados desse local e os exportará para o Banco de Dados SQL do Azure.
+    Essa consulta recupera uma lista de cidades que atrasos de clima experiente, juntamente com a média de saudação de tempo de espera e salvá-lo muito`/tutorials/flightdelays/output`. Posteriormente, Sqoop lê dados saudação deste local e exportá-lo tooAzure banco de dados SQL.
 
-6. Para sair do Beeline, digite `!quit` no prompt.
+6. tooexit Beeline, insira `!quit` no prompt de saudação.
 
 ## <a name="create-a-sql-database"></a>Criar um banco de dados SQL
 
-Se você já tiver um Banco de Dados SQL, deverá obter o nome do servidor. Você pode encontrar o nome do servidor no [Portal do Azure](https://portal.azure.com) selecionando **Bancos de Dados SQL** e, então, filtrando o nome do banco de dados que você deseja usar. O nome do servidor está listado na coluna **SERVIDOR** .
+Se você já tiver um banco de dados SQL, você deve obter o nome do servidor de saudação. Você pode encontrar o nome do servidor de saudação em Olá [portal do Azure](https://portal.azure.com) selecionando **bancos de dados SQL**, e, em seguida, filtrando em nome de saudação do hello banco de dados você deseja toouse. nome do servidor de saudação é listado em Olá **SERVER** coluna.
 
-Se você ainda não tem um Banco de Dados SQL, use as informações em [Tutorial do Banco de Dados SQL: Criar um banco de dados SQL em minutos](../sql-database/sql-database-get-started.md) para criar um. Salve o nome do servidor usado para o banco de dados.
+Se você ainda não tiver um banco de dados SQL, use as informações de saudação em [tutorial do banco de dados SQL: criar um banco de dados SQL em minutos](../sql-database/sql-database-get-started.md) toocreate um. Salve o nome do servidor de saudação usado para o banco de dados de saudação.
 
 ## <a name="create-a-sql-database-table"></a>Criar uma tabela do Banco de Dados SQL
 
 > [!NOTE]
-> Há várias maneiras de se conectar ao Banco de Dados SQL e criar uma tabela. As seguintes etapas usam [FreeTDS](http://www.freetds.org/) do cluster HDInsight.
+> Há tooSQL tooconnect de muitas maneiras banco de dados e criar uma tabela. Olá use as etapas a seguir [FreeTDS](http://www.freetds.org/) do cluster do HDInsight hello.
 
 
-1. Use o SSH para conectar-se ao cluster HDInsight baseado em Linux e execute as etapas a seguir na sessão SSH.
+1. Use SSH tooconnect toohello HDInsight baseados em Linux cluster e execução Olá seguindo as etapas da sessão SSH hello.
 
-2. Use o seguinte comando para instalar o FreeTDS:
+2. Use Olá comando tooinstall FreeTDS a seguir:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. Após a conclusão da instalação, use o seguinte comando para conectar-se ao servidor do Banco de Dados SQL. Substitua **serverName** pelo nome do servidor do Banco de Dados SQL. Substitua **adminLogin** e **adminPassword** pelo logon do Banco de Dados SQL. Substitua **databaseName** pelo nome do banco de dados.
+3. Depois de concluir a instalação do hello, use Olá após o servidor de banco de dados SQL do comando tooconnect toohello. Substituir **serverName** com o nome do servidor de banco de dados SQL hello. Substituir **adminLogin** e **adminPassword** com logon Olá para o banco de dados SQL. Substituir **databaseName** com o nome do banco de dados de saudação.
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Você receberá saídas semelhantes ao seguinte texto:
+    Você receberá a saída toohello semelhante texto a seguir:
 
     ```
     locale is "en_US.UTF-8"
     locale charset is "UTF-8"
     using default charset "UTF-8"
-    Default database being set to sqooptest
+    Default database being set toosqooptest
     1>
     ```
 
-4. Ao prompt `1>` , insira o seguinte:
+4. Em Olá `1>` prompt, digite Olá linhas seguintes:
 
     ```
     CREATE TABLE [dbo].[delays](
@@ -237,60 +237,60 @@ Se você ainda não tem um Banco de Dados SQL, use as informações em [Tutorial
     GO
     ```
 
-    Quando a instrução `GO` for inserida, as instruções anteriores serão avaliadas. Essa consulta cria uma tabela chamada **atrasos**, com um índice clusterizado.
+    Olá quando `GO` instrução for inserida, instruções de saudação anterior são avaliadas. Essa consulta cria uma tabela chamada **atrasos**, com um índice clusterizado.
 
-    Use a seguinte consulta para verificar se a tabela foi criada:
+    Saudação de uso tooverify de consulta que Olá a tabela a seguir foi criada:
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    A saída é semelhante ao texto a seguir:
+    saudação de saída é similar toohello texto a seguir:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
     databaseName       dbo     delays      BASE TABLE
     ```
 
-5. Para sair do utilitário tsql, insira `exit` at the `1>` .
+5. Digite `exit` em Olá `1>` tooexit Olá tsql utilitário do prompt.
 
 ## <a name="export-data-with-sqoop"></a>Exportar dados com o Sqoop
 
-1. Use o comando a seguir para verificar se o Sqoop pode ver seu Banco de Dados SQL:
+1. Use Olá tooverify de comando que Sqoop pode ver o banco de dados SQL a seguir:
 
     ```
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
-    Esse comando retorna uma lista de bancos de dados, incluindo o banco de dados no qual você criou a tabela de atrasos anteriormente.
+    Esse comando retorna uma lista de bancos de dados, incluindo Olá banco de dados que você criou a tabela atrasos Olá anteriormente.
 
-2. Use o comando a seguir para exportar dados de hivesampletable para a tabela mobiledata:
+2. Use Olá dados tooexport de comando a seguir da tabela de mobiledata toohello hivesampletable:
 
     ```
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    O Sqoop se conecta ao banco de dados que contém a tabela de atrasos e exporta dados do diretório `/tutorials/flightdelays/output` para a tabela de atrasos.
+    Sqoop conecta toohello banco de dados que contém a tabela de atrasos de saudação e exporta dados de saudação `/tutorials/flightdelays/output` tabela de atrasos de toohello do diretório.
 
-3. Depois de concluir o comando, use o seguinte para se conectar ao banco de dados usando TSQL:
+3. Após a conclusão do comando hello, use Olá tooconnect toohello banco de dados usando TSQL a seguir:
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
-    Uma vez conectado, use as instruções a seguir para verificar se os dados foram exportados para a tabela mobiledata:
+    Uma vez conectado, use Olá instruções tooverify dados saudação foram exportado toohello mobiledata tabela a seguir:
 
     ```
     SELECT * FROM delays
     GO
     ```
 
-    Você deve ver uma listagem dos dados na tabela. Digite `exit` para sair do utilitário tsql.
+    Você deve ver uma lista dos dados na tabela de saudação. Tipo `exit` utilitário do tooexit Olá tsql.
 
 ## <a id="nextsteps"></a> Próximas etapas
 
-Para saber mais formas de trabalhar usando dados no HDInsight, consulte os seguintes documentos:
+toolearn mais toowork maneiras com dados no HDInsight, consulte Olá seguintes documentos:
 
 * [Usar o Hive com o HDInsight][hdinsight-use-hive]
 * [Usar o Oozie com o HDInsight][hdinsight-use-oozie]

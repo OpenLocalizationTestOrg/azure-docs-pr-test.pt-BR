@@ -1,15 +1,15 @@
 
-1. Visite o [Portal do Azure].
-2. Clique em **Serviços de Aplicativos** > o back-end que você criou.
-3. Nas configurações do aplicativo móvel, clique em **Início Rápido** > **Cordova**.
+1. Visite Olá [portal do Azure].
+2. Clique em **serviços de aplicativos** > Olá back-end que você criou.
+3. Em configurações de aplicativo móvel hello, clique em **Quickstart** > **Cordova**.
 ![Portal do Azure com Início Rápido de Aplicativos Móveis realçado][quickstart]
 4. Em **Configurar o aplicativo cliente**, selecione **Criar um Novo Aplicativo** e clique em **Baixar**.
-2. Descompacte o arquivo ZIP baixado para um diretório no disco rígido, navegue até o arquivo de solução (.sln) e abra-o usando o Visual Studio.
-3. No Visual Studio, escolha a plataforma de solução (Android, iOS ou Windows) no menu suspenso ao lado da seta de início. Selecione um emulador ou dispositivo de implantação específico clicando na lista suspensa na seta verde. Você pode usar a plataforma Android padrão e o emulador Ripple. Tutoriais mais avançados (por exemplo, notificações por push) exigirão que você selecione um emulador ou dispositivo com suporte.
-4. Pressione F5 ou clique na seta verde para compilar e executar o aplicativo Cordova. Se for mostrada uma caixa de diálogo de segurança no emulador que solicita acesso à rede, aceite-a.
-5. Depois que o aplicativo for iniciado no dispositivo ou emulador, digite um texto significativo em **Inserir novo texto**, como *Concluir o tutorial* e, em seguida, clique no botão **Adicionar**.
+2. Desempacotar diretório tooa do arquivo de ZIP Olá baixado em seu disco rígido, navegue toohello arquivo de solução (. sln) e abri-lo usando o Visual Studio.
+3. No Visual Studio, escolha a plataforma de solução de saudação (Android, iOS ou Windows) de seta Olá suspensa próxima toothe iniciar. Selecione um dispositivo de implantação específico ou emulador clicando Olá suspensa na seta Olá verde. Você pode usar a plataforma Android do saudação padrão e o emulador Ripple. Tutoriais mais avançados (por exemplo, notificações por push) exigem tooselect um dispositivo com suporte ou o emulador.
+4. toobuild e executar seu aplicativo Cordova, pressione F5 ou clique em seta Olá verde. Se você vir uma caixa de diálogo de segurança na rede Olá emulador solicitando acesso toohello, aceite-o.
+5. Após Olá aplicativo é iniciado no emulador ou dispositivo Olá, digite o texto significativos em **digite o novo texto**, como *tutorial completo Olá* e, em seguida, clique em Olá **adicionar** botão.
 
-Os back-end insere dados da solicitação na tabela TodoItem no Banco de Dados SQL e retorna informações sobre os itens armazenados recentemente no aplicativo móvel. O aplicativo móvel exibe esses dados na lista.
+Olá back-end insere dados de solicitação de saudação na tabela TodoItem Olá Olá banco de dados SQL e retorna informações sobre o aplicativo móvel do toohello back Olá itens armazenados recentemente. aplicativo móvel Olá exibe esses dados na lista de saudação.
 
 Você pode repetir as etapas 3 a 5 para outras plataformas.
 
@@ -17,4 +17,4 @@ Você pode repetir as etapas 3 a 5 para outras plataformas.
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
 
 <!-- URLs -->
-[Portal do Azure]: https://portal.azure.com/
+[portal do Azure]: https://portal.azure.com/

@@ -1,6 +1,6 @@
 ---
-title: "Usar o Log Analytics com um aplicativo multilocatário de Banco de Dados SQL | Microsoft Docs"
-description: Configurar e usar o Log Analytics (OMS) com o aplicativo Wingtip SaaS de exemplo do Banco de Dados SQL do Azure
+title: "aaaUse análise de Log com um aplicativo de multilocatário do banco de dados SQL | Microsoft Docs"
+description: "Configurar e usar a análise de Log (OMS) com o aplicativo de SaaS Wingtip de exemplo hello Azure SQL Database"
 keywords: tutorial do banco de dados SQL
 services: sql-database
 documentationcenter: 
@@ -16,108 +16,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: 26f6f519ecb3abf6343dc2776aa141dff99ced15
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: fa9085ce3462939e66853faa2a3cd71e0f6c2581
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="setup-and-use-log-analytics-oms-with-the-wingtip-saas-app"></a>Configurar e usar o Log Analytics (OMS) com o aplicativo Wingtip SaaS
+# <a name="setup-and-use-log-analytics-oms-with-hello-wingtip-saas-app"></a>Configurar e usar a análise de Log (OMS) com o aplicativo de SaaS Wingtip Olá
 
-Neste tutorial, você configura e usa o *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para monitorar pools elásticos e bancos de dados. Ele se baseia no [Tutorial de monitoramento e gerenciamento de desempenho](sql-database-saas-tutorial-performance-monitoring.md) e mostra como usar o *Log Analytics* para ampliar o monitoramento e alerta fornecidos no Portal do Azure. O Log Analytics é especialmente adequado para monitoramento e alertas em grande escala, porque ele dá suporte a centenas de pools e centenas de milhares de bancos de dados. Ele também fornece uma única solução de monitoramento, que pode integrar o monitoramento de diferentes aplicativos e serviços do Azure, entre várias assinaturas do Azure.
+Neste tutorial, você configura e usa o *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para monitorar pools elásticos e bancos de dados. Ele se baseia no hello [tutorial de gerenciamento e monitoramento do desempenho de](sql-database-saas-tutorial-performance-monitoring.md)e mostra como toouse *análise de Log* tooaugment Olá monitoramento e alertas fornecido no hello portal do Azure. O Log Analytics é especialmente adequado para monitoramento e alertas em grande escala, porque ele dá suporte a centenas de pools e centenas de milhares de bancos de dados. Ele também fornece uma única solução de monitoramento, que pode integrar o monitoramento de diferentes aplicativos e serviços do Azure, entre várias assinaturas do Azure.
 
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Instalar e configurar o Log Analytics (OMS)
-> * Usar o Log Analytics para monitorar pools e bancos de dados
+> * Usar pools de toomonitor de análise de logs e bancos de dados
 
-Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
+toocomplete neste tutorial, verifique Olá se os pré-requisitos a seguir são concluídas:
 
-* O aplicativo SaaS Wingtip é implantado. Para implantar em menos de cinco minutos, confira [Implantar e explorar o aplicativo de SaaS do Wingtip](sql-database-saas-tutorial.md)
+* Olá Wingtip SaaS aplicativo é implantado. toodeploy em menos de cinco minutos, consulte [implantar e explorar o aplicativo de SaaS Wingtip hello](sql-database-saas-tutorial.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
-Consulte o [Tutorial de monitoramento e gerenciamento de desempenho](sql-database-saas-tutorial-performance-monitoring.md) para uma discussão sobre padrões e cenários de SaaS, e como eles afetam os requisitos de uma solução de monitoramento.
+Consulte Olá [tutorial de gerenciamento e monitoramento do desempenho de](sql-database-saas-tutorial-performance-monitoring.md) para obter uma discussão de cenários de SaaS hello e padrões e como eles afetam os requisitos de saudação em uma solução de monitoramento.
 
 ## <a name="monitoring-and-managing-performance-with-log-analytics-oms"></a>Monitoramento e gerenciamento de desempenho com o Log Analytics (OMS)
 
-Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados e pools. Esse monitoramento e alerta internos são específicos de recursos e são convenientes para pequenas quantidades de recursos, mas menos adequados para monitoramento de grandes instalações ou para fornecer uma exibição unificada entre diferentes assinaturas e recursos.
+Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados e pools. Este interna de monitoramento e alertas é específico do recurso e conveniente para pequenas quantidades de recursos, mas é menos toomonitoring adequado grandes instalações ou para fornecer uma exibição unificada entre assinaturas e recursos diferentes.
 
-Para cenários de alto volume, o Log Analytics pode ser usado. Esse é um serviço separado do Azure que fornece análise sobre telemetria e logs de diagnóstico emitidos, coletados em um espaço de trabalho de Log Analytics, que pode coletar a telemetria de muitos serviços e ser usado para consultar e definir alertas. O Log Analytics fornece uma linguagem de consulta e ferramentas de visualização de dados internas que permitem a visualização e análise de dados operacionais. A solução de Análise de SQL fornece várias exibições e consultas de monitoramento e alertas predefinidos de pool elástico e de banco de dados de e permite que você adicione suas próprias consultas ad hoc e salve-as conforme necessário. O OMS também fornece um designer de exibição personalizado.
+Para cenários de alto volume, o Log Analytics pode ser usado. Este é um serviço do Azure separado que fornece análise sobre logs de diagnóstico emitido e telemetria coletada em um espaço de trabalho de análise de log, que pode coletar a telemetria de muitos serviços e ser usado tooquery e definir alertas. O Log Analytics fornece uma linguagem de consulta e ferramentas de visualização de dados internas que permitem a visualização e análise de dados operacionais. Olá solução de análise do SQL fornece vários predefinido pool Elástico e o banco de dados de monitoramento e alertas de exibições e consultas e permite que você adicione suas próprias consultas ad hoc e salvá-los conforme necessário. O OMS também fornece um designer de exibição personalizado.
 
-Os espaços de trabalho e as soluções de análise do Log Analytics podem ser abertos no Portal do Azure e no OMS. O Portal do Azure é o ponto de acesso mais recente, mas pode estar por trás do portal do OMS em algumas áreas.
+Soluções de análise e espaços de trabalho de análise de log podem ser abertas no hello portal do Azure e no OMS. Olá portal do Azure é o ponto de acesso mais recente Olá, mas pode estar por trás do portal do OMS Olá em algumas áreas.
 
-### <a name="start-the-load-generator-to-create-data-to-analyze"></a>Iniciar o gerador de carga para criar dados para analisar
+### <a name="start-hello-load-generator-toocreate-data-tooanalyze"></a>Iniciar Olá carga gerador toocreate dados tooanalyze
 
-1. Abra **Demo-PerformanceMonitoringAndManagement.ps1** no **ISE do PowerShell**. Mantenha esse script aberto pois você talvez queira executar vários dos cenários de geração de carga durante este tutorial.
-1. Se você tem menos de cinco locatários, provisione um lote de locatários para proporcionar um contexto de monitoramento mais interessante:
+1. Abra **demonstração PerformanceMonitoringAndManagement.ps1** em Olá **PowerShell ISE**. Mantenha esse script aberta, talvez você queira toorun vários dos cenários de geração de carga Olá durante este tutorial.
+1. Se você tiver menos de cinco locatários, provisione um lote de locatários tooprovide um contexto de monitoramento mais interessante:
    1. Defina **$DemoScenario = 1,** **Provisionar um lote de locatários**
-   1. Pressione **F5** para executar o script.
+   1. Pressione **F5** toorun script de saudação.
 
 1. Defina **$DemoScenario** = 2, **Gerar carga de intensidade normal (aproximadamente 40 DTU)**.
-1. Pressione **F5** para executar o script.
+1. Pressione **F5** toorun script de saudação.
 
-## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
+## <a name="get-hello-wingtip-application-scripts"></a>Obter scripts de aplicativo hello Wingtip
 
-Os scripts do Wingtip Tickets e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). Os arquivos de script estão localizados na [pasta de Módulos de Aprendizado](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Baixe a pasta **Módulos de Aprendizado** em seu computador local, mantendo a estrutura de pastas.
+Olá Wingtip tíquetes scripts e código fonte do aplicativo estão disponíveis no hello [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repositório github. Arquivos de script estão localizados em Olá [pasta módulos de aprendizado](https://github.com/Microsoft/WingtipSaaS/tree/master/Learning%20Modules). Baixar Olá **módulos de aprendizado** pasta tooyour computador local, mantendo sua estrutura de pasta.
 
-## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalando e configurando o Log Analytics e a solução Análise de SQL do Azure
+## <a name="installing-and-configuring-log-analytics-and-hello-azure-sql-analytics-solution"></a>Instalar e configurar a análise de Log e Olá solução de análise do SQL Azure
 
-O Log Analytics é um serviço separado que precisa ser configurado. O Log Analytics coleta dados de log e telemetria e métrica em um espaço de trabalho de Log Analytics. Um espaço de trabalho é um recurso, assim como outros recursos no Azure e deve ser criado. Embora o espaço de trabalho não precise ser criado no mesmo grupo de recursos que o(s) aplicativo(s) que ele está monitorando, isso geralmente faz mais sentido. No caso do aplicativo Wingtip SaaS, isso permite que o espaço de trabalho seja excluído facilmente com o aplicativo ao simplesmente excluir o grupo de recursos.
+Análise de log é um serviço separado que precisa toobe configurado. O Log Analytics coleta dados de log e telemetria e métrica em um espaço de trabalho de Log Analytics. Um espaço de trabalho é um recurso, assim como outros recursos no Azure e deve ser criado. Enquanto não precisa de um espaço de trabalho de saudação toobe criado no hello mesmo grupo de recursos como aplicativos de saudação que está monitorando, isso torna hello mais sentido. No caso de saudação do aplicativo de SaaS Wingtip hello, isso permite que toobe de espaço de trabalho Olá facilmente excluído com o aplicativo hello simplesmente excluindo grupo de recursos de saudação.
 
-1. Abra ...\\Módulos de aprendizado\\Monitoramento e gerenciamento de desempenho\\Log Analytics\\*Demo-LogAnalytics.ps1* no **ISE do PowerShell**.
-1. Pressione **F5** para executar o script.
+1. Abrir... \\Módulos de aprendizado\\gerenciamento e monitoramento do desempenho de\\análise de Log\\*demonstração LogAnalytics.ps1* em Olá **PowerShell ISE**.
+1. Pressione **F5** toorun script de saudação.
 
-Nesse ponto, você deve ser capaz de abrir o Log Analytics no Portal do Azure (ou no portal do OMS). Levará alguns minutos para que a telemetria seja coletada no espaço de trabalho do Log Analytics e se torne visível. Quanto mais tempo você deixar o sistema coletando de dados, mais interessante será a experiência. Agora é um bom momento para pegar algo pra beber. Só dê uma olhadinha para ter certeza de que o gerador de carga ainda está em execução!
-
-
-## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Usar o Log Analytics e a solução de Análise de SQL para monitorar pools e bancos de dados
+Agora você deve ser capaz de análise de Log abertos no portal do Azure hello (ou portal do OMS Olá). Levará alguns minutos para toobe de telemetria coletados no espaço de trabalho de análise de Log hello e toobecome visível. será Hello mais que deixar o sistema Olá coleta dados Olá experiência de hello mais interessante. Agora é um bom momento toograb bebidas - apenas certifique-se de gerador de carga Olá ainda está em execução!
 
 
-Neste exercício, abra o Log Analytics e o portal do OMS para examinar a telemetria que está sendo coletada para os bancos de dados e pools.
+## <a name="use-log-analytics-and-hello-sql-analytics-solution-toomonitor-pools-and-databases"></a>Use a análise de Log e Olá bancos de dados e pools de toomonitor de solução de análise do SQL
 
-1. Navegue até o [Portal do Azure](https://portal.azure.com) e abra o Log Analytics clicando em Mais serviços e, em seguida, pesquise o Log Analytics:
+
+Neste exercício, abra a análise de Log e Olá toolook portal do OMS em Telemetria Olá sendo coletada pools de bancos de dados e hello.
+
+1. Procurar toohello [portal do Azure](https://portal.azure.com) , abra a análise de Log clicando mais serviços e procure a análise de Log:
 
    ![abrir log analytics](media/sql-database-saas-tutorial-log-analytics/log-analytics-open.png)
 
-1. Selecione o espaço de trabalho chamado *wtploganalytics-&lt;USER&gt;*.
+1. Selecionar espaço de trabalho de saudação denominado *wtploganalytics -&lt;usuário&gt;*.
 
-1. Selecione **Visão geral** para abrir a solução Log Analytics no Portal do Azure.
+1. Selecione **visão geral** tooopen Olá solução de análise de Log em Olá portal do Azure.
    ![overview-link](media/sql-database-saas-tutorial-log-analytics/click-overview.png)
 
-    **IMPORTANTE**: pode levar alguns minutos até que a solução esteja ativa. Tenha paciência!
+    **IMPORTANTE**: pode levar alguns minutos antes de saudação solução está ativa. Tenha paciência!
 
-1. Clique no bloco Análise de SQL do Azure para abri-lo.
+1. Clique em Olá tooopen do bloco de análise do SQL Azure.
 
     ![visão geral](media/sql-database-saas-tutorial-log-analytics/overview.png)
 
     ![análise](media/sql-database-saas-tutorial-log-analytics/analytics.png)
 
-1. A exibição na folha da solução rola para os lados através da sua própria barra de rolagem na parte inferior (atualize a folha se necessário).
+1. Olá exibição no hello solução blade rola para os lados com sua própria barra de rolagem na parte inferior do hello (atualização Olá folha se necessário).
 
-1. Explore as várias exibições clicando nelas ou em recursos individuais para abrir um gerenciador de detalhamento, no qual você pode usar o controle deslizante de tempo na parte superior esquerda ou clicar em uma barra vertical para focalizar em uma fração de tempo mais estreita. Com esta exibição, você pode selecionar bancos de dados individuais ou pools para se concentrar em recursos específicos:
+1. Explorar Olá várias exibições clicando neles ou em recursos individuais tooopen um Gerenciador de busca detalhada, onde você pode usar o controle deslizante de tempo Olá no hello superior esquerda ou clique na vertical barra toofocus em um intervalo de tempo mais estreito. Com essa exibição, você pode selecionar toofocus individuais de bancos de dados ou os pools de recursos específicos:
 
     ![gráfico](media/sql-database-saas-tutorial-log-analytics/chart.png)
 
-1. De volta na folha da solução, se você rolar para a extrema direita, verá algumas consultas salvas nas quais você pode clicar para abrir e explorar. Você pode tentar modificar essas consultas e salvar as consultas interessantes que produzir, as quais você poderá abrir novamente e usar com outros recursos.
+1. Volta na folha de solução de hello, se você rolar toohello extrema direita você verá algumas consultas salvas que você pode clicar em tooopen e explorar. Você pode tentar modificar essas consultas e salvar as consultas interessantes que produzir, as quais você poderá abrir novamente e usar com outros recursos.
 
-1. Voltando para a folha do espaço de trabalho do Log Analytics, selecione Portal do OMS para abrir a solução nele.
+1. Volta na folha de espaço de trabalho de análise de Log de hello, selecione solução de saudação de tooopen Portal do OMS existe.
 
     ![oms](media/sql-database-saas-tutorial-log-analytics/oms.png)
 
-1. No portal do OMS, você pode configurar alertas. Clique na parte de alertas do modo de exibição de DTU do Banco de Dados.
+1. No portal do OMS hello, você pode configurar alertas. Clique na parte de alerta de saudação do banco de dados Olá exibição DTU.
 
-1. Na exibição Pesquisa de Logs que aparece, você verá um gráfico de barras com as métricas que estão sendo representadas.
+1. Saudação de pesquisa de Log de modo de exibição que aparece, você verá um gráfico de barras das métricas de saudação que está sendo representados.
 
     ![pesquisa do log](media/sql-database-saas-tutorial-log-analytics/log-search.png)
 
-1. Ao clicar em Alerta na barra de ferramentas, você verá a configuração de alertas e poderá alterá-la.
+1. Se você clicar no alerta, na barra de ferramentas de saudação você será capaz de toosee configuração de alerta de saudação e pode alterá-la.
 
     ![adicionar regra de alerta](media/sql-database-saas-tutorial-log-analytics/add-alert.png)
 
-O monitoramento e os alertas no Log Analytics e no OMS baseiam-se em consultas sobre os dados no espaço de trabalho, ao contrário dos alertas em cada folha de recursos, que são específicos de recursos. Portanto, você pode definir um alerta que examina todos os bancos de dados, digamos, em vez de definir um alerta por banco de dados. Ou escrever um alerta que usa uma consulta composta sobre vários tipos de recurso. As consultas são limitadas apenas pelos dados disponíveis no espaço de trabalho.
+Olá, monitoramento e alertas em análise de Log e o OMS se baseia em consultas em dados Olá no espaço de trabalho hello, diferentemente de saudação alertas em cada folha de recursos, que é específico do recurso. Portanto, você pode definir um alerta que examina todos os bancos de dados, digamos, em vez de definir um alerta por banco de dados. Ou escrever um alerta que usa uma consulta composta sobre vários tipos de recurso. Consultas só são limitadas por dados Olá disponíveis no espaço de trabalho de saudação.
 
-O Log Analytics para o Banco de Dados SQL é cobrado com base no volume de dados no espaço de trabalho. Nesse tutorial, você criou um espaço de trabalho Gratuito, que é limitado a 500 MB por dia. Quando esse limite é atingido, os dados não são mais adicionados ao espaço de trabalho.
+Análise de log do banco de dados SQL é cobrado com base no volume de dados Olá no espaço de trabalho de saudação. Neste tutorial, você criou um espaço livre, que é too500MB limitado por dia. Quando esse limite é atingido dados não são adicionados toohello espaço de trabalho.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -126,12 +126,12 @@ Neste tutorial, você aprendeu a:
 
 > [!div class="checklist"]
 > * Instalar e configurar o Log Analytics (OMS)
-> * Usar o Log Analytics para monitorar pools e bancos de dados
+> * Usar pools de toomonitor de análise de logs e bancos de dados
 
 [Tutorial de análise de locatário](sql-database-saas-tutorial-tenant-analytics.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Tutoriais adicionais que aproveitam a implantação de aplicativo SaaS Wingtip inicial](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* [Tutoriais adicionais que se baseiam na implantação de aplicativos SaaS Wingtip inicial Olá](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
 * [OMS](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

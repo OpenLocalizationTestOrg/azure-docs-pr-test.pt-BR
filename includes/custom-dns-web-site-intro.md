@@ -1,0 +1,2 @@
+Quando você cria um aplicativo web, o Microsoft Azure fornece um subdomínio amigável no domínio azurewebsites.net de saudação para seus usuários possam acessar seu aplicativo web usando uma URL como http://&lt;mywebapp&gt;. azurewebsites.net. Você também pode associar um nome de domínio personalizado, como contoso.com, seu aplicativo web em ordem tooprovide um nome de domínio mais reconhecível para seus usuários.
+

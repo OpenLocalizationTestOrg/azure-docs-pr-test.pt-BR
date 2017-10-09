@@ -1,5 +1,5 @@
 ---
-title: "Notificações de Reliable Services | Microsoft Docs"
+title: "notificações de serviços aaaReliable | Microsoft Docs"
 description: "Documentação conceitual para notificações de Reliable Services do Service Fabric"
 services: service-fabric
 documentationcenter: .net
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8c43190d31dbe82d1dc7fa1c228128bdcc3684f6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reliable-services-notifications"></a>Notificações do Reliable Services
-As notificações permitem que os clientes controle as alterações que estão sendo feitas em um objeto no qual eles estão interessados. Dois tipos de objetos dão suporte a notificações: *Gerenciador de Estado Confiável* e *Dicionário Confiável*.
+As notificações permitem que os clientes tootrack alterações de saudação que estão sendo feitas objeto tooan que elas têm interesse em. Dois tipos de objetos dão suporte a notificações: *Gerenciador de Estado Confiável* e *Dicionário Confiável*.
 
 Os motivos comuns para usar as Notificações são:
 
-* Criação de modos de exibição materializados, como índices secundários, ou modos de exibição agregadas e filtradas do estado da réplica. Um exemplo é um índice classificado de todas as chaves em um Dicionário Confiável.
-* Envio de dados de monitoramento, como o número de usuários adicionados na última hora.
+* Criando exibições, como índices secundários materializadas ou agregado exibições filtradas de estado da réplica de saudação. Um exemplo é um índice classificado de todas as chaves em um Dicionário Confiável.
+* Enviados dados de monitoramento, como o número de saudação de usuários adicionados no hello última hora.
 
 As notificações são disparadas como parte da aplicação de operações. Por disso, as notificações devem ser manipuladas tão rápido quanto possível, e eventos síncronos não devem incluir operações dispendiosas.
 
 ## <a name="reliable-state-manager-notifications"></a>Notificações do Gerenciador de Estado Confiável
-O Gerenciador de Estado Confiável fornece notificações para os eventos a seguir:
+Gerenciador de estado confiável oferece notificações para Olá eventos a seguir:
 
 * Transação
   * Confirmar
@@ -40,16 +40,16 @@ O Gerenciador de Estado Confiável fornece notificações para os eventos a segu
   * Adição de um estado confiável
   * Remoção de um estado confiável
 
-O Gerenciador de Estado Confiável rastreia as transações em execução no momento. A única alteração no estado da transação que faz com que uma notificação seja acionada é uma confirmação de transação.
+Gerenciador de estado confiável rastreia transações atuais de inflight hello. Olá única alteração no estado de transação que faz com que um toobe notificação acionado é uma transação sendo confirmada.
 
-O Gerenciador de Estado Confiável mantém uma coleção de estados confiáveis, como Dicionário Confiável e Fila Confiável. O Gerenciador de Estado Confiável dispara notificações quando essa coleção muda: um estado confiável é adicionado ou removido ou toda a coleção é recompilada.
-A coleção do Gerenciador de Estado Confiável é recompilada em três casos:
+O Gerenciador de Estado Confiável mantém uma coleção de estados confiáveis, como Dicionário Confiável e Fila Confiável. Gerenciador de estado confiável dispara notificações quando essa coleção é alterada: um estado confiável é adicionado ou removido, ou toda a coleção Olá é reconstruída.
+Olá Gerenciador de estado confiável coleção será recriado em três casos:
 
-* Recuperação: quando uma réplica é iniciada, recupera seu estado anterior do disco. Ao fim da recuperação, ela usa **NotifyStateManagerChangedEventArgs** para disparar um evento que contém o conjunto de estados confiáveis recuperados.
-* Cópia completa: para que uma réplica possa ingressar no conjunto de configurações, ela deve ser compilada. Às vezes, isso exige a aplicação de uma cópia completa do estado do Gerenciador de Estado Confiável da réplica primária para a réplica secundária ociosa. O Gerenciador de Estado Confiável na réplica secundária usa **NotifyStateManagerChangedEventArgs** para disparar um evento que contém o conjunto de estados confiáveis que adquiriu da réplica primária.
-* Restore: em cenários de recuperação de desastres, o estado da réplica pode ser restaurado de um backup por meio de **RestoreAsync**. Nesses casos, o Gerenciador de Estado Confiável na réplica primária usa **NotifyStateManagerChangedEventArgs** para disparar um evento que contém o conjunto de estados confiáveis que ele restaurou do backup.
+* Recuperação: Quando uma réplica é iniciado, ele recupera seu estado anterior de disco hello. No final da saudação de recuperação, ele usa **NotifyStateManagerChangedEventArgs** toofire um evento que contém o conjunto de saudação de estados confiáveis recuperados.
+* Cópia completa: antes de conjunto de configurações de saudação ingressar em uma réplica, ele tem toobe criado. Às vezes, isso requer uma cópia completa do estado do Gerenciador de estado confiável de saudação réplica primária toobe toohello aplicada ocioso réplica secundária. Gerenciador de estado confiável em usos de réplica secundária Olá **NotifyStateManagerChangedEventArgs** toofire um evento que contém o conjunto de saudação de estados confiáveis que adquiriu a réplica primária hello.
+* Restaurar: Em cenários de recuperação de desastres, estado da réplica de saudação pode ser restaurado de um backup por meio de **RestoreAsync**. Nesses casos, usa o Gerenciador de estado confiável na réplica primária Olá **NotifyStateManagerChangedEventArgs** toofire um evento que contém Olá conjunto confiáveis de estados de que ela restaurada do backup hello.
 
-Para se registrar e receber notificações de transação e/ou notificações do gerenciador de estado, você precisa se registrar com eventos **TransactionChanged** ou **StateManagerChanged** no Gerenciador de Estado Confiável. Um lugar comum para registrar esses manipuladores de eventos é o construtor de seu serviço com estado. Quando você se registrar no construtor, não perderá notificações causadas por uma alteração durante a vida útil de **IReliableStateManager**.
+tooregister para notificações de transação e/ou notificações de Gerenciador de estado, você precisa tooregister com hello **TransactionChanged** ou **StateManagerChanged** eventos no Gerenciador de estado confiável. Um local comum tooregister com esses manipuladores de eventos é o construtor de saudação do seu serviço com monitoração de estado. Quando você se registrar no construtor de hello, não perder qualquer notificação causado por uma alteração durante o tempo de vida de saudação do **IReliableStateManager**.
 
 ```C#
 public MyService(StatefulServiceContext context)
@@ -60,10 +60,10 @@ public MyService(StatefulServiceContext context)
 }
 ```
 
-O manipulador de eventos **TransactionChanged** usa **NotifyTransactionChangedEventArgs** para fornecer detalhes sobre o evento. Contém a propriedade de ação (por exemplo, **NotifyTransactionChangedAction.Commit**) que especifica o tipo de alteração. Também contém a propriedade de transação que fornece uma referência para a transação que foi alterada.
+Olá **TransactionChanged** usa o manipulador de eventos **NotifyTransactionChangedEventArgs** tooprovide detalhes sobre o evento hello. Ele contém a propriedade de ação da saudação (por exemplo, **NotifyTransactionChangedAction.Commit**) que especifica o tipo de saudação de alteração. Ele também contém a propriedade de transação de saudação que fornece uma transação de toohello de referência que foram alteradas.
 
 > [!NOTE]
-> Hoje, eventos **TransactionChanged** são gerados somente se a transação é confirmada. A ação é igual a **NotifyTransactionChangedAction.Commit**. Porém, no futuro, eventos poderão ser gerados para outros tipos de alterações de estado de transação. É recomendável verificar a ação e processar o evento somente se ele for o que você espera.
+> Hoje, **TransactionChanged** os eventos são gerados somente se Olá a transação é confirmada. Olá ação é igual muito**NotifyTransactionChangedAction.Commit**. Mas em Olá futuras, eventos podem ser gerados para outros tipos de alterações de estado de transação. É recomendável verificando ação hello e processar o evento de saudação somente se ele é aquele que você espera.
 > 
 > 
 
@@ -82,9 +82,9 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 }
 ```
 
-O manipulador de eventos **StateManagerChanged** usa **NotifyStateManagerChangedEventArgs** para fornecer detalhes sobre o evento.
+Olá **StateManagerChanged** usa o manipulador de eventos **NotifyStateManagerChangedEventArgs** tooprovide detalhes sobre o evento hello.
 **NotifyStateManagerChangedEventArgs** tem duas subclasses: **NotifyStateManagerRebuildEventArgs** e **NotifyStateManagerSingleEntityChangedEventArgs**.
-Use a propriedade de ação no **NotifyStateManagerChangedEventArgs** para converter **NotifyStateManagerChangedEventArgs** na subclasse correta:
+Você usar a propriedade de ação de saudação na **NotifyStateManagerChangedEventArgs** toocast **NotifyStateManagerChangedEventArgs** subclasse correto toohello:
 
 * **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
 * **NotifyStateManagerChangedAction.Add** e **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
@@ -106,16 +106,16 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ```
 
 ## <a name="reliable-dictionary-notifications"></a>Notificações de Dicionário Confiável
-O Dicionário Confiável fornece notificações para os seguintes eventos:
+Dicionário confiável oferece notificações para Olá eventos a seguir:
 
 * Recompilar: chamada quando **ReliableDictionary** recuperou o estado de um backup ou recuperou ou copiou o estado local ou backup.
-* Limpar: chamado quando o estado de **ReliableDictionary** foi limpo por meio do método **ClearAsync**.
-* Adicione: Chamado quando um item foi adicionado ao **ReliableDictionary**.
+* Limpar: Chamado quando Olá estado de **ReliableDictionary** foi limpo por meio de saudação **ClearAsync** método.
+* Adicione: Chamado quando um item foi adicionado muito**ReliableDictionary**.
 * Update: chamado quando um item em **IReliableDictionary** tiver sido atualizado.
 * Remove: chamado quando um item em **IReliableDictionary** tiver sido removido.
 
-Para obter notificações de dicionário confiável, você precisa se registrar com o manipulador de eventos **DictionaryChanged** em **IReliableDictionary**. Um lugar comum para se registrar com esses manipuladores de eventos é na notificação de adição **ReliableStateManager.StateManagerChanged** .
-O registro quando **IReliableDictionary** é adicionado a **IReliableStateManager** garante que você não perca notificações.
+notificações de dicionário confiável tooget, você precisa tooregister com hello **DictionaryChanged** manipulador de eventos **IReliableDictionary**. Um local comum é tooregister com esses manipuladores de eventos em Olá **ReliableStateManager.StateManagerChanged** adicionar notificação.
+Registrando quando **IReliableDictionary** é adicionado muito**IReliableStateManager** garante que as notificações não perder.
 
 ```C#
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
@@ -136,11 +136,11 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 ```
 
 > [!NOTE]
-> **ProcessStateManagerSingleEntityNotification** é o método de exemplo que o exemplo de **OnStateManagerChangedHandler** anterior chama.
+> **ProcessStateManagerSingleEntityNotification** é o método de exemplo hello que hello anterior **OnStateManagerChangedHandler** exemplo chama.
 > 
 > 
 
-O conjunto de código anterior define a interface de **IReliableNotificationAsyncCallback**, juntamente com **DictionaryChanged**. Como **NotifyDictionaryRebuildEventArgs** contém uma interface **IAsyncEnumerable** que precisa ser enumerada de forma assíncrona, as notificações de recriação são disparadas por meio de **RebuildNotificationAsyncCallback** em vez de **OnDictionaryChangedHandler**.
+código anterior Hello define Olá **IReliableNotificationAsyncCallback** interface, juntamente com **DictionaryChanged**. Porque **NotifyDictionaryRebuildEventArgs** contém um **IAsyncEnumerable** interface – qual precisa toobe enumerado assincronamente – reconstrução notificações são disparadas por meio de  **RebuildNotificationAsyncCallback** em vez de **OnDictionaryChangedHandler**.
 
 ```C#
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
@@ -158,12 +158,12 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 ```
 
 > [!NOTE]
-> No código anterior, como parte do processamento da notificação de recriação, primeiro o estado agregado mantido é limpo. Como a coleção confiável está sendo recompilada com um novo estado, todas as notificações anteriores são irrelevantes.
+> Saudação anterior do código, como parte do processamento de notificação de recriação Olá, Olá primeiro mantidos agregadas do estado é limpo. Porque a coleção confiável Olá estiver sendo reconstruída com um novo estado, todas as notificações anteriores são irrelevantes.
 > 
 > 
 
-O manipulador de eventos **DictionaryChanged** usa o **NotifyDictionaryChangedEventArgs** para fornecer detalhes sobre o evento.
-**NotifyDictionaryChangedEventArgs** tem cinco subclasses. Use a propriedade de ação em **NotifyDictionaryChangedEventArgs** para converter **NotifyDictionaryChangedEventArgs** na subclasse correta:
+Olá **DictionaryChanged** usa o manipulador de eventos **NotifyDictionaryChangedEventArgs** tooprovide detalhes sobre o evento hello.
+**NotifyDictionaryChangedEventArgs** tem cinco subclasses. Usar a propriedade de ação Olá em **NotifyDictionaryChangedEventArgs** toocast **NotifyDictionaryChangedEventArgs** subclasse correto toohello:
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
@@ -205,15 +205,15 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 ## <a name="recommendations"></a>Recomendações
 * *Conclua* os eventos de notificações o mais rápido possível.
 * *Não* execute quaisquer operações dispendiosas (por exemplo, operações de E/S) como parte de eventos síncronos.
-* *Verifique* o tipo de ação antes de processar o evento. Novos tipos de ação podem ser adicionados no futuro.
+* *Fazer* verificar o tipo de ação de saudação antes de processar eventos hello. Novos tipos de ação podem ser adicionados em Olá futuras.
 
-Eis aqui algumas coisas que se deve manter em mente:
+Aqui estão algumas coisas tookeep em mente:
 
-* As notificações são disparadas como parte da execução de uma operação. Por exemplo, uma notificação de restauração é acionada como a última etapa de uma operação de restauração. Uma restauração não será concluída até que o evento de notificação seja processado.
-* Como as notificações são disparadas como parte das operações de aplicação, os clientes veem apenas as notificações para operações confirmadas localmente. E como as operações têm garantia de serem confirmadas apenas localmente (em outras palavras, registradas em log), podem ou não pode ser desfeitas no futuro.
-* No caminho de restauração, uma única notificação é disparada para cada operação aplicada. Isso significa que se a transação T1 incluir Create(X), Delete(X) e Create(X), você obterá uma notificação para a criação de X, uma para a exclusão e outra para a criação, nessa ordem.
-* Para transações que contêm várias operações, as operações são aplicadas na ordem em que foram recebidas na réplica primária do usuário.
-* Como parte do processamento do progresso falso, algumas operações podem ser desfeitas. As notificações são geradas para essas operações da ação de desfazer, revertendo o estado da réplica de volta a um ponto estável. Uma diferença importante das notificações de ação de desfazer é que os eventos que têm chaves duplicadas são agregados. Por exemplo, se a transação T1 estiver sendo desfeita, você verá uma notificação única para Delete(X).
+* As notificações são disparadas como parte da execução de saudação de uma operação. Por exemplo, uma notificação de restauração é acionada como última etapa saudação de uma operação de restauração. Uma restauração não será concluído até que o evento de notificação de saudação é processado.
+* Como as notificações são acionadas como parte da saudação aplicar operações, os clientes verão apenas as notificações para operações confirmadas localmente. E, como operações têm a garantia de apenas toobe confirmada localmente (em outras palavras, conectado), eles podem ou não pode ser desfeitos no hello futuras.
+* No caminho de restauração hello, uma única notificação é disparada para cada operação aplicada. Isso significa que se a transação T1 inclui Create(X), Delete(X) e Create(X), você obterá uma notificação para criação de saudação de X, um para exclusão hello e um para a criação de saudação novamente, nessa ordem.
+* Para transações que contêm várias operações, as operações são aplicadas na ordem de saudação em que foram recebidos na réplica primária de saudação do usuário hello.
+* Como parte do processamento do progresso falso, algumas operações podem ser desfeitas. As notificações são geradas para essas operações de desfazer, reverter o estado de saudação do ponto estável do hello réplica tooa voltar. Uma diferença importante das notificações de ação de desfazer é que os eventos que têm chaves duplicadas são agregados. Por exemplo, se a transação T1 é desfeita, você verá uma única notificação tooDelete(X).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Coleções Confiáveis](service-fabric-work-with-reliable-collections.md)

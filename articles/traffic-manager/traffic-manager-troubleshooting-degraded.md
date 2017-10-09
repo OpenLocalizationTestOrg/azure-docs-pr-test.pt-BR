@@ -1,6 +1,6 @@
 ---
-title: "Solucionando problemas de status degradado do Gerenciador de Tráfego"
-description: "Como solucionar problemas de perfis do Gerenciador de Tráfego quando ele aparece com status de degradado."
+title: status de aaaTroubleshooting degradado no Azure Traffic Manager
+description: "Como perfis de Gerenciador de tráfego tootroubleshoot quando ele aparece como status degradado."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -13,42 +13,42 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: kumud
-ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fd95697781472b52e98d856e66beb7b89dfeaf23
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de status degradado do Gerenciador de Tráfego do Azure
 
-Este artigo descreve como solucionar problemas de um perfil do Gerenciador de Tráfego do Azure que mostra um estado degradado. Para esse cenário, considere a possibilidade de que você configurou um perfil do Gerenciador de Tráfego apontando para alguns dos serviços hospedados do cloudapp.net. Se a integridade do seu Gerenciador de Tráfego exibe um status **Degradado**, o status de um ou mais pontos de extremidade pode ser **Degradado**:
+Este artigo descreve como tootroubleshoot um perfil do Gerenciador de tráfego do Azure que está mostrando um estado degradado. Para este cenário, considere a possibilidade de que você tenha configurado um perfil do Gerenciador de tráfego apontando toosome de seus serviços hospedados de cloudapp.net. Se a integridade de saudação do seu Traffic Manager exibe um **degradado** status e status de saudação de um ou mais pontos de extremidade podem ser **degradado**:
 
 ![status do ponto de extremidade degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-Se a integridade do seu Gerenciador de Tráfego exibe um status **Inativo**, ambos os pontos de extremidade podem ser **Desabilitado**:
+Se a integridade de saudação do seu Traffic Manager exibe um **inativo** status e, em seguida, os dois pontos de extremidade podem ser **desabilitado**:
 
 ![Status do Gerenciador de Tráfego Inativo](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
 ## <a name="understanding-traffic-manager-probes"></a>Noções básicas sobre as investigações do Gerenciador de Tráfego
 
-* O Gerenciador de Tráfego considera um ponto de extremidade como estando ONLINE somente quando a investigação recebe uma resposta HTTP 200 do caminho de investigação. Qualquer outra resposta diferente de 200 é uma falha.
-* Um redirecionamento 30x falha, mesmo se a URL redirecionada retorna uma resposta 200.
+* Gerenciador de tráfego considera um toobe de ponto de extremidade ONLINE somente quando o teste de saudação recebe uma resposta HTTP 200 fazer do caminho de investigação de saudação. Qualquer outra resposta diferente de 200 é uma falha.
+* Um redirecionamento 30 x falha, mesmo se Olá redirecionado URL retorna uma resposta 200.
 * Para investigações de HTTPs, os erros de certificado são ignorados.
-* O conteúdo real do caminho de investigação não importa, contanto que uma resposta 200 seja retornada. A investigação de uma URL para algum conteúdo estático como “/favicon.ico” é uma técnica comum. O conteúdo dinâmico, como as páginas ASP, nem sempre poderá retornar a resposta 200, mesmo quando o aplicativo estiver íntegro.
-* Uma prática recomendada é definir o caminho de Investigação como algo que tenha lógica suficiente para determinar se o site está ativo ou inativo. No exemplo anterior, ao configurar o caminho como “/favicon.ico”, você está apenas testando se w3wp.exe está respondendo. Essa investigação pode não indicar que o aplicativo Web está íntegro. Uma opção melhor seria definir um caminho para algo como “/Probe.aspx”, que tem lógica para determinar a integridade do site. Por exemplo, você poderá usar contadores de desempenho para a utilização da CPU ou medir o número de solicitações com falha. Se preferir, você poderá tentar acessar os recursos de banco de dados ou o estado de sessão para verificar se o aplicativo Web está funcionando.
-* Se todos os pontos de extremidade em um perfil estiverem degradados, o Gerenciador de Tráfego tratará todos os pontos de extremidade como íntegros e encaminhará o tráfego para todos eles. Esse comportamento garante que os problemas com o mecanismo de investigação não resultam em uma interrupção completa do serviço.
+* conteúdo real de saudação do caminho de investigação de saudação não importa, desde que uma resposta 200 é retornado. Um tipo de conteúdo estático do toosome URL de investigação "/ favicon.ico" é uma técnica comum. Conteúdo dinâmico, como as páginas ASP hello, talvez nem sempre retorna 200, mesmo quando o aplicativo hello está íntegro.
+* Uma prática recomendada é tooset Olá investigação toosomething de caminho que tem suficiente toodetermine lógica que Olá site está ativa ou inativa. Em Olá exemplo anterior, definindo Olá caminho too"/favicon.ico", você está apenas testar essa w3wp.exe está respondendo. Essa investigação pode não indicar que o aplicativo Web está íntegro. Uma opção melhor seria tooset tooa um caminho algo como "/ Probe.aspx" que tem lógica de integridade de saudação de toodetermine do site de saudação. Por exemplo, você pode usar a utilização de tooCPU de contadores de desempenho ou medida Olá número de solicitações com falha. Ou, você poderá tentar tooaccess recursos de banco de dados ou toomake de estado de sessão-se de que o aplicativo da web hello está funcionando.
+* Se todos os pontos de extremidade em um perfil estão degradados, o Traffic Manager tratará todos os pontos de extremidade como íntegro e rotas tráfego tooall pontos de extremidade. Esse comportamento garante que problemas com hello mecanismo de sondagem não resultam em uma falha completa do seu serviço.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-Para solucionar uma falha de investigação, você precisa de uma ferramenta que mostra o retorno de código de status HTTP da URL de investigação. Há várias ferramentas disponíveis que mostram a resposta HTTP bruta.
+tootroubleshoot uma falha de teste, você precisa de uma ferramenta que mostra o código de status HTTP Olá retorno da URL de investigação de saudação. Há muitas ferramentas disponíveis que mostram Olá bruta resposta HTTP.
 
 * [Fiddler](http://www.telerik.com/fiddler)
 * [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
-Além disso, você pode usar a guia Rede das Ferramentas de Depuração F12 no Internet Explorer para exibir as respostas HTTP.
+Além disso, você pode usar o guia de rede de saudação do hello F12 ferramentas de depuração em respostas HTTP do Internet Explorer tooview hello.
 
-Neste exemplo, queremos ver a resposta de nossa URL de investigação: http://watestsdp2008r2.cloudapp.net:80/Probe. O exemplo do PowerShell a seguir ilustra o problema.
+Neste exemplo, queremos toosee resposta de saudação do nosso URL de investigação: http://watestsdp2008r2.cloudapp.net:80/investigação. Olá PowerShell de exemplo a seguir ilustra o problema de saudação.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -60,9 +60,9 @@ Saída de exemplo:
     ---------- -----------------
            301 Moved Permanently
 
-Observe que recebemos uma resposta de redirecionamento. Como mencionamos anteriormente, qualquer StatusCode diferente de 200 é considerado uma falha. O Gerenciador de Tráfego altera o status do ponto de extremidade para Offline. Para resolver o problema, verifique a configuração do site para garantir que o StatusCode apropriado pode ser retornado do caminho de investigação. Reconfigure a investigação do Gerenciador de Tráfego para que ela aponte para um caminho que retorna uma resposta 200.
+Observe que recebemos uma resposta de redirecionamento. Como mencionamos anteriormente, qualquer StatusCode diferente de 200 é considerado uma falha. Alterações de Gerenciador de tráfego Olá tooOffline de status do ponto de extremidade. problema de saudação tooresolve, seleção Olá site configuração tooensure que Olá StatusCode adequada pode ser retornado do caminho de investigação de saudação. Reconfigure Olá Traffic Manager investigação toopoint tooa caminho que retorna uma resposta 200.
 
-Se a investigação estiver usando o protocolo HTTPS, talvez seja necessário desabilitar a verificação de certificado, para evitar erros de SSL/TLS durante o teste. As seguintes instruções do PowerShell desabilitam a validação de certificado na sessão atual do PowerShell:
+Se o teste é usando Olá protocolo HTTPS, talvez seja necessário certificado toodisable verificação de erros SSL/TLS tooavoid durante o teste. Olá, instruções a seguir do PowerShell desabilitar validação de certificado para a sessão atual do PowerShell hello:
 
 ```powershell
 add-type @"

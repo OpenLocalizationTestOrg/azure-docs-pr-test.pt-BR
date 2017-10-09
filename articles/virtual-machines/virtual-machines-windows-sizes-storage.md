@@ -1,6 +1,6 @@
 ---
-title: "Tamanhos de VM Windows do Azure — Armazenamento | Microsoft Docs"
-description: "Lista os diferentes tamanhos otimizados para armazenamento disponíveis para máquinas virtuais Windows no Azure."
+title: tamanhos de VM do Windows aaaAzure - armazenamento | Microsoft Docs
+description: "Listas Olá diferente armazenamento otimizado tamanhos disponíveis para máquinas virtuais do Windows no Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 586b77c357f64f853374a7ba59e766b015d572c2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 205207c28c6266cc4daa15cc190bfeb0c00821b1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storage-optimized"></a>Otimizado para armazenamento
 

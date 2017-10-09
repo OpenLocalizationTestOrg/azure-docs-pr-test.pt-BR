@@ -1,56 +1,56 @@
 # <a name="secure-your-iot-deployment"></a>Proteger sua implantação de IoT
-Este artigo fornece detalhes avançados para proteger sua a infraestrutura IoT (Internet das Coisas) baseada em Azure IoT. Ele vincula detalhes de nível de implementação para configurar e implantar cada componente. Além disso, ele fornece comparações e opções entre vários métodos de concorrentes.
+Este artigo fornece o próximo nível de detalhe de saudação para proteger a saudação infra-estrutura de IoT do Azure com base em Internet das coisas (IoT). Vincula tooimplementation detalhes de nível para configurar e implantar cada componente. Além disso, ele fornece comparações e opções entre vários métodos de concorrentes.
 
-A proteção da implantação do Azure IoT pode ser dividida nas seguintes áreas de três segurança:
+Protegendo a implantação do Azure IoT Olá pode ser dividido em Olá três áreas de segurança a seguir:
 
-* **Segurança de Dispositivo**: Protegendo o dispositivo IoT enquanto ele é implantado em uso.
-* **Segurança da Conexão**: garantir que todos os dados transmitidos entre o dispositivo IoT e o Hub IoT sejam confidenciais e à prova de adulteração.
-* **Segurança na Nuvem**: fornecendo meios para proteger os dados enquanto eles são movidos pela nuvem e armazenados nela.
+* **Segurança de dispositivo**: Protegendo dispositivo IoT de saudação enquanto ela está implantada em Olá curinga.
+* **Segurança de Conexão**: verificar todos os dados transmitidos entre o dispositivo de IoT hello e IoT Hub é confidenciais e à prova de adulteração.
+* **Segurança de nuvem**: fornecendo um meio toosecure dados enquanto se movimentam pelo e é armazenado na nuvem hello.
 
 ![Três áreas de segurança][img-overview]
 
 ## <a name="secure-device-provisioning-and-authentication"></a>Provisionamento e autenticação com segurança dos dispositivos
-O Azure IoT Suite protege dispositivos IoT por meio dos dois métodos a seguir:
+Hello Azure IoT Suite protege dispositivos IoT por Olá dois métodos a seguir:
 
-* Fornecendo uma chave de identidade exclusiva (tokens de segurança) para cada dispositivo, o que pode ser usado pelo dispositivo para se comunicar com o Hub IoT.
-* Usando um [certificado X.509][lnk-x509] no dispositivo e uma chave privada como meio de autenticar o dispositivo para o Hub IoT. Esse método de autenticação garante que a chave privada no dispositivo não seja conhecida for do dispositivo em momento algum, o que fornece um nível mais alto de segurança.
+* Fornecendo uma chave de identidade exclusiva (tokens de segurança) para cada dispositivo, o que pode ser usado por Olá dispositivo toocommunicate com hello IoT Hub.
+* Usando um dispositivo [certificado x. 509] [ lnk-x509] e a chave privada como um meio tooauthenticate Olá dispositivo toohello IoT Hub. Esse método de autenticação assegura que Olá chave privada no dispositivo de saudação não é conhecido fora dispositivo Olá a qualquer momento, fornecendo um nível mais alto de segurança.
 
-O método de token de segurança fornece autenticação para cada chamada feita pelo dispositivo para Hub IoT ao associar a chave simétrica a cada chamada. A autenticação com base em x.509 permite a autenticação de um dispositivo IoT na camada física como parte do estabelecimento de conexão TLS. O método baseado em token de segurança pode ser usado sem a autenticação x.509, que é um padrão menos seguro. A escolha entre os dois métodos é determinada principalmente pelo nível de segurança que a autenticação do dispositivo precisa ter e a disponibilidade do armazenamento de segurança no dispositivo (para armazenar com segurança a chave privada).
+método de token de segurança Hello fornece autenticação para cada chamada feita pelo Olá dispositivo tooIoT Hub por meio da associação chamada do hello tooeach chave simétrica. Autenticação baseada em x. 509 permite que a autenticação de um dispositivo IoT na camada física de Olá como parte do estabelecimento de conexão TLS hello. método de segurança baseada em token Hello pode ser usado sem a autenticação Olá x. 509 que é um padrão a menos segura. Hello escolha entre os métodos de saudação dois é principalmente ditada por Olá seguro como autenticação de dispositivo precisa toobe e a disponibilidade de armazenamento seguro no dispositivo de saudação (toostore Olá chave privada com segurança).
 
 ## <a name="iot-hub-security-tokens"></a>Tokens de segurança do Hub IoT
-O Hub IoT usa tokens de segurança para autenticar dispositivos e serviços a fim de evitar o envio de chaves na rede. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. Os SDKs do IoT do Azure geram automaticamente tokens sem precisar de configuração especial. No entanto, alguns cenários exigem que o usuário gere e use tokens de segurança diretamente. Entre esses cenários estão o uso direto de superfícies MQTT, AMQP ou HTTP, ou a implementação do padrão de serviço de token.
+IoT Hub usa segurança tokens tooauthenticate dispositivos e serviços tooavoid enviar chaves na rede de saudação. Além disso, os tokens de segurança têm limite de escopo e de prazo de validade. Os SDKs do IoT do Azure geram automaticamente tokens sem precisar de configuração especial. Alguns cenários, no entanto, exigem Olá usuário toogenerate e usam tokens de segurança diretamente. Isso inclui o uso direto de saudação de superfícies MQTT, AMQP ou HTTP hello ou implementação de saudação do padrão do serviço de token de saudação.
 
-Mais detalhes sobre a estrutura do token de segurança e seu uso podem ser encontradas nos seguintes artigos:
+Mais detalhes na estrutura de saudação do token de segurança hello e seu uso podem ser encontrados no hello artigos a seguir:
 
 * [Estrutura do token de segurança][lnk-security-tokens]
 * [Como usar tokens SAS como um dispositivo][lnk-sas-tokens]
 
-Cada Hub IoT tem um [Registro de identidade][lnk-identity-registry] que você pode usar para criar recursos de acordo com o dispositivo no serviço, como uma fila contendo mensagens em andamento da nuvem para o dispositivo e para permitir acesso aos pontos de extremidade voltados para o dispositivo. O registro de identidade do Hub IoT fornece armazenamento seguro de identidades de dispositivo e chaves de segurança para uma solução. As identidades de dispositivos individuais ou em grupo podem ser adicionadas a uma lista de permissões ou a uma lista de contatos bloqueados, permitindo o controle completo sobre o acesso ao dispositivo. Os artigos a seguir fornecem mais detalhes sobre a estrutura do Registro de identidade e operações com suporte.
+Cada IoT Hub tem um [registro identidade] [ lnk-identity-registry] que pode ser usado toocreate por dispositivo recursos no serviço de saudação, como uma fila que contém mensagens de nuvem para dispositivo em andamento e tooallow toohello de acesso pontos de extremidade voltados para o dispositivo. Olá registro de identidade de IoT Hub fornece armazenamento seguro de identidades de dispositivo e chaves de segurança para uma solução. Individuais ou grupos de identidades do dispositivo podem ser adicionados tooan permitir lista ou uma lista de blocos, permitindo que o controle completo sobre o acesso ao dispositivo. Olá artigos a seguir fornecem mais detalhes na estrutura de saudação do registro de identidade hello e operações com suporte.
 
-[O Hub IoT dá suporte a protocolos como HTTP, AMQP e MQTT][lnk-protocols]. Cada um desses protocolos usa tokens de segurança do dispositivo para o Hub IoT de maneiras diferentes:
+[O Hub IoT dá suporte a protocolos como HTTP, AMQP e MQTT][lnk-protocols]. Cada um desses protocolos usam tokens de segurança de tooIoT de dispositivo Olá IoT Hub maneiras diferentes:
 
-* AMQP: segurança baseada em declarações SASL PLAIN e AMQP ({policyName}@sas.root.{iothubName} no caso de tokens no nível do Hub IoT; {deviceId} no caso de tokens no escopo do dispositivo).
-* MQTT: o pacote CONNECT usa {deviceId} como {ClientId}, {IoThubhostname}/{deviceId} no campo **Nome de usuário** e um token SAS no campo **Senha**.
-* HTTP: o token válido está no cabeçalho da solicitação de autorização.
+* AMQP: Segurança de simples e baseada em declarações AMQP SASL ({policyName}@sas.root. { iothubName} no caso de saudação de tokens do nível do hub IoT; {deviceId} no caso de tokens no escopo do dispositivo).
+* MQTT: Conectar usos do pacote {deviceId} como Olá {ClientId}, {IoThubhostname} / {deviceId} em Olá **Username** campo e um SAS de token em Olá **senha** campo.
+* HTTP: Token válido está no cabeçalho de solicitação de autorização de saudação.
 
-O Registro de identidade do Hub IoT pode ser usado para configurar credenciais de segurança e controle de acesso por dispositivo. No entanto, se uma solução IoT já tiver um investimento considerável em um [Registro de identidade de dispositivo personalizado e/ou em um esquema de autenticação][lnk-custom-auth], ela poderá ser integrada a uma infraestrutura existente com o Hub IoT por meio da criação de um serviço de token.
+Registro de identidade de IoT Hub pode ser credenciais de segurança tooconfigure usado por dispositivo e controle de acesso. No entanto, se uma solução IoT já tiver um investimento considerável em um [Registro de identidade de dispositivo personalizado e/ou em um esquema de autenticação][lnk-custom-auth], ela poderá ser integrada a uma infraestrutura existente com o Hub IoT por meio da criação de um serviço de token.
 
 ### <a name="x509-certificate-based-device-authentication"></a>Autenticação de dispositivo com base no certificado x.509
-O uso de um [certificado X.509 baseado em dispositivo][lnk-use-x509] e seu par de chaves públicas e privadas associadas permite autenticação adicional na camada física. A chave privada é armazenada com segurança no dispositivo e não é localizável fora do dispositivo. O certificado x.509 contém informações sobre o dispositivo, como ID do dispositivo e outros detalhes organizacionais. Uma assinatura do certificado é gerada usando a chave privada.
+Olá o uso de um [certificado baseado em dispositivo de x. 509] [ lnk-use-x509] e seu associado par de chaves pública e privada permite autenticação adicional na camada física hello. chave privada Olá é armazenada com segurança no dispositivo hello e não é detectável fora Olá dispositivo. certificado x. 509 de saudação contém informações sobre o dispositivo de saudação, como ID do dispositivo e outros detalhes organizacionais. Uma assinatura de certificado Olá é gerada usando a chave privada hello.
 
 Fluxo de provisionamento do dispositivo de alto nível:
 
-* Associe um identificador a um dispositivo físico – identidade do dispositivo e/ou certificado x.509 associado ao dispositivo durante fabricação ou preparação de dispositivo.
-* Crie uma entrada de identidade correspondente no Hub IoT – informações de dispositivo associado e identidade do dispositivo no Registro de identidade do Hub IoT.
+* Associe um identificador tooa dispositivo físico – identidade do dispositivo e/ou dispositivo de toohello associados de certificado x. 509 durante o dispositivo de fabricação ou preparação.
+* Crie uma entrada de identidade correspondente no IoT Hub – dispositivo identidade e informações de dispositivo associado no Olá registro de identidade de IoT Hub.
 * Armazene com segurança a impressão digital do certificado x.509 no Registro de identidade do Hub IoT.
 
 ### <a name="root-certificate-on-device"></a>Certificado raiz no dispositivo
-Ao estabelecer uma conexão TLS segura com o IoT Hub, o dispositivo IoT autentica o Hub IoT usando um certificado raiz que é parte do SDK do dispositivo. Para o SDK do cliente C, o certificado está localizado na pasta "\\c\\certs" sob a raiz do repositório. Embora esses certificados raiz são de vida longa, eles ainda podem expirar ou ser revogados. Se não houver nenhuma maneira de atualizar o certificado no dispositivo, o dispositivo poderá não se conectar subsequentemente ao Hub IoT (ou a qualquer outro serviço de nuvem). Ter um meio para atualizar o certificado raiz quando o dispositivo IoT é implantado reduzirá efetivamente o risco.
+Ao estabelecer uma conexão TLS segura com o IoT Hub, dispositivo de IoT Olá autentica IoT Hub usando um certificado raiz que é parte do dispositivo Olá SDK. Para SDK de cliente Olá C certificado Olá está localizado na pasta Olá "\\c\\certificados" na raiz de saudação do repositório de saudação. Embora esses certificados raiz são de vida longa, eles ainda podem expirar ou ser revogados. Se não houver nenhuma maneira de atualizar Olá certificado no dispositivo hello, hello dispositivo talvez não seja possível toosubsequently conectar toohello IoT Hub (ou qualquer outro serviço de nuvem). Ter um certificado de raiz significa tooupdate Olá depois que o dispositivo de IoT Olá é implantado será efetivamente reduzir esse risco.
 
-## <a name="securing-the-connection"></a>Protegendo a conexão
-A conexão com a Internet entre o dispositivo IoT e o Hub IoT é protegida usando o padrão de TLS (protocolo TLS). O Azure IoT dá suporte a [TLS 1.2][lnk-tls12], TLS 1.1 e TLS 1.0, nessa ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. É recomendável usar TLS 1.2, pois ele fornece segurança máxima.
+## <a name="securing-hello-connection"></a>Protegendo a conexão Olá
+Conexão de Internet entre o dispositivo de IoT hello e IoT Hub é protegida usando saudação padrão de segurança de camada de transporte (TLS). O Azure IoT dá suporte a [TLS 1.2][lnk-tls12], TLS 1.1 e TLS 1.0, nessa ordem. O suporte para TLS 1.0 é fornecido somente para fins de compatibilidade com versões anteriores. É recomendável toouse TLS 1.2 como ele fornece hello mais segurança.
 
-O Azure IoT Suite dá suporte ao seguintes Pacotes de Criptografia, nessa ordem.
+Azure IoT Suite oferece suporte a saudação seguintes conjuntos de codificação, nessa ordem.
 
 | Pacote de criptografia | Comprimento |
 | --- | --- |
@@ -66,30 +66,30 @@ O Azure IoT Suite dá suporte ao seguintes Pacotes de Criptografia, nessa ordem.
 | TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA (0x2f) |128 |
 | TLS\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA (0xa) |112 |
 
-## <a name="securing-the-cloud"></a>Proteger a nuvem
-O Hub IoT do Azure permite a definição de [políticas de controle de acesso][lnk-protocols] para cada chave de segurança. Ele usa o conjunto de permissões a seguir para conceder acesso aos pontos de extremidades de cada Hub IoT. As permissões limitam o acesso a um Hub IoT com base na funcionalidade.
+## <a name="securing-hello-cloud"></a>Proteção de nuvem Olá
+O Hub IoT do Azure permite a definição de [políticas de controle de acesso][lnk-protocols] para cada chave de segurança. Ele usa Olá após o conjunto de permissões toogrant acesso tooeach de pontos de extremidade de IoT Hub. Permissões de limitam Olá acesso tooan que hub IoT é baseado na funcionalidade.
 
-* **RegistryRead**. Concede acesso de leitura ao Registro de identidade. Para saber mais, consulte [Registro de identidade][lnk-identity-registry].
-* **RegistryReadWrite**. Concede acesso de leitura e gravação ao Registro de identidade. Para saber mais, consulte [Registro de identidade][lnk-identity-registry].
-* **ServiceConnect**. Concede acesso aos pontos de extremidade de comunicação e de monitoramento voltados para o serviço de nuvem. Por exemplo, ela concede permissão para que os serviços de nuvem de back-end recebam mensagens do dispositivo para a nuvem, enviem mensagens da nuvem para o dispositivo e obtenham as confirmações de entrega correspondentes.
-* **DeviceConnect**. Concede acesso aos pontos de extremidade de comunicação voltados para o dispositivo. Por exemplo, ela concede permissão de envio de mensagens do dispositivo para a nuvem e de recebimento de mensagens da nuvem para o dispositivo. Essa permissão é usada por dispositivos.
+* **RegistryRead**. Registro de identidade de toohello do concede acesso de leitura. Para saber mais, consulte [Registro de identidade][lnk-identity-registry].
+* **RegistryReadWrite**. Concede acesso de leitura e gravação toohello registro identidade. Para saber mais, consulte [Registro de identidade][lnk-identity-registry].
+* **ServiceConnect**. Concede acesso toocloud serviço voltado para a comunicação e os pontos de extremidade de monitoramento. Por exemplo, ele concede mensagens de dispositivo para nuvem tooreceive do serviços de nuvem de tooback-end permissão, enviar mensagens de nuvem para dispositivo e recuperar Olá correspondente confirmações de entrega.
+* **DeviceConnect**. Concede acesso toodevice voltados para pontos de extremidade. Por exemplo, ele concede permissão toosend mensagens de dispositivo para nuvem e receber mensagens de nuvem para dispositivo. Essa permissão é usada por dispositivos.
 
-Há duas maneiras de obter as permissões **DeviceConnect** com o Hub IoT com [tokens de segurança][lnk-sas-tokens]: usando uma chave de identidade do dispositivo ou uma tecla de acesso compartilhada. Além disso, é importante observar que qualquer funcionalidade acessível por meio de dispositivos fica exposta por padrão em pontos de extremidade com o prefixo `/devices/{deviceId}`.
+Há dois tooobtain de maneiras **DeviceConnect** permissões com o IoT Hub com [tokens de segurança][lnk-sas-tokens]: usando uma chave de identidade do dispositivo, ou uma chave de acesso compartilhado. Além disso, é importante toonote que toda a funcionalidade acessível a partir de dispositivos é exposta pelo design em pontos de extremidade com o prefixo `/devices/{deviceId}`.
 
-[Os componentes de serviço só podem gerar tokens de segurança][lnk-service-tokens] usando políticas de acesso compartilhado que concedem as permissões apropriadas.
+[Componentes de serviço só podem gerar tokens de segurança] [ lnk-service-tokens] usando políticas de acesso concedendo permissões apropriadas hello.
 
-O Hub IoT do Azure e outros serviços que podem ser parte da solução permitem o gerenciamento de usuários usando o Azure Active Directory.
+IoT Hub do Azure e outros serviços que podem ser parte da solução Olá permitem o gerenciamento de usuários usando Olá Active Directory do Azure.
 
 Dados ingeridos pelo Hub IoT do Azure podem ser consumidos por diversos serviços, como Stream Analytics do Azure e armazenamento de blobs do Azure. Esses serviços permitem o acesso de gerenciamento. Leia mais sobre esses serviços e opções disponíveis abaixo:
 
-* [Azure DocumentDB][lnk-docdb]: um serviço de banco de dados escalonável e totalmente indexado para dados semiestruturados, que gerenciam os metadados para os dispositivos que você provisiona, como atributos, configuração e propriedades de segurança. O Banco de Dados de Documentos oferece processamento de alto desempenho e alta taxa de transferência, indexação independente do esquema de dados e uma interface de consulta SQL avançada.
-* [Stream Analytics do Azure][lnk-asa]: processamento de transmissão em tempo real na nuvem, que permite que você desenvolva e implante com rapidez uma solução de análise econômica a fim de descobrir insights em tempo real de dispositivos, sensores, infraestrutura e aplicativos. Os dados desse serviço totalmente gerenciado podem ser dimensionados para qualquer volume enquanto ainda atingem alta taxa de transferência, baixa latência e resiliência.
-* [Serviços de Aplicativos do Azure][lnk-appservices]: uma plataforma de nuvem para compilar aplicativos Web e móveis avançados que se conectam aos dados em qualquer lugar, na nuvem ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre-se com seu SaaS (software como serviço) e com aplicativos empresariais com conectividade integrada para dezenas de serviços baseados em nuvem e aplicativos empresariais. Codifique na sua linguagem e IDE favoritos (.NET, Node.js, PHP, Python ou Java) para compilar aplicativos Web e APIs com mais rapidez do que nunca.
-* [Aplicativos lógicos][lnk-logicapps]: o recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure ajuda a integrar sua solução de IoT para sua linha de sistemas de negócios existentes e a automatizar processos de fluxo de trabalho. Os Aplicativos Lógicos permitem que os desenvolvedores projetem fluxos de trabalho iniciados de um gatilho e, em seguida, executem uma série de etapas — regras e ações que usam conectores poderosos para integrar seus processos de negócios. Os Aplicativos Lógicos oferecem conectividade pronta para uso para um vasto ecossistema de aplicativos de SaaS, baseados em nuvem e locais.
-* [Armazenamento de Blobs do Azure][lnk-blob]: armazenamento em nuvem confiável e econômico para os dados que os dispositivos enviam para a nuvem.
+* [Documentos do Azure][lnk-docdb]: um serviço de banco de dados escalonáveis e totalmente indexados para dados estruturados que gerencia os metadados para dispositivos Olá provisionar, como atributos, configuração e propriedades de segurança. O DocumentDB oferece processamento de alto desempenho e alta taxa de transferência, indexação independente do esquema de dados e uma interface de consulta SQL avançada.
+* [O Azure Stream Analytics][lnk-asa]: fluxo em tempo real de processamento na nuvem Olá que permite que você toorapidly desenvolver e implantar um baixo custo solução toouncover em tempo real resultados da análise dos dispositivos, sensores, infraestrutura e aplicativos. dados de saudação desse serviço totalmente gerenciado podem dimensionar tooany volume enquanto ainda atinge a resiliência, baixa latência e alta taxa de transferência.
+* [Serviços de aplicativo do Azure][lnk-appservices]: uma nuvem plataforma toobuild avançados aplicativos web e móveis que se conectam toodata em qualquer lugar; na nuvem hello ou local. Compile aplicativos móveis atraentes para iOS, Android e Windows. Integre com o Software como um serviço (SaaS) e o enterprise aplicativos com conectividade de caixa toodozens de serviços baseados em nuvem e aplicativos corporativos. Código em seu idioma favorito e IDE (.NET, Node.js, PHP, Python ou Java) toobuild os aplicativos web e APIs mais rápido do que nunca.
+* [Lógica de aplicativos][lnk-logicapps]: recurso de aplicativos lógicos de saudação do serviço de aplicativo do Azure ajuda a integrar seus sistemas de linha de negócios existentes do IoT solução tooyour e automatizar processos de fluxo de trabalho. Lógica de aplicativos permite que os desenvolvedores toodesign fluxos de trabalho Iniciar a partir de um gatilho e, em seguida, executam uma série de etapas, regras e ações que usam conectores poderoso toointegrate com seus processos de negócios. Lógica de aplicativos oferece um ecossistema de grande tooa fora da caixa de conectividade de SaaS, baseado em nuvem e aplicativos locais.
+* [Armazenamento de BLOBs do Azure][lnk-blob]: armazenamento em nuvem confiável e econômica para dados de saudação seus dispositivos enviam toohello nuvem.
 
 ## <a name="conclusion"></a>Conclusão
-Este artigo fornece uma visão geral dos detalhes de nível de implantação para projetar e implantar uma infraestrutura de IoT usando o Azure IoT. Configurar cada componente para ser seguro é a chave na proteção da infraestrutura geral de IoT. As opções de design disponíveis no Azure IoT oferecem algum nível de flexibilidade e opções; no entanto, cada opção pode ter implicações de segurança. É recomendável que cada uma dessas opções seja avaliada por meio de uma avaliação de risco e custo.
+Este artigo fornece uma visão geral dos detalhes de nível de implantação para projetar e implantar uma infraestrutura de IoT usando o Azure IoT. Configurar cada toobe componente seguro é chave proteger Olá infra-estrutura IoT geral. Opções de design Olá disponíveis no Azure IoT fornecerem algum nível de flexibilidade e a opção; No entanto, cada opção pode ter implicações de segurança. É recomendável que cada uma dessas opções seja avaliada por meio de uma avaliação de risco e custo.
 
 [img-overview]: media/iot-secure-your-deployment/overview.png
 

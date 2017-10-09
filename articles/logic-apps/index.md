@@ -1,6 +1,6 @@
 ---
-title: "Documentação dos Aplicativos Lógicos do Azure - Tutoriais, Referência de API | Microsoft Docs"
-description: "Saiba como desenvolver aplicativos lógicos que automatizam e simplificam os fluxos de trabalho comerciais no local e na nuvem. Tutoriais, modelos e referências de API."
+title: "aaaAzure lógica aplicativos documentação - tutoriais, referência de API | Microsoft Docs"
+description: "Saiba como os aplicativos lógicos toodevelop automatizarem e simplificam fluxos de trabalho comerciais entre locais e hello na nuvem. Tutoriais, modelos e referências de API."
 services: logic-apps
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 7f9790a52365b76e9d3dd1fdf1a17ab2aaaf8b5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5cc3a730b1b6abcb3ec0132f6e8ebf2e54775836
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="logic-apps-documentation"></a>Documentação dos Aplicativos Lógicos
 
-Saiba como desenvolver Aplicativos Lógicos que simplificam e integram fluxos de trabalho escalonáveis na nuvem. Referências de API, modelos e tutoriais ajudam a criar e implantar fluxos de trabalho de negócios automatizados no local e na nuvem.
+Saiba como toodevelop lógica de aplicativos que simplificam e integrar fluxos de trabalho escalonáveis em Olá nuvem. Tutoriais, modelos e API referencia ajudam a criar e implantar fluxos de trabalho de negócios automatizado entre locais e Olá nuvem.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,7 +106,7 @@ Saiba como desenvolver Aplicativos Lógicos que simplificam e integram fluxos de
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introdução à criação de uma API personalizada para usar com Aplicativos Lógicos</h3>
+                        <h3>Começar a criar um toouse API personalizada com aplicativos lógicos</h3>
                     </div>
                 </div>
             </div>

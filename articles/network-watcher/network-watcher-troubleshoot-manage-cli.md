@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas de Conexões e do Gateway de Rede Virtual do Azure – CLI do Azure 2.0 | Microsoft Docs"
-description: "Esta página explica como usar a solução de problemas da CLI do Azure 2.0 do Observador de Rede do Azure"
+title: "aaaTroubleshoot conexões - 2.0 do CLI do Azure e o Gateway de rede Virtual do Azure | Microsoft Docs"
+description: "Esta página explica como solucionar problemas de toouse Olá observador de rede do Azure 2.0 do CLI do Azure"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: gwallace
-ms.openlocfilehash: e1d56317b10fa738a3d7089f6c4f357159fe2c2b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 389e86f247722412a1d0e2e722dbf80bb7cff291
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando a CLI do Azure 2.0 do Observador de Rede do Azure
 
@@ -29,31 +29,31 @@ ms.lasthandoff: 08/29/2017
 > - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
 > - [API REST](network-watcher-troubleshoot-manage-rest.md)
 
-O observador de rede oferece muitos recursos que dizem respeito às noções básicas sobre os recursos de rede no Azure. Um desses recursos é a solução de problemas de recursos. A solução de problemas de recursos pode ser chamada pelo Portal, pelo PowerShell, pela CLI ou pela API REST. Quando chamado, o Observador de rede inspeciona a integridade de uma conexão ou um gateway de rede virtual e faz um relatório sobre suas descobertas.
+Observador de rede fornece vários recursos que diz respeito a toounderstanding seus recursos de rede no Azure. Um desses recursos é a solução de problemas de recursos. Recursos de solução de problemas pode ser chamada por meio do portal de saudação, o PowerShell, CLI ou API REST. Quando chamado, o observador de rede inspeciona a integridade de saudação de um Gateway de rede Virtual ou uma Conexão e retorna suas descobertas.
 
-Este artigo usa nossa CLI de próxima geração para o modelo de implantação do gerenciamento de recursos, CLI do Azure 2.0, que está disponível para Windows, Mac e Linux.
+Este artigo usa nossa próxima geração CLI para o modelo de implantação de gerenciamento de recursos do hello, 2.0 do CLI do Azure, que está disponível para Windows, Mac e Linux.
 
-Para executar as etapas deste artigo, será necessário [instalar a Interface de Linha de Comando do Azure para Mac, Linux e Windows (CLI do Azure)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Olá tooperform as etapas neste artigo, é necessário muito[instalar Olá Interface de linha de comando do Azure para Mac, Linux e Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você já seguiu etapas Olá [criar um observador de rede](network-watcher-create.md) toocreate um observador de rede.
 
 Para obter uma lista de tipos de gateway com suporte, visite [Tipos de Gateway com suporte](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
 ## <a name="overview"></a>Visão geral
 
-A solução de problemas de recursos fornece a capacidade de solucionar problemas que podem surgir com as conexões e o gateway de rede virtual. Quando uma solução de problemas de recursos recebe uma solicitação, os logs são consultados e inspecionadas. Quando a inspeção estiver concluída, você receberá um relatório com os resultados. As solicitações da solução de problemas de recursos são solicitações de execução longa e podem demorar para gerar um relatório. Os logs de solução de problemas são armazenados em um contêiner em uma conta de armazenamento especificada.
+Solução de problemas de recursos fornece a capacidade de saudação solucionar problemas que surgem com Gateways de rede Virtual e conexões. Quando é feita uma solicitação tooresource de solução de problemas, os logs estão sendo consultados e inspecionado. Quando inspeção estiver concluída, os resultados de saudação são retornados. Solicitações de recursos para solução de problemas de solicitações são de longa execução, que pode levar vários tooreturn de minutos que um resultado. logs de saudação de solução de problemas são armazenados em um contêiner em uma conta de armazenamento especificado.
 
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>Como recuperar uma conexão de gateway de rede virtual
 
-Neste exemplo, a solução de problemas de recursos está sendo executada em uma conexão. Você também pode passá-lo por um gateway de rede virtual. O cmdlet a seguir lista as conexões vpn em um grupo de recursos.
+Neste exemplo, a solução de problemas de recursos está sendo executada em uma conexão. Você também pode passá-lo por um gateway de rede virtual. Olá cmdlet a seguir lista Olá-conexões vpn em um grupo de recursos.
 
 ```azurecli
 az network vpn-connection list --resource-group resourceGroupName
 ```
 
-Assim que você tiver o nome da conexão, poderá executar esse comando para obter sua ID de recurso:
+Depois que você tem o nome de saudação do conexão Olá, você pode executar esse comando tooget sua Id de recurso:
 
 ```azurecli
 az network vpn-connection show --resource-group resourceGroupName --ids vpnConnectionIds
@@ -61,21 +61,21 @@ az network vpn-connection show --resource-group resourceGroupName --ids vpnConne
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-A solução de problemas de recursos produz relatório de dados sobre a integridade do recurso, ela também salva os logs em uma conta de armazenamento a ser revisada. Nesta etapa, criaremos uma conta de armazenamento. Você pode usar uma conta de armazenamento existente se já tiver uma.
+Solução de problemas de recurso retorna dados sobre integridade de saudação do recurso hello, ele também salva logs tooa armazenamento conta toobe revisado. Nesta etapa, criaremos uma conta de armazenamento. Você pode usar uma conta de armazenamento existente se já tiver uma.
 
-1. Criar a conta de armazenamento
+1. Criar conta de armazenamento Olá
 
     ```azurecli
     az storage account create --name storageAccountName --location westcentralus --resource-group resourceGroupName --sku Standard_LRS
     ```
 
-1. Obter as chaves da conta de armazenamento
+1. Obter chaves de conta de armazenamento Olá
 
     ```azurecli
     az storage account keys list --resource-group resourcegroupName --account-name storageAccountName
     ```
 
-1. Criar o contêiner
+1. Criar contêiner Olá
 
     ```azurecli
     az storage container create --account-name storageAccountName --account-key {storageAccountKey} --name logs
@@ -83,20 +83,20 @@ A solução de problemas de recursos produz relatório de dados sobre a integrid
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>Como executar a solução de problemas de recursos do Observador de rede
 
-Você usa o cmdlet `az network watcher troubleshooting` para solucionar problemas de recursos. Aprovamos o cmdlet no grupo de recursos, no nome do Observador de rede, no ID da conexão, no ID da conta de armazenamento e no caminho para o blob para armazenar o resultado da solução de problemas.
+Solucionar problemas de recursos com hello `az network watcher troubleshooting` cmdlet. Passamos o grupo de recursos de Olá Olá cmdlet, nome da saudação observador de rede, Olá Id de conexão de saudação Olá Olá Id da conta de armazenamento hello e Olá toostore do hello caminho toohello blob solucionar resulta em.
 
 ```azurecli
 az network watcher troubleshooting start --resource-group resourceGroupName --resource resourceName --resource-type {vnetGateway/vpnConnection} --storage-account storageAccountName  --storage-path https://{storageAccountName}.blob.core.windows.net/{containerName}
 ```
 
-Depois que você executar o cmdlet, o Observador de rede revisará o recurso para verificar a integridade. Ele envia um relatório com os resultados para o shell e armazena os logs dos resultados na conta de armazenamento especificada.
+Depois de executar o cmdlet Olá, observador de rede revisa a integridade de Olá Olá recursos tooverify. Ele retorna resultados de saudação toohello shell e armazena logs de resultados Olá Olá conta de armazenamento especificado.
 
-## <a name="understanding-the-results"></a>Como entender os resultados
+## <a name="understanding-hello-results"></a>Entendendo os resultados da saudação
 
-O texto de ação fornece orientação geral sobre como resolver o problema. Se for possível executar uma ação para solucionar o problema, você receberá um link com orientações adicionais. Nos casos em que não há orientações adicionais, a resposta fornecerá a url para abrir um caso de suporte.  Para obter mais informações sobre as propriedades da resposta e o do que está incluído, acesse [Visão geral da solução de problemas do observador de rede](network-watcher-troubleshoot-overview.md)
+texto da ação de saudação fornece diretrizes gerais sobre como tooresolve Olá problema. Se uma ação pode ser executada para o problema de saudação, um link é fornecido com diretrizes adicionais. No caso de Olá onde não há nenhuma orientação adicional, resposta Olá fornece Olá url tooopen um caso de suporte.  Para obter mais informações sobre propriedades de saudação de resposta hello e o que está incluído, visite [visão geral da solução de problemas do Inspetor de rede](network-watcher-troubleshoot-overview.md)
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento acesse o link: [Gerenciador de armazenamento](http://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do azure, consulte muito[Introdução ao armazenamento de BLOBs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento podem ser encontradas aqui em Olá link a seguir: [Gerenciador de armazenamento](http://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.
+Se as configurações foram alteradas se parar a conectividade de VPN, consulte [gerenciar grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) tootrack para baixo Olá rede segurança e o grupo de regras de segurança que podem ser em questão.

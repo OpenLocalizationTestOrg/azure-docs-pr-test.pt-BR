@@ -1,26 +1,26 @@
-Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada Parâmetros, que contém todos os valores de parâmetro.
-Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados. 
+No Gerenciador de recursos do Azure, você define parâmetros para os valores desejados toospecify quando Olá modelo é implantado. modelo de saudação inclui uma seção chamada parâmetros que contém todos os valores de parâmetro hello.
+Você deve definir um parâmetro para os valores que variam com base no projeto Olá que estiver implantando ou com base no ambiente de saudação que você está implantando. Não defina parâmetros para valores sempre ficará Olá mesmo. Cada valor de parâmetro é usado em Olá modelo toodefine Olá recursos implantados. 
 
-Ao definir parâmetros, use o campo **allowedValues** para especificar quais valores um usuário pode fornecer durante a implantação. Use o campo **defaultValue** para atribuir um valor para o parâmetro, se nenhum valor for fornecido durante a implantação.
+Ao definir parâmetros, use Olá **allowedValues** toospecify campo quais valores um usuário pode fornecer durante a implantação. Saudação de uso **defaultValue** tooassign campo um parâmetro de toohello valor, se nenhum valor for fornecido durante a implantação.
 
-Descreveremos cada parâmetro no modelo.
+Descreveremos cada parâmetro no modelo de saudação.
 
 ### <a name="sitename"></a>siteName
-O nome do aplicativo Web que você deseja criar.
+nome de saudação do aplicativo web de saudação que você deseja toocreate.
 
     "siteName":{
       "type":"string"
     }
 
 ### <a name="hostingplanname"></a>hostingPlanName
-O nome do plano do Serviço de Aplicativo a usar para hospedar o aplicativo Web.
+nome de saudação de saudação do serviço de aplicativo planejar toouse para hospedar o aplicativo web de saudação.
 
     "hostingPlanName":{
       "type":"string"
     }
 
 ### <a name="sku"></a>sku
-A camada de preços do plano de hospedagem.
+Olá preço Olá plano de hospedagem.
 
     "sku": {
       "type": "string",
@@ -40,14 +40,14 @@ A camada de preços do plano de hospedagem.
       ],
       "defaultValue": "S1",
       "metadata": {
-        "description": "The pricing tier for the hosting plan."
+        "description": "hello pricing tier for hello hosting plan."
       }
     }
 
-O modelo define os valores permitidos para esse parâmetro e atribui um valor padrão (S1) se nenhum valor é especificado.
+Olá modelo define os valores de saudação que são permitidos para esse parâmetro e atribui um valor padrão (S1) se nenhum valor for especificado.
 
 ### <a name="workersize"></a>workerSize
-O tamanho da instância do plano de hospedagem (pequeno, médio ou grande).
+tamanho da instância de saudação da saudação (pequeno, médio ou grande) de plano de hospedagem.
 
     "workerSize":{
       "type":"string",
@@ -59,5 +59,5 @@ O tamanho da instância do plano de hospedagem (pequeno, médio ou grande).
       "defaultValue":"0"
     }
 
-O modelo define os valores que são permitidos para esse parâmetro (0, 1 ou 2) e atribui um valor padrão (0) se nenhum valor é especificado. Os valores correspondem a pequeno, médio e grande.
+Olá modelo define os valores de saudação que são permitidos para este parâmetro (0, 1 ou 2) e atribui um valor padrão (0) se nenhum valor for especificado. os valores Hello correspondem toosmall, médio e grande.
 

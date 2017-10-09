@@ -1,6 +1,6 @@
 ---
-title: "Usar o Hive do Hadoop e a área de trabalho remota no HDInsight – Azure | Microsoft Docs"
-description: "Aprenda a conectar-se a um cluster do Hadoop no HDInsight usando a área de trabalho remota e então executar consultas Hive usando a Interface de Linha de Comando do Hive."
+title: "aaaUse Hive do Hadoop e a área de trabalho remota no HDInsight - Azure | Microsoft Docs"
+description: "Saiba como tooconnect tooHadoop cluster no HDInsight usando a área de trabalho remota e, em seguida, executar consultas de Hive usando Olá Hive Interface de linha de comando."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,41 +16,41 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 187c7cb413b3707e58eea387857375053d267189
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f86ffc1be33a8b0b2346d1a1388e5dfa6d0f8777
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Usar o Hive com Hadoop no HDInsight com Remote Desktop.
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Neste artigo, você aprenderá como se conectar a um cluster HDInsight usando a Área de Trabalho Remota e então executar consultas Hive usando a CLI (Interface de Linha de Comando) do Hive.
+Neste artigo, você aprenderá como tooconnect tooan HDInsight cluster usando a área de trabalho remota e, em seguida, execute o Hive as consultas usando Olá Hive Interface de linha de comando (CLI).
 
 > [!IMPORTANT]
-> A Área de Trabalho Remota está disponível somente em clusters HDInsight que usam o Windows como o sistema operacional. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Área de trabalho remota só está disponível em clusters de HDInsight que usam o Windows como sistema operacional de saudação. Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> No caso do HDInsight 3.4 ou superior, confira [Usar o Hive com o HDInsight e o Beeline](hdinsight-hadoop-use-hive-beeline.md) para obter informações sobre como executar consultas do Hive diretamente no cluster de uma linha de comando.
+> Para HDInsight 3.4 ou superior, consulte [Use Hive com HDInsight e Beeline](hdinsight-hadoop-use-hive-beeline.md) para obter informações sobre como executar consultas de Hive diretamente no cluster de saudação de uma linha de comando.
 
 ## <a id="prereq"></a>Pré-requisitos
-Para concluir as etapas neste artigo, você precisará do seguinte:
+toocomplete Olá etapas neste artigo, você precisará seguir hello:
 
 * Um cluster HDInsight baseado em Windows (Hadoop no HDInsight)
 * Um computador cliente executando o Windows 7, Windows 8 ou Windows 10
 
 ## <a id="connect"></a>Conectar com a área de trabalho remota
-Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele seguindo as instruções em [Conectar aos clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+Habilitar área de trabalho remota para o cluster do HDInsight hello e conecte tooit seguindo as instruções de saudação em [conectar tooHDInsight clusters usando o RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a id="hive"></a>Usar o comando do Hive
-Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a seguir para trabalhar com o Hive:
+## <a id="hive"></a>Use o comando de Hive Olá
+Quando você se conectou toohello a área de trabalho para o cluster do HDInsight hello, use Olá toowork etapas com a seção a seguir:
 
-1. Na área de trabalho do HDInsight, inicie a **Linha de Comando do Hadoop**.
-2. Digite o seguinte comando para iniciar a CLI do Hive:
+1. Na área de trabalho do HDInsight hello, iniciar Olá **linha de comando do Hadoop**.
+2. Digite Olá Olá toostart de comando CLI do Hive a seguir:
 
         %hive_home%\bin\hive
 
-    Depois de iniciar a CLI, você verá o prompt da CLI do Hive: `hive>`.
-3. Usando a CLI, digite as instruções a seguir para criar uma nova tabela chamada **log4jLogs** usando os dados de exemplo:
+    Quando a saudação CLI foi iniciada, você verá prompt de Hive CLI Olá: `hive>`.
+3. Usando Olá CLI, insira Olá seguindo as instruções toocreate uma nova tabela nomeada **log4jLogs** usando dados de exemplo:
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -59,45 +59,45 @@ Quando conectado à área de trabalho para o cluster HDInsight, use as etapas a 
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    As instruções executam as seguintes ações:
+    Essas instruções executam Olá ações a seguir:
 
-   * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
-   * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive (os dados são deixados no local original).
+   * **DROP TABLE**: exclui a tabela hello e arquivo de dados de saudação se Olá tabela já existir.
+   * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. Tabelas externas armazenam somente a definição de tabela Olá no Hive (dados são deixados no local original Olá Olá).
 
      > [!NOTE]
-     > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
+     > Tabelas externas devem ser usadas quando você espera Olá subjacente toobe dados atualizado por uma origem externa (como um processo de carregamento de dados automatizado) ou por outra operação de MapReduce, mas convém sempre ter que dados mais recentes do toouse Olá de consultas de Hive.
      >
-     > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
+     > Descartar uma tabela externa **não** excluir dados hello, definição de tabela Olá somente.
      >
      >
-   * **ROW FORMAT**: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
-   * **STORED AS TEXTFILE LOCATION**: informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
-   * **SELECT**: seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
-   * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
-4. Use as instruções a seguir para criar uma nova tabela "interna" chamada **errorLogs**:
+   * **FORMATO de linha**: informa ao Hive como Olá dados são formatados. Nesse caso, os campos de saudação em cada log são separados por um espaço.
+   * **LOCAL de arquivo de texto como armazenados**: informa ao Hive onde dados saudação são armazenado (diretório de exemplo de dados de saudação) e que ela é armazenada como texto.
+   * **Selecione**: seleciona uma contagem de todas as linhas em que coluna **t4** contém valor Olá **[Erro]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
+   * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe Olá toohello sample.log arquivo de pesquisa contém dados saudação e evita que ele retornando dados de exemplo de outros arquivos de dados que não correspondem ao esquema Olá definimos.
+4. Olá Use seguindo as instruções toocreate uma nova tabela 'internal' nomeada **em decorrência**:
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    As instruções executam as seguintes ações:
+    Essas instruções executam Olá ações a seguir:
 
-   * **CREATE TABLE IF NOT EXISTS**: cria uma tabela, se ela ainda não existir. Já que a palavra-chave **EXTERNAL** não é utilizada, essa é uma tabela interna, armazenada no depósito de dados do Hive e gerenciada totalmente pelo Hive.
+   * **CREATE TABLE IF NOT EXISTS**: cria uma tabela, se ela ainda não existir. Porque Olá **externo** palavra-chave não é usada, essa é uma tabela interna que é armazenada no data warehouse do hello Hive e é totalmente gerenciada pelo Hive.
 
      > [!NOTE]
-     > Diferentemente de tabelas **EXTERNAS** , o descarte de uma tabela interna excluirá também os dados subjacentes.
+     > Ao contrário de **externo** tabelas, descartar uma tabela interna também exclui Olá dados subjacentes.
      >
      >
-   * **STORED AS ORC**: armazena os dados no formato ORC (colunar de linhas otimizadas). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
-   * **INSERT OVERWRITE ... SELECT**: seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
+   * **ARMAZENADOS como ORC**: armazena dados de Olá em formato (ORC) de coluna linha otimizado. Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
+   * **INSERT OVERWRITE ... Selecione**: seleciona linhas de saudação **log4jLogs** tabela que contém **[Erro]**, em seguida, insere Olá dados em hello **em decorrência** tabela.
 
-     Para verificar se apenas as linhas que contêm **[ERROR]** na coluna t4 foram armazenadas na tabela **errorLogs**, use a seguinte instrução para retornar todas as linhas de **errorLogs**:
+     tooverify que apenas as linhas que contêm **[Erro]** na coluna t4 foram armazenado toohello **em decorrência** de tabela, use Olá após a instrução tooreturn todos Olá linhas de **em decorrência**:
 
        SELECT * de errorLogs;
 
      Três linhas de dados devem ser devolvidas, todas contendo **[ERROR]** na coluna t4.
 
 ## <a id="summary"></a>Resumo
-Como você pode ver, o comando do Hive fornece uma maneira fácil de executar consultas Hive interativamente em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
+Como você pode ver, Olá Olá comando Hive fornece um toointeractively de maneira fácil executar consultas de Hive em um cluster HDInsight, o status do trabalho de saudação do monitor e recuperar a saída de hello.
 
 ## <a id="nextsteps"></a>Próximas etapas
 Para obter informações gerais sobre o Hive no HDInsight:
@@ -109,10 +109,10 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para as informações de depuração:
+Se você estiver usando Tez com Hive, consulte Olá documentos para as informações de depuração a seguir:
 
-* [Usar a interface de usuário do Tez no HDInsight baseado em Windows](hdinsight-debug-tez-ui.md)
-* [Usar a exibição de Ambari Tez no HDInsight baseado em Linux](hdinsight-debug-ambari-tez-view.md)
+* [Use Olá Tez UI no HDInsight baseados no Windows](hdinsight-debug-tez-ui.md)
+* [Use Olá exibição Ambari Tez no HDInsight baseados em Linux](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 

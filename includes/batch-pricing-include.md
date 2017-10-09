@@ -1,0 +1,5 @@
+## <a name="pricing"></a>Preços
+
+Lote do Azure é um serviço gratuito; Você não cobrado Olá própria conta de lote. Você é cobrado para Olá subjacente recursos de computação do Azure que consomem suas soluções de lote e os recursos de saudação consumidos por outros serviços, ao executar suas cargas de trabalho. Por exemplo, você é cobrado para nós de computação da saudação (VMs) em seus pools de e para dados Olá armazenados no armazenamento do Azure como entrada ou saída para suas tarefas. Da mesma forma, se você usar o hello [pacotes de aplicativos](../articles/batch/batch-application-packages.md) recurso de lote, você será cobrado por recursos de armazenamento do Azure Olá usados para armazenar seus pacotes de aplicativos. Veja [Preços do Lote](https://azure.microsoft.com/pricing/details/batch/) para saber mais.
+
+[Máquinas virtuais de baixa prioridade](../articles/batch/batch-low-pri-vms.md) pode reduzir significativamente o custo de saudação de cargas de trabalho em lotes. Para saber mais sobre preços de VMs de baixa prioridade, veja [Preços do Lote](https://azure.microsoft.com/pricing/details/batch/). 

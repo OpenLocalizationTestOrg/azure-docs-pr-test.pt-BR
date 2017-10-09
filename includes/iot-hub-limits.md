@@ -1,4 +1,4 @@
-A tabela a seguir lista os limites associados às diferentes camadas de serviço (S1, S2, S3, F1). Para obter informações sobre o custo de cada *unidade* em cada camada, confira [Preços do Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
+Olá tabela a seguir lista os limites de saudação associados Olá diferentes camadas de serviço (S1, S2, S3, F1). Para obter informações sobre o custo de saudação de cada *unidade* em cada camada, consulte [preços de Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Recurso | S1 Standard | S2 Standard | Padrão S3 | F1 Gratuito |
 | --- | --- | --- | --- | --- |
@@ -10,7 +10,7 @@ A tabela a seguir lista os limites associados às diferentes camadas de serviço
 > 
 > 
 
-A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
+Olá tabela a seguir lista os limites de saudação que se aplicam a recursos de Hub tooIoT:
 
 | Recurso | Limite |
 | --- | --- |
@@ -24,8 +24,8 @@ A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 | Tamanho máximo da mensagem da nuvem para o dispositivo |64 KB |
 | TTL máximo para mensagens da nuvem para o dispositivo |2 dias |
 | Contagem máxima de entrega para mensagens  <br/> da nuvem para o dispositivo |100 |
-| Contagem máxima de entrega de mensagens de comentários  <br/> em resposta a uma mensagem da nuvem para o dispositivo |100 |
-| TTL máximo de mensagens de comentários  <br/> em resposta a uma mensagem da nuvem para o dispositivo |2 dias |
+| Contagem máxima de entrega de mensagens de comentários  <br/> na mensagem de nuvem para dispositivo tooa resposta |100 |
+| TTL máximo de mensagens de comentários  <br/> mensagem de nuvem para dispositivo tooa resposta |2 dias |
 | Tamanho máximo de dispositivo gêmeo <br/> (marcas, propriedades relatadas e propriedades desejadas) | 8 KB |
 | Tamanho máximo do valor de cadeia de caracteres do dispositivo gêmeo | 512 bytes |
 | Profundidade máxima de objeto em dispositivo gêmeo | 5 |
@@ -41,9 +41,9 @@ A seguinte tabela lista os limites que se aplicam aos recursos do Hub IoT:
 
 
 > [!NOTE]
-> Atualmente, o número máximo de dispositivos que você pode conectar a um único hub IoT é de 500.000. Se você quiser aumentar esse limite, entre em contato com o [Suporte da Microsoft](https://azure.microsoft.com/en-us/support/options/).
+> Olá no momento, o número máximo de dispositivos que você pode se conectar tooa único IoT hub é 500.000. Se você quiser tooincrease esse limite, entre em contato com [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
-O serviço do Hub IoT restringe as solicitações quando as seguintes cotas são excedidas:
+Olá serviço IoT Hub limita as solicitações quando Olá seguindo as cotas é excedida:
 
 | Restrição | Valor por hub |
 | --- | --- |

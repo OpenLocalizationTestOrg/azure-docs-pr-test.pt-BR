@@ -1,5 +1,5 @@
 ---
-title: Alta disponibilidade e confiabilidade do Agendador
+title: aaaScheduler alta disponibilidade e confiabilidade
 description: Alta disponibilidade e confiabilidade do Agendador
 services: scheduler
 documentationcenter: .NET
@@ -14,59 +14,59 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: deli
-ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5c9efb333eb42b393adc5deea657ca99206d425e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scheduler-high-availability-and-reliability"></a>Alta disponibilidade e confiabilidade do Agendador
 ## <a name="azure-scheduler-high-availability"></a>Alta disponibilidade do Agendador do Azure
 Como um núcleo de serviços da plataforma Azure, o Agendador do Azure é altamente disponível e possui implantação do serviço de redundância geográfica e replicação geográfica regional do trabalho.
 
 ### <a name="geo-redundant-service-deployment"></a>Implantação de serviço com redundância geográfica
-O Agendador do Azure está disponível por meio da interface do usuário em quase todos as regiões geográficas que estão atualmente no Azure. A lista de regiões na qual o Agendador do Azure está disponível está [listada aqui](https://azure.microsoft.com/regions/#services). Se um data center em uma região hospedada é renderizado indisponível, os recursos de failover do Agendador do Azure fazem com que o serviço esteja disponível a partir de outro data center.
+O Agendador do Azure está disponível por meio de saudação da interface do usuário em quase todas as regiões geográficas que estão atualmente no Azure. Olá lista de regiões em que o Agendador do Azure está disponível no é [listados aqui](https://azure.microsoft.com/regions/#services). Se um data center em uma região hospedada fique indisponível, os recursos de failover de saudação do Agendador do Azure são que o serviço de saudação esteja disponível em outro data center.
 
 ### <a name="geo-regional-job-replication"></a>Replicação geográfica regional de trabalho
-O Agendador do Azure não é somente disponível na interface inicial para solicitações de gerenciamento, mas seu trabalho é também replicado geograficamente. Quando houver uma interrupção em uma região, o Agendador do Azure faz failover e garante que o trabalho é executado a partir de outro data center na região geográfica emparelhada.
+Não só é Olá front-end de disponível para solicitações de gerenciamento, mas seu trabalho também é replicado geograficamente o Agendador do Azure. Quando houver uma interrupção em uma região, o Agendador do Azure faz failover e garante que trabalho Olá seja executado em outro data center na região emparelhada hello.
 
-Por exemplo, se você tiver criado um trabalho no Centro Sul dos EUA, o Agendador do Azure replica automaticamente esse trabalho no Centro Norte dos EUA. Quando há uma falha no Centro Sul dos EUA, o Agendador do Azure garante que o trabalho é executado a partir do Centro Norte dos EUA. 
+Por exemplo, se você tiver criado um trabalho no Centro Sul dos EUA, o Agendador do Azure replica automaticamente esse trabalho no Centro Norte dos EUA. Quando há uma falha no Centro Sul dos EUA, o Agendador do Azure garante que o trabalho Olá é executado a partir do Centro Norte dos EUA. 
 
 ![][1]
 
-Como resultado, o Agendador do Azure garante que seus dados permaneçam na mesma região geográfica maior no caso de uma falha do Azure. Como resultado, não é necessário duplicar o trabalho apenas para adicionar a alta disponibilidade – o Agendador do Azure fornece automaticamente os recursos de alta disponibilidade para os seus trabalhos.
+Como resultado, o Agendador do Azure garante que os dados permanecerão em Olá mesma região geográfica maior no caso de uma falha do Azure. Como resultado, é necessário duplicar a trabalho tooadd apenas alta disponibilidade – o Agendador do Azure fornece automaticamente os recursos de alta disponibilidade para seus trabalhos.
 
 ## <a name="azure-scheduler-reliability"></a>Confiabilidade do Agendador do Azure
-O Agendador do Azure garante sua própria alta disponibilidade e adota uma abordagem diferente para os trabalhos criados pelo usuário. Por exemplo, seu trabalho pode invocar um ponto de extremidade HTTP que não está disponível. No entanto, o Agendador do Azure tenta executar seu trabalho com êxito, fornecendo opções alternativas para lidar com a falha. O Agendador do Azure faz isso de duas maneiras:
+O Agendador do Azure garante sua própria alta disponibilidade e adota uma abordagem diferente trabalhos criados pelo toouser. Por exemplo, seu trabalho pode invocar um ponto de extremidade HTTP que não está disponível. O Agendador do Azure, mesmo assim, tenta tooexecute seu trabalho com êxito, fornecendo opções alternativas toodeal com falha. O Agendador do Azure faz isso de duas maneiras:
 
 ### <a name="configurable-retry-policy-via-retrypolicy"></a>Política de repetição configurável via "retryPolicy"
-O Agendador do Azure permite que você configure uma política de repetição. Por padrão, se um trabalho falhar, o Agendador tenta o trabalho novamente quatro vezes mais, em intervalos de 30 segundos. Novamente, você pode configurar essa política de repetição para ser mais agressiva (por exemplo, dez vezes, em intervalos de 30 segundos) ou menos rígida (por exemplo, duas vezes, em intervalos diários).
+O Agendador do Azure permite que você tooconfigure uma política de repetição. Por padrão, se um trabalho falhar, o Agendador tenta trabalho hello mais novamente quatro vezes, em intervalos de 30 segundos. É possível reconfigurar essa repetição política toobe mais agressiva (por exemplo, dez vezes, em intervalos de 30 segundos) ou menos rígida (por exemplo, duas vezes, em intervalos diários.)
 
-Como um exemplo de quando isso pode ajudar, você pode criar um trabalho que é executado uma vez por semana e invoca um ponto de extremidade HTTP. Se o ponto de extremidade HTTP estiver inativo por algumas horas, quando o trabalho for executado, não convém aguardar uma semana mais para que o trabalho seja executado novamente, já que até mesmo a política de repetição padrão falhará. Nesses casos, você pode reconfigurar a política de repetição padrão para repetir a cada três horas (por exemplo) em vez de a cada 30 segundos.
+Como um exemplo de quando isso pode ajudar, você pode criar um trabalho que é executado uma vez por semana e invoca um ponto de extremidade HTTP. Se o ponto de extremidade Olá HTTP estiver inativo por algumas horas quando o trabalho for executado, não convém toowait uma semana mais Olá trabalho toorun novamente desde que o mesmo Olá política de repetição padrão falhará. Nesses casos, você pode reconfigurar Olá tooretry de política de repetição padrão a cada três horas (por exemplo) em vez da cada 30 segundos.
 
-Para saber como configurar uma política de repetição, confira [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+toolearn como tooconfigure uma política de repetição, consulte muito[retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
 ### <a name="alternate-endpoint-configurability-via-erroraction"></a>Capacidade de configuração de ponto de extremidade alternativo via "errorAction"
-Se o ponto de extremidade de destino para o trabalho do Agendador do Azure permanecer inacessível, o Agendador do Azure reverterá para o ponto de extremidade de tratamento de erros alternativo após seguir a política de repetição. Se um ponto de extremidade de tratamento de erro alternativo for configurado, o Agendador do Azure o chama. Com um ponto de extremidade alternativo, seus próprios trabalhos são altamente disponíveis em caso de falha.
+Se o ponto de extremidade de destino de saudação do seu trabalho do Agendador do Azure permanecer inacessível, o Agendador do Azure reverterá toohello alternativo ponto de extremidade de tratamento de erros após sua política de repetição. Se um ponto de extremidade de tratamento de erro alternativo for configurado, o Agendador do Azure o chama. Com um ponto de extremidade alternativo, seus próprios trabalhos ficam altamente disponíveis em face de saudação da falha.
 
-Por exemplo, no diagrama abaixo, o Agendador do Azure segue a sua política de repetição para acertar um serviço Web de Nova York. Depois que as tentativas falharem, ele verifica se há uma alternativa. Em seguida, ele segue em frente e começa a fazer solicitações para a alternativa com a mesma política de repetição.
+Por exemplo, no diagrama abaixo, a saudação do Agendador do Azure segue sua política de repetição toohit um serviço web de Nova York. Depois de falhas de tentativas de Olá, ele verifica se há uma alternativa. Em seguida, prossegue e começa a fazer solicitações toohello alternativo com hello mesmo política de repetição.
 
 ![][2]
 
-Observe que a mesma política de repetição se aplica à ação original e à ação de erro alternativa. Também é possível ter um tipo de ação da ação de erro alternativa que seja diferente do tipo de ação da ação principal. Por exemplo, enquanto a ação principal pode estar invocando um ponto de extremidade HTTP, a ação de erro pode, em vez disso, ser uma ação de fila de armazenamento, de fila do barramento de serviço ou de tópico do barramento de serviço que realiza o log dos erros.
+Observe que Olá a mesma política de repetição se aplica a ação original do tooboth hello e ação alternativa de erro de saudação. Tipo de ação é também possível toohave Olá alternativa de erro da ação ser diferente do tipo da ação principal hello. Por exemplo, enquanto a ação principal Olá pode invocar um ponto de extremidade HTTP, uma ação de erro Olá pode ser uma fila de armazenamento, a fila do barramento de serviço ou a ação de tópico do barramento de serviço que faz log de erros.
 
-Para saber como configurar um ponto de extremidade alternativo, confira [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+toolearn como tooconfigure um ponto de extremidade alternativo, consulte muito[errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
 ## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
 
- [Introdução à utilização do Agendador no Portal do Azure](scheduler-get-started-portal.md)
+ [Começar a usar o Agendador no hello portal do Azure](scheduler-get-started-portal.md)
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
- [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
+ [Como toobuild complexo agenda e recorrência avançadas com o Agendador do Azure](scheduler-advanced-complexity.md)
 
  [Referência da API REST do Agendador do Azure](https://msdn.microsoft.com/library/mt629143)
 

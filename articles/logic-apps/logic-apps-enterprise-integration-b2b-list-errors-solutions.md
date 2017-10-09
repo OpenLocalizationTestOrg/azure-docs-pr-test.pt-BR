@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1865d75f1b4c2aa18d5a3130f639572d19563b3e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0340e2979f1972ba631354e206c93969e55946e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>Lista de erros e soluções de Aplicativos Lógicos B2B  
 Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cenários de Aplicativos Lógicos B2B e sugere ações adequadas para corrigir esses erros.
@@ -31,7 +31,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 |   |   |  
 |---|---|
 | Descrição do erro | Não foi encontrado nenhum contrato com os Parâmetros de Resolução de Contrato|    
-| Ação do usuário | O contrato deve ser adicionado à conta de integração com identidades comerciais acordadas.</br> As identidades comerciais devem corresponder às IDs de mensagem de entrada|  
+| Ação do usuário | contrato Olá deve ser adicionado a conta de integração toohello com identidades comercial acordada.</br> identidades de negócios Olá devem corresponder toohello ids de mensagem de entrada|  
 |   |   |
 
 ### <a name="-no-agreement-found-with-identities"></a>* Não foi encontrado nenhum contrato com identidades
@@ -39,7 +39,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 |   |   | 
 |---|---|
 | Descrição do erro | Não foi encontrado nenhum contrato com as identidades: 'AS2Identity'::'Partner1' e 'AS2Identity'::'Partner3'| 
-| Ação do usuário | AS2-From ou AS2-To inválido configurado para o contrato. </br> Corrigir os cabeçalhos AS2-From ou AS2-To da mensagem AS2 ou o contrato para corresponder as IDs do AS2 nos cabeçalhos de mensagem AS2 com as configurações de contrato |
+| Ação do usuário | AS2 inválido-de ou AS2-tooconfigured de acordo. </br> Mensagem de AS2 correta AS2-de ou cabeçalhos com configurações de contrato de mensagem AS2 tooheaders ou contrato de ids de toomatch AS2 no AS2 |
 |   |   |     
 
 ## <a name="as2"></a>AS2
@@ -49,7 +49,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 |   |   |  
 |---|---|
 | Descrição do erro| Cabeçalhos de AS2 inválidos. Um dos cabeçalhos “AS2-To” ou “AS2-From” está vazio| 
-| Ação do usuário | Foi recebida uma mensagem AS2 que não continha o cabeçalho AS2-From ou AS2-To ou ambos. </br> Verificar os cabeçalhos AS2-From e AS2-To da mensagem AS2 e corrija-os com base na configuração do contrato |
+| Ação do usuário | Foi recebida uma mensagem AS2 que não continha Olá AS2-de ou AS2 tooor ambos os cabeçalhos. </br> Verifique a mensagem AS2 AS2-de e AS2-tooheaders e corrija-as com base na configuração do contrato |
 |  |  | 
 
 
@@ -57,8 +57,8 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 
 |   |   |  
 |---|---|
-| Descrição do erro| O conteúdo da solicitação é nulo ou vazio | 
-| Ação do usuário | Foi recebida uma mensagem AS2 que não continha o corpo da mensagem |
+| Descrição do erro| conteúdo da solicitação Olá é nulo ou vazio | 
+| Ação do usuário | Foi recebida uma mensagem AS2 que não contém o corpo da mensagem de saudação |
 |  |  | 
 
 ### <a name="-as2-message-decryption-failure"></a>* Falha na descriptografia mensagem AS2
@@ -66,7 +66,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 |   |   | 
 |---|---|
 | Descrição do erro |  [processado/Erro: falha na descriptografia] | 
-| Ação do usuário | Adicionar @base64ToBinary à AS2Message antes de enviar ao parceiro 
+| Ação do usuário | Adicionar @base64ToBinary tooAS2Message antes de enviar toopartner 
 ```java
             "HTTP": {
                 "inputs": {
@@ -83,7 +83,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 |   |   | 
 |---|---|
 | Descrição do erro |  [processado/Erro: falha na descriptografia] | 
-| Ação do usuário | Adicionar @base64ToBinary ao MDN antes de enviar ao parceiro 
+| Ação do usuário | Adicionar @base64ToBinary tooMDN antes de enviar toopartner 
 ```java
             "Response": {
                 "inputs": {
@@ -98,7 +98,7 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 
 |   |   |  
 |---|---|
-| Descrição do erro| O certificado de autenticação não foi configurado para a parte do AS2. </br> AS2-From: partner1 AS2-To: partner2 | 
+| Descrição do erro| Olá certificado de assinatura não foi configurado para parte do AS2. </br> AS2-From: partner1 AS2-To: partner2 | 
 | Ação do usuário | Definir as configurações do contrato AS2 com o certificado correto para assinatura |
 |  |  | 
 
@@ -108,34 +108,34 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
     
 |   |   | 
 |---|---|
-| Descrição do erro | Erro encontrado durante a análise. O conjunto de transações Edifact com ID “123456” contido no intercâmbio (sem grupo) com a ID’987654”, com a ID de remetente “Partner1”, ID do receptor “Partner2”, está sendo suspenso com os seguintes erros: Separador à direita/esquerda encontrado |
-| Ação do usuário | As configurações de contrato a serem configuradas para permitir o espaço à esquerda e à direita. </br> Editar as configurações do contrato para permitir o espaço à esquerda e à direita |
+| Descrição do erro | Erro encontrado durante a análise. Olá Edifact transação com id ' 123456 'contida no intercâmbio (sem grupo) com a id ' 987654', com a id do remetente 'Parceiro1', id do destinatário 'Parceiro2' está sendo suspenso com os seguintes erros: separador levam à direita encontrado |
+| Ação do usuário | Olá contrato configurações toobe configurado tooallow à esquerda e à direita de espaço. </br> Editar o contrato configurações tooallow à esquerda e à direita de espaço |
 |   |   |
 
 ![permitir espaço](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
 
-### <a name="-duplicate-check-has-enabled-in-the-agreement"></a>* A verificação dupla foi habilitada no contrato
+### <a name="-duplicate-check-has-enabled-in-hello-agreement"></a>* Seleção duplicada habilitou no contrato de saudação
 
 |   |   | 
 |---|---| 
 | Descrição do erro | Duplicar Número de Controle |
-| Ação do usuário | Esse erro indica que a mensagem recebida tem números de controle duplicados. </br> Corrigir o número de controle e reenviar a mensagem |
+| Ação do usuário | Esse erro indica uma mensagem de saudação recebida tem números de controle duplicados. </br> Corrija o número de controle hello e reenviar a mensagem de saudação |
 |   |   |
 
-### <a name="-missing-schema-in-the-agreement"></a>* Esquema ausente no contrato
+### <a name="-missing-schema-in-hello-agreement"></a>* Esquema ausente no contrato de saudação
 
 |   |   | 
 |---|---| 
-| Descrição do erro | Erro encontrado durante a análise. O conjunto de transações X12 com a ID “564220001” contido no grupo funcional com ID “56422”, no intercâmbio com ID “000056422”, com a ID de remetente “12345678”, ID de receptor “87654321”, está sendo suspenso com os seguintes erros: “A mensagem tem um tipo de documento desconhecido e não foi resolvida para nenhum dos esquemas existentes configurados no contrato” |
-| Ação do usuário | Configurar o esquema nas configurações do contrato  |
+| Descrição do erro | Erro encontrado durante a análise. conjunto de transação Olá X12 com a id '564220001' contidos no grupo funcional com a id '56422', no intercâmbio com id '000056422' com a id de remetente 12345678 '', id do destinatário ' 87654321' está sendo suspenso com os seguintes erros "mensagem de saudação tem um tipo de documento desconhecido PE e não resolveu tooany de esquemas existentes de Olá configurados no contrato de hello " |
+| Ação do usuário | Configurar o esquema nas configurações do contrato Olá  |
 |   |   |
 
-### <a name="-incorrect-schema-in-the-agreement"></a>* Esquema incorreto no contrato
+### <a name="-incorrect-schema-in-hello-agreement"></a>* Esquema incorreto no contrato de saudação
 
 |   |   | 
 |---|---| 
-| Descrição do erro | A mensagem tem um tipo de documento desconhecido e não foi resolvida para nenhum dos esquemas existentes configurados no contrato. |
-| Ação do usuário | Configurar o esquema correto nas configurações do contrato  |
+| Descrição do erro | mensagem de saudação tem um tipo de documento desconhecido e não resolveu tooany de esquemas existentes de Olá configurados no contrato de saudação. |
+| Ação do usuário | Configurar o esquema correto nas configurações do contrato Olá  |
 |   |   |
 
 ## <a name="flat-file"></a>Arquivo simples
@@ -144,9 +144,9 @@ Este artigo ajuda você a solucionar problemas de erros que podem ocorrer em cen
 
 |   |   | 
 |---|---|
-| Descrição do erro | InvalidTemplate. Não é possível processar as expressões da linguagem do modelo nas entradas da ação “Flat_File_Decoding” na linha “1” e coluna “1902”: “A propriedade obrigatória “content” espera um valor, mas recebeu nulo. Caminho “”.”. |
-| Ação do usuário | Esse erro indica que a mensagem de entrada não contém um corpo |
+| Descrição do erro | InvalidTemplate. Expressões de linguagem de modelo não é possível tooprocess em entradas de 'Flat_File_Decoding' ação na linha '1' e '1902' da coluna: ' necessária a propriedade 'content' espera um valor mas obteve nulo. Caminho “”.”. |
+| Ação do usuário | Esse erro indica a mensagem de entrada hello não contém um corpo |
 |   |   | 
 
 ## <a name="learn-more"></a>Saiba mais
-[Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+[Saiba mais sobre Olá Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

@@ -1,22 +1,22 @@
 ## <a name="create-a-device-identity"></a>Criar uma identidade do dispositivo
-Nesta seção, você cria um aplicativo do console do .NET que cria uma identidade do dispositivo no registro de identidade em seu Hub IoT. Um dispositivo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no Registro de identidade. Para obter mais informações, consulte a seção "Registro de identidade" do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity]. Quando você executar esse aplicativo de console, ele irá gerar uma ID e chave do dispositivo exclusivas com as quais seu dispositivo poderá identificar-se ao enviar mensagens entre o dispositivo e a nuvem para o Hub IoT. As IDs de Dispositivo diferenciam maiúsculas de minúsculas.
+Nesta seção, você deve criar um aplicativo de console .NET que cria uma identidade de dispositivo no registro de identidade Olá em seu hub IoT. Um dispositivo não pode se conectar a tooIoT hub, a menos que ele tenha uma entrada no registro de identidade hello. Para obter mais informações, consulte a seção de "Registro de identidade" de saudação do hello [guia do desenvolvedor de IoT Hub][lnk-devguide-identity]. Quando você executa esse aplicativo de console, ele gera uma ID de dispositivo exclusivo e chave que seu dispositivo possa usar tooidentify em si, quando ele envia o dispositivo para nuvem mensagens tooIoT Hub. As IDs de Dispositivo diferenciam maiúsculas de minúsculas.
 
-1. No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows no Visual C# a uma nova solução usando o modelo de projeto **Aplicativo do Console (.NET Framework)**. Verifique se a versão do .NET Framework é 4.5.1 ou posterior. Nomeie o projeto **CreateDeviceIdentity** e a solução **IoTHubGetStarted**.
+1. No Visual Studio, adicione uma solução do Visual C# Windows clássico Desktop projeto tooa novo usando Olá **aplicativo de Console (.NET Framework)** modelo de projeto. Certifique-se de versão do .NET Framework Olá é 4.5.1 ou posterior. Projeto de saudação do nome **CreateDeviceIdentity** e solução de saudação do nome **IoTHubGetStarted**.
    
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][10]
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **CreateDeviceIdentity** e clique em **Gerenciar Pacotes Nuget**.
-3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
+2. No Gerenciador de soluções, clique com botão direito Olá **CreateDeviceIdentity** do projeto e, em seguida, clique em **gerenciar pacotes NuGet**.
+3. Em Olá **NuGet Package Manager** janela, selecione **procurar**, procure **microsoft.azure.devices**, selecione **instalar** tooinstall Olá **Microsoft.Azure.Devices** empacotar e aceitar os termos de uso do hello. Este procedimento faz o download, instala e adiciona uma referência toohello [SDK do serviço de Azure IoT] [ lnk-nuget-service-sdk] NuGet pacote e suas dependências.
    
     ![Janela do Gerenciador de Pacotes NuGet][11]
-4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
+4. Adicione o seguinte Olá `using` instruções na parte superior de saudação do hello **Program.cs** arquivo:
    
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Common.Exceptions;
-5. Adicione os seguintes campos à classe **Program** . Substitua o valor do espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior.
+5. Adicionar Olá toohello campos a seguir **programa** classe. Substitua o valor de espaço reservado Olá Olá cadeia de caracteres de conexão de IoT Hub hub Olá que você criou na seção anterior hello.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-6. Adicione o seguinte método à classe **Programa** :
+6. Adicionar Olá após o método toohello **programa** classe:
    
         private static async Task AddDeviceAsync()
         {
@@ -33,20 +33,20 @@ Nesta seção, você cria um aplicativo do console do .NET que cria uma identida
             Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
         }
    
-    Esse método cria uma identidade do dispositivo com a ID **myFirstDevice**. (se essa ID do dispositivo já existir no registro de identidade, o código simplesmente irá recuperar as informações do dispositivo existentes.) Em seguida, o aplicativo exibe a chave primária dessa identidade. Você usa essa chave no aplicativo de dispositivo simulado para se conectar ao Hub IoT.
+    Esse método cria uma identidade do dispositivo com a ID **myFirstDevice**. (Se esse ID de dispositivo já existe no registro de identidade Olá, código de saudação simplesmente recupera informações de dispositivo existentes hello.) aplicativo Hello, em seguida, exibe a chave primária Olá para essa identidade. Você pode usar essa chave Olá simulado dispositivo aplicativo tooconnect tooyour IoT hub.
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-7. Por fim, adicione as seguintes linhas ao método **Main** :
+7. Finalmente, adicione Olá toohello linhas a seguir **principal** método:
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         AddDeviceAsync().Wait();
         Console.ReadLine();
-8. Execute este aplicativo e anote a chave do dispositivo.
+8. Executar este aplicativo e tome nota da chave de dispositivo de saudação.
    
-    ![Chave do dispositivo gerada pelo aplicativo][12]
+    ![Chave de dispositivo gerado pelo aplicativo hello][12]
 
 > [!NOTE]
-> O Registro de identidade do Hub IoT armazena apenas as identidades de dispositivo para habilitar o acesso seguro ao Hub IoT. Ele armazena as IDs e as chaves do dispositivo a usar como credenciais de segurança e um sinalizador habilitado/desabilitado que você poderá usar para desabilitar o acesso de um dispositivo individual. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Para saber mais, confira [Guia de Desenvolvedor do Hub IoT][lnk-devguide-identity].
+> Olá registro de identidade de IoT Hub armazena apenas o hub IoT toohello de proteger o acesso do dispositivo identidades tooenable. Ele armazena toouse IDs e chaves de dispositivo como credenciais de segurança e um sinalizador habilitado/desabilitado que você pode usar o acesso de toodisable para um dispositivo individual. Se seu aplicativo precisa toostore outros metadados específicos do dispositivo, ele deve usar um repositório específico do aplicativo. Para saber mais, confira [Guia de Desenvolvedor do Hub IoT][lnk-devguide-identity].
 > 
 > 
 

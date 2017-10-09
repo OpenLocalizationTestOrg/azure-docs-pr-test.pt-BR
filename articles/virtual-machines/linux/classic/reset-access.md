@@ -1,6 +1,6 @@
 ---
-title: Redefinir chave SSH e senha de VM do Linux da CLI | Microsoft Docs
-description: "Como usar a extensão VMAccess da CLI (Interface de linha de comando) do Azure para redefinir uma chave SSH ou uma senha de VM do Linux, corrigir a configuração de SSH e verificar a consistência de disco"
+title: "aaaReset senha de VM do Linux e SSH chave da saudação CLI | Microsoft Docs"
+description: "Como toouse Olá extensão VMAccess de saudação do Azure Interface de linha de comando (CLI) tooreset uma senha de VM do Linux ou uma chave SSH, corrija a configuração de SSH hello e verificar a consistência de disco"
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1650ad64fb982627ae9f90b1a8209bb56bac7004
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Como redefinir uma senha de VM do Linux ou chave SSH, corrigir a configuração de SSH e verificar a consistência de disco usando a extensão VMAccess
-Se você não pode se conectar a uma máquina virtual Linux no Azure devido a uma senha esquecida, uma chave do Secure Shell (SSH) incorreta ou um problema com a configuração do SSH, use a extensão VMAccessForLinux com a CLI do Azure para redefinir a senha ou chave SSH ou corrigir a configuração do SSH e verificar a consistência do disco. 
+# <a name="how-tooreset-a-linux-vm-password-or-ssh-key-fix-hello-ssh-configuration-and-check-disk-consistency-using-hello-vmaccess-extension"></a>Como tooreset uma senha de VM do Linux ou chave SSH, corrija a configuração de SSH hello e verificar a consistência de disco usando a extensão VMAccess Olá
+Se você não pode se conectar a máquina virtual do tooa Linux no Azure devido a uma senha esquecida, uma chave do Secure Shell (SSH) incorreto ou um problema com a configuração de SSH hello, usar Olá extensão VMAccessForLinux com hello CLI do Azure tooreset Olá senha ou chave SSH, corrigir Olá configuração de SSH e verificar a consistência de disco. 
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação. Saiba como muito[executar essas etapas usando o modelo do Gerenciador de recursos de saudação](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
-Com a CLI do Azure, você poderá usar o comando **azure vm extension set** na sua interface de linha de comando (Bash, Terminal, Prompt de comando) para acessar comandos. Execute **azure help vm extension set** para ver o uso detalhado da extensão.
+Com hello CLI do Azure, você usar Olá **conjunto de extensão de vm do azure** comando comandos de tooaccess sua interface de linha de comando (Bash, Terminal, prompt de comando). Execute **azure help vm extension set** para ver o uso detalhado da extensão.
 
-Com o CLI do Azure, você pode realizar as seguintes tarefas:
+Com hello CLI do Azure, você pode fazer Olá seguintes tarefas:
 
-* [Redefinir a senha](#pwresetcli)
-* [Redefinir a chave SSH](#sshkeyresetcli)
-* [Redefinir a senha e a chave SSH](#resetbothcli)
+* [Redefinir senha Olá](#pwresetcli)
+* [Redefinir a chave SSH Olá](#sshkeyresetcli)
+* [Redefinir a chave SSH de senha e Olá Olá](#resetbothcli)
 * [Criar uma nova conta de usuário sudo](#createnewsudocli)
-* [Redefinir a configuração de SSH](#sshconfigresetcli)
+* [Redefinir a configuração de SSH Olá](#sshconfigresetcli)
 * [Excluir um usuário](#deletecli)
-* [Exibir o status da extensão VMAccess](#statuscli)
+* [Exibir status Olá Olá extensão VMAccess](#statuscli)
 * [Verificar a consistência dos discos adicionados](#checkdisk)
 * [Reparar discos adicionados na sua VM do Linux](#repairdisk)
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você precisará fazer o seguinte:
+Você precisará a seguir Olá toodo:
 
-* Você também precisará [instalar a CLI do Azure](../../../cli-install-nodejs.md) e [conectar-se à sua assinatura](../../../xplat-cli-connect.md) para usar recursos do Azure associados à sua conta.
-* Defina o modo correto para o modelo de implantação clássico digitando o seguinte no prompt de comando:
+* Você precisará de muito[instalar Olá CLI do Azure](../../../cli-install-nodejs.md) e [conectar assinatura tooyour](../../../xplat-cli-connect.md) toouse Azure recursos associados à sua conta.
+* Conjunto Olá modo correto para modelo de implantação clássico Olá digitando o seguinte Olá no prompt de comando hello:
     ``` 
         azure config mode asm
     ```
-* Tenha uma nova senha ou conjunto de chaves SSH, se quiser redefinir um deles. Você não precisa deles para redefinir a configuração de SSH.
+* Tem uma nova senha ou um conjunto de chaves SSH, se você quiser tooreset qualquer um. Você não precisa dessas se desejar que a configuração de SSH tooreset hello.
 
-## <a name="pwresetcli"></a>Redefinir a senha
+## <a name="pwresetcli"></a>Redefinir senha Olá
 1. Crie um arquivo no seu computador local chamado PrivateConf.json com essas linhas. Substitua **myUserName** e **myP@ssW0rd** pelo seu próprio nome de usuário e senha e defina sua própria data de expiração.
 
     ```   
@@ -62,14 +62,14 @@ Você precisará fazer o seguinte:
         }
     ```
         
-2. Execute esse comando, substituindo **myVM** pelo nome da máquina virtual.
+2. Execute este comando, substituindo Olá nome da máquina virtual para **myVM**.
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
     ```
 
-## <a name="sshkeyresetcli"></a>Redefinir a chave SSH
-1. Crie um arquivo chamado PrivateConf.json com esse conteúdo. Substitua os valores **myUserName** e **mySSHKey** pelas suas próprias informações.
+## <a name="sshkeyresetcli"></a>Redefinir a chave SSH Olá
+1. Crie um arquivo chamado PrivateConf.json com esse conteúdo. Substituir saudação **myUserName** e **mySSHKey** valores com suas próprias informações.
 
     ```   
         {
@@ -77,12 +77,12 @@ Você precisará fazer o seguinte:
         "ssh_key":"mySSHKey"
         }
     ```
-2. Execute esse comando, substituindo **myVM** pelo nome da máquina virtual.
+2. Execute este comando, substituindo Olá nome da máquina virtual para **myVM**.
    
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
-## <a name="resetbothcli"></a>Redefinir a senha e a chave SSH
-1. Crie um arquivo chamado PrivateConf.json com esse conteúdo. Substitua os valores **myUserName**, **mySSHKey** e **myP@ssW0rd** pelas suas próprias informações.
+## <a name="resetbothcli"></a>Redefinir senha hello e a chave SSH Olá
+1. Crie um arquivo chamado PrivateConf.json com esse conteúdo. Substituir saudação **myUserName**, **mySSHKey** e  **myP@ssW0rd**  valores com suas próprias informações.
 
     ``` 
         {
@@ -92,7 +92,7 @@ Você precisará fazer o seguinte:
         }
     ```
 
-2. Execute esse comando, substituindo **myVM** pelo nome da máquina virtual.
+2. Execute este comando, substituindo Olá nome da máquina virtual para **myVM**.
 
     ```   
         azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
@@ -100,19 +100,19 @@ Você precisará fazer o seguinte:
 
 ## <a name="createnewsudocli"></a>Criar uma nova conta de usuário sudo
 
-Se você esquecer seu nome de usuário, você pode usar VMAccess para criar um novo com a autoridade sudo. Nesse caso, o nome de usuário e a senha existente não serão modificados.
+Se você esquecer o nome de usuário, você pode usar VMAccess toocreate um novo com a autoridade de sudo hello. Olá nesse caso, o nome de usuário e senha não será modificada.
 
-Para criar um novo usuário sudo com senha de acesso, use o script em [Redefinir a senha](#pwresetcli) e especifique o novo nome de usuário.
+toocreate um novo usuário sudo com acesso de senha, use script de saudação em [redefinição da senha Olá](#pwresetcli) e especifique o novo nome de usuário hello.
 
-Para criar um novo usuário sudo com senha de acesso, use o script em [Redefinir a chave SSH](#sshkeyresetcli) e especifique o novo nome de usuário.
+toocreate um novo usuário sudo com acesso de chave SSH, usar o script de saudação em [chave SSH Olá redefinição](#sshkeyresetcli) e especifique o novo nome de usuário hello.
 
-Você também pode usar [Redefinir a senha e a chave SSH](#resetbothcli) para criar um novo usuário com senha e o acesso à chave de SSH.
+Você também pode usar [Redefinir senha hello e a chave SSH Olá](#resetbothcli) toocreate um novo usuário com senha e o acesso à chave de SSH.
 
-## <a name="sshconfigresetcli"></a>Redefinir a configuração de SSH
-Se a configuração do SSH está em um estado indesejado, você também pode perder o acesso à VM. Você pode usar a extensão VMAccess para redefinir a configuração para seu estado padrão. Para fazer isso, basta definir a chave "reset_ssh" como "True". A extensão reinicia o servidor SSH, abre a porta SSH na sua VM e redefine a configuração SSH como padrão. A conta de usuário (nome, senha ou chaves SSH) não será alterada.
+## <a name="sshconfigresetcli"></a>Redefinir a configuração de SSH Olá
+Se a configuração de SSH hello está em um estado indesejado, você também poderá perder acesso toohello VM. Você pode usar o hello VMAccess extensão tooreset Olá configuração tooits estado padrão. toodo assim, você apenas precisa tooset hello "reset_ssh" chave muito "True". extensão Olá reiniciar o servidor SSH Olá, abra a porta na sua VM SSH Olá e redefinir Olá SSH configuração toodefault valores. conta de usuário da saudação (nome, a senha ou as chaves de SSH) não será alterada.
 
 > [!NOTE]
-> O arquivo de configuração SSH está localizado em /etc/ssh/sshd_config.
+> arquivo de configuração do SSH Olá é redefinido está localizado em /etc/ssh/sshd_config.
 > 
 > 
 
@@ -124,16 +124,16 @@ Se a configuração do SSH está em um estado indesejado, você também pode per
         }
     ```
 
-2. Execute esse comando, substituindo **myVM** pelo nome da máquina virtual. 
+2. Execute este comando, substituindo Olá nome da máquina virtual para **myVM**. 
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
 ## <a name="deletecli"></a>Excluir um usuário
-Se você deseja excluir uma conta de usuário sem efetuar login à VM diretamente, você pode usar este script.
+Se você quiser toodelete uma conta de usuário sem efetuar login no toohello VM diretamente, você pode usar esse script.
 
-1. Crie um arquivo chamado PrivateConf.json com esse conteúdo, substituindo o nome de usuário a ser removido em **removeUserName**. 
+1. Crie um arquivo chamado PrivateConf.json com esse conteúdo, substituindo Olá tooremove de nome de usuário para **removeUserName**. 
 
     ```   
         {
@@ -141,23 +141,23 @@ Se você deseja excluir uma conta de usuário sem efetuar login à VM diretament
         }
     ```
 
-2. Execute esse comando, substituindo **myVM** pelo nome da máquina virtual. 
+2. Execute este comando, substituindo Olá nome da máquina virtual para **myVM**. 
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
     ```
 
-## <a name="statuscli"></a>Exibir o status da extensão VMAccess
-Para exibir o status da extensão VMAccess, execute este comando.
+## <a name="statuscli"></a>Exibir status Olá Olá extensão VMAccess
+status toodisplay Olá Olá extensão VMAccess, execute este comando.
 
 ```
         azure vm extension get
 ```
 
 ## <a name='checkdisk'></a>Verificar a consistência dos discos adicionados
-Para executar fsck em todos os discos na sua máquina virtual Linux, você precisará fazer o seguinte:
+toorun fsck em todos os discos em sua máquina virtual do Linux, você precisará a seguir Olá toodo:
 
-1. Crie um arquivo chamado PublicConf.json com esse conteúdo. A verificação de disco tem um valor booliano para se deseja verificar os discos anexados à sua máquina virtual ou não. 
+1. Crie um arquivo chamado PublicConf.json com esse conteúdo. Verificar disco tem um valor booleano para se toocheck discos anexados a máquina virtual de tooyour ou não. 
 
     ```   
         {   
@@ -165,14 +165,14 @@ Para executar fsck em todos os discos na sua máquina virtual Linux, você preci
         }
     ```
 
-2. Execute esse comando, substituindo o nome da máquina virtual em **myVM**.
+2. Executar tooexecute esse comando, substituindo Olá nome da máquina virtual para **myVM**.
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json 
     ```
 
 ## <a name='repairdisk'></a>Reparar discos
-Para reparar discos que não são de montagem ou tem erros de configuração de montagem, use a extensão VMAccess para redefinir a configuração de montagem em sua máquina virtual do Linux. Substitua o nome do seu disco em **myDisk**.
+discos toorepair não montar ou que possuem erros de configuração de montagem, use Olá VMAccess tooreset Olá montagem configuração da extensão na sua máquina virtual do Linux. Substituindo o nome de saudação do disco para **myDisk**.
 
 1. Crie um arquivo chamado PublicConf.json com esse conteúdo. 
 
@@ -183,14 +183,14 @@ Para reparar discos que não são de montagem ou tem erros de configuração de 
         }
     ```
 
-2. Execute esse comando, substituindo o nome da máquina virtual em **myVM**.
+2. Executar tooexecute esse comando, substituindo Olá nome da máquina virtual para **myVM**.
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --public-config-path PublicConf.json
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Se você quiser usar os cmdlets do Azure PowerShell ou os modelos do Azure Resource Manager para redefinir a senha ou chave SSH, corrigir a configuração de SSH e verificar a consistência do disco, veja a [documentação da extensão VMAccess no GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
-* Você também pode usar o [portal do Azure](https://portal.azure.com) para redefinir a senha ou a chave SSH de uma VM do Linux implantada no modelo de implantação clássico. No momento, não é possível usar o portal para fazer isso para uma VM do Linux implantada no modelo de implantação do Gerenciador de Recursos.
+* Se você quiser toouse cmdlets do PowerShell do Azure ou a senha do Gerenciador de recursos do Azure modelos tooreset hello ou a chave SSH, corrija a configuração de SSH Olá e verificar a consistência de disco, consulte Olá [documentação de extensão VMAccess no GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess). 
+* Você também pode usar o hello [portal do Azure](https://portal.azure.com) tooreset senha de saudação ou chave SSH de uma VM do Linux implantadas no modelo de implantação clássico hello. No momento, você não pode usar saudação portal toothis para uma VM do Linux é implantado no modelo de implantação do Gerenciador de recursos de saudação.
 * Veja [Sobre os recursos e extensões de máquina virtual](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter mais informações sobre como usar extensões de VM para máquinas virtuais do Azure.
 

@@ -1,6 +1,6 @@
 ---
-title: "Implantar o Serviço de Aplicativo do Azure com o Plug-in Jenkins | Microsoft Docs"
-description: "Saiba como usar o plug-in Jenkins do Serviço de Aplicativo do Azure para implantar um aplicativo Web do Java no Azure no Jenkins"
+title: "aaaDeploy tooAzure do serviço de aplicativo com Jenkins Plugin | Microsoft Docs"
+description: "Saiba como toouse Jenkins de serviço de aplicativo do Azure plug-in toodeploy um Java web tooAzure de aplicativo em Jenkins"
 services: app-service\web
 documentationcenter: 
 author: mlearned
@@ -15,71 +15,71 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 646daad1785f3de067544b6dd38abfcb6bc67d4a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 080be7277555ce7d688dccdf38eef309e7a7b194
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-to-azure-app-service-with-jenkins-plugin"></a>Implantar para o Serviço de Aplicativo do Azure com o Plug-in Jenkins 
-Para implantar um aplicativo Web do Java no Azure, você pode usar a CLI do Azure no [Pipeline do Jenkins](/azure/jenkins/execute-cli-jenkins-pipeline) ou você pode fazer uso do [Plug-in Jenkins do Serviço de Aplicativo do Azure](https://plugins.jenkins.io/azure-app-service). Neste tutorial, você aprenderá como:
+# <a name="deploy-tooazure-app-service-with-jenkins-plugin"></a>Implantar tooAzure do serviço de aplicativo com Jenkins plug-in 
+toodeploy um tooAzure de aplicativo web Java, você pode usar a CLI do Azure em [Jenkins Pipeline](/azure/jenkins/execute-cli-jenkins-pipeline) ou você pode fazer uso de saudação [Jenkins de serviço de aplicativo do Azure plug-in](https://plugins.jenkins.io/azure-app-service). Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Configurar Jenkins para implantar para o Serviço de Aplicativo do Azure via FTP 
-> * Configurar o Jenkins para implantar o Serviço de Aplicativo do Azure em Linux por meio do Docker 
+> * Configurar Jenkins toodeploy tooAzure do serviço de aplicativo por meio de FTP 
+> * Configurar Jenkins toodeploy tooAzure do serviço de aplicativo no Linux por meio do Docker 
 
 ## <a name="create-and-configure-jenkins-instance"></a>Criar e configurar uma instância do Jenkins
-Se você ainda não tiver um mestre do Jenkins, comece com o [Modelo de Solução](install-jenkins-solution-template.md), que inclui o JDK8 e os plug-ins necessários a seguir:
+Se você ainda não tiver um mestre Jenkins, comece com hello [solução modelo](install-jenkins-solution-template.md), que inclui JDK8 e hello plug-ins necessários a seguir:
 
 * [Plug-in de cliente Git do Jenkins](https://plugins.jenkins.io/git-client) v.2.4.6 
 * [Plug-in Docker Commons](https://plugins.jenkins.io/docker-commons) v.1.4.0
 * [Credenciais do Azure](https://plugins.jenkins.io/azure-credentials) v.1.2
 * [Serviço de Aplicativo do Azure](https://plugins.jenkins.io/azure-app-server) v.0.1
 
-Você pode usar o plug-in do Serviço de Aplicativo para implantar o aplicativo Web em todas as linguagens (por exemplo, C#, PHP, Java e node.js, etc.) com suporte pelo Serviço de Aplicativo do Azure. Neste tutorial, estamos usando o aplicativo Java de exemplo, [Aplicativo Web Java Simples para o Azure](https://github.com/azure-devops/javawebappsample). Para bifurcar o repositório para sua própria conta do GitHub, clique no botão **Bifurcação** no canto superior direito.  
+Você pode usar o hello toodeploy aplicativo Web do plug-in do serviço de aplicativo em todos os idiomas (por exemplo, c#, PHP, Java e node.js, etc.) tem suportada pelo serviço de aplicativo do Azure. Neste tutorial, estamos usando Olá amostra de aplicativo Java, [simples aplicativo de Web de Java para o Azure](https://github.com/azure-devops/javawebappsample). toofork Olá repositório tooyour possui a conta do GitHub, clique em Olá **bifurcação** botão no canto direito superior de saudação.  
 
-O Java JDK e o Maven são necessários para compilar o projeto Java. Verifique se você instalou os componentes no mestre do Jenkins ou no agente de VM, caso você use um deles para a integração contínua. 
+JDK de Java e Maven são necessários para compilar o projeto de Java hello. Verifique se que você instalar componentes de saudação em mestre do hello Jenkins ou agente de VM Olá se você usar uma para a integração contínua. 
 
-Para instalar, faça logon na instância do Jenkins usando o SSH e execute os seguintes comandos:
+tooinstall, faça logon em toohello Jenkins instância usando o SSH e execute Olá comandos a seguir:
 
 ```bash
 sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-Para implantar o Serviço de Aplicativo no Linux, você também precisa instalar o Docker no mestre do Jenkins ou no agente de VM usado para o build. Consulte este artigo para instalar o Docker: https://docs.docker.com/engine/installation/linux/ubuntu/.
+Para implantar tooApp serviço no Linux, você também precisa tooinstall Docker no mestre de Jenkins de saudação ou agente de VM Olá usado para compilação. Consulte o artigo de toothis tooinstall Docker: https://docs.docker.com/engine/installation/linux/ubuntu/.
 
-## <a name="add-azure-service-principal-to-jenkins-credential"></a>Adicione uma entidade de serviço do Azure na credencial do Jenkins
+## <a name="add-azure-service-principal-toojenkins-credential"></a>Adicionar a credencial de tooJenkins principal de serviço do Azure
 
-Uma entidade de serviço do Azure é necessária para implantar no Azure. 
+Uma entidade de serviço do Azure é necessário toodeploy tooAzure. 
 
 <ol>
-<li>Use a [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou o [Portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal) para criar uma entidade de serviço do Azure</li>
-<li>No painel do Jenkins, clique em **Credenciais -> Sistema ->**. Clique em **Credenciais globais (irrestrito)**.</li>
-<li>Clique em **Adicionar credenciais** para adicionar uma entidade de serviço do Microsoft Azure, preenchendo a ID da assinatura, a ID do cliente, o segredo do cliente e o Ponto de Extremidade do Token OAuth 2.0. Forneça uma ID, **mySp**, para uso na próxima etapa.</li>
+<li>Use [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) ou [portal do Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal) toocreate uma entidade de serviço do Azure</li>
+<li>No painel do Jenkins hello, clique em **credenciais -> sistema ->**. Clique em **Credenciais globais (irrestrito)**.</li>
+<li>Clique em **adicionar credenciais** tooadd uma entidade de serviço do Microsoft Azure preenchendo Olá ID da assinatura, ID do cliente, o segredo de cliente e ponto de extremidade Token OAuth 2.0. Forneça uma ID, **mySp**, para uso na próxima etapa.</li>
 </ol>
 
 ## <a name="azure-app-service-plugin"></a>Plug-in do Serviço de Aplicativo do Azure
 
-O plug-in do Serviço de Aplicativo do Azure v1.0 dá suporte à implantação contínua para o aplicativo Web do Azure por meio de:
+V 1.0 plug-in de serviço de aplicativo do Azure oferece suporte à implantação contínua tooAzure aplicativo Web por meio de:
 
 * Git e FTP
 * Docker para Aplicativo Web no Linux
 
-## <a name="configure-jenkins-to-deploy-web-app-through-ftp-using-the-jenkins-dashboard"></a>Configurar o Jenkins para implantar o aplicativo Web via FTP usando o painel do Jenkins
+## <a name="configure-jenkins-toodeploy-web-app-through-ftp-using-hello-jenkins-dashboard"></a>Configurar toodeploy Jenkins aplicativo Web por meio de FTP usando Olá Jenkins painel
 
-Para implantar seu projeto de aplicativo Web do Azure, você pode carregar seus artefatos de build (por exemplo, o arquivo .war em Java) usando o Git ou FTP.
+toodeploy tooAzure seu project Web App, você pode carregar seus artefatos de compilação (por exemplo, o arquivo. war em Java) usando o Git ou FTP.
 
-Antes de configurar o trabalho em Jenkins, você precisa de um plano do Serviço de Aplicativo do Azure e de um aplicativo Web para executar o aplicativo Java.
+Antes de configurar o trabalho de saudação em Jenkins, é necessário um plano de serviço de aplicativo do Azure e um aplicativo Web para aplicativo de Java Olá em execução.
 
 
-1. Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando a CLI de comando [az appservice plan create](/cli/azure/appservice/plan#create). O plano do serviço de aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do serviço de aplicativo compartilham esses recursos, permitindo que você economize hospedando vários aplicativos.
-2. Crie um aplicativo Web. Você pode usar o [Portal do Azure](/azure/app-service-web/web-sites-configure) ou use o seguinte comando da CLI do Azure:
+1. Criar um plano de serviço de aplicativo do Azure com hello **livre** preço usando Olá [criar plano de serviço de aplicativo az](/cli/azure/appservice/plan#create) comando CLI. plano de serviço de aplicativo Hello define Olá recursos físicos usados toohost seus aplicativos. Todos os aplicativos atribuídos plano de serviço de aplicativo tooan compartilham esses recursos, permitindo que você toosave custo ao hospedar vários aplicativos.
+2. Crie um aplicativo Web. Pode hello ou use [portal do Azure](/azure/app-service-web/web-sites-configure) ou use Olá comando CLI Az a seguir:
 ```azurecli-interactive 
 az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
 ```
 
-3. Verifique se que você definiu a configuração de tempo de execução do Java que seu aplicativo precisa. O comando da CLI do Azure a seguir configura o aplicativo Web para ser executado em um JDK 8 Java recente e [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+3. Certifique-se de que definir a configuração de tempo de execução do Java Olá seu aplicativo precisa. Olá após o comando CLI do Azure configura Olá web aplicativo toorun em um recente Java 8 JDK e [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 ```azurecli-interactive
 az webapp config set \
 --name <myAppName> \
@@ -89,35 +89,35 @@ az webapp config set \
 --java-container-version 8.0
 ```
 
-### <a name="set-up-the-jenkins-job"></a>Configurar o trabalho do Jenkins
+### <a name="set-up-hello-jenkins-job"></a>Configurar Olá Jenkins trabalho
 
 
 1. Criar um novo projeto de **estilo livre** no painel do Jenkins
-2. Configure o **Gerenciamento de Código-fonte** para usar o seu fork local de [Aplicativo Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample), fornecendo a **URL do Repositório**. Por exemplo: http://github.com/&lt;yourID>/aplicativowebjavadeexemplo.
-3. Adicione uma etapa de build para compilar o projeto usando o Maven. Faça isso adicionando um **Executar shell**. Neste exemplo, precisamos de uma etapa adicional para renomear o arquivo *.war na pasta de destino para ROOT.war.   
+2. Configurar **código-fonte gerenciamento** toouse seu local bifurcação de [simples aplicativo de Web de Java para o Azure](https://github.com/azure-devops/javawebappsample) fornecendo Olá **URL do repositório**. Por exemplo: http://github.com/&lt;yourID>/aplicativowebjavadeexemplo.
+3. Adicione um projeto de saudação do Build etapa toobuild usando Maven. Faça isso adicionando um **Executar shell**. Neste exemplo, podemos precisará de um arquivo de *.war do etapa adicional toorename Olá no tooROOT.war da pasta de destino.   
 ```bash
 mvn clean package
 mv target/*.war target/ROOT.war
 ```
 
 4. Adicione uma ação pós-build selecionando **Publicar um Aplicativo Web do Azure**.
-5. Forneça "mySp", a entidade de serviço do Azure armazenada na etapa anterior.
-6. Em **Configuração do Aplicativo**, escolha o aplicativo Web e o grupo de recursos em sua assinatura. O plug-in detecta automaticamente se o aplicativo Web é do Windows ou do Linux. Para um aplicativo Web baseado em Windows, a opção "Publicar Arquivos" é apresentada.
-7. Preencha os arquivos que você deseja implantar (por exemplo, um pacote war se você estiver usando o Java.) O Diretório de Origem e o Diretório de Destino são opcionais. Os parâmetros permitem que você especifique as pastas de origem e de destino ao carregar arquivos. O aplicativo Web Java no Azure é executado em um servidor Tomcat. Desse modo, você carrega o pacote war para a pasta webapps. Neste exemplo, defina **Diretório de Origem** como "destino" e forneça "webapps" como **Diretório de Destino**.
-8. Se você deseja implantar em um slot que não seja de produção, você também pode definir o Nome do **Slot**.
-9. Salve o projeto e compile-o. Seu aplicativo Web será implantado no Azure quando o build for concluído.
+5. Fonte, "mySp", entidade de serviço do Azure Olá armazenados na etapa anterior.
+6. Em **configuração do aplicativo** , escolha Olá recurso grupo e o aplicativo web em sua assinatura. plug-in de saudação detecta automaticamente se Olá Web App for Windows ou Linux. Para um aplicativo Web baseado em Windows, é apresentada a opção hello "Publicar os arquivos".
+7. Preenchimento nos arquivos de saudação desejado toodeploy (por exemplo, um pacote war se você estiver usando o Java.) O Diretório de Origem e o Diretório de Destino são opcionais. Olá parâmetros permitem toospecify pastas de origem e de destino quando o carregamento de arquivos. O aplicativo Web Java no Azure é executado em um servidor Tomcat. Desse modo, você carrega o pacote war para a pasta webapps. Neste exemplo, defina **diretório de origem** muito "destino" e fornecer "webapps" de **diretório de destino**.
+8. Se você quiser toodeploy tooa slot que não seja de produção, você também pode definir **Slot** nome.
+9. Salve o projeto hello e compilá-lo. Seu aplicativo web é implantado tooAzure quando a compilação for concluída.
 
 ### <a name="deploy-web-app-through-ftp-using-jenkins-pipeline"></a>Implantar o aplicativo Web via FTP usando o pipeline do Jenkins
 
-O plug-in está preparado para o pipeline. Você pode se referir a uma amostra no repositório GitHub.
+Olá plug-in está preparado para o pipeline. Você pode consultar o exemplo tooa no repositório do GitHub hello.
 
-1. Na interface do usuário da Web do GitHub, abra o arquivo **Jenkinsfile_ftp_plugin**. Clique no ícone de lápis para editar esse arquivo para atualizar o grupo de recursos e o nome do seu aplicativo Web nas linhas 11 e 12, respectivamente.    
+1. Na interface do usuário da Web do GitHub, abra o arquivo **Jenkinsfile_ftp_plugin**. Clique em tooedit de ícone de lápis Olá este grupo de recursos do arquivo tooupdate hello e o nome do seu aplicativo web na linha 11 e 12 respectivamente.    
 ```java
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<myAppName>'
 ```
 
-2. Altere a linha 14 para atualizar a ID de credencial na sua instância do Jenkins.    
+2. Alterar a identificação da credencial tooupdate 14 linha em sua instância Jenkins.    
 ```java
 withCredentials([azureServicePrincipal('<mySp>')]) {
 ```
@@ -125,95 +125,95 @@ withCredentials([azureServicePrincipal('<mySp>')]) {
 ### <a name="create-a-jenkins-pipeline"></a>Crie um pipeline do Jenkins
 
 1. Abra o Jenkins em um navegador da Web, clique em **Novo Item**.
-2. Dê um nome para o trabalho e selecione **Pipeline**. Clique em **OK**.
-3. Clique na próxima guia **Pipeline**.
+2. Forneça um nome para o trabalho de saudação e selecione **Pipeline**. Clique em **OK**.
+3. Clique em Olá **Pipeline** próxima guia.
 4. Para **Definição**, selecione **Script de pipeline do SCM**.
-5. Para **SCM**, selecione **Git**. Insira a URL do GitHub em seu repositório bifurcado: https:&lt;seu repositório bifurcado>.git
-6. Atualize o **Caminho de Script** para "Jenkinsfile_ftp_plugin"
-7. Clique em **Salvar** e execute o trabalho.
+5. Para **SCM**, selecione **Git**. Digite hello GitHub URL para seu repositório bifurcado: https:&lt;seu repositório bifurcado > .git
+6. Atualização **caminho de Script** muito "Jenkinsfile_ftp_plugin"
+7. Clique em **salvar** e trabalho de execução hello.
 
-## <a name="configure-jenkins-to-deploy-web-app-on-linux-through-docker"></a>Configurar o Jenkins para implantar o Aplicativo Web no Linux por meio do Docker
+## <a name="configure-jenkins-toodeploy-web-app-on-linux-through-docker"></a>Configurar toodeploy Jenkins aplicativo Web no Linux por meio do Docker
 
-Além de Git/FTP, o aplicativo Web no Linux dá suporte à implantação usando o Docker. Para implantar usando o Docker, você precisa fornecer um Dockerfile que empacote seu aplicativo Web com tempo de execução do serviço em uma imagem do Docker. O plug-in então compila a imagem, envia-a por push a um registro de Docker e a implanta em seu aplicativo Web.
+Além de Git/FTP, o aplicativo Web no Linux dá suporte à implantação usando o Docker. toodeploy usando o Docker, você precisa tooprovide um Dockerfile que os pacotes de aplicativos web com o tempo de execução do serviço em uma imagem do docker. Em seguida, Olá plug-in compila imagem hello, envia-registro de docker tooa e implanta o aplicativo web do hello imagem tooyour.
 
-O aplicativo Web no Linux também dá suporte a modos tradicionais, como Git e FTP, mas somente para linguagens internas (.NET Core, Node.js, PHP e Ruby). Para outras linguagens, você precisa empacotar o código do aplicativo e tempo de execução do serviço juntos em uma imagem do Docker e usar o Docker para implantar.
+O aplicativo Web no Linux também dá suporte a modos tradicionais, como Git e FTP, mas somente para linguagens internas (.NET Core, Node.js, PHP e Ruby). Para outros idiomas, você precisa de toopackage o tempo de execução de código e o serviço de aplicativo juntos em uma imagem do docker e usar toodeploy docker.
 
-Antes de configurar o trabalho no Jenkins, você precisa de um Serviço de Aplicativo do Azure no Linux. Um registro de contêiner também é necessário para armazenar e gerenciar suas imagens privadas de contêiner Docker. Você pode usar o DockerHub; estamos usando o Registro de Contêiner do Azure para este exemplo.
+Antes de configurar o trabalho de saudação em Jenkins, você precisa de um serviço de aplicativo do Azure em Linux. Um registro de contêiner também é necessário toostore e gerenciar suas imagens de contêiner do Docker particulares. Você pode usar o DockerHub; estamos usando o Registro de Contêiner do Azure para este exemplo.
 
-* Você pode seguir as etapas [aqui](/azure/app-service-web/app-service-linux-how-to-create-web-app) para criar um aplicativo Web no Linux 
-* O Registro de Contêiner do Azure é um serviço gerenciado de [registro do Docker] (https://docs.docker.com/registry/) com base no software livre Docker Registry 2.0. Siga as etapas [aqui] (/azure/container-registry/container-registry-get-started-azure-cli) para mais diretrizes sobre como fazer isso. Você também pode usar o DockerHub.
+* Você pode seguir as etapas de saudação [aqui](/azure/app-service-web/app-service-linux-how-to-create-web-app) toocreate um aplicativo Web no Linux 
+* Registro de contêiner do Azure é um gerenciados [Docker registro] serviço (https://docs.docker.com/registry/) com base no hello 2.0 do código-fonte aberto Docker do registro. Execute as etapas de saudação [aqui] (/ azure/container-registry/container-registry-get-started-azure-cli) para obter instruções sobre como toodo para. Você também pode usar o DockerHub.
 
-### <a name="to-deploy-using-docker"></a>Para implantar usando o docker:
+### <a name="toodeploy-using-docker"></a>toodeploy usando o docker:
 
 1. Crie um novo projeto de estilo livre no painel do Jenkins.
-2. Configure o **Gerenciamento de Código-fonte** para usar o seu fork local de [Aplicativo Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample), fornecendo a **URL do Repositório**. Por exemplo: http://github.com/&lt;yourid>/aplicativowebjavadeexemplo.
-Adicione uma etapa de build para compilar o projeto usando o Maven. Faça isso adicionando um **Executar shell** e adicione a seguinte linha no **Comando**:    
+2. Configurar **código-fonte gerenciamento** toouse seu local bifurcação de [simples aplicativo de Web de Java para o Azure](https://github.com/azure-devops/javawebappsample) fornecendo Olá **URL do repositório**. Por exemplo: http://github.com/&lt;yourid>/aplicativowebjavadeexemplo.
+Adicione um projeto de saudação do Build etapa toobuild usando Maven. Faça isso adicionando um **executar shell** e adicione Olá a seguinte linha no **comando**:    
 ```bash
 mvn clean package
 ```
 
 3. Adicione uma ação pós-build selecionando **Publicar um Aplicativo Web do Azure**.
-4. Forneça **mySp**, a entidade de serviço do Azure armazenada na etapa anterior como Credenciais do Azure.
-5. Em **Configuração do Aplicativo**, escolha o aplicativo Web do Linux e o grupo de recursos em sua assinatura.
+4. Fornecer, **mySp**, entidade de serviço do Azure Olá armazenada na etapa anterior como credenciais do Azure.
+5. Em **configuração do aplicativo** , escolha o grupo de recursos de saudação e um aplicativo web do Linux em sua assinatura.
 6. Escolha Publicar por meio do Docker.
-7. Preencha o caminho de **Dockerfile**. Você pode manter o "/Dockerfile" padrão para a **URL de Registro do Docker**, forneça-a no formato https://&lt;myRegistry>.azurecr.io se você usar o Registro de Contêiner do Azure. Deixe-a em branco se você usar o DockerHub.
-8. Para **Credenciais de registro**, adicione a credencial para o Registro de Contêiner do Azure. Você pode obter a ID de usuário e senha executando os comandos a seguir na CLI do Azure. O primeiro comando habilita a conta administrador.    
+7. Preencha o caminho de **Dockerfile**. Você pode manter saudação padrão "/ Dockerfile" para **URL de registro de Docker**, forneça no formato de saudação do https://&lt;myRegistry >. azurecr.io se você usar o registro de contêiner do Azure. Deixe-a em branco se você usar o DockerHub.
+8. Para **credenciais de registro**, adicione a credencial Olá de saudação do registro de contêiner do Azure. Você pode obter Olá ID de usuário e senha executando Olá seguintes comandos em CLI do Azure. comando primeiro Olá permite que a conta de administrador de saudação.    
 ```azurecli-interactive
 az acr update -n <yourRegistry> --admin-enabled true
 az acr credential show -n <yourRegistry>
 ```
 
-9. O nome da imagem do docker e a marca na guia **Avançado** são opcionais. Por padrão, o nome da imagem é obtido do nome da imagem que você configurou no Portal do Azure (na configuração do Contêiner do Docker). A marca é gerada de $BUILD_NUMBER. Verifique se você especificou o nome da imagem em um Portal do Azure ou forneça um valor para **Imagem do Docker** na guia **Avançado**. Neste exemplo, forneça "&lt;yourRegistry>.azurecr.io/calculator" para a **Imagem do Docker** e deixe a **Marca da Imagem do Docker** em branco.
-10. Observe que a implantação falhará se você usar uma configuração de imagem do Docker interna. Verifique se que você alterou a configuração do Docker para usar a imagem personalizada na configuração Contêiner do Docker no Portal do Azure. Para a imagem interna, use a abordagem de upload de arquivo para implantar.
-11. Semelhante à abordagem de upload de arquivo, você pode escolher um slot diferente que não seja de produção.
-12. Salve e compile o projeto. Você verá que sua imagem de contêiner é enviada por push para o Registro e o aplicativo Web é implantado.
+9. Olá, nome de imagem do docker e a marca no **avançado** guia são opcionais. Por padrão, o nome da imagem é obtido da imagem Olá nome configurado na marca de saudação portal (no contêiner do Docker configuração.) do Azure é gerado a partir de $ número do_build. Verifique se você especifica o nome da imagem Olá no portal do Azure ou fornece um valor para **Docker imagem** na **avançado** guia. Neste exemplo, forneça "&lt;yourRegistry>.azurecr.io/calculator" para a **Imagem do Docker** e deixe a **Marca da Imagem do Docker** em branco.
+10. Observe que a implantação falhará se você usar uma configuração de imagem do Docker interna. Verifique se que você alterar a imagem personalizada do docker config toouse na configuração do contêiner do Docker no portal do Azure. Para a imagem interna, use toodeploy de abordagem de carregamento de arquivo.
+11. Método de carregamento toofile semelhante, você pode escolher um slot diferente que não seja de produção.
+12. Salve e compile o projeto de saudação. Você verá sua imagem de contêiner é enviada por push do registro de tooyour e aplicativo web é implantado.
 
-### <a name="deploy-to-web-app-on-linux-through-docker-using-jenkins-pipeline"></a>Implante o aplicativo Web no Linux por meio do Docker usando o pipeline do Jenkins
+### <a name="deploy-tooweb-app-on-linux-through-docker-using-jenkins-pipeline"></a>Implantar tooWeb aplicativo no Linux por meio do Docker usando o pipeline Jenkins
 
-1. Na interface do usuário da Web do GitHub, abra o arquivo **Jenkinsfile_container_plugin**. Clique no ícone de lápis para editar esse arquivo para atualizar o grupo de recursos e o nome do seu aplicativo Web nas linhas 11 e 12, respectivamente.    
+1. Na interface do usuário da Web do GitHub, abra o arquivo **Jenkinsfile_container_plugin**. Clique em tooedit de ícone de lápis Olá este grupo de recursos do arquivo tooupdate hello e o nome do seu aplicativo web na linha 11 e 12 respectivamente.    
 ```java
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<myAppName>'
 ```
 
-2. Altere a linha 13 para o servidor de registro de contêiner    
+2. Alterar o servidor de registro de contêiner de tooyour 13 de linha    
 ```java
 def registryServer = '<registryURL>'
 ```    
 
-3. Altere a linha 16 para atualizar a ID de credencial na instância do Jenkins    
+3. Alterar a identificação da credencial tooupdate 16 linha em sua instância Jenkins    
 ```java
 azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
 ```    
 ### <a name="create-jenkins-pipeline"></a>Criar pipeline do Jenkins    
 
 1. Abra o Jenkins em um navegador da Web, clique em **Novo Item**.
-2. Dê um nome para o trabalho e selecione **Pipeline**. Clique em **OK**.
-3. Clique na próxima guia **Pipeline**.
+2. Forneça um nome para o trabalho de saudação e selecione **Pipeline**. Clique em **OK**.
+3. Clique em Olá **Pipeline** próxima guia.
 4. Para **Definição**, selecione **Script de pipeline do SCM**.
 5. Para **SCM**, selecione **Git**.
-6. Insira a URL do GitHub em seu repositório bifurcado: https:&lt;seu repositório bifurcado>.git</li>
-7, Atualize o **Caminho de Script** para "Jenkinsfile_container_plugin"
-8. Clique em **Salvar** e execute o trabalho.
+6. Digite hello GitHub URL para seu repositório bifurcado: https:&lt;seu repositório bifurcado > .git</li>
+Atualização 7, **caminho de Script** muito "Jenkinsfile_container_plugin"
+8. Clique em **salvar** e trabalho de execução hello.
 
 ## <a name="verify-your-web-app"></a>Verifique seu aplicativo Web
 
-1. Para verificar se o arquivo WAR foi implantado com êxito em seu aplicativo Web, Abra um navegador da Web.
-2. Acesse http://&lt;nome_do-aplicativo>.azurewebsites.net/api/calculator/ping Você verá:    
-     Bem-vindo ao aplicativo Web Java!!! Ele está atualizado!
+1. arquivo do tooverify Olá WAR seja implantado com êxito tooyour web app. Abra um navegador da Web.
+2. Vá toohttp: / /&lt;app_name >.azurewebsites.net/api/calculator/ping você verá:    
+     Bem-vindo tooJava aplicativo Web!!! Ele está atualizado!
    Domingo, 17 de junho de 2017, 16:39:10 UTC
-3. Acesse http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitua &lt;x > e &lt;y > por qualquer número) para obter a soma de x e y        
+3. Vá toohttp: / /&lt;app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (substitua &lt;x > e &lt;y > com os números) tooget soma de saudação de x e y        
     ![Calculadora: adicionar](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-app-service-on-linux"></a>Para o Serviço de Aplicativo no Linux
 
-* Para verificar, na CLI do Azure, execute:
+* tooverify, na CLI do Azure, execute:
 
     ```
     az acr repository list -n <myRegistry> -o json
     ```
 
-    Você obterá o seguinte resultado:
+    Você obtém Olá resultados a seguir:
     
     ```
     [
@@ -221,19 +221,19 @@ azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resource
     ]
     ```
     
-    Acesse http://&lt;app_name>.azurewebsites.net/api/calculator/ping. Você verá a mensagem: 
+    Vá toohttp: / /&lt;app_name >.azurewebsites.net/api/calculator/ping. Você verá a mensagem de saudação: 
     
-        Welcome to Java Web App!!! This is updated!
+        Welcome tooJava Web App!!! This is updated!
         Sun Jul 09 16:39:10 UTC 2017
 
-    Acesse http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitua &lt;x > e &lt;y > por qualquer número) para obter a soma de x e y
+    Vá toohttp: / /&lt;app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (substitua &lt;x > e &lt;y > com os números) tooget soma de saudação de x e y
     
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você pode usar o plug-in do Serviço de Aplicativo do Azure para implantar no Azure.
+Neste tutorial, você deve usar Olá tooAzure de toodeploy de plug-in de serviço de aplicativo do Azure.
 
 Você aprendeu como:
 
 > [!div class="checklist"]
-> * Configurar Jenkins para implantar o Serviço de Aplicativo do Azure via FTP 
-> * Configurar o Jenkins para implantar o Serviço de Aplicativo do Azure em Linux por meio do Docker 
+> * Configurar Jenkins toodeploy do serviço de aplicativo do Azure por meio de FTP 
+> * Configurar Jenkins toodeploy tooAzure do serviço de aplicativo no Linux por meio do Docker 

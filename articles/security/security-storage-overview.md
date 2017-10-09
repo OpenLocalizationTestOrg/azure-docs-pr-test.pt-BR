@@ -1,6 +1,6 @@
 ---
-title: "Recursos de segurança que podem ser usados com o Armazenamento do Azure | Microsoft Docs"
-description: " Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com o Armazenamento do Azure. "
+title: recursos de aaaSecurity que podem ser usados com o armazenamento do Azure | Microsoft Docs
+description: " Este artigo fornece uma visão geral dos recursos de segurança do Azure do hello principais que podem ser usados com o armazenamento do Azure. "
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 663cd2705527957d21ff9475a6322b42a16c95e5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral da segurança do armazenamento do Azure
-O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes. O Armazenamento do Azure fornece um conjunto abrangente de funcionalidades de segurança:
+Armazenamento do Azure é uma solução de armazenamento de nuvem Olá para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade toomeet Olá de seus clientes. O Armazenamento do Azure fornece um conjunto abrangente de funcionalidades de segurança:
 
-* A conta de armazenamento pode ser protegida usando o Controle de Acesso Baseado em Função e o Azure Active Directory.
+* conta de armazenamento Olá pode ser protegida usando o controle de acesso baseado em função e o Active Directory do Azure.
 * Os dados podem ser protegidos em trânsito, entre um aplicativo e o Azure usando a Criptografia do cliente, HTTPs ou SMB 3.0.
-* Os dados podem ser definidos para serem criptografados automaticamente quando gravados no Armazenamento do Azure usando a Criptografia do Serviço de Armazenamento.
-* Os discos do SO e de dados usados pelas máquinas virtuais podem ser definidos para serem criptografados usando o Azure Disk Encryption.
-* O acesso delegado aos objetos de dados no Armazenamento do Azure pode ser concedido usando Assinaturas de Acesso Compartilhado.
-* O método de autenticação usado por alguém ao acessar o armazenamento pode ser acompanhado usando a análise de Armazenamento.
+* Dados podem ser definidos toobe criptografado automaticamente quando gravados tooAzure armazenamento usando a criptografia do serviço de armazenamento.
+* Sistema operacional e discos de dados usados por máquinas virtuais podem ser definidos toobe criptografado usando a criptografia de disco do Azure.
+* Acesso delegado toohello objetos de dados no armazenamento do Azure podem ser concedidos usando assinaturas de acesso compartilhado.
+* método de autenticação de saudação usado por alguém quando acessar o armazenamento pode ser acompanhado usando a análise de armazenamento.
 
-Para obter uma visão mais detalhada sobre a segurança no Armazenamento do Azure, confira o [Guia de segurança do Armazenamento do Azure](../storage/common/storage-security-guide.md). Este guia fornece uma visão aprofundada dos recursos de segurança do Armazenamento do Azure, como chaves de conta de armazenamento, criptografia de dados em trânsito e em repouso e análise de armazenamento.
+Para obter uma visão mais detalhada de segurança no armazenamento do Azure, consulte Olá [guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md). Este guia fornece um mergulho profundo em recursos de segurança de saudação do armazenamento do Azure, como chaves de conta de armazenamento, criptografia de dados em trânsito e em repouso e análise de armazenamento.
 
-Este artigo fornece uma visão geral dos recursos de segurança do Azure que podem ser usados com o Armazenamento do Azure. São fornecidos links para artigos que apresentam detalhes de cada recurso para que você possa saber mais sobre eles.
+Este artigo fornece uma visão geral dos recursos de segurança do Azure que podem ser usados com o Armazenamento do Azure. Links são fornecidos tooarticles que forneça os detalhes de cada recurso para saber mais.
 
-Aqui estão os principais recursos que serão abordados neste artigo:
+Aqui estão Olá principais recursos toobe abordada neste artigo:
 
 * Controle de Acesso Baseado em Função
-* Acesso delegado aos objetos de armazenamento
+* Acesso delegado toostorage objetos
 * Criptografia em trânsito
 * Criptografia em repouso/criptografia do serviço de armazenamento
 * Azure Disk Encryption
 * Cofre da Chave do Azure
 
 ## <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
-Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringir o acesso com base nos princípios de segurança de [divulgação restrita àqueles diretamente interessados](https://en.wikipedia.org/wiki/Need_to_know) e no [privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) é fundamental para as organizações que desejam impor políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo a função de RBAC apropriada a grupos e aplicativos em determinado escopo. Você pode usar [funções RBAC internas](../active-directory/role-based-access-built-in-roles.md), como Colaborador da Conta de Armazenamento, para atribuir privilégios aos usuários.
+Você pode proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função). Restringindo o acesso com base em Olá [necessário tooknow](https://en.wikipedia.org/wiki/Need_to_know) e [privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é fundamental para as organizações que desejam tooenforce políticas de segurança para acesso a dados. Esses direitos de acesso são concedidos atribuindo Olá apropriado RBAC função toogroups e aplicativos em um determinado escopo. Você pode usar [funções internas de RBAC](../active-directory/role-based-access-built-in-roles.md), como colaborador da conta de armazenamento, tooassign privilégios toousers.
 
 Saiba mais:
 
 * [Controle de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md)
 
-## <a name="delegated-access-to-storage-objects"></a>Acesso delegado aos objetos de armazenamento
-Uma SAS (Assinatura de Acesso Compartilhado) fornece acesso delegado aos recursos da sua conta de armazenamento. A SAS significa que você pode conceder a um cliente permissões limitadas para objetos em sua conta de armazenamento por determinado período de tempo e com um conjunto específico de permissões. Você pode conceder essas permissões limitadas sem precisar compartilhar as chaves de acesso da conta. A SAS é um URI que engloba em seus parâmetros de consulta todas as informações necessárias para o acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente só precisa fornecer a SAS ao construtor apropriado ou ao método apropriado.
+## <a name="delegated-access-toostorage-objects"></a>Acesso delegado toostorage objetos
+Uma assinatura de acesso compartilhado (SAS) fornece acesso delegado tooresources na sua conta de armazenamento. Olá SAS significa que você pode conceder a que um cliente limitada tooobjects permissões na conta de armazenamento para um determinado período de tempo e com um conjunto de permissões especificado. Você pode conceder essas permissões limitadas sem ter que tooshare suas chaves de acesso da conta. Olá SAS é um URI que abrange em seus parâmetros de consulta todas as informações de saudação necessárias para o recurso de armazenamento de tooa acesso autenticado. tooaccess recursos de armazenamento com hello SAS, Olá cliente só precisa tooprovide Olá SAS toohello apropriado construtor ou método.
 
 Saiba mais:
 
-* [Noções básicas sobre o modelo SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Modelo SAS Olá Noções básicas sobre](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 * [Criar e usar um SAS com o armazenamento de Blobs](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Criptografia em trânsito
@@ -63,7 +63,7 @@ A criptografia em trânsito é um mecanismo de proteção de dados quando eles s
 
 * [Criptografia de nível de transporte](../storage/common/storage-security-guide.md#encryption-in-transit), como HTTPS ao transferir dados dentro ou fora do Armazenamento do Azure.
 * [Criptografia na transmissão](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), como a criptografia SMB 3.0 para compartilhamentos de Arquivo do Azure.
-* [Criptografia do cliente](../storage/common/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), que permite criptografar os dados antes que eles sejam transferidos para o armazenamento e descriptografá-los após serem transferidos para fora do armazenamento.
+* [Criptografia do lado do cliente](../storage/common/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage), dados de saudação tooencrypt antes que sejam transferidos em dados de saudação do armazenamento e toodecrypt depois que ela é transferida do armazenamento.
 
 Saiba mais sobre a criptografia do cliente:
 
@@ -73,9 +73,9 @@ Saiba mais sobre a criptografia do cliente:
 ## <a name="encryption-at-rest"></a>Criptografia em repouso
 Para muitas organizações, a [criptografia de dados em repouso](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) é uma etapa obrigatória no sentido de garantir a soberania, a privacidade e a conformidade dos dados. Há três recursos do Azure que fornecem criptografia de dados que estão “em repouso”:
 
-* [Criptografia do Serviço de Armazenamento](../storage/common/storage-security-guide.md#encryption-at-rest) permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure.
-* [Client-side Encryption](../storage/common/storage-security-guide.md#client-side-encryption) também fornece o recurso de criptografia em repouso.
-* [Azure Disk Encryption](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite criptografar os discos do sistema operacional e os discos de dados usados por uma máquina virtual IaaS.
+* [Criptografia do serviço de armazenamento](../storage/common/storage-security-guide.md#encryption-at-rest) permite que o serviço de armazenamento de saudação criptografa automaticamente os dados quando escrever tooAzure armazenamento de toorequest.
+* [Criptografia do lado do cliente](../storage/common/storage-security-guide.md#client-side-encryption) também fornece o recurso de saudação de criptografia em repouso.
+* [Criptografia de disco do Azure](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) permite que você tooencrypt Olá OS discos e dados usados por uma máquina virtual IaaS.
 
 Saiba mais sobre a Criptografia do Serviço de Armazenamento:
 
@@ -85,14 +85,14 @@ Saiba mais sobre a Criptografia do Serviço de Armazenamento:
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption
 O Azure Disk Encryption para VMs (Máquinas Virtuais) o ajuda a atender aos requisitos de conformidade e segurança organizacionais criptografando os discos de VM (incluindo discos de dados e de inicialização) com chaves e políticas controladas no [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/).
 
-A criptografia de disco para VMs funciona para sistemas operacionais Windows e Linux. Ela também usa o Cofre de Chaves para ajudá-lo a proteger, gerenciar e auditar o uso de suas chaves de criptografia de disco. Todos os dados nos discos de VM são criptografados em repouso usando a tecnologia de criptografia padrão do setor em suas contas de Armazenamento do Azure. A solução de Criptografia de Disco para Windows é baseada na [Criptografia de Unidade de Disco BitLocker da Microsoft](https://technet.microsoft.com/library/cc732774.aspx) e a solução para Linux é baseada no [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
+A criptografia de disco para VMs funciona para sistemas operacionais Windows e Linux. Ele também usa o Cofre de chaves toohelp proteger, gerenciar e auditar o uso de suas chaves de criptografia de disco. Todos os dados de saudação em seus discos VM são criptografados em repouso usando a tecnologia de criptografia padrão da indústria em suas contas de armazenamento do Azure. Olá solução de criptografia de disco para o Windows é baseado no [Microsoft BitLocker Drive Encryption](https://technet.microsoft.com/library/cc732774.aspx), e Olá Linux solução se baseia em [dm crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
 Saiba mais:
 
 * [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines (Azure Disk Encryption para máquinas virtuais IaaS Windows e Linux)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
 ## <a name="azure-key-vault"></a>Cofre da Chave do Azure
-A Azure Disk Encryption usa o [Cofre de Chaves do Azure](https://azure.microsoft.com/services/key-vault/) para ajudá-lo a controlar e a gerenciar as chaves de criptografia de disco e segredos em sua assinatura de cofre de chaves, garantindo que todos os dados nos discos de máquina virtual sejam criptografados em repouso no Armazenamento do Azure. Você deve usar o Cofre de Chaves para auditar as chaves e o uso de políticas.
+Criptografia de disco do Azure usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) toohelp controlar e gerenciar chaves de criptografia de disco e segredos em sua assinatura do Cofre de chaves, garantindo que todos os dados em discos da máquina virtual Olá sejam criptografados em repouso do Azure Armazenamento. Você deve usar as chaves do Cofre de chaves tooaudit e uso de política.
 
 Saiba mais:
 

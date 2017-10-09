@@ -1,5 +1,5 @@
 ---
-title: Usar o ScaleR e o SparkR com o Azure HDInsight | Microsoft Docs
+title: aaaUse ScaleR e SparkR com o Azure HDInsight | Microsoft Docs
 description: Usar ScaleR e SparkR com R Server e HDInsight
 services: hdinsight
 documentationcenter: 
@@ -16,31 +16,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: da732ff0235cf465a1452b81750c7cdd0351eed5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar o ScaleR e o SparkR no HDInsight
 
-Este artigo mostra como prever os atrasos de chegada de voo usando um modelo de regressão logística do **ScaleR** de dados de atrasos de voo e de clima em união com o **SparkR**. Este cenário demonstra as funcionalidades do ScaleR para a manipulação de dados no Spark com o Microsoft R Server para análise. A combinação dessas tecnologias permite que você aplique os recursos mais recentes no processamento distribuído.
+Este artigo mostra como toopredict flight atrasos de chegada usando um **ScaleR** associada do modelo de regressão logística dos dados em atrasos de voo e o clima **SparkR**. Este cenário demonstra os recursos de saudação do ScaleR para manipulação de dados no Spark usado com o Microsoft R Server para análise. combinação de Olá dessas tecnologias permite que você os recursos mais recentes do tooapply Olá no processamento distribuído.
 
-Embora ambos os pacotes são executados no mecanismo de execução do Hadoop Spark, eles são bloqueados do compartilhamento de dados na memória já que cada um deles exige suas próprias respectivas sessões Spark. Até que esse problema seja corrigido em uma versão futura do R Server, a solução alternativa é manter sessões sem sobreposição do Spark e trocar dados por meio de arquivos intermediários. As instruções aqui mostram que esses requisitos são simples de obter.
+Embora ambos os pacotes são executados no mecanismo de execução do Hadoop Spark, eles são bloqueados do compartilhamento de dados na memória já que cada um deles exige suas próprias respectivas sessões Spark. Até que esse problema é resolvido em uma versão futura do R Server, solução de saudação é toomaintain sessões de Spark sem sobreposição e tooexchange dados por meio de arquivos intermediários. instruções de saudação aqui mostram que esses requisitos são tooachieve simples.
 
-Nós usamos aqui um exemplo compartilhado inicialmente em uma apresentação na Strata 2016 por Mario Inchiosa e Roni Burd, também disponível por meio do webinar [Criando uma plataforma escalonável de ciência de dados com R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). O exemplo usa SparkR para unir o conjunto de dados de atraso na chegada de linhas aéreas conhecidas com os dados meteorológicos em aeroportos de partida e de chegada. Os dados unidos são usados como entrada para um modelo de regressão logística ScaleR para previsão de atraso de chegada de voo.
+Podemos usar um exemplo aqui inicialmente compartilhado em uma conversa em segmentos 2016 Mario Inchiosa e Roni Burd que também está disponível por meio de saudação webinar [criação de uma plataforma escalonável de ciência de dados com R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). exemplo hello usa SparkR toojoin Olá conjunto de dados conhecidos airlines chegada atraso com dados de clima em aeroportos de saída e entrada. dados Olá associados são usados como modelo de regressão logística ScaleR tooa entrada para a previsão de atraso de chegada de voo.
 
-O código que percorremos passo a passo foi gravado originalmente para R Server em execução no Spark em um cluster HDInsight no Azure. Mas o conceito de misturar o uso de SparkR e ScaleR em um script também é válido no contexto de ambientes locais. A seguir, presumimos um nível intermediário de conhecimento de R e R da biblioteca [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) do R Server. Também apresentamos o uso de [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) ao percorrer esse cenário.
+saudação de código, passo a passo foi gravado originalmente para R Server em execução no Spark em um cluster HDInsight no Azure. Mas o conceito de saudação de misturar o uso de saudação do SparkR e ScaleR em um script também é válido no contexto de saudação de ambientes locais. No seguinte Olá, podemos supor que um nível intermediário de dados de Conhecimento de R e R hello [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) biblioteca do servidor do R. Também apresentamos o uso de [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) ao percorrer esse cenário.
 
-## <a name="the-airline-and-weather-datasets"></a>Os conjuntos de dados de linhas aéreas e clima
+## <a name="hello-airline-and-weather-datasets"></a>Olá aérea e clima conjuntos de dados
 
-O conjunto de dados público de linhas aéreas **AirOnTime08to12CSV** contém informações sobre a chegada de voos e detalhes de partida para todos os voos comerciais nos EUA, de outubro de 1987 a dezembro de 2012. Esse é um conjunto de dados grande: há quase 150 milhões de registros no total. Tem pouco menos de 4 GB quando descompactado. Ele está disponível nos [arquivos mortos do Governo dos EUA](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Mais convenientemente, ele está disponível como um arquivo zip (AirOnTimeCSV.zip) que contém um conjunto de 303 arquivos CSV separados mensais dos [repositórios de conjunto de dados do Revolution Analytics](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)
+Olá **AirOnTime08to12CSV** pública companhias aéreas de conjunto de dados contém informações sobre a chegada de voo e detalhes de partida para todas as voos comerciais em Olá EUA, de tooDecember de 1987 de outubro de 2012. Esse é um conjunto de dados grande: há quase 150 milhões de registros no total. Tem pouco menos de 4 GB quando descompactado. Ele está disponível no hello [arquivos mortos do governo dos EUA](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Mais conveniente, ele está disponível como um arquivo zip (AirOnTimeCSV.zip) que contém um conjunto de 303 separado mensal CSV arquivos Olá [repositório de conjunto de dados do Revolution Analytics](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)
 
-Para ver os efeitos de clima em relação a atrasos de voos, também precisamos dos dados meteorológicos de cada aeroporto. Esses dados podem ser baixados como arquivos zip em formato bruto, por mês, do [repositório National Oceanic and Atmospheric Administration](http://www.ncdc.noaa.gov/orders/qclcd/). Para os fins deste exemplo, efetuamos o pull de dados meteorológicos de maio de 2007 a dezembro de 2012 e usamos os arquivos de dados horários em cada um dos 68 zips mensais. Os arquivos zip mensais também contêm um mapeamento (YYYYMMstation.txt) entre a ID da estação meteorológica (WBAN), o aeroporto ao qual ela está associada (CallSign) e o deslocamento de fuso horário do aeroporto de UTC (TimeZone). Todas essas informações são necessárias ao ingressar com os dados de atraso e meteorológicos.
+efeitos de saudação toosee de clima em atrasos de voo, é preciso também dados de tempo de saudação em cada aeroportos hello. Esses dados podem ser baixados como arquivos zip na forma bruta, por mês, de saudação [repositório oceânico nacional e administração atmosféricas](http://www.ncdc.noaa.gov/orders/qclcd/). Para fins de Olá deste exemplo, podemos extrair dados de tempo de maio de 2007 – dezembro de 2012 e arquivos de dados por hora hello dentro de cada zips de mensal 68 Olá usados. arquivos zip mensal de saudação também contêm um mapeamento (YYYYMMstation.txt) entre a estação de clima Olá ID (WBAN), aeroporto Olá que é associado (prefixo) e Olá deslocamento de fuso horário do aeroporto do UTC (fuso horário). Todas essas informações é necessária ao ingressar com dados de atraso e o clima aérea hello.
 
-## <a name="setting-up-the-spark-environment"></a>Configurando o ambiente do Spark
+## <a name="setting-up-hello-spark-environment"></a>Configurando o ambiente do Spark Olá
 
-A primeira etapa é configurar o ambiente do Spark. Começamos apontando para o diretório que contém os diretórios de dados de entrada, criando um contexto de computação do Spark e criando uma função de log para logs informativos no console:
+Olá primeira etapa é tooset o ambiente do Spark hello. Começamos apontando toohello diretório que contém os diretórios de dados de entrada, criando um contexto de computação Spark e criando uma função de registro em log para o log informativa toohello console:
 
 ```
 workDir        <- '~'  
@@ -49,8 +49,8 @@ myPort         <- 0
 inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
-# create a persistent Spark session to reduce startup times 
-#   (remember to stop it later!)
+# create a persistent Spark session tooreduce startup times 
+#   (remember toostop it later!)
  
 sparkCC        <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort, persistentRun=TRUE)
 
@@ -85,7 +85,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Em seguida, adicionamos "Spark_Home" ao caminho de pesquisa para pacotes R, para que possamos usar o SparkR e inicializar uma sessão do SparkR:
+Em seguida, adicionar caminho de pesquisa de toohello de "Spark_Home" para pacotes de R para que possamos usar SparkR e inicializar uma sessão de SparkR:
 
 ```
 #..setup for use of SparkR  
@@ -106,9 +106,9 @@ sc <- sparkR.init(
 sqlContext <- sparkRSQL.init(sc)
 ```
 
-## <a name="preparing-the-weather-data"></a>Preparando os dados meteorológicos
+## <a name="preparing-hello-weather-data"></a>Preparando dados de clima Olá
 
-Para preparar os dados meteorológicos, nós criamos um subconjunto com eles nas colunas necessárias para modelagem: 
+tooprepare os dados de clima hello, podemos subconjunto-toohello colunas necessárias para modelagem: 
 
 - "Visibilidade"
 - "DryBulbCelsius"
@@ -117,9 +117,9 @@ Para preparar os dados meteorológicos, nós criamos um subconjunto com eles nas
 - "WindSpeed"
 - "Altímetro"
 
-Em seguida, adicionamos um código do aeroporto associado a estação meteorológica e convertemos as medidas de hora local em UTC.
+Em seguida, adicionamos um código do aeroporto associado com a estação de clima Olá e converter medidas de saudação do tooUTC de hora local.
 
-Começamos criando um arquivo para mapear as informações de estação meteorológica (WBAN) para um código de aeroporto. Poderíamos obter essa correlação do arquivo de mapeamento incluído com os dados meteorológicos. Mapeando o campo *CallSign* (por exemplo, LAX) no arquivo de dados meteorológicos para *Origem* nos dados da linha aérea. No entanto, ocorre que temos outro mapeamento disponível que mapeia *WBAN* para *AirportID* (por exemplo, 12892 para LAX) e inclui o *TimeZone* (fuso horário) que foi salvo em um arquivo CSV chamado “wban-to-airport-id-tz.CSV” que podemos usar. Por exemplo:
+Vamos começar criando um código de aeroporto arquivo toomap Olá clima estação (WBAN) informações tooan. Foi possível obter esse correlação saudação do arquivo de mapeamento incluído com os dados de clima hello. Por Olá mapeamento *prefixo* (por exemplo, LAX) campo no arquivo de dados de clima Olá muito*origem* nos dados de passagens áreas hello. No entanto, acabamos de toohave outro disponível mapeamento que mapeia *WBAN* muito*AirportID* (por exemplo, 12892 para LAX) e inclui *fuso horário* que foi salvo tooa Arquivo CSV chamado "wban-para-aeroporto-id-tz. CSV"que podemos usar. Por exemplo:
 
 | AirportID | WBAN | timeZone
 |-----------|------|---------
@@ -127,7 +127,7 @@ Começamos criando um arquivo para mapear as informações de estação meteorol
 | 14871 | 24232 | -8
 | .. | .. | ..
 
-O código a seguir lê todos os arquivos de dados brutos de clima por hora, cria subconjuntos para as colunas das quais precisamos, mescla o arquivo de mapeamento da estação meteorológica, ajusta as datas e horas das medidas para UTC e grava uma nova versão do arquivo:
+Olá seguindo o código lê cada dos dados de clima processados por hora Olá arquivos, colunas de toohello subconjuntos é necessário, mescla o arquivo de mapeamento de estação de clima hello, ajusta Olá DateTimes de medidas tooUTC e, em seguida, grava uma nova versão do arquivo hello:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time
@@ -205,9 +205,9 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
            transformObjects = list(wbanToAirIDAndTZDF1 = wbanToAirIDAndTZDF))
 ```
 
-## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importando os dados de linhas aéreas e clima para Spark DataFrames
+## <a name="importing-hello-airline-and-weather-data-toospark-dataframes"></a>Importando Olá aérea e clima dados tooSpark quadros de dados
 
-Agora, usamos a função [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) do SparkR para importar os dados meteorológicos e de linhas aéreas para o Spark DataFrames. Essa função, assim como muitos outros métodos do Spark, é executada lentamente, o que significa que eles são enfileirados para execução, mas não executados até que isso seja necessário.
+Agora podemos usar Olá SparkR [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) função tooimport Olá clima e aérea dados tooSpark quadros de dados. Essa função, assim como muitos outros métodos do Spark, é executada lentamente, o que significa que eles são enfileirados para execução, mas não executados até que isso seja necessário.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -215,26 +215,26 @@ weatherPath <- file.path(inputDataDir, "Weather") # pre-processed weather data
 rxHadoopListFiles(airPath) 
 rxHadoopListFiles(weatherPath) 
 
-# create a SparkR DataFrame for the airline data
+# create a SparkR DataFrame for hello airline data
 
-logmsg('create a SparkR DataFrame for the airline data') 
+logmsg('create a SparkR DataFrame for hello airline data') 
 # use inferSchema = "false" for more robust parsing
 airDF <- read.df(sqlContext, airPath, source = "com.databricks.spark.csv", 
                  header = "true", inferSchema = "false")
 
-# Create a SparkR DataFrame for the weather data
+# Create a SparkR DataFrame for hello weather data
 
-logmsg('create a SparkR DataFrame for the weather data') 
+logmsg('create a SparkR DataFrame for hello weather data') 
 weatherDF <- read.df(sqlContext, weatherPath, source = "com.databricks.spark.csv", 
                      header = "true", inferSchema = "true")
 ```
 
 ## <a name="data-cleansing-and-transformation"></a>Limpeza de dados e transformação
 
-Em seguida, fazemos uma limpeza nos dados de linhas áreas que você importou para renomear colunas. Mantemos apenas as variáveis necessárias e arrendondamos os horários de partida agendados para a hora mais próxima para habilitar a mesclagem com os dados meteorológicos mais recentes na partida:
+Em seguida, fazemos uma limpeza em dados de passagens áreas Olá já importamos toorename colunas. Apenas manter Olá variáveis necessárias e tempos de saída agendado para baixo toohello mais próximo de hora tooenable a mesclagem com dados mais recentes de clima Olá na saída de ida e volta:
 
 ```
-logmsg('clean the airline data') 
+logmsg('clean hello airline data') 
 airDF <- rename(airDF,
                 ArrDel15 = airDF$ARR_DEL15,
                 Year = airDF$YEAR,
@@ -248,22 +248,22 @@ airDF <- rename(airDF,
                 CRSArrTime =  airDF$CRS_ARR_TIME
 )
 
-# Select desired columns from the flight data. 
+# Select desired columns from hello flight data. 
 varsToKeep <- c("ArrDel15", "Year", "Month", "DayofMonth", "DayOfWeek", "Carrier", "OriginAirportID", "DestAirportID", "CRSDepTime", "CRSArrTime")
 airDF <- select(airDF, varsToKeep)
 
 # Apply schema
 coltypes(airDF) <- c("character", "integer", "integer", "integer", "integer", "character", "integer", "integer", "integer", "integer")
 
-# Round down scheduled departure time to full hour.
+# Round down scheduled departure time toofull hour.
 airDF$CRSDepTime <- floor(airDF$CRSDepTime / 100)
 ```
 
-Agora, executamos operações semelhantes nos dados meteorológicos:
+Agora podemos realizar operações semelhantes em dados de tempo de saudação:
 
 ```
 # Average weather readings by hour
-logmsg('clean the weather data') 
+logmsg('clean hello weather data') 
 weatherDF <- agg(groupBy(weatherDF, "AdjustedYear", "AdjustedMonth", "AdjustedDay", "AdjustedHour", "AirportID"), Visibility="avg",
                   DryBulbCelsius="avg", DewPointCelsius="avg", RelativeHumidity="avg", WindSpeed="avg", Altimeter="avg"
                   )
@@ -278,9 +278,9 @@ weatherDF <- rename(weatherDF,
 )
 ```
 
-## <a name="joining-the-weather-and-airline-data"></a>Reunindo os dados de clima e linhas aéreas
+## <a name="joining-hello-weather-and-airline-data"></a>Associação de dados de clima e aérea Olá
 
-Agora, usamos a função [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) do SparkR para fazer uma junção externa esquerda dos dados de linhas aéreas e meteorológicos por AirportID e datetime de partida. A associação externa permite manter todos os registros de dados de linhas aéreas, mesmo que não haja dados de clima correspondentes. Após a união, removemos algumas colunas redundantes e renomeamos as colunas mantidas para remover o prefixo DataFrame de entrada introduzido pela união.
+Agora podemos usar Olá SparkR [JOIN ()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) função toodo uma junção externa esquerda dos dados de aérea e previsão do tempo de saudação pela saída AirportID e datetime. junção externa Olá nos permite tooretain todos os dados de passagens áreas Olá registra mesmo se não houver nenhum dado de tempo correspondente. Após a associação de Olá, remover algumas colunas redundantes e renomear Olá mantido tooremove Olá entrada DataFrame prefixo de colunas introduzido pela junção hello.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -311,7 +311,7 @@ joinedDF2 <- rename(joinedDF1,
 )
 ```
 
-De maneira semelhante, reuniremos os dados meteorológicos e de linhas aéreas com base em AirportID e datetime de chegada:
+De maneira semelhante, podemos unir dados de clima e aérea de saudação com base na chegada AirportID e a data e hora:
 
 ```
 logmsg('Join airline data with weather at Destination Airport')
@@ -342,32 +342,32 @@ joinedDF5 <- rename(joinedDF4,
                     )
 ```
 
-## <a name="save-results-to-csv-for-exchange-with-scaler"></a>Salvar os resultados em CSV para permuta com ScaleR
+## <a name="save-results-toocsv-for-exchange-with-scaler"></a>Salvar resultados tooCSV para o exchange com ScaleR
 
-Isso conclui as junções que precisamos executar com o SparkR. Salvamos os dados do Spark DataFrame final "joinedDF5" em um CSV para entrada em ScaleR e então fechamos a sessão do SparkR. Instruímos explicitamente o SparkR a salvar o CSV resultante em 80 partições separadas para habilitar paralelismo suficiente no processamento de ScaleR:
+Isso conclui junções Olá precisamos toodo com SparkR. É salvar dados de saudação do hello final Spark DataFrame "joinedDF5" tooa CSV para entrada tooScaleR e Fechar sessão de SparkR hello. Dizemos explicitamente SparkR toosave Olá CSV resultante no paralelismo suficientes do tooenable 80 partições separadas no processamento de ScaleR:
 
 ```
-logmsg('output the joined data from Spark to CSV') 
+logmsg('output hello joined data from Spark tooCSV') 
 joinedDF5 <- repartition(joinedDF5, 80) # write.df below will produce this many CSVs
 
-# write result to directory of CSVs
+# write result toodirectory of CSVs
 write.df(joinedDF5, file.path(dataDir, "joined5Csv"), "com.databricks.spark.csv", "overwrite", header = "true")
 
-# We can shut down the SparkR Spark context now
+# We can shut down hello SparkR Spark context now
 sparkR.stop()
 
 # remove non-data files
 rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 ```
 
-## <a name="import-to-xdf-for-use-by-scaler"></a>Importar para XDF para uso por ScaleR
+## <a name="import-tooxdf-for-use-by-scaler"></a>Importar tooXDF para uso por ScaleR
 
-Poderíamos usar o arquivo CSV dos dados de linha aérea e meteorológicos como estão para modelagem por meio de uma fonte de dados de texto do ScaleR. Mas nós o importamos para o XDF primeiro, pois ele é mais eficiente ao executar várias operações no conjunto de dados:
+Podemos usar arquivo CSV Olá aérea associada e como os dados de clima-é para modelagem por meio de uma fonte de dados de texto ScaleR. Mas, importá-lo tooXDF primeiro, pois ela é mais eficiente ao executar várias operações no conjunto de dados hello:
 
 ```
-logmsg('Import the CSV to compressed, binary XDF format') 
+logmsg('Import hello CSV toocompressed, binary XDF format') 
 
-# set the Spark compute context for R Server 
+# set hello Spark compute context for R Server 
 rxSetComputeContext(sparkCC)
 rxGetComputeContext()
 
@@ -447,10 +447,10 @@ finalData <- RxXdfData(file.path(dataDir, "joined5XDF"), fileSystem = hdfsFS)
 
 ## <a name="splitting-data-for-training-and-test"></a>Dividindo dados para treinamento e teste
 
-Usamos rxDataStep para dividir os dados de 2012 para testes e manter o restante para treinamento:
+Podemos usar toosplit rxDataStep os dados de 2012 Olá para testar e manter rest Olá para treinamento:
 
 ```
-# split out the training data
+# split out hello training data
 
 logmsg('split out training data as all data except year 2012')
 trainDS <- RxXdfData( file.path(dataDir, "finalDataTrain" ),fileSystem = hdfsFS)
@@ -458,9 +458,9 @@ trainDS <- RxXdfData( file.path(dataDir, "finalDataTrain" ),fileSystem = hdfsFS)
 rxDataStep( inData = finalData, outFile = trainDS,
             rowSelection = ( Year != 2012 ), overwrite = T )
 
-# split out the testing data
+# split out hello testing data
 
-logmsg('split out the test data for year 2012') 
+logmsg('split out hello test data for year 2012') 
 testDS <- RxXdfData( file.path(dataDir, "finalDataTest" ), fileSystem = hdfsFS)
 
 rxDataStep( inData = finalData, outFile = testDS,
@@ -472,7 +472,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>Treinar e testar um modelo de regressão logística
 
-Agora, estamos prontos para criar um modelo. Para ver a influência de dados meteorológicos sobre o atraso no horário de chegada, usamos a rotina de regressão logística do ScaleR. Nós a usamos para modelar se um atraso de chegada de mais de 15 minutos é influenciado pelas condições meteorológicas nos aeroportos de partida e de e chegada:
+Agora estamos pronto toobuild um modelo. influência de saudação toosee de dados de clima no atraso no tempo de chegada de saudação, usamos rotina de regressão logística da ScaleR. Nós usamos toomodel se um atraso de chegada de mais de 15 minutos é influenciado pelo tempo Olá em aeroportos de saída e entrada hello:
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 
@@ -484,7 +484,7 @@ formula <- as.formula(ArrDel15 ~ Year + Month + DayofMonth + DayOfWeek + Carrier
                      WindSpeedDest + VisibilityDest + DewPointCelsiusDest
                    )
 
-# Use the scalable rxLogit() function but set max iterations to 3 for the purposes of 
+# Use hello scalable rxLogit() function but set max iterations too3 for hello purposes of 
 # this exercise 
 
 logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
@@ -492,23 +492,23 @@ logitModel <- rxLogit(formula, data = trainDS, maxIterations = 3)
 base::summary(logitModel)
 ```
 
-Agora vamos ver como ele faz isso nos dados de teste, fazendo algumas previsões e observando ROC e AUC.
+Agora vamos ver como ele em Olá testar dados fazendo algumas previsões e examinando ROC e AUC.
 
 ```
 # Predict over test data (Logistic Regression).
 
-logmsg('predict over the test data') 
+logmsg('predict over hello test data') 
 logitPredict <- RxXdfData(file.path(dataDir, "logitPredict"), fileSystem = hdfsFS)
 
-# Use the scalable rxPredict() function
+# Use hello scalable rxPredict() function
 
 rxPredict(logitModel, data = testDS, outData = logitPredict,
           extraVarsToWrite = c("ArrDel15"), 
           type = 'response', overwrite = TRUE)
 
-# Calculate ROC and Area Under the Curve (AUC).
+# Calculate ROC and Area Under hello Curve (AUC).
 
-logmsg('calculate the roc and auc') 
+logmsg('calculate hello roc and auc') 
 logitRoc <- rxRoc("ArrDel15", "ArrDel15_Pred", logitPredict)
 logitAuc <- rxAuc(logitRoc)
 head(logitAuc)
@@ -519,12 +519,12 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Pontuação em outro lugar
 
-Também podemos usar o modelo para pontuação de dados em outra plataforma. Fazemos isso salvando-os em um arquivo RDS e transferindo e importando esse RDS para o ambiente de pontuação de destino, tal como SQL Server R Services. É importante garantir que os níveis de fator dos dados a serem pontuados correspondam às informações em que o modelo foi baseado. Essa correspondência pode ser obtida extraindo e salvando as informações de coluna associadas aos dados de modelagem por meio da função `rxCreateColInfo()` de ScaleR e aplicando essas informações de coluna à fonte de dados de entrada para previsão. A seguir, salvaremos algumas linhas do conjunto de dados de teste e extrairemos e usaremos as informações da coluna deste exemplo no script de previsão:
+Podemos também pode usar o modelo de saudação para dados de pontuação em outra plataforma. Salvando-o arquivo RDS tooan e, em seguida, transferir e importando que RDS em um ambiente, como o SQL Server R Services a pontuação de destino. É importante tooensure que níveis de fator de saudação de Olá dados toobe classificado correspondam no qual Olá modelo foi criado. Que correspondência pode ser obtida por meio da extração e salvar informações de coluna Olá associado Olá modelagem de dados por meio do ScaleR `rxCreateColInfo()` função e, em seguida, aplicar essa fonte de dados de entrada coluna informações toohello para previsão. Seguir Olá podemos salvar algumas linhas de conjunto de dados de teste de saudação e extrair e usar informações de coluna Olá deste exemplo no script de previsão hello:
 
 ```
-# save the model and a sample of the test dataset 
+# save hello model and a sample of hello test dataset 
 
-logmsg('save serialized version of the model and a sample of the test data')
+logmsg('save serialized version of hello model and a sample of hello test data')
 rxSetComputeContext('localpar') 
 saveRDS(logitModel, file = "logitModel.rds")
 testDF <- head(testDS, 1000)  
@@ -534,7 +534,7 @@ list.files()
 rxHadoopListFiles(file.path(inputDataDir,''))
 rxHadoopListFiles(dataDir)
 
-# stop the spark engine 
+# stop hello spark engine 
 rxStopEngine(sparkCC) 
 
 logmsg('Done.')
@@ -544,13 +544,13 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, mostramos como é possível combinar o uso de SparkR para manipulação de dados com ScaleR para o desenvolvimento de modelos no Spark do Hadoop. Esse cenário requer que você mantenha sessões do Spark separadas, executando somente uma sessão por vez e que troque dados por meio de arquivos CSV. Embora seja simples, esse processo deve ser mais fácil em uma versão futura do R Server, quando SparkR e ScaleR puderem compartilhar uma sessão do Spark e, assim, compartilhar Spark DataFrames.
+Neste artigo, mostramos como é usar os possíveis toocombine do SparkR para manipulação de dados com ScaleR para o desenvolvimento de modelos no Hadoop Spark. Esse cenário requer que você mantenha sessões do Spark separadas, executando somente uma sessão por vez e que troque dados por meio de arquivos CSV. Embora seja simples, esse processo deve ser mais fácil em uma versão futura do R Server, quando SparkR e ScaleR puderem compartilhar uma sessão do Spark e, assim, compartilhar Spark DataFrames.
 
 ## <a name="next-steps-and-more-information"></a>Próximas etapas e mais informações
 
-- Para obter mais informações sobre o uso do R Server no Spark, confira o [Guia de introdução no MSDN](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Para obter mais informações sobre o uso do servidor de R no Spark, consulte Olá [guia de Introdução do MSDN](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
-- Para obter informações sobre o R Server, confira o artigo [Introdução ao R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
+- Para obter informações gerais sobre o R Server, consulte Olá [começar com R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artigo.
 
 - Para obter informações sobre o R Server no HDInsight, consulte [Visão geral do R Server no Azure HDInsight](hdinsight-hadoop-r-server-overview.md) e [R Server no Azure HDInsight](hdinsight-hadoop-r-server-get-started.md).
 

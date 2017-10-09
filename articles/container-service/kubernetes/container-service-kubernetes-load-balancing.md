@@ -1,5 +1,5 @@
 ---
-title: "Balancear a carga de contêineres Kubernetes no Azure | Microsoft Docs"
+title: "aaaLoad equilibrar Kubernetes contêineres no Azure | Microsoft Docs"
 description: "Conecte-se externamente e balanceie a carga em vários contêineres em um cluster Kubernetes no Serviço de Contêiner do Azure."
 services: container-service
 documentationcenter: 
@@ -17,52 +17,52 @@ ms.workload: na
 ms.date: 05/17/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ab46bb204f14424e394ced499ffbc0ef1cada15b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8073c8d3a015a53a532c326749571cb2582e1bac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-balance-containers-in-a-kubernetes-cluster-in-azure-container-service"></a>Balancear a carga de contêineres em um cluster Kubernetes no Serviço de Contêiner do Azure 
-Este artigo apresenta o balanceamento de carga em um cluster Kubernetes no Serviço de Contêiner do Azure. O balanceamento de carga fornece um endereço IP acessível externamente para o serviço e distribui o tráfego de rede entre os pods em execução em VMs do agente.
+Este artigo apresenta o balanceamento de carga em um cluster Kubernetes no Serviço de Contêiner do Azure. Balanceamento de carga fornece um endereço IP acessível externamente para serviço de saudação e distribui o tráfego de rede entre os compartimentos de saudação em execução no agente de VMs.
 
-Você pode configurar um serviço Kubernetes para usar o [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) para gerenciar o tráfego de rede externo (TCP). Com uma configuração adicional, o balanceamento de carga e roteamento de tráfego HTTP ou HTTPS ou cenários mais avançados são possíveis.
+Você pode configurar um toouse de serviço Kubernetes [balanceador de carga do Azure](../../load-balancer/load-balancer-overview.md) toomanage tráfego de rede (TCP) externo. Com uma configuração adicional, o balanceamento de carga e roteamento de tráfego HTTP ou HTTPS ou cenários mais avançados são possíveis.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Implantar um cluster Kubernetes](container-service-kubernetes-walkthrough.md) no Serviço de Contêiner do Azure
-* [Conectar o cliente](../container-service-connect.md) ao cluster
+* [Conecte o cliente](../container-service-connect.md) tooyour cluster
 
 ## <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Por padrão, um cluster Kubernetes implantado no Serviço de Contêiner do Azure inclui um Azure Load Balancer voltado para a Internet para VMs do agente. (Um recurso de balanceador de carga separado é configurado para as VMs mestres.) O Azure Load Balancer é um balanceador de carga de Camada 4. No momento, o balanceador de carga dá suporte apenas a tráfego TCP em Kubernetes.
+Por padrão, um cluster Kubernetes implantado no serviço de contêiner do Azure inclui um balanceador de carga do Azure voltado para a Internet para agente Olá VMs. (Um recurso de Balanceador de carga separado é configurado para mestre Olá VMs.) O Azure Load Balancer é um balanceador de carga de Camada 4. No momento, o balanceador de carga de saudação suporta apenas o tráfego TCP em Kubernetes.
 
-Ao criar um serviço Kubernetes, você pode configurar automaticamente o Azure Load Balancer para permitir o acesso ao serviço. Para configurar o balanceador de carga, defina o serviço `type` como `LoadBalancer`. O balanceador de carga cria uma regra para mapear um endereço IP público e o número da porta do tráfego do serviço de entrada para os endereços IP privados e números de porta dos pods nas VMs do agente (e vice-versa para o tráfego de resposta). 
+Ao criar um serviço Kubernetes, pode configurar automaticamente o serviço de toohello acesso do tooallow de Balanceador de carga do Azure hello. Balanceador de carga tooconfigure hello, serviço de saudação do conjunto `type` muito`LoadBalancer`. Balanceador de carga Olá cria uma regra toomap um endereço IP público e o número da porta de entrada serviço tráfego toohello endereços IP privados e números de porta de compartimentos de saudação no agente de VMs (e vice-versa para o tráfego de resposta). 
 
- A seguir estão dois exemplos que mostram como configurar o serviço Kubernetes `type` como `LoadBalancer`. (Depois de experimentar os exemplos, exclua as implantações se não precisar mais delas.)
+ Estes são dois exemplos que mostram como tooset Olá Kubernetes serviço `type` muito`LoadBalancer`. (Depois de tentar exemplos de hello, excluir Olá implantações se você não precisar mais deles.)
 
-### <a name="example-use-the-kubectl-expose-command"></a>Exemplo: use o comando `kubectl expose` 
-O [passo a passo do Kubernetes](container-service-kubernetes-walkthrough.md) inclui um exemplo de como expor um serviço com o comando `kubectl expose` e seu sinalizador `--type=LoadBalancer`. Siga estas etapas:
+### <a name="example-use-hello-kubectl-expose-command"></a>Exemplo: Saudação de uso `kubectl expose` comando 
+Olá [Kubernetes passo a passo](container-service-kubernetes-walkthrough.md) inclui um exemplo de como tooexpose um serviço com hello `kubectl expose` comando e sua `--type=LoadBalancer` sinalizador. Aqui estão as etapas de saudação:
 
-1. Inicie uma nova implantação do contêiner. Por exemplo, o comando a seguir inicia uma nova implantação chamada `mynginx`. A implantação consiste em três contêineres com base na imagem do Docker para o servidor Web Nginx.
+1. Inicie uma nova implantação do contêiner. Olá, por exemplo, após o comando inicia uma nova implantação chamada `mynginx`. Olá implantação consiste em três contêineres com base na imagem do Docker Olá Olá Nginx servidor de web.
 
     ```console
     kubectl run mynginx --replicas=3 --image nginx
     ```
-2. Verifique se os contêineres estão em execução. Por exemplo, se você consultar os contêineres com `kubectl get pods`, verá uma saída semelhante à seguinte:
+2. Verificar se os contêineres de saudação estão em execução. Por exemplo, se você consultar para contêineres de saudação com `kubectl get pods`, você vê saída semelhante toohello seguinte:
 
     ![Obter contêineres Nginx](./media/container-service-kubernetes-load-balancing/nginx-get-pods.png)
 
-3. Para configurar o balanceador de carga para aceitar tráfego externo para a implantação, execute `kubectl expose` com `--type=LoadBalancer`. O comando a seguir expõe o servidor Nginx na porta 80:
+3. tooconfigure Olá carga tooaccept tráfego externo toohello implantação de Balanceador, execute `kubectl expose` com `--type=LoadBalancer`. Olá seguinte comando expõe servidor de Nginx Olá na porta 80:
 
     ```console
     kubectl expose deployments mynginx --port=80 --type=LoadBalancer
     ```
 
-4. Digite `kubectl get svc` para ver o estado dos serviços no cluster. Enquanto o balanceador de carga configura a regra, o `EXTERNAL-IP` do serviço aparece como `<pending>`. Depois de alguns minutos, o endereço IP externo está configurado: 
+4. Tipo `kubectl get svc` estado de saudação do toosee dos serviços de Olá cluster hello. Enquanto o balanceador de carga Olá configura regra hello, Olá `EXTERNAL-IP` de saudação serviço aparece como `<pending>`. Após alguns minutos, o endereço IP externo de saudação é configurado: 
 
     ![Configurar o Azure Load Balancer](./media/container-service-kubernetes-load-balancing/nginx-external-ip.png)
 
-5. Verifique se você pode acessar o serviço no endereço IP externo. Por exemplo, abra um navegador da Web para o endereço IP exibido. O navegador mostra servidor Web Nginx em execução em um dos contêineres. Ou execute o comando `curl` ou `wget`. Por exemplo:
+5. Verifique se que você pode acessar o serviço de saudação no endereço IP externo de saudação. Por exemplo, abra um endereço IP do web navegador toohello mostrado. navegador de saudação mostra o servidor de web Nginx Olá em execução em um dos contêineres de saudação. Ou então, Olá execução `curl` ou `wget` comando. Por exemplo:
 
     ```
     curl 13.82.93.130
@@ -72,19 +72,19 @@ O [passo a passo do Kubernetes](container-service-kubernetes-walkthrough.md) inc
 
     ![Acessar o Nginx com curl](./media/container-service-kubernetes-load-balancing/curl-output.png)
 
-6. Para ver a configuração do Azure Load Balancer, acesse o [Portal do Azure](https://portal.azure.com).
+6. configuração de saudação toosee hello Azure do balanceador de carga, vá toohello [portal do Azure](https://portal.azure.com).
 
-7. Navegue até o grupo de recursos para o cluster do serviço de contêiner e selecione o balanceador de carga para VMs do agente. Seu nome deve ser igual ao do serviço de contêiner. (Não escolha o balanceador de carga para os nós mestres, aquele cujo nome inclui **master-lb**.) 
+7. Procurar o grupo de recursos Olá para o cluster do serviço de contêiner e selecione o balanceador de carga Olá para agente Olá VMs. Seu nome deve ser Olá mesmo que o serviço de contêiner de saudação. (Não escolher Olá balanceador de carga de nós mestres hello, Olá um cujo nome inclui **lb mestre**.) 
 
     ![Balanceador de carga no grupo de recursos](./media/container-service-kubernetes-load-balancing/container-resource-group-portal.png)
 
-8. Para ver os detalhes de configuração do balanceador de carga, clique em **Regras de balanceamento de carga** e no nome da regra que foi configurada.
+8. toosee Olá detalhes de configuração de Balanceador de carga hello, clique em **regras de balanceamento de carga** e o nome de saudação da regra de saudação que foi configurada.
 
     ![Regras do balanceador de carga](./media/container-service-kubernetes-load-balancing/load-balancing-rules.png) 
 
-### <a name="example-specify-type-loadbalancer-in-the-service-configuration-file"></a>Exemplo: especifique `type: LoadBalancer` no arquivo de configuração de serviço
+### <a name="example-specify-type-loadbalancer-in-hello-service-configuration-file"></a>Exemplo: Especificar `type: LoadBalancer` no arquivo de configuração de serviço Olá
 
-Se você implantar um aplicativo de contêiner Kubernetes de [arquivo de configuração de serviço](https://kubernetes.io/docs/user-guide/services/operations/#service-configuration-file) JSON ou YAML, especifique um balanceador externo de carga adicionando a seguinte linha à especificação do serviço:
+Se você implantar um aplicativo de contêiner Kubernetes de um YAML ou JSON [arquivo de configuração de serviço](https://kubernetes.io/docs/user-guide/services/operations/#service-configuration-file), especifique um balanceador externo adicionando Olá especificação do serviço toohello linha a seguir:
 
 ```YAML
  "type": "LoadBalancer"
@@ -92,53 +92,53 @@ Se você implantar um aplicativo de contêiner Kubernetes de [arquivo de configu
 
 
 
-As etapas a seguir usam o [exemplo Guestbook](https://github.com/kubernetes/kubernetes/tree/master/examples/guestbook) do Kubernetes. Este exemplo é um aplicativo Web de várias camadas com base em imagens do Docker PHP e Redis. Você pode especificar no arquivo de configuração de serviço que o servidor PHP front-end usa o Azure Load Balancer.
+Olá, etapas a seguir usam Olá Kubernetes [convidados exemplo](https://github.com/kubernetes/kubernetes/tree/master/examples/guestbook). Este exemplo é um aplicativo Web de várias camadas com base em imagens do Docker PHP e Redis. Você pode especificar no arquivo de configuração de serviço Olá que servidor Olá front-end PHP usa o balanceador de carga do Azure hello.
 
-1. Baixe o arquivo `guestbook-all-in-one.yaml` do [GitHub](https://github.com/kubernetes/kubernetes/tree/master/examples/guestbook/all-in-one). 
-2. Procure o `spec` para o serviço `frontend`.
-3. Remova a marca de comentário da linha `type: LoadBalancer`.
+1. Baixe o arquivo hello `guestbook-all-in-one.yaml` de [GitHub](https://github.com/kubernetes/kubernetes/tree/master/examples/guestbook/all-in-one). 
+2. Procurar Olá `spec` para Olá `frontend` serviço.
+3. Descomente a linha hello `type: LoadBalancer`.
 
     ![Balanceador de carga na configuração de serviço](./media/container-service-kubernetes-load-balancing/guestbook-frontend-loadbalance.png)
 
-4. Salve o arquivo e implante o aplicativo executando o seguinte comando:
+4. Salvar arquivo hello e implante o aplicativo hello executando Olá comando a seguir:
 
     ```
     kubectl create -f guestbook-all-in-one.yaml
     ```
 
-5. Digite `kubectl get svc` para ver o estado dos serviços no cluster. Enquanto o balanceador de carga configura a regra, o `EXTERNAL-IP` do serviço `frontend` aparece como `<pending>`. Depois de alguns minutos, o endereço IP externo está configurado: 
+5. Tipo `kubectl get svc` estado de saudação do toosee dos serviços de Olá cluster hello. Enquanto o balanceador de carga Olá configura regra hello, Olá `EXTERNAL-IP` de saudação `frontend` serviço aparece como `<pending>`. Após alguns minutos, o endereço IP externo de saudação é configurado: 
 
     ![Configurar o Azure Load Balancer](./media/container-service-kubernetes-load-balancing/guestbook-external-ip.png)
 
-6. Verifique se você pode acessar o serviço no endereço IP externo. Por exemplo, você pode abrir um navegador da Web para o endereço IP externo do serviço.
+6. Verifique se que você pode acessar o serviço de saudação no endereço IP externo de saudação. Por exemplo, você pode abrir um web navegador toohello endereço IP externo do serviço de saudação.
 
     ![Acessar a página de recados externamente](./media/container-service-kubernetes-load-balancing/guestbook-web.png)
 
     Você pode adicionar entradas da página de recados.
 
-7. Para ver a configuração do Azure Load Balancer, navegue até o recurso de balanceador de carga para o cluster no [Portal do Azure](https://portal.azure.com). Consulte as etapas no exemplo anterior.
+7. configuração de saudação toosee hello Azure do balanceador de carga, navegue para o recurso de Balanceador de carga Olá para cluster Olá Olá [portal do Azure](https://portal.azure.com). Consulte as etapas no exemplo anterior Olá Olá.
 
 ### <a name="considerations"></a>Considerações
 
-* A criação da regra do balanceador de carga ocorre de maneira assíncrona e as informações sobre o balanceador provisionado são publicadas no campo `status.loadBalancer` do servidor.
-* Cada serviço recebe automaticamente a atribuição de seu próprio endereço IP virtual no balanceador de carga.
-* Se você deseja alcançar o balanceador de carga por um nome DNS, trabalhe com seu provedor de serviços de domínio para criar um nome DNS para o endereço IP da regra.
+* Criação de regra de Balanceador de carga Olá ocorre de maneira assíncrona e informações sobre balanceador Olá provisionado são publicadas no serviço de saudação `status.loadBalancer` campo.
+* Cada serviço é automaticamente atribuído a seu próprio endereço IP virtual no balanceador de carga de saudação.
+* Se você quiser balanceador de carga Olá tooreach por um nome DNS, trabalhe com seu toocreate de provedor de serviços de domínio um nome DNS para o endereço IP da regra de saudação.
 
 ## <a name="http-or-https-traffic"></a>Tráfego HTTP ou HTTPS
 
-Para balancear a carga do tráfego HTTP ou HTTPS para aplicativos Web de contêiner e gerenciar os certificados para o protocolo TLS, você pode usar o recurso de [Entrada](https://kubernetes.io/docs/user-guide/ingress/) Kubernetes. Uma Entrada é uma coleção de regras que permite que conexões de entrada alcançar os serviços de cluster. Para um recurso de Entrada funcionar, o cluster Kubernetes deve ter uma [Controlador de entrada](https://kubernetes.io/docs/user-guide/ingress/#ingress-controllers) em execução.
+Saldo de tooload HTTP ou HTTPS tráfego toocontainer aplicativos web e gerenciar certificados de segurança de camada de transporte (TLS), você pode usar o hello Kubernetes [entrada](https://kubernetes.io/docs/user-guide/ingress/) recursos. Uma entrada é uma coleção de regras que permitem conexões de entrada de serviços de cluster tooreach hello. Para um toowork de recurso de entrada, o cluster de Kubernetes de saudação deve ter uma [controlador entrada](https://kubernetes.io/docs/user-guide/ingress/#ingress-controllers) em execução.
 
-O Serviço de Contêiner do Azure não implementa um controlador de Entrada Kubernetes automaticamente. Existem várias implementações de controlador disponíveis. Atualmente, o [controlador de Entrada Nginx](https://github.com/kubernetes/ingress/tree/master/examples/deployment/nginx) é recomendado para configurar regras de Entrada e balancear a carga do tráfego HTTP e HTTPS. 
+O Serviço de Contêiner do Azure não implementa um controlador de Entrada Kubernetes automaticamente. Existem várias implementações de controlador disponíveis. Atualmente, Olá [controlador Nginx entrada](https://github.com/kubernetes/ingress/tree/master/examples/deployment/nginx) é recomendável tooconfigure regras de entrada e balanceamento de carga de tráfego HTTP e HTTPS. 
 
-Para saber mais, consulte a [Documentação do controlador de entrada Nginx](https://github.com/kubernetes/ingress/tree/master/controllers/nginx/README.md).
+Para obter mais informações, consulte Olá [documentação do controlador de entrada Nginx](https://github.com/kubernetes/ingress/tree/master/controllers/nginx/README.md).
 
 > [!IMPORTANT]
-> Ao usar o controlador de Entrada Nginx no Serviço de Contêiner do Azure, você deve expor a implantação do controlador como um serviço com `type: LoadBalancer`. Isso configura o Azure Load Balancer para rotear o tráfego para o controlador. Para obter mais informações, consulte a seção anterior.
+> Ao usar o hello controlador Nginx entrada no serviço de contêiner do Azure, você deve expor na implantação do controlador hello como um serviço com `type: LoadBalancer`. Isso configura o controlador de toohello tráfego do tooroute de Balanceador de carga do Azure hello. Para obter mais informações, consulte a seção anterior hello.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte a [documentação do balanceador de carga Kubernetes](https://kubernetes.io/docs/user-guide/load-balancer/)
+* Consulte Olá [Kubernetes LoadBalancer documentação](https://kubernetes.io/docs/user-guide/load-balancer/)
 * Saiba mais sobre [controladores de Entrada e Entrada Kubernetes](https://kubernetes.io/docs/user-guide/ingress/)
 * Consulte [exemplos do Kubernetes](https://github.com/kubernetes/kubernetes/tree/master/examples)
 

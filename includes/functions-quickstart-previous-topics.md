@@ -1,0 +1,1 @@
+Este tópico usa como seus recursos de saudação ponto inicial criados no [criar sua primeira função da saudação portal do Azure](../articles/azure-functions/functions-create-first-azure-function.md). Se você ainda não fez isso, preencha toocreate de agora essas etapas de seu aplicativo de função.

@@ -1,6 +1,6 @@
 ---
-title: Configurar o firewall do aplicativo Web - Gateway de Aplicativo do Azure | Microsoft Docs
-description: "Este artigo oferece orientação sobre como começar a usar o firewall do aplicativo Web em um gateway de aplicativo novo ou existente."
+title: firewall do aplicativo web aaaConfigure - Gateway de aplicativo do Azure | Microsoft Docs
+description: "Este artigo fornece orientação sobre como usar toostart web firewall do aplicativo em um gateway de aplicativo novo ou existente."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: gwallace
-ms.openlocfilehash: ac6c629ceaf1a8036643f593ce3d7ef9ea096ef8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d5354984760ceab12ed49efa9e18836e9f1d3c96
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Configurar o firewall do aplicativo Web em um Gateway de Aplicativo novo ou existente com a CLI do Azure
 
@@ -27,32 +27,32 @@ ms.lasthandoff: 08/18/2017
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [CLI do Azure](application-gateway-web-application-firewall-cli.md)
 
-Saiba como criar um gateway de aplicativo habilitado para firewall de aplicativo Web ou adicionar um firewall do aplicativo Web a um gateway de aplicativo existente.
+Saiba como toocreate um firewall do aplicativo web habilitado gateway de aplicativo ou adicionar web aplicativo firewall tooan aplicativo gateway existente.
 
-O firewall de aplicativo Web (WAF) no Gateway de Aplicativo do Azure protege os aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão.
+firewall do aplicativo web Hello (WAF) no Gateway de aplicativo do Azure protege os aplicativos da web comuns ataques baseados na web como injeção de SQL, ataques de script entre sites e sequestros de sessão.
 
-O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do ADC (controlador de entrega de aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de protocolo SSL, as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md).
+O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece failover, o roteamento de desempenho de solicitações HTTP entre diferentes servidores, independentemente de estarem em nuvem hello ou local. O Gateway de Aplicativo fornece muitos recursos do ADC (controlador de entrega de aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de protocolo SSL, as sondas de integridade personalizadas, suporte para vários sites e muitos outros. toofind uma lista completa de recursos com suporte, visite: [visão geral do Application Gateway](application-gateway-introduction.md).
 
-O artigo a seguir mostra como [adicionar um firewall do aplicativo Web a um gateway de aplicativo existente](#add-web-application-firewall-to-an-existing-application-gateway) e como [criar um gateway de aplicativo que use o firewall do aplicativo Web](#create-an-application-gateway-with-web-application-firewall).
+Olá artigo a seguir mostra como muito[adicionar web aplicativo firewall tooan aplicativo gateway existente](#add-web-application-firewall-to-an-existing-application-gateway) e [criar um gateway de aplicativo que usa o firewall do aplicativo web](#create-an-application-gateway-with-web-application-firewall).
 
 ![imagem de cenário][scenario]
 
-## <a name="prerequisite-install-the-azure-cli-20"></a>Pré-requisito: instalar a CLI do Azure 2.0
+## <a name="prerequisite-install-hello-azure-cli-20"></a>Pré-requisito: Instale Olá 2.0 do CLI do Azure
 
-Para executar as etapas deste artigo, será necessário [instalar a Interface de Linha de Comando do Azure para Mac, Linux e Windows (CLI do Azure)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Olá tooperform as etapas neste artigo, é necessário muito[instalar Olá Interface de linha de comando do Azure para Mac, Linux e Windows (Azure CLI)](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
 
 ## <a name="waf-configuration-differences"></a>Diferenças de configuração do WAF
 
-Se você tiver lido [Criar um Gateway de Aplicativo com a CLI do Azure](application-gateway-create-gateway-cli.md), você compreenderá as configurações de SKU a serem definidas durante a criação de um Gateway de Aplicativo. O WAF fornece configurações adicionais para definir ao configurar a SKU em um gateway de aplicativo. Não há nenhuma alteração adicional feita no gateway de aplicativo em si.
+Se você leu [criar um Gateway de aplicativo com a CLI do Azure](application-gateway-create-gateway-cli.md), entender Olá SKU configurações tooconfigure durante a criação de um application gateway. WAF fornece configurações adicionais toodefine ao configurar um application gateway Olá SKU. Não há nenhuma outra alteração que você fizer no próprio gateway de aplicativo hello.
 
 | **Configuração** | **Detalhes**
 |---|---|
-|**SKU** |Um gateway de aplicativo normal sem WAF dá suporte aos tamanhos **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**. Com a introdução do WAF, há duas SKUs adicionais, **WAF\_Medium** e **WAF\_Large**. Não há suporte para WAF em gateways de aplicativo pequenos.|
-|**Modo** | Essa configuração é o modo de WAF. Os valores permitidos são **detecção** e **prevenção**. Quando WAF estiver configurado no modo de detecção, todas as ameaças são armazenadas em um arquivo de log. No modo de prevenção, os eventos ainda estão conectados, mas o invasor recebe uma resposta 403 não autorizado do gateway de aplicativo.|
+|**SKU** |Um gateway de aplicativo normal sem WAF dá suporte aos tamanhos **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**. Com a introdução de saudação do WAF, há duas SKUs adicionais, **WAF\_médio** e **WAF\_grande**. Não há suporte para WAF em gateways de aplicativo pequenos.|
+|**Modo** | Essa configuração é o modo de saudação do WAF. Os valores permitidos são **detecção** e **prevenção**. Quando WAF estiver configurado no modo de detecção, todas as ameaças são armazenadas em um arquivo de log. No modo de prevenção, eventos ainda estão conectados, mas invasor Olá recebe uma resposta de não autorizado 403 do gateway de aplicativo hello.|
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Adicionar o firewall do aplicativo Web a um gateway de aplicativo existente
+## <a name="add-web-application-firewall-tooan-existing-application-gateway"></a>Adicionar web aplicativo firewall tooan aplicativo gateway existente
 
-O comando a seguir altera um Gateway de Aplicativo padrão existente para um Gateway de Aplicativo com WAF habilitado.
+Olá siga alterações de comando de um gateway de aplicativo habilitado do tooa WAF de gateway padrão de aplicativo existente.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -64,11 +64,11 @@ az network application-gateway waf-config set \
   --resource-group "AdatumAppGatewayRG"
 ```
 
-Este comando atualiza o gateway de aplicativo com o firewall do aplicativo Web. Visite [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md) para entender como exibir os logs do seu Gateway de Aplicativo. Devido à natureza de segurança do WAF, será necessário examinar regularmente os logs para compreender a postura de segurança de seus aplicativos Web.
+Esse comando atualiza o gateway de aplicativo hello com o firewall do aplicativo web. Visite [Application Gateway Diagnostics](application-gateway-diagnostics.md) toounderstand como tooview logs para o gateway de aplicativo. Devido a natureza de segurança toohello de WAF, logs necessidade toobe revisado regularmente toounderstand postura de segurança de saudação de seus aplicativos web.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>Criar um Gateway de Aplicativo com o firewall do aplicativo Web
 
-O comando a seguir cria um Gateway de Aplicativo com o firewall do aplicativo Web.
+saudação de comando a seguir cria um Application Gateway com o firewall do aplicativo web.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -95,11 +95,11 @@ az network application-gateway create \
 ```
 
 > [!NOTE]
-> Os gateways de aplicativo criados com a configuração básica do firewall do aplicativo Web são configurados com o CRS 3.0 para proteções.
+> Gateways de aplicativo criados com a configuração de firewall de aplicativo Olá web básico são configurados com CRS 3.0 para proteção.
 
 ## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Gateway de Aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). Para configurar um registro CNAME, recupere detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. O nome DNS do Gateway de Aplicativo deve ser usado para criar um registro CNAME que aponta os dois aplicativos Web para esse nome DNS. O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
+Depois de criar o gateway hello, Olá próxima etapa é tooconfigure Olá front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. os usuários finais de tooensure pode pressionar o gateway de aplicativo hello, um registro CNAME pode ser usado toopoint toohello ponto de extremidade público do gateway de aplicativo hello. [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). tooconfigure um registro CNAME, recuperar detalhes do gateway de aplicativo hello e seu nome de IP/DNS associado usando Olá PublicIPAddress elemento toohello anexado application gateway. nome DNS do gateway do aplicativo Hello deve ser usado toocreate um registro CNAME, qual nome DNS pontos Olá duas web aplicativos toothis. uso de saudação de registros de um não é recomendável porque Olá VIP pode ser alterado na reinicialização do application gateway.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -147,6 +147,6 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como personalizar regras de WAF visitando: [Personalizar as regras de firewall de aplicativo Web por meio da CLI do Azure 2.0](application-gateway-customize-waf-rules-cli.md).
+Saiba como as regras de toocustomize WAF visitando: [personalizar regras de firewall do aplicativo web por meio de hello Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png

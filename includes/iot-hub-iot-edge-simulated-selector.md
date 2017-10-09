@@ -2,65 +2,65 @@
 > * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md)
 > * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md)
 
-Este passo a passo do [Exemplo de Upload para a Nuvem de Dispositivo Simulado] mostra como usar o [Azure IoT Edge][lnk-sdk] para enviar a telemetria do dispositivo para a nuvem ao Hub IoT por meio de dispositivos simulados.
+Este passo a passo de saudação [exemplo nuvem de dispositivo simulado carregar] mostra como toouse [Azure IoT borda] [ lnk-sdk] toosend telemetria do dispositivo para nuvem tooIoT Hub de simulados dispositivos.
 
 Este passo a passo aborda:
 
-* **Arquitetura**: informações de arquitetura sobre o [Exemplo de Upload para a Nuvem de Dispositivo Simulado].
-* **Criar e executar**: as etapas necessárias para criar e executar a amostra.
+* **Arquitetura**: informações arquitetônicas sobre Olá [exemplo nuvem de dispositivo simulado carregar].
+* **Compilar e executar**: Olá etapas necessárias toobuild e exemplo hello execução.
 
 ## <a name="architecture"></a>Arquitetura
 
-O [Exemplo de Upload para a Nuvem de Dispositivo Simulado] mostra como criar um gateway que envia a telemetria dos dispositivos simulados para um Hub IoT. Um dispositivo pode não ser capaz de se conectar diretamente com o Hub IoT porque o dispositivo:
+Olá [exemplo nuvem de dispositivo simulado carregar] mostra como toocreate um gateway que envia a telemetria de simulados hub de IoT tooan dispositivos. Um dispositivo pode não ser capaz de tooconnect diretamente tooIoT Hub como dispositivo hello:
 
 * Não usa um protocolo de comunicação compreendido pelo Hub IoT.
-* Não é inteligente o suficiente para lembrar a identidade atribuída a ele pelo Hub IoT.
+* Não é suficientemente inteligente tooremember Olá identidade atribuída tooit pelo IoT Hub.
 
-Um gateway de IoT Edge pode resolver esses problemas das seguintes maneiras:
+Um gateway de extremidade IoT pode resolver esses problemas em Olá maneiras a seguir:
 
-* O gateway compreende o protocolo usado pelos dispositivos simulados, recebe dos dispositivos a telemetria do dispositivo para a nuvem e encaminha essas mensagens ao Hub IoT usando um protocolo compreendido pelo Hub IoT.
+* Olá gateway compreende o protocolo de saudação usado pelo dispositivo Olá, recebe a telemetria do dispositivo para a nuvem de dispositivo de saudação e encaminha tooIoT essas mensagens Hub usando um protocolo entendido pelo hub IoT de saudação.
 
-* O gateway mapeia identidades do Hub IoT para os dispositivos e atua como um proxy quando um dispositivo envia mensagens para o Hub IoT.
+* gateway Olá mapeia toodevices de identidades de IoT Hub e atua como um proxy quando um dispositivo envia mensagens tooIoT Hub.
 
-O diagrama a seguir mostra os principais componentes do exemplo, incluindo os módulos do Edge IoT:
+Olá diagrama a seguir mostra Olá componentes principais do exemplo hello, incluindo Olá módulos IoT borda:
 
 ![][1]
 
-Os módulos não transmitem mensagens diretamente entre si. Os módulos publicam mensagens em um agente interno, que entrega as mensagens para outros módulos usando um mecanismo de assinatura. Para obter mais informações, consulte [Introdução ao Edge IoT do Azure][lnk-gw-getstarted].
+módulos de saudação não passar mensagens diretamente tooeach outros. módulos de saudação publicar mensagens tooan interno agente que oferece toohello de mensagens de saudação outros módulos usando um mecanismo de assinatura. Para obter mais informações, consulte [Introdução ao Edge IoT do Azure][lnk-gw-getstarted].
 
 ### <a name="protocol-ingestion-module"></a>Módulo de ingestão de protocolo
 
-Esse módulo é o ponto de partida para obtenção de dados de dispositivos, por meio do gateway, e inserção na nuvem. No exemplo, o módulo:
+Esse módulo é hello ponto de partida para receber dados de dispositivos, por meio do gateway hello e em nuvem hello. No exemplo hello, Olá módulo:
 
-1. Cria dados de temperatura simulados. Se você estiver usando dispositivos físicos, o módulo lerá os dados desses dispositivos físicos.
+1. Cria dados de temperatura simulados. Se você usar dispositivos físicos, o módulo Olá lê os dados desses dispositivos físicos.
 1. Cria uma mensagem.
-1. Coloca os dados de temperatura simulados no conteúdo da mensagem.
-1. Adiciona uma propriedade com um endereço MAC falso para a mensagem.
-1. Disponibiliza a mensagem para o próximo módulo na cadeia.
+1. Coloca os dados de temperatura de saudação simulada no conteúdo da mensagem de saudação.
+1. Adiciona uma propriedade com uma falsa mensagem de toohello de endereço MAC.
+1. Torna o próximo módulo do hello mensagem toohello disponíveis na cadeia de saudação.
 
-O módulo chamado **Ingestão de protocolo X**, no diagrama acima, é chamado de **Dispositivo simulado** no código-fonte.
+módulo Olá chamado **ingestão de protocolo X** em Olá diagrama anterior é chamado **dispositivo simulado** no código-fonte hello.
 
 ### <a name="mac-lt-gt-iot-hub-id-module"></a>Módulo de identificação do MAC &lt;-&gt; Hub IoT
 
-Este módulo procura mensagens que tenham uma propriedade de endereço Mac. No exemplo, o módulo de inclusão de protocolo adiciona a propriedade de endereço MAC. Se o módulo encontrar essa propriedade, ele adicionará outra propriedade com uma chave de dispositivo do Hub IoT para a mensagem. Então, o módulo disponibiliza a mensagem para o próximo módulo na cadeia.
+Este módulo procura mensagens que tenham uma propriedade de endereço Mac. No exemplo hello, módulo de inclusão de protocolo hello adiciona propriedade do endereço MAC hello. Se o módulo de saudação encontrar essa propriedade, ele adiciona outra propriedade com uma mensagem de chave toohello de dispositivo IoT Hub. módulo de Hello, em seguida, faz o próximo módulo do hello mensagem toohello disponíveis na cadeia de saudação.
 
-O desenvolvedor configura um mapeamento entre endereços MAC e as identidades de Hub IoT para associar os dispositivos simulados com identidades de dispositivo Hub IoT. O desenvolvedor adiciona o mapeamento manualmente como parte da configuração do módulo.
+desenvolvedor Olá configura um mapeamento entre endereços MAC e dispositivos do IoT Hub identidades tooassociate Olá simulado com identidades de dispositivo IoT Hub. desenvolvedor Olá adiciona mapeamento Olá manualmente como parte da configuração do módulo de saudação.
 
 > [!NOTE]
-> Esta amostra usa um endereço MAC como um identificador de dispositivo exclusivo e o correlaciona com uma identidade de dispositivo Hub IoT. No entanto, é possível escrever seu próprio módulo que usa um identificador exclusivo diferente. Por exemplo, os dispositivos podem ter números de série exclusivos ou os dados telemétricos podem incluir um nome de dispositivo incorporado exclusivo.
+> Esta amostra usa um endereço MAC como um identificador de dispositivo exclusivo e o correlaciona com uma identidade de dispositivo Hub IoT. No entanto, é possível escrever seu próprio módulo que usa um identificador exclusivo diferente. Por exemplo, os dispositivos podem ter números de série exclusivos ou dados de telemetria Olá podem incluir um nome de dispositivo incorporado exclusivo.
 
 ### <a name="iot-hub-communication-module"></a>Módulo de comunicação do Hub IoT
 
-Este módulo usa mensagens com uma propriedade de chave de dispositivo Hub IoT que foi atribuída pelo módulo anterior. O módulo envia o conteúdo da mensagem ao Hub IoT usando o protocolo HTTP. HTTP é um dos três protocolos compreendidos pelo Hub IoT.
+Este módulo usa mensagens com um IoT Hub propriedade de chave de dispositivo que foi atribuída pelo módulo de saudação anterior. módulo de saudação envia a mensagem de saudação tooIoT conteúdo Hub usando Olá protocolo HTTP. HTTP é uma saudação três protocolos entendidos pelo IoT Hub.
 
-Em vez de abrir uma conexão para cada dispositivo simulado, esse módulo abre uma conexão HTTP única do gateway para o Hub IoT. Então, o módulo multiplica as conexões de todos os dispositivos simulados por essa conexão. Essa abordagem permite que um único gateway se conecte com diversos dispositivos.
+Em vez de abrir uma conexão para cada dispositivo simulado, esse módulo abre uma conexão HTTP único de hub IoT do hello gateway toohello. módulo de saudação multiplexes, em seguida, conexões de todos os dispositivos de saudação simulada por essa conexão. Essa abordagem permite que um único gateway tooconnect muitos mais dispositivos.
 
 ## <a name="before-you-get-started"></a>Antes de começar
 
 Antes de começar, é necessário:
 
-* [Crie um Hub IoT][lnk-create-hub] em sua assinatura do Azure. Você precisará do nome do hub para concluir este passo a passo. Se não tiver uma conta, você poderá criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
-* Adicione dois dispositivos ao hub IoT e anote as IDs e chaves de dispositivo. É possível usar o [gerenciador de dispositivo][lnk-device-explorer] ou a ferramenta [iothub-explorer][lnk-iothub-explorer] para adicionar seus dispositivos ao Hub IoT criado na etapa anterior e recuperar suas chaves.
+* [Criar um hub IoT] [ lnk-create-hub] na sua assinatura do Azure, você precisará Olá nome do seu hub toocomplete este passo a passo. Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
+* Adicione dois dispositivos tooyour IoT hub e anote seus ids e chaves de dispositivo. Você pode usar o hello [explorer dispositivo] [ lnk-device-explorer] ou [Gerenciador de Hub IOT] [ lnk-iothub-explorer] ferramenta tooadd seu hub IoT de toohello de dispositivos criada na Olá anterior etapa e recuperar suas chaves.
 
 ![][2]
 
@@ -69,7 +69,7 @@ Antes de começar, é necessário:
 [2]: media/iot-hub-iot-edge-simulated-selector/image2.png
 
 <!-- Links -->
-[Exemplo de Upload para a Nuvem de Dispositivo Simulado]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
+[exemplo nuvem de dispositivo simulado carregar]: https://github.com/Azure/iot-edge/blob/master/samples/simulated_device_cloud_upload/README.md
 [lnk-sdk]: https://github.com/Azure/iot-edge
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

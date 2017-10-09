@@ -1,18 +1,18 @@
 ## <a name="sample-scenario"></a>Cenário de exemplo
-Para melhor ilustrar como gerenciar NSGs, este artigo usará o cenário abaixo.
+toobetter ilustram como toomanage NSGs, este artigo usa o cenário de saudação abaixo.
 
 ![Cenário de Rede Virtual](./media/virtual-networks-create-nsg-scenario-include/figure1.png)
 
-Nesse cenário, você criará um NSG para cada sub-rede na rede virtual **TestVNet** , conforme descrito abaixo: 
+Nesse cenário, você criará um NSG para cada sub-rede na Olá **TestVNet** rede virtual, conforme descrito abaixo: 
 
-* **NSG-FrontEnd**. O front-end de NSG será aplicado à sub-rede *FrontEnd* contém duas regras:    
-  * **rdp-rule**. Essa regra permitirá tráfego RDP para a sub-rede *FrontEnd* .
-  * **web-rule**. Essa regra permitirá tráfego HTTP para a sub-rede *FrontEnd* .
-* **NSG-BackEnd**. O frontend de NSG será aplicado à sub-rede *BackEnd* e contém duas regras:    
-  * **sql-rule**. Essa regra permite o tráfego SQL somente da sub-rede *FrontEnd* .
-  * **web-rule**. Esta regra nega todo o tráfego limitado da Internet da sub-rede *BackEnd* .
+* **NSG-FrontEnd**. Olá front-end NSG será aplicado toohello *front-end* sub-rede e contêm duas regras:    
+  * **rdp-rule**. Essa regra permitirá RDP tráfego toohello *front-end* sub-rede.
+  * **web-rule**. Essa regra permitirá toohello de tráfego HTTP *front-end* sub-rede.
+* **NSG-BackEnd**. back-end de saudação NSG será aplicado toohello *back-end* sub-rede e contêm duas regras:    
+  * **sql-rule**. Essa regra permite o tráfego SQL apenas de saudação *front-end* sub-rede.
+  * **web-rule**. Esta regra nega internet todos os tráfego de saída de hello *back-end* sub-rede.
 
-A combinação dessas regras cria um cenário de DMZ, em que a sub-rede de back-end só pode receber tráfego de entrada para tráfego SQL da sub-rede front-end e não tem acesso à Internet, enquanto a sub-rede de front-end pode se comunicar com a Internet e receber somente solicitações HTTP de entrada.
+combinação de saudação dessas regras criar um cenário como DMZ, onde sub-rede de back-end Olá só pode receber o tráfego de entrada para o tráfego SQL da sub-rede de front-end hello e tem toohello sem acesso à Internet, enquanto a sub-rede de front-end Olá pode se comunicar com hello Internet e receber solicitações HTTP de entrada apenas.
 
-Para implantar o cenário descrito acima, acesse [este link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal. Nas instruções de exemplo abaixo, o modelo foi usado para implantar nomes do grupo de recursos **RG-NSG**. 
+cenário de saudação toodeploy descrito acima, execute [este link](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), clique em **implantar tooAzure**, substitua os valores de parâmetro de padrão de saudação se necessário e siga as instruções de saudação no portal de saudação. Instruções de exemplo hello abaixo, o modelo de saudação foi toodeploy usado um recurso de nomes de grupo **NSG RG**. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Monitorar consultas de usuário no SQL Data Warehouse do Azure| Microsoft Docs"
-description: "Visão geral sobre considerações, melhores práticas e tarefas para monitoramento de consultas de usuário no SQL Data Warehouse do Azure"
+title: "consultas de usuário aaaMonitor no Azure SQL Data Warehouse | Microsoft Docs"
+description: "Visão geral de considerações de hello, práticas recomendadas e tarefas de monitoramento de consultas de usuário no Azure SQL Data Warehouse"
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -15,22 +15,22 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 65509a65c2b34553822cc02d7a7fa5a614adc57f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 67639e81b04635452e1ed844fe2d7245aa96a4fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-user-queries-in-azure-sql-data-warehouse"></a>Monitorar consultas de usuário no SQL Data Warehouse do Azure
-Visão geral sobre considerações, melhores práticas e tarefas para monitoramento de consultas de usuário no SQL Data Warehouse.
+Visão geral de considerações de hello, práticas recomendadas e tarefas de monitoramento de consultas de usuário no SQL Data Warehouse.
 
 | Categoria | Tarefa ou consideração | Descrição |
 |:--- |:--- |:--- |
 | Desempenho lento |Localizar uma consulta de usuário com execução longa |[Localizar consultas com execução longa][Find long-running queries] |
-| Simultaneidade |Atribuir recursos simultâneos para consultas de usuário |[Gerenciamento de simultaneidade e carga de trabalho][Concurrency and workload management] |
+| Simultaneidade |Atribuir recursos simultâneos toouser consultas |[Gerenciamento de simultaneidade e carga de trabalho][Concurrency and workload management] |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de gerenciamento, acesse a [Visão geral de gerenciamento][Management overview].
+Para obter mais dicas de gerenciamento, vá direto toohello [visão geral do gerenciamento][Management overview].
 
 <!--Image references-->
 

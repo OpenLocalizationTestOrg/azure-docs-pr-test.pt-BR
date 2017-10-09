@@ -1,6 +1,6 @@
 ---
-title: Como redimensionar uma VM Linux com a CLI 2.0 do Azure | Microsoft Docs
-description: "Como escalar ou reduzir verticalmente uma máquina virtual Linux, alterando o tamanho da VM."
+title: aaaHow tooresize uma VM do Linux com hello 2.0 do CLI do Azure | Microsoft Docs
+description: "Como a escala para baixo de uma máquina virtual Linux, alterando ou tooscale backup Olá tamanho da VM."
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
@@ -16,34 +16,34 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23fc9f7f34732079682857d4ee685fe811751698
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e8fba485b5bcc7824f546de5cf3df77624a28008
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resize-a-linux-virtual-machine-using-cli-20"></a>Redimensionar uma máquina virtual do Linux usando a CLI 2.0
 
-Depois de provisionar uma VM (máquina virtual), é possível escalar ou reduzir verticalmente a VM alterando o [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar a VM primeiro. Você precisará desalocar a VM se o tamanho desejado não estiver disponível no cluster de hardware que está hospedando a VM. Este artigo detalha como redimensionar uma VM Linux com a CLI do Azure 2.0. Você também pode executar essas etapas com a [CLI do Azure 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Depois de provisionar uma máquina virtual (VM), você pode expandir ou reduzir Olá VM alterando Olá [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar Olá VM pela primeira vez. É necessário toodeallocate Olá VM se Olá desejado de tamanho não está disponível no cluster de hardware de saudação que está hospedando o hello VM. Este artigo fornece detalhes sobre como tooresize uma VM do Linux com hello 2.0 do CLI do Azure. Você também pode executar essas etapas com hello [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="resize-a-vm"></a>Redimensionar uma VM
-Para redimensionar uma VM, é preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
+tooresize uma VM, você precisa hello mais recente [2.0 do CLI do Azure](/cli/azure/install-az-cli2) instalado e conectado através de conta do Azure tooan [logon az](/cli/azure/#login).
 
-1. Veja a lista de tamanhos de VM disponíveis no cluster de hardware onde a VM está hospedada com [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options). O exemplo a seguir lista tamanhos de VM para a VM chamada `myVM` na região `myResourceGroup` do grupo de recursos:
+1. Tamanhos de exibir a lista de saudação de VM disponível no cluster de hardware Olá onde Olá VM for hospedado com [az vm lista-vm--opções de redimensionamento](/cli/azure/vm#list-vm-resize-options). Olá, exemplo a seguir lista os tamanhos de VM para Olá VM denominada `myVM` no grupo de recursos de saudação `myResourceGroup` região:
    
     ```azurecli
     az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
     ```
 
-2. Se o tamanho desejado da VM estiver listado, redimensione a VM com [az vm resize](/cli/azure/vm#resize). O exemplo a seguir redimensiona a VM chamada `myVM` para o tamanho `Standard_DS3_v2`:
+2. Se Olá desejado que o tamanho da VM está listado, redimensionar Olá VM com [az vm redimensionar](/cli/azure/vm#resize). Olá redimensiona de exemplo a seguir Olá VM denominada `myVM` toohello `Standard_DS3_v2` tamanho:
    
     ```azurecli
     az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
     ```
    
-    A VM é reiniciada durante esse processo. Após a reinicialização, os discos existentes do sistema operacional e de dados são remapeados. Tudo o que está no disco temporário é perdido.
+    Olá VM é reiniciado durante esse processo. Após a reinicialização de saudação, seu sistema operacional existente e os discos de dados são remapeados. Tudo em disco temporário Olá será perdido.
 
-3. Se o tamanho desejado da VM não estiver listado, você precisará primeiro desalocar a VM com [az vm deallocate](/cli/azure/vm#deallocate). Esse processo permite que a VM seja redimensionada para qualquer tamanho disponível ao qual a região dê suporte e então reiniciada. As etapas a seguir desalocam, redimensionam e iniciam a VM denominada `myVM` no grupo de recursos chamado `myResourceGroup`:
+3. Se Olá desejado tamanho da VM não estiver listado, você precisa toofirst desalocar Olá VM com [az vm desalocar](/cli/azure/vm#deallocate). Esse processo permite Olá VM toothen ser redimensionado tooany tamanho disponível Olá suporta de região e, em seguida, iniciado. Olá etapas a seguir desalocar, redimensionar e, em seguida, iniciar Olá VM denominada `myVM` no grupo de recursos de saudação chamado `myResourceGroup`:
    
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -52,7 +52,7 @@ Para redimensionar uma VM, é preciso ter a [CLI 2.0 do Azure](/cli/azure/instal
     ```
    
    > [!WARNING]
-   > Desalocar a VM também libera os endereços IP dinâmicos atribuídos à VM. Os discos do sistema operacional e de dados não são afetados.
+   > Olá ao desalocar VM também libera os endereços IP dinâmicos atribuídos toohello VM. Olá SO e discos de dados não são afetados.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter escalabilidade adicional, execute várias instâncias de VM e expanda. Para obter mais informações, consulte [Dimensionar automaticamente computadores Linux em um conjunto de dimensionamento de máquinas virtuais][scale-set]. 

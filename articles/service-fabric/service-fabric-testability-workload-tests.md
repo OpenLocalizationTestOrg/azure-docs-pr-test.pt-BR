@@ -1,6 +1,6 @@
 ---
-title: "Simular falhas nos microsserviços do Azure | Microsoft Docs"
-description: "Como fortalecer seus serviços contra falhas normais/anormais."
+title: falhas de aaaSimulate em microservices do Azure | Microsoft Docs
+description: "Como tooharden seus serviços contra falhas normais e anormais."
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 7ec671c23e101d0f7401bd4656fb201111602cad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 05467e291dfc0f12a021955f8ea540881ec10746
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante cargas de trabalho de serviço
-Os cenários de possibilidade de teste no Service Fabric do Azure isentam os desenvolvedores da preocupação com o tratamento de falhas individuais. No entanto, há cenários em que uma intercalação explícita das falhas e da carga de trabalho do cliente pode ser necessária. A intercalação das falhas e da carga de trabalho do cliente garante que o serviço realmente execute alguma ação quando a falha acontece. Dado o nível de controle que a possibilidade de teste fornece, elas podem estar em pontos precisos da execução da carga de trabalho. Essa indução de falhas em diferentes estados no aplicativo pode encontrar bugs e melhorar a qualidade.
+cenários de capacidade de teste de saudação no Azure Service Fabric permitem que os desenvolvedores toonot preocupações sobre como lidar com falhas individuais. No entanto, há cenários em que uma intercalação explícita das falhas e da carga de trabalho do cliente pode ser necessária. Olá intercalação de falhas e carga de trabalho do cliente garante que o serviço Olá fato está executando alguma ação quando ocorre falha. Considerando o nível de saudação do controle que fornece a capacidade de teste, eles podem ser preciso pontos de execução da carga de trabalho de saudação. Este indução de falhas em diferentes estados no aplicativo hello encontrar bugs e melhorar a qualidade.
 
 ## <a name="sample-custom-scenario"></a>Exemplo de cenário personalizado
-Esse teste mostra um cenário que intercala a carga de trabalho de negócios com [falhas normais e anormais](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). As falhas devem ser induzidas durante as operações ou cálculos do serviço para obter melhores resultados.
+Esse teste mostra um cenário interleaves Olá business carga de trabalho com [falhas normais e anormais](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). falhas de saudação devem ser induzidas no meio de saudação de operações de serviço ou de computação para obter melhores resultados.
 
-Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada uma corresponde a um conjunto de fluxos de trabalho que pode ser computação, armazenamento ou uma combinação. Para simplificar, vamos abstrair as cargas de trabalho de nosso exemplo. As diferentes falhas executadas neste exemplo são:
+Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. cada corresponde tooa conjunto de fluxos de trabalho e pode ser de computação, armazenamento ou uma combinação. Para a mesma Olá de simplicidade, que será eliminamos carga Olá em nosso exemplo. falhas de diferentes Olá executadas neste exemplo são:
 
-* RestartNode: falha anormal para simular uma reinicialização do computador.
-* RestartDeployedCodePackage: falha anormal para simular uma falha do processo de host de serviço.
-* RemoveReplica: falha normal para simular remoção de réplica.
-* MovePrimary: falha normal para simular movimentações de réplica disparadas pelo balanceador de carga do Service Fabric.
+* Restartnode teve: Reinicie o toosimulate falha a uma máquina.
+* RestartDeployedCodePackage: Falhas de processo do host de serviço falha anormais toosimulate.
+* RemoveReplica: Remoção de réplica de toosimulate falha normal.
+* MovePrimary: Réplica de toosimulate falha normal move disparada pelo Balanceador de carga do Service Fabric hello.
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
+// Add a reference tooSystem.Fabric.Testability.dll and System.Fabric.dll.
 
 using System;
 using System.Fabric;
@@ -46,7 +46,7 @@ class Test
 {
     public static int Main(string[] args)
     {
-        // Replace these strings with the actual version for your cluster and application.
+        // Replace these strings with hello actual version for your cluster and application.
         string clusterConnection = "localhost:19000";
         Uri applicationName = new Uri("fabric:/samples/PersistentToDoListApp");
         Uri serviceName = new Uri("fabric:/samples/PersistentToDoListApp/PersistentToDoListService");
@@ -93,31 +93,31 @@ class Test
     {
         // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
-        // Maximum time to wait for a service to stabilize.
+        // Maximum time toowait for a service toostabilize.
         TimeSpan maxServiceStabilizationTime = TimeSpan.FromSeconds(120);
 
-        // How many loops of faults you want to execute.
+        // How many loops of faults you want tooexecute.
         uint testLoopCount = 20;
         Random random = new Random();
 
         for (var i = 0; i < testLoopCount; ++i)
         {
             var workload = SelectRandomValue<ServiceWorkloads>(random);
-            // Start the workload.
+            // Start hello workload.
             var workloadTask = RunWorkloadAsync(workload);
 
-            // While the task is running, induce faults into the service. They can be ungraceful faults like
+            // While hello task is running, induce faults into hello service. They can be ungraceful faults like
             // RestartNode and RestartDeployedCodePackage or graceful faults like RemoveReplica or MovePrimary.
             var fault = SelectRandomValue<ServiceFabricFaults>(random);
 
-            // Create a replica selector, which will select a primary replica from the given service to test.
+            // Create a replica selector, which will select a primary replica from hello given service tootest.
             var replicaSelector = ReplicaSelector.PrimaryOf(PartitionSelector.RandomOf(serviceName));
-            // Run the selected random fault.
+            // Run hello selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
-            // Validate the health and stability of the service.
+            // Validate hello health and stability of hello service.
             await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
-            // Wait for the workload to finish successfully.
+            // Wait for hello workload toofinish successfully.
             await workloadTask;
         }
     }
@@ -145,9 +145,9 @@ class Test
     {
         throw new NotImplementedException();
         // This is where you trigger and complete your service workload.
-        // Note that the faults induced while your service workload is running will
-        // fault the primary service. Hence, you will need to reconnect to complete or check
-        // the status of the workload.
+        // Note that hello faults induced while your service workload is running will
+        // fault hello primary service. Hence, you will need tooreconnect toocomplete or check
+        // hello status of hello workload.
     }
 
     private static T SelectRandomValue<T>(Random random)

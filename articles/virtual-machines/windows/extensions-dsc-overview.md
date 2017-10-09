@@ -1,6 +1,6 @@
 ---
-title: "Visão geral de configuração de estado desejado para o Azure | Microsoft Docs"
-description: "Visão geral para usar o manipulador de extensão do Microsoft Azure para configuração de estado desejado do PowerShell. Incluindo pré-requisitos, arquitetura e cmdlets."
+title: "aaaDesired configuração de estado para visão geral do Azure | Microsoft Docs"
+description: "Visão geral para usar o manipulador de extensão do Microsoft Azure Olá para configuração de estado desejado do PowerShell. Incluindo pré-requisitos, arquitetura e cmdlets."
 services: virtual-machines-windows
 documentationcenter: 
 author: zjalexander
@@ -16,83 +16,83 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b0337a2f1124f35e5e40c1478bd7530427e59d44
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de configuração do estado desejado do Azure
+# <a name="introduction-toohello-azure-desired-state-configuration-extension-handler"></a>Manipulador de extensão de configuração de estado desejado do Azure de toohello de Introdução
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-O agente de VM do Azure e as extensões associadas são parte dos serviços de infraestrutura do Microsoft Azure. Extensões de VM são componentes de software que estendem a funcionalidade da VM e simplificam várias operações de gerenciamento de VM. Por exemplo, a extensão VMAccess pode ser usada para redefinir uma senha de administrador, ou a extensão de Script Personalizado pode ser usada para executar um script na VM.
+Hello Azure VM Agent e as extensões associadas são parte do hello serviços de infraestrutura do Microsoft Azure. Extensões de VM são componentes de software que estendem a funcionalidade VM hello e simplificam a várias operações de gerenciamento de VM. Por exemplo, Olá extensão VMAccess pode ser usado tooreset uma senha de administrador ou Olá Script personalizado extensão pode ser usado tooexecute um script em Olá VM.
 
-Este artigo apresenta a extensão de configuração de estado desejado (DSC) do PowerShell para VMs do Azure como parte do SDK do Azure PowerShell. Você pode usar os novos cmdlets para carregar e aplicar uma DSC do PowerShell em uma VM do Azure habilitada com a extensão de DSC do PowerShell. A extensão de DSC do PowerShell chama a DSC do PowerShell para aplicar a configuração DSC recebida na VM. Essa funcionalidade também está disponível por meio do portal do Azure.
+Este artigo apresenta Olá extensão de configuração de estado de desejado (DSC) do PowerShell para VMs do Azure como parte da saudação SDK do Azure PowerShell. Você pode usar o novo tooupload de cmdlets e aplicar uma configuração de DSC do PowerShell em uma VM do Azure habilitado com hello extensão de DSC do PowerShell. chamadas de extensão de DSC do PowerShell Olá em saudação do PowerShell DSC tooenact recebeu a configuração de DSC em Olá VM. Essa funcionalidade também está disponível por meio de saudação portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-**Máquina local** Para interagir com a extensão de VM do Azure, você precisa usar o Portal do Azure ou o SDK do Azure PowerShell. 
+**Máquina local** toointeract com hello extensão VM do Azure, você precisa toouse ou Olá portal do Azure ou Olá SDK do Azure PowerShell. 
 
-**Agente convidado** A VM do Azure a configurar pela configuração do DSC precisa ter um sistema operacional compatível com Windows Management Framework (WMF) 4.0 ou 5.0. A lista completa de versões com suporte do sistema operacional pode ser encontrada no [Histórico de versões da extensão de DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
+**O agente convidado** Olá VM do Azure que é configurado por configuração Olá DSC precisa toobe um sistema operacional que suporta o Windows Management Framework (WMF) 4.0 ou 5.0. lista completa de Olá das versões de sistema operacional com suporte pode ser encontrada no hello [histórico de versão da extensão DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
 
 ## <a name="terms-and-concepts"></a>Termos e conceitos
-Este guia presume familiaridade com os seguintes conceitos:
+Este guia presume familiaridade com hello conceitos a seguir:
 
 Configuração - um documento de configuração DSC. 
 
-Nó - um destino para uma configuração de DSC. Neste documento, "nó" sempre faz referência a uma VM do Azure.
+Nó - um destino para uma configuração de DSC. Neste documento, "nó" sempre se refere a tooan VM do Azure.
 
 Dados de configuração - um arquivo .psd1 contendo dados ambientais para uma configuração
 
 ## <a name="architectural-overview"></a>Visão geral da arquitetura
-A extensão de DSC do Azure usa a estrutura do Agente de VM do Azure para entregar, aplicar e gerar relatórios sobre configurações da DSC executadas em VMs do Azure. A extensão de DSC espera um arquivo .zip contendo pelo menos um documento de configuração e um conjunto de parâmetros fornecidos por meio do SDK do Azure PowerShell ou do portal do Azure.
+Olá extensão de DSC do Azure usa hello Azure VM Agent do framework toodeliver, aplicar e relatar as configurações de DSC em execução em máquinas virtuais do Azure. Olá extensão DSC espera um arquivo. zip que contém pelo menos um documento de configuração e um conjunto de parâmetros fornecido por meio de saudação SDK do Azure PowerShell ou Olá portal do Azure.
 
-Quando a extensão é chamada pela primeira vez, executa um processo de instalação. Esse processo instala uma versão do Windows Management Framework (WMF) usando a lógica a seguir:
+Quando a extensão de saudação é chamado para Olá primeira vez, ele executa um processo de instalação. Esse processo instala a versão de hello Windows Management Framework (WMF) usando Olá lógica a seguir:
 
-1. Se o sistema operacional da VM do Azure for o Windows Server 2016, nenhuma ação é executada. O Windows Server 2016 já possui a versão mais recente do PowerShell instalada.
-2. Se a propriedade `wmfVersion` for especificada, essa versão do WMF é instalada, a menos que ele não seja compatível com o sistema operacional da VM.
-3. Se nenhuma propriedade `wmfVersion` for especificada, a versão mais recente do WMF aplicável é instalada.
+1. Se Olá sistema operacional da VM do Azure for Windows Server 2016, nenhuma ação é executada. Windows Server 2016 já tem a versão mais recente de saudação do PowerShell instalado.
+2. Se hello `wmfVersion` propriedade for especificada, essa versão do hello WMF é instalado, a menos que é incompatível com o sistema operacional da VM hello.
+3. Se nenhum `wmfVersion` propriedade for especificada, hello mais recente versão aplicável do hello WMF está instalado.
 
-A instalação do WMF requer uma reinicialização. Após a reinicialização, a extensão baixa o arquivo .zip especificado na propriedade `modulesUrl` . Se esse local estiver no armazenamento de blobs do Azure, um token SAS pode ser especificado na propriedade `sasToken` para acessar o arquivo. Depois que o arquivo .zip for baixado e descompactado, a função de configuração definida em `configurationFunction` é executada para gerar o arquivo .MOF. Em seguida, a extensão executa `Start-DscConfiguration -Force` no arquivo MOF gerado. A extensão captura a saída e grava de volta para no canal de status do Azure. Desse ponto em diante, o LCM de DSC lida com o monitoramento e correção da maneira normal. 
+Instalação do hello WMF requer uma reinicialização. Depois da reinicialização, extensão Olá downloads arquivo. zip de saudação especificado no hello `modulesUrl` propriedade. Se este local estiver no armazenamento de BLOBs do Azure, um token SAS pode ser especificado em Olá `sasToken` propriedade tooaccess Olá arquivo. Após Olá ZIP é baixado e desempacotados, Olá função configuração definida no `configurationFunction` é executar o arquivo MOF do toogenerate hello. em seguida, executa uma extensão de saudação `Start-DscConfiguration -Force` no arquivo MOF de saudação gerado. extensão de saudação captura a saída e grava-toohello canal de Status do Azure. Desse ponto em hello LCM do DSC trata de monitoramento e correção como normal. 
 
 ## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
-Os cmdlets do PowerShell podem ser usados com o Azure Resource Manager ou o modelo clássico de implementação para empacotar, publicar e monitorar implantações de extensão de DSC. Os cmdlets listados a seguir são os módulos de implantação clássicos, mas "Azure" pode ser substituído por "AzureRm" para usar o modelo do Azure Resource Manager. Por exemplo, `Publish-AzureVMDscConfiguration` usa o modelo de implantação clássico, mas `Publish-AzureRmVMDscConfiguration` usa o Azure Resource Manager. 
+Cmdlets do PowerShell pode ser usados com o Gerenciador de recursos do Azure ou Olá toopackage do modelo de implantação clássico, publicar e monitorar implantações de extensão de DSC. cmdlets a seguir listados Hello são módulos de implantação clássico hello, mas "Azure" pode ser substituída pelo modelo do "AzureRm" toouse hello Azure Resource Manager. Por exemplo, `Publish-AzureVMDscConfiguration` usa Olá modelo de implantação clássico, onde `Publish-AzureRmVMDscConfiguration` usa o Gerenciador de recursos do Azure. 
 
-`Publish-AzureVMDscConfiguration` recebe um arquivo de configuração, verifica a existência de recursos dependentes de DSC e cria um arquivo .zip contendo a configuração e os recursos de DSC necessários para aplicar a configuração. Também pode criar o pacote localmente usando o parâmetro `-ConfigurationArchivePath` . Caso contrário, ele publicará o arquivo .zip no Armazenamento de Blobs do Azure e o protegerá com um token SAS.
+`Publish-AzureVMDscConfiguration`usa um arquivo de configuração, ele procura recursos dependentes da DSC e cria um arquivo. zip que contém a configuração de saudação e configuração de saudação do DSC recursos tooenact necessários. Ele também pode criar pacote hello localmente usando Olá `-ConfigurationArchivePath` parâmetro. Caso contrário, ela publica o armazenamento de BLOBs do hello. ZIP arquivo tooAzure e protege-o com um token SAS.
 
-O arquivo .zip criado por esse cmdlet possui o script de configuração .ps1 na raiz da pasta de arquivamento. Os recursos possuem a pasta de módulo colocada na pasta de arquivo morto. 
+arquivo do Hello. zip criado por esse cmdlet tem script de configuração do hello. ps1 na raiz de saudação da pasta de arquivamento de saudação. Os recursos têm pasta do módulo Olá colocada na pasta de arquivo hello. 
 
-`Set-AzureVMDscExtension` injeta as configurações necessárias pela extensão de DSC do PowerShell em um objeto de configuração da VM. No modelo de implantação clássico, as alterações da VM devem ser aplicadas a uma VM do Azure com `Update-AzureVM`. 
+`Set-AzureVMDscExtension`Insere as configurações de saudação necessárias por Olá extensão de DSC do PowerShell em um objeto de configuração de VM. No modelo de implantação clássico hello, alterações VM de saudação devem ser aplicada tooan VM do Azure com `Update-AzureVM`. 
 
-O `Get-AzureVMDscExtension` recupera o status da extensão de DSC de uma VM específica. 
+`Get-AzureVMDscExtension`recupera o status da extensão DSC saudação de uma VM específica. 
 
-`Get-AzureVMDscExtensionStatus` recupera o status da configuração DSC imposta pelo manipulador de extensão de DSC. Essa ação pode ser executada em uma única VM ou em um grupo de VMs.
+`Get-AzureVMDscExtensionStatus`recupera o status de saudação da configuração de DSC Olá imposta pelo manipulador de extensão de DSC hello. Essa ação pode ser executada em uma única VM ou em um grupo de VMs.
 
-`Remove-AzureVMDscExtension` remove o manipulador de extensão de uma determinada máquina virtual. Esse cmdlet **não** remove a configuração, desinstala o WMF ou altera as configurações aplicadas na máquina virtual. Apenas remove o manipulador de extensão. 
+`Remove-AzureVMDscExtension`Remove o manipulador de extensão de saudação de uma determinada máquina virtual. Este cmdlet não **não** remover configuração hello, desinstalar Olá WMF ou alterar configurações de saudação aplicada na máquina virtual de saudação. Ela remove somente o manipulador de extensão de saudação. 
 
 **Principais diferenças nos cmdlets do ASM e do Azure Resource Manager**
 
 * Os cmdlets do Azure Resource Manager são síncronos. Os cmdlets do ASM são assíncronos.
 * ResourceGroupName, VMName, ArchiveStorageAccountName, Version e Location são todos parâmetros obrigatórios no Azure Resource Manager.
-* ArchiveResourceGroupName é um novo parâmetro opcional para o Azure Resource Manager. Você pode especificar esse parâmetro quando sua conta de armazenamento pertencer a um grupo de recursos diferente daquele no qual a máquina virtual foi criada.
+* ArchiveResourceGroupName é um novo parâmetro opcional para o Azure Resource Manager. Você pode especificar esse parâmetro quando sua conta de armazenamento pertence tooa outro grupo de recursos que Olá um onde a máquina virtual de saudação é criada.
 * ConfigurationArchive é chamado de ArchiveBlobName no Azure Resource Manager
 * ContainerName é chamado de ArchiveContainerName no Azure Resource Manager
 * StorageEndpointSuffix é chamado de ArchiveStorageEndpointSuffix no Azure Resource Manager
-* A opção AutoUpdate foi adicionada ao Azure Resource Manager para habilitar a atualização automática do manipulador de extensão na versão mais recente e quando estiver disponível. Observe que esse parâmetro tem o potencial de causar reinicializações na VM quando uma nova versão do WMF for lançada. 
+* opção de atualização automática de Olá foi adicionada tooAzure tooenable do Gerenciador de recursos de saudação manipulador toohello mais recente versão da extensão como e quando ele está disponível a atualização automática. Observe que esse parâmetro tem possíveis reinicializações de toocause Olá Olá VM quando uma nova versão do hello que WMF é liberado. 
 
 ## <a name="azure-portal-functionality"></a>Funcionalidade do portal do Azure
-Navegue até uma VM. Em Configurações -> Geral, clique em "Extensões". Um novo painel é criado. Clique em "Adicionar" e selecione DSC do PowerShell.
+Procure tooa VM. Em Configurações -> Geral, clique em "Extensões". Um novo painel é criado. Clique em "Adicionar" e selecione DSC do PowerShell.
 
-O portal precisa de entrada.
-**Script ou módulos de configuração**: esse campo é obrigatório. Requer um arquivo. ps1 contendo um script de configuração ou um arquivo .zip com um script de configuração .ps1 na raiz e todos os recursos dependentes em pastas de módulo dentro do .zip. Ele pode ser criado com o cmdlet `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` incluído no SDK do Azure PowerShell. O arquivo .zip será carregado em seu armazenamento de blobs de usuário protegido por um token SAS. 
+portal de saudação precisa de entrada.
+**Script ou módulos de configuração**: esse campo é obrigatório. Requer um arquivo. ps1 que contém um script de configuração ou um arquivo. zip com um script de configuração na raiz de hello. ps1 e todos os recursos dependentes em pastas de módulo em Olá arquivos. zip. Ele pode ser criado com hello `Publish-AzureVMDscConfiguration -ConfigurationArchivePath` incluído no SDK do Azure PowerShell de saudação do cmdlet. arquivo. zip de saudação é carregado em seu armazenamento de blob de usuário protegido por um token SAS. 
 
-**Arquivo de configuração PSD1 de dados**: esse campo é opcional. Se sua configuração exigir um arquivo de dados de configuração em .psd1, use este campo para selecioná-lo e carregá-lo no armazenamento de blobs de usuário, onde eles serão protegidos por um token SAS. 
+**Arquivo de configuração PSD1 de dados**: esse campo é opcional. Se sua configuração requer um arquivo de dados de configuração em. psd1, use este campo tooselect-lo e carregue-o armazenamento de BLOBs do usuário tooyour, onde ele é protegido por um token SAS. 
 
-**Nome de configuração qualificado por módulo**: os arquivos .ps1 podem ter várias funções de configuração. Insira o nome do script .ps1 de configuração seguido por um '\'' e o nome da função de configuração. Por exemplo, se o seu script .ps1 tiver o nome "configuration.ps1" e se a configuração for "IisInstall", insira: `configuration.ps1\IisInstall`
+**Nome de configuração qualificado por módulo**: os arquivos .ps1 podem ter várias funções de configuração. Digite nome Olá Olá. ps1 do script de configuração seguido por um '\' e Olá nome da função de configuração de saudação. Por exemplo, se seu script. ps1 tem nome hello "configuration.ps1", e a configuração de saudação é "IisInstall", digite:`configuration.ps1\IisInstall`
 
-**Argumentos de configuração**: se a função de configuração leva argumentos, insira-os aqui no formato `argumentName1=value1,argumentName2=value2`. Observe que esse formato é diferente daquele como argumentos de configuração são aceitos por meio de cmdlets do PowerShell ou modelos do Resource Manager. 
+**Argumentos de configuração**: se a função de configuração Olá utiliza argumentos, digite-os aqui no formato Olá `argumentName1=value1,argumentName2=value2`. Observe que esse formato é diferente daquele como argumentos de configuração são aceitos por meio de cmdlets do PowerShell ou modelos do Resource Manager. 
 
 ## <a name="getting-started"></a>Introdução
-A extensão de DSC do Azure usa documentos de configuração DSC e impõe os mesmos em VMs do Azure. A seguir está um exemplo simples de uma configuração. Salve localmente como "IisInstall.ps1":
+Olá extensão de DSC do Azure usa documentos de configuração DSC e aplica-los em VMs do Azure. A seguir está um exemplo simples de uma configuração. Salve localmente como "IisInstall.ps1":
 
 ```powershell
 configuration IISInstall 
@@ -108,7 +108,7 @@ configuration IISInstall
 }
 ```
 
-As etapas a seguir colocam o script IisInstall.ps1 na VM especificada, executam a configuração e relatam o status.
+Olá seguindo as etapas local Olá IisInstall.ps1 script na Olá especificado VM, executar configuração hello e relatar sobre o status.
 ###<a name="classic-model"></a>Modelo clássico
 ```powershell
 #Azure PowerShell cmdlets are required
@@ -117,13 +117,13 @@ Import-Module Azure
 #Use an existing Azure Virtual Machine, 'DscDemo1'
 $demoVM = Get-AzureVM DscDemo1
 
-#Publish the configuration script into user storage.
+#Publish hello configuration script into user storage.
 Publish-AzureVMDscConfiguration -ConfigurationPath ".\IisInstall.ps1" -StorageContext $storageContext -Verbose -Force
 
-#Set the VM to run the DSC configuration
+#Set hello VM toorun hello DSC configuration
 Set-AzureVMDscExtension -VM $demoVM -ConfigurationArchive "IisInstall.ps1.zip" -StorageContext $storageContext -ConfigurationName "IisInstall" -Verbose
 
-#Update the configuration of an Azure Virtual Machine
+#Update hello configuration of an Azure Virtual Machine
 $demoVM | Update-AzureVM -Verbose
 
 #check on status
@@ -136,9 +136,9 @@ $resourceGroup = "dscVmDemo"
 $location = "westus"
 $vmName = "myVM"
 $storageName = "demostorage"
-#Publish the configuration script into user storage
+#Publish hello configuration script into user storage
 Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
-#Set the VM to run the DSC configuration
+#Set hello VM toorun hello DSC configuration
 Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName iisInstall.ps1.zip -AutoUpdate:$true -ConfigurationName "IISInstall"
 
 ```
@@ -149,11 +149,11 @@ Os logs são colocados em:
 C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Número de versão]
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a DSC do PowerShell, [visite o centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
+Para obter mais informações sobre o PowerShell DSC, [visite o Centro de documentação do PowerShell Olá](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-Examine o [modelo do Azure Resource Manager para a extensão de DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Examine Olá [modelo do Azure Resource Manager para extensão Olá DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Para encontrar a funcionalidade adicional que você pode gerenciar com a DSC do PowerShell, [navegue na galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para conhecer mais recursos da DSC.
+toofind funcionalidade adicional que você pode gerenciar com o PowerShell DSC, [procurar a Galeria do PowerShell Olá](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) para obter mais recursos de DSC.
 
-Para obter detalhes sobre como passar parâmetros confidenciais em configurações, consulte [Gerenciar credenciais com segurança com o manipulador de extensão de DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obter detalhes sobre como passar parâmetros confidenciais em configurações, consulte [gerenciar credenciais com segurança com o manipulador de extensão Olá DSC](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

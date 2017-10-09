@@ -1,6 +1,6 @@
 ---
-title: Implantar um aplicativo Node.js que usa MongoDB | Microsoft Docs
-description: "Instruções passo a passo sobre como empacotar executáveis convidados para implantar em um cluster do Service Fabric do Azure"
+title: aaaDeploy um aplicativo Node. js que usa o MongoDB | Microsoft Docs
+description: "Instruções passo a passo sobre como toopackage vários cluster convidado do executáveis toodeploy tooan Azure Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2775080f0d9d42d6ba15cca911e23067106be26d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implantar vários executáveis de convidado
-Este artigo mostra como empacotar e implantar vários executáveis de convidado no Azure Service Fabric. Para criar e implantar um pacote de Service Fabric único, leia como [implantar um executável de convidado no Service Fabric](service-fabric-deploy-existing-app.md).
+Este artigo mostra como toopackage e implantar várias tooAzure de executáveis de convidado do Service Fabric. Para criar e implantar um único pacote de malha do serviço, leia como muito[implantar um tooService executável de convidado malha](service-fabric-deploy-existing-app.md).
 
-Embora este passo a passo mostre como implantar um aplicativo com um front-end Node.js que usa MongoDB como o repositório de dados, você pode aplicar as etapas a qualquer aplicativo que tenha dependências de outro aplicativo.   
+Embora este passo a passo mostra como toodeploy um aplicativo com um front-end de Node. js que usa o MongoDB como repositório de dados hello, você pode aplicar tooany aplicativo hello etapas tem dependências em outro aplicativo.   
 
-Você pode usar o Visual Studio para gerar o pacote de aplicativos que contém vários executáveis de convidado. Veja [Uso do Visual Studio para empacotar um aplicativo existente](service-fabric-deploy-existing-app.md). Depois de adicionar o primeiro executável de convidado, clique com o botão direito do mouse no projeto de aplicativo e selecione **Adicionar -> Novo serviço do Service Fabric** para adicionar o segundo projeto do executável de convidado à solução. Observação: se você optar por vincular a origem no projeto do Visual Studio, criar a solução do Visual Studio garantirá que seu pacote de aplicativos esteja atualizado com as alterações na fonte. 
+Você pode usar o Visual Studio tooproduce Olá pacote de aplicativo que contém vários executáveis de convidado. Consulte [toopackage com o Visual Studio um aplicativo existente](service-fabric-deploy-existing-app.md). Após ter adicionado o executável de convidado primeiro hello, clique com botão direito no projeto de aplicativo hello e selecione Olá **Adicionar -> serviço de malha do novo serviço** tooadd Olá segunda convidado projeto executável toohello solução. Observação: Se você escolher a fonte de saudação toolink em Olá projeto do Visual Studio, criação de solução do Visual Studio Olá, garantirá que seu pacote de aplicativo é o toodate com alterações feitas na fonte de saudação. 
 
 ## <a name="samples"></a>Exemplos
 * [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemplo de dois executáveis convidados (C# e nodejs) se comunicando por meio do Serviço de nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Exemplo de dois convidado executáveis (c# e nodejs) se comunicar por meio do serviço de nomenclatura hello usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## <a name="manually-package-the-multiple-guest-executable-application"></a>Empacotar manualmente o aplicativo executável de vários convidados
-Como alternativa, você pode empacotar manualmente o executável de convidado. Para o empacotamento manual, este artigo usa a ferramenta de empacotamento do Service Fabric, que está disponível em [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+## <a name="manually-package-hello-multiple-guest-executable-application"></a>Manualmente o pacote hello vários aplicativo executável de convidado
+Como alternativa, você pode empacotar manualmente executável de convidado hello. Para empacotamento manual de hello, este artigo usa a ferramenta de empacotamento do Service Fabric hello, está disponível em [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
-### <a name="packaging-the-nodejs-application"></a>Como empacotar o aplicativo Node.js
-Este artigo pressupõe que o Node.js não esteja instalado em nós do cluster do Service Fabric. Como consequência, você precisa adicionar o Node.exe ao diretório raiz de seu aplicativo de nó antes do empacotamento. A estrutura de diretórios do aplicativo Node.js (usando a estrutura da Web Express e o mecanismo de modelagem Jade) deve ser semelhante ao mostrado abaixo:
+### <a name="packaging-hello-nodejs-application"></a>Saudação de empacotamento aplicativo Node. js
+Este artigo pressupõe que o Node. js não está instalado em nós de Olá no cluster do Service Fabric hello. Como consequência, você precisa tooadd Node.exe toohello diretório de raiz do seu aplicativo de nó antes do empacotamento. estrutura de diretório de saudação do aplicativo do Node. js hello (usando a estrutura do web Express e o mecanismo de modelo Jade) deve ser semelhante toohello um abaixo:
 
 ```
 |-- NodeApplication
@@ -60,22 +60,22 @@ Este artigo pressupõe que o Node.js não esteja instalado em nós do cluster do
     |-- node.exe
 ```
 
-Como uma próxima etapa, crie um pacote de aplicativos para o aplicativo Node.js. O código a seguir cria um pacote de aplicativos do Service Fabric que contém o aplicativo Node.js.
+Como uma próxima etapa, você cria um pacote de aplicativo hello aplicativo Node. js. código de saudação abaixo cria um pacote de aplicativo de malha do serviço que contém o aplicativo do hello Node. js.
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source:'[yourdirectory]\MyNodeApplication' /target:'[yourtargetdirectory] /appname:NodeService /exe:'node.exe' /ma:'bin/www' /AppType:NodeAppType
 ```
 
-Veja a seguir uma descrição dos parâmetros que estão sendo usados:
+Abaixo está uma descrição dos parâmetros de saudação que estão sendo usadas:
 
-* **/source** : aponta para o diretório do aplicativo que deve ser empacotado.
-* **/target** : define o diretório no qual o pacote deve ser criado. Esse diretório deve ser diferente do diretório de origem.
-* **/appname** : define o nome do aplicativo existente. É importante entender que isso significa o nome do serviço no manifesto, e não o nome do aplicativo do Service Fabric.
-* **/exe** define o arquivo executável que o Service Fabric deve iniciar, neste caso `node.exe`.
-* **/ma** : define o argumento usado para iniciar o arquivo executável. Como o Node.js não está instalado, o Service Fabric precisa iniciar o servidor Web do Node.js executando `node.exe bin/www`.  `/ma:'bin/www'` diz à ferramenta de empacotamento para usar `bin/ma` como argumento para node.exe.
-* **/AppType** : define o nome do tipo de aplicativo do Service Fabric.
+* **/Source** pontos toohello diretório de aplicativo hello que deve ser empacotado.
+* **/Target** define Olá diretório no qual Olá pacote deve ser criado. Este diretório tem toobe diferente saudação do diretório de origem.
+* **/appname** define o nome do aplicativo de saudação do aplicativo existente hello. É importante toounderstand que isso se traduz toohello nome do serviço no manifesto de saudação e não toohello nome do aplicativo de malha do serviço.
+* **/exe** define Olá executável que Service Fabric deve toolaunch, neste caso `node.exe`.
+* **/ma** define o argumento de saudação que está sendo usado toolaunch Olá executável. Como o Node. js não estiver instalado, do Service Fabric precisa de servidor de web toolaunch Olá Node. js executando `node.exe bin/www`.  `/ma:'bin/www'`informa Olá empacotamento ferramenta toouse `bin/ma` como argumento de saudação para node.exe.
+* **/ O tipo de aplicativo** define o nome do tipo de aplicativo hello Service Fabric.
 
-Se você navegar até o diretório especificado no parâmetro /target, será possível ver que a ferramenta criou um pacote totalmente funcional do Service Fabric, como mostrado abaixo:
+Se você procurar o diretório toohello que foi especificado no parâmetro de /target hello, você pode ver que essa ferramenta Olá criou um pacote de malha do serviço totalmente funcional conforme mostrado abaixo:
 
 ```
 |--[yourtargetdirectory]
@@ -95,7 +95,7 @@ Se você navegar até o diretório especificado no parâmetro /target, será pos
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Agora, o ServiceManifest.xml gerado tem uma seção que descreve como o servidor Web do Node.js deve ser iniciado, como mostrado no trecho de código a seguir:
+Olá ServiceManifest.xml gerado agora tem uma seção que descreve como o servidor de web Node.js Olá deve ser iniciada, conforme mostrado no trecho de código Olá abaixo:
 
 ```xml
 <CodePackage Name="C" Version="1.0">
@@ -108,7 +108,7 @@ Agora, o ServiceManifest.xml gerado tem uma seção que descreve como o servidor
     </EntryPoint>
 </CodePackage>
 ```
-Neste exemplo, o servidor Web do Node.js escuta a porta 3000, portanto, você precisa atualizar as informações do ponto de extremidade no arquivo ServiceManifest.xml, como mostrado abaixo.   
+Neste exemplo, o servidor de web de Node. js Olá escuta tooport 3000, portanto, você precisa de informações de ponto de extremidade Olá tooupdate no arquivo ServiceManifest.xml de saudação conforme mostrado abaixo.   
 
 ```xml
 <Resources>
@@ -117,10 +117,10 @@ Neste exemplo, o servidor Web do Node.js escuta a porta 3000, portanto, você pr
       </Endpoints>
 </Resources>
 ```
-### <a name="packaging-the-mongodb-application"></a>Como empacotar o aplicativo MongoDB
-Agora que você empacotou o aplicativo Node.js, prossiga e empacote o MongoDB. Como mencionado anteriormente, as etapas que você percorrer agora não são específicas do Node.js e MongoDB. Na verdade, elas se aplicam a todos os aplicativos que devem ser empacotados juntamente como um único aplicativo do Service Fabric.  
+### <a name="packaging-hello-mongodb-application"></a>Saudação de empacotamento MongoDB aplicativo
+Agora que você empacotar aplicativo do Node. js hello, você pode vá em frente e MongoDB do pacote. Como mencionado anteriormente, Olá etapas que você percorrer agora não são tooNode.js específico e MongoDB. Na verdade, se aplicam a aplicativos tooall devem toobe reunido como um aplicativo de malha do serviço.  
 
-Para empacotar o MongoDB, convém empacotar os arquivos Mongod.exe e Mongo.exe. Os dois binários estão localizados no diretório `bin` do diretório de instalação do MongoDB. A estrutura de diretórios é parecida com o seguinte.
+toopackage MongoDB, você deseja toomake-se de que você empacotar Mongod.exe e Mongo.exe. Ambos os binários estão localizados em Olá `bin` diretório de seu diretório de instalação do MongoDB. estrutura de diretórios Olá parece semelhante toohello um abaixo.
 
 ```
 |-- MongoDB
@@ -129,25 +129,25 @@ Para empacotar o MongoDB, convém empacotar os arquivos Mongod.exe e Mongo.exe. 
         |-- mongo.exe
         |-- anybinary.exe
 ```
-O Service Fabric precisa iniciar o MongoDB com um comando semelhante ao mostrado abaixo e, portanto, você precisa usar o parâmetro `/ma` ao empacotar o MongoDB.
+Service Fabric precisa toostart MongoDB com um toohello semelhante do comando um abaixo, para que você precise Olá toouse `/ma` parâmetro ao empacotar o MongoDB.
 
 ```
-mongod.exe --dbpath [path to data]
+mongod.exe --dbpath [path toodata]
 ```
 > [!NOTE]
-> Os dados não serão preservados no caso de uma falha de nó se você colocar o diretório de dados do MongoDB no diretório local do nó. Você deve usar o armazenamento durável ou implementar um conjunto de réplicas do MongoDB para evitar a perda de dados.  
+> dados de Olá não estão sendo preservados no caso de saudação de uma falha de nó se você colocar o diretório de dados do MongoDB Olá no diretório local de saudação do nó de saudação. Você deve usar o armazenamento durável ou implementar um conjunto ordem tooprevent perda de dados de réplicas do MongoDB.  
 >
 >
 
-No PowerShell ou no shell de comando, executamos a ferramenta de empacotamento com os seguintes parâmetros:
+No shell de comando do PowerShell ou hello, podemos executar a ferramenta de empacotamento de Olá com hello parâmetros a seguir:
 
 ```
-.\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path to data]' /AppType:NodeAppType
+.\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path toodata]' /AppType:NodeAppType
 ```
 
-Para adicionar o MongoDB ao seu pacote de aplicativos do Service Fabric é necessário garantir que o parâmetro /target aponte para o mesmo diretório que já contém o manifesto do aplicativo com o aplicativo Node.js. Também é preciso garantir que você esteja usando o mesmo nome de ApplicationType.
+No pacote de aplicativo do Service Fabric tooyour do pedido tooadd MongoDB, você precisa toomake-se de que o parâmetro hello /target pontos toohello mesmo diretório que já contém o manifesto do aplicativo hello junto com o aplicativo do hello Node. js. Você também precisa toomake-se de que você está usando Olá mesmo nome ApplicationType.
 
-Vamos navegar até o diretório e examinar o que a ferramenta criou.
+Vamos procurar o diretório toohello e examinar qual ferramenta Olá criou.
 
 ```
 |--[yourtargetdirectory]
@@ -163,7 +163,7 @@ Vamos navegar até o diretório e examinar o que a ferramenta criou.
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Como você pode ver, a ferramenta adicionou uma nova pasta, MongoDB, ao diretório que contém os binários do MongoDB. Se você abrir o arquivo `ApplicationManifest.xml` , poderá ver que agora o pacote contém o aplicativo Node.js e o MongoDB. O código a seguir mostra o conteúdo do manifesto do aplicativo.
+Como você pode ver, ferramenta Olá adicionado um novo diretório de toohello de pasta, MongoDB, que contém os binários do MongoDB hello. Se você abrir Olá `ApplicationManifest.xml` arquivo, você pode ver que o pacote hello agora contém o aplicativo de Node. js hello e MongoDB. Olá código a seguir mostra o hello conteúdo saudação do manifesto do aplicativo.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -188,8 +188,8 @@ Como você pode ver, a ferramenta adicionou uma nova pasta, MongoDB, ao diretór
 </ApplicationManifest>  
 ```
 
-### <a name="publishing-the-application"></a>Publicar o aplicativo
-A última etapa é publicar o aplicativo no cluster do Service Fabric local usando os scripts do PowerShell abaixo:
+### <a name="publishing-hello-application"></a>Aplicativo de publicação hello
+Olá última etapa é toopublish Olá aplicativo toohello Service Fabric cluster local usando scripts do PowerShell Olá abaixo:
 
 ```
 Connect-ServiceFabricCluster localhost:19000
@@ -203,18 +203,18 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Depois que o aplicativo for publicado com êxito no cluster local, você poderá acessar o aplicativo Node.js na porta inserida no manifesto do serviço do aplicativo Node.js, por exemplo, http://localhost:3000.
+Após o aplicativo hello cluster local toohello publicado com êxito, é possível acessar o aplicativo de Node. js de saudação na porta de saudação que é inserido no manifesto do serviço de saudação do aplicativo de Node. js hello – por exemplo, http://localhost:3000.
 
-Neste tutorial, você viu como empacotar facilmente dois aplicativos existentes como um único aplicativo do Service Fabric. Você também aprendeu como implantá-lo no Service Fabric para que ele possa beneficiar dos recursos do Service Fabric, como alta disponibilidade e integração do sistema de integridade.
+Neste tutorial, você viu como tooeasily pacote dois aplicativos existentes como um aplicativo de malha do serviço. Você também aprendeu como toodeploy-tooService malha para que ele pode se beneficiar Olá de alguns recursos de malha do serviço, como integração alta disponibilidade e integridade do sistema.
 
 
-## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Adicionar mais executáveis convidados a um aplicativo existente usando o Yeoman no Linux
+## <a name="adding-more-guest-executables-tooan-existing-application-using-yeoman-on-linux"></a>Adicionando mais convidado executáveis tooan aplicativo existente usando Yeoman no Linux
 
-Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas: 
-1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
-2. Execute `yo azuresfguest:AddService` e forneça os detalhes necessários.
+tooadd outro tooan aplicativo de serviço já criado usando `yo`, executar Olá etapas a seguir: 
+1. Alterar o diretório raiz de toohello do aplicativo existente hello.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é um aplicativo hello criado por Yeoman.
+2. Execute `yo azuresfguest:AddService` e fornecer detalhes necessários hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre como implantar contêineres com a [Visão geral de contêineres e do Service Fabric](service-fabric-containers-overview.md)
 * [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Exemplo de dois executáveis convidados (C# e nodejs) se comunicando por meio do Serviço de nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [Exemplo de dois convidado executáveis (c# e nodejs) se comunicar por meio do serviço de nomenclatura hello usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)

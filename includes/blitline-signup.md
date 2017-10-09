@@ -1,28 +1,28 @@
 
-### <a name="to-sign-up-for-a-blitline-account"></a>Para se inscrever em uma conta do Blitline
-1. Faça logon no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/).
-2. No painel inferior do portal de gerenciamento, clique em **Novo**.
+### <a name="toosign-up-for-a-blitline-account"></a>toosign uma conta Blitline
+1. Faça logon no toohello [Portal de gerenciamento](https://manage.windowsazure.com/).
+2. No painel inferior do Olá Olá do portal de gerenciamento, clique em **novo**.
    
     ![command-bar-new][command-bar-new]
 3. Clique em **Repositório**.
    
     ![blitline-store][blitline-store]
-4. Na caixa de diálogo **Escolher um complemento**, selecione **Blitline** e clique na seta à direita.
-5. Na caixa de diálogo **Personalizar Complemento**, selecione o plano do **Blitline** no qual você deseja se inscrever.
-6. Digite um nome para identificar seu serviço do **Blitline** em suas configurações do Azure ou use o valor padrão de **Blitline**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na sua lista de itens inscritos da Azure Store.
+4. Em Olá **escolher um complemento** caixa de diálogo, selecione **Blitline** e clique na seta direita hello.
+5. Em Olá **personalizar complemento** Olá selecione caixa de diálogo **Blitline** plano que você deseja toosign para.
+6. Insira um nome tooidentify seu **Blitline** de serviço em suas configurações do Azure, ou usar o valor padrão de saudação do **Blitline**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. Olá nome deve ser exclusivo na sua lista de itens de armazenamento do Azure inscritos.
    
     ![store-screen-1][store-screen-1]
-7. Escolha um valor para a região; por exemplo, oeste dos Estados Unidos. 
-8. Clique na seta à direita.
-9. Na guia **Revisar Compra** , revise o plano e as informações sobre preços, bem como os termos legais. Se você concordar com os termos, clique na marca de seleção. Depois de clicar na marca de seleção, sua conta do Blitline iniciará o processo de provisionamento. 
+7. Escolha um valor para a região Olá; Por exemplo, oeste dos EUA. 
+8. Clique na seta direita hello.
+9. Em Olá **compra examine** guia, examine o plano hello e obter informações sobre preços e revise os termos legais hello. Se você concordar toohello termos, clique em marca de seleção de saudação. Depois de clicar em marca de seleção hello, sua conta Blitline começará Olá processo de provisionamento. 
 
-Para usar o Blitline, você precisa ter a ID do aplicativo.
+toouse Blitline necessário toohave sua ID do aplicativo.
 
-### <a name="to-find-your-blitline-application-id"></a>Para localizar a ID do Aplicativo Blitline
+### <a name="toofind-your-blitline-application-id"></a>toofind a ID do aplicativo Blitline
 1. Clique em **Informações de Conexão**.
    
     ![blitline-connection-info-button][blitline-connection-info-button]
-2. Na caixa de diálogo *Informações de Conexão* , você pode ver a ID do Aplicativo
+2. Em Olá *informações de Conexão* caixa de diálogo, você pode ver a ID do aplicativo
    
     ![blitline-connection-info][blitline-connection-info]
 

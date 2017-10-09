@@ -1,6 +1,6 @@
 ---
-title: Limpar e preparar dados para o Azure Machine Learning | Microsoft Docs
-description: "Pré-processe e limpe os dados para prepará-los para o aprendizado de máquina."
+title: "aaaClean e preparar dados para o aprendizado de máquina do Azure | Microsoft Docs"
+description: "Pré-processar e limpar dados tooprepare para aprendizado de máquina."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,90 +14,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3e3c3e4b0cfb9187f5820d7165e6ee1ea013ba02
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tarefas para preparar dados para o aprendizado de máquina avançado
-O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Essas tarefas fazem parte do TDSP (Processo de Ciência de Dados de Equipe) e, geralmente, seguem uma exploração inicial de um conjunto de dados usado para descobrir e planejar o pré-processamento exigido. Para obter instruções mais detalhadas sobre o processo TDSP, confira as etapas descritas em [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+# <a name="tasks-tooprepare-data-for-enhanced-machine-learning"></a>Dados de tooprepare de tarefas de aprendizado de máquina avançada
+O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Essas tarefas fazem parte do processo de ciência de dados da equipe (TDSP) do hello e geralmente seguem uma exploração inicial de um toodiscover de conjunto de dados usado e o plano Olá pré-processamento necessário. Para obter instruções sobre o processo TDSP hello mais detalhadas, consulte as etapas de Olá descritas Olá [processo de ciência de dados de equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-As tarefas de pré-processamento e de limpeza, assim como a tarefa de exploração de tarefas, podem ser executadas em uma ampla variedade de ambientes, como o SQL ou o Hive ou o Azure Machine Learning Studio e com diversas ferramentas e linguagens, como R ou Python, dependendo de onde seus dados estejam armazenados e de como estejam formatados. Como o TDSP é iterativo por natureza, essas tarefas podem ocorrer em várias etapas do fluxo de trabalho do processo.
+Pré-processando e tarefas de limpeza, como tarefa de exploração de dados hello, podem ser executadas em uma ampla variedade de ambientes, como SQL ou Hive ou estúdio de aprendizado de máquina do Azure e com várias ferramentas e linguagens, como Python, dependendo de onde os dados estão ou de R armazenados e como ele é formatado. Como TDSP é iterativa por natureza, essas tarefas podem ocorrer em várias etapas do fluxo de trabalho de saudação do processo de saudação.
 
 Este artigo apresenta vários conceitos e tarefas de processamento de dados que podem ser executados antes ou depois da ingestão de dados no Azure Machine Learning.
 
-Para obter um exemplo de exploração de dados e pré-processamento feitos no Azure Machine Learning Studio, consulte o vídeo [Pré-processando dados no Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) .
+Para obter um exemplo de exploração de dados e pré-processamento feito no studio de aprendizado de máquina do Azure, consulte Olá [pré-processamento de dados no estúdio de aprendizado de máquina do Azure](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) vídeo.
 
 ## <a name="why-pre-process-and-clean-data"></a>Por que pré-processar e limpar os dados?
-Dados do mundo real são coletados de várias fontes e processos e podem conter irregularidades ou dados corrompidos, comprometendo a qualidade do conjunto de dados. Os problemas de qualidade de dados típicos que podem surgir são:
+Coleta de dados do mundo real de várias fontes e processos e podem conter irregularidades ou dados corrompidos comprometer a qualidade de saudação do conjunto de dados de saudação. problemas de qualidade de dados típicos de saudação que podem surgir são:
 
 * **Incompleto**: os dados não têm atributos ou contém valores ausentes.
 * **Com ruído**: Os dados contêm registros incorretos ou exceções.
 * **Inconsistente**: os dados contêm registros conflitantes ou discrepâncias.
 
-Dados de qualidade são um pré-requisito para modelos de previsão de qualidade. Para evitar a “entrada e saída de lixo" e melhorar a qualidade de dados e, portanto, o desempenho do modelo, é fundamental conduzir uma filtragem de integridade de dados para identificar problemas de dados no início e decidir sobre os as etapas correspondentes de processamento e limpeza de dados.
+Dados de qualidade são um pré-requisito para modelos de previsão de qualidade. tooavoid "lixo no lixo out" e melhorar a qualidade de dados e, portanto, o desempenho de modelo, é fundamental tooconduct um toospot de tela de integridade de dados dados problemas no início e decidir sobre Olá correspondente de processamento de dados e as etapas de limpeza.
 
 ## <a name="what-are-some-typical-data-health-screens-that-are-employed"></a>Poderia dar exemplo de filtragens de integridade de dados típicas empregadas?
-Podemos verificar a qualidade geral dos dados confirmando:
+Podemos verificar a qualidade geral Olá dos dados, marcando:
 
-* O número de **registros**.
-* O número de **atributos** (ou **recursos**).
-* O atributo **tipos de dados** (nominais, ordinais ou contínuos).
-* O número de **valores ausentes**.
-* **Boa formação** dos dados.
-  * Se os dados estiverem em TSV ou CSV, verifique se os separadores de colunas e os separadores de linha sempre separam colunas e linhas corretamente.
-  * Se os dados estiverem em formato HTML ou XML, verifique se os dados são bem formados com base nos seus respectivos padrões.
-  * A análise também pode ser necessária para extrair informações estruturadas de dados não estruturados ou semiestruturados.
-* **Registros de dados inconsistentes**. Verifique se o intervalo de valores é permitido. Por exemplo, se os dados contiverem a média de notas de um aluno, verifique se a média de notas está no intervalo designado, digamos, 0 a 4.
+* Olá inúmeros **registros**.
+* Olá inúmeros **atributos** (ou **recursos**).
+* atributo Olá **tipos de dados** (nominal, ordinal ou contínuo).
+* Olá inúmeros **valores ausentes**.
+* **Validez** de dados de saudação.
+  * Se dados saudação em TSV ou CSV, verifique que separadores de coluna hello e separadores de linha sempre corretamente separam colunas e linhas.
+  * Se dados saudação estão no formato HTML ou XML, verifique se os dados de saudação está bem formados com base em seus respectivos padrões.
+  * Análise também pode ser necessária nas informações de tooextract estruturado de ordem de dados estruturados ou não estruturados.
+* **Registros de dados inconsistentes**. Verifique o intervalo de saudação de valores são permitidos. Por exemplo, se dados saudação contém GPA aluno, verifique se o hello designado intervalo, Olá GPA dizer 0 ~ 4.
 
-Quando você encontrar problemas com os dados, **etapas de processamento** serão necessárias, geralmente envolvendo a limpeza de valores ausentes, normalização de dados, diferenciação, processamento de texto para remover e/ou substituir caracteres incorporados que podem afetar o alinhamento dos dados e tipos de dados mistos em campos comuns, entre outros.
+Quando você encontrar problemas com dados, **etapas de processamento** é necessário que geralmente envolve a limpeza de valores ausentes, normalização de dados, diferenciação, tooremove de processamento de texto e/ou substituir caracteres inseridos que podem afetar o alinhamento de dados mistos tipos de dados em comum campos e outros.
 
 
-            **O Azure Machine Learning consome dados tabulares bem formados**.  Se os dados já estiverem em formato tabular, o pré-processamento deles poderá ser realizado diretamente com o Azure Machine Learning no Machine Learning Studio.  Se os dados não estiverem em formato tabular, como XML, por exemplo XML, a análise pode ser necessária para converter os dados em formato tabular.  
+            **O Azure Machine Learning consome dados tabulares bem formados**.  Se dados saudação já estão em formato tabular, o pré-processamento de dados pode ser executado diretamente com o aprendizado de máquina do Azure no hello estúdio de aprendizado de máquina.  Se os dados não estão em formato tabular, digamos que ela está em análise de XML, podem ser necessário no formulário do pedido tooconvert Olá dados tootabular.  
 
-## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Quais são as principais tarefas de pré-processamento de dados?
+## <a name="what-are-some-of-hello-major-tasks-in-data-pre-processing"></a>Quais são algumas das tarefas mais importantes Olá de pré-processamento de dados?
 * **Limpeza de dados**: preencher ou valores ausentes, detectar e remover exceções e dados com ruídos.
-* **Transformação de dados**: normalizar dados para reduzir o ruído e dimensões.
+* **Transformação de dados**: normalizar tooreduce dimensões e dados ruído.
 * **Redução de dados**: registros de dados de exemplo ou atributos para fácil manipulação de dados.
-* **Diferenciação de dados**: converter atributos contínuos para atributos categóricos para maior facilidade de uso com determinados métodos de aprendizado de máquina.
+* **Diferenciação de dados**: Convert contínua atributos toocategorical atributos para facilidade de uso com determinados métodos de aprendizado de máquina.
 * **Limpeza de texto**: remover caracteres inseridos que podem causar desalinhamento de dados, como por exemplo guias incorporadas em um arquivo de dados separado por tabulações, novas linhas incorporadas que podem quebrar registros, etc.
 
-As seções a seguir detalham algumas dessas etapas de processamento de dados.
+seções de saudação abaixo detalham algumas dessas etapas de processamento de dados.
 
-## <a name="how-to-deal-with-missing-values"></a>Como lidar com valores ausentes?
-Para lidar com valores ausentes, é melhor primeiro identificar o motivo dos valores ausentes para melhor tratar o problema. Métodos de manipulação de valores ausentes típicos são:
+## <a name="how-toodeal-with-missing-values"></a>Como valores toodeal com ausente?
+toodeal com valores ausentes, é melhor toofirst identificar o motivo de saudação para ausente Olá valores problema de saudação do identificador toobetter. Métodos de manipulação de valores ausentes típicos são:
 
 * **Exclusão**: remover os registros com valores ausentes
 * **Substituição fictícia**: substituir os valores ausentes por um valor fictício: por exemplo, *desconhecido* para valores categóricos ou 0 para valores numéricos.
-* **Substituição da média**: se os dados ausentes forem numéricos, substitua os valores ausentes pela média.
-* **Substituição frequente**: se os dados ausentes forem categóricos, substitua os valores ausentes pelo item mais frequente
-* **Substituição de regressão**: usar um método de regressão para substituir valores ausentes por valores de regressão.  
+* **Média de substituição**: se os dados ausentes Olá forem numéricos, substituir valores ausentes Olá por média de saudação.
+* **Frequência de substituição**: se dados ausentes Olá forem categóricos, substituir valores ausentes Olá item mais frequente Olá
+* **Substituição de regressão**: Use um método de regressão tooreplace ausente valores com valores retornados.  
 
-## <a name="how-to-normalize-data"></a>Como normalizar dados?
-A normalização de dados escala novamente valores numéricos para um intervalo especificado. Métodos de normalização de dados populares incluem:
+## <a name="how-toonormalize-data"></a>Como os dados toonormalize?
+Dados normalização novamente dimensiona os valores numéricos tooa o intervalo especificado. Métodos de normalização de dados populares incluem:
 
-* **Normalização Mín-Máx**: transformar os dados de forma linear em um intervalo, digamos, entre 0 e 1, em que o valor mínimo é dimensionado para 0 e o valor máximo para 1.
-* **Normalização de pontuação Z**: escalar dados com base na média e desvio padrão: dividir a diferença entre os dados e a média pelo desvio padrão.
-* **Dimensionamento decimal**: dimensionar os dados movendo o ponto decimal do valor do atributo.  
+* **Normalização Mín-Máx**: linearmente transformar o intervalo de tooa dados hello, digamos, entre 0 e 1, onde hello o valor mínimo é dimensionado too0 e too1 do valor máximo.
+* **Normalização da pontuação Z**: Dimensionar dados com base na média e desvio padrão: dividir a diferença de saudação entre dados saudação e média de saudação pelo desvio padrão de saudação.
+* **Escala decimal**: Dimensionar dados saudação mover ponto decimal de saudação do valor de atributo hello.  
 
-## <a name="how-to-discretize-data"></a>Como diferenciar os dados?
-Dados podem ser diferenciados ao converter valores contínuos em atributos nominais ou intervalos. Algumas formas de fazer isso são:
+## <a name="how-toodiscretize-data"></a>Como os dados toodiscretize?
+Dados podem ser diferenciados convertendo atributos de toonominal valores contínuos ou intervalos. Algumas formas de fazer isso são:
 
-* **Compartimentalização de largura igual**: dividir o intervalo de todos os possíveis valores de um atributo entre N grupos do mesmo tamanho e atribuir os valores correspondentes a um compartimento a um número do compartimento.
-* **Compartimentação de altura igual**: dividir o intervalo de todos os possíveis valores de um atributo em N grupos que contém o mesmo número de instâncias e atribuir os valores correspondentes a um compartimento ao número do compartimento.  
+* **Compartimentalização de largura igual**: divida o intervalo de saudação de todos os valores possíveis de um atributo em grupos de N de saudação mesmo tamanho e atribuir valores de saudação que se enquadram em um binário com número de gaveta hello.
+* **Compartimentalização de altura igual**: divida o intervalo de saudação de todos os valores possíveis de um atributo em grupos de N, cada uma contendo Olá o mesmo número de instâncias, em seguida, atribuir Olá valores que se enquadram em um binário com hello guardar o número.  
 
-## <a name="how-to-reduce-data"></a>Como reduzir os dados?
-Há vários métodos para reduzir o tamanho dos dados para facilitar a manipulação de dados. Dependendo do tamanho dos dados e do domínio, os métodos a seguir podem ser aplicados:
+## <a name="how-tooreduce-data"></a>Como os dados tooreduce?
+Há vários métodos tooreduce tamanho de dados mais fácil manipulação de dados. Dependendo do tamanho e hello domínio, Olá métodos a seguir pode ser aplicada:
 
-* **Amostragem de registros**: realizar a amostragem dos registros de dados de exemplo e escolha somente o subconjunto representativo dos dados.
-* **Amostragem de atributo**: selecionar apenas um subconjunto dos atributos mais importantes dos dados.  
-* **Agregação**: dividir os dados em grupos e armazenar os números em cada grupo. Por exemplo, os números de receita diária de uma cadeia de restaurante nos últimos 20 anos podem ser agregados para receita mensal para reduzir o tamanho dos dados.  
+* **Registre a amostragem**: registros de dados de saudação de exemplo e escolha somente subconjunto representativo Olá dados saudação.
+* **Atributo amostragem**: selecione apenas um subconjunto dos atributos mais importantes Olá dos dados de saudação.  
+* **Agregação**: dividir dados saudação em grupos e armazenar números Olá para cada grupo. Por exemplo, hello receita diária números de uma cadeia de restaurante sobre Olá 20 anos anteriores podem ser agregados tamanho dos dados de saudação da toomonthly receita tooreduce hello.  
 
-## <a name="how-to-clean-text-data"></a>Como limpar dados de texto?
-**Campos de texto em dados tabulares** podem incluir caracteres que afetam os alinhamentos das colunas e/ou limites de registros. Por exemplo, guias incorporadas em um arquivo separado por tabulações causa desalinhamento de coluna e caracteres de nova linha incorporados quebram linhas de registros. A manipulação incorreta de codificação de texto durante a gravação/leitura do texto resulta em perda de informações e introdução indesejada de caracteres ilegíveis, como por exemplo valores nulos, podendo também afetar a análise de texto. Uma análise e edição detalhada podem ser necessárias para limpar os campos de texto para alinhamento adequado e/ou extrair dados estruturados de dados de texto não estruturados ou semiestruturados.
+## <a name="how-tooclean-text-data"></a>Como os dados de texto tooclean?
+**Campos de texto em dados tabulares** podem incluir caracteres que afetam os alinhamentos das colunas e/ou limites de registros. Por exemplo, guias incorporadas em um arquivo separado por tabulações causa desalinhamento de coluna e caracteres de nova linha incorporados quebram linhas de registros. Texto inadequado codificação tratamento durante a gravação/leitura texto leva tooinformation perda, inadvertida introdução dos caracteres ilegíveis, por exemplo, nulos e pode também afetam análise de texto. Análise cuidadosa e edição podem ser necessário em campos de texto tooclean ordem para alinhamento adequado e/ou dados de tooextract estruturado de dados de texto não estruturados ou semiestruturados.
 
-**exploração de dados** oferece uma exibição antecipada dos dados. Alguns problemas de dados podem ser descobertos durante essa etapa e métodos correspondentes podem ser aplicados para resolver esses problemas.  É importante fazer perguntas, tal como qual é a origem do problema e como o problema pode ter sido introduzido. Isso também ajuda você a decidir sobre as etapas de processamento de dados que precisam ser seguidas para resolvê-los. O tipo de informações que devem ser derivadas dos dados também pode ser usado para priorizar os esforços de processamento de dados.
+**Exploração de dados** oferece uma visão antecipada de dados saudação. Um número de problemas de dados pode ser descoberto durante esta etapa e métodos correspondentes podem ser aplicadas tooaddress esses problemas.  É importante tooask perguntas, como o que é a origem de saudação do problema de saudação e como problema Olá pode ter sido introduzido. Isso também ajuda você a decidir sobre etapas de processamento de dados de saudação que toobe necessidade tomada tooresolve-los. tipo de saudação do insights um pretenda tooderive de dados de saudação também pode ser esforço de processamento de dados de saudação tooprioritize usado.
 
 ## <a name="references"></a>Referências
 > *Data Mining: Concepts and Techniques*, Third Edition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber e Jian Pei

@@ -1,5 +1,5 @@
 ---
-title: "Visão geral das camadas de preço do Sistema de Mensagens Premium e Standard do Barramento de Serviço do Azure | Microsoft Docs"
+title: "aaaAzure Premium do barramento de serviço e o sistema de mensagens padrão preços camadas visão geral | Microsoft Docs"
 description: "Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço"
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.openlocfilehash: 3fe666da149085d14c3839a64b50765eea483e05
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4eea5d86d342e858f50450308fb3d96a7a80b49e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 
-O Sistema de Mensagens do Barramento de Serviço, que inclui entidades como filas e tópicos, combina recursos corporativos de mensagens com rica semântica de assinatura para publicação na escala de nuvem. O Sistema de Mensagens do Barramento de Serviço é usado como o backbone de comunicação para muitas soluções de nuvem sofisticadas.
+O Sistema de Mensagens do Barramento de Serviço, que inclui entidades como filas e tópicos, combina recursos corporativos de mensagens com rica semântica de assinatura para publicação na escala de nuvem. Mensagens do barramento de serviço é usado como o backbone de comunicação Olá muitas soluções sofisticadas de nuvem.
 
-A camada *Premium* do Sistema de Mensagens do Barramento de Serviço atende às solicitações comuns dos clientes em torno da escala, do desempenho e da disponibilidade para aplicativos de missão crítica. Embora os conjuntos de recursos sejam quase idênticos, essas duas camadas do Sistema de Mensagens do Barramento de Serviço foram desenvolvidas para atender a diferentes casos de uso.
+Olá *Premium* endereços de camada do sistema de mensagens do barramento de serviço comum solicitações de clientes em escala, desempenho e disponibilidade para aplicativos de missão crítica. Embora os conjuntos de recursos de saudação são quase idênticos, essas duas camadas de sistema de mensagens do barramento de serviço são tooserve projetado diferentes casos de uso.
 
-Algumas diferenças de alto nível são destacadas na tabela a seguir.
+Algumas diferenças de alto nível são realçadas em Olá a tabela a seguir.
 
 | Premium | Standard |
 | --- | --- |
 | Alta taxa de transferência |Taxa de transferência variável |
 | Desempenho previsível |Latência variável |
 | Preço fixo |Preço pré-pago variável |
-| Capacidade de escalar a carga de trabalho verticalmente |N/D |
-| Até 1 MB de tamanho de mensagem |Até 256 KB de tamanho de mensagem |
+| Carga de trabalho de tooscale de capacidade para cima e para baixo |N/D |
+| Tamanho da mensagem too1 MB |Tamanho da mensagem too256 KB |
 
-O **Sistema de Mensagens Premium do Barramento de Serviço** fornece isolamento de recursos no nível de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recurso é chamado de *unidade do sistema de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode adquirir 1, 2 ou 4 unidades do sistema de mensagens para cada namespace Premium do Barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades do sistema de mensagens, e o número de unidades do sistema de mensagens pode ser alterado à vontade, embora a cobrança seja feita por taxas diárias ou de 24 horas. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço.
+**Mensagens do Service Bus Premium** fornece isolamento no nível de CPU e memória de saudação do recurso para que cada carga de trabalho do cliente é executada em isolamento. Esse contêiner de recurso é chamado de *unidade do sistema de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode adquirir 1, 2 ou 4 unidades do sistema de mensagens para cada namespace Premium do Barramento de serviço. Uma única carga de trabalho ou uma entidade pode abranger várias unidades de sistema de mensagens e número de saudação de unidades de sistema de mensagens pode ser alterado conforme o desejado, embora a cobrança é em encargos de taxa de 24 horas ou diária. resultado de saudação é desempenho previsível e reproduzível para sua solução com base no barramento de serviço.
 
-Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido. O Sistema de Mensagens Premium do Barramento de Serviço se baseia no mecanismo de armazenamento introduzido nos [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Com o Sistema de Mensagens Premium, o desempenho de pico é muito mais rápido do que com a camada Standard.
+Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido. Mensagens do Service Bus Premium se baseia no mecanismo de armazenamento Olá introduzido no [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Com o sistema de mensagens Premium, é muito mais rápido do que com a camada padrão Olá pico de desempenho.
 
 ## <a name="premium-messaging-technical-differences"></a>Diferenças técnicas do sistema de mensagens Premium
 
-As seções a seguir discutem algumas diferenças entre as camadas dos sistemas de mensagens Premium e Standard.
+Olá seções a seguir discutem algumas diferenças entre as camadas de mensagens padrão e Premium.
 
 ### <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
-Filas e tópicos particionados têm suporte no Sistema de Mensagens Premium; na verdade essas entidades são particionadas sempre (e não podem ser desabilitadas). No entanto, as filas e tópicos particionados não funcionam da mesma forma nas camadas Standard e Basic do Sistema de Mensagens do Barramento de Serviço. O sistema de mensagens Premium não usa o SQL como um armazenamento de dados e não tem mais a possível competição por recurso associada a uma plataforma compartilhada. Consequentemente, o particionamento não é necessário para melhorar o desempenho. Além disso, a contagem de partições foi alterada, de 16 partições no Sistema de Mensagens Standard para duas partições no Premium. Ter duas partições garante disponibilidade, além de ser um número mais apropriado para o ambiente de tempo de execução Premium. 
+Filas e tópicos particionados têm suporte no Sistema de Mensagens Premium; na verdade essas entidades são particionadas sempre (e não podem ser desabilitadas). No entanto, Premium particionado filas e tópicos não funcionam Olá Olá a mesma forma como no camadas Standard e Basic do barramento de serviço de mensagens. Não Premium mensagens usa SQL como um repositório de dados e não tem Olá competição possível de recursos associada a uma plataforma compartilhada. Como resultado, o particionamento não é necessário tooimprove desempenho. Além disso, a contagem de partição Olá foi alterada de 16 partições em partições too2 padrão de mensagens Premium. Ter duas partições garante a disponibilidade e é um número mais apropriado para o ambiente de tempo de execução Premium Olá. 
 
-Com as mensagens Premium, quando você especifica o tamanho de uma entidade com [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), o tamanho é dividido igualmente entre as duas partições, ao contrário de [Entidades particionadas padrão](service-bus-partitioning.md#standard) em que o tamanho total é 16 vezes o tamanho especificado. 
+Com o sistema de mensagens Premium, quando você especifica o tamanho de saudação de uma entidade com [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), que tamanho é dividido igualmente entre partições Olá 2, diferentemente de [padrão particionada entidades](service-bus-partitioning.md#standard) no qual Olá tamanho total é 16 vezes tamanho especificado de saudação. 
 
 Para saber mais sobre o particionamento, confira as [Filas e tópicos particionados](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades expressas
 
-Como o sistema de mensagens Premium é executado em um ambiente de tempo de execução totalmente isolado, não há suporte para as entidades expressas em namespaces Premium. Para saber mais sobre o recurso expresso, consulte a propriedade [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+Como o sistema de mensagens Premium é executado em um ambiente de tempo de execução totalmente isolado, não há suporte para as entidades expressas em namespaces Premium. Para obter mais informações sobre o recurso express hello, consulte Olá [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) propriedade.
 
-Se você tiver código em execução no sistema de mensagens padrão e deseja portá-lo para a camada Premium, verifique se a propriedade [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) está definida como **false** (o valor padrão).
+Se você tiver código em execução em tooport padrão de mensagens e desejar que ele camada Premium de toohello, verifique se Olá [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) propriedade for definida muito**false** (Olá valor padrão).
 
 ## <a name="get-started-with-premium-messaging"></a>Introdução ao sistema de mensagens Premium
 
-A introdução ao Sistema de Mensagens Premium é simples e o processo é semelhante ao do Sistema de Mensagens Padrão. Comece [criando um namespace](service-bus-create-namespace-portal.md). Verifique se você selecionou **Premium** em **Tipo de preços**.
+Introdução ao sistema de mensagens Premium é simples e processo de saudação é semelhante toothat do sistema de mensagens padrão. Comece [criando um namespace](service-bus-create-namespace-portal.md). Verifique se você selecionou **Premium** em **Tipo de preços**.
 
 ![criar-premium-namespace][create-premium-namespace]
 
@@ -69,12 +69,12 @@ Você também pode criar um [Namespace Premium usando modelos do Azure Resource 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Sistema de Mensagens do Barramento de Serviço, confira os tópicos a seguir.
+toolearn mais sobre mensagens do Service Bus, consulte Olá tópicos a seguir.
 
 * [Introdução ao Sistema de Mensagens Premium do Barramento de Serviço do Azure (postagem de blog)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introdução ao Sistema de Mensagens Premium do Barramento de Serviço do Azure (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Visão geral do Sistema de Mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-* [Como usar filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
+* [Como as filas do barramento de serviço toouse](service-bus-dotnet-get-started-with-queues.md)
 
 <!--Image references-->
 

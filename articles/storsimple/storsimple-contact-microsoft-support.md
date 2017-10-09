@@ -1,6 +1,6 @@
 ---
-title: "Registrar tíquete de suporte para o StorSimple série 8000 | Microsoft Docs"
-description: "Saiba como criar uma solicitação de suporte e iniciar uma sessão de suporte em seu dispositivo StorSimple."
+title: "aaaLog tíquete de suporte para a série StorSimple 8000 | Microsoft Docs"
+description: "Saiba como toocreate suporte à solicitação e iniciar uma sessão de suporte em seu dispositivo StorSimple."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -15,81 +15,81 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli;anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e1a3aa3c56e036c782c4fb502c477dc0feaa0ccd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="contact-microsoft-support-for-your-storsimple"></a>Contate o Suporte da Microsoft para obter ajuda com seu StorSimple
-Se tiver problemas com sua solução Microsoft Azure StorSimple, você poderá criar uma solicitação de serviço de suporte técnico. Em uma sessão online com seu engenheiro de suporte, talvez você precise iniciar uma sessão de suporte em seu dispositivo StorSimple. Este artigo orienta você sobre:
+Se tiver problemas com sua solução Microsoft Azure StorSimple, você poderá criar uma solicitação de serviço de suporte técnico. Em uma sessão online com seu engenheiro de suporte, talvez seja necessário também toostart uma sessão de suporte em seu dispositivo StorSimple. Este artigo orienta você sobre:
 
-* Como criar uma solicitação de suporte.
-* Como iniciar uma sessão de suporte na interface do Windows PowerShell de seu dispositivo StorSimple.
+* Como solicitar toocreate de suporte.
+* Como toostart uma sessão de suporte na Olá a interface do Windows PowerShell de seu dispositivo StorSimple.
 
-Examine os [SLAs e informações de suporte ao StorSimple 8000 Series](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar uma solicitação de suporte.
+Saudação de revisão [SLAs de suporte de série StorSimple 8000 e informações](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar uma solicitação de suporte.
 
 ## <a name="create-a-support-request"></a>Criar uma solicitação de suporte
-Execute as seguintes etapas para criar uma solicitação de suporte:
+Execute Olá etapas toocreate uma solicitação de suporte a seguir:
 
-#### <a name="to-create-a-support-request"></a>Para criar uma solicitação de suporte
-1. No [Portal Clássico do Azure](https://manage.windowsazure.com/), no canto superior direito, clique no nome da sua conta e em **Contatar o Suporte da Microsoft**.
+#### <a name="toocreate-a-support-request"></a>toocreate uma solicitação de suporte
+1. Em Olá [portal clássico do Azure](https://manage.windowsazure.com/), no Olá no canto superior direito, clique em seu nome de conta e, em seguida, clique em **entre em contato com o suporte da Microsoft**.
    
     ![Contate o Suporte da MS por meio do Portal de Gerenciamento](./media/storsimple-contact-microsoft-support/Ibiza1.png)
-2. Você será redirecionado para o novo portal do Azure (portal.azure.com). Clique no bloco **Nova solicitação de suporte** .
+2. Você será redirecionado toohello novo portal do Azure (portal.azure.com). Clique em Olá **nova solicitação de suporte** lado a lado.
    
     ![Contate o Suporte da MS por meio do novo portal](./media/storsimple-contact-microsoft-support/Ibiza2.png)
    
-    No lado direito da tela, é exibido o painel **Nova solicitação de suporte** . 
+    Olá direita da tela hello, Olá **nova solicitação de suporte** painel é exibido. 
    
     ![Painel de nova solicitação de suporte](./media/storsimple-contact-microsoft-support/Ibiza3a.png)
-3. Na caixa de diálogo **Fundamentos** , preencha o seguinte:                                
+3. Em Olá **Noções básicas de** caixa de diálogo, Olá completo a seguir:                                
    
-   1. Na lista suspensa **Tipo de problema**, selecione **Técnico**.
-   2. Selecione uma **Assinatura** na lista suspensa.
-   3. Na lista suspensa **Serviço**, selecione o **StorSimple**. 
-   4. Selecione um **Plano de suporte** na lista suspensa. É necessário um plano de suporte pago para habilitar o Suporte Técnico.
-4. Clique em **Avançar**. A caixa de diálogo **Problema** é exibida.
+   1. De saudação **emitir tipo** lista suspensa, selecione **técnico**.
+   2. Selecione um **assinatura** da lista suspensa de saudação.
+   3. De saudação **Service** lista suspensa, selecione **StorSimple**. 
+   4. Selecione um **plano de suporte** da lista suspensa de saudação. É necessário um tooenable do plano de suporte pago suporte técnico.
+4. Clique em **Avançar**. Olá **problema** caixa de diálogo é exibida.
    
     ![Painel de nova solicitação de suporte](./media/storsimple-contact-microsoft-support/Ibiza5a.png) 
-5. Na caixa de diálogo **Problema** , preencha o seguinte:
+5. Em Olá **problema** caixa de diálogo, Olá completo a seguir:
    
-   1. Selecione um nível de **Severidade** na lista suspensa.
-   2. Selecione um **Tipo de problema** na lista suspensa.
-   3. Selecione uma **Categoria** na lista suspensa. 
-   4. Descreva seu problema brevemente na caixa **Detalhes** .
-   5. Na caixa **Período** , indique a data, hora e fuso horário correspondentes à ocorrência mais recente do seu problema.
-   6. Em **Upload do arquivo**, clique no ícone de pasta para procurar o pacote de suporte.
-   7. Marque a caixa de seleção **Compartilhar informações de diagnóstico** .
-6. Clique em **Avançar**. A caixa de diálogo das **Informações de contato** é exibida.
+   1. Selecione um **severidade** nível na lista suspensa de saudação.
+   2. Selecione um **tipo de problema** da lista suspensa de saudação.
+   3. Selecione um **categoria** da lista suspensa de saudação. 
+   4. Em Olá **detalhes** caixa, descreva brevemente seu problema.
+   5. Em Olá **período** caixa, indique Olá data, hora e fuso horário que corresponde a toohello de ocorrência mais recente do seu problema.
+   6. Em **carregamento do arquivo**, clique em pacote de suporte do hello pasta ícone toobrowse tooyour.
+   7. Selecione Olá **compartilhar informações de diagnóstico** caixa de seleção.
+6. Clique em **Avançar**. Olá **informações de contato** caixa de diálogo é exibida.
    
     ![Painel de nova solicitação de suporte](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
 7. Insira suas informações de contato e selecione um método de contato (telefone ou email). 
-8. Marque a caixa de seleção **Salvar alterações de contato para futuras solicitações de suporte** .
+8. Selecione Olá **salvar alterações de contato para futuras solicitações de suporte** caixa de seleção.
 9. Clique em **Criar**.
 
-Depois que você enviar sua solicitação, um engenheiro de Suporte entrará em contato com você assim que possível para prosseguir com sua solicitação.
+Depois que você enviou a solicitação, um engenheiro de suporte entrará em contato com você assim que possível tooproceed com sua solicitação.
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>Iniciar uma sessão de suporte no Windows PowerShell para StorSimple
-Para solucionar problemas que possam ocorrer com o dispositivo StorSimple, você precisará contatar a equipe de Suporte da Microsoft. O Suporte da Microsoft talvez precise usar uma sessão de suporte para fazer logon em seu dispositivo. 
+tootroubleshoot quaisquer problemas que você pode experimentar com o dispositivo StorSimple hello, você precisará tooengage com a equipe do Microsoft Support hello. Talvez seja necessário toouse um toolog de sessão de suporte no dispositivo tooyour Microsoft Support. 
 
-Execute as seguintes etapas para iniciar uma sessão de suporte:
+Executar o seguinte Olá etapas toostart uma sessão de suporte:
 
-#### <a name="to-start-a-support-session"></a>Para iniciar uma sessão de suporte
-1. Acesse o dispositivo diretamente usando o console serial ou por meio de uma sessão de telnet de um computador remoto. Para fazer isso, execute as etapas em [Usar o PuTTY para conectar-se ao console serial do dispositivo](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
-2. Na sessão que será aberta, pressione a tecla **Enter** para obter um prompt de comando.
-3. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
-4. No prompt, digite a seguinte senha: 
+#### <a name="toostart-a-support-session"></a>toostart uma sessão de suporte
+1. Dispositivo de saudação do acesso diretamente usando o console serial hello ou através de uma sessão telnet de um computador remoto. toodo etapas seguir, Olá [console serial do dispositivo Use PuTTY tooconnect toohello](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+2. Na sessão de saudação que é aberta, pressione Olá **Enter** tooget chave um prompt de comando.
+3. No menu do console serial hello, selecione a opção 1, **entrar com acesso completo**.
+4. No prompt de hello, digite Olá senha a seguir: 
    
     `Password1`
-5. No prompt, digite o seguinte comando:
+5. No prompt de hello, digite Olá comando a seguir:
    
     `Enable-HcsSupportAccess`
-6. Uma cadeia de caracteres criptografada será apresentada a você. Copie a cadeia de caracteres para um editor de texto como o Bloco de Notas.
-7. Salve a cadeia de caracteres e envie-a em uma mensagem de email ao Suporte da Microsoft. 
+6. Uma cadeia de caracteres criptografada será apresentada tooyou. Copie a cadeia de caracteres para um editor de texto como o Bloco de Notas.
+7. Salve esta cadeia de caracteres e enviá-los em uma mensagem de email tooMicrosoft suporte. 
 
 > [!IMPORTANT]
-> Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. O dispositivo StorSimple também tentará desabilitar o acesso ao suporte oito horas após a sessão ser iniciada. É uma prática recomendada alterar as credenciais de seu dispositivo StorSimple após iniciar uma sessão de suporte.
+> Você pode desabilitar o acesso ao suporte executando `Disable-HcsSupportAccess`. o dispositivo StorSimple Olá também tentará toodisable o acesso ao suporte 8 horas após Olá sessão foi iniciada. É um toochange de prática recomendada credenciais depois de iniciar uma sessão de suporte de seu dispositivo StorSimple.
 > 
 > 
 

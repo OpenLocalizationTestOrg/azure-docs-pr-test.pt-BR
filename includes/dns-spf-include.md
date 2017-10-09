@@ -1,0 +1,5 @@
+Registros de política do Framework (SPF) do remetente são usada toospecifying quais servidores de email são permitidas toosend email em nome de um determinado nome de domínio.  A configuração correta de registros de SPF é destinatários tooprevent importante marcar seu email como 'lixo'.
+
+Olá RFCs do DNS originalmente introduzido um novo toosupport de tipo de registro 'SPF' nesse cenário. servidores mais antigos de nome toosupport, eles também podem usar Olá Olá TXT registro toospecify SPF de registros do tipo.  Essa ambiguidade levou tooconfusion, que foi resolvido pelo [7208 RFC](http://tools.ietf.org/html/rfc7208#section-3.1).  Isso informa que registros SPF só devem ser criados usando o tipo de registro TXT Olá, e esse tipo de registro Olá SPF foi preterido.
+
+**Registros de SPF são suportados pelo DNS do Azure e devem ser criados usando o tipo de registro Olá TXT.** Não há suporte para o tipo de registro de SPF obsoleto Hello. Quando [importando um arquivo de zona DNS](../articles/dns/dns-import-export.md), nenhum registro de SPF usando o tipo de registro de SPF de saudação é convertido toohello TXT tipo de registro.

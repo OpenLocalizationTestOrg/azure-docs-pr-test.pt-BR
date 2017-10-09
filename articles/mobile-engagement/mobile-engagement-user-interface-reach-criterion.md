@@ -1,6 +1,6 @@
 ---
-title: "Interface do usuário do Azure Mobile Engagement - Alcance - Critério"
-description: "Saiba como usar critérios de direcionamento para campanhas de envio por push para selecionar um subconjunto de seus usuários usando o Azure Mobile Engagement"
+title: "aaaAzure Interface de usuário do Mobile Engagement - alcançar critério"
+description: "Saiba como toouse direcionamento critérios toosend push campanhas tooa selecionar o subconjunto de usuários usando o Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d956add1b7edc1d49451596019c5a4dec098d724
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Como usar critérios de direcionamento para enviar por push campanhas para selecionar um subconjunto de seus usuários
-Direcionar seu público-alvo por critérios específicos com o botão "Novos Critérios" é um dos conceitos mais poderosos no Azure Mobile Engagement que ajuda a enviar importantes notificações por push que os clientes responderão em vez de enviar spam a todos. Você pode limitar seu público-alvo com base em critérios padrão e simular envios por push para determinar quantas pessoas receberão a notificação.
+# <a name="how-toouse-targeting-criteria-toosend-push-campaigns-tooa-select-subset-of-your-users"></a>Como toouse direcionamento critérios toosend push campanhas tooa selecionar o subconjunto de seus usuários
+Direcionar o público-alvo por critérios específicos com o botão "Nova critérios" hello é um dos hello mais avançados conceitos no Azure Mobile Engagement que ajuda a que você enviar relevantes enviar notificações por push que clientes Olá responderá tooinstead de spam todos. Você pode limitar seu público-alvo com base em critérios padrão e simular envios toodetermine quantas pessoas receberão a notificação de saudação.
 
 **Consulte também:**
 
 * [Documentação da Interface do Usuário ‑ Alcance ‑ Nova Campanha por Push][Link 27]
 
 ## <a name="audience-criteria-can-include"></a>Os critérios de público-alvo podem incluir:
-* * * Technicals: * * você pode direcionar com as mesmas informações técnicas que você pode ver nas seções a análise e o Monitor. **Veja também:** [Documentação da Interface do Usuário ‑ Análise][Link 15], [Documentação da Interface do Usuário ‑ Monitoramento][Link 16]
-* **Local:** os aplicativos que usam "Relatórios de localização em tempo real” com isolamento geográfico podem usar a localização geográfica como um critério para direcionar para um público-alvo a partir da localização do GPS. A chamada de "Relatórios de Localização de Área Lenta" também pode ser usada para direcionar para um público-alvo da localização do celular (“Relatórios de localização em tempo real” e “Relatórios de Localização de Área Lenta” devem ser ativados no SDK). **Consulte também:** [Documentação do SDK ‑ iOS ‑ Integração][Link 5], [Documentação do SDK ‑ Android ‑ Integração][Link 5]
-* **Comentários do Alcance:** você pode direcionar para o público-alvo com base nos comentários sobre notificações anteriores de alcance e nos comentários de Anúncios, Pesquisas e Envio de Dados por Push. Isso permite direcionar melhor para seu público-alvo depois de duas ou três campanhas de alcance em relação ao que poderia ser feito da primeira vez. Também pode ser usado para filtrar os usuários que já receberam uma notificação com conteúdo semelhante, definindo uma campanha para NÃO ser enviada aos usuários que já receberam uma campanha anterior específica. Você pode até mesmo excluir os usuários incluídos em uma campanha específica que ainda esteja ativa do recebimento de novos envios por Push. **Consulte também:** [Documentação da Interface do Usuário ‑ Alcance ‑ Enviar Conteúdo por Push][Link 29]
+* * * Technicals: * * você pode direcionar Olá com base na mesmas informações técnicas que você pode ver no hello análise e seções do Monitor. **Veja também:** [Documentação da Interface do Usuário ‑ Análise][Link 15], [Documentação da Interface do Usuário ‑ Monitoramento][Link 16]
+* **Local:** aplicativos que usam "relatório de local em tempo Real" com o isolamento geográfico podem usar a localização geográfica como uma tootarget critérios um público de saudação local de GPS. Chamada de "Relatórios de local de área lento" também ser usado tootarget um público de local de telefone celular hello ("relatório de local em tempo Real" e "Relatório de local de área lento" devem ser ativado de saudação SDK). **Consulte também:** [Documentação do SDK ‑ iOS ‑ Integração][Link 5], [Documentação do SDK ‑ Android ‑ Integração][Link 5]
+* **Comentários do Alcance:** você pode direcionar para o público-alvo com base nos comentários sobre notificações anteriores de alcance e nos comentários de Anúncios, Pesquisas e Envio de Dados por Push. Isso permite que você toobetter destino seu público-alvo depois de duas ou três alcançar campanhas que você poderia Olá a primeira vez. Ele também pode ser usado toofilter os usuários que já recebeu uma notificação com conteúdo semelhante, definindo uma campanha tooNOT enviado toousers que já receberam uma determinada campanha anterior. Você pode até mesmo excluir os usuários incluídos em uma campanha específica que ainda esteja ativa do recebimento de novos envios por Push. **Consulte também:** [Documentação da Interface do Usuário ‑ Alcance ‑ Enviar Conteúdo por Push][Link 29]
 * **Instalar Rastreamento:** você pode rastrear informações com base no local onde seus usuários instalaram o seu Aplicativo. **Consulte também:** [Documentação da interface do usuário ‑ Configurações][Link 20]
-* **Perfil do Usuário:** você pode direcionar com base nas informações de usuário padrão e pode direcionar com base em informações do aplicativo personalizado que você criou. Isso inclui usuários que estão conectados no momento e os usuários que responderam perguntas específicas que você fez a eles para definir o próprio aplicativo, em vez de apenas a forma como eles responderam a campanhas anteriores. Todas as Informações do Aplicativo definidas para seu aplicativo são mostradas nesta lista.
+* **Perfil de usuário:** pode destino com base nas informações de usuário padrão e você pode destino com base em informações de aplicativo personalizado Olá que você criou. Isso inclui usuários que estão conectados no momento e os usuários que responder perguntas específicas que você tenha solicitado tooset no aplicativo hello em si, em vez de apenas como eles responderam tooprevious campanhas. Todas as Informações do Aplicativo definidas para seu aplicativo são mostradas nesta lista.
 * Segmentos: também será possível direcionar com base em segmentos que você tenha criado com base no comportamento de um usuário específico com diversos critérios. Todos os segmentos definidos para o seu aplicativo aparecem nessa lista. **Consulte também:** [Documentação da Interface do Usuário ‑ Segmentos][Link 18]
-* **Informações do Aplicativo:** as Marcas de Informações de Aplicativo Personalizadas podem ser criadas nas “Configurações" para controlar o comportamento do usuário. **Consulte também:** [Documentação da interface do usuário ‑ Configurações][Link 20]
+* **Informações do aplicativo:** marcas de informações de aplicativo personalizado pode ser criadas de comportamento do usuário tootrack "Configurações". **Consulte também:** [Documentação da interface do usuário ‑ Configurações][Link 20]
 
 ## <a name="example"></a>Exemplo:
-Se você quiser enviar por push um anúncio apenas para o subconjunto de seus usuários que executaram uma ação no aplicativo de compra.
+Se você quiser toopush um anúncio apenas toohello sub conjunto de usuários que executaram um aplicativo de-compra ação.
 
-1. Vá para a página de configurações do aplicativo, selecione o menu "Informações do Aplicativo" e selecione "Nova informação do aplicativo"
+1. Acesse a página de configurações do aplicativo tooyour, selecione o menu de "Informações do aplicativo" hello e selecione "Novo app info"
 2. Registre uma nova informação de aplicativo booliano chamada "inAppPurchase"
-3. Defina as informações de aplicativo como "verdadeiro" quando o usuário executar com êxito uma compra no aplicativo (usando a função sendAppInfo("inAppPurchase",...))
-4. Se você não quiser fazer isso no seu aplicativo, poderá fazer no seu back-end usando a API do dispositivo)
-5. Em seguida, bastará criar o seu anúncio, com um critério limitando seu público-alvo aos usuários que tenham "inAppPurchase" definido como "verdadeiro")
+3. Tornar o aplicativo definir essas informações de aplicativo muito "true" quando o usuário Olá executa com êxito uma compra no aplicativo (usando Olá sendAppInfo ("inAppPurchase",...) função)
+4. Se você não deseja toodo do seu aplicativo, você pode fazer isso no seu back-end usando a API do dispositivo Olá)
+5. Em seguida, você precisa apenas toocreate notificação, com um critério de limitar sua toousers público com "inAppPurchase" definida muito "true")
 
 > [!NOTE]
-> O direcionamento com base em critérios diferentes das marcas de informações de aplicativo requer que o Azure Mobile Engagement colete informações dos dispositivos de seus usuários antes de efetuar o envio e, portanto, pode causar um atraso. As opções de configuração de envio por push complexas (como atualização de notificações) também podem atrasar o envio por push. Usar uma campanha "monoestável" da API de envio por Push é o método de envio mais rápido no Azure Mobile Engagement. Usar as marcas de informações de aplicativo apenas como critérios de envio por push para uma campanha de Alcance (a partir da API de Alcance ou da interface do usuário) é o próximo método mais rápido, já que as marcas de informações do aplicativo estão armazenadas no lado do servidor. Usar outros critérios de direcionamento para uma campanha de envio é o método mais flexível, porém o método mais lento do envio por push, já que o Azure Mobile Engagement tem que consultar os dispositivos para enviar a campanha.
+> Direcionamento com base em critérios que não sejam de marcas de informações de aplicativo exige informações de toogather do Azure Mobile Engagement dos dispositivos dos usuários antes de push Olá é enviada e isso pode causar um atraso. As opções de configuração de envio por push complexas (como atualização de notificações) também podem atrasar o envio por push. Usar uma campanha de "uma vez" da saudação Push API é Olá absoluto método mais rápido por push no Azure Mobile Engagement. Usando somente marcas de informações do aplicativo como critérios de envio por push para uma campanha de alcance (tanto de saudação API de alcance ou saudação da interface do usuário) é o próximo método mais rápido de saudação como marcas de informações do aplicativo são armazenadas no lado do servidor de saudação. Usando outros critérios de direcionamento para uma campanha de push é Olá método de envio por push mais flexível, mas mais lento uma vez que Azure Mobile Engagement tooquery dispositivos de saudação em uma campanha de saudação toosend ordem.
 
 ![Reach-Criterion1][29] 
 

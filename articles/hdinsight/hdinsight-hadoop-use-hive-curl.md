@@ -1,6 +1,6 @@
 ---
-title: "Usar o Hive do Hadoop com Curl no HDInsight – Azure | Microsoft Docs"
-description: Saiba como enviar remotamente trabalhos do Pig para o HDInsight usando o Curl.
+title: "aaaUse Hive do Hadoop com ondulação no HDInsight - Azure | Microsoft Docs"
+description: "Saiba como enviar tooremotely Pig trabalhos tooHDInsight usando rotação."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,131 +16,131 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: 8a4f217b046121f85be0585eab18d90c44f21b9e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e725829ad2adcf3540f44375e3e87b7cdaebd15e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Executar consultas Hive com Hadoop no HDInsight usando REST
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Saiba como usar a API REST do WebHCat para executar consultas Hive com o Hadoop no cluster HDInsight do Azure.
+Saiba como toouse Olá WebHCat REST API toorun Hive consultas com Hadoop no cluster HDInsight do Azure.
 
-O [Curl](http://curl.haxx.se/) é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas. O utilitário [jq](http://stedolan.github.io/jq/) é usado para processar os dados JSON retornados de solicitações REST.
+[Curl](http://curl.haxx.se/) é usado toodemonstrate como você pode interagir com o HDInsight usando solicitações HTTP brutas. Olá [jq](http://stedolan.github.io/jq/) utilitário é tooprocess usados dados JSON de saudação retornados de solicitações REST.
 
 > [!NOTE]
-> Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas for iniciante no HDInsight, consulte o documento [O que você precisa saber sobre o Hadoop no HDInsight baseado em Linux](hdinsight-hadoop-linux-information.md).
+> Se você já estiver familiarizado com o uso de servidores baseados em Linux Hadoop, mas é tooHDInsight novo, consulte Olá [o que você precisa tooknow sobre Hadoop no HDInsight baseados em Linux](hdinsight-hadoop-linux-information.md) documento.
 
 ## <a id="curl"></a>Executar consultas Hive
 
 > [!NOTE]
-> Ao usar o cURL ou qualquer outra comunicação REST com WebHCat, você deve autenticar as solicitações, fornecendo o nome de usuário e a senha para o administrador do cluster HDInsight.
+> Ondulação ou com qualquer outra comunicação REST WebHCat, você deve autenticar solicitações de saudação fornecendo Olá nome e a senha de administrador de cluster do HDInsight hello.
 >
-> Para os comandos nesta seção, substitua **USERNAME** pelo usuário para autenticar o cluster e substitua **PASSWORD** pela senha da conta de usuário. Substitua **CLUSTERNAME** pelo nome do cluster.
+> Para comandos Olá nesta seção, substitua **USERNAME** com cluster do hello usuário tooauthenticate toohello e substituir **senha** com senha Olá Olá conta de usuário. Substituir **CLUSTERNAME** com nome de saudação do cluster.
 >
-> A API REST é protegida por meio de [autenticação básica](http://en.wikipedia.org/wiki/Basic_access_authentication). Para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor, sempre faça solicitações usando HTTPS (HTTP seguro).
+> Olá API REST é protegida por meio de [autenticação básica](http://en.wikipedia.org/wiki/Basic_access_authentication). toohelp Verifique suas credenciais com segurança são sempre enviadas servidor toohello, fazer solicitações usando o HTTP seguro (HTTPS).
 
-1. De uma linha de comando, use o seguinte comando para verificar se você pode se conectar ao cluster HDInsight:
+1. De uma linha de comando, use Olá tooverify de comando que você pode conectar o cluster do HDInsight tooyour a seguir:
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    Você deve receber uma resposta semelhante ao texto a seguir:
+    Você receberá um toohello semelhante resposta texto a seguir:
 
         {"status":"ok","version":"v1"}
 
-    Os parâmetros usados nesse comando são os seguintes:
+    Estes são os parâmetros de saudação usados neste comando:
 
-   * **-u** - o nome de usuário e a senha usada para autenticar a solicitação.
+   * **-u** -Olá nome de usuário e senha usados tooauthenticate solicitação de saudação.
    * **-G** – Indica que essa solicitação é uma operação GET.
 
-     O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) ao servidor. Você também pode solicitar a versão do Hive usando o comando a seguir:
+     Olá a partir da URL de saudação **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, Olá mesmo para todas as solicitações. caminho de saudação **/status**, indica que a solicitação Olá tooreturn um status de WebHCat (também conhecido como Templeton) para o servidor de saudação. Você também pode solicitar a versão de saudação do Hive usando Olá comando a seguir:
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
     ```
 
-     Essa solicitação retorna uma resposta semelhante ao seguinte texto:
+     Essa solicitação retorna um toohello semelhante resposta texto a seguir:
 
        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
 
-2. Use o seguinte para criar uma tabela chamada **log4jLogs**:
+2. Saudação de uso a seguir toocreate uma tabela denominada **log4jLogs**:
 
     ```bash
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
-    Os seguintes parâmetros são usados com esta solicitação:
+    Olá parâmetros usados com esta solicitação a seguir:
 
-   * **-d** – uma vez que `-G` não é usado; a solicitação padrão é o método POST. `-d` especifica os valores de dados que são enviados com a solicitação.
+   * **-d** - desde `-G` não for usado, solicitação Olá padrões toohello método de POSTAGEM. `-d`Especifica valores de dados de saudação que são enviados com a solicitação de saudação.
 
-     * **user.name** - o usuário que está executando o comando.
-     * **execute** - as instruções do HiveQL a executar.
-     * **statusdir** – O diretório no qual o status deste trabalho será gravado.
+     * **User.Name** -usuário Olá que está executando o comando hello.
+     * **executar** -Olá tooexecute de declarações do HiveQL.
+     * **statusdir** -diretório Olá Olá status para esse trabalho é gravado.
 
-     As instruções executam as seguintes ações:
-   * **DROP TABLE** – Se a tabela já existir, ela será excluída.
-   * **CREATE EXTERNAL TABLE** - cria uma nova tabela “externa" em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
+     Essas instruções executam Olá ações a seguir:
+   * **DROP TABLE** -se Olá tabela já existir, ele será excluído.
+   * **CREATE EXTERNAL TABLE** - cria uma nova tabela “externa" em Hive. Tabelas externas armazenam a definição da tabela somente Olá no Hive. dados de saudação são deixados no local original hello.
 
      > [!NOTE]
-     > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa. Por exemplo, um processo de upload de dados automatizados ou outra operação MapReduce.
+     > Tabelas externas devem ser usadas quando você espera Olá toobe de dados subjacentes atualizado por uma fonte externa. Por exemplo, um processo de upload de dados automatizados ou outra operação MapReduce.
      >
-     > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
+     > Descartar uma tabela externa **não** excluir dados hello, definição de tabela Olá somente.
 
-   * **ROW FORMAT** – O modo como os dados são formatados. Os campos em cada log são separados por um espaço.
-   * **STORED AS TEXTFILE LOCATION** – Onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
-   * **SELECT** - Seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Essa instrução retorna um valor de **3**, visto que há três linhas que contêm esse valor.
-
-     > [!NOTE]
-     > Observe que os espaços entre as instruções HiveQL são substituídos pelo caractere `+` quando usados com o Curl. Os valores entre aspas que contêm um espaço, como o delimitador, não devem ser substituídos por `+`.
-
-   * **INPUT__FILE__NAME LIKE '%25.log'** – Essa instrução limita a pesquisa a usar somente os arquivos que terminam em .log.
+   * **FORMATO de linha** - como Olá os dados são formatados. campos de saudação em cada log são separados por um espaço.
+   * **LOCAL de arquivo de texto como ARMAZENADO** - onde são armazenados dados de saudação (diretório de exemplo de dados de saudação) e que ela é armazenada como texto.
+   * **Selecione** -seleciona uma contagem de todas as linhas em que coluna **t4** contém valor Olá **[Erro]**. Essa instrução retorna um valor de **3**, visto que há três linhas que contêm esse valor.
 
      > [!NOTE]
-     > Observe que `%25` é o formato de % codificado para URL, então, a condição real é `like '%.log'`. O % deve ser codificado em URL, pois será tratado como um caractere especial em URLs.
+     > Observe que os espaços de saudação entre declarações do HiveQL são substituídos por Olá `+` quando usado com a rotação de caracteres. Os valores entre aspas que contêm um espaço, como o delimitador de hello, não devem ser substituídos pelo `+`.
 
-     Esse comando deve retornar uma ID de trabalho que pode ser usada para verificar o status do trabalho.
+   * **INPUT__FILE__NAME como '% 25.log'** - esses arquivos de uso instrução limites Olá pesquisa tooonly termina em. log.
+
+     > [!NOTE]
+     > Olá `%25` é a forma de codificados de URL de Olá %, para a condição de saudação real é `like '%.log'`. Olá % tem toobe URL codificada, como ele será tratado como um caractere especial em URLs.
+
+     Este comando deve retornar uma ID de trabalho que pode ser toocheck usado Olá status do trabalho de saudação.
 
        {"id":"job_1415651640909_0026"}
 
-3. Para verificar o status do trabalho, use o comando a seguir:
+3. status de Olá toocheck de trabalho Olá Olá use comandos a seguir:
 
     ```bash
     curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
-    Substitua **JOBID** pelo valor retornado na etapa anterior. Por exemplo, se o valor retornado for **, `{"id":"job_1415651640909_0026"}`JOBID** será `job_1415651640909_0026`.
+    Substituir **JOBID** com hello valor retornado na etapa anterior hello. Por exemplo, se hello retornar o valor era `{"id":"job_1415651640909_0026"}`, em seguida, **JOBID** seria `job_1415651640909_0026`.
 
-    Se o trabalho foi concluído, o estado será **SUCCEEDED**.
+    Se o trabalho de saudação tiver sido concluída, o estado de Olá é **êxito**.
 
    > [!NOTE]
-   > Essa solicitação de Curl retorna um documento JSON (JavaScript Object Notation) com informações sobre o trabalho. Jq é usado para recuperar apenas o valor de estado.
+   > Essa solicitação de ondulação retorna um documento de JSON JavaScript Object Notation () com informações sobre o trabalho de saudação. Jq é usada tooretrieve Olá apenas o valor de estado.
 
-4. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém o local do arquivo de saída; nesse caso, **/example/curl**. Esse endereço armazena a saída do diretório **exemplo/curl** no armazenamento padrão de clusters.
+4. Depois que o estado de saudação do trabalho Olá mudou muito**êxito**, você pode recuperar os resultados de saudação do trabalho de saudação do armazenamento de BLOBs do Azure. Olá `statusdir` parâmetro passado com hello consulta contém o local de Olá Olá do arquivo de saída; nesse caso, **exemplo/ondulação**. Esse endereço armazena a saída de hello em Olá **exemplo/ondulação** diretório no hello clusters de armazenamento padrão.
 
-    Você pode listar e baixar esses arquivos usando a [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Para obter mais informações sobre como usar a CLI do Azure com o Armazenamento do Azure, consulte o armazenamento [Usar a CLI 2.0 do Azure com o Armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs).
+    Você pode listar e baixar esses arquivos usando Olá [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Para obter mais informações sobre como usar o hello CLI do Azure com o armazenamento do Azure, consulte Olá [usar Azure CLI 2.0 com o armazenamento do Azure](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) documento.
 
-5. Use as instruções a seguir para criar uma nova tabela "interna" chamada **errorLogs**:
+5. Olá Use seguindo as instruções toocreate uma nova tabela 'internal' nomeada **em decorrência**:
 
     ```bash
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
-    Essas instruções executam as seguintes ações:
+    Essas instruções executam Olá ações a seguir:
 
-   * **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Esta instrução cria uma tabela interna, que é armazenada no data warehouse do Hive e é totalmente gerenciada por ele.
+   * **CREATE TABLE IF NOT EXISTS** - cria uma tabela, se ela ainda não existir. Essa instrução cria uma tabela interna que é armazenada no data warehouse do hello Hive e é totalmente gerenciada pelo Hive.
 
      > [!NOTE]
-     > Diferentemente de tabelas externas, o descarte de uma tabela interna excluirá também os dados subjacentes.
+     > Ao contrário das tabelas externas, descartar uma tabela interna exclui dados subjacentes Olá também.
 
-   * **STORES AS ORC** : armazena os dados no formato ORC (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
-   * **INSERT OVERWRITE ... SELECT** - seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
-   * **SELECT** – Seleciona todas as linhas da nova tabela **errorLogs**.
+   * **ARMAZENADOS como ORC** -armazena dados de saudação em formato de linha de otimização Colunar (ORC). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
+   * **INSERT OVERWRITE ... Selecione** -seleciona linhas de saudação **log4jLogs** tabela que contém **[Erro]**, em seguida, insere Olá dados em hello **em decorrência** tabela.
+   * **Selecione** -seleciona todas as linhas de saudação novo **em decorrência** tabela.
 
-6. Use a ID de trabalho retornada para verificar o status do trabalho. Assim que tiver êxito, use a CLI do Azure, conforme descrito anteriormente, para baixar e exibir os resultados. A saída deve conter três linhas, todos os quais contêm **[ERROR]**.
+6. Use a ID do trabalho Olá retornada toocheck Olá status do trabalho de saudação. Depois que ele foi bem-sucedida, use Olá CLI do Azure conforme descrito anteriormente toodownload e exibir resultados de saudação. saída de Hello deve conter três linhas, que contêm **[Erro]**.
 
 ## <a id="nextsteps"></a>Próximas etapas
 
@@ -153,11 +153,11 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para as informações de depuração:
+Se você estiver usando Tez com Hive, consulte Olá documentos para as informações de depuração a seguir:
 
-* [Usar a exibição de Ambari Tez no HDInsight baseado em Linux](hdinsight-debug-ambari-tez-view.md)
+* [Use Olá exibição Ambari Tez no HDInsight baseados em Linux](hdinsight-debug-ambari-tez-view.md)
 
-Para obter mais informações sobre a API REST usada nesse documento, consulte o documento [Referência de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
+Para obter mais informações sobre Olá API de REST usada neste documento, consulte Olá [WebHCat referência](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) documento.
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 

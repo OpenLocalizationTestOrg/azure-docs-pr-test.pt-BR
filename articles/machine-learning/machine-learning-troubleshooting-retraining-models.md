@@ -1,6 +1,6 @@
 ---
-title: "Solução de Problemas de readaptação de um serviço Web clássico do Azure Machine Learning | Microsoft Docs"
-description: "Identifique e corrija os problemas comuns encontrados quando você está readaptando o modelo para um serviço Web do Azure Machine Learning."
+title: "serviço da web aaaTroubleshoot treinamento um clássico de aprendizado de máquina do Azure | Microsoft Docs"
+description: "Identifique e corrija encontrado comum de problemas quando você estiver treinamento modelo Olá para um serviço de Web do aprendizado de máquina do Azure."
 services: machine-learning
 documentationcenter: 
 author: VDonGlover
@@ -14,95 +14,93 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: fc36499ebff88c86635228ff899c85e9166aabed
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2b6a78eaba161877106dccdc23437b5e454fca7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Solução de problemas de readaptação de um serviço Web clássico do Azure Machine Learning
+# <a name="troubleshooting-hello-retraining-of-an-azure-machine-learning-classic-web-service"></a>Olá treinamento de um serviço Web clássico do Azure Machine Learning de solução de problemas
 ## <a name="retraining-overview"></a>Visão geral da readaptação
-Quando você implanta um experimento de previsão como um serviço Web de pontuação, ele é um modelo estático. Conforme novos dados ficam disponíveis ou quando o consumidor da API tem seus próprios dados, o modelo precisa ser readaptado. 
+Quando você implanta um experimento de previsão como um serviço Web de pontuação, ele é um modelo estático. Conforme novos dados se torna disponíveis ou quando o consumidor Olá Olá API tem seus próprios dados, o modelo Olá precisa toobe treinados novamente. 
 
-Para obter uma explicação completa sobre o processo de readaptação de um serviço Web clássico, consulte [Readaptar os modelos do Machine Learning de forma programática](machine-learning-retrain-models-programmatically.md).
+Para obter uma explicação completa de saudação treinar novamente o processo de um serviço Web clássico, consulte [treinar novamente Machine Learning modelos por meio de programação](machine-learning-retrain-models-programmatically.md).
 
 ## <a name="retraining-process"></a>Processo de readaptação
-Quando precisar readaptar o serviço Web, você deverá adicionar algumas partes extras:
+Quando você precisar tooretrain Olá serviço da Web, você deve adicionar algumas informações adicionais:
 
-* Um serviço Web implantado a partir do Teste de treinamento. O teste deve ter um módulo de **Saída do serviço Web** anexado à saída do módulo do **Modelo de treinamento**.  
+* Um serviço da Web implantado por meio de saudação experiência de treinamento. experiência de saudação deve ter uma **saída do serviço Web** módulo anexado toohello saída de hello **treinar modelo** módulo.  
   
-    ![Anexe a saída do serviço Web ao modelo de treinamento.][image1]
-* Um novo ponto de extremidade adicionado ao seu serviço Web de pontuação.  Você pode adicionar o ponto de extremidade por meio da programação usando o código de exemplo referenciado no tópico Readaptar os modelos de Machine Learning de forma programática ou por meio do portal clássico do Azure.
+    ![Anexe o modelo de treinamento de toohello Olá web serviço saída.][image1]
+* Um novo ponto de extremidade adicionados tooyour serviço Web de pontuação.  Você pode adicionar o ponto de extremidade Olá programaticamente usando código de exemplo hello referenciado em Olá aprendizado de máquina treinar novamente modelos programaticamente tópico ou por meio de saudação portal clássico do Azure.
 
-Em seguida, pode usar o código C# de exemplo na página de ajuda da API do Serviço Web de Treinamento para readaptar o modelo. Depois de ter avaliado os resultados e ficar satisfeito com eles, você atualizará o serviço Web de pontuação do modelo treinado usando o novo ponto de extremidade adicionado.
+Você pode usar código c# exemplo de saudação do modelo de tooretrain do serviço de Web do treinamento Olá API ajuda página. Depois de ter avaliado resultados Olá e está satisfeito com eles, você atualizar o modelo treinado hello, serviço web usando Olá novo ponto de extremidade que você adicionou a pontuação.
 
-Com todas as peças no lugar, as principais etapas necessárias para readaptar o modelo são as seguintes:
+Com todas as partes da saudação em vigor, etapas principais hello, você deve executar o modelo de saudação tooretrain são:
 
-1. Chame o serviço Web de treinamento: a chamada é para o BES (Serviço de Execução em Lote), não o RRS (Serviço de Resposta a Solicitação). Você pode usar o Código c# de exemplo na página de ajuda da API para fazer a chamada. 
-2. Encontre os valores para *BaseLocation*, *RelativeLocation* e *SasBlobToken*: esses valores são retornados na saída de sua chamada para o Serviço Web de treinamento. 
-   ![exibindo a saída do exemplo de readaptação e os valores BaseLocation, RelativeLocation e SasBlobToken.][image6]
-3. Atualize o ponto de extremidade adicionado do serviço Web de pontuação com o novo modelo treinado: usando o código de exemplo fornecido em Readaptar os modelos de Machine Learning de forma programática, atualize o novo ponto de extremidade adicionado ao modelo de pontuação com o modelo treinado recentemente do Serviço Web de Treinamento.
+1. Chamar hello serviço da Web de treinamento: chamada hello toohello serviço de execução de lote (BES), não Olá serviço de resposta de solicitação (RR). Você pode usar o código c# exemplo hello na chamada de Olá Olá API ajuda página toomake. 
+2. Localizar valores de saudação para Olá *BaseLocation*, *RelativeLocation*, e *SasBlobToken*: esses valores são retornados na saída de saudação do toohello sua chamada de treinamento Serviço. 
+   ![Mostrar saída Olá Olá treinamento valores BaseLocation, RelativeLocation e SasBlobToken de exemplo e hello.][image6]
+3. Atualização Olá adicionado modelo treinado do ponto de extremidade do hello novo serviço web com hello de pontuação: usando o código de exemplo hello fornecido Olá aprendizado de máquina treinar novamente modelos programaticamente, atualizar novo ponto de extremidade de saudação adicionado toohello pontuação modelos com hello recentemente modelo treinado de saudação serviço da Web de treinamento.
 
 ## <a name="common-obstacles"></a>Obstáculos comuns
-### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Verifique se você tem a URL correta do PATCH
-A URL do PATCH que você está usando deve ser a associada ao novo ponto de extremidade de pontuação adicionado ao serviço Web de pontuação. Há várias maneiras de obter a URL do PATCH:
+### <a name="check-toosee-if-you-have-hello-correct-patch-url"></a>Verificar toosee se você tiver Olá corrigir PATCH URL
+Olá PATCH URL que está usando deve ser Olá associado Olá novo ponto de extremidade de pontuação adicionado toohello serviço Web de pontuação. Há uma série de maneiras tooobtain Olá PATCH URL:
 
 **Opção 1: use um programa**
 
-Para obter a URL correta do PATCH:
+Olá tooget corrigir PATCH URL:
 
-1. Execute o código de exemplo [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) .
-2. Na saída do AddEndpoint, encontre o valor *HelpLocation* e copie a URL.
+1. Executar Olá [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) código de exemplo.
+2. Da saída de saudação de AddEndpoint, localize Olá *HelpLocation* valor e copie a URL de saudação.
    
-   ![HelpLocation na saída do exemplo addEndpoint.][image2]
-3. Cole a URL em um navegador para navegar até uma página que fornece links de ajuda para o serviço Web.
-4. Clique no link **Atualizar Recurso** para abrir a página de ajuda do patch.
+   ![HelpLocation na saída de saudação do exemplo de addEndpoint hello.][image2]
+3. Cole a URL de saudação em uma página de tooa toonavigate de navegador que fornece links de ajuda para Olá serviço da Web.
+4. Clique em Olá **recurso de atualização** página de Ajuda do link tooopen Olá patch.
 
-**Opção 2: use o portal clássico do Azure**
+**Opção 2: Usar Olá portal clássico do Azure**
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Abra a guia Machine Learning. 
-   ![Guia Machine Learning.][image4]
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Guia de aprendizado de máquina Olá aberto. ![Guia Machine Learning.][image4]
 3. Clique no nome do espaço de trabalho e depois em **Serviços Web**.
-4. Clique no serviço Web de pontuação com o qual você está trabalhando. (Se você não modificou o nome padrão do serviço Web, ele terminará com [Scoring Exp.].)
+4. Clique em Olá serviço Web que você está trabalhando com a pontuação. (Se você não modificou o nome padrão de saudação do serviço web de saudação, ela terminará em [pontuação Exp]..)
 5. Clicar em **Adicionar Ponto de Extremidade**.
-6. Depois do ponto de extremidade ser adicionado, clique no nome dele. Em seguida, clique em **Atualizar Recurso** para abrir a página de ajuda do patch.
+6. Depois que o ponto de extremidade de saudação é adicionado, clique em nome do ponto de extremidade de saudação. Em seguida, clique em **recurso de atualização** tooopen Olá a página de ajuda de aplicação de patch.
 
 > [!NOTE]
-> Caso tenha adicionado o ponto de extremidade para o Serviço Web de treinamento em vez do Serviço Web de previsão, você receberá o seguinte erro quando clicar no link **Atualizar Recurso**: Desculpe, mas esse recurso não tem suporte nem está disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Pedimos desculpas pela inconveniência e estamos trabalhando para melhorar esse fluxo de trabalho.
+> Se você tiver adicionado toohello serviço da Web de treinamento do ponto de extremidade Olá em vez da saudação serviço Web de previsão, você receberá Olá erro a seguir quando você clica em Olá **recurso de atualização** link: Desculpe, mas não há suporte para esse recurso ou disponível neste contexto. Este serviço Web não tem recursos atualizáveis. Lamentamos o inconveniente hello e está trabalhando em melhorar o fluxo de trabalho.
 > 
 > 
 
 ![Painel Novo ponto de extremidade.][image3]
 
-A página de ajuda do PATCH contém a URL do PATCH que você deve usar e fornece o código de exemplo que você pode usar para chamar.
+página de ajuda de PATCH Olá contém Olá URL PATCH, você deve usar e fornece código de exemplo, você pode usar toocall-lo.
 
 ![URL de patch.][image5]
 
-### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Verifique se você está atualizando o ponto de extremidade correto de pontuação
-* Não corrija o Serviço Web de treinamento: a operação do patch deve ser executada no serviço Web de pontuação.
-* Não corrija o ponto de extremidade padrão no serviço Web: a operação do patch deve ser executada no novo ponto de extremidade do serviço Web de pontuação que você adicionou.
+### <a name="check-toosee-that-you-are-updating-hello-correct-scoring-endpoint"></a>Toosee de seleção que você está atualizando Olá pontuação ponto de extremidade correto
+* Patch não Olá serviço da Web de treinamento: operação de patch Olá deve ser executada em Olá pontuação serviço da Web.
+* Não corrigir o ponto de extremidade saudação padrão no serviço Web: operação de patch Olá deve ser executada em Olá pontuação novo ponto de extremidade de serviço de Web que você adicionou.
 
-Você pode verificar em qual serviço Web está o ponto de extremidade visitando o portal clássico do Azure. 
+Você pode verificar qual ponto de extremidade de saudação do Web service é ativado por Olá visitando portal clássico do Azure. 
 
 > [!NOTE]
-> Certifique-se de que você está adicionando o ponto de extremidade ao serviço Web de previsão e não ao serviço da Web de treinamento. Se você tiver implantado corretamente um serviço Web de previsão e um serviço da Web de treinamento, você verá dois serviços Web separados listados. O serviço Web de previsão deve terminar com "[predictive exp.]".
+> Certifique-se de que você está adicionando toohello de ponto de extremidade Olá serviço Web de previsão, Olá serviço da Web de treinamento. Se você tiver implantado corretamente um serviço Web de previsão e um serviço da Web de treinamento, você verá dois serviços Web separados listados. Olá serviço Web de previsão deve terminar com "[previsão exp]"..
 > 
 > 
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Abra a guia Machine Learning. 
-   ![IU do espaço de trabalho do Machine Learning.][image4]
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Guia de aprendizado de máquina Olá aberto. ![IU do espaço de trabalho do Machine Learning.][image4]
 3. Selecione o espaço de trabalho.
 4. Clique em **Serviços Web**.
 5. Selecione o Serviço Web de previsão.
-6. Verifique se o novo ponto de extremidade foi adicionado ao serviço Web.
+6. Verifique se o novo ponto de extremidade foi adicionado toohello Web service.
 
-### <a name="check-the-workspace-that-your-web-service-is-in-to-ensure-it-is-in-the-correct-region"></a>Verifique o espaço de trabalho no qual o serviço Web está para garantir que esteja na região correta
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Selecione Machine Learning no menu.
+### <a name="check-hello-workspace-that-your-web-service-is-in-tooensure-it-is-in-hello-correct-region"></a>Verificar espaço de trabalho de saudação que seu serviço web está em tooensure é na região correta Olá
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Selecione o aprendizado de máquina no menu de saudação.
    ![IU da região do Machine Learning.][image4]
-3. Verifique o local do seu espaço de trabalho.
+3. Verifique se o local de saudação do seu espaço de trabalho.
 
 <!-- Image Links -->
 

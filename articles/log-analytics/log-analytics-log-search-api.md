@@ -1,6 +1,6 @@
 ---
-title: API REST de pesquisa de log do Log Analytics | Microsoft Docs
-description: "Este guia fornece um tutorial básico que descreve como você pode usar a API REST da Pesquisa do Log Analytics no OMS (Operations Management Suite) e fornece exemplos que mostram como usar os comandos."
+title: "pesquisa de log de análise de aaaLog API REST | Microsoft Docs"
+description: "Este guia fornece um tutorial básico que descreve como você pode usar o hello REST API de pesquisa de análise de Log em Olá Operations Management Suite (OMS) e fornece exemplos que mostram como comandos de saudação toouse."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,54 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 78afb2f065dde4a3e7a3ab787c939b3c52b72cc6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: dafe5eeb8cc11a339f2cbf78cec657e344d87cac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API REST de pesquisa de log do Log Analytics
-Este guia fornece um tutorial básico, incluindo exemplos de como você pode usar a API REST do Log Analytics Search. O Log Analytics faz parte do OMS (Operations Management Suite).
+Este guia fornece um tutorial básico, incluindo exemplos de como você pode usar o hello API de REST de pesquisa de análise de Log. Análise de log é parte da saudação Operations Management Suite (OMS).
 
 > [!NOTE]
-> Se o espaço de trabalho tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), você deverá continuar usando a linguagem de consulta herdada com a API da pesquisa de logs, conforme descrito neste artigo.  Uma nova API será liberada para espaços de trabalho atualizados e a documentação será atualizada nessa ocasião. 
+> Se o seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de análise de Log novo](log-analytics-log-search-upgrade.md), em seguida, você deve continuar a linguagem de consulta herdados de saudação do toouse com a API de pesquisa de log de saudação conforme descrito neste artigo.  Uma nova API será liberada para espaços de trabalho atualizados e documentação hello será atualizada no momento. 
 
 > [!NOTE]
-> O Log Analytics chamava-se Operational Insights e é por isso que esse é o nome usado nos no provedor de recursos.
+> Análise de log foi chamada anteriormente os Insights operacionais, por isso é o nome de saudação usado no provedor de recursos de saudação.
 >
 >
 
-## <a name="overview-of-the-log-search-rest-api"></a>Visão geral da API REST de pesquisa de log
-A API REST de Pesquisa do Log Analytics é RESTful e pode ser acessada por meio da API do Azure Resource Manager. Este artigo fornece exemplo de como acessar a API por meio do [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. O uso do ARMClient é uma das muitas opções para acessar a API do Log Analytics Search. Outra opção é usar o módulo do Azure PowerShell para OperationalInsights, que inclui cmdlets para acessar a pesquisa. Com essas ferramentas, você pode utilizar a API do Azure Resource Manager para fazer chamadas aos espaços de trabalho do OMS e executar comandos de pesquisa dentro deles. A API produz resultados da pesquisa no formato JSON, permitindo que você use os resultados da pesquisa de diferentes maneiras por meio de programação.
+## <a name="overview-of-hello-log-search-rest-api"></a>Visão geral da API de REST de pesquisa de Log de saudação
+Olá API de REST de pesquisa de análise de Log é RESTful e pode ser acessado via Olá API do Gerenciador de recursos do Azure. Este artigo fornece exemplos de como acessar por meio da API Olá [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação Olá API do Gerenciador de recursos do Azure. uso de saudação do cliente do ARM é um dos muitos Olá de tooaccess opções API de pesquisa de análise de Log. Outra opção é toouse hello Azure PowerShell para OperationalInsights, que inclui cmdlets para acessar a pesquisa. Com essas ferramentas, você pode utilizar Olá API do Gerenciador de recursos do Azure toomake chamadas tooOMS espaços de trabalho e executar comandos de pesquisa dentro deles. Olá API produz resultados da pesquisa no formato JSON, permitindo que você resultados da pesquisa Olá toouse de diferentes maneiras por meio de programação.
 
-O Azure Resource Manager pode ser usado por meio de uma [Biblioteca para .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx), bem como por meio da [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Para saber mais, leia as páginas da Web vinculadas.
+Hello Azure Resource Manager pode ser usado por meio de um [biblioteca para .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) e hello [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). toolearn mais, examine a páginas da web de saudação vinculada.
 
 > [!NOTE]
-> Se você usar um comando de agregação como `|measure count()` ou `distinct`, cada chamada de pesquisa poderá retornar até 500.000 registros. Pesquisas que não incluem um comando de agregação retornam até 5.000 registros.
+> Se você usar um comando de agregação, como `|measure count()` ou `distinct`, cada chamada toosearch pode retornar até 500.000 registros. Pesquisas que não incluem um comando de agregação retornam até 5.000 registros.
 >
 >
 
 ## <a name="basic-log-analytics-search-rest-api-tutorial"></a>Tutorial básico da API REST de Pesquisa do Log Analytics
-### <a name="to-use-armclient"></a>Para usar o ARMClient
-1. Instale o [Chocolatey](https://chocolatey.org/), que é um gerenciador de pacotes de software livre para Windows. Abra uma janela do prompt de comando como administrador e execute o seguinte comando:
+### <a name="toouse-armclient"></a>toouse ARMClient
+1. Instale o [Chocolatey](https://chocolatey.org/), que é um gerenciador de pacotes de software livre para Windows. Abra uma janela de prompt de comando como administrador e execute Olá comando a seguir:
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
-2. Instale o ARMClient executando o seguinte comando:
+2. Instale o cliente do ARM executando Olá comando a seguir:
 
     ```
     choco install armclient
     ```
 
-### <a name="to-perform-a-search-using-armclient"></a>Para realizar uma pesquisa usando o ARMClient
+### <a name="tooperform-a-search-using-armclient"></a>tooperform uma pesquisa usando o ARMClient
 1. Entre usando a conta da Microsoft ou sua conta corporativa ou de estudante:
 
     ```
     armclient login
     ```
 
-    Um logon bem-sucedido lista todas as assinaturas vinculadas à conta especificada:
+    Um logon bem-sucedido lista todas as toohello assinaturas vinculadas dado conta:
 
     ```
     PS C:\Users\SampleUserName> armclient login
@@ -72,13 +72,13 @@ O Azure Resource Manager pode ser usado por meio de uma [Biblioteca para .NET](h
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 2)
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
-2. Obtenha os espaços de trabalho do Operations Management Suite:
+2. Obter espaços de trabalho do hello Operations Management Suite:
 
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
-    Uma chamada Get bem-sucedida geraria todos os espaços de trabalho associados à assinatura:
+    Uma chamada Get bem-sucedida geraria que todos os espaços de trabalho vinculado toohello assinatura:
 
     ```
     {
@@ -108,7 +108,7 @@ O Azure Resource Manager pode ser usado por meio de uma [Biblioteca para .NET](h
     ```
 
 ## <a name="log-analytics-search-rest-api-reference-examples"></a>Exemplos de referência da API REST de Pesquisa do Log Analytics
-Os exemplos a seguir mostram como você pode usar a API de pesquisa.
+Olá exemplos a seguir mostra como você pode usar o hello API de pesquisa.
 
 ### <a name="search---actionread"></a>Pesquisa - ação/leitura
 **Url de exemplo:**
@@ -133,17 +133,17 @@ Os exemplos a seguir mostram como você pode usar a API de pesquisa.
     }
     armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
-A tabela a seguir descreve as propriedades que estão disponíveis.
+Olá, a tabela a seguir descreve as propriedades de saudação que estão disponíveis.
 
 | **Propriedade** | **Descrição** |
 | --- | --- |
-| top |O número máximo de resultados a serem retornados. |
+| top |número máximo de saudação do tooreturn de resultados. |
 | highlight |Contém parâmetros anteriores e subsequentes, geralmente usados para realçar campos correspondentes |
-| pre |Usado como prefixo da cadeia de caracteres específica para os campos correspondentes. |
-| post |Acrescenta a cadeia de caracteres específica para os campos correspondentes. |
-| query |A consulta de pesquisa usada para coletar e retornar os resultados. |
-| iniciar |O início da janela de tempo em que você deseja que os resultados sejam encontrados. |
-| end |O fim da janela de tempo em que você deseja que os resultados sejam encontrados. |
+| pre |Prefixos Olá fornecido campos de tooyour correspondida de cadeia de caracteres. |
+| post |Acrescenta Olá fornecido campos de tooyour correspondida de cadeia de caracteres. |
+| query |consulta de pesquisa Olá usado toocollect e retornar resultados. |
+| iniciar |partir do Olá Olá da janela de tempo que você deseja toobe resultados encontrado. |
+| end |fim de Olá Olá da janela de tempo que você deseja toobe resultados encontrado. |
 
 **Resposta:**
 
@@ -197,14 +197,14 @@ A tabela a seguir descreve as propriedades que estão disponíveis.
 ```
 
 ### <a name="searchid---actionread"></a>Pesquisa/{ID} - ação/leitura
-**Solicite o conteúdo de uma pesquisa salva:**
+**Olá o conteúdo da solicitação de uma pesquisa salva:**
 
 ```
     armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
 > [!NOTE]
-> Se a pesquisa retornar com um status 'Pendente', a sondagem dos resultados atualizados poderá ser feita por essa API. Após seis minutos, o resultado da pesquisa será eliminado do cache e HTTP Gone será retornado. Se a solicitação inicial de pesquisa retornar um status “Bem-sucedido” imediatamente, os resultados não serão adicionados ao cache, fazendo essa API retornar HTTP Gone se consultada. O conteúdo de um resultado de HTTP 200 estará no mesmo formato que a solicitação inicial de pesquisa, apenas com valores atualizados.
+> Se a pesquisa de saudação retornar com um status 'Pendente', resultados de saudação atualizado de sondagem podem ser feitos por essa API. Após 6 minutos, Olá resultado da pesquisa de saudação será eliminado do cache de saudação e HTTP Gone será retornado. Se a solicitação inicial de pesquisa de saudação retorna um status 'Bem-sucedido' imediatamente, resultados de saudação não são adicionados toohello cache causando esse tooreturn API HTTP Gone se consultada. conteúdo de saudação de um resultado de HTTP 200 está no mesmo formato que a solicitação inicial de pesquisa de saudação apenas com valores atualizados de saudação.
 >
 >
 
@@ -219,18 +219,18 @@ Métodos com suporte: GET, PUT e DELETE
 
 Métodos de coleção com suporte: GET
 
-A tabela a seguir descreve as propriedades que estão disponíveis.
+Olá, a tabela a seguir descreve as propriedades de saudação que estão disponíveis.
 
 | Propriedade | Descrição |
 | --- | --- |
-| ID |O identificador exclusivo. |
-| Etag |**Obrigatório para o Patch**. Atualizado pelo servidor em cada gravação. O valor deve ser igual ao valor armazenado atual ou '*' para atualizar. 409 retornado para valores antigos ou inválidos. |
-| properties.query |**Obrigatório**. A consulta de pesquisa. |
-| properties.displayName |**Obrigatório**. O nome de exibição da consulta definido pelo usuário. |
-| properties.category |**Obrigatório**. A categoria definida pelo usuário para a consulta. |
+| ID |Identificador exclusivo da saudação. |
+| Etag |**Obrigatório para o Patch**. Atualizado pelo servidor em cada gravação. O valor deve ser o valor armazenado atual de toohello igual ou ' *' tooupdate. 409 retornado para valores antigos ou inválidos. |
+| properties.query |**Obrigatório**. consulta de pesquisa de saudação. |
+| properties.displayName |**Obrigatório**. nome para exibição definidos pelo usuário Olá de consulta de saudação. |
+| properties.category |**Obrigatório**. categoria definida pelo usuário Olá de consulta de saudação. |
 
 > [!NOTE]
-> A API de pesquisa do Log Analytics atualmente retorna pesquisas salvas criadas pelo usuário quando sondada para pesquisas salvas em um espaço de trabalho. A API não retorna pesquisas salvas fornecidas por soluções.
+> Olá API de pesquisa de análise de Log atualmente retorna criados pelo usuário pesquisas salvas quando sondada para pesquisas salvas em um espaço de trabalho. Olá API não retornará pesquisas salvas fornecidas por soluções.
 >
 >
 
@@ -243,7 +243,7 @@ A tabela a seguir descreve as propriedades que estão disponíveis.
 ```
 
 > [!NOTE]
-> O nome para todas as pesquisas, agendas e ações salvas criadas com a API do Log Analytics deve estar em letras minúsculas.
+> nome de saudação para pesquisas salvas todas as agendas e ações criadas com hello API de análise de Log deve ser em letras minúsculas.
 
 ### <a name="delete-saved-searches"></a>Excluir pesquisas salvas
 **Solicitação:**
@@ -261,7 +261,7 @@ A tabela a seguir descreve as propriedades que estão disponíveis.
 ```
 
 ### <a name="metadata---json-only"></a>Metadados - somente JSON
-Eis aqui uma maneira de ver os campos para todos os tipos de log para os dados coletados em seu espaço de trabalho. Por exemplo, se você quiser saber se o tipo de Evento tiver um campo chamado Computador, essa consulta será uma maneira de verificar.
+Aqui está um campos do modo toosee Olá para todos os tipos de log para dados de saudação coletados em seu espaço de trabalho. Por exemplo, se você quiser que saber se o tipo de evento de saudação tem um campo chamado computador, essa consulta é uma maneira toocheck.
 
 **Solicitação por campos:**
 
@@ -300,25 +300,25 @@ Eis aqui uma maneira de ver os campos para todos os tipos de log para os dados c
     }
 ```
 
-A tabela a seguir descreve as propriedades que estão disponíveis.
+Olá, a tabela a seguir descreve as propriedades de saudação que estão disponíveis.
 
 | **Propriedade** | **Descrição** |
 | --- | --- |
 | name |Nome do campo. |
-| displayName |O nome de exibição do campo. |
-| type |O tipo do valor do campo. |
+| displayName |Olá exibir nome do campo de saudação. |
+| type |Tipo de valor de campo de saudação do Hello. |
 | facetable |Combinação das propriedades 'indexed', 'stored' e 'facet' atuais. |
 | display |Propriedade 'display' atual. True se o campo está visível na pesquisa. |
-| ownerType |Reduzido a somente aqueles tipos que pertencem a endereços IP incorporados. |
+| ownerType |Tipos de tooonly reduzido que pertencem a endereços IP tooonboarded. |
 
 ## <a name="optional-parameters"></a>Parâmetros opcionais
-As informações a seguir descrevem os parâmetros opcionais disponíveis.
+Olá informações a seguir descreve os parâmetros opcionais disponíveis.
 
 ### <a name="highlighting"></a>Realce
-O parâmetro "Highlight" é um parâmetro opcional que você pode usar para solicitar que o subsistema de pesquisa inclua um conjunto de marcadores em sua resposta.
+Olá "Highlight" é um parâmetro opcional que você pode usar o subsistema da pesquisa toorequest Olá inclua um conjunto de marcadores em sua resposta.
 
-Esses marcadores indicam o início e término do texto realçado que coincide com os termos fornecidos na consulta de pesquisa.
-Você pode especificar os marcadores de início e término que serão usados pela pesquisa para encapsular o termo realçado.
+Esses marcadores indicam Olá início e término do texto realçado que coincide com os termos de saudação fornecidos na consulta de pesquisa.
+Você pode especificar o início de saudação e terminar marcadores que são usados por um termo da pesquisa toowrap Olá realçado.
 
 **Exemplo de consulta de pesquisa**
 
@@ -361,10 +361,10 @@ Você pode especificar os marcadores de início e término que serão usados pel
     }
 ```
 
-Observe que o resultado anterior contém uma mensagem de erro que foi acrescida de um prefixo e anexada.
+Observe que Olá resultado acima contém uma mensagem de erro que o prefixo e anexada.
 
 ## <a name="computer-groups"></a>Grupos de computadores
-Grupos de computadores são pesquisas especiais salvas que retornam um conjunto de computadores.  Você pode usar um grupo de computadores em outras consultas para limitar os resultados para os computadores no grupo.  Um grupo de computadores é implementado como uma pesquisa salva com uma marca de Grupo com um valor de Computador.
+Grupos de computadores são pesquisas especiais salvas que retornam um conjunto de computadores.  Você pode usar um grupo de computadores em outros computadores consultas toolimit Olá resultados toohello no grupo de saudação.  Um grupo de computadores é implementado como uma pesquisa salva com uma marca de Grupo com um valor de Computador.
 
 A seguir está um exemplo de resposta para um grupo de computadores.
 
@@ -383,18 +383,18 @@ A seguir está um exemplo de resposta para um grupo de computadores.
 ```
 
 ### <a name="retrieving-computer-groups"></a>Recuperando grupos de computadores
-Para recuperar um grupo de computadores, use o método Get com a ID do grupo.
+ID de um grupo de computadores, use Olá método Get com grupo hello. tooretrieve
 
 ```
 armclient get /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Group ID}`?api-version=2015-03-20
 ```
 
 ### <a name="creating-or-updating-a-computer-group"></a>Criar ou atualizar um grupo de computadores
-Para criar um grupo de computadores, use o método Put com uma ID de pesquisa salva exclusiva. Se você usar uma ID de grupo de computador existente, ela será modificada. Quando você cria um grupo de computadores no portal do Log Analytics, a ID é criada por meio do grupo e do nome.
+toocreate um grupo de computadores, use Olá método Put com uma ID de pesquisa salva exclusivo. Se você usar uma ID de grupo de computador existente, ela será modificada. Quando você cria um grupo de computadores no portal de análise de Log hello, Olá ID é criado de nome e grupo de saudação.
 
-A consulta usada para a definição de grupo deve retornar um conjunto de computadores para o grupo funcionar corretamente.  É recomendável terminar sua consulta com `| Distinct Computer` para garantir que os dados corretos sejam retornados.
+consulta Olá usada para definição de grupo Olá deve retornar um conjunto de computadores para Olá grupo toofunction corretamente.  É recomendável que você encerrar sua consulta com `| Distinct Computer` tooensure Olá correto de dados são retornados.
 
-A definição da pesquisa salva deve incluir uma marca chamada Grupo com um valor de Computador para a pesquisa ser classificada como um grupo de computadores.
+definição de saudação do hello pesquisa salva deve incluir uma marca chamada grupo com um valor de computador para Olá pesquisa toobe classificado como um grupo de computadores.
 
 ```
     $etag=Get-Date -Format yyyy-MM-ddThh:mm:ss.msZ
@@ -409,7 +409,7 @@ A definição da pesquisa salva deve incluir uma marca chamada Grupo com um valo
 ```
 
 ### <a name="deleting-computer-groups"></a>Excluindo grupos de computadores
-Para excluir um grupo de computadores, use o método Delete com a ID do grupo.
+ID de um grupo de computadores, use Olá método Delete com grupo hello. toodelete
 
 ```
 armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/$groupId`?api-version=2015-03-20
@@ -417,4 +417,4 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para criar consultas usando campos personalizados para os critérios.
+* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) toobuild consultas usando campos personalizados para os critérios.

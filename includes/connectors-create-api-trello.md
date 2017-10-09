@@ -1,18 +1,18 @@
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta do [Trello](http://trello.com) 
 
-Antes de usar sua conta do Trello em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Trello. Felizmente, você pode fazer isso de forma fácil usando seu aplicativo lógico no Portal do Azure. 
+Antes de usar sua conta Trello em um aplicativo lógico, é necessário autorizar a conta do hello lógica aplicativo tooconnect tooyour Trello. Felizmente, você pode fazer isso facilmente a partir de dentro de seu aplicativo lógica em Olá Portal do Azure. 
 
-Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta do Trello:
+Aqui está Olá etapas tooauthorize tooyour de tooconnect de aplicativo sua lógica Trello conta:
 
-1. Para criar uma conexão com o Trello, no designer do Aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa e, em seguida, digite *Trello* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar:   
+1. toocreate tooTrello uma conexão, no designer de aplicativo de lógica de saudação, selecione **APIs gerenciadas do Microsoft Mostrar** em Olá lista suspensa e digite *Trello* na caixa de pesquisa de saudação. Selecione a ação que você irá gostar toouse ou gatilho Olá:  
    ![](./media/connectors-create-api-trello/trello-1.png)
-2. Se você não tiver criado quaisquer conexões Trello antes, será solicitado a fornecer suas credenciais do Trello. Essas credenciais serão usadas para autorizar seu Aplicativo lógico a se conectar e acessar os dados da sua conta do Trello:  
+2. Se você não criou nenhum tooTrello conexões antes, você obterá tooprovide solicitada suas credenciais Trello. Essas credenciais serão tooauthorize usado tooconnect de aplicativo a lógica para e acessar dados da sua conta Trello:  
    ![](./media/connectors-create-api-trello/trello-2.png) 
-3. Permitir que nós nos conectemos ao Trello:  
+3. Permitir que nós tooconnect tooTrello:  
    ![](./media/connectors-create-api-trello/trello-3.png)   
-4. Forneça seu nome de usuário do Trello e a senha para autorizar seu Aplicativo lógico:  
+4. Forneça seu tooauthorize de nome e senha de usuário Trello sua lógica de aplicativo:  
    ![](./media/connectors-create-api-trello/trello-4.png)  
-5. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico:   
+5. Aviso Olá conexão tiver sido criado e você está livre tooproceed com hello outra etapas em seu aplicativo de lógica:  
    ![](./media/connectors-create-api-trello/trello-5.png)
 

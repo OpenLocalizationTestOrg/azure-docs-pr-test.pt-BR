@@ -1,6 +1,6 @@
 ---
-title: "Habilitar a coleta de dados na Central de Segurança do Azure | Microsoft Docs"
-description: " Saiba como habilitar a coleta de dados na Central de Segurança do Azure. "
+title: "coleta de dados de aaaEnable na Central de segurança do Azure | Microsoft Docs"
+description: " Saiba como coleta de dados de tooenable na Central de segurança do Azure. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.openlocfilehash: 7e9ad8cd8c77c57c37dc208b86b3727a4e1dc7b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 78bbf9a3d852095e2a1387c1606ff4bbb778a0dd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-data-collection-in-azure-security-center"></a>Habilitar coleta de dados na Central de Segurança do Azure
 
 > [!NOTE]
-> A partir do início de junho de 2017, a Central de Segurança usará o Microsoft Monitoring Agent para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md). As informações deste artigo representam a funcionalidade da Central de Segurança após a transição para o Microsoft Monitoring Agent.
+> A partir do início de junho de 2017, Central de segurança usará Olá Microsoft Monitoring Agent toocollect e armazenar dados. mais, consulte toolearn [migração da plataforma Azure Security Center](security-center-platform-migration.md). informações Olá neste artigo representam a funcionalidade da Central de segurança após a transição toohello Microsoft Monitoring Agent.
 >
 >
 
-A Central de Segurança coleta dados de suas máquinas virtuais (VMs) para avaliar o estado de sua segurança, fornecer recomendações de segurança e alertar sobre ameaças. Quando você acessa pela primeira vez a Central de Segurança, você tem a opção de habilitar a coleta de dados para em todas as VMs em sua assinatura. Se a coleta de dados estiver desabilitada, a Central de Segurança recomendará que você ligue a coleta de dados na política de segurança dessa assinatura.
+Central de segurança coleta dados de suas máquinas virtuais (VMs) tooassess seu estado de segurança, forneça recomendações de segurança e alertá-lo toothreats. Quando você acessa a Central de segurança pela primeira vez, você possui uma coleção de dados do hello opção tooenable para todas as VMs em sua assinatura. Se a coleta de dados não estiver habilitada, a Central de segurança recomenda que você ativar a coleta de dados na política de segurança Olá para essa assinatura.
 
-Quando a coleta de dados é habilitada, a Central de Segurança do Azure provisiona o Microsoft Monitoring Agent em todas as máquinas virtuais do Azure existentes com suporte e em quaisquer novas máquinas virtuais criadas. O Microsoft Monitoring Agent realiza varreduras em busca de várias configurações relacionadas à segurança. Além disso, o sistema operacional cria entradas de log de eventos. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. O Microsoft Monitoring Agent lê as entradas e configurações do log de eventos e copia os dados para seu espaço de trabalho para análise. O Microsoft Monitoring Agent também copia os arquivos de despejo de memória para seu espaço de trabalho.
+Quando a coleta de dados é habilitada, a Central de segurança provisiona Olá Microsoft Monitoring Agent em todas as existentes suporte para máquinas virtuais do Azure e os novos que são criados. Olá Microsoft Monitoring Agent verifica várias configurações relacionadas à segurança. Além disso, o sistema de operacional de hello gera eventos de log de eventos. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP, usuário registrado e ID do locatário. Olá Microsoft Monitoring Agent lê as configurações e entradas de log de eventos e copia o espaço de trabalho do hello dados tooyour para análise. Olá Microsoft Monitoring Agent também copia o espaço de trabalho tooyour arquivos de despejo de falha.
 
-Se você estiver usando a Camada gratuita da Central de Segurança, você poderá desabilitar a coleta de dados de máquinas virtuais desligando a coleta de dados na política de segurança. Desabilitar a coleta de dados limita as avaliações de segurança para as VMs. Para saber mais, consulte [Desabilitar a coleta de dados](#disabling-data-collection). Os instantâneos de disco da VM e a coleção de artefatos são habilitados mesmo que a coleta de dados tenha sido desabilitada. A coleta de dados é necessária para as assinaturas na camada Standard da Central de Segurança.
+Se você estiver usando a camada gratuita Olá da Central de segurança, você pode desativar a coleta de dados de máquinas virtuais ao desativar a coleta de dados na política de segurança de saudação. Desabilitar a coleta de dados limita as avaliações de segurança para as VMs. mais, consulte toolearn [desabilitar a coleta de dados](#disabling-data-collection). Os instantâneos de disco da VM e a coleção de artefatos são habilitados mesmo que a coleta de dados tenha sido desabilitada. Coleta de dados é necessária para as assinaturas na camada de saudação padrão da Central de segurança.
 
 > [!NOTE]
 > Saiba mais sobre os [tipos de preço](security-center-pricing.md) Gratuito e Standard da Central de Segurança.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Implementar a recomendação
+## <a name="implement-hello-recommendation"></a>Implementar a recomendação de saudação
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo. Este documento não é um guia passo a passo.
+> Este documento apresenta serviço hello usando um exemplo de implantação. Este documento não é um guia passo a passo.
 >
 >
 
-1. Na folha **Recomendações**, selecione **Habilitar coleta de dados em assinaturas**.  Isso abre a folha **Ativar a coleta de dados**.
+1. Em Olá **recomendações** folha, selecione **habilitar coleta de dados para assinaturas**.  Isso abre o hello **ativar a coleta de dados** folha.
    ![Folha de recomendações][2]
-2. Na folha **Ativar a coleta de dados** , selecione sua assinatura. A folha **Política de segurança** para essa assinatura é aberta.
-3. Na folha **Política de segurança**, selecione **Ativado** em **Coleta de dados** para coletar logs automaticamente. A ativação da coleta de dados provisiona a extensão de monitoramento em todas as VMs atuais e novas com suporte na assinatura.
+2. Em Olá **ativar a coleta de dados** folha, selecione sua assinatura. Olá **política de segurança** abre folha para essa assinatura.
+3. Em Olá **política de segurança** folha, selecione **na** em **coleta de dados** tooautomatically coletar logs. Ativar saudação de provisões de coleção de dados extensão de monitoramento em todos os atual e o novo suporte para VMs na assinatura de saudação.
 4. Selecione **Salvar**.
 5. Selecione **OK**.
 
 ## <a name="disabling-data-collection"></a>Desabilitar a coleta de dados
-Se você estiver usando a camada Gratuita da Central de Segurança, você poderá desabilitar a coleta de dados de máquinas virtuais a qualquer momento desligando a coleta de dados na política de segurança. A coleta de dados é necessária para as assinaturas na camada Standard da Central de Segurança.
+Se você estiver usando a camada gratuita Olá da Central de segurança, você pode desativar a coleta de dados de máquinas virtuais a qualquer momento ao desativar a coleta de dados na política de segurança de saudação. Coleta de dados é necessária para as assinaturas na camada de saudação padrão da Central de segurança.
 
-1. Volte para a folha **Central de Segurança** e selecione o bloco **Política**. Isso abre a folha **Política de segurança – definir política por assinatura**.
-   ![Selecione o bloco de política][5]
-2. Na folha **Política de segurança – definir política por assinatura**, selecione a assinatura para a qual você deseja desabilitar a coleta de dados.
-3. A folha **Política de segurança** para essa assinatura é aberta.  Selecione **Desativado** em Coleta de dados.
-4. Selecione **Salvar** na faixa de opções.
+1. Retornar toohello **Central de segurança** folha e selecione Olá **política** lado a lado. Isso abre o hello **segurança política-Definir política por assinatura** folha.
+   ![Selecione o bloco de política de saudação][5]
+2. Em Olá **segurança política-Definir política por assinatura** folha, assinatura Olá selecione que você deseja toodisable a coleta de dados.
+3. Olá **política de segurança** abre folha para essa assinatura.  Selecione **Desativado** em Coleta de dados.
+4. Selecione **salvar** na faixa de opções hello.
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo mostrou como implementar a recomendação da Central de Segurança "Habilitar a coleta de dados". Para saber mais sobre a Central de Segurança, confira o seguinte:
+Este artigo lhe mostrou como tooimplement Olá Central de segurança recomendação "Habilitar coleta de dados." toolearn mais sobre o Centro de segurança, consulte o seguinte hello:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md)– saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
-* [Monitorar as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) : saiba como monitorar o status de integridade de suas soluções de parceiros.
+* [Definir políticas de segurança na Central de segurança do Azure](security-center-policies.md) – Saiba como tooconfigure as políticas de segurança para sua assinatura do Azure e grupos de recursos.
+* [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
+* [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md)– Saiba como toomonitor Olá a integridade de seus recursos do Azure.
+* [Gerenciando e respondendo toosecurity alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)– Saiba como alertas de toosecurity toomanage e responder.
+* [Soluções de parceiro com a Central de segurança do Azure de monitoramento](security-center-partner-solutions.md) – Saiba como toomonitor Olá status de integridade de suas soluções de parceiro.
 - [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md) – saiba como os dados são gerenciados e protegidos na Central de Segurança do Azure.
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md): encontre perguntas frequentes sobre como usar o serviço.
-* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): obtenha as últimas notícias de segurança e informações do Azure.
+* [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md)– localizar perguntas frequentes sobre como usar o serviço de saudação.
+* [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/)– obter notícias mais recentes de segurança do Azure hello e informações.
 
 <!--Image references-->
 [2]: ./media/security-center-enable-data-collection/recommendations.png

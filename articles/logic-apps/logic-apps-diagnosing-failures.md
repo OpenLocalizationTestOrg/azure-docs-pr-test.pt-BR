@@ -1,6 +1,6 @@
 ---
-title: "Diagnosticar Falhas – Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Maneiras comuns de entender onde os aplicativos lógicos estão falhando"
+title: "falhas de aaaDiagnose - os aplicativos lógicos do Azure | Microsoft Docs"
+description: "Toounderstand de maneiras comuns onde estão os aplicativos lógicos"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 814e6f93088cdd96b0a663d2a7494b5a11470d99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 46d318625820034c95e6df3a71ab84c58f076dd7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="diagnose-logic-app-failures"></a>Diagnosticar falhas nos aplicativos lógicos
-Se você tiver problemas ou falhas com os aplicativos lógicos, há algumas abordagens que poderão ajudar a entender melhor a origem das falhas.  
+Se você enfrentar falhas ou problemas com seus aplicativos lógicos, existem algumas abordagens podem ajudá-lo a entender melhor onde falhas Olá são provenientes.  
 
 ## <a name="azure-portal-tools"></a>Ferramentas do portal do Azure
-O Portal do Azure fornece várias ferramentas para diagnosticar cada aplicativo lógico em cada etapa.
+Olá portal do Azure fornece muitos toodiagnose de ferramentas cada aplicativo lógica em cada etapa.
 
 ### <a name="trigger-history"></a>Histórico de gatilho
 
-Cada aplicativo lógico tem pelo menos um gatilho. Se você perceber que os aplicativos não estão sendo acionados, procure mais informações no histórico de gatilho. Você pode acessar o histórico de gatilhos na folha principal do aplicativo lógico.
+Cada aplicativo lógico tem pelo menos um gatilho. Se você perceber que os aplicativos não são acionados, procure primeiro no histórico de gatilho Olá para obter mais informações. Você pode acessar o histórico de gatilho Olá na folha principal da saudação lógica app'ss.
 
-![Exibir o histórico de gatilho][1]
+![Localizando o histórico de gatilho Olá][1]
 
-O histórico de gatilho lista todas as tentativas de gatilho feitas pelo seu aplicativo lógico. Você pode clicar em cada tentativa de gatilho para ver os detalhes, mais especificamente, entradas ou saídas geradas pela tentativa de gatilho. Se você encontrar gatilhos com falha, selecione a tentativa de gatilho e escolha o link **Saídas** para examinar mensagens de erro geradas, por exemplo, para credenciais FTP que não são válidas.
+histórico de gatilho Olá lista todas as tentativas de gatilho que seu aplicativo lógico feito. Você pode clicar em cada toodrill de tentativa de gatilho detalhes hello, especificamente, quaisquer entradas ou saídas que Olá tentativa de gatilho é gerado. Se você encontrar gatilhos com falha, selecione tentativa de gatilho hello e escolha Olá **saídas** link tooreview quaisquer gerado mensagens de erro, por exemplo, as credenciais de FTP que não são válidos.
 
-Os diferentes status que você pode ver são:
+Olá talvez você veja os status diferentes são:
 
-* **Ignorado**. O ponto de extremidade foi sondado para procurar por dados e recebeu uma resposta de que nenhum dado estava disponível.
-* **Êxito**. O gatilho recebeu uma resposta de que havia dados disponíveis. Esse status pode ser resultado de um gatilho manual, um gatilho de recorrência ou um gatilho de sondagem. Esse status geralmente está acompanhado pelo status **Disparado**, mas poderá não estar se você tiver uma condição ou um comando SplitOn no modo de exibição de código que não foi atendido.
+* **Ignorado**. ponto de extremidade de saudação foi toocheck poll de dados e recebeu uma resposta que não havia dados disponíveis.
+* **Êxito**. gatilho Olá recebeu uma resposta que os dados estavam disponíveis. Esse status pode ser resultado de um gatilho manual, um gatilho de recorrência ou um gatilho de sondagem. Geralmente, esse status é acompanhado por Olá **acionado** status, mas não pode ser se você tiver uma condição ou um comando de SplitOn no modo de exibição de código que não foi atendido.
 * **Falha**. Um erro foi gerado.
 
 #### <a name="start-a-trigger-manually"></a>Iniciar um gatilho manualmente
 
-Se você quiser que o aplicativo lógico verifique imediatamente se há um gatilho disponível (sem aguardar a próxima recorrência), clique no botão **Selecionar Gatilho** na folha principal para forçar uma verificação. Por exemplo, clicar nesse link com um gatilho Dropbox fará com que o fluxo de trabalho sonde o Dropbox imediatamente em busca de novos arquivos.
+Olá lógica aplicativo toocheck para um gatilho disponível imediatamente sem aguardar a próxima recorrência de saudação, clique em **Selecionar disparador** em Olá folha principal tooforce uma verificação. Por exemplo, clicar nesse link com um gatilho Dropbox faz sondagem tooimmediately de fluxo de trabalho Olá Dropbox para novos arquivos.
 
 ### <a name="run-history"></a>Histórico da execução
 
-Cada gatilho acionado resulta em uma execução. Você pode acessar informações de execução da folha principal, que contém muitos detalhes que podem ajudá-lo a entender o que aconteceu durante o fluxo de trabalho.
+Cada gatilho acionado resulta em uma execução. Você pode acessar informações de execução da folha principal hello, que contém muitos detalhes que podem ajudá-lo a entender o que aconteceu durante o fluxo de trabalho de saudação.
 
-![Localizando o histórico da execução][2]
+![Localizando Olá histórico de execução][2]
 
-Uma execução exibe um dos seguintes status:
+Uma execução exibe uma saudação status a seguir:
 
-* **Êxito**. Todas as ações foram bem sucedidas. Se uma falha ocorreu, ela foi tratada por uma ação que ocorreu posteriormente no fluxo de trabalho. Ou seja, a falha foi tratada por uma ação definida para ser executada depois de uma ação com falha.
-* **Falha**. Pelo menos uma ação teve uma falha que não foi tratada por uma ação posterior no fluxo de trabalho.
-* **Cancelado**. O fluxo de trabalho estava em execução, mas recebeu uma solicitação de cancelamento.
-* **Executando**. O fluxo de trabalho está em execução atualmente. Esse status pode ocorrer para fluxos de trabalho limitados ou por conta do plano de preços atual. Para ver mais detalhes, confira os [limites da ação na página de preços](https://azure.microsoft.com/pricing/details/app-service/plans/). Configurar o diagnóstico (os gráficos que aparecem embaixo do histórico da execução) também podem fornecer informações sobre quaisquer eventos de restrição ocorridos.
+* **Êxito**. Todas as ações foram bem sucedidas. Se ocorreu uma falha, essa falha era manipulada por uma ação que ocorreu posteriormente no fluxo de trabalho de saudação. Ou seja, falha de saudação foi tratada por uma ação que foi definida toorun depois de uma ação que falhou.
+* **Falha**. Pelo menos uma ação teve uma falha que não foi tratada por uma ação posteriormente no fluxo de trabalho de saudação.
+* **Cancelado**. Olá estava em execução, mas recebeu uma solicitação de cancelamento.
+* **Executando**. fluxo de trabalho Hello está sendo executado. Esse status pode ocorrer para fluxos de trabalho limitados ou devido a saudação atual plano de preços. Para obter detalhes, consulte [limites de ação na página de preços de saudação](https://azure.microsoft.com/pricing/details/app-service/plans/). Configuração de diagnóstico (gráficos de saudação que apareçam no histórico de execução de saudação) também pode fornecer informações sobre os eventos de limitação acontecer.
 
 Quando você estiver observando um histórico da execução, você pode analisar para obter mais detalhes.  
 
 #### <a name="trigger-outputs"></a>Saídas do gatilho
 
-As saídas do gatilho mostrarão os dados recebidos do gatilho. Essas saídas podem ajudá-lo a determinar se todas as propriedades retornaram conforme o esperado.
+Gatilho gera Mostrar dados Olá originários do gatilho de saudação. Essas saídas podem ajudá-lo a determinar se todas as propriedades retornaram conforme o esperado.
 
 > [!NOTE]
 > Se você vir algum conteúdo que não consegue compreender, aprenda como o Aplicativo Lógico do Azure [lida com diferentes tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
@@ -71,14 +71,14 @@ As saídas do gatilho mostrarão os dados recebidos do gatilho. Essas saídas po
 
 #### <a name="action-inputs-and-outputs"></a>Entradas e saídas da ação
 
-Você pode analisar as entradas e saídas que uma ação recebeu. Esses dados são úteis para entender o tamanho e a forma das saídas e para encontrar todas as mensagens de erro que possam ter sido geradas.
+Você pode analisar as entradas de saudação e saídas que recebeu uma ação. Esses dados são úteis para entender o tamanho de saudação e a forma de saudação saídas e também para localizar qualquer mensagem de erro pode ter sido gerada.
 
 ![Entradas e saídas da ação][4]
 
 ## <a name="debug-workflow-runtime"></a>Tempo de execução do fluxo de trabalho de depuração
 
-Juntamente com o monitoramento de entradas, saídas e gatilhos de uma execução, você pode adicionar algumas etapas ao fluxo de trabalho para ajudar na depuração. 
-[RequestBin](http://requestb.in) é uma ferramenta poderosa que você pode adicionar como uma etapa em um fluxo de trabalho. Usando o RequestBin, você pode configurar um inspetor de solicitação HTTP para determinar exatamente o tamanho, forma e formato de uma solicitação HTTP. Você pode criar um RequestBin e colar a URL em uma Ação HTTP POST do aplicativo lógico com qualquer conteúdo do corpo que você deseje testar, por exemplo, uma expressão ou outra saída da etapa. Depois de executar o aplicativo lógico, você poderá atualizar o RequestBin para ver como a solicitação foi formada quando gerada do mecanismo dos Aplicativos Lógicos.
+Juntamente com hello entradas, saídas e gatilhos de uma execução de monitoramento, você pode adicionar etapas tooa fluxos de trabalho que ajudam com a depuração. 
+[RequestBin](http://requestb.in) é uma ferramenta poderosa que você pode adicionar como uma etapa em um fluxo de trabalho. Usando RequestBin, você pode configurar um Inspetor toodetermine Olá exato tamanho da solicitação HTTP, forma e formato de uma solicitação HTTP. Você pode criar um RequestBin e cole a URL de saudação em um aplicativo de lógica ação HTTP POST com conteúdo do corpo que você deseja tootest, por exemplo, uma expressão ou outra saída de etapa. Após executar o aplicativo de lógica de saudação, você pode atualizar seu toosee RequestBin como solicitação Olá foi formada quando gerado do mecanismo de aplicativos lógicos hello.
 
 <!-- image references -->
 [1]: ./media/logic-apps-diagnosing-failures/triggerhistory.png

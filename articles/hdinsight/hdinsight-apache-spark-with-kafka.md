@@ -1,6 +1,6 @@
 ---
-title: "Streaming do Apache Spark com Kafka – Azure HDInsight | Microsoft Docs"
-description: "Saiba como usar o Apache Spark para transmitir dados dentro ou fora do Apache Kafka usando o DStreams. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight."
+title: aaaApache Spark streaming com Kafka - HDInsight do Azure | Microsoft Docs
+description: "Saiba como toouse dados de toostream Spark Apache Spark entrando ou saindo Apache Kafka usando DStreams. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight."
 keywords: exemplo de kafka, zookeeper kafka, streaming do kafka para Spark, exemplo de streaming do spark com o kafka
 services: hdinsight
 documentationcenter: 
@@ -16,88 +16,88 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/13/2017
 ms.author: larryfr
-ms.openlocfilehash: 81fa319f6fb94bdabacd8f68d14b9a1063a9749a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f48b37aadafa4979cd27af68e8417db6acc8a0e6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Exemplo de streaming do Apache Spark (DStream) com o Kafka (versão prévia) no HDInsight
 
-Saiba como usar o Apache Spark para transmitir dados dentro ou fora do Apache Kafka no HDInsight usando o DStreams. Este exemplo usa um bloco de anotações do Jupyter que é executado no cluster Spark.
+Saiba como toouse dados de toostream Spark Apache Spark entrando ou saindo Kafka do Apache no HDInsight usando DStreams. Este exemplo usa um bloco de anotações do Jupyter que é executado no cluster do Spark hello.
 > [!NOTE]
-> As etapas neste documento criam um grupo de recursos do Azure que contém um Spark no HDInsight e um Kafka no cluster de HDInsight. Esses clusters são ambos localizados em uma Rede Virtual do Azure, que permite que o cluster Spark se comunique diretamente com o cluster Kafka.
+> etapas de saudação neste documento criam um grupo de recursos do Azure que contém um Spark no HDInsight tanto um Kafka no cluster HDInsight. Esses agrupamentos são ambos localizados em uma rede Virtual do Azure, que permite Olá toodirectly de cluster do Spark Olá cluster Kafka se comunicam.
 >
-> Quando você terminar as etapas neste documento, lembre-se de excluir os clusters para evitar cobranças em excesso.
+> Quando você concluir etapas Olá neste documento, lembre-se toodelete Olá clusters tooavoid em excesso encargos.
 
-## <a name="create-the-clusters"></a>Criar os clusters
+## <a name="create-hello-clusters"></a>Criar clusters de saudação
 
-Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela internet pública. Qualquer coisa que se comunique com Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O diagrama a seguir mostra como a comunicação flui entre os clusters:
+Apache Kafka no HDInsight não fornece acesso toohello Kafka agentes sobre Olá internet pública. Qualquer coisa que fala tooKafka deve estar no hello mesma rede virtual do Azure como nós Olá Olá cluster Kafka. Neste exemplo, Olá Kafka e clusters do Spark estão localizados em uma rede virtual do Azure. Olá diagrama a seguir mostra como a comunicação flui entre clusters de saudação:
 
 ![Diagrama de clusters Spark e Kafka em uma rede virtual do Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
-> Embora Kafka em si esteja limitado a comunicação na rede virtual, outros serviços do cluster, como o SSH e Ambari podem ser acessados pela Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, consulte [portas e URIs usados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+> Embora Kafka em si é toocommunication limitado na rede virtual hello, outros serviços em cluster hello como SSH e Ambari podem ser acessados pela Olá da internet. Para obter mais informações sobre portas públicas de saudação disponíveis com o HDInsight, consulte [portas e URIs usados por HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark manualmente, é mais fácil usar um modelo do Azure Resource Manager. Use as seguintes etapas para implantar uma rede virtual do Azure, Kafka e clusters de Spark para sua assinatura do Azure.
+Embora você possa criar uma rede virtual do Azure, Kafka e Spark clusters manualmente, é mais fácil toouse um modelo do Gerenciador de recursos do Azure. Toodeploy uma rede virtual do Azure, Kafka, as etapas a seguir do uso hello e Spark clusters tooyour assinatura do Azure.
 
-1. Use o botão a seguir para entrar no Azure e abra o modelo do Gerenciador de Recursos no portal do Azure.
+1. Use Olá botão toosign em tooAzure e modelo Olá abrir no portal do Azure de saudação a seguir.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy tooAzure"></a>
     
-    O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.1.json**.
+    Hello Azure Resource Manager modelo está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v2.1.json**.
 
     > [!WARNING]
-    > Para garantir a disponibilidade do Kafka no HDInsight, o cluster deve conter pelo menos três nós de trabalho. Este modelo cria um cluster de Kafka que contém três nós de trabalho.
+    > disponibilidade de tooguarantee de Kafka no HDInsight, o cluster deve conter pelo menos três nós de trabalho. Este modelo cria um cluster de Kafka que contém três nós de trabalho.
 
     Este modelo cria um cluster HDInsight 3.6 para Kafka e Spark.
 
-2. Use as seguintes informações para preencher as entradas na folha de **Implantação personalizada** :
+2. Olá usar entradas de saudação toopopulate informações a seguir no hello **implantação personalizada** folha:
    
     ![Implantação personalizada do HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
-    * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.
+    * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster do HDInsight hello.
 
-    * **Local**: escolha um local geograficamente perto de você.
+    * **Local**: selecione um tooyou geograficamente fechar do local.
 
-    * **Nome do Cluster de base**: esse valor é usado como o nome de base para os clusters Spark e Kafka. Por exemplo, inserir **hdi** cria um cluster Spark chamado hdi__ spark e um cluster Kafka chamado **kafka hdi**.
+    * **Nome do Cluster base**: esse valor é usado como nome de base Olá para clusters de saudação Spark e Kafka. Por exemplo, inserir **hdi** cria um cluster Spark chamado hdi__ spark e um cluster Kafka chamado **kafka hdi**.
 
-    * **Nome de usuário de logon do cluster**: O nome de usuário do administrador para os clusters Spark e Kafka.
+    * **Nome de usuário de logon de cluster**: nome de usuário de administrador Olá para clusters de saudação Spark e Kafka.
 
-    * **Senha de logon do cluster**: A senha de usuário do administrador para os clusters Spark e Kafka.
+    * **Senha de logon de cluster**: senha do usuário administrador Olá para clusters de saudação Spark e Kafka.
 
-    * **Nome de usuário SSH**: O usuário SSH para criar para os clusters Spark e Kafka.
+    * **Nome de usuário SSH**: Olá toocreate de usuário SSH para clusters de saudação Spark e Kafka.
 
-    * **Senha SSH**: a senha para o usuário SSH dos clusters Kafka e Spark.
+    * **Senha SSH**: senha Olá para usuário SSH Olá Olá Spark e Kafka clusters.
 
-3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
+3. Saudação de leitura **termos e condições**e, em seguida, selecione **concordo toohello termos e condições declaradas acima**.
 
-4. Por fim, marque **Fixar no painel** e selecione **Comprar**. Demora cerca de 20 minutos para criar os clusters.
+4. Finalmente, verifique **Pin toodashboard** e, em seguida, selecione **compra**. Demora cerca de 20 minutos toocreate clusters hello.
 
-Quando os recursos tiverem sido criados, você será redirecionado para uma folha do grupo de recursos que contém os clusters e o painel da Web.
+Após a criação dos recursos Olá, será redirecionado tooa folha Olá grupo de recursos que contém hello e clusters do painel da web.
 
-![Folha do grupo de recursos para rede virtual e clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Folha de grupo de recursos para redes hello e clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
-> Observe que os nomes dos clusters HDInsight são **spark-BASENAME** e **kafka-BASENAME**, em que BASENAME é o nome fornecido para o modelo. Você usa esses nomes em etapas posteriores ao se conectar aos clusters.
+> Observe que os nomes de saudação de clusters de HDInsight Olá ficam **nome base do spark** e **kafka nome de base**, onde nome base é o nome da saudação fornecido toohello modelo. Você pode usar esses nomes em etapas posteriores ao conectar-se toohello clusters.
 
-## <a name="use-the-notebooks"></a>Usar os blocos de anotações
+## <a name="use-hello-notebooks"></a>Usar blocos de anotações de saudação
 
-O código de exemplo descrito neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
+Olá código de exemplo hello descrito neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
-Siga as etapas no arquivo `README.md` para concluir este exemplo.
+Siga as etapas de Olá Olá `README.md` arquivo toocomplete neste exemplo.
 
-## <a name="delete-the-cluster"></a>Excluir o cluster
+## <a name="delete-hello-cluster"></a>Excluir o cluster Olá
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Como as etapas neste documento criam ambos os clusters no mesmo grupo de recursos do Azure, você pode excluir o grupo de recursos no portal do Azure. Excluir o grupo remove todos os recursos criados por este documento, a rede Virtual do Azure e a conta de armazenamento usada pelos clusters.
+Como criam etapas de saudação neste documento hello de clusters no mesmo grupo de recursos do Azure, você pode excluir o grupo de recursos Olá Olá portal do Azure. Excluir grupo de saudação remove todos os recursos criados seguindo este documento, Olá rede Virtual do Azure e conta de armazenamento usados pelo clusters hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste exemplo, você aprendeu a usar o Spark para ler e gravar em Kafka. Use os links a seguir para descobrir outras maneiras de trabalhar com Kafka:
+Neste exemplo, você aprendeu como toouse despertar tooread e gravar tooKafka. Use Olá toodiscover links a seguir outra maneiras toowork Kafka:
 
 * [Introdução ao Apache Kafka no HDInsight](hdinsight-apache-kafka-get-started.md)
-* [Use MirrorMaker para criar uma réplica de Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)
-* [Use o Apache Storm com Kafka no HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [Use MirrorMaker toocreate uma réplica de Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Usar Apache Storm com Kafka no HDInsight](hdinsight-apache-storm-with-kafka.md)
 

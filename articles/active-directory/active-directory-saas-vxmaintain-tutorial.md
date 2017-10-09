@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory ao vxMaintain | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o vxMaintain."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e vxMaintain."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: ad87534af448356b8cc80d8ddd278bfb8a9165e7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 937ea276d898986fc5a953c96fddabdc8940309f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-integrate-azure-active-directory-with-vxmaintain"></a>Tutorial: Integração do Azure Active Directory ao vxMaintain
 
-Neste tutorial, você aprenderá a integrar o vxMaintain ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como vxMaintain toointegrate com o Azure Active Directory (AD do Azure).
 
 Essa integração oferece vários benefícios importantes. Você pode:
 
-- Controle no Azure AD quem tem acesso ao vxMaintain.
-- Permita que seus usuários façam logon automaticamente no vxMaintain com logon único (SSO) usando suas contas do Azure AD.
-- Gerenciar suas contas em um local central: o portal do Azure.
+- Controle no AD do Azure que tenha acesso toovxMaintain.
+- Habilite seus usuários de entrada tooautomatically toovxMaintain com logon único (SSO) com suas contas do AD do Azure.
+- Gerenciar suas contas em um local central: Olá portal do Azure.
 
-Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+toolearn mais sobre a integração de aplicativos SaaS com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Active Directory do Azure?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao vxMaintain, você precisará dos seguintes itens:
+tooconfigure integração do AD do Azure com vxMaintain, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura habilitada pelo SSO do vxMaintain
 
 > [!NOTE]
-> Ao testar as etapas deste tutorial, recomendamos que você não use um ambiente de produção.
+> Quando você testar etapas Olá neste tutorial, é recomendável que você não use um ambiente de produção.
 
-Para testar as etapas neste tutorial, siga estas recomendações:
+etapas de saudação tootest neste tutorial, siga estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
@@ -49,151 +49,151 @@ Para testar as etapas neste tutorial, siga estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. 
 
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+cenário de saudação que este tutorial descreve consiste em dois elementos básicos:
 
-* Adicionando vxMaintain da Galeria
+* Adicionando vxMaintain da Galeria de saudação
 * Configurar e testar o logon único do AD do Azure
 
-## <a name="add-vxmaintain-from-the-gallery"></a>Adicionar vxMaintain da galeria
-Para configurar a integração do vxMaintain com o Azure AD, você precisará adicionar o vxMaintain a partir da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="add-vxmaintain-from-hello-gallery"></a>Adicionar vxMaintain da Galeria de saudação
+integração de saudação do tooconfigure do vxMaintain com o Azure AD, é necessário vxMaintain tooadd da lista de tooyour Olá Galeria de aplicativos SaaS gerenciados.
 
-Para adicionar o vxMaintain a partir da galeria, faça o seguinte:
+vxMaintain tooadd da Galeria de Olá Olá a seguir:
 
-1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione o botão **Azure Active Directory**. 
+1. Em Olá [portal do Azure](https://portal.azure.com), no hello painel esquerdo, selecione Olá **Active Directory do Azure** botão. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
 2. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
 
-    ![O painel “Aplicativos empresariais”][2]
+    ![Painel de "Aplicativos corporativos" Hello][2]
     
-3. Para adicionar um aplicativo, na caixa de diálogo **Todos os aplicativos**, selecione **Novo aplicativo**.
+3. tooadd um aplicativo, em Olá **todos os aplicativos** caixa de diálogo, selecione **novo aplicativo**.
 
-    ![O botão “Novo aplicativo”][3]
+    ![Olá "Novo application" botão][3]
 
-4. Na caixa de pesquisa, digite **vxMaintain**.
+4. Na caixa de pesquisa hello, digite **vxMaintain**.
 
-    ![A lista suspensa "Modo Logon Único"](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_search.png)
+    ![lista de suspensa Hello "Único modo de logon"](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
-5. Na lista de resultados, selecione **vxMaintain**e, em seguida, selecione **adicionar**.
+5. Na lista de resultados de saudação, selecione **vxMaintain**e, em seguida, selecione **adicionar**.
 
-    ![O link do vxMaintain](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
+    ![link de vxMaintain Olá](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 Nesta seção, você configurará e testará o SSO do Azure AD usando o vxMaintain, com base em um usuário de teste chamado “Brenda Fernandes”.
 
-Para o SSO funcionar, o Azure AD precisa saber qual é o equivalente do usuário do Azure AD no vxMaintain. Ou seja, você deve estabelecer uma relação de link entre o usuário do Azure AD e o usuário vxMaintain correspondente.
+Para SSO toowork, AD do Azure precisa de usuário do AD do Azure do tooknow Olá vxMaintain contraparte toohello. Ou seja, você deve estabelecer uma relação de link entre usuários do AD do Azure hello e usuário vxMaintain correspondente de saudação.
 
-Para estabelecer a relação de vínculo, atribua o valor **nome de usuário** do vxMaintain como o valor de **Nome do usuário** do Azure AD.
+relação de link tooestablish hello, atribuir Olá vxMaintain **nome de usuário** valor como Olá AD do Azure **Username** valor.
 
-Para configurar e testar o SSO do Azure AD usando o vxMaintain, você precisa concluir os seguintes blocos de construção.
+tooconfigure e teste SSO de AD do Azure usando vxMaintain, Olá completa blocos de construção a seguir.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta seção, você pode habilitar o SSO do Azure AD no portal do Azure e configurar o SSO em seu aplicativo vxMaintain fazendo seguinte:
+Nesta seção, você pode habilitar o SSO do AD do Azure no portal do Azure de saudação e configurar SSO em seu aplicativo vxMaintain fazendo Olá seguinte:
 
-1. No Portal do Azure, na página de integração de aplicativos do **vxMaintain**, selecione **Logon único**.
+1. Em Olá portal do Azure, Olá **vxMaintain** página de integração de aplicativos, selecione **o logon único**.
 
-    ![O comando "Logon único"][4]
+    ![Olá "Single sign-on" comando][4]
 
-2. Para habilitar o SSO, na lista suspensa **Modo de Logon Único**, selecione **Logon baseado em SAML**.
+2. tooenable SSO, em Olá **modo de logon único** lista suspensa, selecione **baseado no SAML logon**.
  
-    ![O comando "Logon único baseado em SAML"](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
+    ![Olá "baseado em SAML logon" comando](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
-3. Em **Domínio e URLs do vxMaintain**, faça o seguinte:
+3. Em **vxMaintain domínio e URLs**, Olá a seguir:
 
-    ![Seção Domínio e URLs do vxMaintain](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_url.png)
+    ![Olá vxMaintain seção URLs e de domínio](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
-    a. Na caixa **Identificador**, digite uma URL com a seguinte sintaxe: `https://<company name>.verisae.com`
+    a. Em Olá **identificador** caixa, digite uma URL que tem Olá a sintaxe a seguir:`https://<company name>.verisae.com`
 
-    b. Na caixa **URL de Resposta**, digite uma URL com a seguinte sintaxe: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
+    b. Em Olá **URL de resposta** caixa, digite uma URL que tem Olá a sintaxe a seguir:`https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
-    > Os valores anteriores não são reais. Atualize-os com o identificador e a URL de resposta reais. Para obter os valores, entre em contato com a [equipe de suporte do vxMaintain](http://www.verisae.com/contact-us).
+    > Olá valores anteriores não são reais. Atualizá-los com o identificador real hello e URL de resposta. valores tooobtain Olá Olá contato [a equipe de suporte vxMaintain](http://www.verisae.com/contact-us).
  
-4. Em **Certificado de Autenticação SAML**, selecione **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+4. Em **o certificado de autenticação SAML**, selecione **Metadata XML**e, em seguida, salve o computador de tooyour de arquivo de metadados de saudação.
 
-    ![A seção “Certificado de Autenticação SAML”](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
+    ![Olá seção de "Certificado de autenticação SAML"](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
 5. Selecione **Salvar**.
 
-    ![O botão Salvar](./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_400.png)
+    ![botão de salvar Olá](./media/active-directory-saas-vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Para configurar o SSO do **vxMaintain**, envie o arquivo de **Metadados XML** baixado para [a equipe de suporte do vxMaintain](http://www.verisae.com/contact-us).
+6. tooconfigure **vxMaintain** SSO, Olá envio baixado **Metadata XML** arquivo toohello [a equipe de suporte vxMaintain](http://www.verisae.com/contact-us).
 
 > [!TIP]
-> Ao configurar o aplicativo, você pode ler as instruções anteriores em uma versão concisa no [portal do Azure](https://portal.azure.com). Depois de adicionar o aplicativo na seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único** e, depois, acesse a documentação inserida na seção **Configuração**. 
+> Como configurar o aplicativo hello, você pode ler uma versão concisa do hello precedem instruções em Olá [portal do Azure](https://portal.azure.com). Depois de adicionar o aplicativo hello da saudação **do Active Directory** > **aplicativos empresariais** seção, selecione Olá **Single Sign-On** guia e, em seguida, Olá de acesso incorporado a documentação de saudação **configuração** seção. 
 >
->Para saber mais sobre o recurso incorporado de documentação, consulte [Gerenciar logon único para aplicativos empresariais](https://go.microsoft.com/fwlink/?linkid=845985).
+>toolearn mais sobre o recurso de documentação do embedded hello, consulte [gerenciar logon único para aplicativos corporativos](https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
-Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azure fazendo o seguinte:
+Nesta seção, você pode criar Britta Simon de usuário de teste no portal do Azure de saudação fazendo Olá seguinte:
 
-![Usuário de teste do Azure AD][100]
+![usuário de teste de saudação do AD do Azure][100]
 
-1. No **portal do Azure**, no painel esquerdo, selecione o botão **Azure Active Directory**.
+1. Em Olá **portal do Azure**, no hello painel esquerdo, selecione Olá **Active Directory do Azure** botão.
 
-    ![Botão "Azure Active Directory"](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_01.png) 
+    ![botão de "Active Directory do Azure" Hello](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_01.png) 
 
-2. Para exibir uma lista de usuários, vá para **Usuários e grupos** > **Todos os usuários**.
+2. toodisplay uma lista de usuários, vá muito**usuários e grupos** > **todos os usuários**.
     
-    ![O link “Todos os usuários”](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_02.png)  
-    A caixa de diálogo **Todos os usuários** é aberta. 
+    ![Olá link de "Todos os usuários"](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_02.png)  
+    Olá **todos os usuários** caixa de diálogo é aberta. 
 
-3. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar**.
+3. Olá tooopen **usuário** caixa de diálogo, selecione **adicionar**.
  
-    ![O botão Adicionar](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_03.png) 
+    ![botão Adicionar de saudação](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_03.png) 
 
-4. Na caixa de diálogo **Usuário**, faça o seguinte:
+4. Em Olá **usuário** caixa de diálogo caixa, Olá a seguir:
  
-    ![A caixa de diálogo Usuário](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_04.png) 
+    ![caixa de diálogo de usuário Olá](./media/active-directory-saas-vxmaintain-tutorial/create_aaduser_04.png) 
 
-    a. Na caixa **Nome**, digite **BrendaFernandes**.
+    a. Em Olá **nome** , digite **BrittaSimon**.
 
-    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário de teste Brenda Fernandes.
+    b. Em Olá **nome de usuário** caixa tipo hello endereço de email do usuário de teste Britta Simon.
 
-    c. Marque a caixa de seleção **Mostrar Senha** e anote o valor gerado na caixa **Senha**.
+    c. Selecione Olá **Mostrar senha** caixa de seleção e valor de saudação Observação que foi gerado em Olá **senha** caixa.
 
     d. Selecione **Criar**.
  
 ### <a name="create-a-vxmaintain-test-user"></a>Criar um usuário de teste vxMaintain
 
-Nesta seção, você cria a usuária de teste Brenda Fernandes no vxMaintain. Para adicionar os usuários na plataforma do vxMaintain, trabalhe com a [equipe de suporte do vxMaintain](http://www.verisae.com/contact-us). Antes de usar o SSO, crie e ative os usuários.
+Nesta seção, você cria a usuária de teste Brenda Fernandes no vxMaintain. os usuários de tooadd na plataforma de vxMaintain hello, trabalhar com o [a equipe de suporte vxMaintain](http://www.verisae.com/contact-us). Antes de usar o SSO, criar e ativar usuários hello.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que o usuário de teste Brenda Fernandes use o SSO do Azure concedendo-lhe acesso ao vxMaintain. Para fazer isso, faça o seguinte:
+Nesta seção, você permitir que o usuário de teste Britta Simon toouse SSO do Azure, concedendo acesso toovxMaintain. toodo, portanto, Olá a seguir:
 
-![Usuário de teste na Lista de Nomes de Exibição][200] 
+![Usuário de teste na lista de nomes de exibição de saudação][200] 
 
-1. Na exibição de **Aplicativos** do portal do Azure, vá para a exibição de **Diretório** > **Aplicativos empresariais** > **Todos os aplicativos**.
+1. No portal do Azure de saudação **aplicativos** exibir, vá muito**diretório** exibição > **aplicativos empresariais** > **detodososaplicativos**.
 
-    ![O link "Todos os aplicativos"][201] 
+    ![Olá link de "Todos os aplicativos"][201] 
 
-2. Na lista de **Aplicativos**, selecione **vxMaintain**.
+2. Em Olá **aplicativos** lista, selecione **vxMaintain**.
 
-    ![O link do vxMaintain](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
+    ![link de vxMaintain Olá](./media/active-directory-saas-vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
-3. No painel esquerdo, selecione **Usuários e grupos**.
+3. No painel esquerdo do hello, selecione **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][202] 
+    ![link de "Usuários e grupos" Hello][202] 
 
-4. Selecione **Adicionar** e, em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
+4. Selecione **adicionar** e, em seguida, em Olá **Adicionar atribuição** painel, selecione **usuários e grupos**.
 
-    ![O link “Usuários e grupos”][203]
+    ![link de "Usuários e grupos" Hello][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, na lista **Usuários**, selecione **Brenda Fernandes** e, em seguida, selecione o botão **Selecionar**.
+5. Em Olá **usuários e grupos** caixa de diálogo Olá **usuários** lista, selecione **Britta Simon**e, em seguida, selecione Olá **selecione** botão.
 
-7. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
+7. Em Olá **Adicionar atribuição** caixa de diálogo, selecione **atribuir**.
     
 ### <a name="test-your-azure-ad-single-sign-on"></a>Testar o logon único do Azure AD
 
-Nesta seção, você testará sua configuração de SSO do Azure AD usando o Painel de Acesso.
+Nesta seção, você pode testar sua configuração de SSO do AD do Azure usando o painel de acesso de saudação.
 
-Selecionar o bloco **vxMaintain** no Painel de Acesso deve fazer com que você entre automaticamente no seu aplicativo vxMaintain.
+Olá selecionando **vxMaintain** bloco no painel de acesso de saudação deve entrar no aplicativo de vxMaintain tooyour automaticamente.
 
-Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
+Para obter mais informações sobre o painel de acesso, consulte [toohello Introdução painel de acesso](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

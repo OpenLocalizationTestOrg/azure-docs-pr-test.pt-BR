@@ -1,6 +1,6 @@
 ---
-title: "Solucionar problemas de coleções na nuvem do RemoteApp – criação | Microsoft Docs"
-description: "Saiba como solucionar problemas de falhas de criação de coleção de nuvem do RemoteApp"
+title: "coleções de nuvem do RemoteApp aaaTroubleshoot - criação | Microsoft Docs"
+description: "Saiba como tootroubleshoot RemoteApp nuvem falhas na criação de coleção"
 services: remoteapp
 documentationcenter: 
 author: vkbucha
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 304ba7c5057b27c459bccbb75d3a711567757675
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9484ecbdb048ede8df725215b313e049cc7648f0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-creating-remoteapp-cloud-collections"></a>Solucionar problemas na criação de coleções em nuvem do RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-Se você estiver tendo problemas ao criar uma coleção de nuvem, confira as informações a seguir.
+Se você estiver tendo problemas ao criar uma coleção de nuvem, confira Olá informações a seguir.
 
 ## <a name="your-image-is-invalid"></a>A imagem é inválida
-Se você receber uma mensagem como “GoldImageInvalid” quando estiver aguardando enquanto o Azure provisiona sua coleção, isso significa que a sua imagem de modelo não atende aos [requisitos de imagem definidos](remoteapp-imagereqs.md). Portanto, leia esses [requisitos](remoteapp-imagereqs.md), corrija sua imagem e tente criar novamente sua coleção.
+Se você vir uma mensagem como "GoldImageInvalid" quando você está esperando por Azure tooprovision sua coleção, isso significa que a imagem de modelo não atende a saudação [definido requisitos de imagem](remoteapp-imagereqs.md). Assim, vá ler os [requisitos](remoteapp-imagereqs.md), corrija sua imagem e tente toocreate sua coleção novamente.
 
-## <a name="common-errors-seen-in-the-azure-management-portal"></a>Erros comuns vistos no portal de Gerenciamento do Azure
+## <a name="common-errors-seen-in-hello-azure-management-portal"></a>Erros comuns vistos no portal de gerenciamento do Azure Olá
     DNS server could not be reached
     ProvisioningTimeout
 
-Coleções de nuvem geralmente falham durante a criação por você estar usando imagens personalizadas.  Se você receber um dos erros anteriores e estiver usando uma imagem personalizada para criar a coleção, verifique os seguintes itens:
+Coleções de nuvem geralmente falham durante a criação por você estar usando imagens personalizadas.  Se você vir um Olá acima erros e você estiver usando uma coleção de saudação toocreate imagem personalizada, consulte Olá coisas a seguir:
 
-* Certifique-se de que a imagem personalizada carregada atende aos requisitos de imagem.
-* Geralmente, o problema comum é que a imagem não foi corretamente preparada para o sistema.  
-* Verifique se a imagem pode inicializar no Hyper-V ou tente criar uma VM IAAS diretamente na assinatura do Azure usando a imagem. Se a VM falhar ao inicializar e não iniciar, isso geralmente indica que a imagem personalizada não estava preparada corretamente.  Verifique se a imagem personalizada foi criada seguindo as instruções em Como criar uma imagem de modelo personalizado para o RemoteApp
+* Certifique-se de que essa imagem personalizada Olá carregado atende aos requisitos de imagem.
+* Problema comum geralmente Olá é que imagem Olá não foi corretamente submetida a Sysprep.  
+* Verifique se imagem Olá pode inicializar dentro do Hyper-V ou tente criar uma VM IAAS diretamente na sua assinatura do Azure usando a imagem de saudação. Se Olá VM falhar tooboot e não iniciar, em seguida, isso geralmente indica que essa imagem personalizada Olá não estava preparada corretamente.  Verifique se a imagem personalizada Olá foi criada seguindo hello como toocreate um modelo personalizado de imagem do RemoteApp
 
-Se você estiver usando uma das imagens Microsoft incluídas em sua assinatura, tente criar novamente a coleção. Se o problema persistir, contate o suporte da Microsoft.
+Se você estiver usando uma das imagens do Microsoft hello incluídas com sua assinatura, tente toocreate a coleção de saudação novamente. Se Olá problema persistir, entre em contato com o suporte da Microsoft.
 
     PlatformImageTrialModeOnly
 
-Se você receber esse erro, isso geralmente significa que você atualizou para uma conta paga, mas está tentando usar uma imagem fornecido pela Microsoft que é válida somente durante o modo de avaliação do serviço. Nesse caso, tente criar novamente sua coleção de nuvem, mas não se esqueça de especificar a imagem correta.
+Se você vir esse erro geral, isso significa que foram atualizados tooa paga conta, mas você está tentando toouse uma imagem fornecido pela Microsoft que é válida somente durante o modo de avaliação de saudação do serviço de saudação. Nesse caso, tente toocreate novamente sua coleção de nuvem, mas se toospecify Olá correto imagem.
 

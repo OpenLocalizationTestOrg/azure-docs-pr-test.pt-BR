@@ -1,19 +1,19 @@
-#### <a name="to-configure-and-register-the-cloud-appliance"></a>Para configurar e registrar o dispositivo de nuvem
+#### <a name="tooconfigure-and-register-hello-cloud-appliance"></a>dispositivo de nuvem Olá tooconfigure e registrar
 
-1. Selecione e clique em Dispositivo de Nuvem StorSimple criado na folha **Dispositivos**.
+1. Selecione e clique em Olá StorSimple Appliance de nuvem criado no hello **dispositivos** folha.
 
-    ![Dispositivo de Nuvem StorSimple na lista de dispositivos](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
-2. Na folha **Configurar dispositivo**, execute as seguintes etapas:
+    ![StorSimple Appliance de nuvem na lista de saudação de dispositivos](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
+2. Em Olá **Configurar dispositivo** folha, Olá seguintes etapas:
     
-    1. Insira a **Chave de Criptografia de Dados de Serviço** no espaço fornecido. Essa chave foi gerada quando você registrou o primeiro dispositivo físico com o serviço Gerenciador de Dispositivos StorSimple.
+    1. Digite hello **chave de criptografia de dados de serviço** Olá espaço fornecido. Essa chave é gerada quando você registrou o primeiro dispositivo físico de saudação com seu serviço de Gerenciador de dispositivos do StorSimple.
 
-    2. Insira a **Senha de administrador do dispositivo** e a senha do **Snapshot Manager** das configurações e do comprimento especificados.
+    2. Digite hello **senha de administrador do dispositivo** e **Gerenciador de instantâneos** senha Olá especificado comprimento e configurações.
 
-    3. Clique em **OK** para concluir a configuração inicial e o registro do dispositivo de nuvem.
+    3. Clique em **Okey** configuração inicial do toofinish hello e registro de saudação appliance de nuvem.
     
         ![Dispositivo de configuração do Dispositivo de Nuvem StorSimple](./media/storsimple-8000-configure-register-cloud-appliance/sca-configure1.png)
 
-Depois que a configuração e o registro forem concluídos, o dispositivo ficará online. (Pode levar vários minutos para que o dispositivo fique online.)
+Após o registro e configuração de saudação for concluída, o dispositivo Olá ficará online. (Ele pode levar vários minutos para Olá dispositivo toocome online.)
 
 ![Estágio online do dispositivo de nuvem StorSimple](./media/storsimple-8000-configure-register-cloud-appliance/sca-configure2.png)
 

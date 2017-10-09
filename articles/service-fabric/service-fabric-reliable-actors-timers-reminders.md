@@ -1,6 +1,6 @@
 ---
-title: Temporizadores e lembretes de Reliable Actors | Microsoft Docs
-description: "Introdução a temporizadores e lembretes para Reliable Actors do Service Fabric."
+title: aaaReliable atores temporizadores e lembretes | Microsoft Docs
+description: "Introdução tootimers e lembretes para atores confiável do serviço de malha."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c5116ec1923014e131130b9f4e86dd1e133bbf7e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="actor-timers-and-reminders"></a>Lembretes e temporizadores de ator
-Os atores podem agendar o trabalho periódico neles mesmos ao registrarem temporizadores ou lembretes. Este artigo mostra como usar temporizadores e lembretes e explica as diferenças entre eles.
+Os atores podem agendar o trabalho periódico neles mesmos ao registrarem temporizadores ou lembretes. Este artigo mostra como toouse temporizadores e lembretes e explica as diferenças de saudação entre elas.
 
 ## <a name="actor-timers"></a>Temporizadores de ator
-Os temporizadores de ator oferecem um wrapper simples em torno de um temporizador Java ou .NET para garantir que os métodos de retorno de chamada respeitem as garantias de simultaneidade baseada em turnos fornecidas pelo tempo de execução dos Atores.
+Timers de ator fornecem um wrapper simple em torno de um tooensure de timer .NET ou Java, métodos de retorno de chamada hello respeitam as garantias de simultaneidade baseada em vez de saudação que Olá atores tempo de execução fornece.
 
-Os atores podem usar os métodos `RegisterTimer`(C#) ou `registerTimer`(Java) e `UnregisterTimer`(C#) ou `unregisterTimer`(Java) em sua classe base para registrar e cancelar o registro de seus temporizadores. O exemplo a seguir mostra o uso de APIs de temorizador. As APIs são muito semelhantes ao temporizador do .NET ou do Java. Neste exemplo, quando o temporizador chega ao fim, o tempo de execução dos Atores chamará o método `MoveObject`(C#) ou `moveObject`(Java). É garantido que o método respeitará a simultaneidade baseada em turnos. Isso significa que nenhum outro método de ator ou retornos de chamada de temporizador/lembrete estará em andamento até que a execução desse retorno de chamada seja concluída.
+Atores podem usar Olá `RegisterTimer`(c#) ou `registerTimer`(Java) e `UnregisterTimer`(c#) ou `unregisterTimer`métodos (Java) em sua base de classe tooregister e cancelar o registro de seus temporizadores. exemplo Hello abaixo mostra o uso de saudação de APIs do timer. Olá APIs são muito semelhante timer de .NET toohello ou timer de Java. Neste exemplo, quando o timer de saudação está vencido, tempo de execução de atores Olá chamará Olá `MoveObject`(c#) ou `moveObject`método (Java). método Hello é garantido simultaneidade baseada em vez do toorespect hello. Isso significa que nenhum outro método de ator ou retornos de chamada de temporizador/lembrete estará em andamento até que a execução desse retorno de chamada seja concluída.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -44,9 +44,9 @@ class VisualObjectActor : Actor, IVisualObject
 
         _updateTimer = RegisterTimer(
             MoveObject,                     // Callback method
-            null,                           // Parameter to pass to the callback method
-            TimeSpan.FromMilliseconds(15),  // Amount of time to delay before the callback is invoked
-            TimeSpan.FromMilliseconds(15)); // Time interval between invocations of the callback method
+            null,                           // Parameter toopass toohello callback method
+            TimeSpan.FromMilliseconds(15),  // Amount of time toodelay before hello callback is invoked
+            TimeSpan.FromMilliseconds(15)); // Time interval between invocations of hello callback method
 
         return base.OnActivateAsync();
     }
@@ -93,9 +93,9 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
                     this.registerTimer(
                             (o) -> this.moveObject(o),                        // Callback method
                             "moveObject",
-                            null,                                             // Parameter to pass to the callback method
-                            Duration.ofMillis(10),                            // Amount of time to delay before the callback is invoked
-                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of the callback method
+                            null,                                             // Parameter toopass toohello callback method
+                            Duration.ofMillis(10),                            // Amount of time toodelay before hello callback is invoked
+                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of hello callback method
                     return null;
                 });
     }
@@ -126,16 +126,16 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 }
 ```
 
-O período seguinte do temporizador é iniciado depois que o retorno de chamada concluir a execução. Isso significa que o temporizador será interrompido enquanto o retorno de chamada estiver em execução será iniciado quando o retorno de chamada for concluído.
+Olá próximo período do temporizador de saudação é iniciado após a conclusão de retorno de chamada hello execução. Isso implica que timer Olá for interrompido enquanto o retorno de chamada hello está em execução e é iniciado quando termina de retorno de chamada de saudação.
 
-O tempo de execução dos Atores salva as alterações feitas ao Gerenciador de Estado do ator quando o retorno de chamada é concluído. Se ocorrer um erro ao salvar o estado, esse objeto de ator será desativado e uma nova instância será ativada.
+tempo de execução de atores Olá salva as alterações feitas Gerenciador do ator toohello de estado quando termina de retorno de chamada de saudação. Se ocorrer um erro ao salvar estado hello, esse objeto de ator será desativado e uma nova instância será ativada.
 
-Todos os temporizadores são interrompidos quando o ator é desativado como parte da coleta de lixo. Nenhum retorno de chamada de temporizador é chamado depois disso. Além disso, o tempo de execução de atores não retém todas as informações sobre os temporizadores que estavam em execução antes de desativação. Cabe ao ator registrar todos os temporizadores necessários quando ele for reativado no futuro. Para obter mais informações, consulte a seção sobre [coleta de lixo de ator](service-fabric-reliable-actors-lifecycle.md).
+Todos os timers são interrompidos quando ator hello está desativado como parte da coleta de lixo. Nenhum retorno de chamada de temporizador é chamado depois disso. Além disso, o tempo de execução do hello atores não mantém todas as informações sobre temporizadores Olá que estavam em execução antes da desativação. É o toohello ator tooregister qualquer timers que ele precisa quando ele é reativado Olá futuras. Para obter mais informações, consulte a seção Olá em [coleta de lixo de ator](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Lembretes de ator
-Os lembretes são um mecanismo para disparar chamadas de retorno persistentes em um ator em horários específicos. Sua funcionalidade é semelhante à dos temporizadores. Mas, ao contrário dos temporizadores, os lembretes são acionados em todas as circunstâncias até que o ator cancele o registro deles explicitamente ou até que o ator seja explicitamente excluído. Especificamente, os lembretes são acionados em todas as desativações e failovers ator porque o tempo de execução de atores retém as informações sobre os lembretes do ator.
+Lembretes são um mecanismo tootrigger persistentes retornos de chamada em um ator em horários específicos. Sua funcionalidade é semelhante tootimers. Mas, ao contrário de temporizadores, lembretes são disparados em todas as circunstâncias até ator Olá explicitamente cancela o registro-los ou ator Olá explicitamente é excluído. Especificamente, lembretes são disparados em failovers e desativações de ator porque o tempo de execução de atores Olá persiste nas informações sobre lembretes Olá ator.
 
-Para registrar um lembrete, um ator chama o método `RegisterReminderAsync` fornecido na classe base, como mostrado no exemplo a seguir:
+tooregister um lembrete, um ator chama Olá `RegisterReminderAsync` fornecido na classe base do hello, conforme mostrado no exemplo a seguir de saudação do método:
 
 ```csharp
 protected override async Task OnActivateAsync()
@@ -161,14 +161,14 @@ protected CompletableFuture onActivateAsync()
     ActorReminder reminderRegistration = this.registerReminderAsync(
             reminderName,
             state,
-            dueTime,    //The amount of time to delay before firing the reminder
-            period);    //The time interval between firing of reminders
+            dueTime,    //hello amount of time toodelay before firing hello reminder
+            period);    //hello time interval between firing of reminders
 }
 ```
 
-Neste exemplo, `"Pay cell phone bill"` é o nome do lembrete. Essa é uma cadeia de caracteres usada pelo ator para identificar exclusivamente um lembrete. `BitConverter.GetBytes(amountInDollars)`(C#) é o contexto que está associado ao lembrete. Ele será devolvido para o ator como um argumento para o retorno de chamada do lembrete, ou seja, `IRemindable.ReceiveReminderAsync`(C#) ou `Remindable.receiveReminderAsync`(Java).
+Neste exemplo, `"Pay cell phone bill"` é o nome de lembrete hello. Isso é uma cadeia de caracteres hello ator usa toouniquely identificar um lembrete. `BitConverter.GetBytes(amountInDollars)`(C#) é o contexto de saudação que está associado com o lembrete de saudação. Ela será transmitida toohello back ator como um retorno de chamada de lembrete toohello argumento, ou seja, `IRemindable.ReceiveReminderAsync`(c#) ou `Remindable.receiveReminderAsync`(Java).
 
-Os atores que usam lembretes devem implementar a interface `IRemindable` como mostrado no exemplo a seguir.
+Atores que usam lembretes devem implementar Olá `IRemindable` interface, conforme mostrado no exemplo hello abaixo.
 
 ```csharp
 public class ToDoListActor : Actor, IToDoListActor, IRemindable
@@ -209,11 +209,11 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 ```
 
-Quando um lembrete é disparado, o tempo de execução dos Reliable Actors invoca o método `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`(Java) no Ator. Um ator pode registrar vários lembretes, que o método `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`(Java) será chamado quando qualquer um desses lembretes for disparado. O ator pode usar o nome de lembrete que é passado para o método `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`(Java) para descobrir qual lembrete foi acionado.
+Quando um lembrete é disparado, o tempo de execução do hello Reliable Actors invocará Olá `ReceiveReminderAsync`(c#) ou `receiveReminderAsync`método hello ator (Java). Um ator pode registrar vários lembretes e Olá `ReceiveReminderAsync`(c#) ou `receiveReminderAsync`(Java) método é invocado quando qualquer esses lembretes é disparado. ator Olá pode usar o nome de lembrete de saudação que é passada toohello `ReceiveReminderAsync`(c#) ou `receiveReminderAsync`(Java) método toofigure quais lembrete foi acionado.
 
-O tempo de execução dos Atores salva o estado do ator quando a chamada `ReceiveReminderAsync`(C#) ou `receiveReminderAsync`(Java) é concluída. Se ocorrer um erro ao salvar o estado, esse objeto de ator será desativado e uma nova instância será ativada.
+tempo de execução de atores Hello salva de estado do ator hello quando hello `ReceiveReminderAsync`(c#) ou `receiveReminderAsync`(Java) chamada é concluída. Se ocorrer um erro ao salvar estado hello, esse objeto de ator será desativado e uma nova instância será ativada.
 
-Para cancelar o registro de um lembrete, um ator chama o método `UnregisterReminderAsync`(C#) ou `unregisterReminderAsync`(Java) como mostrado no exemplo abaixo.
+toounregister um lembrete, um ator chama Olá `UnregisterReminderAsync`(c#) ou `unregisterReminderAsync`método (Java), conforme mostrado nos exemplos de saudação abaixo.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
@@ -224,7 +224,7 @@ ActorReminder reminder = getReminder("Pay cell phone bill");
 CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 ```
 
-Como mostrado acima, o método `UnregisterReminderAsync`(C#) ou `unregisterReminderAsync`(Java) aceita uma interface `IActorReminder`(C#) ou `ActorReminder`(Java). A classe base de ator dá suporte a um método `GetReminder`(C#) ou `getReminder`(Java), que pode ser usado para recuperar a interface `IActorReminder`(C#) ou `ActorReminder`(Java) passando-se o nome do lembrete. Isso é conveniente porque o ator não precisa manter a interface `IActorReminder`(C#) ou `ActorReminder`(Java) que foi retornada com a chamada do método `RegisterReminder`(C#) ou `registerReminder`(Java).
+Como mostrado acima, Olá `UnregisterReminderAsync`(c#) ou `unregisterReminderAsync`(Java) método aceita um `IActorReminder`(c#) ou `ActorReminder`interface (Java). Olá dá suporte a classe base de ator um `GetReminder`(c#) ou `getReminder`método (Java) que pode ser usado tooretrieve Olá `IActorReminder`(c#) ou `ActorReminder`interface (Java), passando em nome de lembrete hello. Isso é conveniente porque ator Olá não precisa Olá toopersist `IActorReminder`(c#) ou `ActorReminder`interface (Java) que foi retornada da saudação `RegisterReminder`(c#) ou `registerReminder`chamada de método (Java).
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre reentrada e eventos de Ator Confiável:

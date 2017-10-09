@@ -1,6 +1,6 @@
 ---
-title: API do coletor de dados HTTP do Log Analytics | Microsoft Docs
-description: "Você pode usar a API do coletor de dados HTTP do Log Analytics para adicionar dados JSON de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação."
+title: "API de coletor de dados de HTTP de análise de aaaLog | Microsoft Docs"
+description: "Você pode usar o hello API do coletor de dados do Log Analytics HTTP tooadd POST JSON toohello análise de Log repositório de dados de qualquer cliente que pode chamar a API REST de saudação. Este artigo descreve como toouse Olá API e tem exemplos de como toopublish dados usando linguagens de programação diferentes."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: bwren
-ms.openlocfilehash: b0c45ff8c1d4c9d35fbb3c8839b38a20df277055
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c2921082831c49da764d946ac9c4fab975a38185
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-data-to-log-analytics-with-the-http-data-collector-api"></a>Enviar dados ao Log Analytics com a API do Coletor de dados HTTP
-Este artigo mostra como usar a API do Coletor de Dados HTTP para enviar dados ao Log Analytics de um cliente da API REST.  Ele descreve como formatar dados coletados pelo seu script ou aplicativo, incluí-los em uma solicitação e ter essa solicitação autorizada pelo Log Analytics.  Os exemplos são fornecidos para PowerShell, C# e Python.
+# <a name="send-data-toolog-analytics-with-hello-http-data-collector-api"></a>Enviar dados tooLog análise com hello API de coletor de dados HTTP
+Este artigo mostra como toouse Olá API de coletor de dados HTTP toosend dados tooLog análise de um cliente de API REST.  Ele descreve como tooformat dados coletados pelo seu script ou aplicativo, incluí-lo em uma solicitação e ter essa solicitação autorizada pela análise de Log.  Os exemplos são fornecidos para PowerShell, C# e Python.
 
 ## <a name="concepts"></a>Conceitos
-Você pode usar a API do Coletor de Dados HTTP para enviar dados ao Log Analytics de qualquer cliente que possa chamar uma API REST.  Ela pode ser um runbook na Automação do Azure, que coleta dados de gerenciamento do Azure ou de outra nuvem, ou pode ser um sistema de gerenciamento alternativo que usa o Log Analytics para consolidar e analisar dados.
+Você pode usar o hello API de coletor de dados HTTP toosend dados tooLog análise de qualquer cliente que pode chamar uma API REST.  Isso pode ser um runbook na automação do Azure que o gerenciamento de coleta dados do Azure ou outra nuvem ou podem ser um sistema de gerenciamento alternativo que usa análise de Log tooconsolidate e analisar dados.
 
-Todos os dados no repositório do Log Analytics são armazenados como um registro com um tipo de registro específico.  Formate seus dados para enviar à API do Coletor de Dados HTTP como vários registros em JSON.  Quando você envia os dados, um registro individual é criado no repositório de cada registro no conteúdo da solicitação.
+Todos os dados no repositório de análise de Log de saudação é armazenado como um registro com um tipo de registro específico.  Você pode formatar seu toohello toosend de dados API de coletor de dados HTTP como vários registros em JSON.  Quando você envia dados hello, um registro individual é criado no repositório de saudação para cada registro na carga de solicitação de saudação.
 
 
 ![Visão geral do Coletor de Dados HTTP](media/log-analytics-data-collector-api/overview.png)
@@ -34,7 +34,7 @@ Todos os dados no repositório do Log Analytics são armazenados como um registr
 
 
 ## <a name="create-a-request"></a>Criar uma solicitação
-Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua os dados a serem enviados em JSON (JavaScript Object Notation).  As próximas três tabelas listam os atributos que são necessários para cada solicitação. Descrevemos cada atributo em mais detalhes posteriormente neste artigo.
+API de coletor de dados do toouse Olá HTTP, você criar uma solicitação POST que inclui Olá dados toosend na notação JSON (JavaScript Object).  Olá três tabelas lista Olá atributos que são necessários para cada solicitação. Descrevemos cada atributo em mais detalhes posteriormente neste artigo hello.
 
 ### <a name="request-uri"></a>URI da solicitação
 | Atributo | Propriedade |
@@ -46,30 +46,30 @@ Para usar a API do Coletor de Dados HTTP, crie uma solicitação POST que inclua
 ### <a name="request-uri-parameters"></a>Solicitar parâmetros de URI (Uniform Resource Identifier)
 | Parâmetro | Descrição |
 |:--- |:--- |
-| CustomerID |O identificador exclusivo para o espaço de trabalho do Microsoft Operations Management Suite. |
-| Recurso |O nome do recurso de API: /api/logs. |
-| Versão da API |A versão da API a ser usada com esta solicitação. Atualmente, ela é 2016-04-01. |
+| CustomerID |Olá identificador exclusivo para o espaço de trabalho do hello Microsoft Operations Management Suite. |
+| Recurso |nome do recurso Olá API: api/logs. |
+| Versão da API |versão de saudação do hello API toouse com esta solicitação. Atualmente, ela é 2016-04-01. |
 
 ### <a name="request-headers"></a>Cabeçalhos da solicitação
 | Cabeçalho | Descrição |
 |:--- |:--- |
-| Autorização |A assinatura de autorização. Posteriormente neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
-| Log-Type |Especifique o tipo de registro dos dados que estão sendo enviados. Atualmente, o tipo de log dá suporte apenas a caracteres alfa. Ele não dá suporte a caracteres alfanuméricos ou caracteres especiais. |
-| x-ms-date |A data em que a solicitação foi processada, no formato RFC 1123. |
-| time-generated-field |O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** será a hora em que a mensagem é incluída. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
+| Autorização |assinatura de autorização de saudação. Artigo hello, você pode ler sobre como cabeçalho toocreate um HMAC-SHA256. |
+| Log-Type |Especifica o tipo de registro de saudação de dados de saudação que está sendo enviados. Atualmente, o tipo de log Olá dá suporte a somente caracteres alfa. Ele não dá suporte a caracteres alfanuméricos ou caracteres especiais. |
+| x-ms-date |Data de saudação solicitação Olá foi processada, no formato RFC 1123. |
+| time-generated-field |nome de saudação de um campo nos dados de saudação que contém o carimbo de hora Olá Olá do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, Olá padrão para **TimeGenerated** é tempo de saudação que hello mensagem está incluída. conteúdo de saudação do campo de mensagem de saudação deve seguir o formato de saudação ISO 8601 aaaa-MM-ddTHH. |
 
 ## <a name="authorization"></a>Autorização
-Todas as solicitações para a API do coletor de dados HTTP do Log Analytics devem incluir um cabeçalho de autorização. Para autenticar uma solicitação, você deve assinar a solicitação com a chave primária ou secundária para o espaço de trabalho que está fazendo a solicitação. Em seguida, passe essa assinatura como parte da solicitação.   
+Qualquer API de coletor de dados de HTTP de análise de Log de toohello de solicitação deve incluir um cabeçalho de autorização. tooauthenticate uma solicitação, você deve assinar a solicitação de saudação com hello primário ou a chave secundária Olá para espaço de trabalho de saudação que está fazendo a solicitação de saudação. Em seguida, passe essa assinatura como parte da solicitação de saudação.   
 
-Aqui está o formato do cabeçalho de autorização:
+Aqui é o formato de saudação do cabeçalho de autorização de saudação:
 
 ```
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* é o identificador exclusivo para o espaço de trabalho do Operations Management Suite. *Signature* é um [HMAC (Código de Autenticação de Mensagem Baseado em Hash)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) que é construído a partir da solicitação e, em seguida, calculado usando o [algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Em seguida, você o codifica usando a codificação Base64.
+*WorkspaceID* é o identificador exclusivo de saudação do espaço de trabalho do hello Operations Management Suite. *Assinatura* é um [baseadas em Hash HMAC Message Authentication Code ()](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) que é construído a partir de solicitação hello e, em seguida, computado usando Olá [algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Em seguida, você o codifica usando a codificação Base64.
 
-Use este formato para codificar a cadeia de caracteres de assinatura **SharedKey**:
+Use este Olá tooencode de formato **SharedKey** cadeia de caracteres de assinatura:
 
 ```
 StringToSign = VERB + "\n" +
@@ -85,16 +85,16 @@ Aqui está um exemplo de uma cadeia de caracteres de assinatura:
 POST\n1024\napplication/json\nx-ms-date:Mon, 04 Apr 2016 08:00:00 GMT\n/api/logs
 ```
 
-Quando você tiver a cadeia de caracteres de assinatura, codifique-a usando o algoritmo HMAC-SHA256 na sequência de caracteres codificada em UTF-8 e codifique o resultado em Base64. Use este formato:
+Quando há uma cadeia de caracteres de assinatura hello, codificá-lo usando Olá algoritmo HMAC-SHA256 na Olá cadeia de caracteres codificados em UTF-8 e, em seguida, codificar o resultado de saudação como Base64. Use este formato:
 
 ```
 Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ```
 
-Os exemplos nas seções a seguir têm o código de exemplo para ajudá-lo a criar um cabeçalho de autorização.
+exemplos de saudação nas seções próximos Olá têm toohelp de código de exemplo, crie um cabeçalho de autorização.
 
 ## <a name="request-body"></a>Corpo da solicitação
-O corpo da mensagem deve ser em JSON. Ele deve incluir um ou mais registros com os pares de nome e valor de propriedade neste formato:
+corpo de saudação de mensagem de saudação deve estar em JSON. Ele deve incluir um ou mais registros com pares de nome e valor da propriedade Olá neste formato:
 
 ```
 {
@@ -105,7 +105,7 @@ O corpo da mensagem deve ser em JSON. Ele deve incluir um ou mais registros com 
 }
 ```
 
-Você pode criar lotes de vários registros em uma única solicitação usando o formato a seguir. Todos os registros devem ser do mesmo tipo de registro.
+Você pode processar em lotes vários registros em uma única solicitação usando Olá formato a seguir. Todos os registros de saudação devem ser Olá mesmo tipo de registro.
 
 ```
 {
@@ -123,11 +123,11 @@ Você pode criar lotes de vários registros em uma única solicitação usando o
 ```
 
 ## <a name="record-type-and-properties"></a>Propriedades e o tipo de registro
-Você define um tipo de registro personalizado ao enviar dados por meio da API do coletor de dados HTTP do Log Analytics. No momento, você não pode gravar dados em tipos de registro existentes que foram criados por outras soluções e tipos de dados. O Log Analytics lê os dados de entrada e, em seguida, cria propriedades que correspondem aos tipos de dados dos valores que você inseriu.
+Você definir um tipo de registro personalizadas ao enviar dados por meio de saudação API de coletor de dados de HTTP de análise de Log. No momento, você não pode gravar dados tooexisting tipos de registros que foram criados por outros tipos de dados e soluções. Análise de log lê os dados de entrada hello e, em seguida, cria propriedades que correspondem a tipos de dados de saudação de valores de saudação que você inserir.
 
-Cada solicitação para a API do Log Analytics deve incluir um cabeçalho **Log-Type** com o nome do tipo de registro. O sufixo **_CL** é acrescentado automaticamente ao nome inserido para distingui-lo de outros tipos de log como um log personalizado. Por exemplo, se você inserir o nome **MyNewRecordType**, o Log Analytics criará um registro com o tipo **MyNewRecordType_CL**. Isso ajuda a garantir que não haja nenhum conflito entre os nomes de tipo criados pelo usuário e aqueles fornecidos nas soluções atuais ou futuras da Microsoft.
+Cada toohello solicitação API de análise de Log deve incluir um **tipo de Log** cabeçalho com nome Olá Olá ao tipo de registro. sufixo de saudação **_CL** é acrescentada automaticamente toohello nome toodistinguish do log de outros tipos como um log personalizado. Por exemplo, se você inserir o nome da saudação **MyNewRecordType**, análise de Log cria um registro com tipo hello **MyNewRecordType_CL**. Isso ajuda a garantir que não haja nenhum conflito entre os nomes de tipo criados pelo usuário e aqueles fornecidos nas soluções atuais ou futuras da Microsoft.
 
-Para identificar o tipo de dados de uma propriedade, o Log Analytics adiciona um sufixo ao nome da propriedade. Se uma propriedade contiver um valor nulo, ela não será incluída no registro. Esta tabela lista o tipo de dados de propriedade e o sufixo correspondente:
+tooidentify de tipo de dados de uma propriedade, a análise de Log adiciona um nome de propriedade toohello sufixo. Se uma propriedade contiver um valor nulo, a propriedade de saudação não está incluída no registro. Esta tabela lista o tipo de dados de propriedade hello e sufixo correspondente:
 
 | Tipo de dados de propriedade | Suffix |
 |:--- |:--- |
@@ -137,75 +137,75 @@ Para identificar o tipo de dados de uma propriedade, o Log Analytics adiciona um
 | Data/hora |_t |
 | GUID |_g |
 
-O tipo de dados que o Log Analytics usa para cada propriedade depende de se o tipo de registro do novo registro já existe.
+tipo de dados de saudação que usa análise de Log para cada propriedade depende se o tipo de registro de saudação para novo registro de saudação já existe.
 
-* Se o tipo de registro não existir, o Log Analytics cria um novo. O Log Analytics usa a interferência de tipo JSON para determinar o tipo de dados de cada propriedade para o novo registro.
-* Se o tipo de registro existir, o Log Analytics tenta criar um novo registro com base nas propriedades existentes. Se o tipo de dados de uma propriedade no novo registro não corresponder e não puder ser convertida para o tipo existente, ou se o registro incluir uma propriedade que não existe, o Log Analytics criará uma nova propriedade que tenha o sufixo relevante.
+* Se o tipo de registro de saudação não existir, a análise de Log cria um novo. Análise de log usa Olá JSON inferência toodetermine Olá tipo de dados para cada propriedade para o novo registro de saudação.
+* Se o tipo de registro Olá existir, análise de Log tentativas toocreate um novo registro com base nas propriedades existentes. Se hello tipo de dados para uma propriedade no novo registro de saudação não corresponder e não pode ser convertido toohello existente do tipo ou se hello registro inclui uma propriedade que não existe, a análise de Log cria uma nova propriedade que tem o sufixo relevantes hello.
 
 Por exemplo, esta entrada de envio criaria um registro com três propriedades, **number_d**, **boolean_b** e **string_s**:
 
 ![Registro de exemplo 1](media/log-analytics-data-collector-api/record-01.png)
 
-Se você enviasse essa próxima entrada, com todos os valores formatados como cadeias de caracteres, as propriedades não seriam alteradas. Esses valores podem ser convertidos para tipos de dados existentes:
+Se você, em seguida, enviar essa próxima entrada, com todos os valores formatados como cadeias de caracteres, propriedades de saudação não seriam alterado. Esses valores podem ser convertidos tooexisting tipos de dados:
 
 ![Registro de exemplo 2](media/log-analytics-data-collector-api/record-02.png)
 
-Mas, se você fizesse esse próximo envio, o Log Analytics criaria as novas propriedades **boolean_d** e **string_d**. Esses valores não podem ser convertidos:
+Mas, se você fez, em seguida, o próximo envio, análise de Log cria Olá novas propriedades **boolean_d** e **string_d**. Esses valores não podem ser convertidos:
 
 ![Registro de exemplo 3](media/log-analytics-data-collector-api/record-03.png)
 
-Se você enviasse a entrada a seguir, antes de o tipo de registro ter sido criado, o Log Analytics criaria um registro com três propriedades, **number_s**, **boolean_s** e **string_s**. Nesta entrada, cada um dos valores iniciais é formatado como uma cadeia de caracteres:
+Se você, então, enviadas Olá seguinte entrada, antes de tipo de registro de saudação foi criado, a análise de Log criaria um registro com três propriedades, **núm_s**, **boolean_s**, e **string_s**. Nesta entrada, cada um dos valores de saudação inicial é formatada como uma cadeia de caracteres:
 
 ![Registro de exemplo 4](media/log-analytics-data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Limites de dados
-Há algumas restrições sobre os dados publicados na API de coleta de dados do Log Analytics.
+Há algumas restrições em torno dos dados Olá postadas toohello coleta de dados de análise de Log de API.
 
-* Máximo de 30 MB por post na API do coletor de dados do Log Analytics. Este é um limite de tamanho para um único post. Se os dados de uma única postagem excederem 30 MB, será necessário dividi-los em partes menores e enviá-los simultaneamente.
-* Limite máximo de 32 KB para valores de campo. Se o valor do campo for maior do que 32 KB, os dados serão truncados.
+* Máximo de 30 MB por post tooLog API do coletor de dados de análise. Este é um limite de tamanho para um único post. Se dados de saudação de uma postagem único que excede 30 MB, você deve dividi-Olá dados toosmaller dimensionado blocos e enviá-los simultaneamente.
+* Limite máximo de 32 KB para valores de campo. Se o valor do campo Olá é maior do que 32 KB, dados saudação serão truncados.
 * O número máximo recomendado de campos para um determinado tipo é 50. Este é um limite prático de uma perspectiva de experiência de pesquisa e usabilidade.  
 
 ## <a name="return-codes"></a>Códigos de retorno
-O código de status HTTP 200 significa que a solicitação foi recebida para processamento. Isso indica que a operação foi concluída com êxito.
+Olá o código de status HTTP 200 significa que essa solicitação Olá foi recebida para processamento. Isso indica que essa operação Olá foi concluída com êxito.
 
-Esta tabela lista o conjunto completo de códigos de status que o serviço pode retornar:
+Esta tabela lista o conjunto completo de saudação de códigos de status que serviço Olá pode retornar:
 
 | Código | Status | Código do erro | Descrição |
 |:--- |:--- |:--- |:--- |
-| 200 |OK | |A solicitação foi aceita com êxito. |
-| 400 |Solicitação incorreta |InactiveCustomer |O espaço de trabalho foi fechado. |
-| 400 |Solicitação incorreta |InvalidApiVersion |A versão da API que você especificou não foi reconhecida pelo serviço. |
-| 400 |Solicitação incorreta |InvalidCustomerId |A ID do espaço de trabalho especificada é inválida. |
-| 400 |Solicitação incorreta |InvalidDataFormat |JSON inválido foi enviado. O corpo da resposta pode conter mais informações sobre como resolver o erro. |
-| 400 |Solicitação incorreta |InvalidLogType |O tipo de log especificado continha caracteres especiais ou numéricos. |
-| 400 |Solicitação incorreta |MissingApiVersion |A versão da API não foi especificada. |
-| 400 |Solicitação incorreta |MissingContentType |O tipo de conteúdo não foi especificado. |
-| 400 |Solicitação incorreta |MissingLogType |O tipo de log de valor necessário não foi especificado. |
-| 400 |Solicitação incorreta |UnsupportedContentType |O tipo de conteúdo não foi definido como **application/json**. |
-| 403 |Proibido |InvalidAuthorization |O serviço falhou ao autenticar a solicitação. Verifique se a chave de conexão e a ID do espaço de trabalho são válidos. |
-| 404 |Não encontrado | | A URL fornecida está incorreta ou a solicitação é muito grande. |
-| 429 |Número Excessivo de Solicitações | | O serviço está recebendo um alto volume de dados da sua conta. Tente fazer novamente a solicitação. |
-| 500 |Erro interno do servidor |UnspecifiedError |O serviço encontrou um erro interno. Tente novamente a solicitação. |
-| 503 |Serviço indisponível |ServiceUnavailable |No momento, o serviço está indisponível para receber solicitações. Tente novamente a sua solicitação. |
+| 200 |OK | |solicitação de saudação aceita com êxito. |
+| 400 |Solicitação incorreta |InactiveCustomer |espaço de trabalho de saudação foi fechado. |
+| 400 |Solicitação incorreta |InvalidApiVersion |versão de API de saudação especificado não foi reconhecido pelo serviço de saudação. |
+| 400 |Solicitação incorreta |InvalidCustomerId |ID do espaço de trabalho Olá especificado é inválido. |
+| 400 |Solicitação incorreta |InvalidDataFormat |JSON inválido foi enviado. corpo da resposta Olá pode conter mais informações sobre como tooresolve Olá erro. |
+| 400 |Solicitação incorreta |InvalidLogType |tipo de log Olá especificado independentes caracteres especiais ou valores numéricos. |
+| 400 |Solicitação incorreta |MissingApiVersion |versão da API Olá não foi especificado. |
+| 400 |Solicitação incorreta |MissingContentType |tipo de conteúdo de saudação não foi especificado. |
+| 400 |Solicitação incorreta |MissingLogType |Olá necessário o tipo de valor de log não foi especificado. |
+| 400 |Solicitação incorreta |UnsupportedContentType |tipo de conteúdo de saudação não foi definido muito**aplicativo/json**. |
+| 403 |Proibido |InvalidAuthorization |solicitação de saudação tooauthenticate falha do serviço de saudação. Verifique se essa chave de ID e a conexão de espaço de trabalho Olá são válidos. |
+| 404 |Não encontrado | | Ou Olá URL fornecida está incorreta ou solicitação de saudação é muito grande. |
+| 429 |Número Excessivo de Solicitações | | serviço de saudação está apresentando um alto volume de dados de sua conta. Tente novamente a solicitação hello mais tarde. |
+| 500 |Erro interno do servidor |UnspecifiedError |serviço de saudação encontrou um erro interno. Tente novamente a solicitação de saudação. |
+| 503 |Serviço indisponível |ServiceUnavailable |Atualmente, o serviço de saudação é solicitações tooreceive não está disponível. Tente novamente a sua solicitação. |
 
 ## <a name="query-data"></a>Consultar dados
-Para consultar os dados enviados pela API do coletor de dados HTTP do Log Analytics, procure registros com **Tipo** que é igual ao valor **LogType** valor que você especificou, acrescido com **_CL**. Por exemplo, se você usou **MyCustomLog**, você poderia retornar todos os registros com **Type=MyCustomLog_CL**.
+tooquery dados enviados pelo Olá API análise de Log HTTP dados coletor, procurar registros com **tipo** que é igual toohello **LogType** valor que você especificou, concatenado com **_CL**. Por exemplo, se você usou **MyCustomLog**, você poderia retornar todos os registros com **Type=MyCustomLog_CL**.
 
 >[!NOTE]
-> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+> Se seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de análise de Log novo](log-analytics-log-search-upgrade.md), então Olá acima consulta alteraria toohello a seguir.
 
 > `MyCustomLog_CL`
 
 ## <a name="sample-requests"></a>Solicitações de exemplo
-Nas seções a seguir, você encontrará exemplos de como enviar dados para a AAPI do coletor de dados HTTP do Log Analytics usando diferentes linguagens de programação.
+Nas seções de Avançar hello, você encontrará exemplos de como toosubmit dados toohello API de coletor de dados de HTTP de análise de Log usando as linguagens de programação diferentes.
 
-Para cada exemplo, realize essas etapas para definir as variáveis para o cabeçalho de autorização:
+Para cada exemplo, siga estas etapas tooset variáveis de saudação do cabeçalho de autorização de saudação:
 
-1. No portal do Operations Management Suite, selecione o bloco **Configurações** e, em seguida, selecione a guia **Fontes Conectadas**.
-2. À direita da **ID do Espaço de Trabalho**, selecione o ícone de cópia e cole a ID como o valor da variável **Customer ID**.
-3. À direita da **Chave Primária**, selecione o ícone de cópia e cole a ID como o valor da variável **Shared Key**.
+1. No portal do Operations Management Suite hello, selecione Olá **configurações** lado a lado e, em seguida, selecione Olá **fontes conectadas** guia.
+2. toohello à direita do **ID do espaço de trabalho**, selecione o ícone para copiar Olá e, em seguida, cole a ID de hello como valor de saudação do hello **Customer ID** variável.
+3. toohello à direita do **chave primária**, selecione o ícone para copiar Olá e, em seguida, cole a ID de hello como valor de saudação do hello **chave compartilhada** variável.
 
-Como alternativa, você pode alterar as variáveis para o tipo de log e dados JSON.
+Como alternativa, você pode alterar variáveis Olá Olá tipo de log e dados JSON.
 
 ### <a name="powershell-sample"></a>Exemplo do PowerShell
 ```
@@ -215,14 +215,14 @@ $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 # Replace with your Primary Key
 $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-# Specify the name of the record type that you'll be creating
+# Specify hello name of hello record type that you'll be creating
 $LogType = "MyRecordType"
 
-# Specify a field with the created time for the records
+# Specify a field with hello created time for hello records
 $TimeStampField = "DateValue"
 
 
-# Create two records with the same set of properties to create
+# Create two records with hello same set of properties toocreate
 $json = @"
 [{  "StringValue": "MyString1",
     "NumberValue": 42,
@@ -238,7 +238,7 @@ $json = @"
 }]
 "@
 
-# Create the function to create the authorization signature
+# Create hello function toocreate hello authorization signature
 Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $method, $contentType, $resource)
 {
     $xHeaders = "x-ms-date:" + $date
@@ -256,7 +256,7 @@ Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $metho
 }
 
 
-# Create the function to create and post the request
+# Create hello function toocreate and post hello request
 Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 {
     $method = "POST"
@@ -287,7 +287,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 
 }
 
-# Submit the data to the API endpoint
+# Submit hello data toohello API endpoint
 Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
@@ -308,21 +308,21 @@ namespace OIAPIExample
         // An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField3"":""DemoValue3"",""DemoField4"":""DemoValue4""}]";
 
-        // Update customerId to your Operations Management Suite workspace ID
+        // Update customerId tooyour Operations Management Suite workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
-        // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
+        // For sharedKey, use either hello primary or hello secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
-        // LogName is name of the event type that is being submitted to Log Analytics
+        // LogName is name of hello event type that is being submitted tooLog Analytics
         static string LogName = "DemoExample";
 
-        // You can use an optional field to specify the timestamp from the data. If the time field is not specified, Log Analytics assumes the time is the message ingestion time
+        // You can use an optional field toospecify hello timestamp from hello data. If hello time field is not specified, Log Analytics assumes hello time is hello message ingestion time
         static string TimeStampField = "";
 
         static void Main()
         {
-            // Create a hash for the API signature
+            // Create a hash for hello API signature
             var datestring = DateTime.UtcNow.ToString("r");
             string stringToHash = "POST\n" + json.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
@@ -331,7 +331,7 @@ namespace OIAPIExample
             PostData(signature, datestring, json);
         }
 
-        // Build the API signature
+        // Build hello API signature
         public static string BuildSignature(string message, string secret)
         {
             var encoding = new System.Text.ASCIIEncoding();
@@ -344,7 +344,7 @@ namespace OIAPIExample
             }
         }
 
-        // Send a request to the POST API endpoint
+        // Send a request toohello POST API endpoint
         public static void PostData(string signature, string date, string json)
         {
             try
@@ -385,13 +385,13 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your Operations Management Suite workspace ID
+# Update hello customer ID tooyour Operations Management Suite workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
-# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
+# For hello shared key, use either hello primary or hello secondary Connected Sources client authentication key   
 shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-# The log type is the name of the event that is being submitted
+# hello log type is hello name of hello event that is being submitted
 log_type = 'WebMonitorTest'
 
 # An example JSON web monitor object
@@ -423,7 +423,7 @@ body = json.dumps(json_data)
 ######Functions######  
 #####################
 
-# Build the API signature
+# Build hello API signature
 def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
     x_headers = 'x-ms-date:' + date
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
@@ -433,7 +433,7 @@ def build_signature(customer_id, shared_key, date, content_length, method, conte
     authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
     return authorization
 
-# Build and send a request to the POST API
+# Build and send a request toohello POST API
 def post_data(customer_id, shared_key, body, log_type):
     method = 'POST'
     content_type = 'application/json'
@@ -460,4 +460,4 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Usar a [API da pesquisa de log](log-analytics-log-search-api.md) para recuperar dados do repositório do Log Analytics.
+- Saudação de uso [API de pesquisa de Log](log-analytics-log-search-api.md) tooretrieve dados do repositório de análise de Log de saudação.

@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao dimensionamento automático no Azure | Microsoft Docs"
-description: Saiba como dimensionar seu recurso no Azure.
+title: "aaaGet iniciado com o dimensionamento automático no Azure | Microsoft Docs"
+description: Saiba como tooscale seus recursos no Azure.
 author: rajram
 manager: rboucher
 editor: 
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: rajram
-ms.openlocfilehash: 68cb624b3ef4a77e7cfc949979e0b1949c2e5535
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6b3c3f4529018dcaf9691c538fec63dfbb3cea06
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
-Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
+Este artigo descreve como tooset suas configurações de dimensionamento automático para o recurso no portal do Microsoft Azure hello.
 
-O dimensionamento automático do Azure Monitor se aplica somente aos conjuntos de dimensionamento da máquina virtual, aos serviços de nuvem, aos planos do Serviço de Aplicativo do Azure e aos ambientes do Serviço de Aplicativo. 
+Dimensionamento automático de Monitor do Azure se aplica apenas conjuntos de escala de máquina toovirtual, serviços de nuvem, planos de serviço de aplicativo do Azure e ambientes de serviço de aplicativo. 
 
-## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Descobrir as configurações de dimensionamento automático na sua assinatura
-Você pode descobrir todos os recursos a que o dimensionamento automático se aplica no Azure Monitor. Use as etapas a seguir para obter uma explicação passo a passo:
+## <a name="discover-hello-autoscale-settings-in-your-subscription"></a>Descobrir as configurações de dimensionamento automático de saudação em sua assinatura
+Você pode descobrir todos os recursos de saudação para o qual o dimensionamento automático é aplicável no Monitor do Azure. Use Olá seguindo as etapas para obter uma explicação passo a passo:
 
-1. Abra o [Portal do Azure.][1]
-2. Clique no ícone do Azure Monitor no painel esquerdo.
+1. Olá abrir [portal do Azure.][1]
+2. Clique hello Azure ícone no painel esquerdo da saudação.
   ![Abra o Azure Monitor][2]
-3. Clique em **Dimensionamento automático** para exibir todos os recursos para os quais o dimensionamento automático é aplicável, juntamente com o status atual.
+3. Clique em **AutoEscala** tooview todos os recursos de saudação para o dimensionamento automático é aplicável, juntamente com seu status atual de dimensionamento automático.
   ![Descubra o dimensionamento automático no Azure Monitor][3]
 
-Você pode usar o painel de filtro na parte superior para reduzir o escopo da lista e selecionar recursos em um grupo de recursos específico, os tipos de recursos específicos ou um recurso específico.
+Você pode usar o painel de filtro de saudação em tooscope de saudação principais recursos de tooselect Olá lista em um grupo de recursos específicos, tipos específicos de recursos ou um recurso específico.
 
-Para cada recurso, você encontrará a contagem de instâncias atual e o status de dimensionamento automático. O status de dimensionamento automático pode ser:
+Para cada recurso, você encontrará a contagem atual de instâncias hello e status da AutoEscala hello. Olá AutoEscala status pode ser:
 
 - **Não configurado**: você ainda não habilitou o dimensionamento automático para este recurso.
 - **Habilitado**: você habilitou o dimensionamento automático para este recurso.
@@ -44,84 +44,84 @@ Para cada recurso, você encontrará a contagem de instâncias atual e o status 
 
 ## <a name="create-your-first-autoscale-setting"></a>Crie sua primeira configuração de dimensionamento automático
 
-Agora, vamos percorrer um passo a passo simples para criar sua primeira configuração de dimensionamento automático.
+Agora vamos por meio de uma simples passo toocreate sua primeira configuração de dimensionamento automático.
 
-1. Abra a folha **Dimensionamento Automático** no Azure Monitor e selecione um recurso que deseja dimensionar. (As etapas a seguir usam um plano do serviço de aplicativo associado a um aplicativo Web. Você pode [criar seu primeiro aplicativo Web ASP.NET no Azure em 5 minutos.][4])
-2. Observe que a contagem da instância atual é 1. Clique em **Habilitar dimensionamento automático**.
+1. Olá abrir **AutoEscala** folha no Monitor do Azure e selecione um recurso que você deseja tooscale. (hello etapas a seguir usam um plano de serviço de aplicativo associado a um aplicativo web. Você pode [criar seu primeiro aplicativo Web ASP.NET no Azure em 5 minutos.][4])
+2. Observe que a contagem atual de instâncias de saudação é 1. Clique em **Habilitar dimensionamento automático**.
   ![Configuração de dimensionamento para um novo aplicativo Web][5]
-3. Forneça um nome para a configuração de dimensionamento e clique em **Adicionar uma regra**. Observe as opções de regra de dimensionamento que são abertas como um painel de contexto no lado direito. Por padrão, ele define a opção de dimensionar sua contagem de instâncias em 1 se o percentual de CPU do recurso ultrapassar 70%. Deixe-o com seus valores padrão e clique em **Adicionar**.
+3. Forneça um nome para a configuração da escala hello e, em seguida, clique em **adicionar uma regra**. Observe as opções de regra de escala de saudação que são abertos como um painel de contexto Olá direita. Por padrão, isso define Olá opção tooscale sua instância de contagem em 1 se Olá percentual de CPU do recurso Olá exceder 70 por cento. Deixe-o com seus valores padrão e clique em **Adicionar**.
   ![Criar configuração dimensionamento para um aplicativo Web][6]
-4. Agora, você criou sua primeira regra de dimensionamento. Observe que o UX indica as práticas recomendadas e afirma que "É recomendável ter pelo menos uma escala na regra". Para fazer isso:
+4. Agora, você criou sua primeira regra de dimensionamento. Observe que Olá UX recomenda práticas recomendadas e declara que "é recomendável toohave pelo menos uma escala na regra." toodo para:
   
     a. Clique em **Adicionar uma Regra**. 
 
-    b. Defina **Operador** como **Menor que**.
+    b. Definir **operador** muito**menor**.
 
-    c. Defina o **Limite** como **20**.
+    c. Definir **limite** muito**20**.
 
-    d. Defina **Operação** como **Diminuir contagem por**.
+    d. Definir **operação** muito**diminuir a contagem por**.
 
    Agora, você deve ter uma configuração de dimensionamento que expande/reduz com base no uso da CPU.
    ![Dimensionamento com base na CPU][8]
 5. Clique em **Salvar**.
 
-Parabéns! Você criou com êxito sua primeira configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base no uso da CPU.
+Parabéns! Agora você já criou com êxito sua primeira tooautoscale de configuração de escala seu aplicativo web com base no uso da CPU.
 
 > [!NOTE] 
-> As mesmas etapas são aplicáveis para começar a usar uma função de serviço de nuvem ou conjunto de dimensionamento de máquinas virtuais.
+> Olá, mesmas etapas são aplicável tooget iniciado com uma escala de máquina virtual função de serviço de nuvem ou conjunto.
 
 ## <a name="other-considerations"></a>Outras considerações
 ### <a name="scale-based-on-a-schedule"></a>Dimensionamento com base em um planejamento
-Além de dimensionar com base na CPU, você também pode definir seu dimensionamento de forma diferente em dias específicos da semana.
+Além disso tooscale com base na CPU, você pode definir sua escala diferente para dias específicos da semana hello.
 
 1. Clique em **Adicionar uma condição de dimensionamento**.
-2. A configuração do modo e das regras de dimensionamento é a mesma que a da condição padrão.
-3. Selecione **Repetir dias específicos** para o agendamento.
-4. Selecione os dias e a hora de início/término em que a condição de dimensionamento deve ser aplicada.
+2. Configurando regras de modo e hello de escala de saudação é Olá mesmo como condição de padrão de saudação.
+3. Selecione **Repita dias específicos** para agendamento de saudação.
+4. Selecione os dias hello e a hora de início/término hello para quando a condição de escala Olá deve ser aplicada.
 
 ![Condição de dimensionamento com base no agendamento][9]
 ### <a name="scale-differently-on-specific-dates"></a>Dimensionar de forma diferente em datas específicas
-Além de dimensionar com base na CPU, você também pode definir seu dimensionamento de forma diferente em datas específicas.
+Além disso tooscale com base na CPU, você pode definir sua escala diferente para datas específicas.
 
 1. Clique em **Adicionar uma condição de dimensionamento**.
-2. A configuração do modo e das regras de dimensionamento é a mesma que a da condição padrão.
-3. Selecione **Especificar datas de início/término** para o agendamento.
-4. Selecione as datas e a hora de início/término em que a condição de dimensionamento deve ser aplicada.
+2. Configurando regras de modo e hello de escala de saudação é Olá mesmo como condição de padrão de saudação.
+3. Selecione **especificar datas de início/término** para agendamento de saudação.
+4. Selecione as datas de início/término hello e a hora de início/término hello para quando a condição de escala Olá deve ser aplicada.
 
 ![Condição de dimensionamento com base em datas][10]
 
-### <a name="view-the-scale-history-of-your-resource"></a>Exibir o histórico de dimensionamento de seu recurso
-Sempre que o recurso é expandido/reduzido, um evento é registrado no log de atividades. Você pode exibir o histórico de dimensionamento do seu recurso nas últimas 24 horas acessando a guia **Histórico de execução**.
+### <a name="view-hello-scale-history-of-your-resource"></a>Exibir o histórico de escala de saudação do recurso
+Sempre que o recurso é dimensionado para cima ou para baixo, um evento é registrado no log de atividades de saudação. Você pode exibir histórico de escala de saudação do recurso para Olá últimas 24 horas, alternando toohello **histórico de execução** guia.
 
 ![Histórico da execução][11]
 
-Se quiser exibir o histórico completo de dimensionamento (de até 90 dias), selecione **Clique aqui para ver mais detalhes**. O log de atividade é aberto, com Dimensionamento Automático pré-selecionado para seu recurso e categoria.
+Se você desejar tooview Olá escala completa histórico (para cima too90 dias), selecione **clique aqui toosee mais detalhes**. log de atividades de saudação é aberta, com o dimensionamento automático previamente selecionado para o recurso e categoria.
 
-### <a name="view-the-scale-definition-of-your-resource"></a>Exibir a definição de escala do seu recurso
-Dimensionamento automático é um recurso do Gerenciador de Recursos do Azure. Você pode exibir a definição de escala no JSON acessando a guia **JSON**.
+### <a name="view-hello-scale-definition-of-your-resource"></a>Exibir definição de escala de saudação do recurso
+Dimensionamento automático é um recurso do Gerenciador de Recursos do Azure. Você pode exibir a definição de escala de saudação em JSON, alternando toohello **JSON** guia.
 
 ![Definição de escala][12]
 
 Você pode fazer alterações no JSON diretamente, se necessário. Essas alterações serão refletidas depois que você as salvar.
 
 ### <a name="disable-autoscale-and-manually-scale-your-instances"></a>Desabilitar a escala automática e dimensionar suas instâncias manualmente
-Pode haver momentos em que você queira desabilitar sua configuração de dimensionamento atual e dimensionar manualmente seu recurso.
+Pode haver momentos quando desejar toodisable sua configuração atual de escala e Dimensionar manualmente o recurso.
 
-Clique no botão **Desabilitar dimensionamento automático** na parte superior.
+Clique em Olá **desabilitar dimensionamento automático** botão na parte superior da saudação.
 ![Desabilitar dimensionamento automático][13]
 
 > [!NOTE] 
-> Esta opção desabilita a sua configuração. No entanto, você pode voltar a ela depois que habilitar o Dimensionamento Automático novamente. 
+> Esta opção desabilita a sua configuração. No entanto, você pode voltar tooit depois de habilitar o dimensionamento automático novamente. 
 
-Agora, você pode definir o número de instâncias para o qual deseja dimensionar manualmente.
+Agora você pode definir número de saudação de instâncias que você deseja tooscale toomanually.
 
 ![Definir dimensionamento manual][14]
 
-Você sempre pode retornar para o dimensionamento automático clicando em **Habilitar dimensionamento automático** e **Salvar**.
+Você sempre pode retornar tooAutoscale clicando **habilitar a AutoEscala** e **salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Criar um alerta de Log da atividade toomonitor todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Criar um alerta de Log da atividade toomonitor todas as falhas operações de escala-em/expansão de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 
 <!--Reference-->
 [1]:https://portal.azure.com

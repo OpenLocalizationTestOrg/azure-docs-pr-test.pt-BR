@@ -1,6 +1,6 @@
 ---
-title: "Configurar o Diagnóstico do Azure para enviar dados ao Application Insights | Microsoft Docs"
-description: "Atualize a configuração pública do Diagnóstico do Azure para enviar dados ao Application Insights."
+title: "aaaConfigure diagnóstico do Azure toosend dados tooApplication Insights | Microsoft Docs"
+description: "Atualize Olá diagnóstico do Azure configuração pública toosend dados tooApplication Insights."
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: 67dc2d5bbfa2012e4e098616edda593d023c4c1e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7c36f29da8fdc12fa58c17458348a311b900b0f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico do Serviço de Nuvem, da máquina virtual ou do Service Fabric ao Application Insights
-Serviços de nuvem, máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e o Service Fabric usam a extensão do Diagnóstico do Azure para coletar dados.  O Diagnóstico do Azure envia dados às tabelas do Armazenamento do Azure.  No entanto, também é possível redirecionar todos os dados, ou um subconjunto deles, para outros locais usando a extensão do Diagnóstico do Azure 1.5 ou posterior.
+# <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-tooapplication-insights"></a>Enviar dados de diagnóstico de serviço de nuvem, Máquina Virtual ou do Service Fabric tooApplication Insights
+Serviços de nuvem, máquinas virtuais, conjuntos de escala de máquinas virtuais e Service Fabric saudação de uso de todos os dados de toocollect de extensão de diagnóstico do Azure.  Diagnóstico do Azure envia dados tooAzure tabelas de armazenamento.  No entanto, você também pode pipe todos ou um subconjunto Olá tooother de locais de dados usando a extensão de diagnóstico do Azure 1.5 ou posterior.
 
-Este artigo descreve como enviar dados da extensão do Diagnóstico do Azure para o Application Insights.
+Este artigo descreve como dados toosend Olá tooApplication de extensão de diagnóstico do Azure Insights.
 
 ## <a name="diagnostics-configuration-explained"></a>Explicação da configuração do Diagnóstico
-A extensão do Diagnóstico do Azure 1.5 introduziu coletores, que são locais adicionais para os quais você pode enviar dados de diagnóstico.
+Olá Coletores de extensão 1.5 introduzida o diagnóstico do Azure, que são locais adicionais, onde você pode enviar dados de diagnóstico.
 
 Exemplo de configuração de um coletor para o Application Insights:
 
@@ -63,40 +63,40 @@ Exemplo de configuração de um coletor para o Application Insights:
     ]
 }
 ```
-- O atributo **Sink** *name* é um valor de cadeia de caracteres que identifica exclusivamente o coletor.
+- Olá **coletor** *nome* atributo é um valor de cadeia de caracteres que identifica exclusivamente o coletor de saudação.
 
-- O elemento **ApplicationInsights** especifica a chave de instrumentação do recurso do Application Insights para onde os dados do Diagnóstico do Azure são enviados.
-    - Se você não tiver um recurso existente do Application Insights, confira [Criar um novo recurso do Application Insights](../application-insights/app-insights-create-new-resource.md) para saber mais sobre como criar um recurso e obter a chave de instrumentação.
-    - Se você estiver desenvolvendo um Serviço de Nuvem com o Azure SDK 2.8 e posterior, essa chave de instrumentação é preenchida automaticamente. O valor tem base na configuração do serviço **APPINSIGHTS_INSTRUMENTATIONKEY** ao empacotar o projeto de Serviço de Nuvem. Confira [Usar o Application Insights com o Diagnóstico do Azure para solucionar problemas do Serviço de Nuvem](../cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
+- Olá **ApplicationInsights** elemento Especifica a chave de instrumentação da saudação onde Olá dados de diagnóstico do Azure é enviado do recurso do Application insights.
+    - Se você não tiver um recurso existente do Application Insights, consulte [criar um novo recurso do Application Insights](../application-insights/app-insights-create-new-resource.md) para obter mais informações sobre como criar um recurso e obter a chave de instrumentação hello.
+    - Se você estiver desenvolvendo um Serviço de Nuvem com o Azure SDK 2.8 e posterior, essa chave de instrumentação é preenchida automaticamente. valor Olá baseia-se a saudação **APPINSIGHTS_INSTRUMENTATIONKEY** configuração de serviço ao empacotar um projeto de serviço de nuvem hello. Consulte [problemas de serviço de nuvem Use Application Insights com o diagnóstico do Azure tootroubleshoot](../cloud-services/cloud-services-dotnet-diagnostics-applicationinsights.md).
 
-- O elemento **Channels** contém um ou mais elementos **Channel**.
-    - O atributo *name* refere-se exclusivamente a esse canal.
-    - O atributo *loglevel* permite que você especifique o nível de log permitido pelo canal. Os níveis de log disponíveis, organizados do que contém mais para o que contém menos informações, são:
+- Olá **canais** elemento contém um ou mais **Channel** elementos.
+    - Olá *nome* exclusivamente refere-se o atributo toothat canal.
+    - Olá *loglevel* atributo permite que você especifique o nível de log Olá Olá canal permite. Olá níveis de log disponíveis na ordem da maioria das informações de tooleast são:
         - Detalhado
         - Informações
         - Aviso
         - Erro
         - Crítico
 
-Um canal funciona como um filtro e permite que você selecione níveis de log específicos para enviar ao coletor de destino. Por exemplo, você poderia coletar logs detalhados e enviá-los ao armazenamento, mas enviar apenas os Erros ao coletor.
+Um canal atua como um filtro e permite que você tooselect log específico níveis toosend toohello destino coletor. Por exemplo, você pode coletar logs detalhados e enviá-los toostorage, mas enviar somente coletor de toohello de erros.
 
-O gráfico a seguir mostra essa relação.
+Olá gráfico a seguir mostra essa relação.
 
 ![Configuração pública do Diagnóstico](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
 
-O gráfico a seguir resume os valores de configuração e como eles funcionam. Você pode incluir vários coletores na configuração em diferentes níveis na hierarquia. O coletor no nível superior atua como uma configuração global, e o especificado no elemento individual atua como uma substituição daquela configuração global.
+Olá gráfico a seguir resume os valores de configuração hello e como elas funcionam. Você pode incluir vários coletores na configuração de saudação em diferentes níveis na hierarquia de saudação. Olá coletor no nível superior Olá atua como uma configuração global e hello um especificado em Olá individual elemento age como uma configuração global de toothat de substituição.
 
 ![Configuração dos coletores de diagnóstico com o Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
 
 ## <a name="complete-sink-configuration-example"></a>Exemplo de configuração completa do coletor
-Veja um exemplo completo do arquivo de configuração pública que
-1. envia todos os erros ao Application Insights (especificado no nó **DiagnosticMonitorConfiguration**)
-2. também envia logs de nível Detalhado para os Logs do Aplicativo (especificado no nó **Logs**).
+Aqui está um exemplo completo de configuração pública Olá arquivo
+1. envia todos os erros tooApplication Insights (especificado no hello **DiagnosticMonitorConfiguration** nó)
+2. também envia logs detalhados de nível para Olá Logs de aplicativo (especificado no hello **Logs** nó).
 
 ```XML
 <WadCfg>
   <DiagnosticMonitorConfiguration overallQuotaInMB="4096"
-       sinks="ApplicationInsights.MyTopDiagData"> <!-- All info below sent to this channel -->
+       sinks="ApplicationInsights.MyTopDiagData"> <!-- All info below sent toothis channel -->
     <DiagnosticInfrastructureLogs />
     <PerformanceCounters>
       <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" />
@@ -106,7 +106,7 @@ Veja um exemplo completo do arquivo de configuração pública que
       <DataSource name="Application!*" />
     </WindowsEventLog>
     <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose"
-            sinks="ApplicationInsights.MyLogData"/> <!-- This specific info sent to this channel -->
+            sinks="ApplicationInsights.MyLogData"/> <!-- This specific info sent toothis channel -->
   </DiagnosticMonitorConfiguration>
 
 <SinksConfig>
@@ -124,7 +124,7 @@ Veja um exemplo completo do arquivo de configuração pública que
 "WadCfg": {
     "DiagnosticMonitorConfiguration": {
         "overallQuotaInMB": 4096,
-        "sinks": "ApplicationInsights.MyTopDiagData", "_comment": "All info below sent to this channel",
+        "sinks": "ApplicationInsights.MyTopDiagData", "_comment": "All info below sent toothis channel",
         "DiagnosticInfrastructureLogs": {
         },
         "PerformanceCounters": {
@@ -150,7 +150,7 @@ Veja um exemplo completo do arquivo de configuração pública que
         "Logs": {
             "scheduledTransferPeriod": "PT1M",
             "scheduledTransferLogLevelFilter": "Verbose",
-            "sinks": "ApplicationInsights.MyLogData", "_comment": "This specific info sent to this channel"
+            "sinks": "ApplicationInsights.MyLogData", "_comment": "This specific info sent toothis channel"
         }
     },
     "SinksConfig": {
@@ -175,9 +175,9 @@ Veja um exemplo completo do arquivo de configuração pública que
     }
 }
 ```
-Na configuração anterior, as linhas a seguir apresentam estes significados:
+Configuração anterior do hello, Olá linhas a seguir têm Olá significados a seguir:
 
-### <a name="send-all-the-data-that-is-being-collected-by-azure-diagnostics"></a>Enviar todos os dados que estão sendo coletados pelo Diagnóstico do Azure
+### <a name="send-all-hello-data-that-is-being-collected-by-azure-diagnostics"></a>Enviar todos os dados de saudação que estão sendo coletados pelo diagnóstico do Azure
 
 ```XML
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
@@ -189,7 +189,7 @@ Na configuração anterior, as linhas a seguir apresentam estes significados:
 }
 ```
 
-### <a name="send-only-error-logs-to-the-application-insights-sink"></a>Enviar somente logs de erro para o coletor do Application Insights
+### <a name="send-only-error-logs-toohello-application-insights-sink"></a>Enviar somente logs toohello Application Insights coletor de erros
 
 ```XML
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
@@ -201,7 +201,7 @@ Na configuração anterior, as linhas a seguir apresentam estes significados:
 }
 ```
 
-### <a name="send-verbose-application-logs-to-application-insights"></a>Enviar logs de aplicativo Detalhados para o Application Insights
+### <a name="send-verbose-application-logs-tooapplication-insights"></a>Enviar logs de aplicativo detalhado tooApplication Insights
 
 ```XML
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
@@ -216,10 +216,10 @@ Na configuração anterior, as linhas a seguir apresentam estes significados:
 ## <a name="limitations"></a>Limitações
 
 - **Os canais só registro o tipo e não contadores de desempenho.** Se você especificar um canal com um elemento contador de desempenho, ele será ignorado.
-- **O nível de log para um canal não pode exceder o nível de log do que está sendo coletado pelo Diagnóstico do Azure** Por exemplo: não é possível coletar erros do Log de Aplicativo no elemento Logs e tentar enviar logs Detalhados ao coletor do Application Insights. O atributo *scheduledTransferLogLevelFilter* sempre deve coletar uma quantidade igual ou maior de logs que a quantidade de logs que você está tentando enviar para um coletor.
-- **Não é possível enviar dados de blob coletados pela extensão do Diagnóstico do Azure ao Application Insights.** Por exemplo, qualquer coisa especificada no nó *Diretórios*. No caso de Despejos de Memória, o despejo de memória real é enviado ao armazenamento de blobs, e somente uma notificação da geração do despejo é enviada ao Application Insights.
+- **nível de log Olá para um canal não pode exceder o nível de log Olá para o que está sendo coletado pelo diagnóstico do Azure.** Por exemplo, você não pode coletar erros do Log de aplicativo no elemento de Logs hello e tente toosend logs detalhados toohello Application Insight coletor. Olá *scheduledTransferLogLevelFilter* atributo sempre deve coletar igual ou mais logs de saudação logs que você estão tentando toosend tooa coletor.
+- **Você não pode enviar dados blob coletados pelo diagnóstico do Azure extensão tooApplication Insights.** Por exemplo, nada especificado em Olá *diretórios* nó. Despejos de memória Olá real despejo de memória é enviado tooblob armazenamento e apenas uma notificação que Olá despejo de memória foi gerada é enviada tooApplication Insights.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [exibir as informações de diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) no Application Insights.
-* Use o [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) para habilitar a extensão do Diagnóstico do Azure para seu aplicativo.
-* Use o [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) para habilitar a extensão do Diagnóstico do Azure para seu aplicativo
+* Saiba como muito[exibir suas informações de diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) no Application Insights.
+* Use [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) tooenable Olá extensão de diagnóstico do Azure para seu aplicativo.
+* Use [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) tooenable Olá extensão de diagnóstico do Azure para seu aplicativo

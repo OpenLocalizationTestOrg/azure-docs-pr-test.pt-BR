@@ -1,6 +1,6 @@
 ---
 title: " Gerenciar um servidor de processo em execução em Azure(Classic) | Microsoft Docs"
-description: Este artigo descreve como configurar um failback Server(Classic) do processo no Azure.
+description: Este artigo descreve como tooset backup um failback Server(Classic) do processo no Azure.
 services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: 479bbd207bcf715138c340f9e4d2634120bab85c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eadcc0236c77c9ebbbc885c4a7ee81098f1f4e72
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-a-process-server-running-in-azure-classic"></a>Gerenciar um servidor de processo em execução no Azure (clássico)
 > [!div class="op_single_selector"]
 > * [Azure Clássico ](./site-recovery-vmware-setup-azure-ps-classic.md)
 > * [Gerenciador de Recursos](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 
-Durante o failback, é recomendável implantar o servidor de processo no Azure se houver alta latência entre a rede Virtual do Azure e sua rede local. Este artigo descreve como você pode definir, configurar e gerenciar os servidores de processo em execução no Azure.
+Durante o failback, é recomendável toodeploy servidor de processo no Azure se houver alta latência entre hello rede Virtual do Azure e sua rede local. Este artigo descreve como você pode configurar, configurar e gerenciar servidores de processo Olá em execução no Azure.
 
 > [!NOTE]
-> Use este artigo se você tiver utilizado o Classic como o modelo de implantação para as máquinas virtuais durante o failover. Se você usou o Gerenciador de Recursos como o modelo de implantação, siga as etapas em [Como configurar um servidor de processo de Failback (Gerenciador de recursos)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
+> Este artigo é toobe usado se você usou clássico como modelo de implantação de saudação para máquinas virtuais de saudação durante o failover. Se você usou o Gerenciador de recursos como Olá implantação modelo siga Olá etapas [como tooset up e configurar um servidor de processo de Failback (Gerenciador de recursos)](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,27 +36,27 @@ Durante o failback, é recomendável implantar o servidor de processo no Azure s
 
 ## <a name="deploy-a-process-server-on-azure"></a>Implantar um Servidor de Processos no Azure
 
-1. No Azure Marketplace, criar uma máquina virtual usando o **servidor Microsoft Azure Site Recovery processo V2** </br>
+1. No Azure Marketplace, criar uma máquina virtual usando Olá **V2 de servidor do Microsoft Azure Site Recovery processo** </br>
     ![Marketplace_image_1](./media/site-recovery-vmware-setup-azure-ps-classic/marketplace-ps-image.png)
-2. Certifique-se de que você selecione o modelo de implantação como **clássico** </br>
+2. Certifique-se de que você selecione o modelo de implantação hello como **clássico** </br>
   ![Marketplace_image_2](./media/site-recovery-vmware-setup-azure-ps-classic/marketplace-ps-image-classic.png)
-3. No assistente criar máquina virtual > configurações básicas, certifique-se de selecionar a assinatura e o local para onde foi feito o failover de máquinas virtuais.</br>
+3. No Assistente de máquina virtual de criar hello > configurações básicas, certifique-se de selecionar Olá toowhere assinatura e local de failover de máquinas virtuais de saudação.</br>
   ![create_image_1](./media/site-recovery-vmware-setup-azure-ps-classic/azureps-classic-basic-info.png)
-4. Verifique se a máquina virtual está conectada à rede Virtual do Azure ao qual a falha pela máquina virtual está conectado.</br>
+4. Certifique-se de que a máquina virtual hello está conectada Olá de toowhich de rede Virtual do Azure toohello failover da máquina virtual está conectado.</br>
   ![create_image_2](./media/site-recovery-vmware-setup-azure-ps-classic/azureps-classic-settings.png)
-5. Depois de máquina virtual do servidor de processo é configurada, você precisa entrar e registrá-lo com o servidor de configuração.
+5. Depois que a máquina de virtual do servidor de processo Olá é provisionada, você precisa toolog no e registrá-lo com hello servidor de configuração.
 
 > [!NOTE]
-> Para poder usar este servidor de processo para failback, você precisa registrá-lo com o servidor de configuração local.
+> toouse capaz de toobe este servidor de processo para failback, você precisa tooregistê-lo com o servidor de configuração local hello.
 
-## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>Registrando o servidor de processo (em execução no Azure) para um servidor de configuração (em execução local)
+## <a name="registering-hello-process-server-running-in-azure-tooa-configuration-server-running-on-premises"></a>Saudação (em execução no Azure) do servidor de processo tooa (executado no local) do servidor de configuração de registro
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 
-## <a name="upgrading-the-process-server-to-latest-version"></a>Atualizar o servidor de processo para a versão mais recente.
+## <a name="upgrading-hello-process-server-toolatest-version"></a>Saudação do servidor em processo toolatest a versão da atualização.
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-upgrade-process-server.md)]
 
-## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Cancelando o registro de servidor de processo (em execução no Azure) de um servidor de configuração (em execução local)
+## <a name="unregistering-hello-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Olá Cancelando o registro do servidor de processo (em execução no Azure) de um servidor de configuração (executado no local)
 
 [!INCLUDE [site-recovery-vmware-upgrade-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]

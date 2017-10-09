@@ -1,6 +1,6 @@
 ---
-title: "Usar o Hive do Hadoop no Console de Consulta no HDInsight – Azure | Microsoft Docs"
-description: "Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop por meio do seu navegador."
+title: aaaUse Hive do Hadoop no hello Console de consulta no HDInsight - Azure | Microsoft Docs
+description: "Saiba como toouse Olá baseado na web Console de consulta toorun consultas de Hive em um HDInsight Hadoop do cluster de seu navegador."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,35 +16,35 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9ccac43ae365d79bfd6ac1edf4d9a799c11356a1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 621882082c9a07655d34b8dc980b8e47dd04b745
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>Executar consultas Hive usando o Console de Consulta
+# <a name="run-hive-queries-using-hello-query-console"></a>Executar consultas de Hive usando Olá Console de consulta
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Neste artigo, você aprenderá como usar o Console de Consulta do HDInsight para executar consultas do Hive em um cluster HDInsight Hadoop pelo seu navegador.
+Neste artigo, você aprenderá como consultas de Hive toouse Olá Console de consulta do HDInsight toorun em um HDInsight Hadoop do cluster de seu navegador.
 
 > [!IMPORTANT]
-> O Console de Consulta do HDInsight está disponível somente em clusters HDInsight baseados no Windows. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Olá HDInsight consulta Console só está disponível em clusters HDInsight baseados no Windows. Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > Para HDInsight 3.4 ou superior, confira [Executar consultas do Hive no Modo de Exibição Hive do Ambari](hdinsight-hadoop-use-hive-ambari-view.md) para obter informações sobre como executar consultas do Hive em um navegador da Web.
 
 ## <a id="prereq"></a>Pré-requisitos
-Para concluir as etapas neste artigo, você precisará do seguinte.
+toocomplete Olá etapas neste artigo, você precisará seguir hello.
 
 * Um cluster Hadoop do HDInsight baseado no Windows
 * Um navegador da Web
 
-## <a id="run"></a> Executar consultas Hive usando o Console de Consulta
-1. Abra um navegador da Web, navegue até **https://CLUSTERNAME.azurehdinsight.net**, onde **CLUSTERNAME** é o nome do seu cluster HDInsight. Se solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
-2. Nos links na parte superior da página, selecione **Editor Hive**. Isso exibe um formulário que pode ser usado para inserir instruções HiveQL que você deseja executar no cluster HDInsight.
+## <a id="run"></a>Executar consultas de Hive usando Olá Console de consulta
+1. Abra um navegador da web e navegue muito**https://CLUSTERNAME.azurehdinsight.net**, onde **CLUSTERNAME** é o nome de saudação do cluster HDInsight. Quando solicitado, insira o nome de usuário de saudação e a senha que você usou quando criou o cluster hello.
+2. Links de saudação na parte superior de saudação da página hello, selecione **Editor Hive**. Exibe um formulário que pode ser usado tooenter Olá HiveQL instruções que você deseja toorun no cluster do HDInsight hello.
 
-    ![o editor de hive](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
+    ![editor de hive Olá](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
 
-    Substitua o texto `Select * from hivesampletable` pelas seguintes instruções HiveQL:
+    Substitua o texto de saudação `Select * from hivesampletable` com hello HiveQL instruções a seguir:
 
         set hive.execution.engine=tez;
         DROP TABLE log4jLogs;
@@ -53,28 +53,28 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    As instruções executam as seguintes ações:
+    Essas instruções executam Olá ações a seguir:
 
-   * **DROP TABLE**: exclui a tabela e o arquivo de dados, caso a tabela já exista.
-   * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. As tabelas externas armazenam apenas a definição da tabela no Hive; os dados são deixados no local original.
+   * **DROP TABLE**: exclui a tabela hello e arquivo de dados de saudação se Olá tabela já existir.
+   * **CREATE EXTERNAL TABLE**: cria uma nova tabela “externa” em Hive. Tabelas externas armazenam a definição da tabela Olá somente no Hive; dados de saudação são deixados no local original hello.
 
      > [!NOTE]
-     > As tabelas externas devem ser usadas quando você espera que os dados subjacentes sejam atualizados por uma fonte externa (como um processo automático de carregamento de dados) ou por outra operação MapReduce, mas você sempre quer que as consultas Hive utilizem os dados mais recentes.
+     > Tabelas externas devem ser usadas quando você espera Olá subjacente toobe dados atualizado por uma origem externa (como um processo de carregamento de dados automatizado) ou por outra operação de MapReduce, mas convém sempre ter que dados mais recentes do toouse Olá de consultas de Hive.
      >
-     > Remover uma tabela externa **não** exclui os dados, somente a definição de tabela.
+     > Descartar uma tabela externa **não** excluir dados hello, definição de tabela Olá somente.
      >
      >
-   * **ROW FORMAT**: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
-   * **STORED AS TEXTFILE LOCATION**: informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto
-   * **SELECT**: seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
-   * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
-3. Clique em **Enviar**. A **Sessão de Trabalho** na parte inferior da página deve exibir detalhes do trabalho.
-4. Quando o campo **Status** for alterado para **Concluído**, selecione **Exibir Detalhes** do trabalho. Na página de detalhes, a **Saída de Trabalho** contém `[ERROR]    3`. Você pode usar o botão **Download** abaixo desse campo para baixar um arquivo que contém a saída do trabalho.
+   * **FORMATO de linha**: informa ao Hive como Olá dados são formatados. Nesse caso, os campos de saudação em cada log são separados por um espaço.
+   * **LOCAL de arquivo de texto como armazenados**: informa ao Hive onde dados saudação são armazenado (diretório de exemplo de dados de saudação) e que ela é armazenada como texto
+   * **Selecione**: selecione uma contagem de todas as linhas em que coluna **t4** conter valor Olá **[Erro]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
+   * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe Olá toohello sample.log arquivo de pesquisa contém dados saudação e evita que ele retornando dados de exemplo de outros arquivos de dados que não correspondem ao esquema Olá definimos.
+3. Clique em **Enviar**. Olá **sessão de trabalho** em Olá parte inferior da página de saudação deve exibir os detalhes do trabalho de saudação.
+4. Olá quando **Status** campo alterações muito**concluído**, selecione **exibir detalhes** para trabalho hello. Na página de detalhes do hello, Olá **saída de trabalho** contém `[ERROR]    3`. Você pode usar o hello **baixar** botão em toodownload esse campo em um arquivo que contém a saída de saudação do trabalho de saudação.
 
 ## <a id="summary"></a>Resumo
-Como você pode ver, o Console de Consulta fornece uma maneira fácil de executar consultas do Hive em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
+Como você pode ver, Olá Console de consulta fornece uma maneira fácil toorun consultas de Hive em um cluster HDInsight, monitorar o status do trabalho hello e recuperar a saída de hello.
 
-Para saber mais sobre o Hive usando o Console de Consulta para executar trabalhos Hive, selecione **Introdução** na parte superior do Console de Consulta e use os exemplos fornecidos. Cada exemplo percorre o processo de análise de dados usando o Hive, incluindo explicações sobre as instruções HiveQL usadas no exemplo.
+toolearn mais sobre como usar trabalhos do Console de consulta de Hive toorun Hive, selecione **Introdução** na parte superior de saudação do hello Console de consulta, em seguida, usar exemplos Olá fornecidos. Cada exemplo orienta pelo processo de saudação do uso de Hive tooanalyze dados, incluindo explicações sobre as instruções de HiveQL Olá usadas no exemplo hello.
 
 ## <a id="nextsteps"></a>Próximas etapas
 Para obter informações gerais sobre o Hive no HDInsight:
@@ -86,10 +86,10 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-Se você estiver usando o Tez com o Hive, consulte os seguintes documentos para as informações de depuração:
+Se você estiver usando Tez com Hive, consulte Olá documentos para as informações de depuração a seguir:
 
-* [Usar a interface de usuário do Tez no HDInsight baseado em Windows](hdinsight-debug-tez-ui.md)
-* [Usar a exibição de Ambari Tez no HDInsight baseado em Linux](hdinsight-debug-ambari-tez-view.md)
+* [Use Olá Tez UI no HDInsight baseados no Windows](hdinsight-debug-tez-ui.md)
+* [Use Olá exibição Ambari Tez no HDInsight baseados em Linux](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 

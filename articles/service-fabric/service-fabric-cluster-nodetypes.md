@@ -1,6 +1,6 @@
 ---
-title: "Tipos de nós do Service Fabric e Conjuntos de Dimensionamento de VMs | Microsoft Docs"
-description: "Descreve como os tipos de nó do Service Fabric se relacionam com os conjuntos de escala da VM e como fazer a conexão remota com uma instância de conjunto de escala da VM ou um nó de cluster."
+title: "aaaService malha tipos de nó e conjuntos de escala de VM | Microsoft Docs"
+description: "Descreve como os tipos de nós do Service Fabric se relacionam tooVM conjuntos de escala e como tooremote conecte-se a instância de conjunto de escala de tooa ou um nó de cluster."
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: chackdan
-ms.openlocfilehash: 3b1a22bb3653abb68fc73645ad2cb623fabc7736
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 830ea2816f5864de146a77483c85de26f91c2425
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="the-relationship-between-service-fabric-node-types-and-virtual-machine-scale-sets"></a>A relação entre os tipos de nó do Service Fabric e os conjuntos de escala da máquina virtual
-Os conjuntos de dimensionamento de máquina virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric é configurado como um Conjunto de Escala de VM separado. Cada tipo de nó pode ser escalado verticalmente para cima ou para baixo de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente.
+# <a name="hello-relationship-between-service-fabric-node-types-and-virtual-machine-scale-sets"></a>relação de saudação entre tipos de nós do Service Fabric e conjuntos de escala de máquinas virtuais
+Conjuntos de escala de máquinas virtuais são um recurso de computação do Azure, você pode usar toodeploy e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric é configurado como um Conjunto de Escala de VM separado. Cada tipo de nó pode ser escalado verticalmente para cima ou para baixo de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferente.
 
-A captura de tela abaixo mostra um cluster com dois tipos de nó: FrontEnd e BackEnd.  Cada tipo de nó tem cinco nós.
+Olá captura de tela a seguir mostra um cluster que tem dois tipos de nó: front-end e back-end.  Cada tipo de nó tem cinco nós.
 
 ![Captura de tela de um cluster com dois tipos de nó][NodeTypes]
 
-## <a name="mapping-vm-scale-set-instances-to-nodes"></a>Mapeando instâncias de conjunto de escala de VM para nós
-Como você pode ver acima, as instâncias de conjunto de escala da VM começam da instância 0 e vão subindo. A numeração está refletida nos nomes. Por exemplo, BackEnd_0 é a instância 0 do conjunto de dimensionamento da VM de BackEnd. Esse conjunto de escala da VM específico tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
+## <a name="mapping-vm-scale-set-instances-toonodes"></a>Mapeamento de conjunto de escala de VM toonodes de instâncias
+Como você pode ver acima, Olá conjunto de escala de VM iniciar instâncias de instância 0 e, em seguida, aumenta. Olá numeração é refletido nos nomes de saudação. Por exemplo, BackEnd_0 é instância 0 da saudação conjunto de escala de VM back-end. Esse conjunto de escala da VM específico tem cinco instâncias, chamadas BackEnd_0, BackEnd_1, BackEnd_2, BackEnd_3 e BackEnd_4.
 
-Quando você escala um conjunto de escala de VM verticalmente, uma nova instância é criada. O novo nome da instância do conjunto de escala da VM geralmente será o nome do conjunto de escala da VM mais o número de instância seguinte. Em nosso exemplo, é BackEnd_5.
+Quando você escala um conjunto de escala de VM verticalmente, uma nova instância é criada. Olá novo conjunto de escala de VM nome da instância normalmente é nome do conjunto de escala de VM Olá + próximo número de instância hello. Em nosso exemplo, é BackEnd_5.
 
-## <a name="mapping-vm-scale-set-load-balancers-to-each-node-typevm-scale-set"></a>Mapeamento de balanceadores de carga de conjunto de escala da VM para cada tipo de nó/conjunto de escala da VM
-Se você tiver implantado o cluster do portal ou usado o modelo do Resource Manager de exemplo que fornecemos, quando obtiver uma lista de todos os recursos em um Grupo de Recursos, verá os balanceadores de carga para cada tipo de nó ou Conjunto de Escala de VM.
+## <a name="mapping-vm-scale-set-load-balancers-tooeach-node-typevm-scale-set"></a>Mapeamento de VM carregar o conjunto de escala balanceadores tooeach nó tipo VM conjunto de escala
+Se você tiver implantado o cluster do portal de saudação ou ter usado o modelo de Gerenciador de recursos do exemplo hello fornecemos, em seguida, quando você obter uma lista de todos os recursos em um grupo de recursos, em seguida, você verá balanceadores de carga Olá para cada tipo de conjunto de escala de VM ou nó.
 
-O nome seria algo como: **LB-&lt;nome do NodeType&gt;**. Por exemplo, LB-sfcluster4doc-0, conforme mostrado nesta captura de tela:
+Olá nome seria algo como: **LB -&lt;nome de NodeType&gt;**. Por exemplo, LB-sfcluster4doc-0, conforme mostrado nesta captura de tela:
 
 ![Recursos][Resources]
 
-## <a name="remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node"></a>Conexão remota a uma instância de conjunto de escala da VM ou a um nó de cluster
-Cada tipo de Nó definido em um cluster é configurado como um Conjunto de Escala de VM separado.  Isso significa que os tipos de nó podem ser escalados verticalmente para cima ou para baixo de forma independente e podem ser compostos por diferentes SKUs de VM. Ao contrário das máquinas virtuais de instância única, as instâncias de conjunto de escala da VM não recebem um endereço IP virtual próprio. Assim, pode ser complicado procurar um endereço IP e uma porta que você queira usar para fazer a conexão remota com uma instância específica.
+## <a name="remote-connect-tooa-vm-scale-set-instance-or-a-cluster-node"></a>Conexão remota tooa instância de conjunto de escala de VM ou um nó de cluster
+Cada tipo de Nó definido em um cluster é configurado como um Conjunto de Escala de VM separado.  Significa Olá tipos de nó pode ser dimensionada para cima ou independentemente e podem ser feitas de SKUs de VM diferente. Ao contrário de única instância VMs, instâncias de conjunto de escala de VM Olá não obtém um endereço IP virtual de seus próprios. Para que ele possa ser um pouco difícil quando você estiver procurando um IP endereço e porta que você pode usar tooremote conectarem instância específica do tooa.
 
-Aqui estão as etapas que você pode seguir para descobri-los.
+Aqui estão Olá etapas que você pode seguir toodiscovê-los.
 
-### <a name="step-1-find-out-the-virtual-ip-address-for-the-node-type-and-then-inbound-nat-rules-for-rdp"></a>Etapa 1: descobrir o endereço IP virtual do tipo de nó e as regras NAT de entrada para RDP
-Para obtê-lo, você precisa obter os valores de regras NAT de entrada definidos como parte da definição de recurso para **Microsoft.Network/loadBalancers**.
+### <a name="step-1-find-out-hello-virtual-ip-address-for-hello-node-type-and-then-inbound-nat-rules-for-rdp"></a>Etapa 1: Localizar o endereço IP virtual Olá para o tipo de nó hello e, em seguida, regras de NAT de entrada para RDP
+Em ordem tooget, é necessária tooget Olá NAT de entrada regras valores que foram definidos como parte da definição de recurso Olá para **Microsoft.Network/loadBalancers**.
 
-No portal, navegue até a folha Balanceador de carga e então até **Configurações**.
+No portal de hello, navegue até toohello folha de Balanceador de carga e, em seguida, **configurações**.
 
 ![LBBlade][LBBlade]
 
-Em **Configurações**, clique em **Regras NAT de entrada**. Isso lhe dá o endereço IP e a porta que você pode usar para fazer a conexão remota com a instância de conjunto de escala da VM. Na captura de tela a seguir, é **104.42.106.156** e **3389**
+Em **Configurações**, clique em **Regras NAT de entrada**. Agora fornece Olá endereço IP e porta que você pode usar tooremote conectar toohello primeira instância do conjunto de escala de VM. Olá captura de tela abaixo, é **104.42.106.156** e **3389**
 
 ![NATRules][NATRules]
 
-### <a name="step-2-find-out-the-port-that-you-can-use-to-remote-connect-to-the-specific-vm-scale-set-instancenode"></a>Etapa 2: descobrir a porta que você pode usar para fazer conexão remota com o nó/instância do conjunto de escala de VM específico
-Neste documento, falei sobre como as instâncias de escala da VM mapeiam para os nós. Nós usaremos isso para descobrir a porta exata.
+### <a name="step-2-find-out-hello-port-that-you-can-use-tooremote-connect-toohello-specific-vm-scale-set-instancenode"></a>Etapa 2: Descobrir porta Olá que você pode usar tooremote conectar toohello conjunto de escala de VM instância/nó específico
+No início deste documento, eu falou sobre como instâncias de conjunto de escala de VM Olá mapeiam toohello nós. Usaremos esse toofigure porta exata Olá de saída.
 
-As portas são alocadas em ordem crescente de instância do Conjunto de Escala de VM. Portanto, em meu exemplo, para o tipo de nó FrontEnd, as portas para cada uma das cinco instâncias são as mostradas a seguir. Agora, você precisa fazer o mesmo mapeamento para a instância do Conjunto de Escala de VM.
+Olá portas são alocadas em ordem crescente da instância de conjunto de escala de VM hello. portanto em meu exemplo de saudação tipo de nó de front-end, portas de Olá para cada um dos cinco instâncias de saudação são seguinte hello. Você agora precisa toodo Olá mesmo mapeamento para a instância do conjunto de escala de VM.
 
 | **Instância do Conjunto de Escala de VM** | **Porta** |
 | --- | --- |
@@ -69,46 +69,46 @@ As portas são alocadas em ordem crescente de instância do Conjunto de Escala d
 | FrontEnd_4 |3393 |
 | FrontEnd_5 |3394 |
 
-### <a name="step-3-remote-connect-to-the-specific-vm-scale-set-instance"></a>Etapa 3: conectar-se remotamente à instância do conjunto de escala da VM específica
-Na captura de tela abaixo, usei a conexão de área de trabalho remota para me conectar com o FrontEnd_1:
+### <a name="step-3-remote-connect-toohello-specific-vm-scale-set-instance"></a>Etapa 3: Instância de conjunto de escala específica toohello de conexão remota
+Na captura de tela de saudação abaixo uso Conexão de área de trabalho remota tooconnect toohello FrontEnd_1:
 
 ![RDP][RDP]
 
-## <a name="how-to-change-the-rdp-port-range-values"></a>Como alterar os valores de intervalo da porta RDP
+## <a name="how-toochange-hello-rdp-port-range-values"></a>Como valores do intervalo de saudação toochange porta do RDP
 ### <a name="before-cluster-deployment"></a>Antes da implantação de cluster
-Quando você estiver configurando o cluster usando um modelo do Resource Manager, poderá especificar o intervalo em **inboundNatPools**.
+Quando você estiver configurando o cluster hello usando um modelo do Gerenciador de recursos, você pode especificar o intervalo de saudação em Olá **inboundNatPools**.
 
-Vá para a definição de recurso para **Microsoft.Network/loadBalancers**. Lá, você encontra a descrição de **inboundNatPools**.  Substitua os valores *frontendPortRangeStart* e *frontendPortRangeEnd*.
+Vá para consultar a definição de recurso toohello **Microsoft.Network/loadBalancers**. Em que você encontrar descrição Olá para **inboundNatPools**.  Substituir saudação *frontendPortRangeStart* e *frontendPortRangeEnd* valores.
 
 ![inboundNatPools][InboundNatPools]
 
 ### <a name="after-cluster-deployment"></a>Depois da implantação de cluster
-Isso é um pouco mais complicado e pode resultar na reciclagem das VMs. Agora, você terá que definir novos valores usando o Azure PowerShell. Verifique se o Azure PowerShell versão 1.0 ou posterior está instalado em seu computador. Se não tiver feito isso antes, sugiro fortemente que você execute as etapas descritas em [Como instalar e configurar o Azure PowerShell.](/powershell/azure/overview)
+Isso é um pouco mais envolvido e pode resultar em VMs Olá recicladas. Agora, você terá tooset novos valores usando o PowerShell do Azure. Verifique se o Azure PowerShell versão 1.0 ou posterior está instalado em seu computador. Se você não tiver feito isso antes, sugiro que você siga etapas Olá descritas em [como tooinstall e configurar o Azure PowerShell.](/powershell/azure/overview)
 
-Entre na sua conta do Azure. Se o comando do PowerShell falhar por algum motivo, verifique se o Azure PowerShell foi instalado corretamente.
+Entre tooyour conta do Azure. Se o comando do PowerShell falhar por algum motivo, verifique se o Azure PowerShell foi instalado corretamente.
 
 ```
 Login-AzureRmAccount
 ```
 
-Execute o seguinte para obter detalhes sobre o balanceador de carga e ver os valores para a descrição de **inboundNatPools**:
+Executar Olá tooget detalhes no balanceador de carga a seguir e consulte valores hello para descrição Olá para **inboundNatPools**:
 
 ```
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load balancer name>
 ```
 
-Agora defina os valores desejados para *frontendPortRangeEnd* e *frontendPortRangeStart*.
+Agora definido *frontendPortRangeEnd* e *frontendPortRangeStart* toohello valores desejados.
 
 ```
 $PropertiesObject = @{
     #Property = value;
 }
-Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load Balancer name> -ApiVersion <use the API version that get returned> -Force
+Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName <RG name> -ResourceType Microsoft.Network/loadBalancers -ResourceName <load Balancer name> -ApiVersion <use hello API version that get returned> -Force
 ```
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Visão geral do recurso "Implantar em qualquer lugar" e comparação com clusters gerenciados do Azure](service-fabric-deploy-anywhere.md)
+* [Visão geral do recurso de "Implantar em qualquer lugar" hello e uma comparação com clusters gerenciado do Azure](service-fabric-deploy-anywhere.md)
 * [Segurança de cluster](service-fabric-cluster-security.md)
 * [ SDK do Service Fabric e introdução](service-fabric-get-started.md)
 

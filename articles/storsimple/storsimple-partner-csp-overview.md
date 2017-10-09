@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do Microsoft Azure StorSimple e Programa de Soluções de Nuvem | Microsoft Docs"
-description: "Uma visão geral sobre o StorSimple e o CSP para parceiros do StorSimple."
+title: "aaaMicrosoft StorSimple do Azure e visão geral do programa de soluções de nuvem | Microsoft Docs"
+description: "Uma visão geral sobre Olá StorSimple e o CSP para parceiros do StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 3722fc1198549102bd4fd215b9ede04a3ca1fbf5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ba82b4011934505284c37b0788250c9b5c89a758
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>O que é StorSimple para Programa de Provedores de Soluções de Nuvem?
 
 
 ## <a name="overview"></a>Visão geral
 
-O Microsoft Azure StorSimple é uma abordagem exclusiva para armazenamento corporativo com verdadeiros recursos de armazenamento de nuvem híbrida. Com ele, os clientes podem aproveitar o armazenamento econômico em nuvem para dados inativos, enquanto mantêm os dados de críticos à missão no local para obter os níveis mais altos de desempenho. 
+Microsoft Azure StorSimple é um armazenamento de tooenterprise abordagem exclusiva com recursos de armazenamento de nuvem híbrida true. Ele capacita vantagem de tootake Olá clientes de armazenamento em nuvem econômico para os dados inativos hello, mantendo seus dados críticos locais para níveis mais altos de saudação do desempenho. 
 
-O StorSimple Virtual Array para CSP (Provedor de Soluções de Nuvem) permite que os parceiros se beneficiem dessa oportunidade. Os parceiros assumem o ciclo de vida do cliente do começo ao fim com provisionamento, cobrança e suporte diretos dos serviços de nuvem da Microsoft. Em resumo, os parceiros agora podem conduzir o StorSimple com os respectivos serviços aos clientes.
+StorSimple Virtual Array para o provedor de soluções de nuvem (CSP) permite que os parceiros toocapitalize nessa oportunidade. Olá parceiros Olá próprio cliente de ponta a ponta ciclo de vida com provisionamento direto, cobrança e suporte de serviços de nuvem da Microsoft. Em resumo, parceiros Olá agora podem transact Olá StorSimple junto com seus serviços toocustomers.
 
-Para saber mais sobre o StorSimple para CSP, visite o [Partner Center](http://partnercenter.microsoft.com/).
+Para obter mais informações sobre o StorSimple CSP, visite Olá [Partner center](http://partnercenter.microsoft.com/).
 
-Para saber mais sobre cobrança, preços, incentivos e como obter suporte no CSP, acesse [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.md) (StorSimple no CSP: perguntas frequentes). 
+Para obter mais informações sobre a cobrança, preços, incentivos e obter suporte no CSP, ir muito[StorSimple no CSP: perguntas frequentes sobre](storsimple-partner-csp-faq.md). 
 
 ## <a name="deploy-and-manage-storsimple-for-csp"></a>Implantar e gerenciar o StorSimple para CSP
 
-O StorSimple para CSP está disponível como um serviço baseado em uso em todos os mercados onde o StorSimple está disponível hoje. O StorSimple para CSP usa o Portal do Azure e o serviço do Gerenciador de Dispositivos do StorSimple. Um parceiro CSP pode criar um Gerenciador de Dispositivos do StorSimple para gerenciar StorSimple Virtual Arrays, compartilhamentos, volumes e backups. Você pode administrar todas as matrizes virtuais registradas no seu serviço de Gerenciador de Dispositivos do StorSimple por meio do Portal do Azure.
+StorSimple para CSP está disponível como um serviço baseado em uso em todos os mercados Olá onde hello StorSimple está disponível atualmente. StorSimple para o CSP usa hello Azure portal e hello dispositivo o serviço StorSimple Manager. Um parceiro CSP pode criar um Gerenciador de dispositivos de StorSimple toomanage matrizes Virtual StorSimple, compartilhamentos, volumes e backups. Você pode administrar todos os por meio do portal do Azure de saudação do serviço de Gerenciador de dispositivos do StorSimple dos tooyour registrado Olá matrizes virtual.
 
-Para saber mais, acesse [Deploy and manage your StorSimple Virtual Array for CSP](storsimple-partner-csp-deploy.md) (Implantar e gerenciar o StorSimple Virtual Array para CSP).
+Para obter mais informações, vá muito[implantar e gerenciar sua matriz Virtual StorSimple do CSP](storsimple-partner-csp-deploy.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Se tiver mais dúvidas relacionadas ao StorSimple no CSP, visite [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple para CSP: perguntas frequentes).
-- Se você estiver pronto para implantar seu StorSimple, acesse [Deploy your StorSimple for CSP](storsimple-partner-csp-deploy.md) (Implantar o StorSimple para CSP).
+- Se você tiver mais dúvidas sobre Olá StorSimple no CSP, vá muito[StorSimple para o CSP: perguntas frequentes](storsimple-partner-csp-faq.md).
+- Se você estiver pronto toodeploy seu StorSimple, ir muito[implantar seu StorSimple para CSP](storsimple-partner-csp-deploy.md).

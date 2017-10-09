@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar a velocidade e a simultaneidade de sua codificação com os Serviços de Mídia do Azure | Microsoft Docs"
+title: "velocidade de gerenciar AAA e a simultaneidade de sua codificação com os serviços de mídia do Azure | Microsoft Docs"
 description: "Este artigo fornece uma visão geral de como você pode gerenciar a velocidade e a simultaneidade de seus trabalhos/tarefas de codificação com os Serviços de Mídia do Azure."
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.openlocfilehash: 0463904fd9bf1138587d0d214e572ddd38cc2184
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: da52a6278a3d3b084dbf5a594db37df8447bb944
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Gerenciar a velocidade e a simultaneidade de sua codificação
 
@@ -26,11 +26,11 @@ Este artigo fornece uma visão geral de como você pode gerenciar a velocidade e
 
 ## <a name="overview"></a>Visão geral
 
-Nos Serviços de Mídia, um **Tipo de Unidade Reservada** que determina a velocidade com que as suas tarefas de processamento de mídia são processadas. Você pode escolher entre os seguintes tipos de unidade reservada: **S1**, **S2** ou **S3**. Por exemplo, o mesmo trabalho de codificação é executado mais rapidamente quando você usa o tipo de unidade reservada **S2** em comparação ao tipo **S1**. O tópico [dimensionamento de unidades de codificação](media-services-scale-media-processing-overview.md) mostra uma tabela que o ajuda a tomar uma decisão ao escolher entre diferentes velocidades de codificação.
+Nos serviços de mídia, um **o tipo de unidade reservada** determina a velocidade de saudação com a qual a mídia de processamento de tarefas é processada. Você pode escolher entre os seguintes Olá reservado tipos de unidade: **S1**, **S2**, ou **S3**. Por exemplo, Olá mesmo trabalho de codificação é executada mais rapidamente ao usar o hello **S2** tipo de unidade reservada comparar toohello **S1** tipo. Olá [dimensionamento unidades de codificação](media-services-scale-media-processing-overview.md) tópico mostra uma tabela que ajuda a tomar decisões ao escolher entre diferentes velocidades de codificação.
 
-Além de especificar o tipo de unidade reservada, você pode especificar o provisionamento da sua conta com **Unidades Reservadas**. O número de unidades reservadas provisionadas determina o número de tarefas de mídia que podem ser processadas simultaneamente em uma determinada conta. Por exemplo, se sua conta tiver cinco unidades reservadas, as cinco tarefas de mídia serão executadas simultaneamente enquanto houver tarefas a serem processadas. As tarefas restantes irão aguardar na fila e serão selecionadas para processamento sequencialmente quando uma tarefa em execução for concluída. Se uma conta não tiver nenhuma unidade reservada provisionada, as tarefas serão selecionadas sequencialmente. Nesse caso, o tempo de espera entre a conclusão de uma tarefa e o início da próxima dependerá da disponibilidade dos recursos do sistema.
+Além disso, toospecifying Olá reservado tipo de unidade, você pode especificar tooprovision sua conta com **unidades reservadas**. número de saudação de unidades reservadas provisionadas determina o número de saudação de tarefas de mídia que podem ser processadas simultaneamente em uma determinada conta. Por exemplo, se sua conta tiver cinco unidades reservadas, tarefas de cinco mídia serão executados simultaneamente desde pois há tarefas toobe processado. as tarefas restantes Olá aguardarão na fila hello e serão escolhidas para processamento sequencialmente quando uma tarefa em execução for concluída. Se uma conta não tiver nenhuma unidade reservada provisionada, as tarefas serão selecionadas sequencialmente. Nesse caso, Olá aguardar o tempo entre a conclusão de uma tarefa e hello seguir dependerá disponibilidade Olá dos recursos no sistema de saudação.
 
-Para obter informações detalhadas e exemplos que mostram como dimensionar unidades de codificação, consulte [este](media-services-scale-media-processing-overview.md) tópico.
+Para obter informações detalhadas e exemplos que mostram como unidades de codificação tooscale, consulte [isso](media-services-scale-media-processing-overview.md) tópico.
 
 ## <a name="next-step"></a>Próxima etapa
 

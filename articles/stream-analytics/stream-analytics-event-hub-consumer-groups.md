@@ -1,5 +1,5 @@
 ---
-title: Depurar o Stream Analytics do Azure com receptores do hub de eventos | Microsoft Docs
+title: aaaDebug Stream Analytics do Azure com receptores de evento de hub | Microsoft Docs
 description: "Práticas recomendadas de consulta para consideração de grupos de consumidores dos Hubs de Eventos em trabalhos do Stream Analytics."
 keywords: limite do hub de eventos, grupo de consumidores
 services: stream-analytics
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeffstok
-ms.openlocfilehash: 145981d0b5eff0c574c5012c85f43a6318ba4126
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 89821e6273151de43b5e42d907e547c939e24824
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Depurar o Stream Analytics do Azure com receptores do hub de eventos
 
-Você pode usar os Hubs de Eventos do Azure no Stream Analytics do Azure para ingerir ou gerar dados de um trabalho. Uma prática recomendada para usar Hubs de Eventos é usar vários grupos de consumidores a fim de garantir a escalabilidade do trabalho. Um dos motivos é que o número de leitores no trabalho do Stream Analytics para uma entrada específica afeta o número de leitores em um único grupo de consumidores. O número exato de receptores baseia-se nos detalhes da implementação interna para a lógica de topologia de expansão. O número de receptores não é exposto externamente. O número de leitores pode ser alterado na hora de início ou durante os upgrades do trabalho.
+Você pode usar os Hubs de eventos do Azure no Azure Stream Analytics tooingest ou saída de dados de um trabalho. Uma prática recomendada para usar Hubs de eventos é toouse vários grupos de consumidores, tooensure escalabilidade de trabalho. Uma razão é que o número de Olá de leitores em trabalho do Stream Analytics Olá para uma entrada específica afeta número Olá de leitores em um grupo único consumidor. número preciso de saudação de destinatários baseia-se nos detalhes de implementação interna Olá expansão topologia lógica. número de saudação de destinatários não está exposto externamente. número de saudação de leitores de pode ser alterado na hora de início do trabalho de saudação ou durante as atualizações do trabalho.
 
 > [!NOTE]
-> Quando o número de leitores muda durante o upgrade de um trabalho, avisos temporários são gravados nos logs de auditoria. Os trabalhos do Stream Analytics são recuperados automaticamente desses problemas transitórios.
+> Quando o número de saudação de leitores alterado durante uma atualização de trabalho, transitórios avisos são gravados tooaudit logs. Os trabalhos do Stream Analytics são recuperados automaticamente desses problemas transitórios.
 
 ## <a name="number-of-readers-per-partition-exceeds-event-hubs-limit-of-five"></a>Número de leitores por partição excede o limite de cinco dos Hubs de Eventos
 
-Os cenários em que o número de leitores por partição excede o limite de cinco dos Hubs de Eventos incluem os seguintes:
+Cenários no qual Olá número de leitores por partição excede o limite de Hubs de eventos de saudação de cinco incluem o seguinte hello:
 
-* Várias instruções SELECT: se você usar várias instruções SELECT que se refiram à **mesma** entrada do hub de eventos, cada instrução SELECT fará com que um novo receptor seja criado.
-* UNION: quando você usa UNION, é possível ter várias entradas que se refiram ao **mesmo** grupo de consumidores e hub de eventos.
-* SELF JOIN: quando você usa uma operação SELF JOIN, é possível se referir ao **mesmo** hub de eventos várias vezes.
+* Várias instruções SELECT: se você usar várias instruções SELECT que fazem referência muito**mesmo** hub de eventos de entrada, cada instrução SELECT faz com que um novo toobe de destinatário criado.
+* UNIÃO: Quando você usa uma união, é possível toohave várias entradas que fazem referência toohello **mesmo** grupo de consumidor e hub de eventos.
+* AUTOJUNÇÃO: Quando você usa uma operação JOIN de AUTOATENDIMENTO, é possível toorefer toohello **mesmo** hub de eventos várias vezes.
 
 ## <a name="solution"></a>Solução
 
-As práticas recomendadas a seguir podem ajudar a minimizar cenários nos quais o número de leitores por partição excede o limite de cinco de Hubs de Eventos.
+Olá práticas recomendadas a seguir podem ajudar a reduzir os cenários no qual Olá número de leitores por partição excede o limite de Hubs de eventos de saudação de cinco.
 
 ### <a name="split-your-query-into-multiple-steps-by-using-a-with-clause"></a>Dividir a consulta em várias etapas usando uma cláusula WITH
 
-A cláusula WITH especifica um conjunto de resultados nomeado temporário que pode ser referenciado por uma cláusula FROM na consulta. Você define a cláusula WITH no escopo de execução de uma única instrução SELECT.
+cláusula WITH de saudação especifica um conjunto de resultados nomeado temporário que pode ser referenciado por uma cláusula FROM da consulta de saudação. Você define a cláusula WITH de saudação em escopo de execução de saudação de uma única instrução SELECT.
 
 Por exemplo, em vez desta consulta:
 
@@ -74,16 +74,16 @@ FROM data
 …
 ```
 
-### <a name="ensure-that-inputs-bind-to-different-consumer-groups"></a>Garantir que as entradas se associem a diferentes grupos de consumidores
+### <a name="ensure-that-inputs-bind-toodifferent-consumer-groups"></a>Certifique-se de que entradas vinculam grupos de consumidores toodifferent
 
-Para consultas em que três ou mais entradas estão conectadas ao mesmo grupo de consumidores de Hubs de Eventos, crie grupos de consumidores separados. Isso exige a criação de entradas adicionais do Stream Analytics.
+Para consultas de três ou mais entradas são conectado toohello mesmo consumidor de Hubs de eventos de grupo, criar grupos de consumidores separado. Isso exige a criação de saudação de entradas adicionais de análise de fluxo.
 
 
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais ajuda, teste nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Stream Analytics](stream-analytics-introduction.md)
+* [Introdução tooStream análise](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referência da linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)

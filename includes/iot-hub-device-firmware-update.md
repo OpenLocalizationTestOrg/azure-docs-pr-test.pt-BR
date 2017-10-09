@@ -1,25 +1,25 @@
 ## <a name="create-a-simulated-device-app"></a>Criar um aplicativo de dispositivo simulado
 Nesta seção, você:
 
-* Criar um aplicativo de console do Node.js que responde a um método direto chamado pela nuvem
+* Criar um aplicativo de console do Node. js que responde tooa método direto chamado pela nuvem Olá
 * Disparar uma atualização de firmware simulada
-* Usar as propriedades relatadas para habilitar consultas de dispositivo gêmeo para identificar dispositivos e quando foi a última atualização de firmware concluída
+* Olá Use relatado propriedades tooenable dispositivos duas consultas tooidentify dispositivos e quando eles concluído pela última vez uma atualização de firmware
 
-Etapa 1: crie uma pasta vazia denominada **manageddevice**.  Na pasta **manageddevice**, crie um arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+Etapa 1: crie uma pasta vazia denominada **manageddevice**.  Em Olá **manageddevice** pasta, crie um arquivo Package. JSON usando Olá comando no prompt de comando a seguir. Aceite todos os padrões de saudação:
    
     ```
     npm init
     ```
 
-Etapa 2: no prompt de comando na pasta **manageddevice**, execute o seguinte comando para instalar os pacotes **azure-iot-device** e **azure-iot-device-mqtt** do SDK do Dispositivo:
+Etapa 2: no prompt de comando no hello **manageddevice** pasta, execute Olá Olá de tooinstall de comando a seguir **dispositivo de iot do azure** e **azure iot-dispositivo mqtt** dispositivo Pacotes do SDK:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-Etapa 3: usando um editor de texto, crie um arquivo **dmpatterns_fwupdate_device.js** na pasta **manageddevice**.
+Etapa 3: Usando um editor de texto, crie um **dmpatterns_fwupdate_device.js** arquivo hello **manageddevice** pasta.
 
-Etapa 4: adicione as seguintes instruções "require" no início do arquivo **dmpatterns_fwupdate_device.js**:
+Etapa 4: Adicionar instruções no início de saudação do hello seguinte Olá 'requer' **dmpatterns_fwupdate_device.js** arquivo:
    
     ```
     'use strict';
@@ -27,14 +27,14 @@ Etapa 4: adicione as seguintes instruções "require" no início do arquivo **dm
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-Etapa 5: adicione uma variável **connectionString** e use-a para criar uma instância **Cliente**. Substitua o `{yourdeviceconnectionstring}` espaço reservado com a cadeia de conexão que você anotou na seção "Criar uma identidade de dispositivo" anteriormente:
+Etapa 5: Adicionar um **connectionString** variável e use-toocreate uma **cliente** instância. Substituir saudação `{yourdeviceconnectionstring}` espaço reservado com a cadeia de caracteres de conexão de saudação feitas anteriormente uma nota na seção "Criar uma identidade de dispositivo", Olá anteriormente:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-Etapa 6: adicione a seguinte função, que será usada para atualizar as propriedades relatadas:
+Etapa 6: Adicionar a seguinte Olá função que é usado tooupdate relatado propriedades:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -51,7 +51,7 @@ Etapa 6: adicione a seguinte função, que será usada para atualizar as proprie
     };
     ```
 
-Etapa 7: adicione as seguintes funções que simulam baixar e aplicar a imagem do firmware:
+Etapa 7: Adicione Olá funções que simulam baixar e aplicar imagem do firmware Olá a seguir:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -74,7 +74,7 @@ Etapa 7: adicione as seguintes funções que simulam baixar e aplicar a imagem d
     }
     ```
 
-Etapa 8: adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **aguardando**. Normalmente, os dispositivos serão informados sobre uma atualização disponível e uma política definida pelo administrador fará com que o dispositivo inicie o download e aplique a atualização. Essa função é onde a lógica para habilitar essa política deve ser executado. Para simplificar, o exemplo aguarda quatro segundos antes de continuar a baixar a imagem do firmware:
+Etapa 8: Adicionar Olá após a função que o status de atualização de firmware atualizações Olá por meio de saudação relatados propriedades muito**esperando**. Normalmente, dispositivos serão informados sobre uma atualização disponível e um administrador definida política faz com que Olá dispositivo toostart baixar e aplicar atualização hello. Essa função é onde Olá tooenable lógica que política deve ser executado. Para simplificar, o exemplo hello aguarda quatro segundos antes de imagem do firmware continuar toodownload hello:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -90,7 +90,7 @@ Etapa 8: adicione a seguinte função, que atualizará o status da atualização
     };
     ```
 
-Etapa 9: adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **baixando**. A função, em seguida, simula um download de firmware e finalmente atualiza o status de atualização do firmware para o **downloadFailed** ou **downloadComplete**:
+Etapa 9: Adicionar Olá após a função que o status de atualização de firmware atualizações Olá por meio de saudação relatados propriedades muito**download**. Olá função, em seguida, simula um download de firmware e finalmente atualizações Olá tooeither de status de atualização de firmware **downloadFailed** ou **downloadComplete**:
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -128,7 +128,7 @@ Etapa 9: adicione a seguinte função, que atualizará o status da atualização
     }
     ```
 
-Etapa 10: adicione a seguinte função, que atualizará o status da atualização de firmware por meio das propriedades relatadas para **aplicando**. A função simula a aplicação da imagem de firmware e finalmente atualiza o status de atualização do firmware para o **applyFailed** ou **applyComplete**:
+Etapa 10: Adicionar Olá após a função que o status de atualização de firmware atualizações Olá por meio de saudação relatados propriedades muito**aplicação**. Olá função, em seguida, simula aplicar imagem do firmware hello e finalmente atualizações Olá tooeither de status de atualização de firmware **applyFailed** ou **applyComplete**:
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -166,31 +166,31 @@ Etapa 10: adicione a seguinte função, que atualizará o status da atualizaçã
     }
     ```
 
-Etapa 11: adicione a seguinte função que manipula o método direto **firmwareUpdate** e inicia a atualização de firmware de vários estágios de processo:
+Etapa 11: Adicionar a função a seguir de Olá Olá que identificadores **firmwareUpdate** método direto e firmware de vários estágios Olá inicia o processo de atualização:
     
     ```
     var onFirmwareUpdate = function(request, response) {
     
-      // Respond the cloud app for the direct method
+      // Respond hello cloud app for hello direct method
       response.send(200, 'FirmwareUpdate started', function(err) {
         if (!err) {
           console.error('An error occured when sending a method response:\n' + err.toString());
         } else {
-          console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+          console.log('Response toomethod \'' + request.methodName + '\' sent successfully.');
         }
       });
     
-      // Get the parameter from the body of the method request
+      // Get hello parameter from hello body of hello method request
       var fwPackageUri = request.payload.fwPackageUri;
     
-      // Obtain the device twin
+      // Obtain hello device twin
       client.getTwin(function(err, twin) {
         if (err) {
           console.error('Could not get device twin.');
         } else {
           console.log('Device twin acquired.');
     
-          // Start the multi-stage firmware update
+          // Start hello multi-stage firmware update
           waitToDownload(twin, fwPackageUri, function() {
             downloadImage(twin, fwPackageUri, function(imageData) {
               applyImage(twin, imageData, function() {});    
@@ -202,14 +202,14 @@ Etapa 11: adicione a seguinte função que manipula o método direto **firmwareU
     }
     ```
 
-Etapa 12: finalmente, adicione o seguinte código que se conecta ao seu hub IoT:
+Etapa 12: Finalmente, adicione Olá código que se conecta tooyour IoT hub a seguir:
     
     ```
     client.open(function(err) {
       if (err) {
-        console.error('Could not connect to IotHub client');
+        console.error('Could not connect tooIotHub client');
       }  else {
-        console.log('Client connected to IoT Hub.  Waiting for firmwareUpdate direct method.');
+        console.log('Client connected tooIoT Hub.  Waiting for firmwareUpdate direct method.');
       }
     
       client.onDeviceMethod('firmwareUpdate', onFirmwareUpdate);
@@ -217,6 +217,6 @@ Etapa 12: finalmente, adicione o seguinte código que se conecta ao seu hub IoT:
     ```
 
 > [!NOTE]
-> Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh675232.aspx) do MSDN.
+> coisas tookeep simples, este tutorial não implementa nenhuma política de repetição. No código de produção, você deve implementar políticas de repetição (por exemplo, uma retirada exponencial), conforme sugerido no artigo do MSDN Olá [tratamento de falhas transitórias](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 > 

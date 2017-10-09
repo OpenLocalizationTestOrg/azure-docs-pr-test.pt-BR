@@ -1,6 +1,6 @@
 ---
-title: "Gerenciamento de Exceções - Ferramenta de Modelagem de Ameaças da Microsoft - Azure | Microsoft Docs"
-description: "atenuações de ameaças expostas na Ferramenta de Modelagem de Ameaças"
+title: "aaaException de gerenciamento - ferramenta de modelagem de ameaça Microsoft - Azure | Microsoft Docs"
+description: "reduções de ameaças expostas em Olá, ferramenta de modelagem de ameaça"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: bbf357b902474a1812eb7a5a2c914d0c8b91934b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 247096c10deeca94ebb9b19df7ba60e442ca1e4d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gerenciamento de Exceções | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF - não inclui o nó serviceDebug no arquivo de configuração](#servicedebug)</li><li>[WCF - não inclui o nó serviceMetadata no arquivo de configuração](#servicemetadata)</li></ul> |
 | **API da Web** | <ul><li>[Verificar se o tratamento de exceções adequado é feito na API Web ASP.NET ](#exception)</li></ul> |
-| **Aplicativo Web** | <ul><li>[Não expor os detalhes da segurança nas mensagens de erro ](#messages)</li><li>[Implementar a página tratamento de erros Padrão ](#default)</li><li>[Definir o Método de Implantação para o Varejo no IIS](#deployment)</li><li>[As exceções devem falhar com segurança](#fail)</li></ul> |
+| **Aplicativo Web** | <ul><li>[Não expor os detalhes da segurança nas mensagens de erro ](#messages)</li><li>[Implementar a página tratamento de erros Padrão ](#default)</li><li>[Definir o método de implantação tooRetail no IIS](#deployment)</li><li>[As exceções devem falhar com segurança](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF - não inclui o nó serviceDebug no arquivo de configuração
 
@@ -36,10 +36,10 @@ ms.lasthandoff: 08/29/2017
 | **Tecnologias aplicáveis** | Genérico, NET Framework 3 |
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **Etapas** | Os serviços do Windows Communication Framework (WCF) podem ser configurados para expor as informações de depuração. As informações de depuração não devem ser usadas nos ambientes de produção. A marcação `<serviceDebug>` define se o recurso das informações de depuração está habilitado para um serviço WCF. Se o atributo includeExceptionDetailInFaults for definido para true, as informações de exceção do aplicativo serão retornadas aos clientes. Os invasores podem aproveitar as informações adicionais que eles obtêm na saída da depuração para montar ataques direcionados na estrutura, banco de dados ou outros recursos usados pelo aplicativo. |
+| **Etapas** | Serviços Windows Communication Framework (WCF) podem ser configurado tooexpose as informações de depuração. As informações de depuração não devem ser usadas nos ambientes de produção. Olá `<serviceDebug>` marca define se o recurso de saudação de informações de depuração está habilitado para um serviço WCF. Se Olá atributo includeExceptionDetailInFaults for definido tootrue, informações de exceção de aplicativo hello retornará tooclients. Os invasores podem aproveitar informações adicionais de saudação obterem a depuração de saída toomount ataques direcionados framework hello, banco de dados ou outros recursos usados pelo aplicativo hello. |
 
 ### <a name="example"></a>Exemplo
-O arquivo de configuração a seguir inclui a marcação `<serviceDebug>`: 
+Olá, seguinte arquivo de configuração inclui Olá `<serviceDebug>` marca: 
 ```
 <configuration> 
 <system.serviceModel> 
@@ -49,7 +49,7 @@ O arquivo de configuração a seguir inclui a marcação `<serviceDebug>`:
 <serviceDebug includeExceptionDetailInFaults=""True"" httpHelpPageEnabled=""True""/> 
 ... 
 ```
-Desabilite as informações de depuração no serviço. Isso pode ser feito removendo a marcação `<serviceDebug>` do arquivo de configuração de seu aplicativo. 
+Desabilite as informações de depuração no serviço de saudação. Isso pode ser feito removendo Olá `<serviceDebug>` marca de arquivo de configuração do aplicativo. 
 
 ## <a id="servicemetadata"></a>WCF - não inclui o nó serviceMetadata no arquivo de configuração
 
@@ -60,7 +60,7 @@ Desabilite as informações de depuração no serviço. Isso pode ser feito remo
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Genérico, NET Framework 3 |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **Etapas** | Expor publicamente as informações sobre um serviço pode dar aos invasores ideias valiosas sobre como eles podem explorar o serviço. A marcação `<serviceMetadata>` habilita o recurso de publicação de metadados. Os metadados do serviço podem conter informações confidenciais e não devem ser acessíveis publicamente. No mínimo, apenas permita que usuários confiáveis acessem os metadados e verifique se informações desnecessárias não são expostas. Melhor ainda, desabilite totalmente a capacidade de publicar metadados. Uma configuração segura do WCF não conterá a marcação `<serviceMetadata>`. |
+| **Etapas** | Expor publicamente informações sobre um serviço pode fornecer aos invasores informações valiosas em como eles podem explorar o serviço de saudação. Olá `<serviceMetadata>` marca permite que o recurso de publicação de metadados de saudação. Os metadados do serviço podem conter informações confidenciais e não devem ser acessíveis publicamente. No mínimo, permitir somente usuários confiáveis tooaccess Olá metadados e certifique-se de que informações desnecessárias não são expostas. Melhor ainda, desabilite totalmente Olá capacidade toopublish metadados. Uma configuração segura do WCF não conterá Olá `<serviceMetadata>` marca. |
 
 ## <a id="exception"></a>Verificar se o tratamento de exceções adequado é feito na API Web ASP.NET
 
@@ -74,7 +74,7 @@ Desabilite as informações de depuração no serviço. Isso pode ser feito remo
 | **Etapas** | Por padrão, a maioria das exceções não identificadas na API Web ASP.NET é convertida em uma resposta HTTP com um código de status`500, Internal Server Error`|
 
 ### <a name="example"></a>Exemplo
-Para controlar o código de status retornado pela API, `HttpResponseException` pode ser usado como mostrado abaixo: 
+código de status de saudação toocontrol retornado por Olá API, `HttpResponseException` pode ser usado como mostrado abaixo: 
 ```C#
 public Product GetProduct(int id)
 {
@@ -88,7 +88,7 @@ public Product GetProduct(int id)
 ```
 
 ### <a name="example"></a>Exemplo
-Para ter mais controle sobre a resposta da exceção, a classe `HttpResponseMessage` pode ser usada como mostrado abaixo: 
+Para controlar ainda mais na resposta de exceção hello, Olá `HttpResponseMessage` classe pode ser usada, conforme mostrado abaixo: 
 ```C#
 public Product GetProduct(int id)
 {
@@ -105,7 +105,7 @@ public Product GetProduct(int id)
     return item;
 }
 ```
-Para capturar as exceções sem tratamento que não são do tipo `HttpResponseException`, podem ser usados Filtros de Exceção. Os Filtros de Exceção implementam a interface `System.Web.Http.Filters.IExceptionFilter`. A maneira mais simples de escrever um filtro de exceção é derivar da classe `System.Web.Http.Filters.ExceptionFilterAttribute` e substituir o método OnException. 
+toocatch sem tratamento de exceções que não são do tipo hello `HttpResponseException`, filtros de exceção pode ser usados. Filtros de exceção implementam Olá `System.Web.Http.Filters.IExceptionFilter` interface. toowrite de maneira mais simples de saudação um filtro de exceção é tooderive de saudação `System.Web.Http.Filters.ExceptionFilterAttribute` classe e substituir o método OnException de saudação. 
 
 ### <a name="example"></a>Exemplo
 Aqui está um filtro que converte as exceções `NotImplementedException` no código de status HTTP `501, Not Implemented`: 
@@ -130,13 +130,13 @@ namespace ProductStore.Filters
 }
 ```
 
-Há várias maneiras de registrar um filtro de exceção da API Web:
+Há várias maneiras tooregister um filtro de exceção de API da Web:
 - por ação
 - pelo controlador
 - globalmente
 
 ### <a name="example"></a>Exemplo
-Para aplicar o filtro em uma ação específica, adicione o filtro como um atributo à ação: 
+Olá tooapply filtrar ação específica tooa, adicionar filtro hello como uma ação de toohello do atributo: 
 ```C#
 public class ProductsController : ApiController
 {
@@ -148,7 +148,7 @@ public class ProductsController : ApiController
 }
 ```
 ### <a name="example"></a>Exemplo
-Para aplicar o filtro em todas as ações em um `controller`, adicione o filtro como um atributo à classe `controller`: 
+tooapply Olá filtro tooall de ações de saudação em uma `controller`, adicionar filtro hello como um atributo toohello `controller` classe: 
 
 ```C#
 [NotImplExceptionFilter]
@@ -159,14 +159,14 @@ public class ProductsController : ApiController
 ```
 
 ### <a name="example"></a>Exemplo
-Para aplicar o filtro globalmente em todos os controladores da API Web, adicione uma instância do filtro à coleção `GlobalConfiguration.Configuration.Filters`. Os filtros de exceção nesta coleção aplicam-se a qualquer ação do controlador da API Web. 
+Olá tooapply globalmente filtrar controladores de API da Web tooall, adicionar uma instância de saudação filtro toohello `GlobalConfiguration.Configuration.Filters` coleção. Filtros de exceção nesta coleção se aplicam a ação de controlador tooany API da Web. 
 ```C#
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Exemplo
-Para a validação do modelo, o estado do modelo pode ser passado para o método CreateErrorResponse como mostrado abaixo: 
+Para validação de modelo, o estado de modelo Olá pode ser passado tooCreateErrorResponse método conforme mostrado abaixo: 
 ```C#
 public HttpResponseMessage PostProduct(Product item)
 {
@@ -178,7 +178,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Verificar os links na seção de referências para obter detalhes adicionais sobre o tratamento de exceção e a validação do modelo na API Web ASP.Net 
+Seleção Olá links na seção de referências de saudação para obter detalhes adicionais sobre manipulação excepcional e validação de modelo na API da Web do ASP.Net 
 
 ## <a id="messages"></a>Não expor os detalhes da segurança nas mensagens de erro
 
@@ -189,7 +189,7 @@ Verificar os links na seção de referências para obter detalhes adicionais sob
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | <p>As mensagens de erro genéricas são fornecidas diretamente para o usuário sem incluir os dados confidenciais do aplicativo. Os exemplos de dados confidenciais incluem:</p><ul><li>nomes do servidor</li><li>Cadeias de conexão</li><li>nomes de usuário</li><li>Senhas</li><li>procedimentos SQL</li><li>detalhes das falhas SQL dinâmicas</li><li>rastreamento de pilha e linhas de código</li><li>variáveis armazenadas na memória</li><li>locais da pasta e da unidade</li><li>pontos de instalação do aplicativo</li><li>definições de configuração do host</li><li>outros detalhes internos do aplicativo</li></ul><p>Interceptar todos os erros em um aplicativo e fornecer mensagens de erro genéricas, bem como habilitar os erros personalizados no IIS, ajudará a evitar a divulgação das informações. O banco de dados do SQL Server e o tratamento Exception do .NET, entre outras arquiteturas de tratamento de erros, são especialmente detalhados e extremamente úteis para um usuário mal-intencionado que cria o perfil de seu aplicativo. Não exiba diretamente o conteúdo de uma classe derivada da classe Exception do .NET e verifique se você tem o tratamento adequado das exceções para que uma exceção inesperada não seja gerada sem querer diretamente para o usuário.</p><ul><li>Fornecer mensagens de erro genéricas diretamente para o usuário que abstrai os detalhes específicos encontrados diretamente na mensagem de erro/exceção</li><li>Não exibir o conteúdo de uma classe exception do .NET diretamente para o usuário</li><li>Interceptar todas as mensagens de erro e se apropriado, informar ao usuário por meio de uma mensagem de erro genérica enviada ao cliente do aplicativo</li><li>Não exponha o conteúdo da classe Exception diretamente para o usuário, especialmente o valor de retorno de `.ToString()` ou os valores das propriedades Message ou StackTrace. Registrar essas informações com segurança e exibir uma mensagem mais inofensiva para o usuário</li></ul>|
+| **Etapas** | <p>Mensagens de erro genéricas são fornecidas diretamente toohello usuário sem incluir dados confidenciais de aplicativos. Exemplos de dados confidenciais:</p><ul><li>nomes do servidor</li><li>Cadeias de conexão</li><li>nomes de usuário</li><li>Senhas</li><li>procedimentos SQL</li><li>detalhes das falhas SQL dinâmicas</li><li>rastreamento de pilha e linhas de código</li><li>variáveis armazenadas na memória</li><li>locais da pasta e da unidade</li><li>pontos de instalação do aplicativo</li><li>definições de configuração do host</li><li>outros detalhes internos do aplicativo</li></ul><p>Interceptar todos os erros em um aplicativo e fornecer mensagens de erro genéricas, bem como habilitar os erros personalizados no IIS, ajudará a evitar a divulgação das informações. Banco de dados do SQL Server e .NET manipulação de exceções, entre outros arquiteturas de tratamento de erros são extremamente úteis e especialmente detalhado tooa usuário mal-intencionado que seu aplicativo de criação de perfil. Faça não diretamente Olá exibir conteúdo de uma classe derivada da classe de exceção .NET hello e certifique-se de que você tenha a manipulação adequada de exceções para que uma exceção inesperada inadvertidamente não é gerado diretamente toohello usuário.</p><ul><li>Forneça o usuário toohello que abstraem longe detalhes específicos encontrados diretamente na mensagem de exceção/Erro de saudação de diretamente de mensagens de erro genérico</li><li>Exibir conteúdo de saudação de uma exceção do .NET diretamente classe toohello usuário</li><li>Interceptação de todas as mensagens de erro e se apropriado informar o usuário Olá por meio de um cliente de aplicativo de toohello enviados de mensagem de erro genérico</li><li>Não expõem conteúdo Olá da classe de exceção Olá diretamente usuário toohello, especialmente Olá retornar o valor de `.ToString()`, ou Olá valores de propriedades de mensagem ou o rastreamento de pilha hello. Registrar essas informações com segurança e exibir um usuário mais simples de toohello de mensagem</li></ul>|
 
 ## <a id="default"></a>Implementar a página de tratamento de erros Padrão
 
@@ -200,9 +200,9 @@ Verificar os links na seção de referências para obter detalhes adicionais sob
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Caixa de Diálogo Editar Configurações das Páginas de Erro do ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Etapas** | <p>Quando um aplicativo ASP.NET falhar e fizer com que um Erro Interno do Servidor HTTP/1.x 500 ou uma configuração do recurso (por exemplo, Filtragem da Solicitação) impeça que uma página seja exibida, uma mensagem de erro será gerada. Os administradores podem escolher se o aplicativo deve exibir ou não uma mensagem amigável para o cliente, mensagem de erro detalhada para o cliente ou mensagem de erro detalhada para o localhost apenas. A marcação <customErrors> no web.config tem três modos:</p><ul><li>**Ativado:** especifica que os erros personalizados estão habilitados. Se nenhum atributo defaultRedirect for especificado, os usuários verão um erro genérico. Os erros personalizados são mostrados para os clientes remotos e para o host local</li><li>**Desativado:** especifica que os erros personalizados estão desabilitados. Os erros detalhados do ASP.NET são mostrados para os clientes remotos e o host local</li><li>**RemoteOnly:** especifica que os erros personalizados são mostrados apenas para os clientes remotos e que os erros do ASP.NET são mostrados para o host local. Este é o valor padrão</li></ul><p>Abra o arquivo `web.config` do aplicativo/site e verifique se a marcação foi `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />` definido.</p>|
+| **Etapas** | <p>Quando um aplicativo ASP.NET falhar e fizer com que um Erro Interno do Servidor HTTP/1.x 500 ou uma configuração do recurso (por exemplo, Filtragem da Solicitação) impeça que uma página seja exibida, uma mensagem de erro será gerada. Os administradores podem optar ou não o aplicativo hello deve exibir uma mensagem amigável toohello cliente, do cliente de toohello de mensagem de erro detalhada ou apenas toolocalhost de mensagem de erro detalhada. Olá <customErrors> marca no Web. config de Olá tem três modos:</p><ul><li>**Ativado:** especifica que os erros personalizados estão habilitados. Se nenhum atributo defaultRedirect for especificado, os usuários verão um erro genérico. erros personalizados Olá são mostrados os clientes remotos toohello e host local toohello</li><li>**Desativado:** especifica que os erros personalizados estão desabilitados. Olá erros detalhados do ASP.NET são mostrados os clientes remotos toohello e host local toohello</li><li>**RemoteOnly:** Especifica que os erros personalizados são mostrados apenas toohello clientes remotos e que os erros do ASP.NET são mostrados host local toohello. Este é o valor padrão de saudação</li></ul><p>Olá abrir `web.config` de arquivos para o site da aplicativo hello e certifique-se de que marca Olá foi `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />` definido.</p>|
 
-## <a id="deployment"></a>Definir o Método de Implantação para o Varejo no IIS
+## <a id="deployment"></a>Definir o método de implantação tooRetail no IIS
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
@@ -211,7 +211,7 @@ Verificar os links na seção de referências para obter detalhes adicionais sob
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [implantação Element (Esquema de Configurações do ASP.NET)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
-| **Etapas** | <p>O argumento `<deployment retail>` é para ser usado pelos servidores IIS de produção. Esse argumento é usado para ajudar os aplicativos a serem executados com o melhor desempenho possível e o mínimo de vazamento de informações de segurança desabilitando a capacidade dele de gerar a saída de rastreamento em uma página, desabilitando a capacidade de exibir mensagens de erro detalhadas para os usuários finais e desativando o argumento debug.</p><p>Muitas vezes, os argumentos e as opções que estão voltados para os desenvolvedores, como um rastreamento da solicitação e depuração com falha, são habilitados durante o desenvolvimento ativo. É recomendável que o método de implantação, em qualquer servidor de produção, seja definido para varejo. abra o arquivo machine.config e verifique se `<deployment retail="true" />` permanece definido para true.</p>|
+| **Etapas** | <p>Olá `<deployment retail>` switch é destinado ao uso por servidores IIS de produção. Essa opção é usada toohelp aplicativos executados com o melhor desempenho possível de saudação e informações de segurança menos possíveis leakages desabilitando Olá a saída do rastreamento em uma página, desabilitando toodisplay de capacidade de saudação toogenerate capacidade do aplicativo para detalhes do erro mensagens tooend usuários e Olá desabilitar a opção de debug.</p><p>Muitas vezes, os argumentos e as opções que estão voltados para os desenvolvedores, como um rastreamento da solicitação e depuração com falha, são habilitados durante o desenvolvimento ativo. É recomendável que o método de implantação hello em qualquer servidor de produção seja definido tooretail. Abra o arquivo Machine. config de saudação e certifique-se de que `<deployment retail="true" />` permanece definido tootrue.</p>|
 
 ## <a id="fail"></a>As exceções devem falhar com segurança
 
@@ -222,7 +222,7 @@ Verificar os links na seção de referências para obter detalhes adicionais sob
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Falhar com segurança](https://www.owasp.org/index.php/Fail_securely) |
-| **Etapas** | O aplicativo deve falhar com segurança. Qualquer método que retorna um valor booliano, com base em qual determinada decisão é tomada, deve ter um bloco de exceção criado cuidadosamente. Há muitos erros lógicos devido a problemas de segurança que passam quando o bloco de exceção é escrito com negligência.|
+| **Etapas** | O aplicativo deve falhar com segurança. Qualquer método que retorna um valor booliano, com base em qual determinada decisão é tomada, deve ter um bloco de exceção criado cuidadosamente. Há muitos erros lógicos devido toowhich deslizamento de problemas de segurança no, quando o bloco de exceção hello é escrito com negligência.|
 
 ### <a name="example"></a>Exemplo
 ```C#
@@ -238,7 +238,7 @@ Verificar os links na seção de referências para obter detalhes adicionais sob
 
                     if (string.Compare(domain, replyDomain, StringComparison.OrdinalIgnoreCase) != 0)
                     {
-                        //// Adding additional check to enable CMS urls if they are not hosted on same domain.
+                        //// Adding additional check tooenable CMS urls if they are not hosted on same domain.
                         if (!string.IsNullOrWhiteSpace(Utilities.CmsBase))
                         {
                             var cmsDomain = RetrieveDomain(new Uri(Utilities.Base.Trim()));
@@ -265,4 +265,4 @@ Verificar os links na seção de referências para obter detalhes adicionais sob
             }
         }
 ```
-O método acima sempre retornará True se ocorrer uma exceção. Se o usuário final fornecer uma URL malformada, que o navegador respeita, mas o construtor `Uri()` não, isso irá gerar uma exceção e a vítima será levada para uma URL válida, mas malformada. 
+Olá acima método sempre retornará True, se ocorrer uma exceção. Se o usuário final de saudação fornece uma URL malformada, que Olá aspectos do navegador, mas Olá `Uri()` construtor não, isso gerará uma exceção e vítima hello será tomada URL de toohello válido, mas malformado. 

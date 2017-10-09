@@ -1,6 +1,6 @@
 ---
-title: "Como usar Hubs de Notificação com PHP"
-description: "Aprenda a usar Hubs de notificação do Azure de um back-end do PHP."
+title: "aaaHow toouse Hubs de notificação com o PHP"
+description: "Saiba como toouse Hubs de notificação do Azure de um back-end do PHP."
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,48 +14,48 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: yuaxu
-ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6cd426286a684006a07867fcf44a8ff71be7efa8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-notification-hubs-from-php"></a>Como usar Hubs de Notificação no PHP
+# <a name="how-toouse-notification-hubs-from-php"></a>Como toouse Hubs de notificação do PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Você pode acessar todos os recursos dos Hubs de Notificação por meio de um back-end do Java/PHP/Ruby usando a interface REST do Hub de Notificação, conforme descrito no tópico do MSDN [APIs REST dos Hubs de Notificação](http://msdn.microsoft.com/library/dn223264.aspx).
+Você pode acessar todos os recursos de Hubs de notificação de um back-end do PHP/Java/Ruby usando a interface REST do Hub de notificação de hello conforme descrito no tópico do MSDN Olá [APIs de REST de Hubs de notificação](http://msdn.microsoft.com/library/dn223264.aspx).
 
 Neste tópico, mostramos como:
 
 * Criar um cliente REST para recursos dos Hubs de Notificação no PHP;
-* Seguir o [Tutorial de introdução](notification-hubs-ios-apple-push-notification-apns-get-started.md) para sua plataforma móvel de escolha, implementando a parte sobre back-end no PHP.
+* Siga Olá [tutorial de Introdução Get](notification-hubs-ios-apple-push-notification-apns-get-started.md) para sua plataforma móvel de preferência, Implementando a parte de back-end de saudação em PHP.
 
 ## <a name="client-interface"></a>Interface do cliente
-A interface principal do cliente pode oferecer os mesmos métodos disponíveis no [SDK dos Hubs de Notificação do .NET](http://msdn.microsoft.com/library/jj933431.aspx); isso permite que você converta diretamente todos os tutoriais e exemplos disponíveis atualmente neste site, bem como aqueles enviados pela comunidade na internet.
+interface de saudação do cliente principal pode fornecer Olá mesmos métodos que estão disponíveis no hello [.NET SDK de Hubs de notificação](http://msdn.microsoft.com/library/jj933431.aspx), isso permitirá que você toodirectly converter todos os tutoriais hello e exemplos no momento disponíveis neste site, e contribuído pela comunidade de saudação em Olá internet.
 
-Você pode encontrar todos os códigos disponíveis na [amostra do wrapper de PHP REST].
+Você pode encontrar todos os código Olá disponível no hello [exemplo de wrapper de PHP REST].
 
-Por exemplo, para criar um cliente:
+Por exemplo, toocreate um cliente:
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-Para enviar uma notificação nativa do iOS:
+toosend uma notificação nativa do iOS:
 
     $notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Implementação
-Se ainda não fez isso, siga o nosso [tutorial Introdução] até a última seção, onde será necessário implementar o back-end.
-Além disso, se quiser, você poderá usar o código da [amostra do wrapper de PHP REST] e ir diretamente para a seção [Concluir o tutorial](#complete-tutorial).
+Se você ainda não fez, siga nosso [tutorial de Introdução Get] até toohello última seção onde você tem tooimplement Olá back-end.
+Além disso, se você quiser que você pode usar código de saudação do hello [exemplo de wrapper de PHP REST] e vá diretamente toohello [tutorial completo Olá](#complete-tutorial) seção.
 
-Todos os detalhes para implementar um wrapper completo do REST podem ser encontrados em [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Nesta seção, descreveremos a implementação do PHP das principais etapas necessárias para acessar os pontos de extremidade de REST dos Hubs de Notificação:
+Todos Olá detalhes tooimplement um wrapper REST completo pode ser encontrado em [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Nesta seção, descreveremos implementação PHP Olá Olá de etapas principais necessárias tooaccess pontos de extremidade REST de Hubs de notificação:
 
-1. Analisar a cadeia de conexão
-2. Gerar o token de autorização
-3. Realizar a chamada do HTTP
+1. Analisar a cadeia de conexão Olá
+2. Gerar o token de autorização de saudação
+3. Executar chamada hello HTTP
 
-### <a name="parse-the-connection-string"></a>Analisar a cadeia de conexão
-Aqui está a classe principal que implementa o cliente, cujo construtor analisa a cadeia de conexão:
+### <a name="parse-hello-connection-string"></a>Analisar a cadeia de conexão Olá
+Aqui é Olá classe principal implementação Olá cliente, cujo construtor analisa a cadeia de caracteres de conexão hello:
 
     class NotificationHub {
         const API_VERSION = "?api-version=2013-10";
@@ -91,8 +91,8 @@ Aqui está a classe principal que implementa o cliente, cujo construtor analisa 
 
 
 ### <a name="create-security-token"></a>Criar token de segurança
-Os detalhes da criação de token de segurança estão disponíveis [aqui](http://msdn.microsoft.com/library/dn495627.aspx).
-O método a seguir deve ser adicionado à classe **NotificationHub** para criar o token com base no URI da solicitação atual e as credenciais extraídas da cadeia de conexão.
+criação de token de segurança Olá Olá detalhes está disponíveis [aqui](http://msdn.microsoft.com/library/dn495627.aspx).
+método Hello tem toobe adicionado toohello **NotificationHub** token de saudação toocreate classe com base em Olá URI da solicitação atual hello e credenciais de saudação extraídas da cadeia de caracteres de conexão de saudação.
 
     private function generateSasToken($uri) {
         $targetUri = strtolower(rawurlencode(strtolower($uri)));
@@ -134,9 +134,9 @@ Primeiro, vamos definir uma classe que representa uma notificação.
 
 Essa classe é um contêiner para um corpo de notificação nativa ou um conjunto de propriedade no caso de uma notificação de modelo, e um conjunto de cabeçalhos que contém propriedades específicas de formato (plataforma nativa ou modelo) e plataforma (como a propriedade de expiração da Apple e cabeçalhos WNS).
 
-Consulte a [documentação de APIs REST dos Hubs de Notificação](http://msdn.microsoft.com/library/dn495827.aspx) e os formatos específicos de notificação das plataformas para conhecer todas as opções disponíveis.
+Consulte toohello [documentação de APIs de REST de Hubs de notificação](http://msdn.microsoft.com/library/dn495827.aspx) e Olá formatos das plataformas específicas de notificação para todas as opções disponíveis de hello.
 
-Armados com essa classe, agora podemos gravar os métodos de notificação de envio dentro da classe **NotificationHub** .
+Essa classe de posse, agora podemos escrever Olá envio métodos de notificação dentro de saudação **NotificationHub** classe.
 
     public function sendNotification($notification, $tagsOrTagExpression="") {
         if (is_array($tagsOrTagExpression)) {
@@ -180,7 +180,7 @@ Armados com essa classe, agora podemos gravar os métodos de notificação de en
             CURLOPT_POSTFIELDS => $notification->payload
         ));
 
-        // Send the request
+        // Send hello request
         $response = curl_exec($ch);
 
         // Check for errors
@@ -195,16 +195,16 @@ Armados com essa classe, agora podemos gravar os métodos de notificação de en
         }
     } 
 
-Os métodos acima enviam uma solicitação de HTTP POST para o ponto de extremidade /messages de seu hub de notificação, com o corpo e os cabeçalhos corretos para o envio da notificação.
+Olá acima métodos enviar um HTTP POST solicitação toohello /messages ponto de extremidade de hub de notificação, com corpo correto hello e notificação de saudação toosend cabeçalhos.
 
-## <a name="complete-tutorial"></a>Concluir o tutorial
-Agora você pode concluir o tutorial de introdução enviando a notificação por meio de um back-end do PHP.
+## <a name="complete-tutorial"></a>Tutorial de saudação concluída
+Agora você pode concluir o tutorial de Introdução hello, enviando a notificação de saudação de um back-end do PHP.
 
-Inicialize seu cliente dos Hubs de Notificação (substitua a cadeia de conexão e o nome do hub conforme indicado no [tutorial Introdução]):
+Inicialize o cliente de Hubs de notificação (substitua o nome de hub e de cadeia de caracteres de conexão Olá conforme instruído no hello [tutorial de Introdução Get]):
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-Em seguida, adicione o código de envio dependendo da sua plataforma móvel de destino.
+Adicione código de envio de saudação dependendo de sua plataforma móvel de destino.
 
 ### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows Store e Windows Phone 8.1 (não Silverlight)
     $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
@@ -243,14 +243,14 @@ Em seguida, adicione o código de envio dependendo da sua plataforma móvel de d
 Executar o código PHP agora deve produzir uma notificação que aparece no dispositivo de destino.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tópico, mostramos como criar um cliente REST simples do Java para Hubs de Notificação. A partir daqui, você pode:
+Neste tópico, mostramos como toocreate um Java simple REST cliente Hubs de notificação. A partir daqui, você pode:
 
-* Baixar a [amostra do wrapper de PHP REST]completa, que contém todos os códigos acima.
-* Continuar a aprender sobre o recurso de criação de tags dos Hubs de Notificação no [tutorial Últimas Notícias]
-* Aprender sobre como enviar notificações por push para usuários individuais no [tutorial Notificação de Usuários]
+* Baixar Olá completo [exemplo de wrapper de PHP REST], que contém todos os códigos de saudação acima.
+* Saber mais sobre o recurso de indicação Olá [tutorial últimas notícias] de Hubs de notificação
+* Saiba mais sobre o envio por push usuários de tooindividual notificações [tutorial notificar usuários]
 
-Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php/).
+Para obter mais informações, consulte também Olá [Centro de desenvolvedores PHP](/develop/php/).
 
-[amostra do wrapper de PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[tutorial Introdução]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[exemplo de wrapper de PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
+[tutorial de Introdução Get]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 

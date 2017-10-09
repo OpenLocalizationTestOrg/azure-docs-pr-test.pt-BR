@@ -1,4 +1,4 @@
-  Agora, navegue até a folha da conta do Cosmos DB e clique em **Chaves**, pois usaremos esses valores no aplicativo Web que criaremos em seguida.
+  Agora navegue folha de conta do banco de dados do Cosmos toohello e clique em **chaves**, como podemos usar esses valores no aplicativo web de saudação criamos em seguida.
 
-![Captura de tela do Portal do Azure mostrando uma conta do Cosmos DB, com o botão Chaves realçado na folha Cosmos DB e os valores URI, CHAVE PRIMÁRIA e CHAVE SECUNDÁRIA realçados na folha Chaves](./media/cosmos-db-keys/keys.png)
+![Captura de tela de saudação portal do Azure, mostrando uma conta de banco de dados do Cosmos, com o botão de chaves Olá realçado na folha de conta do banco de dados do Cosmos hello e valores URI, chave primária e SECUNDÁRIA Olá realçado em Olá folha de chaves](./media/cosmos-db-keys/keys.png)
 

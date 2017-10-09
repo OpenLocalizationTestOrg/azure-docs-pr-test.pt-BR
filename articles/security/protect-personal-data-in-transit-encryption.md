@@ -1,6 +1,6 @@
 ---
-title: "Proteger dados pessoais em trânsito com a criptografia no Azure | Microsoft Docs"
-description: Usando a criptografia no Azure para proteger dados pessoais
+title: "dados pessoais aaaProtect em trânsito com criptografia no Azure | Microsoft Docs"
+description: Usando a criptografia em dados pessoais tooprotect do Azure
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,133 +15,133 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 99e40b8a09a2f151e7f83fbb58bdfc00ae4b1268
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 218ad3f49326e8dec299a6d92b18116da65eae71
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-encryption-technologies-protect-personal-data-in-transit-with-encryption"></a>Tecnologias de criptografia do Azure: proteger dados pessoais em trânsito com criptografia
 
-Este artigo ajudará você a entender e usar as tecnologias de criptografia do Azure para proteger dados em trânsito. 
+Este artigo o ajudará a entender e usar dados de toosecure de tecnologias de criptografia do Azure em trânsito. 
 
-A proteção da privacidade de dados pessoais durante seu tráfego pela rede é uma parte essencial de uma estratégia de segurança de proteção avançada de várias camadas. A criptografia em trânsito foi projetada para impedir que um invasor que intercepta as transmissões consiga exibir ou usar os dados.
+Privacidade de saudação proteção dos dados pessoais enquanto trafegam pela rede Olá é uma parte essencial de uma estratégia de segurança em várias camadas de defesa em profundidade. A criptografia em trânsito é projetado tooprevent um invasor intercepta as transmissões de ser capaz de dados de saudação tooview ou usar.
 
 ## <a name="scenario"></a>Cenário
 
-Uma empresa de cruzeiro de grande porte, com sede nos Estados Unidos, está expandindo suas operações para oferecer roteiros nos mares Mediterrâneo, Adriático e Báltico, bem como nas Ilhas Britânicas. Para dar suporte a esses esforços, ela adquiriu várias linhas de cruzeiro menores localizadas na Itália, na Alemanha, na Dinamarca e no Reino Unido. 
+Uma empresa cruzeiro grandes, com sede Olá dos Estados Unidos, está expandindo suas roteiros de toooffer operações Mediterrâneo hello, Adriatic e mares báltico, bem como Olá Britânicas. toosupport os esforços adquiriu várias linhas de cruzeiro menores na Itália, Alemanha, Dinamarca e hello UK 
 
-A empresa usa o Microsoft Azure para armazenar dados corporativos na nuvem. Eles incluem informações de identificação pessoal, como nomes, endereços, números de telefone e informações de cartão de crédito de sua base global de clientes. Ele também inclui informações de recursos humanos tradicionais, como endereços, números de telefone, números de identificação de imposto e médicas informações sobre os funcionários da empresa em todos os locais. A linha de cruzeiro também mantém um banco de dados grande de membros do programa de recompensa e fidelidade que inclui informações pessoais para acompanhamento das relações com os clientes atuais e anteriores.
+empresa de saudação usa dados corporativos do Microsoft Azure toostore na nuvem hello. Eles incluem informações de identificação pessoal, como nomes, endereços, números de telefone e informações de cartão de crédito de sua base global de clientes. Ele também inclui informações de recursos humanos tradicionais, como endereços, números de telefone, números de identificação de imposto e médicas informações sobre os funcionários da empresa em todos os locais. linha de cruzeiro Olá também mantém um banco de dados grande de membros do programa de recompensa e fidelidade que incluem informações pessoais tootrack relações com os clientes atuais e anteriores.
 
-Os dados pessoais de clientes são inseridos no banco de dados em escritórios remotos da empresa e nos agentes de viagem localizados no mundo todo. Os documentos que contêm informações de clientes são transferidos pela rede para o armazenamento do Azure.
+Dados pessoais de clientes são inseridos no banco de dados de saudação de escritórios remotos da empresa Olá em agentes Olá mundo todo. Documentos que contêm informações de cliente são transferidos entre Olá rede tooAzure de armazenamento.
 
 ## <a name="problem-statement"></a>Problema declarado
 
-A empresa deve proteger a privacidade dos dados pessoais de clientes e funcionários enquanto eles estão em trânsito entre os serviços do Azure.
+empresa Olá deve proteger a privacidade de saudação do cliente e dados pessoais de funcionários enquanto ele estão em trânsito tooand dos serviços do Azure.
 
 ## <a name="company-goal"></a>Meta da empresa
 
-A meta da empresa é garantir que os dados pessoais sejam criptografados quando estiverem fora do disco. Caso pessoas não autorizadas interceptem dados pessoais fora do disco, eles devem estar em um formato que os tornará ilegíveis. A aplicação da criptografia deve ser fácil ou completamente transparente, para os usuários e administradores.
+Olá tooensure de meta da empresa que dados pessoais são criptografados quando desativar o disco. Se pessoas não autorizadas interceptarem dados pessoais do hello fora do disco, ele deve ser em um formulário que será renderizado ilegível. A aplicação da criptografia deve ser fácil ou completamente transparente, para os usuários e administradores.
 
 ## <a name="solutions"></a>Soluções
 
-Os serviços do Azure fornecem várias ferramentas e tecnologias para ajudá-lo a proteger dados pessoais em trânsito.
+Os serviços do Azure fornecem vários toohelp ferramentas e tecnologias de proteger dados pessoais em trânsito.
 
 ### <a name="azure-storage"></a>Armazenamento do Azure
 
-Os dados armazenados na nuvem devem viajar do cliente, que pode estar localizado fisicamente em qualquer lugar do mundo, para o data center do Azure. Quando os dados são recuperados pelos usuários, eles viajam novamente, na direção oposta. Os dados em trânsito pela Internet pública sempre correm o risco de interceptação por invasores. É importante proteger a privacidade de dados pessoais usando a criptografia no nível de transporte para protegê-los enquanto eles se movem entre as localizações.
+Dados armazenados na nuvem Olá devem passar de cliente hello, que pode estar fisicamente localizado em qualquer lugar no mundo hello, toohello data center do Azure. Quando os dados são recuperados por usuários, novamente, trafegam na Olá oposta direção. Dados que estão em trânsito Olá Internet pública sempre está em risco de interceptação por invasores. É importante tooprotect privacidade de saudação dos dados pessoais usando criptografia de nível de transporte toosecure como ele se move entre locais.
 
-O protocolo HTTPS fornece um canal de comunicação seguro, criptografado pela Internet. O HTTPS deve ser usado para acessar objetos no Armazenamento do Azure e ao chamar APIs REST. Imponha o uso do protocolo HTTPS ao usar [SAS](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) (Assinaturas de Acesso Compartilhado) para delegar o acesso aos objetos do Armazenamento do Azure. Há dois tipos de SAS: SAS de Serviço e SAS de Conta.
+Olá protocolo HTTPS fornece um canal de comunicação seguro e criptografado em relação a saudação da Internet. HTTPS deve ser usado tooaccess objetos no armazenamento do Azure e ao chamar APIs REST. Impor o uso do protocolo HTTPS Olá ao usar [assinaturas de acesso compartilhado](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) objetos de armazenamento (SAS) toodelegate acesso tooAzure. Há dois tipos de SAS: SAS de Serviço e SAS de Conta.
 
 #### <a name="how-do-i-construct-a-service-sas"></a>Como fazer para construir uma SAS de Serviço?
 
-Uma SAS de serviço delega acesso a um recurso em apenas um dos serviços de armazenamento (serviço blob, fila, tabela ou arquivo). Para construir uma SAS de Serviço, faça o seguinte:
+Um serviço SAS delegados acesso tooa recurso em apenas um dos serviços de armazenamento da saudação (serviço blob, fila, tabela ou arquivo). tooconstruct uma SAS do serviço, Olá a seguir:
 
-1. Especifique o campo de versão assinado
+1. Especifique a saudação o campo de versão assinado
 
-2. Especifique o recurso assinado (somente serviço Blob e Arquivo)
+2. Especifique a saudação recurso assinado (Blob e somente serviço de arquivo)
 
-3. Especifique os parâmetros de consulta para substituir os cabeçalhos de resposta (somente serviço Blob e Arquivo)
+3. Especificar parâmetros de consulta tooOverride cabeçalhos de resposta (serviço Blob e arquivo de serviço somente)
 
-4. Especifique o nome da tabela (somente serviço Tabela)
+4. Especifique a saudação nome da tabela (serviço de tabela somente)
 
-5. Especifique a política de acesso
+5. Especifique a política de acesso de saudação
 
-6. Especifique o intervalo de validade da assinatura
+6. Especifique a saudação intervalo de validade da assinatura
 
 8. Especifique as permissões
 
 9. Especifique o endereço IP ou o intervalo de IP
 
-10. Especifique o protocolo HTTP
+10. Especifique a saudação protocolo HTTP
 
 11. Especifique os intervalos de acesso da tabela
 
-12. Especifique o identificador assinado
+12. Especifique a saudação identificador assinado
 
-13. Especifique a assinatura
+13. Especifique a saudação assinatura
 
 Para obter instruções mais detalhadas, consulte [Construindo uma SAS de Serviço](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS?redirectedfrom=MSDN).
 
 #### <a name="how-do-i-construct-an-account-sas"></a>Como fazer para construir uma SAS de Conta?
 
-Uma SAS de Conta delega acesso a recursos em um ou mais dos serviços de armazenamento. Você também pode delegar acesso a operações de leitura, gravação e exclusão em contêineres de blob, tabelas, filas e compartilhamentos de arquivos que não são permitidos com um SAS de serviço. A construção de uma SAS de Conta é semelhante a de uma SAS de Serviço. Para obter instruções detalhadas, consulte [Construindo uma SAS de Conta.](https://docs.microsoft.com/rest/api/storageservices/Constructing-an-Account-SAS?redirectedfrom=MSDN)
+Uma SAS da conta delega tooresources de acesso em um ou mais dos serviços de armazenamento de saudação. Você também pode delegar acesso tooread, gravação e operações de exclusão em contêineres de blob, tabelas, filas e compartilhamentos de arquivos que não são permitidos com um serviço de SAS. Construção de uma conta de SAS é semelhante toothat de uma SAS do serviço. Para obter instruções detalhadas, consulte [Construindo uma SAS de Conta.](https://docs.microsoft.com/rest/api/storageservices/Constructing-an-Account-SAS?redirectedfrom=MSDN)
 
 #### <a name="how-do-i-enforce-https-when-calling-rest-apis"></a>Como fazer para impor o HTTPS ao chamar APIs REST?
 
-Para impor o uso do HTTPS ao chamar APIs REST para acessar objetos em contas de armazenamento, habilite o recurso Transferência Segura Obrigatória na conta de armazenamento. 
+tooenforce o uso de saudação de HTTPS ao chamar objetos tooaccess de APIs REST em contas de armazenamento, você pode habilitar Secure transferir necessário Olá conta de armazenamento. 
 
-1. No portal do Azure, selecione **Criar Conta de Armazenamento** ou em uma conta de armazenamento existente, selecione **Configurações** e, em seguida, **Configuração**.
+1. No portal do Azure de Olá, selecione **criar conta de armazenamento**, ou para uma conta de armazenamento existente, selecione **configurações** e, em seguida, **configuração**.
 
 2. Em **Transferência Segura Obrigatória**, selecione **Habilitada**.
 
 ![Criando uma conta de armazenamento](media/protect-personal-data-in-transit-encryption/create-storage-account.png)
 
-Para obter instruções mais detalhadas, incluindo como habilitar o recurso Transferência Segura Obrigatória de forma programática, consulte [Exigir a Transferência Segura](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer).
+Para obter instruções mais detalhadas, incluindo como tooenable proteger transferir obrigatório programaticamente, consulte [precisam proteger transferir](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer).
 
 #### <a name="how-do-i-encrypt-data-in-azure-file-storage"></a>Como fazer para criptografar dados no Armazenamento de Arquivos do Azure?
 
-Para criptografar dados em trânsito com o [Armazenamento de Arquivos do Azure](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-portal), use o SMB 3.x com o Windows 8, 8.1 e 10 e com o Windows Server 2012 R2 e o Windows Server 2016. Quando você estiver usando o serviço de Arquivos do Azure, qualquer conexão sem criptografia falhará quando "Transferência segura obrigatória" estiver habilitada. Isso inclui cenários usando SMB 2.1, SMB 3.0 sem criptografia e alguns tipos do cliente Linux SMB.
+tooencrypt dados em trânsito com [armazenamento de arquivo do Azure](https://docs.microsoft.com/azure/storage/storage-file-how-to-use-files-portal), você pode usar o SMB 3. x com o Windows 8, 8.1 e 10 e Windows Server 2012 R2 e Windows Server 2016. Quando você estiver usando o serviço de arquivos do Azure Olá, qualquer conexão sem criptografia falhará ao "Seguro transferência necessária" está habilitado. Isso inclui cenários de uso de SMB 2.1, SMB 3.0 sem criptografia e alguns tipos de saudação cliente Linux SMB.
 
 #### <a name="azure-client-side-encryption"></a>Criptografia do Lado do Cliente do Azure
 
-Outra opção para proteger dados pessoais enquanto estão sendo transferidos entre um aplicativo cliente e o Armazenamento do Azure é a [Criptografia do Lado do Cliente](https://docs.microsoft.com/azure/storage/storage-client-side-encryption). Os dados são criptografados antes de serem transferidos para o Armazenamento do Azure e, ao recuperar os dados no Armazenamento do Azure, eles são descriptografados depois de serem recebidos no lado do cliente.
+Outra opção para proteger dados pessoais enquanto estão sendo transferidos entre um aplicativo cliente e o Armazenamento do Azure é a [Criptografia do Lado do Cliente](https://docs.microsoft.com/azure/storage/storage-client-side-encryption). Olá dados são criptografados antes de serem transferidos para o armazenamento do Azure e ao recuperar dados de saudação do armazenamento do Azure, os dados de saudação são descriptografados depois de ser recebida no lado do cliente de saudação.
 
 ### <a name="azure-site-to-site-vpn"></a>VPN site a site do Azure
 
-Uma maneira eficiente para proteger dados pessoais em trânsito entre uma rede corporativa ou um usuário e a rede virtual do Azure é usar uma VPN (Rede Virtual Privada) [site a site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) ou [ponto a site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal). Uma conexão VPN cria um túnel criptografado seguro pela Internet.
+Um maneira eficiente tooprotect pessoal os dados em trânsito entre uma rede corporativa ou o usuário e a saudação rede virtual do Azure são toouse uma [site a site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) ou [ponto a site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) rede Virtual privada (VPN). Uma conexão VPN cria um encapsulamento criptografado seguro em Olá da Internet.
 
 #### <a name="how-do-i-create-a-site-to-site-vpn-connection"></a>Como fazer para criar uma conexão VPN site a site?
 
-Uma VPN site a site conecta vários usuários na rede corporativa com o Azure. Para criar uma conexão site a site no portal do Azure, faça o seguinte:
+Uma VPN site a site se conecta a vários usuários em Olá tooAzure de rede corporativa. toocreate uma conexão site a site no hello portal do Azure, Olá a seguir:
 
 1. Crie uma rede virtual.
 
 2. Especifique um servidor DNS.
 
-3. Crie a sub-rede de gateway.
+3. Crie uma sub-rede de gateway hello.
 
-4. Crie o gateway de VPN. 
+4. Crie gateway VPN hello. 
 
     ![](media/protect-personal-data-in-transit-encryption/vpn-step-01.png)
 
-5. Crie o gateway de rede local.
+5. Crie gateway de rede local hello.
 
     ![](media/protect-personal-data-in-transit-encryption/vpn-step-02.png)
 
 6. Configure o dispositivo VPN.
 
-7. Crie a conexão VPN.
+7. Crie conexão de VPN hello.
 
     ![](media/protect-personal-data-in-transit-encryption/vpn-step-03.png)
 
-8. Verifique a conexão VPN.
+8. Verifique se a conexão de VPN hello.
 
-Para obter instruções mais detalhadas sobre como criar uma conexão site a site no portal do Azure, consulte [Criar uma conexão Site a Site no Portal do Azure.] (https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
+Para obter instruções mais detalhadas sobre como conexão toocreate uma site a site no hello Azure portal, consulte [criar uma Site a Site conexão no hello Portal do Azure]. (https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal)
 
 #### <a name="how-do-i-create-a-point-to-site-vpn-connection"></a>Como fazer para criar uma conexão VPN ponto a site?
 
-Uma VPN Ponto a Site cria uma conexão segura de um computador cliente individual com uma rede virtual. Isso é útil quando você deseja se conectar ao Azure em um local remoto, como de casa, um hotel ou um centro de conferências. Para criar uma conexão ponto a site no portal do Azure:
+Uma VPN ponto a Site cria uma conexão segura de uma rede virtual do computador tooa de clientes individuais. Isso é útil quando você deseja tooAzure tooconnect de um local remoto, como de central casa ou em um hotel ou conferência. toocreate uma conexão ponto a site no hello portal do Azure,
 
 1. Crie uma rede virtual.
 
@@ -153,37 +153,37 @@ Uma VPN Ponto a Site cria uma conexão segura de um computador cliente individua
 
 5. Gere certificados.
 
-6. Adicione o pool de endereços de cliente.
+6. Adicione pool de endereços de cliente de saudação.
 
-7. Carregue os dados de certificado público do certificado raiz.
+7. Carregar dados de certificado pública do certificado de raiz hello.
 
-8. Gere e instale o pacote de configuração de cliente VPN.
+8. Gerar e instale o pacote de configuração de cliente VPN hello.
 
 9. Instale um certificado do cliente exportado.
 
-10. Conecte-se ao Azure.
+10. Conecte-se tooAzure.
 
 11. Verifique a conexão.
 
-Para obter instruções mais detalhadas, consulte [Configurar uma conexão Ponto a Site a uma VNet usando a autenticação de certificado: Portal do Azure.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
+Para obter instruções mais detalhadas, consulte [configurar uma conexão de ponto para Site tooa VNet usando a autenticação de certificado: Portal do Azure.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
 
 ### <a name="ssltls"></a>SSL/TLS
 
-A Microsoft recomenda sempre usar protocolos SSL/TLS para a troca de dados em diferentes localizações. As organizações que optam por usar o [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) para mover conjuntos de dados grandes em um link de WAN dedicado de alta velocidade também podem criptografar os dados no nível do aplicativo usando o SSL/TLS ou outros protocolos para proteção extra.
+A Microsoft recomenda que você sempre use dados de tooexchange protocolos SSL/TLS em diferentes locais. As organizações que escolha toouse [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) toomove grandes conjuntos de dados em um link WAN de alta velocidade dedicado também pode criptografar dados Olá Olá usando SSL/TLS ou outros protocolos para proteção adicional de nível de aplicativo.
 
 ### <a name="encryption-by-default"></a>Criptografia por padrão
 
-A Microsoft usa a criptografia para proteger dados em trânsito entre clientes e serviços de nuvem do Azure. Se você estiver interagindo com o Armazenamento do Azure pelo Portal do Azure, todas as transações ocorrerão via HTTPS.
+A Microsoft usa os dados de tooprotect de criptografia em trânsito entre clientes e serviços de nuvem do Azure. Se você estiver interagindo com o armazenamento do Azure por meio de saudação Portal do Azure, todas as transações ocorrem por meio de HTTPS.
 
-O [protocolo TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) é o protocolo com o qual os data centers da Microsoft tentarão negociar com os sistemas cliente que se conectam aos serviços em nuvem da Microsoft. O TLS fornece autenticação forte, privacidade de mensagem e integridade (habilita a detecção de adulteração, interceptação e falsificação de mensagens), interoperabilidade, flexibilidade de algoritmo, facilidade de implantação e uso.
+[Segurança de camada de transporte](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) é o protocolo de saudação que data centers da Microsoft tentará toonegotiate com sistemas de cliente que se conectam tooMicrosoft serviços de nuvem. O TLS fornece autenticação forte, privacidade de mensagem e integridade (habilita a detecção de adulteração, interceptação e falsificação de mensagens), interoperabilidade, flexibilidade de algoritmo, facilidade de implantação e uso.
 
-O [PFS](https://en.wikipedia.org/wiki/Forward_secrecy) (Perfect Forward Secrecy) também é utilizado para que cada conexão entre os sistemas cliente dos clientes e os serviços de nuvem da Microsoft usem chaves exclusivas. As conexões com os serviços em nuvem da Microsoft também aproveitam tamanhos de chave de criptografia de 2.048 bits baseada em RSA. A combinação do TLS, tamanhos de chave RSA de 2.048 bits e o PFS torna muito mais difícil para alguém interceptar e acessar dados em trânsito entre os clientes e os serviços em nuvem da Microsoft.
+O [PFS](https://en.wikipedia.org/wiki/Forward_secrecy) (Perfect Forward Secrecy) também é utilizado para que cada conexão entre os sistemas cliente dos clientes e os serviços de nuvem da Microsoft usem chaves exclusivas. Serviços de nuvem tooMicrosoft conexões também tirar proveito de criptografia de 2.048 bits RSA com comprimentos de chave. Olá combinação de TLS, comprimentos de chave RSA de 2.048 bits, e PFS torna muito mais difícil para alguém toointercept e acessar dados em trânsito entre clientes e serviços de nuvem da Microsoft.
 
-Os dados em trânsito são Always Encrypted no [Data Lake Store] (https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview). Além de criptografar os dados antes de armazenar em mídia persistente, os dados são sempre protegidos em trânsito usando HTTPS. HTTPS é o único protocolo com suporte para as interfaces REST do Data Lake Store.
+Os dados em trânsito são Always Encrypted no [Data Lake Store] (https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview). Além disso mídia toopersistent do tooencrypting dados toostoring anterior, Olá dados são sempre protegidos em trânsito usando HTTPS. HTTPS é Olá único protocolo com suporte para Olá que interfaces Data Lake repositório REST.
 
 ## <a name="summary"></a>Resumo
 
-A empresa pode atingir sua meta de proteger dados pessoais e a privacidade desses dados impondo conexões HTTPS ao Armazenamento do Azure, usando Assinaturas de Acesso Compartilhado e habilitando o recurso Transferência Segura Obrigatória nas contas de armazenamento. Ela também pode proteger os dados pessoais usando conexões SMB 3.0 e implementando a criptografia do lado do cliente. As conexões VPN site a site da rede corporativa para a rede virtual do Azure e as conexões VPN ponto a site dos usuários individuais criarão um túnel seguro por meio do qual os dados pessoais podem viajar com segurança. As práticas de criptografia padrão da Microsoft protegem ainda mais a privacidade de dados pessoais.
+empresa Olá pode fazer o seu objetivo de proteção de privacidade de dados e hello pessoal desses dados impondo HTTPS conexões tooAzure armazenamento, usando assinaturas de acesso compartilhado e habilitando seguro transferir necessárias em contas de armazenamento hello. Ela também pode proteger os dados pessoais usando conexões SMB 3.0 e implementando a criptografia do lado do cliente. Olá de conexões de VPN site a site da rede corporativa toohello rede virtual do Azure e conexões de VPN de ponto para site de usuários individuais criará um túnel seguro por meio do qual dados pessoais podem viajar com segurança. Práticas recomendadas de criptografia de padrão da Microsoft serão proteger ainda mais privacidade Olá dos dados pessoais.
 
 ## <a name="next-steps"></a>Próximas etapas
 

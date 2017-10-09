@@ -1,6 +1,6 @@
 ---
-title: "Analisar a segurança de rede com exibição de grupo de segurança do Observador de Rede do Azure – CLI 1.0 do Azure | Microsoft Docs"
-description: "Este artigo descreve como usar a CLI 1.0 do Azure para analisar um título de máquinas virtuais com o modo de exibição de grupo de segurança."
+title: "segurança de rede aaaAnalyze com exibição de grupo de segurança do Azure rede Inspetor - 1.0 da CLI do Azure | Microsoft Docs"
+description: "Este artigo descreve como tooanalyze toouse 1.0 da CLI do Azure a virtual máquinas a segurança com o modo de exibição de grupo de segurança."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 2c4c494dcc4fe1a85c5feb29506c35fb03066479
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 96383a734b94d215d5b0f3d47339e46940d700b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-10"></a>Analisar a segurança de máquina Virtual com o modo de exibição de grupo de segurança usando a CLI 1.0 do Azure
 
@@ -28,27 +28,27 @@ ms.lasthandoff: 07/11/2017
 > - [CLI 2.0](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
-Exibição de grupo de segurança retorna as regras de segurança de rede configurados e eficaz que são aplicadas a uma máquina virtual. Esse recurso é útil para auditoria e diagnosticar grupos de segurança de rede e as regras configuradas em uma VM para garantir que o tráfego está sendo corretamente permitido ou negado. Neste artigo, mostraremos como recuperar as regras de segurança configuradas e em vigor para uma máquina virtual usando a CLI do Azure
+Exibição de grupo de segurança retorna as regras de segurança de rede configurados e eficiente que são aplicadas tooa virtual machine. Esse recurso é útil tooaudit e diagnosticar os grupos de segurança de rede e as regras configuradas no tráfego de tooensure VM está sendo corretamente permitido ou negado. Neste artigo, mostramos como tooretrieve Olá configurada e segurança efetiva regras tooa VM usando a CLI do Azure
 
 Este artigo usa a CLI 1.0 do Azure para plataforma cruzada, que está disponível para Windows, Mac e Linux. Atualmente, o Observador de Rede usa a CLI 1.0 do Azure para dar suporte à CLI.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de rede](network-watcher-create.md) para criar um Observador de rede.
+Este cenário pressupõe que você já seguiu etapas Olá [criar um observador de rede](network-watcher-create.md) toocreate um observador de rede.
 
 ## <a name="scenario"></a>Cenário
 
-O cenário abordado neste artigo recupera as regras de segurança configuradas e em vigor para uma determinada máquina virtual.
+cenário de saudação abordado neste artigo recupera hello configurado e regras de segurança efetiva para uma determinada máquina virtual.
 
 ## <a name="get-a-vm"></a>Obter uma VM
 
-Uma máquina virtual é necessária para executar o cmdlet `vm list`. O comando a seguir lista as máquinas virtuais em um grupo de recursos:
+Uma máquina virtual é necessário toorun Olá `vm list` cmdlet. Olá comando a seguir lista machinese de saudação virtual em um grupo de recursos:
 
 ```azurecli
 azure vm list -g resourceGroupName
 ```
 
-Se você conhecer a máquina virtual, poderá usar o `vm show` para obter sua Id de recurso:
+Quando você souber a máquina virtual de saudação, você pode usar Olá `vm show` cmdlet tooget sua Id de recurso:
 
 ```azurecli
 azure vm show -g resourceGroupName -n virtualMachineName
@@ -56,15 +56,15 @@ azure vm show -g resourceGroupName -n virtualMachineName
 
 ## <a name="retrieve-security-group-view"></a>Recuperar o modo de exibição de grupo de segurança
 
-A próxima etapa é recuperar o resultado de exibição do grupo de segurança. A adição do sinalizador "– json" formatará os resultados em json.
+Olá próxima etapa é o resultado de exibição de grupo de segurança do tooretrieve hello. Adicionando hello "– json" Sinalizador formatará os resultados de saudação em json.
 
 ```azurecli
 azure network watcher security-group-view -g resourceGroupName -n networkWatcherName -t targetResourceId --json
 ```
 
-## <a name="viewing-the-results"></a>Exibição dos resultados
+## <a name="viewing-hello-results"></a>Exibindo resultados de saudação
 
-O exemplo a seguir é uma resposta abreviada dos resultados retornados. Os resultados mostram todas as regras de segurança efetiva e aplicados na máquina virtual dividida em grupos de **NetworkInterfaceSecurityRules**, **DefaultSecurityRules** e **EffectiveSecurityRules**.
+Olá, exemplo a seguir é uma resposta reduzida de saudação resultados retornados. Olá resultados mostram todas as regras de segurança efetiva e aplicadas Olá na máquina virtual de saudação dividida em grupos de **NetworkInterfaceSecurityRules**, **DefaultSecurityRules**, e  **EffectiveSecurityRules**.
 
 ```json
 {
@@ -115,6 +115,6 @@ O exemplo a seguir é uma resposta abreviada dos resultados retornados. Os resul
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Visite [auditoria de segurança grupos NSG (rede) com o Observador de Rede](network-watcher-nsg-auditing-powershell.md) para aprender a automatizar a validação dos grupos de segurança de rede.
+Visite [auditoria rede segurança grupos (NSG) com o observador de rede](network-watcher-nsg-auditing-powershell.md) toolearn como tooautomate validação dos grupos de segurança de rede.
 
-Saiba mais sobre as regras de segurança que são aplicadas aos recursos de rede no artigo [Visão geral de exibição do grupo de segurança](network-watcher-security-group-view-overview.md)
+Saiba mais sobre as regras de segurança de saudação que são recursos de rede aplicada tooyour visitando [visão geral de exibição de grupo de segurança](network-watcher-security-group-view-overview.md)

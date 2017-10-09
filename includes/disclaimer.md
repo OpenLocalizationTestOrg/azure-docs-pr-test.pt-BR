@@ -1,2 +1,2 @@
-Para usar esse recurso e outros novos recursos do Azure, inscreva-se na [visualização gratuita](https://account.windowsazure.com/PreviewFeatures).
+toouse esse recurso e outros recursos novos do Azure, inscreva-se para Olá [visualização grátis](https://account.windowsazure.com/PreviewFeatures).
 

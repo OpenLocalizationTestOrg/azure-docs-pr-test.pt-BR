@@ -1,6 +1,6 @@
 ---
-title: Nunca armazenar dados confidenciais em imagens personalizadas do Azure RemoteApp | Microsoft Docs
-description: Saiba mais sobre as diretrizes para armazenar dados em imagens personalizadas no Azure RemoteApp
+title: aaaNever armazenar dados confidenciais em imagens personalizadas para o Azure RemoteApp | Microsoft Docs
+description: "Saiba mais sobre as diretrizes de saudação para armazenar dados em imagens personalizadas no Azure RemoteApp"
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,38 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 75d5415d33324d957617426e75909a6c6c58b1f9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86a0fea218f8826d6d25f50d3c4c36e368e26fb5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="never-store-sensitive-data-on-custom-images"></a>Nunca armazene dados confidenciais em imagens personalizadas
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-Ao hospedar seu aplicativo no Azure RemoteApp, a primeira etapa é criar uma imagem personalizada. Usamos essa imagem personalizada para criar instâncias de VM que fornecem seus aplicativos para seus usuários. A imagem personalizada deve conter APENAS aplicativos e nunca dados confidenciais que podem ser perdidos, como Bancos de Dados SQL, arquivos de pessoal ou arquivos de dados especiais, como arquivos da empresa do QuickBooks. Todos os dados confidenciais devem residir externamente ao Azure RemoteApp em um servidor de arquivos, outra VM do Azure ou no SQL Azure. A imagem deve hospedar apenas o aplicativo que se conecta à fonte de dados e apresenta os dados. Releia os [Requisitos para as imagens do Azure RemoteApp](remoteapp-imagereqs.md) para obter mais informações. 
+Ao hospedar seu próprio aplicativo no Azure RemoteApp, Olá primeira etapa é toocreate uma imagem personalizada. Usamos que instâncias VM toocreate imagem personalizada que servem tooyour usuários de seus aplicativos. imagem personalizada Olá deve conter apenas aplicativos e dados nunca confidenciais que podem ser perdidos, como bancos de dados SQL, arquivos de pessoal ou arquivos de dados especiais como QuickBooks da empresa. Todos os dados confidenciais devem residir tooAzure externo RemoteApp em um servidor de arquivos, outra VM do Azure, ou no SQL Azure. imagem de saudação deve apenas aplicativo de saudação host que conecta-se a fonte de dados toohello e apresenta os dados de saudação. Releia os [Requisitos para as imagens do Azure RemoteApp](remoteapp-imagereqs.md) para obter mais informações. 
 
-Para entender por que você não deve armazenar dados confidenciais, você precisa entender como o Azure RemoteApp funciona. Quando uma coleção é criada ou atualizada, nos bastidores, são criados vários clones ou cópias da imagem. Todas essas instâncias de VM são réplicas exatas da imagem personalizada. Quando os usuários iniciam os aplicativos eles são conectados a uma dessas instâncias de VM. Mas a mesma instância não é garantida e não deve importar porque não é persistente. As instâncias de VM hospedando os aplicativos são não persistentes e podem ser destruídas ou excluídas, por exemplo, durante a atualização da coleção. 
+toounderstand por que você não deve armazenar dados confidenciais, você precisa toounderstand como funciona o Azure RemoteApp. Quando uma coleção é criada ou atualizada, em segundo plano do hello vários clones ou cópias de imagem de saudação são criadas. Todas essas instâncias VM são réplicas exatas de imagem personalizada do hello; Quando os usuários iniciar aplicativos estiverem conectado tooone dessas instâncias de VM. Mas hello mesma instância não é garantida e não deve importar porque eles são não persistente. Olá instâncias VM aplicativos de hospedagem Olá não são persistentes e podem ser destruído ou excluído com base, por exemplo, durante a atualização da coleção. 
 
-Depois que a coleção é provisionada e os usuários começam a se conectar às VMs, os dados de usuário são persistentes e protegidos, pois eles são salvos no armazenamento separado dentro de um VHD que chamamos de um [UPD (disco de perfil de usuário)](remoteapp-upd.md), que é o perfil do usuário em c:\users\<userprofile>. Quando um aplicativo é iniciado, o UPD é montado e tratado como um perfil do usuário local pelo sistema operacional. Leia mais sobre como o [Azure RemoteApp salva configurações e dados de usuário](remoteapp-upd.md).
+Depois de coleção Olá é provisionada e os usuários iniciam o toohello conectar máquinas virtuais, dados de usuário são persistentes e protegido porque ele é salvo em um armazenamento separado dentro de um VHD que chamamos um [disco de perfil de usuário (UDP)](remoteapp-upd.md), que é o perfil de usuário Olá c:\Users\<userprofile >. Quando um aplicativo é iniciado, Olá UPD é montado e tratada como um perfil de usuário local pelo sistema operacional de saudação. Leia mais sobre como o [Azure RemoteApp salva configurações e dados de usuário](remoteapp-upd.md).
 
-Dados de exemplo que não devem residir na imagem:
+Dados de exemplo não devem residir na imagem de saudação:
 
-* Dados compartilhados para os usuários acessarem
+* Dados compartilhados para usuários tooaccess
 * Banco de dados SQL ou banco de dados do QuickBooks
 * Quaisquer dados em D:\
 
-Dados de exemplo que podem residir no perfil padrão a ser copiado para o UPD de todos os usuários:
+Dados de exemplo que podem residir em saudação padrão perfil toobe copiado para UPD cada usuários:
 
 * Arquivos de configuração por usuário
 * Scripts que os usuários precisariam que fossem preservados no seu UPD
 
 Pontos principais:
 
-* Nunca armazene dados confidenciais que possam ser perdidos na imagem ao criar uma imagem personalizada.
-* Dados confidenciais sempre devem residir em um servidor de arquivos separado, VM do Azure separada, na nuvem e sempre externos às instâncias de VM que hospedam seus aplicativos no Azure RemoteApp. 
-* Os dados de usuário são salvos e persistem no UPD (disco de perfil do usuário)
+* Nunca armazene dados confidenciais que podem ser perdidos na imagem de saudação ao criar uma imagem personalizada.
+* Dados confidenciais sempre deve residir em um servidor de arquivos separado, separe a VM do Azure, na nuvem hello e instâncias de VM externo sempre toohello hospedar seus aplicativos no Azure RemoteApp. 
+* Dados de usuário é salvo e persistir no disco de perfil de usuário de saudação (UDP)
 

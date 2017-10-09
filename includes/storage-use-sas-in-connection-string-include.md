@@ -1,6 +1,6 @@
-Se você possui uma URL de SAS (assinatura de acesso compartilhado) que concede acesso a recursos em uma conta de armazenamento, pode usar a SAS em uma cadeia de conexão. Como a SAS contém as informações necessárias para autenticar a solicitação, uma cadeia de conexão com uma SAS fornece o protocolo, o ponto de extremidade de serviço e as credenciais necessárias para acessar o recurso.
+Se você possuir uma URL de SAS (assinatura) de acesso compartilhado que concede que acesso tooresources em uma conta de armazenamento, você pode usar o hello SAS em uma cadeia de caracteres de conexão. Como Olá SAS contém a solicitação de Olá Olá informações tooauthenticate necessária, uma cadeia de caracteres de conexão com uma SAS fornece protocolo hello, ponto de extremidade de serviço hello e recursos de Olá Olá credenciais necessárias tooaccess.
 
-Para criar uma cadeia de conexão que inclui uma assinatura de acesso compartilhado, especifique a cadeia de caracteres no seguinte formato:
+toocreate uma cadeia de caracteres de conexão que inclui uma assinatura de acesso compartilhado, especifique a cadeia de saudação em Olá formato a seguir:
 
 ```
 BlobEndpoint=myBlobEndpoint;
@@ -10,12 +10,12 @@ FileEndpoint=myFileEndpoint;
 SharedAccessSignature=sasToken
 ```
 
-Cada ponto de extremidade de serviço é opcional, embora a cadeia de conexão deve conter pelo menos um.
+Cada ponto de extremidade de serviço é opcional, embora a cadeia de caracteres de conexão Olá deve conter pelo menos um.
 
 > [!NOTE]
 > Usar HTTPS com uma SAS é uma prática recomendada.
 >
-> Se você estiver especificando uma SAS em uma cadeia de conexão em um arquivo de configuração, precisará codificar caracteres especiais na URL.
+> Se você estiver especificando uma SAS em uma cadeia de conexão em um arquivo de configuração, talvez seja necessário tooencode de caracteres especiais na URL de saudação.
 >
 >
 
@@ -27,7 +27,7 @@ BlobEndpoint=https://storagesample.blob.core.windows.net;
 SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
-E aqui está um exemplo da mesma cadeia de conexão com codificação de caracteres especiais:
+E aqui está um exemplo de hello mesma cadeia de caracteres de conexão com a codificação de caracteres especiais:
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;
@@ -43,7 +43,7 @@ FileEndpoint=https://storagesample.file.core.windows.net;
 SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
 ```
 
-E aqui está um exemplo da mesma cadeia de conexão com a codificação de URL:
+E aqui está um exemplo de hello mesma cadeia de caracteres de conexão com a codificação de URL:
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;

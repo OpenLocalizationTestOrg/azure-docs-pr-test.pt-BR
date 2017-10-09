@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Não é possível usar aplicativos registrados na guia **Aplicativos** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com/) para fazer isso.
+> Você não pode usar aplicativos registrados no hello **aplicativos** guia Olá clássico [Portal de gerenciamento](https://manage.windowsazure.com/) para isso.
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Agendador do Azure no portal do Azure | Microsoft Docs"
+title: aaaGet iniciado com o Agendador do Azure no portal do Azure | Microsoft Docs
 description: "Introdução ao Agendador do Azure no Portal do Azure"
 services: scheduler
 documentationcenter: .NET
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 58255c0ad19da65932f8b1d36cb8fef1ff6e651b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introdução ao Agendador do Azure no Portal do Azure
-É fácil criar trabalhos agendados no Agendador do Azure. Neste tutorial, você aprenderá a criar um trabalho. Você também aprenderá sobre os recursos de monitoramento e gerenciamento do Agendador.
+É fácil toocreate agendado trabalhos no Agendador do Azure. Neste tutorial, você aprenderá como toocreate um trabalho. Você também aprenderá sobre os recursos de monitoramento e gerenciamento do Agendador.
 
 ## <a name="create-a-job"></a>Criar um trabalho
-1. Entre no [Portal do Azure](https://portal.azure.com/).  
-2. Clique em **+Novo** > digite *Agendador* na caixa de pesquisa > selecione **Agendador** nos resultados > clique em **Criar**.
+1. Entrar muito[portal do Azure](https://portal.azure.com/).  
+2. Clique em **+ novo** > tipo *Agendador* na caixa de pesquisa hello > selecione **Agendador** nos resultados > clique **criar**.
    
     ![][marketplace-create]
-3. Vamos criar um trabalho que simplesmente visita http://www.microsoft.com/ com uma solicitação GET. Na tela **Trabalho do Agendador** , insira as seguintes informações:
+3. Vamos criar um trabalho que simplesmente visita http://www.microsoft.com/ com uma solicitação GET. Em Olá **trabalho do Agendador** tela, insira Olá informações a seguir:
    
    1. **Nome:** `getmicrosoft`  
    2. **Assinatura:** sua assinatura do Azure   
    3. **Coleção de Trabalhos:** selecione uma coleção de trabalhos existente ou clique em **Criar Novo** > insira um nome.
-4. Em seguida, nas **Configurações de Ação**, defina os seguintes valores:
+4. Em seguida, na **as configurações de ação**, definir Olá valores a seguir:
    
    1. **Tipo de ação:** ` HTTP`  
    2. **Método:** `GET`  
    3. **URL:** ` http://www.microsoft.com`  
       
       ![][action-settings]
-5. Finalmente, vamos definir uma agenda. O trabalho pode ser definido como um único trabalho, mas convém escolher uma agenda de recorrência:
+5. Finalmente, vamos definir uma agenda. trabalho de saudação pode ser definido como um único trabalho, mas convém escolher um agendamento de recorrência:
    
    1. **Recorrência**: `Recurring`
    2. **Iniciar**: data de hoje
@@ -51,7 +51,7 @@ ms.lasthandoff: 07/11/2017
 6. Clique em **Criar**
 
 ## <a name="manage-and-monitor-jobs"></a>Gerenciar e monitorar trabalhos
-Depois que um trabalho é criado, ele aparece no painel principal do Azure. Clique no trabalho e uma nova janela será aberta com as seguintes guias:
+Quando um trabalho é criado, ele aparece no painel do Azure principal de saudação. Clique em trabalho hello e uma nova janela é aberta com hello guias a seguir:
 
 1. Propriedades  
 2. Configurações de Ação  
@@ -62,34 +62,34 @@ Depois que um trabalho é criado, ele aparece no painel principal do Azure. Cliq
    ![][job-overview]
 
 ### <a name="properties"></a>Propriedades
-Essas propriedades somente leitura descrevem os metadados de gerenciamento para o trabalho do Agendador.
+Essas propriedades somente leitura descrevem Olá gerenciamento metadados para o trabalho do Agendador hello.
 
    ![][job-properties]
 
 ### <a name="action-settings"></a>Configurações de Ação
-Clicar em um trabalho na tela **Trabalhos** permite que você configure esse trabalho. Isso permitirá definir configurações avançadas, se você não as tiver configurado no assistente de criação rápida.
+Clicar em um trabalho em Olá **trabalhos** tela permite tooconfigure de trabalho. Isso lhe permite definir configurações avançadas, se você não configurá-las no hello criação rápida assistente.
 
-Para todos os tipos de ação, você pode alterar a política de repetição e a ação de erro.
+Para todos os tipos de ação, você pode alterar a política de repetição hello e ação de erro de saudação.
 
-Para tipos de ação do trabalho HTTP e HTTPS, você pode alterar o método para qualquer verbo HTTP permitido. Você também pode adicionar, excluir ou alterar os cabeçalhos e informações de autenticação básica.
+Para tipos de ação do trabalho HTTP e HTTPS, você pode alterar Olá método tooany permitido verbo HTTP. Você também pode adicionar, excluir ou alterar cabeçalhos hello e informações de autenticação básica.
 
-Para tipos de ação de fila de armazenamento, você pode alterar a conta de armazenamento, nome da fila, token SAS e corpo.
+Para tipos de ação da fila de armazenamento, você pode alterar a conta de armazenamento Olá, nome da fila, token SAS e corpo.
 
-Para tipos de ação do barramento de serviço, você pode alterar o namespace, o caminho da fila/tópico, as configurações de autenticação, o tipo de transporte, as propriedades de mensagem e o corpo da mensagem.
+Para tipos de ação do barramento de serviço, você pode alterar o namespace hello, o caminho da fila/tópico, configurações de autenticação, tipo de transporte, propriedades de mensagem e corpo da mensagem.
 
    ![][job-action-settings]
 
 ### <a name="schedule"></a>Agenda
-Isso permite reconfigurar o agendamento, se você desejar alterar o agendamento que criou no assistente de criação rápida.
+Isso permite a você reconfigurar a agenda de saudação, se você deseja que a agenda de saudação toochange criado na Olá rápida-Assistente para criar.
 
-Essa é uma oportunidade de criar [agendas complexas e recorrência avançada no trabalho](scheduler-advanced-complexity.md)
+Isso é uma oportunidade toobuild [agendas complexas e recorrência avançadas em seu trabalho](scheduler-advanced-complexity.md)
 
-Você pode alterar a data e hora de início, o agendamento de recorrência e a data e hora de término (se o trabalho é recorrente).
+Você pode alterar a data de início hello e hora, agendamento de recorrência e Olá data de término e a hora (se o trabalho de saudação for recorrente).
 
    ![][job-schedule]
 
 ### <a name="history"></a>Histórico
-A guia **Histórico** exibe as métricas selecionadas para cada execução do trabalho do sistema para o trabalho selecionado. Essas métricas fornecem valores em tempo real relacionados à integridade de seu Agendador:
+Olá **histórico** guia exibe a métrica selecionada para cada execução do trabalho no sistema Olá para o trabalho selecionado hello. Essas métricas fornecem valores em tempo real sobre a integridade de saudação do seu Agendador:
 
 1. Status  
 2. Detalhes  
@@ -100,12 +100,12 @@ A guia **Histórico** exibe as métricas selecionadas para cada execução do tr
    
    ![][job-history]
 
-Você pode clicar em uma execução para exibir seus **Detalhes de Histórico**, incluindo a resposta inteira para cada execução. Essa caixa de diálogo também permite que você copie a resposta para a área de transferência.
+Você pode clicar em uma execução tooview seu **detalhes de histórico**, incluindo a resposta inteira Olá para cada execução. Essa caixa de diálogo também permite que você toocopy Olá resposta toohello da área de transferência.
 
    ![][job-history-details]
 
 ### <a name="users"></a>Usuários
-O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Agendador do Azure. Para saber como usar a guia Usuários, confira [Controle de Acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md)
+O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Agendador do Azure. toolearn como Olá toouse guia de usuários, consulte muito[o controle de acesso](../active-directory/role-based-access-control-configure.md)
 
 ## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)
@@ -114,7 +114,7 @@ O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento
 
  [Planos e Cobrança no Agendador do Azure](scheduler-plans-billing.md)
 
- [Como criar agendas complexas e recorrência avançada com o Agendador do Azure](scheduler-advanced-complexity.md)
+ [Como toobuild complexo agenda e recorrência avançadas com o Agendador do Azure](scheduler-advanced-complexity.md)
 
  [Referência da API REST do Agendador](https://msdn.microsoft.com/library/mt629143)
 

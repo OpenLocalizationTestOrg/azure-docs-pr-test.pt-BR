@@ -1,6 +1,6 @@
 ---
-title: "Saiba mais sobre as políticas de segurança dos microsserviços do Azure | Microsoft Docs"
-description: "Uma visão geral de como executar um aplicativo Service Fabric em contas de segurança do sistema e locais, incluindo o SetupEntryPoint no qual o aplicativo precisa executar alguma ação privilegiada antes de iniciar"
+title: "aaaLearn sobre as políticas de segurança do Azure microservices | Microsoft Docs"
+description: "Uma visão geral de como toorun um aplicativo de malha do serviço no sistema e as contas de segurança local, incluindo Olá SetupEntry ponto em que um aplicativo precisa tooperform alguns privilegiado ação antes de começar"
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f5afba69e09aa4f3c9efa4d3efc6995c813a1f71
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configurar políticas de segurança para seu aplicativo
-Usando o Azure Service Fabric, é possível proteger aplicativos em execução no cluster em contas de usuário diferentes. O Service Fabric também protege os recursos usados pelos aplicativos no momento da implantação nas contas de usuário, por exemplo, arquivos, diretórios e certificados. Isso torna os aplicativos em execução, mesmo em um ambiente hospedado compartilhado, mais protegidos uns dos outros.
+Usando o Service Fabric do Azure, você pode proteger os aplicativos em execução no cluster de saudação em diferentes contas de usuário. Serviço de malha também ajuda a certificados, arquivos, diretórios e recursos de saudação seguro que são usados por aplicativos em tempo de saudação da implantação em contas de usuário hello – por exemplo. Isso torna os aplicativos em execução, mesmo em um ambiente hospedado compartilhado, mais protegidos uns dos outros.
 
-Por padrão, os aplicativos de Service Fabric são executados na conta sob a qual o processo Fabric.exe está sendo executado. O Service Fabric também fornece a capacidade de executar aplicativos em uma conta de usuário local ou em uma conta de sistema local, especificada no manifesto do aplicativo. Os tipos de conta do sistema local com suporte são **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
+Por padrão, os aplicativos do Service Fabric são executados sob conta Olá Olá Fabric.exe processo é executado. Serviço de malha também fornece a capacidade de saudação toorun aplicativos sob uma conta de usuário local ou a conta sistema local, que é especificada no manifesto de aplicativo hello. Os tipos de conta do sistema local com suporte são **LocalUser**, **NetworkService**, **LocalService** e **LocalSystem**.
 
- Durante a execução do Service Fabric no Windows Server em seu datacenter usando o instalador autônomo, é possível usar contas de domínio do Active Directory, incluindo contas de serviço gerenciado de grupo.
+ Quando você estiver executando do Service Fabric no Windows Server em seu data center usando o instalador autônomo do hello, você pode usar contas de domínio do Active Directory, incluindo contas de serviço gerenciado de grupo.
 
-É possível definir e criar grupos de usuários para que um ou mais usuários possam ser adicionados a cada grupo para serem gerenciados em conjunto. Isso será útil quando houver vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo.
+Você pode definir e criar grupos de usuários para que um ou mais usuários possam ser adicionados tooeach grupo toobe gerenciado juntos. Isso é útil quando há vários usuários para os pontos de entrada de serviço diferente e é necessário toohave certos privilégios comuns que estão disponíveis no nível do grupo hello.
 
-## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Configurar a política para um ponto de entrada de instalação do serviço
-Conforme descrito no [modelo de aplicativo](service-fabric-application-model.md) , o ponto de entrada de instalação, **SetupEntryPoint**, é um ponto de entrada privilegiado executado com as mesmas credenciais que o Service Fabric (normalmente, a conta *NetworkService*) antes de qualquer outro ponto de entrada. O executável especificado pelo **EntryPoint** normalmente é o host de serviço de execução longa. Portanto, ter um ponto de entrada de instalação separado evita a necessidade de executar o executável do host de serviço com altos privilégios por longos períodos de tempo. O executável especificado pelo **EntryPoint** é executado depois que o **SetupEntryPoint** é encerrado com êxito. O processo resultante é monitorado e reiniciado, começando novamente com **SetupEntryPoint**, caso ele termine ou falhe.
+## <a name="configure-hello-policy-for-a-service-setup-entry-point"></a>Configurar política de saudação para um ponto de entrada de configuração de serviço
+Conforme descrito em Olá [modelo de aplicativo](service-fabric-application-model.md), Olá ponto de entrada de configuração, **SetupEntryPoint**, é um ponto de entrada com privilégios que é executado com hello mesmo credenciais como Service Fabric (normalmente Olá *NetworkService* conta) antes de qualquer outro ponto de entrada. executável de saudação que é especificado pelo **EntryPoint** normalmente é o host de serviço de longa execução hello. Para ter uma entrada de instalação separado do ponto evita a necessidade de host de serviço Olá toorun executável com altos privilégios por longos períodos de tempo. Olá executável que **EntryPoint** especifica é executado após a **SetupEntryPoint** é encerrada com êxito. Olá processo resultante é monitorado e reiniciado e começa novamente com **SetupEntryPoint** se ele nunca termina ou falha.
 
-O item a seguir é um exemplo simples de manifesto do serviço mostrando o SetupEntryPoint e o EntryPoint principal para o serviço.
+a seguir Olá é um exemplo de manifesto de serviço simples que mostra Olá SetupEntryPoint e Olá principal ponto de entrada para o serviço de saudação.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -58,8 +58,8 @@ O item a seguir é um exemplo simples de manifesto do serviço mostrando o Setup
 </ServiceManifest>
 ```
 
-### <a name="configure-the-policy-by-using-a-local-account"></a>Configurar a política usando uma conta local
-Após ter configurado do serviço para ter um SetupEntryPoint, é possível alterar as permissões de segurança sob as quais ele é executado no manifesto do aplicativo. O item a seguir mostra como configurar o serviço para ser executado com privilégios de conta de administrador de usuário.
+### <a name="configure-hello-policy-by-using-a-local-account"></a>Configurar política de saudação usando uma conta local
+Depois de configurar Olá serviço toohave um ponto de entrada de configuração, você pode alterar as permissões de segurança de saudação que ele é executado no manifesto de aplicativo hello. saudação de exemplo a seguir mostra como tooconfigure Olá toorun de serviço com privilégios de conta de administrador do usuário.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -83,43 +83,43 @@ Após ter configurado do serviço para ter um SetupEntryPoint, é possível alte
 </ApplicationManifest>
 ```
 
-Primeiro, crie uma seção **Principals** com um nome de usuário SetupAdminUser. Isso indica que o usuário é membro do grupo do sistema Administradores.
+Primeiro, crie uma seção **Principals** com um nome de usuário SetupAdminUser. Isso indica que o usuário Olá é um membro do grupo de sistema de administradores de saudação.
 
-Em seguida, na seção **ServiceManifestImport**, configure uma política para aplicar essa entidade de segurança ao **SetupEntryPoint**. Isso informa ao Service Fabric que quando o arquivo **MySetup.bat** for executado ele deve ser `RunAs` com privilégios de Administrador. Considerando que você *não* aplicou uma política ao ponto de entrada principal, o código em **MyServiceHost.exe** será executado na conta do sistema **NetworkService**. Essa é a conta padrão que todos os pontos de entrada de serviço são executados como.
+Em seguida, em Olá **servicemanifestimport ao** seção, configure uma política tooapply essa entidade muito**SetupEntryPoint**. Isso informa ao serviço de malha que quando hello **MySetup.bat** arquivo é executado, ele deve ser `RunAs` com privilégios de administrador. Considerando que você tenha *não* aplicada a um ponto de entrada principal toohello de política, o código de Olá em **MyServiceHost.exe** compatível com o sistema Olá **NetworkService** conta. Esta é a conta de padrão de saudação que todos os pontos de entrada de serviço são executados como.
 
-Agora, vamos adicionar o arquivo MySetup.bat ao projeto do Visual Studio para testar os privilégios de Administrador. No Visual Studio, clique com o botão direito do mouse no projeto de serviço e adicione um novo arquivo chamado MySetup.bat.
+Agora, vamos adicionar Olá arquivo MySetup.bat toohello Visual Studio project tootest Olá privilégios de administrador. No Visual Studio, clique com botão direito Olá serviço e adicione um novo arquivo chamado MySetup.bat.
 
-Em seguida, certifique-se de que o arquivo MySetup.bat é incluído no service pack. Por padrão, não é. Selecione o arquivo, clique com o botão direito do mouse para exibir o menu de contexto e escolha **Propriedades**. Na caixa de diálogo Propriedades, verifique se **Copiar para Diretório de Saída** está definido como **Copiar se mais recente**. Consulte a seguinte captura de tela.
+Em seguida, certifique-se de que arquivo hello MySetup.bat está incluído no pacote de serviço hello. Por padrão, não é. Selecione o arquivo hello, tooget Olá contexto menu de atalho e escolha **propriedades**. Na caixa de diálogo de propriedades de saudação, certifique-se de que **copiar tooOutput diretório** está definido muito**copiar se mais recente**. Consulte Olá captura de tela a seguir.
 
 ![CopyToOutput do Visual Studio para o arquivo em lotes SetupEntryPoint][image1]
 
-Agora, abra o arquivo MySetup.bat e adicione os comandos a seguir.
+Agora, abrir o arquivo de MySetup.bat hello e adicione Olá comandos a seguir:
 
 ```
 REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable set to > out.txt
+echo System TestVariable set too> out.txt
 echo %TestVariable% >> out.txt
 
-REM To delete this system variable us
+REM toodelete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ```
 
-Em seguida, compile e implante a solução em um cluster de desenvolvimento local. Após a inicialização do serviço, conforme mostrado no Gerenciador do Service Fabric, é possível ver que o arquivo MySetup.bat foi bem-sucedido de duas maneiras. Abra um prompt de comando do PowerShell e digite:
+Em seguida, criar e implantar o cluster de desenvolvimento local Olá solução tooa. Depois que o serviço Olá foi iniciado, conforme mostrado no Gerenciador do Service Fabric, você pode ver que arquivo hello MySetup.bat foi bem-sucedida de um duas maneiras. Abra um prompt de comando do PowerShell e digite:
 
 ```
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ```
 
-Em seguida, anote o nome do nó no qual o serviço foi implantado e iniciado no Service Fabric Explorer, por exemplo, Nó 2. Em seguida, navegue até a pasta de trabalho de instância do aplicativo para localizar o arquivo out.txt que mostra o valor de **TestVariable**. Por exemplo, se o serviço foi implantado no Nó 2, você pode acessar este caminho até o **MyApplicationType**:
+Anote o nome Olá Olá nó onde o serviço Olá foi implantado e iniciado no Gerenciador do Service Fabric – por exemplo, nó 2. Em seguida, navegue toohello instância trabalho pasta toofind Olá out.txt arquivo do aplicativo que mostra o valor de saudação do **TestVariable**. Por exemplo, se esse serviço foi implantado tooNode 2, em seguida, você pode ir toothis caminho Olá **MyApplicationType**:
 
 ```
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ```
 
-### <a name="configure-the-policy-by-using-local-system-accounts"></a>Configurar a política usando contas do sistema local
-Em geral, é preferível executar o script de inicialização usando uma conta do sistema local em vez de uma conta de administrador. A execução da política RunAs como membro do grupo Administradores geralmente não funciona bem, porque os computadores têm o UAC (Controle de Acesso de Usuário) habilitado por padrão. Em tais casos, **a recomendação é executar o SetupEntryPoint como LocalSystem em vez de um usuário local adicionado ao grupo Administradores**. O exemplo a seguir mostra a definição de SetupEntryPoint para ser executado como LocalSystem:
+### <a name="configure-hello-policy-by-using-local-system-accounts"></a>Configurar política de saudação usando contas locais do sistema
+Geralmente, é preferível toorun script de inicialização de saudação usando uma conta sistema local em vez de uma conta de administrador. Execução da política de RunAs hello como um membro da saudação grupo administradores geralmente não funciona bem como máquinas têm controle de acesso da usuário (UAC) habilitado por padrão. Nesses casos, **Olá recomenda Olá toorun SetupEntryPoint como LocalSystem, em vez de como um grupo de usuário local adicionado tooAdministrators**. Olá exemplo a seguir mostra configuração Olá SetupEntryPoint toorun como LocalSystem:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -140,15 +140,15 @@ Em geral, é preferível executar o script de inicialização usando uma conta d
 ```
 
 ## <a name="start-powershell-commands-from-a-setup-entry-point"></a>Iniciar comandos do PowerShell em um ponto de entrada de instalação
-Para executar o PowerShell do ponto **SetupEntryPoint**, execute **PowerShell.exe** em um arquivo em lotes que aponte para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, **MySetup.ps1**. Não deixe de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote de serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes que inicia um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada **TestVariable**.
+toorun PowerShell de saudação **SetupEntryPoint** ponto, você pode executar **PowerShell.exe** um arquivo em lotes que aponta tooa PowerShell de arquivo. Primeiro, adicione um projeto de serviço do PowerShell arquivo toohello – por exemplo, **MySetup.ps1**. Lembre-se de saudação tooset *copiar se mais recente* propriedade para esse arquivo hello também está incluído no pacote de serviço hello. Olá, exemplo a seguir mostra um arquivo em lotes de exemplo que inicia um arquivo PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada **TestVariable**.
 
-MySetup.bat para iniciar o arquivo do PowerShell:
+MySetup.bat toostart um arquivo do PowerShell:
 
 ```
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ```
 
-No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambiente do sistema:
+No arquivo de PowerShell Olá, adicione Olá tooset uma variável de ambiente do sistema a seguir:
 
 ```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
@@ -156,7 +156,7 @@ No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambi
 ```
 
 > [!NOTE]
-> Por padrão, quando o arquivo em lotes é executado, ele examina a pasta de aplicativo chamada **trabalho** em busca de arquivos. Nesse caso, quando MySetup.bat é executado, queremos que o arquivo MySetup.ps1 seja encontrado na mesma pasta, que é a pasta do **pacote de códigos** do aplicativo. Para alterar essa pasta, defina a pasta de trabalho:
+> Por padrão, quando o arquivo em lotes de saudação é executado, parece em pasta do aplicativo hello chamada **trabalhar** para arquivos. Nesse caso, quando MySetup.bat é executado, queremos que este Olá toofind MySetup.ps1 arquivo hello mesmo pasta, que é o aplicativo hello **pacote de códigos** pasta. toochange essa pasta, a pasta de trabalho de saudação do conjunto:
 > 
 > 
 
@@ -170,14 +170,14 @@ No arquivo do PowerShell, adicione o seguinte para definir uma variável de ambi
 ```
 
 ## <a name="use-console-redirection-for-local-debugging"></a>Use o redirecionamento de console para depuração local
-De vez em quando, é útil ver a saída do console da execução de um script para fins de depuração. Para fazer isso, você pode definir uma política de redirecionamento de console que grava a saída em um arquivo. A saída do arquivo é gravada na pasta de aplicativos chamada **log** no nó no qual o aplicativo é implantado e executado. (Consulte onde encontrá-lo no exemplo anterior.)
+Ocasionalmente, é útil toosee saída do console de saudação da execução de um script para fins de depuração. toodo isso, você pode definir uma política de redirecionamento de console, que grava o arquivo de tooa Olá saída. Olá arquivo de saída é chamada de pasta de aplicativo escrita toohello **log** no nó Olá onde o aplicativo hello é implantado e executado. (Consulte onde toofind isso em Olá anterior exemplo.)
 
 > [!WARNING]
-> Nunca use a política de redirecionamento de console em um aplicativo implantado na produção, pois isso pode afetar o failover do aplicativo. *Só* use isso para fins de depuração e de desenvolvimento locais.  
+> Nunca use a política de redirecionamento do console de saudação em um aplicativo que é implantado na produção, pois isso pode afetar o failover de aplicativo hello. *Só* use isso para fins de depuração e de desenvolvimento locais.  
 > 
 > 
 
-O exemplo a seguir mostra a configuração de redirecionamento do console com um valor FileRetentionCount:
+Olá, exemplo a seguir mostra redirecionamento de console de saudação de configuração com um valor de FileRetentionCount:
 
 ```xml
 <SetupEntryPoint>
@@ -189,19 +189,19 @@ O exemplo a seguir mostra a configuração de redirecionamento do console com um
 </SetupEntryPoint>
 ```
 
-Se você alterar o arquivo MySetup.ps1 agora para gravar um comando **Echo** , ele gravará o arquivo de saída para fins de depuração:
+Se você alterar Olá MySetup.ps1 arquivo toowrite um **Echo** de comando, isso gravará toohello o arquivo de saída para fins de depuração:
 
 ```
-Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
+Echo "Test console redirection which writes toohello application log folder on hello node that hello application is deployed to"
 ```
 
 **Depois de depurar seu script, remova imediatamente a política de redirecionamento de console**.
 
 ## <a name="configure-a-policy-for-service-code-packages"></a>Configurar uma política para pacotes de código de serviço
-Nas etapas anteriores, você viu como aplicar uma política RunAs a um SetupEntryPoint. Agora, vamos analisar com mais detalhes como criar entidades diferentes que possam ser aplicadas como políticas de serviço.
+Olá etapas anteriores, você viu como tooapply uma tooSetupEntryPoint de política de RunAs. Vamos examinar um pouco mais como toocreate entidades diferentes que podem ser aplicadas ao serviço políticas.
 
 ### <a name="create-local-user-groups"></a>Criar grupos de usuários locais
-É possível definir e criar grupos de usuários que permitem que um ou mais usuários sejam adicionados a um grupo. Isso será útil se houverem vários usuários para pontos de entrada de serviço diferentes e eles precisarem de privilégios comuns disponíveis no nível do grupo. O exemplo a seguir mostra um grupo local chamado **LocalAdminGroup** com privilégios de administrador. Dois usuários, Customer1 e Customer2, tornam-se membros desse grupo local.
+Você pode definir e criar grupos de usuários que permite que um ou mais toobe de usuários adicionados tooa grupo. Isso é útil se houver vários usuários para os pontos de entrada de serviço diferente e precisam toohave certos privilégios comuns que estão disponíveis no nível do grupo hello. Olá, exemplo a seguir mostra um grupo local chamado **LocalAdminGroup** que tenha privilégios de administrador. Dois usuários, Customer1 e Customer2, tornam-se membros desse grupo local.
 
 ```xml
 <Principals>
@@ -228,7 +228,7 @@ Nas etapas anteriores, você viu como aplicar uma política RunAs a um SetupEntr
 ```
 
 ### <a name="create-local-users"></a>Criar usuários locais
-É possível criar um usuário local que pode ser usado para ajudar a proteger um serviço dentro do aplicativo. Quando um tipo de conta **LocalUser** é especificado na seção Entidades do manifesto do aplicativo, o Service Fabric cria contas de usuário local em máquinas nas quais o aplicativo foi implantado. Por padrão, essas contas não têm os mesmos nomes especificados no manifesto do aplicativo (por exemplo, Customer3 no exemplo a seguir). Em vez disso, eles são gerados dinamicamente e têm senhas aleatórias.
+Você pode criar um serviço de aplicativo hello para um usuário local que pode ser usado toohelp segura. Quando um **UsuárioLocal** tipo de conta é especificado na seção de entidades de Olá Olá do manifesto do aplicativo, o Service Fabric cria contas de usuário local em computadores em que o aplicativo hello é implantado. Por padrão, essas contas não têm Olá mesmos nomes que as especificadas no aplicativo hello manifesto (por exemplo, Customer3 em Olá exemplo a seguir). Em vez disso, eles são gerados dinamicamente e têm senhas aleatórias.
 
 ```xml
 <Principals>
@@ -238,7 +238,7 @@ Nas etapas anteriores, você viu como aplicar uma política RunAs a um SetupEntr
 </Principals>
 ```
 
-Se um aplicativo exigir que a conta de usuário e senha sejam iguais em todos os computadores (por exemplo, para habilitar a autenticação NTLM), o manifesto do cluster deve definir NTLMAuthenticationEnabled como true. O manifesto do cluster também deve especificar um NTLMAuthenticationPasswordSecret que será usado para gerar a mesma senha em todos os computadores.
+Se um aplicativo requer que Olá conta de usuário e senha ser a mesma em todos os computadores (por exemplo, autenticação de NTLM tooenable), o manifesto do cluster Olá deve definir NTLMAuthenticationEnabled tootrue. Olá manifesto do cluster também deve especificar um NTLMAuthenticationPasswordSecret usado toogenerate Olá a mesma senha em todas as máquinas.
 
 ```xml
 <Section Name="Hosting">
@@ -248,8 +248,8 @@ Se um aplicativo exigir que a conta de usuário e senha sejam iguais em todos os
  </Section>
 ```
 
-### <a name="assign-policies-to-the-service-code-packages"></a>Atribuir políticas aos pacotes de códigos do serviço
-A seção **RunAsPolicy** para uma **ServiceManifestImport** especifica a conta da seção de entidades que deve ser usada para executar um pacote de códigos. Ela também associa os pacotes de código do manifesto do serviço com contas de usuário na seção entidades. Você pode especificar isso para os pontos de entrada de configuração ou principal, ou especificar `All` para aplicar a ambos. O exemplo a seguir mostra a aplicação de políticas diferentes:
+### <a name="assign-policies-toohello-service-code-packages"></a>Atribuir políticas toohello pacotes de código de serviço
+Olá **RunAsPolicy** seção um **servicemanifestimport ao** Especifica a conta de saudação da seção de entidades de saudação que deve ser usado toorun um pacote de códigos. Ele também associa o código de pacotes de serviço Olá manifesto com contas de usuário na seção de entidades de saudação. Você pode especificar isso para instalação hello ou pontos de entrada principal, ou você pode especificar `All` tooapply-tooboth. Olá, exemplo a seguir mostra políticas diferentes aplicadas:
 
 ```xml
 <Policies>
@@ -258,10 +258,10 @@ A seção **RunAsPolicy** para uma **ServiceManifestImport** especifica a conta 
 </Policies>
 ```
 
-Se **EntryPointType** não for especificado, o padrão será definido como EntryPointType ="Main". A especificação de um **SetupEntryPoint** é especialmente útil quando você deseja executar determinadas operações de instalação de privilégio elevado em uma conta do sistema. O código de serviço real pode ser executado em uma conta de baixo privilégio.
+Se **EntryPointType** não for especificado, o padrão de saudação será definido tooEntryPointType = "Principal". Especificando **SetupEntryPoint** é especialmente útil quando você deseja toorun determinadas operações de instalação com alto privilégio em uma conta do sistema. código de serviço real Olá pode ser executado sob uma conta com privilégios inferiores.
 
-### <a name="apply-a-default-policy-to-all-service-code-packages"></a>Aplicar uma política padrão a todos os pacotes de códigos de serviço
-Use a seção **DefaultRunAsPolicy** para especificar uma conta de usuário padrão para todos os pacotes de códigos que não tenham uma **RunAsPolicy** específica definida. Quando a maioria dos pacotes de códigos especificados no manifesto do serviço usado por um aplicativo precisar ser executada com o mesmo usuário, o aplicativo poderá definir apenas uma política RunAs padrão nessa conta de usuário. O exemplo a seguir especifica que quando um pacote de códigos não tiver uma **RunAsPolicy** especificada, ele deverá ser executado em uma **MyDefaultAccount** especificada na seção Entidades.
+### <a name="apply-a-default-policy-tooall-service-code-packages"></a>Aplicar um padrão política tooall serviço código pacotes
+Use Olá **DefaultRunAsPolicy** seção toospecify uma conta de usuário padrão para todos os pacotes de código que não têm um determinado **RunAsPolicy** definido. Se a maioria dos pacotes de código Olá especificadas no manifesto do serviço Olá usado por um aplicativo precisar toorun em Olá mesmo usuário, hello aplicativo apenas pode definir uma política de executar como padrão com uma conta de usuário. Olá exemplo a seguir especifica que, se um pacote de códigos não tem um **RunAsPolicy** especificado, o pacote de códigos Olá deve ser executados Olá **MyDefaultAccount** especificado na seção de entidades de saudação.
 
 ```xml
 <Policies>
@@ -269,11 +269,11 @@ Use a seção **DefaultRunAsPolicy** para especificar uma conta de usuário padr
 </Policies>
 ```
 ### <a name="use-an-active-directory-domain-group-or-user"></a>Usar um usuário ou um grupo de domínio do Active Directory
-Para uma instância do Service Fabric instalada no Windows Server usando o instalador autônomo, é possível executar o serviço com as credenciais para uma conta de grupo ou de usuário do Active Directory. Esse é o Active Directory local em seu domínio e não é com o Azure Active Directory (Azure AD). Ao usar um usuário de domínio ou grupo, você pode acessar outros recursos do domínio (por exemplo, compartilhamentos de arquivos) que receberam permissões.
+Para uma instância do Service Fabric foi instalado no Windows Server usando o instalador autônomo do hello, você pode executar o serviço de saudação sob as credenciais de saudação para uma conta de usuário ou grupo do Active Directory. Esse é o Active Directory local em seu domínio e não é com o Azure Active Directory (Azure AD). Usando um usuário de domínio ou grupo, em seguida, você pode acessar outros recursos no domínio hello (por exemplo, compartilhamentos de arquivos) que foram concedidos permissões.
 
-O exemplo a seguir mostra um usuário do Active Directory denominado *TestUser* com a senha de domínio criptografada usando um certificado chamado *MyCert*. É possível usar o comando `Invoke-ServiceFabricEncryptText` do Powershell para criar o texto cifrado secreto. Consulte [Gerenciamento de segredos em aplicativos do Service Fabric](service-fabric-application-secret-management.md) para obter detalhes.
+Olá, exemplo a seguir mostra um usuário do Active Directory chamado *TestUser* domínio senha criptografada usando um certificado chamado *MyCert*. Você pode usar o hello `Invoke-ServiceFabricEncryptText` texto do PowerShell comando toocreate Olá secreta de criptografia. Consulte [Gerenciamento de segredos em aplicativos do Service Fabric](service-fabric-application-secret-management.md) para obter detalhes.
 
-É necessário implantar a chave privada do certificado para descriptografar a senha no computador local usando um método fora de banda (no Azure, isso ocorre por meio do Azure Resource Manager). Em seguida, quando o Service Fabric implanta o pacote de serviço no computador, ele é capaz de descriptografar o segredo e (juntamente com o nome de usuário) autenticar com o Active Directory para execução com essas credenciais.
+Você deve implantar a chave privada Olá Olá certificado toodecrypt Olá senha toohello computador local usando um método fora de banda (no Azure, isso é por meio do Gerenciador de recursos do Azure). Em seguida, quando o Service Fabric implanta a máquina de toohello de pacote de serviço Olá, é capaz de toodecrypt Olá segredo e (junto com o nome de usuário de saudação) autenticar com toorun do Active Directory com essas credenciais.
 
 ```xml
 <Principals>
@@ -290,26 +290,26 @@ O exemplo a seguir mostra um usuário do Active Directory denominado *TestUser* 
 <Certificates>
 ```
 ### <a name="use-a-group-managed-service-account"></a>Use uma Conta de Serviço Gerenciado de Grupo.
-Para uma instância do Service Fabric instalada no Windows Server usando o instalador autônomo, é possível executar o serviço como uma Conta de Serviço Gerenciado (gMSA). Observe que esse é o Active Directory local em seu domínio e não é com o Azure AD (Active Directory). Ao usar uma gMSA, a senha ou senha criptografada não será armazenada no `Application Manifest`.
+Para uma instância do Service Fabric foi instalado no Windows Server usando o instalador autônomo do hello, você pode executar o serviço de saudação como um grupo de conta de serviço gerenciada (gMSA). Observe que esse é o Active Directory local em seu domínio e não é com o Azure AD (Active Directory). Usando uma gMSA não há nenhuma senha ou a senha criptografada armazenada no hello `Application Manifest`.
 
-O exemplo a seguir mostra como criar uma conta gMSA chamada *svc-Test$*; como implantar essa conta de serviço gerenciado nos nós de cluster; e como configurar a entidade de segurança do usuário.
+Olá exemplo a seguir mostra como toocreate uma conta gMSA chamado *svc teste$*; como toodeploy gerenciados nós de cluster de toohello de conta de serviço; e como tooconfigure Olá principal do usuário.
 
 ##### <a name="prerequisites"></a>Pré-requisitos.
-- O domínio precisa de uma chave raiz KDS.
-- O domínio deve ser um Windows Server 2012 ou nível funcional posterior.
+- domínio Olá precisa de uma chave raiz KDS.
+- domínio Olá precisa toobe em um Windows Server 2012 ou posterior nível funcional.
 
 ##### <a name="example"></a>Exemplo
-1. Peça para um administrador de domínio do Active Directory criar uma conta de serviço gerenciado de grupo usando o cmdlet `New-ADServiceAccount` e verifique se o `PrincipalsAllowedToRetrieveManagedPassword` inclui todos os nós de cluster de malha do serviço. Observe que `AccountName`, `DnsHostName` e `ServicePrincipalName` devem ser exclusivos.
+1. Ter um administrador de domínio do active directory crie uma conta de serviço gerenciado de grupo usando Olá `New-ADServiceAccount` commandlet e certifique-se de que Olá `PrincipalsAllowedToRetrieveManagedPassword` inclui todos os nós do cluster Olá service fabric. Observe que `AccountName`, `DnsHostName` e `ServicePrincipalName` devem ser exclusivos.
 ```
 New-ADServiceAccount -name svc-Test$ -DnsHostName svc-test.contoso.com  -ServicePrincipalNames http/svc-test.contoso.com -PrincipalsAllowedToRetrieveManagedPassword SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$
 ```
-2. Em cada um dos nós de cluster do Service Fabric (por exemplo, `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), instale e teste a gMSA.
+2. Em cada um de nós de cluster de malha Olá serviço (por exemplo, `SfNode0$,SfNode1$,SfNode2$,SfNode3$,SfNode4$`), instalar e testar Olá gMSA.
 ```
 Add-WindowsFeature RSAT-AD-PowerShell
 Install-AdServiceAccount svc-Test$
 Test-AdServiceAccount svc-Test$
 ```
-3. Configure a entidade de usuário e a RunAsPolicy para fazer referência ao usuário.
+3. Configure o UPN Olá e usuário de Olá Olá RunAsPolicy tooreference.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -329,36 +329,36 @@ Test-AdServiceAccount svc-Test$
 ```
 
 ## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Atribuir uma política de acesso de segurança a pontos de extremidade HTTP e HTTPS
-Se você aplicar uma política RunAs a um serviço e o manifesto do serviço declarar recursos de ponto de extremidade com o protocolo HTTP, será necessário especificar uma **SecurityAccessPolicy** para assegurar que as portas alocadas a esses pontos de extremidade sejam corretamente listadas no controle de acesso para a conta de usuário RunAs na qual o serviço é executado. Caso contrário, o **http.sys** não terá acesso ao serviço e você receberá uma falha com chamadas do cliente. O exemplo a seguir aplica a conta Customer1 a um ponto de extremidade chamado **EndpointName**, concedendo a ele direitos de acesso completo.
+Se você aplicar um serviço de tooa RunAs política e o manifesto de serviço Olá declara recursos de ponto de extremidade com o protocolo de saudação HTTP, você deve especificar um **SecurityAccessPolicy** tooensure portas alocadas pontos de extremidade toothese estão corretamente controle de acesso listados para Olá conta de usuário RunAs Olá serviço é executado. Caso contrário, **http.sys** não tem acesso toohello serviço, e falhas de chamadas do cliente hello. Olá, exemplo a seguir aplica Olá Customer1 conta tooan ponto de extremidade chamado **EndpointName**, que concede direitos de acesso completo.
 
 ```xml
 <Policies>
    <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
-   <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
+   <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and hello Endpoint is http -->
    <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
 </Policies>
 ```
 
-Para o ponto de extremidade HTTPS, você também precisa indicar o nome do certificado para retornar para o cliente. Você pode fazer isso usando **EndpointBindingPolicy**, com o certificado definido em uma seção de certificados no manifesto do aplicativo.
+Ponto de extremidade de HTTPS hello, você também tem tooindicate nome de saudação do cliente do hello certificado tooreturn toohello. Você pode fazer isso usando **EndpointBindingPolicy**, com certificado Olá definido em uma seção de certificados no manifesto de aplicativo hello.
 
 ```xml
 <Policies>
    <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
-  <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
+  <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and hello Endpoint is http -->
    <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
-  <!--EndpointBindingPolicy is needed if the EndpointName is secured with https -->
+  <!--EndpointBindingPolicy is needed if hello EndpointName is secured with https -->
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Atualizando vários aplicativos com pontos de extremidade https
-Você precisa ter cuidado para não usar a **mesma porta** para instâncias diferentes do mesmo aplicativo quando estiver usando http**s**. O motivo é que o Service Fabric não será capaz de fazer upgrade do certificado para uma das instâncias do aplicativo. Por exemplo, se o aplicativo 1 ou o aplicativo 2 deseja fazer upgrade do seu cert 1 cert 2. Quando o upgrade é feito, o Service Fabric pode apagar o registro cert 1 com o http.sys, embora o outro aplicativo ainda o está usando. Para evitar isso, o Service Fabric detecta se já há em outra instância do aplicativo registrada na porta com o certificado (devido ao http. sys) e faz a operação falhar.
+Você precisa toobe cuidado não toouse Olá **mesma porta** para instâncias diferentes do hello aplicativo mesmo quando usando http**s**. motivo da saudação é que Service Fabric não será capaz de tooupgrade cert de Olá para uma das instâncias de aplicativo hello. Por exemplo, se quiser que o aplicativo 1 ou aplicativo 2 ambos os tooupgrade seu toocert cert 1 2. Quando ocorrer a atualização do hello, Service Fabric podem apagadas registro de certificado 1 Olá com HTTP. sys, embora hello outro aplicativo está ainda usá-lo. tooprevent, Service Fabric detecta que já há outra instância do aplicativo registrada na porta Olá com certificado hello (vencimento toohttp.sys) e haverá falha na operação de hello.
 
-Portanto, o Service Fabric não suporta a atualização de dois serviços diferentes usando **a mesma porta** em instâncias de aplicativo diferentes. Em outras palavras, você não pode usar o mesmo certificado em serviços diferentes na mesma porta. Se você precisa ter um certificado compartilhado na mesma porta, precisa garantir que os serviços sejam colocados em computadores diferentes com restrições de posicionamento. Ou, considere o uso de portas dinâmicas do Service Fabric, se possível, para cada serviço em cada instância do aplicativo. 
+Portanto, Service Fabric não suporta atualização a dois serviços diferentes usando **Olá a mesma porta** em instâncias de aplicativo diferente. Em outras palavras, você não pode usar o mesmo certificado de saudação em diferentes serviços em hello mesma porta. Se você precisar toohave compartilhado de certificado na Olá mesmo porta, você precisa tooensure que Olá serviços são colocados em máquinas diferentes com restrições de posicionamento. Ou, considere o uso de portas dinâmicas do Service Fabric, se possível, para cada serviço em cada instância do aplicativo. 
 
-Se você vir um upgrade falhar com https, um aviso de erro dizendo "A API de servidor HTTP do Windows não suporta vários certificados para aplicativos que compartilham uma porta".
+Se você vir uma atualização falha com https, um aviso de erro dizendo "Olá Windows HTTP Server API não suporta vários certificados para aplicativos que compartilham uma porta."
 
 ## <a name="a-complete-application-manifest-example"></a>Um exemplo completo de manifesto do aplicativo
-O manifesto do aplicativo a seguir mostra várias configurações diferentes:
+saudação de manifesto do aplicativo a seguir mostra a muitos dos Olá diferentes configurações:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -372,9 +372,9 @@ O manifesto do aplicativo a seguir mostra várias configurações diferentes:
       <Policies>
          <RunAsPolicy CodePackageRef="Code" UserRef="Customer1" />
          <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup" />
-        <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and the Endpoint is http -->
+        <!--SecurityAccessPolicy is needed if RunAsPolicy is defined and hello Endpoint is http -->
          <SecurityAccessPolicy ResourceRef="EndpointName" PrincipalRef="Customer1" />
-        <!--EndpointBindingPolicy is needed the EndpointName is secured with https -->
+        <!--EndpointBindingPolicy is needed hello EndpointName is secured with https -->
         <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
      </Policies>
    </ServiceManifestImport>
@@ -414,9 +414,9 @@ O manifesto do aplicativo a seguir mostra várias configurações diferentes:
 ```
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
-* [Entenda o modelo de aplicativo](service-fabric-application-model.md)
+* [Entender o modelo de aplicativo hello](service-fabric-application-model.md)
 * [Especificar recursos em um manifesto do serviço](service-fabric-service-manifest-resources.md)
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Hub IoT do Azure – introdução à conexão de dispositivos IoT à nuvem | Microsoft Docs"
-description: "Saiba como conectar seus quadros IoT e kits de início ao Hub IoT do Azure. Seus dispositivos podem enviar telemetria ao Hub IoT e o Hub IoT pode monitorar e gerenciar seus dispositivos."
+title: "IoT Hub do Azure - começar a conectar-se a nuvem do IoT dispositivos toohello | Microsoft Docs"
+description: Saiba como tooconnect seus quadros IoT e starter kits tooAzure IoT Hub. Seus dispositivos podem enviar telemetria tooIoT Hub e IoT Hub podem monitorar e gerenciar seus dispositivos.
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: 45016e6383761ffe78f13ccef1112ab3d9753498
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 6dc956308009091532019ff84aec881f042f0104
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-iot-hub-get-started-tutorials"></a>Tutoriais de introdução ao Hub IoT do Azure
 
-Você pode usar o Hub IoT do Azure e os SDKs do dispositivo IoT do Azure para criar soluções de IoT (Internet das Coisas):
+Você pode usar o Azure IoT Hub hello Azure IoT soluções de dispositivos e SDKs toobuild Internet das coisas (IoT):
 
-* O Hub IoT do Azure é um serviço completamente gerenciado na nuvem que se conecta com segurança aos seus dispositivos IoT, monitorando-os e gerenciando-os. Use os SDKs do dispositivo IoT do Azure para implementar os dispositivos IoT.
-* Use um gateway IoT em cenários de IoT mais complexos. Por exemplo, quando você precisa considerar fatores como dispositivos herdados, custos de largura de banda, políticas de segurança e privacidade ou processamento de dados de borda. Nesses cenários, você pode usar o Azure IoT Edge para implementar um gateway que conecte dispositivos ao seu hub IoT.
+* IoT Hub do Azure é um serviço totalmente gerenciado na nuvem de saudação que se conecta com segurança, monitora e gerencia os dispositivos IoT. Use Olá SDKs do Azure IoT dispositivo tooimplement seus dispositivos IoT.
+* Use um gateway IoT em cenários de IoT mais complexos. Por exemplo, em que você precisa tooconsider fatores como dispositivos herdados, os custos de largura de banda, as políticas de segurança e privacidade ou processamento de dados de borda. Nesses cenários, você deve usar Azure IoT borda tooimplement um gateway que se conecta o hub de IoT tooyour dispositivos.
 
-## <a name="what-the-tutorials-cover"></a>O que os tutoriais abordam
+## <a name="what-hello-tutorials-cover"></a>O que abordam os tutoriais de saudação
 
-Estes tutoriais apresentam a você o Hub IoT do Azure e os SDKs do dispositivo. Os tutoriais abordam os cenários comuns de IoT para demonstrar os recursos do Hub IoT. Os tutoriais também ilustram como combinar o Hub IoT com outros serviços e ferramentas do Azure para criar soluções de IoT mais eficazes. Nos tutoriais, você pode optar por usar dispositivos IoT simulados ou reais. Além disso, você pode aprender como usar um gateway de modo a habilitar dispositivos para conectar ao seu Hub IoT.
+Estes tutoriais apresentam tooAzure IoT Hub e o dispositivo Olá SDKs. tutoriais de saudação abordam recursos comuns de IoT cenários toodemonstrate saudação do IoT Hub. Olá tutoriais também ilustram como toocombine IoT Hub com outros Azure serviços e as ferramentas toobuild mais poderosas soluções de IoT. Tutoriais de saudação, você pode escolher toouse os dispositivos IoT reais ou simulados. Além disso, você pode aprender como toouse um hub IoT gateway tooenable dispositivos tooconnect tooyour.
 
 ## <a name="set-up-your-device"></a>Configurar seu dispositivo
 
-Conecte um dispositivo IoT ou gateway ao Hub IoT do Azure. Você pode escolher um dispositivo real ou simulado para começar:
+Conecte-se uma IoT dispositivo ou gateway tooAzure IoT Hub. Você pode escolher um tooget do dispositivo físico ou simulada iniciado:
 
 | Dispositivo IoT                       | Linguagem de programação |
 |----------------------------------|----------------------|
@@ -47,7 +47,7 @@ Conecte um dispositivo IoT ou gateway ao Hub IoT do Azure. Você pode escolher u
 | Dispositivo simulado no computador           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd], [Python][Sim_Pyth] |
 | Simulador de dispositivo online         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
-Além disso, você pode usar um gateway IoT Edge para habilitar os dispositivos a conectarem-se ao seu Hub IoT:
+Além disso, você pode usar um hub IoT borda gateway tooenable dispositivos tooconnect tooyour IoT:
 
 | Dispositivos de gateway               | Linguagem de programação | Plataforma         |
 |------------------------------|----------------------|------------------|

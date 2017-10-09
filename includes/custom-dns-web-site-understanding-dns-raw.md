@@ -1,58 +1,58 @@
-O DNS (Sistema de Nomes de Domínio) é usado para localizar recursos na Internet. Por exemplo, quando você insere o endereço de um aplicativo Web em seu navegador ou clica em um link em uma página da Web, ele usa o DNS para traduzir o domínio em um endereço IP. O endereço IP é semelhante a um endereço, mas não é muito amigável ao ser humano. Por exemplo, é mais fácil se lembrar de um nome DNS como **contoso.com** do que se lembrar de um endereço IP, como 192.168.1.88 ou 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+saudação de sistema de nome de domínio (DNS) é usado toolocate recursos Olá internet. Por exemplo, quando você inserir um endereço de aplicativo da web no navegador ou em um link em uma página da web, ele usa domínio DNS à saudação tootranslate em um endereço IP. endereço IP de saudação é semelhante a um endereço de rua, mas não é muito humana amigável. Por exemplo, é muito mais fácil tooremember um nome DNS como **contoso.com** que ele é tooremember um endereço IP como 192.168.1.88 ou 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
-O sistema DNS se baseia em *registros*. Os registros associam um determinado *nome*, como **contoso.com**, a um endereço IP ou a outro nome DNS. Quando um aplicativo, como um navegador da web, pesquisa um nome no DNS, ele localiza o registro e usa tudo o que ele aponta como o endereço. Se o valor apontado for um endereço IP, o navegador usará esse valor. Se ele apontar para outro nome DNS, o aplicativo precisará fazer a resolução novamente. Em última análise, todas as resoluções de nome acabarão em um endereço IP.
+Olá sistema DNS se baseia *registros*. Os registros associam um determinado *nome*, como **contoso.com**, a um endereço IP ou a outro nome DNS. Quando um aplicativo, como um navegador da web, é um nome no DNS, ele localiza registro hello e usa tudo o que ele aponte tooas Olá endereço. Se Olá se o valor toois pontos de um endereço IP, o navegador Olá usará esse valor. Se ele aponta o nome DNS tooanother, aplicativo hello tem resolução toodo novamente. Em última análise, todas as resoluções de nome acabarão em um endereço IP.
 
-Quando você cria um aplicativo Web no Serviço de Aplicativo, um nome DNS é atribuído automaticamente ao aplicativo Web. Esse nome assume o formato **&lt;nomedoseuaplicativoweb&gt;.azurewebsites.net**. Há também um endereço IP virtual disponível para uso durante a criação de registros DNS, para que você possa criar registros que apontem para **.azurewebsites.net**, ou para que você possa apontar para o endereço IP.
+Quando você cria um aplicativo web no serviço de aplicativo, um nome DNS é automaticamente atribuído toohello web app. Esse nome assume a forma de saudação de  **&lt;yourwebappname&gt;. azurewebsites.net**. Também há um endereço IP virtual disponível para uso quando a criação de DNS de registros, para que você pode criar registros que toohello ponto **. azurewebsites.net**, ou você pode apontar o endereço IP toohello.
 
 > [!NOTE]
-> O endereço IP do seu aplicativo Web será alterado se você excluir e recriar seu aplicativo Web, ou então se alterar o modo de plano do Serviço de Aplicativo para **Gratuito** depois de ele ter sido definido como **Básico**, **Compartilhado** ou **Padrão**.
+> endereço IP de saudação do seu aplicativo web será alterado se você excluir e recria seu aplicativo web ou alterar Olá modo do plano de serviço de aplicativo muito**livre** depois de ter sido definido muito**básica**, **compartilhado**, ou **padrão**.
 > 
 > 
 
 Também existem vários tipos de registros, cada um com suas próprias funções e limitações, mas, para aplicativos Web, nos preocupamos apenas com dois, os registros *A* e *CNAME*.
 
 ### <a name="address-record-a-record"></a>Registro de endereço (registro A)
-Um registro A mapeia um domínio, como **contoso.com** ou **www.contoso.com** *ou um domínio curinga*, como **\*.contoso.com**, para um endereço IP. No caso de um aplicativo Web no Serviço de Aplicativo, será o IP virtual do serviço ou então um endereço IP específico que você adquiriu para seu aplicativo Web.
+Um registro mapeia um domínio, como **contoso.com** ou **www.contoso.com**, *ou um domínio curinga* como  **\*. contoso.com**, endereço IP tooan. No caso de saudação de um aplicativo web no serviço de aplicativo, o hello IP virtual do serviço de saudação ou um endereço IP específico que você comprou para seu aplicativo web.
 
-Os principais benefícios de um registro A em relação a um registro CNAME são:
+Olá principais benefícios de um registro em um registro CNAME são:
 
-* Você pode mapear um domínio raiz, como **contoso.com** , para um endereço IP; muitos registradores só permitem isso com registros A
+* Você pode mapear um domínio raiz, como **contoso.com** tooan endereço IP; muitos registradores permitem apenas esse registros usando
 * É possível ter uma entrada que usa um curinga, como **\*.contoso.com**, que lidaria com solicitações para vários subdomínios, como **mail.contoso.com**, **blogs.contoso.com** ou **www.contso.com**.
 
 > [!NOTE]
-> Já que um registro A é mapeado para um endereço IP estático, não é possível resolver automaticamente as alterações feitas no endereço IP de seu aplicativo Web. Um endereço IP para uso com registros A é fornecido quando você define as configurações de nome de domínio personalizado para seu aplicativo Web; no entanto, esse valor poderá ser alterado se você excluir e recriar seu aplicativo Web, ou se alterar o modo do plano do Serviço de Aplicativo de volta para **Gratuito**.
+> Como um registro é mapeado tooa endereço IP, ele não é possível resolver automaticamente alterações toohello endereço IP de seu aplicativo web. Um endereço IP para uso com registros é fornecido quando você configura as configurações de nome de domínio personalizado para seu aplicativo da web; No entanto, esse valor pode ser alterado se você excluir e recria seu aplicativo web ou alterar Olá tooback de modo do plano de serviço de aplicativo muito**livre**.
 > 
 > 
 
 ### <a name="alias-record-cname-record"></a>Registro de Alias (registro CNAME)
-Um registro CNAME mapeia um nome DNS *específico* como **mail.contoso.com** ou **www.contoso.com** para outro nome de domínio (canônico). No caso de aplicativos Web do Serviço de Aplicativo, o nome de domínio canônico é o nome de domínio **&lt;NomeDoSeuAplicativoWeb >. azurewebsites** do seu aplicativo Web. Uma vez criado, o CNAME cria um alias para o nome de domínio **&lt;NomeDoSeuAplicativo>.azurewebsites.net**. A entrada CNAME será resolvida automaticamente para o endereço IP de seu nome de domínio **&lt;NomeDoSeuAplicativoWeb>.azurewebsites.net**, de modo que se o endereço IP do aplicativo Web for alterado, você não precisará realizar nenhuma ação.
+Um registro CNAME mapeia um *específico* nome DNS, como **mail.contoso.com** ou **www.contoso.com**, nome de domínio (canônico) tooanother. No caso de saudação do serviço de aplicativo Web de aplicativos, o nome de domínio canônico Olá é hello  **&lt;yourwebappname >. azurewebsites.net** nome de domínio do seu aplicativo web. Depois de criado, Olá CNAME cria um alias para Olá  **&lt;yourwebappname >. azurewebsites.net** nome de domínio. Olá entrada CNAME resolverá toohello endereço IP do seu  **&lt;yourwebappname >. azurewebsites.net** nome de domínio automaticamente, para que se o endereço IP de saudação do aplicativo web de saudação for alterada, você não tem tootake qualquer ação.
 
 > [!NOTE]
-> Alguns registradores de domínio só permitem mapear subdomínios ao usar um registro CNAME, como **www.contoso.com** e não nomes de raiz, como **contoso.com**. Para obter mais informações sobre os registros CNAME, consulte a documentação fornecida por seu registrador, <a href="http://en.wikipedia.org/wiki/CNAME_record">a entrada da Wikipédia sobre o registro CNAME</a> ou o documento <a href="http://tools.ietf.org/html/rfc1035">Nomes de Domínio IETF - Implementação e Especificação</a>.
+> Alguns registradores de domínio só permitem que você toomap subdomínios ao usar um registro CNAME, como **www.contoso.com**e não raiz nomes, como **contoso.com**. Para obter mais informações sobre os registros CNAME, consulte a documentação de saudação fornecida por seu registrador <a href="http://en.wikipedia.org/wiki/CNAME_record">Olá entrada da Wikipedia no registro CNAME</a>, ou hello <a href="http://tools.ietf.org/html/rfc1035">nomes de domínio IETF - implementação e especificação</a> documento.
 > 
 > 
 
 ### <a name="web-app-dns-specifics"></a>Dados específicos de DNS do aplicativo Web
-O uso de um registro A com os Aplicativos Web do Azure exige que você crie primeiro um dos registros TXT a seguir:
+Usar um registro com aplicativos da Web exige que você toofirst criar uma saudação registros TXT a seguir:
 
-* **Para o domínio raiz** - Um registro TXT DNS de **@** para **&lt;nomedoseuaplicativoweb&gt;.azurewebsites.net**.
-* **Para um subdomínio específico** - Um nome DNS de **&lt;subdomínio** para **&lt;nomedoseuaplicativoweb&gt;.azurewebsites.net**. Por exemplo, **blogs** se o registro A for para **blogs.contoso.com**.
-* **Para os subdomínios curinga** - Um registro TXT DNS de ***** para **&lt;nomedoseuaplicativoweb&gt;.azurewebsites.net**.
+* **Para o domínio raiz da saudação** -registro TXT do DNS de um de  **@**  muito  **&lt;yourwebappname&gt;. azurewebsites.net**.
+* **Para um subdomínio específico** -nome de DNS do  **&lt;subdomínio >** muito**&lt;yourwebappname&gt;. azurewebsites.net**. Por exemplo, **blogs** se Olá um registro é para **blogs.contoso.com**.
+* **Para Olá curinga sub-dodmains** -registro TXT do DNS de um de * muito  **&lt;yourwebappname&gt;. azurewebsites.net**.
 
-Esse registro TXT é usado para verificar se você é o proprietário do domínio que está tentando usar. Isso vai além da criação de um registro A apontando para o endereço IP virtual de seu aplicativo Web.
+Esse registro TXT é usado tooverify que você possui o domínio Olá que você está tentando executar toouse. Além disso, este é o registro de toocreating um A apontando toohello de endereço IP virtual de seu aplicativo web.
 
-Você pode encontrar o endereço IP e os nomes de **. azurewebsites.net** de seu aplicativo Web executando as seguintes etapas:
+Você pode encontrar o endereço IP hello e **. azurewebsites.net** Olá nomes para seu aplicativo web executando as etapas a seguir:
 
-1. No seu navegador, abra o [Portal do Azure](https://portal.azure.com).
-2. Na folha **Aplicativos Web**, clique no nome do seu aplicativo Web e, em seguida, selecione **Domínios personalizados** na parte inferior da página.
+1. No navegador, abra Olá [Portal do Azure](https://portal.azure.com).
+2. Em Olá **aplicativos Web** folha, clique em nome de saudação do seu aplicativo web e, em seguida, selecione **domínios personalizados** Olá página de baixo hello.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
-3. Na folha **Domínios personalizados** , você verá o endereço IP virtual. Salve essas informações, pois elas serão utilizadas na criação de registros DNS
+3. Em Olá **domínios personalizados** folha, você verá Olá endereço IP virtual. Salve essas informações, pois elas serão utilizadas na criação de registros DNS
    
     ![](./media/custom-dns-web-site/virtual-ip-address.png)
    
    > [!NOTE]
-   > Você não pode usar nomes de domínio personalizados com um aplicativo Web **Gratuito**, e deve atualizar o plano do Serviço de Aplicativo para a camada **Compartilhado**, **Básico**, **Standard** ou **Premium**. Para obter mais informações sobre as camadas de preços de plano do Serviço de Aplicativo, inclusive sobre como alterar o tipo de preço do seu aplicativo Web, consulte [Como dimensionar aplicativos Web](../articles/app-service-web/web-sites-scale.md).
+   > Não é possível usar nomes de domínio personalizado com um **livre** aplicativo da web e atualize Olá plano de serviço de aplicativo muito**compartilhado**, **básica**, **padrão**, ou **Premium** camada. Para obter mais informações sobre saudação do serviço de aplicativo plano precificação do camadas, incluindo como toochange Olá preço de seu aplicativo web, consulte [como aplicativos de web tooscale](../articles/app-service-web/web-sites-scale.md).
    > 
    > 
 

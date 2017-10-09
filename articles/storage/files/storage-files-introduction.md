@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao armazenamento de Arquivos do Azure | Microsoft Docs"
-description: "Introdução ao Armazenamento de Arquivos do Azure, que fornece os compartilhamentos de arquivos de rede no Microsoft Cloud"
+title: aaaIntroduction tooAzure armazenamento de arquivo | Microsoft Docs
+description: "Compartilhamentos de Introdução tooAzure armazenamento de arquivo, que fornece arquivos de rede em Olá Microsoft Cloud"
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
-ms.openlocfilehash: 498af5cffb76e026c9a87127cab238f0f23b668a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fe6826e79c364a6956831d2e273c4342a5fd47f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-azure-file-storage"></a>Introdução ao armazenamento de Arquivos do Azure
+# <a name="introduction-tooazure-file-storage"></a>Introdução tooAzure armazenamento de arquivo
 
-O armazenamento de Arquivos do Azure oferece compartilhamentos de arquivos de rede na nuvem usando o padrão do setor [Protocolo SMB](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) e [Common Internet File System (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Os compartilhamentos de Arquivos do Azure podem ser montados simultaneamente por Máquinas Virtuais do Azure e implantações locais que executam Windows, macOS ou Linux. Uma conta de armazenamento de uso geral fornece acesso ao Armazenamento de Arquivos do Azure, ao Armazenamento de Blobs do Azure e ao Armazenamento de Filas do Azure.
+Armazenamento de arquivo do Azure oferece a compartilhamentos de arquivos de rede em nuvem hello usando o padrão da indústria Olá [protocolo de bloco de mensagens de servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) e [dinâmica de hosts (CIFS, Common Internet File System)](https://technet.microsoft.com/library/cc939973.aspx). Os compartilhamentos de Arquivos do Azure podem ser montados simultaneamente por Máquinas Virtuais do Azure e implantações locais que executam Windows, macOS ou Linux. Um oferece de conta de armazenamento de uso geral acesso tooAzure o armazenamento de arquivos, armazenamento de BLOBs do Azure e armazenamento de fila do Azure.
 
 ## <a name="videos"></a>Vídeos
 | Introdução ao armazenamento de Arquivos do Azure (27m) | Tutorial do armazenamento de Arquivos do Azure (5 minutos)  |
 |-|-|
-| [![Gravação do vídeo Introdução ao armazenamento de Arquivos do Azure - clique aqui para reproduzir!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Gravação do vídeo Tutorial sobre Armazenamento de Arquivos do Azure - clique aqui para reproduzir!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Screencast de vídeo de armazenamento de arquivo do Azure apresentando Olá - clique tooplay!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Screencast hello Azure de armazenamento de arquivos do Tutorial - clique tooplay!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
 
 ## <a name="why-azure-file-storage-is-useful"></a>Por que o armazenamento de Arquivos do Azure é útil
 
-O armazenamento de Arquivos do Azure permite substituir servidores do Windows Server, Linux ou de arquivos baseados em NAS hospedados no local ou na nuvem por um compartilhamento do arquivo de nuvem sem sistema operacional. O Armazenamento de Arquivos do Azure possui os seguintes benefícios:
+Armazenamento de arquivo do Azure permite que você tooreplace Windows Server, Linux, ou servidores de arquivos com base NAS hospedado no local ou na nuvem Olá com um arquivo de nuvem sem sistema operacional compartilham. Armazenamento de arquivo do Azure tem Olá benefícios a seguir:
 
-* Os compartilhamentos de Arquivos do Azure de **acesso compartilhado** suportam o protocolo SMB padrão, ou seja, você pode substituir perfeitamente seus compartilhamentos de arquivos locais pelos compartilhamentos de Arquivos do Azure sem se preocupar com a compatibilidade dos aplicativos. Poder acessar um compartilhamento de arquivos em vários computadores e aplicativos/instâncias é uma vantagem significativa com o Armazenamento de Arquivos do Azure.
+* **Acesso compartilhado** setor de Olá suporte ao protocolo SMB padrão, ou seja, você pode substituir perfeitamente seus compartilhamentos de arquivos local com compartilhamentos de arquivos do Azure sem se preocupar sobre compatibilidade de aplicativos de compartilhamentos de arquivos do Azure. Sendo tooaccess capaz de um compartilhamento de arquivos de vários computadores e aplicativos/instâncias é uma vantagem significativa com o armazenamento de arquivo do Azure.
 
-* Os compartilhamentos de Arquivos do Azure **totalmente gerenciados** podem ser criados sem a necessidade de gerenciar o hardware ou um sistema operacional, o que significa que você não precisa aplicar patches no sistema operacional do servidor com as atualizações críticas de segurança ou substituir os discos rígidos com defeito.
+* **Totalmente gerenciado** compartilhamentos de arquivos do Azure podem ser criados sem hardware de toomanage necessidade hello ou um sistema operacional, o que significa que você não tem toodeal com patches do sistema operacional de servidor de saudação com as atualizações críticas de segurança ou substituir os discos rígidos com defeito.
 
-* Os cmdlets do PowerShell para criação de **script e ferramenta** e a CLI do Azure podem ser usados para criar, montar e gerenciar compartilhamentos do Armazenamento de Arquivos como parte da administração de aplicativos do Azure. Você pode criar e gerenciar compartilhamentos de Arquivos do Azure usando o [portal do Azure](https://portal.azure.com) e o [Azure Storage Explorer](https://storageexplorer.com). 
+* **Scripts e ferramentas** CLI do Azure e cmdlets do PowerShell podem ser usado toocreate, montar e gerenciar compartilhamentos de arquivos do Azure como parte da administração de saudação de aplicativos do Azure. Você pode criar e gerenciar compartilhamentos de arquivos do Azure usando Olá [portal do Azure](https://portal.azure.com) e hello [Azure Storage Explorer](https://storageexplorer.com). 
 
-* O Armazenamento de Arquivos do Azure de **Resiliência** foi criado do zero para estar sempre disponível. Substituir os compartilhamentos de arquivos locais pelo armazenamento de Arquivos do Azure significa que não é preciso estar ativado para lidar com interrupções locais de energia ou problemas de rede. 
+* **Resiliência** armazenamento de arquivo do Azure foi criado de saudação de plano de fundo se toobe sempre disponível. Armazenamento substituindo os compartilhamentos de arquivos local com o arquivo do Azure significa que você não tem mais toowake backup toodeal com quedas de energia locais ou problemas de rede. 
 
-* Os Aplicativos de **Programação Familiar** executados no Azure podem acessar dados no compartilhamento por meio de [APIs E/S do sistema de arquivos](https://msdn.microsoft.com/library/system.io.file.aspx). Os desenvolvedores podem, portanto, utilizar seus códigos e habilidades existentes para migrar aplicativos existentes. Além das APIs de E/S do sistema, você pode usar qualquer uma das Bibliotecas do cliente de armazenamento do Azure, como aquela para [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet) ou a [API de REST do Armazenamento do Azure](/rest/api/storageservices/file-service-rest-api).
+* **Programação familiar** aplicativos em execução no Azure podem acessar dados no compartilhamento de saudação via [I/O APIs do sistema de arquivos](https://msdn.microsoft.com/library/system.io.file.aspx). Os desenvolvedores podem aproveitar, portanto, seu código existente e os aplicativos existentes toomigrate habilidades. Além disso tooSystem APIs de e/s, você pode usar qualquer cliente de armazenamento do Azure Olá bibliotecas, como Olá um para [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), ou hello [API de REST do armazenamento do Azure](/rest/api/storageservices/file-service-rest-api).
 
 Os compartilhamentos de Arquivos do Azure podem ser usados para:
 
-* A **substituição de servidores de arquivos locais** do Armazenamento de Arquivos do Azure pode ser usada para substituir completamente os compartilhamentos de arquivos em servidores de arquivos tradicionais no local ou em dispositivos NAS. Sistemas operacionais conhecidos, como o Linux, Windows e macOS podem facilmente montar um compartilhamento de Arquivos do Azure em qualquer lugar do mundo.
+* **Substituição de servidores de arquivos no local** armazenamento de arquivo do Azure pode ser usado toocompletely substituir compartilhamentos de arquivos em servidores de arquivos tradicionais locais ou dispositivos NAS. Sistemas operacionais populares, como o Linux, Windows e macOS facilmente pode montar um compartilhamento de arquivos do Azure, onde quer que eles estejam em Olá, mundo.
 
 * **Aplicativos de "Deslocamento e comparação"**
 
-    O armazenamento de Arquivos do Azure facilita a migração de aplicativos para a nuvem que utiliza os compartilhamentos de arquivos locais para compartilhar dados entre partes do aplicativo. Para que isso seja implementado, cada VM conecta-se ao compartilhamento de arquivos e, em seguida, pode ler e gravar arquivos, exatamente como faria no caso de um compartilhamento de arquivos local.
+    Armazenamento de arquivo do Azure facilita muito "comparar e deslocar" nuvem toohello aplicativos que usam o arquivo local compartilha dados tooshare entre partes do aplicativo hello. tooimplement isso, cada VM conecta toohello compartilhamento de arquivos e, em seguida, ele pode ler e gravar arquivos exatamente como ele faria em relação a um arquivo local no compartilhamento.
 
 * **Simplificar o Desenvolvimento na Nuvem**
     
-    O armazenamento de Arquivos do Azure pode ser usado de diversas maneiras para simplificar novos projetos de desenvolvimento da nuvem.
+    Armazenamento de arquivo do Azure pode ser usado em um número de diferentes maneiras toosimplify novos nuvem projetos de desenvolvimento.
     
     * **Configurações de Aplicativo Compartilhado**
     
-        Um padrão comum para aplicativos distribuídos é fazer com que os arquivos de configuração fiquem em um local centralizado, de onde possam ser acessados por diversas máquinas virtuais diferentes. Esses arquivos de configuração podem ser armazenados em um compartilhamento de Arquivos do Azure e lido por todas as instâncias de aplicativo. Essas configurações também podem ser gerenciadas por meio da interface REST, que permite acesso global aos arquivos de configuração.
+        Um padrão comum para aplicativos distribuídos é toohave arquivos de configuração em um local centralizado onde eles podem ser acessados de várias VMs diferentes. Esses arquivos de configuração podem ser armazenados em um compartilhamento de Arquivos do Azure e lido por todas as instâncias de aplicativo. Essas configurações também podem ser gerenciadas por meio da interface REST hello, o que permite o acesso em todo o mundo toohello arquivos de configuração.
 
     * **Compartilhamento de Diagnóstico**
     
-        Um compartilhamento de Arquivos do Azure também pode ser usado para salvar arquivos de diagnóstico como logs, métricas e despejos. Ter os arquivos disponíveis tanto pela interface REST quanto pelo SMB permite que os aplicativos utilizem uma variedade de ferramentas de análise para processar e analisar os dados de diagnóstico.
+        Um compartilhamento de arquivos do Azure também pode ser usado toosave arquivos de diagnóstico como logs, métricas e despejos de memória. Ter compartilhamentos de arquivos disponíveis por meio de saudação SMB e a interface REST permite que aplicativos toobuild ou utilizar uma variedade de ferramentas de análise para processamento e análise de dados de diagnóstico de saudação.
 
     * **Desenv/Teste/Depuração**
 
-        Quando desenvolvedores ou administradores estão trabalhando em máquinas virtuais na nuvem, eles frequentemente precisam de um conjunto de ferramentas ou utilitários. A instalação e a distribuição desses utilitários em cada máquina virtual onde eles são necessários pode demorar muito. Com o armazenamento de Arquivos do Azure, um desenvolvedor ou administrador pode armazenar suas ferramentas favoritas em um compartilhamento de arquivos e conectar-se a elas a partir de qualquer máquina virtual.
+        Quando os desenvolvedores ou administradores estão trabalhando em máquinas virtuais na nuvem hello, muitas vezes eles precisam de um conjunto de ferramentas ou utilitários. A instalação e a distribuição desses utilitários em cada máquina virtual onde eles são necessários pode demorar muito. Com o armazenamento de arquivo do Azure, um desenvolvedor ou administrador pode armazenar suas ferramentas favoritas em um compartilhamento de arquivos, que pode ser conectado facilmente toofrom qualquer máquina virtual.
         
 ## <a name="how-does-it-work"></a>Como ele funciona?
 
-Gerenciar compartilhamentos de Arquivos do Azure é muito mais simples do que gerenciar compartilhamentos de arquivos locais. O diagrama a seguir ilustra as construções do gerenciamento de armazenamento de Arquivos do Azure:
+Gerenciar compartilhamentos de Arquivos do Azure é muito mais simples do que gerenciar compartilhamentos de arquivos locais. Olá diagrama a seguir ilustra Olá construções de gerenciamento de armazenamento de arquivo do Azure:
 
 ![Estrutura do Arquivo](./media/storage-files-introduction/files-concepts.png)
 
-* **Conta de Armazenamento** Todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade da conta de armazenamento.
+* **Conta de armazenamento** todos os acessos tooAzure armazenamento é feito por meio de uma conta de armazenamento. Consulte [Escalabilidade e Metas de Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade da conta de armazenamento.
 
-* **Compartilhamento** Um compartilhamento do Armazenamento de Arquivos é um compartilhamento de arquivos SMB no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento pai. Uma conta de armazenamento pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total de 5 TB do armazenamento de arquivos.
+* **Compartilhamento** Um compartilhamento do Armazenamento de Arquivos é um compartilhamento de arquivos SMB no Azure. Todos os arquivos e diretórios devem ser criados em um compartilhamento pai. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, a capacidade total de 5 TB de toohello saudação do compartilhamento de arquivos.
 
 * **Diretório** Uma hierarquia opcional de diretórios.
 
-* **Arquivo** Um arquivo no compartilhamento. Um arquivo pode ter até 1 TB de tamanho.
+* **Arquivo** um arquivo no compartilhamento de saudação. Pode ser um arquivo de backup too1 TB de tamanho.
 
-* **Formato de URL** Os arquivos são endereçáveis usando o seguinte formato de URL:  
+* **Formato de URL** arquivos são acessados usando Olá formato de URL a seguir:  
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
@@ -102,14 +102,14 @@ Gerenciar compartilhamentos de Arquivos do Azure é muito mais simples do que ge
 * [Armazenamento de Arquivos do Azure: um sistema de arquivos SMB de nuvem ininterrupto para Windows e Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 
 ### <a name="tooling-support-for-azure-file-storage"></a>Suporte de ferramentas para o armazenamento de Arquivos do Azure
-* [Como usar o AzCopy com o Armazenamento do Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Usando a CLI do Azure com o Armazenamento do Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Como toouse AzCopy com o armazenamento do Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Usando Olá CLI do Azure com o armazenamento do Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 
 ### <a name="blog-posts"></a>Postagens no blog
 * [O Armazenamento de arquivos do Azure agora está disponível ao público geral](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Por dentro do Armazenamento de Arquivos do Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Apresentando o serviço de arquivo do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Como migrar dados para o arquivo do Azure ](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
+* [Migrando dados tooAzure arquivo](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
 ### <a name="reference"></a>Referência
 * [Referência à Biblioteca de Cliente de Armazenamento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)

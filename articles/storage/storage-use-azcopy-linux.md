@@ -1,6 +1,6 @@
 ---
-title: Copiar ou mover dados para o Armazenamento do Azure com o AzCopy no Linux | Microsoft Docs
-description: "Use o utilitário AzCopy no Linux para mover ou copiar dados entre o conteúdo de blob e de arquivo. Copie dados para o Armazenamento do Azure de arquivos locais ou copie dados dentro na mesma conta ou entre contas de armazenamento. Migre facilmente seus dados para o Armazenamento do Azure."
+title: aaaCopy ou mover dados tooAzure armazenamento com AzCopy no Linux | Microsoft Docs
+description: "Use Olá AzCopy Linux utilitário toomove ou copiar dados tooor do blob e o arquivo de conteúdo. Copiar dados tooAzure armazenamento de arquivos locais, ou copie dados dentro ou entre contas de armazenamento. Migre facilmente o armazenamento de tooAzure de dados."
 services: storage
 documentationcenter: 
 author: seguler
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: seguler
-ms.openlocfilehash: d17f63dcee590529756d48d699f78b3fb30f973c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dccb03c9e8cc3ea661494e7834f307b0e3e30cb9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com o AzCopy no Linux
-O AzCopy no Linux é um utilitário de linha de comando projetado para copiar dados entre o armazenamento de Blobs e de Arquivos do Microsoft Azure usando comandos simples com desempenho ideal. Você pode copiar dados de um objeto para outro dentro de sua conta de armazenamento, ou entre contas de armazenamento.
+AzCopy no Linux é um utilitário de linha de comando projetado para copiar dados tooand do armazenamento de BLOBs do Microsoft Azure e o arquivo usando comandos simples com um desempenho ideal. Você pode copiar dados de um tooanother de objeto dentro de sua conta de armazenamento, ou entre contas de armazenamento.
 
 Há duas versões do AzCopy que podem ser baixadas. O AzCopy no Linux se baseia no .NET Core Framework, que se destina a plataformas Linux que oferecem opções de linha de comando no estilo POSIX. O [AzCopy no Windows](storage-use-azcopy.md) se baseia no .NET Framework e oferece opções de linha de comando no estilo Windows. Este artigo aborda o AzCopy no Linux.
 
 ## <a name="download-and-install-azcopy"></a>Baixar e instalar o AzCopy
 ### <a name="installation-on-linux"></a>Instalação no Linux
 
-O AzCopy no Linux exige o .NET Core Framework na plataforma. Consulte as instruções de instalação na página do [.NET Core](https://www.microsoft.com/net/core#linuxubuntu).
+AzCopy no Linux requer o framework .NET Core na plataforma de saudação. Consulte as instruções de instalação de saudação em Olá [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) página.
 
-Como exemplo, vamos instalar o .NET Core no Ubuntu 16.10. Para obter o último guia de instalação, visite a página de instalação do [.NET Core no Linux](https://www.microsoft.com/net/core#linuxubuntu).
+Como exemplo, vamos instalar o .NET Core no Ubuntu 16.10. Guia de instalação mais recente hello, visite [.NET Core no Linux](https://www.microsoft.com/net/core#linuxubuntu) página de instalação.
 
 
 ```bash
@@ -48,7 +48,7 @@ tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-Você poderá remover os arquivos extraídos depois que o AzCopy no Linux for instalado. Como alternativa, caso você não tenha privilégios de superusuário, também poderá executar o AzCopy usando o script de shell “azcopy” na pasta extraída. 
+Você pode remover arquivos de saudação extraído quando AzCopy no Linux está instalado. Como alternativa se você não tem privilégios de superusuário, você também pode executar AzCopy usando script de shell Olá 'azcopy' na pasta extraída hello. 
 
 ### <a name="alternative-installation-on-ubuntu"></a>Instalação alternativa no Ubuntu
 
@@ -122,13 +122,13 @@ sudo apt-get install azcopy
 ```
 
 ## <a name="writing-your-first-azcopy-command"></a>Como escrever seu primeiro comando do AzCopy
-A sintaxe básica dos comandos do AzCopy é:
+Olá a sintaxe básica para comandos do AzCopy é:
 
 ```azcopy
 azcopy --source <source> --destination <destination> [Options]
 ```
 
-Os exemplos a seguir demonstram vários cenários para cópia de dados entre os Blobs e os Arquivos do Microsoft Azure. Consulte o menu `azcopy --help` para obter uma explicação detalhada dos parâmetros usados em cada amostra.
+Olá exemplos a seguir demonstram vários cenários para copiar dados tooand de Blobs do Microsoft Azure e arquivos. Consulte toohello `azcopy --help` menu para obter uma explicação detalhada de parâmetros de saudação usados em cada exemplo.
 
 ## <a name="blob-download"></a>Blob: baixar
 ### <a name="download-single-blob"></a>Baixar um único blob
@@ -141,7 +141,7 @@ azcopy \
     --include "abc.txt"
 ```
 
-Se a pasta `/mnt/myfiles` não existir, o AzCopy a criará e baixará `abc.txt ` na nova pasta.
+Se pasta Olá `/mnt/myfiles` não existir, downloads e cria AzCopy `abc.txt ` na nova pasta de saudação.
 
 ### <a name="download-single-blob-from-secondary-region"></a>Baixe um único blob de região secundária
 
@@ -165,7 +165,7 @@ azcopy \
     --recursive
 ```
 
-Suponhamos que os seguintes blobs residam no contêiner especificado:  
+Suponha seguinte Olá blobs residem no contêiner especificado hello:  
 
 ```
 abc.txt
@@ -175,7 +175,7 @@ vd1/a.txt
 vd1/abcd.txt
 ```
 
-Após a operação de download, o diretório `/mnt/myfiles` inclui os seguintes arquivos:
+Após a operação de download de Olá Olá diretório `/mnt/myfiles` inclui Olá seguintes arquivos:
 
 ```
 /mnt/myfiles/abc.txt
@@ -198,7 +198,7 @@ azcopy \
     --recursive
 ```
 
-Suponhamos que os blobs a seguir residam no contêiner especificado. Todos os blobs que começam com o prefixo `a` são baixados.
+Suponha seguinte Olá blobs residem no contêiner especificado hello. Todos os blobs que começam com o prefixo Olá `a` são baixados.
 
 ```
 abc.txt
@@ -209,7 +209,7 @@ vd1\a.txt
 vd1\abcd.txt
 ```
 
-Após a operação de download, a pasta `/mnt/myfiles` inclui os seguintes arquivos:
+Após a operação de download de Olá Olá pasta `/mnt/myfiles` inclui Olá seguintes arquivos:
 
 ```
 /mnt/myfiles/abc.txt
@@ -217,9 +217,9 @@ Após a operação de download, a pasta `/mnt/myfiles` inclui os seguintes arqui
 /mnt/myfiles/abc2.txt
 ```
 
-O prefixo se aplica ao diretório virtual, que forma a primeira parte do nome do blob. No exemplo mostrado acima, o diretório virtual não corresponde ao prefixo especificado e, portanto, nenhum blob é baixado. Além disso, se a opção `--recursive` não for especificada, o AzCopy não baixará nenhum blob.
+prefixo de saudação aplica diretório virtual toohello, que constitui Olá primeira parte do nome do blob hello. Exemplo hello mostrado acima, diretório virtual Olá não coincide com prefixo especificado de hello, para que nenhum blob é baixado. Além disso, se hello opção `--recursive` não for especificado, AzCopy não baixar todos os blobs.
 
-### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>Defina a hora da última modificação dos arquivos exportados como sendo a mesma dos blobs de origem
+### <a name="set-hello-last-modified-time-of-exported-files-toobe-same-as-hello-source-blobs"></a>Definir a hora da última modificação Olá dos arquivos exportados toobe mesmo Olá blobs de origem
 
 ```azcopy
 azcopy \
@@ -229,7 +229,7 @@ azcopy \
     --preserve-last-modified-time
 ```
 
-Você também pode excluir blobs da operação de download com base na hora da última modificação Por exemplo, se você quiser excluir blobs cuja hora da última modificação for a mesma ou mais recente do que o arquivo de destino, adicione a opção `--exclude-newer`:
+Você também pode excluir blobs de operação de download de saudação com base em sua hora da última modificação. Por exemplo, se você quiser blobs tooexclude cuja hora da última modificação é hello igual ou mais recente do que o arquivo de destino hello, adicionar Olá `--exclude-newer` opção:
 
 ```azcopy
 azcopy \
@@ -240,7 +240,7 @@ azcopy \
     --exclude-newer
 ```
 
-Ou, se você quiser excluir blobs cuja hora da última modificação for a mesma ou mais antiga do que o arquivo de destino, adicione a opção `--exclude-older`:
+Ou se você quiser blobs tooexclude cuja hora da última modificação é hello mesmo ou mais antigo que o arquivo de destino hello, adicione Olá `--exclude-older` opção:
 
 ```azcopy
 azcopy \
@@ -262,9 +262,9 @@ azcopy \
     --include "abc.txt"
 ```
 
-Se o contêiner de destino especificado não existir, o AzCopy o criará e carregará o arquivo nele.
+Se Olá contêiner de destino especificado não existe, AzCopy cria e carregamentos Olá arquivo nele.
 
-### <a name="upload-single-file-to-virtual-directory"></a>Carregar arquivo único no diretório virtual
+### <a name="upload-single-file-toovirtual-directory"></a>Carregar arquivo único diretório toovirtual
 
 ```azcopy
 azcopy \
@@ -274,7 +274,7 @@ azcopy \
     --include "abc.txt"
 ```
 
-Se o diretório virtual especificado não existir, o AzCopy carregará o arquivo para incluir o diretório virtual no nome do blob (*por exemplo*, `vd/abc.txt` no exemplo acima).
+Se Olá especificado não existe um diretório virtual, AzCopy carrega Olá arquivo tooinclude Olá diretório virtual no nome do blob hello (*, por exemplo,*, `vd/abc.txt` no exemplo hello acima).
 
 ### <a name="upload-all-files"></a>Carregar todos os arquivos
 
@@ -286,7 +286,7 @@ azcopy \
     --recursive
 ```
 
-A especificação da opção `--recursive` carrega o conteúdo do diretório especificado no Armazenamento de blobs de maneira recursiva, o que significa que todas as subpastas e seus arquivos são carregados também. Por exemplo, suponhamos que os seguintes arquivos residam na pasta `/mnt/myfiles`:
+Especificando a opção `--recursive` carregamentos conteúdo Olá Olá especificado diretório tooBlob armazenamento recursivamente, que significa que todas as subpastas e seus arquivos são carregados também. Por exemplo, suponha que a seguir Olá arquivos residem na pasta `/mnt/myfiles`:
 
 ```
 /mnt/myfiles/abc.txt
@@ -296,7 +296,7 @@ A especificação da opção `--recursive` carrega o conteúdo do diretório esp
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-Após a operação de upload, o contêiner incluirá os seguintes arquivos:
+Após a operação de carregamento de saudação contêiner Olá inclui Olá seguintes arquivos:
 
 ```
 abc.txt
@@ -306,7 +306,7 @@ subfolder/a.txt
 subfolder/abcd.txt
 ```
 
-Quando a opção `--recursive` não é especificada, somente os seguintes três arquivos são carregados:
+Olá quando a opção `--recursive` não for especificado, somente hello seguintes três arquivos são carregados:
 
 ```
 abc.txt
@@ -325,7 +325,7 @@ azcopy \
     --recursive
 ```
 
-Vamos supor que a pasta `/mnt/myfiles`contenha os seguintes arquivos:
+Suponha seguinte Olá arquivos residem na pasta `/mnt/myfiles`:
 
 ```
 /mnt/myfiles/abc.txt
@@ -336,7 +336,7 @@ Vamos supor que a pasta `/mnt/myfiles`contenha os seguintes arquivos:
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-Após a operação de upload, o contêiner incluirá os seguintes arquivos:
+Após a operação de carregamento de saudação contêiner Olá inclui Olá seguintes arquivos:
 
 ```
 abc.txt
@@ -346,7 +346,7 @@ subfolder/a.txt
 subfolder/abcd.txt
 ```
 
-Quando a opção `--recursive` não é especificada, o AzCopy ignora os arquivos que estão em subdiretórios:
+Olá quando a opção `--recursive` não for especificado, AzCopy ignora os arquivos que estão em subpastas:
 
 ```
 abc.txt
@@ -354,8 +354,8 @@ abc1.txt
 abc2.txt
 ```
 
-### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>Especificar o tipo de conteúdo MIME de um blob de destino
-Por padrão, o AzCopy define o tipo de conteúdo de um blob de destino para `application/octet-stream`. No entanto, você pode especificar explicitamente o tipo de conteúdo por meio da opção `--set-content-type [content-type]`. Essa sintaxe define o tipo de conteúdo para todos os blobs em uma operação de carregamento.
+### <a name="specify-hello-mime-content-type-of-a-destination-blob"></a>Especifique o tipo de conteúdo MIME Olá de um blob de destino
+Por padrão, AzCopy define Olá de tipo de conteúdo de um blob de destino muito`application/octet-stream`. No entanto, você pode especificar explicitamente o tipo de conteúdo Olá por meio da opção Olá `--set-content-type [content-type]`. Essa sintaxe define o tipo de conteúdo Olá para todos os blobs em uma operação de carregamento.
 
 ```azcopy
 azcopy \
@@ -366,7 +366,7 @@ azcopy \
     --set-content-type "video/mp4"
 ```
 
-Se a opção `--set-content-type` for especificada sem um valor, o AzCopy definirá o tipo de conteúdo de cada blob ou arquivo de acordo com sua extensão de arquivo.
+Se hello opção `--set-content-type` for especificado sem um valor, AzCopy define cada blob ou arquivo do tipo de conteúdo de acordo com tooits extensão de arquivo.
 
 ```azcopy
 azcopy \
@@ -404,7 +404,7 @@ azcopy \
 
 Quando você copia um blob sem a opção --sync-copy, uma operação de [cópia no servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) é executada.
 
-### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Copiar um único blob de região secundária para região primária
+### <a name="copy-single-blob-from-secondary-region-tooprimary-region"></a>Copiar um único blob da região de tooprimary região secundária
 
 ```azcopy
 azcopy \
@@ -429,7 +429,7 @@ azcopy \
     --include-snapshot
 ```
 
-Após a operação de cópia, o contêiner de destino incluirá o blob e seus instantâneos. O contêiner inclui o seguinte blob e seus instantâneos:
+Após a operação de cópia hello, o contêiner de destino Olá inclui Olá blob e seus instantâneos. Olá, contêiner inclui Olá seguinte blob e seus instantâneos:
 
 ```
 abc.txt
@@ -438,9 +438,9 @@ abc (2014-02-21 150331).txt
 ```
 
 ### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Copiar blobs em regiões entre contas de armazenamento de forma síncrona.
-O AzCopy por padrão copia dados entre dois pontos de extremidade de armazenamento assincronamente. Portanto, a operação de cópia é executada em segundo plano usando a capacidade de largura de banda extra, que não tem nenhum SLA em termos da velocidade de cópia de um blob. 
+O AzCopy por padrão copia dados entre dois pontos de extremidade de armazenamento assincronamente. Portanto, as execuções de operação de cópia Olá no plano de fundo de saudação utilizando a capacidade de largura de banda sobressalente com nenhum SLA em termos de rapidez com que um blob é copiado. 
 
-A opção `--sync-copy` garante que a operação de cópia obtém uma velocidade consistente. O AzCopy realiza a cópia síncrona baixando os blobs para copiar da fonte especificada para a memória local, e, em seguida, carregá-los para o destino de armazenamento de Blob.
+Olá `--sync-copy` opção garante que a operação de cópia de saudação obtém velocidade consistente. AzCopy executa cópia síncrona Olá ao baixar blobs Olá toocopy de saudação especificado fonte toolocal da memória e, em seguida, carregá-las toohello destino de armazenamento de Blob.
 
 ```azcopy
 azcopy \
@@ -452,7 +452,7 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy` poderá gerar custos de saída adicionais, comparado à cópia assíncrona. A abordagem recomendada é usar essa opção em uma VM do Azure que está na mesma região de sua conta de armazenamento de origem, para evitar o custo de saída.
+`--sync-copy`pode gerar saída adicional em comparação de custo tooasynchronous cópia. Olá a abordagem recomendada é toouse essa opção em uma VM do Azure, que está em Olá mesma região que o custo de egresso fonte armazenamento conta tooavoid.
 
 ## <a name="file-download"></a>Arquivo: baixar
 ### <a name="download-single-file"></a>Baixar um único arquivo
@@ -465,7 +465,7 @@ azcopy \
     --include "abc.txt"
 ```
 
-Se a origem especificada for um compartilhamento de arquivos do Azure, você deverá especificar o nome exato do arquivo, (*por exemplo*, `abc.txt`) para baixar um único arquivo ou especificar a opção `--recursive` para baixar todos os arquivos do compartilhamento de maneira recursiva. A tentativa de especificar um padrão de arquivo e a opção `--recursive` simultaneamente resulta em um erro.
+Se Olá especificado fonte for um compartilhamento de arquivos do Azure, você deve especificar nome de arquivo exatos Olá, (*, por exemplo,* `abc.txt`) toodownload um único arquivo, ou especifique a opção `--recursive` toodownload todos os arquivos no compartilhamento de saudação recursivamente. Tentativa de toospecify um padrão de arquivo e a opção `--recursive` juntos resulta em erro.
 
 ### <a name="download-all-files"></a>Baixar todos os arquivos
 
@@ -526,7 +526,7 @@ azcopy \
 ```
 Quando você copia um arquivo entre compartilhamentos de arquivos, é executada uma operação [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
 
-### <a name="copy-from-file-share-to-blob"></a>Copiar de compartilhamento de arquivos para blob
+### <a name="copy-from-file-share-tooblob"></a>Copiar de tooblob de compartilhamento de arquivo
 
 ```azcopy
 azcopy \ 
@@ -536,9 +536,9 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Quando você copia um arquivo do compartilhamento de arquivos no blob, é executada uma operação [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
+Quando você copia um arquivo de tooblob de compartilhamento de arquivo, uma [cópia do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
 
-### <a name="copy-from-blob-to-file-share"></a>Copiar do blob para compartilhamento de arquivos
+### <a name="copy-from-blob-toofile-share"></a>Copiar de blob toofile compartilhamento
 
 ```azcopy
 azcopy \
@@ -548,10 +548,10 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Quando você copia um arquivo do blob no compartilhamentos de arquivos, é executada uma operação [server-side copy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx).
+Quando você copia um arquivo de compartilhamento de toofile de blob, um [cópia do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
 
 ### <a name="synchronously-copy-files"></a>Copiar arquivos de forma síncrona
-Especifique a opção `--sync-copy` para copiar dados do Armazenamento de Arquivos para o Armazenamento de Arquivos, do Armazenamento de Arquivos para o Armazenamento de Blobs e do Armazenamento de Blobs para o Armazenamento de Arquivos de forma síncrona. O AzCopy executa esta operação baixando os dados de origem na memória local e, em seguida, carregando-os para o destino. Nesse caso, se aplica o custo de saída padrão.
+Você pode especificar Olá `--sync-copy` opção toocopy dados do armazenamento de arquivo tooFile armazenamento, de armazenamento de arquivo tooBlob armazenamento e de armazenamento de Blob tooFile armazenamento de forma síncrona. AzCopy executa esta operação por memória de toolocal de dados de origem Olá o download e, em seguida, carregá-lo toodestination. Nesse caso, se aplica o custo de saída padrão.
 
 ```azcopy
 azcopy \
@@ -563,13 +563,13 @@ azcopy \
     --sync-copy
 ```
 
-Durante a cópia do Armazenamento de Arquivos para o Armazenamento de Blobs, o tipo de blob padrão é o blob de blocos, e o usuário pode especificar a opção `/BlobType:page` para alterar o tipo de blob de destino.
+Ao copiar do armazenamento de arquivo tooBlob armazenamento, tipo de blob saudação padrão é o blob de blocos, o usuário pode especificar a opção `/BlobType:page` toochange tipo de blob de destino de saudação.
 
-Observe que `--sync-copy` pode gerar custos de saída adicionais, comparado à cópia assíncrona. A abordagem recomendada é usar essa opção em uma VM do Azure que está na mesma região de sua conta de armazenamento de origem, para evitar o custo de saída.
+Observe que `--sync-copy` pode gerar saída adicional comparando cópia de tooasynchronous de custo. Olá a abordagem recomendada é toouse essa opção em uma VM do Azure, que está em Olá mesma região que o custo de egresso fonte armazenamento conta tooavoid.
 
 ## <a name="other-azcopy-features"></a>Outros recursos do AzCopy
-### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Copiar apenas os dados que não existem no destino
-Os parâmetros `--exclude-older` e `--exclude-newer` permitem a exclusão de recursos de origem mais antigos ou mais recentes da cópia, respectivamente. Se você quiser copiar apenas os recursos de origem que não existem no destino, especifique os dois parâmetros no comando AzCopy:
+### <a name="only-copy-data-that-doesnt-exist-in-hello-destination"></a>Copiar somente os dados que não existem no destino de saudação
+Olá `--exclude-older` e `--exclude-newer` parâmetros permitem que os recursos de origem mais antiga ou mais recente de tooexclude que está sendo copiado, respectivamente. Se você desejar somente toocopy os recursos de origem que não existem no destino Olá, você pode especificar ambos os parâmetros em Olá AzCopy comando:
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --exclude-older --exclude-newer
 
@@ -577,15 +577,15 @@ Os parâmetros `--exclude-older` e `--exclude-newer` permitem a exclusão de rec
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination http://myaccount.blob.core.windows.net/mycontainer1 --source-key <sourcekey> --dest-key <destkey> --recursive --exclude-older --exclude-newer
 
-### <a name="use-a-configuration-file-to-specify-command-line-parameters"></a>Usar um arquivo de configuração para especificar parâmetros de linha de comando
+### <a name="use-a-configuration-file-toospecify-command-line-parameters"></a>Usar parâmetros de linha de comando do arquivo toospecify uma configuração
 
 ```azcopy
 azcopy --config-file "azcopy-config.ini"
 ```
 
-É possível incluir qualquer parâmetro de linha de comando do AzCopy em um arquivo de configuração. O AzCopy processa os parâmetros no arquivo como se eles tivessem sido especificados na linha de comando, realizando uma substituição direta pelo conteúdo do arquivo.
+É possível incluir qualquer parâmetro de linha de comando do AzCopy em um arquivo de configuração. AzCopy processos Olá parâmetros no arquivo hello como se eles tivessem sido especificados na linha de comando hello, executar uma substituição direta com o conteúdo de saudação do arquivo hello.
 
-Suponha um arquivo de configuração chamado `copyoperation`, que contém as linhas a seguir. Cada parâmetro do AzCopy pode ser especificado em uma única linha.
+Suponha que um arquivo de configuração chamado `copyoperation`, que contém Olá linhas a seguir. Cada parâmetro do AzCopy pode ser especificado em uma única linha.
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --quiet
 
@@ -597,7 +597,7 @@ ou, em linhas separadas:
     --recursive
     --quiet
 
-O AzCopy falhará se você dividir o parâmetro em duas linhas, conforme mostrado aqui para o parâmetro `--source-key`:
+AzCopy falhará se você dividir o parâmetro hello em duas linhas, conforme mostrado aqui para Olá `--source-key` parâmetro:
 
     http://myaccount.blob.core.windows.net/mycontainer
     /mnt/myfiles
@@ -617,7 +617,7 @@ azcopy \
     --include abc.txt
 ```
 
-Você também pode especificar um SAS no URI do contêiner:
+Você também pode especificar uma SAS no URI do contêiner hello:
 
 ```azcopy
 azcopy \
@@ -626,14 +626,14 @@ azcopy \
     --recursive
 ```
 
-Observe que o AzCopy atualmente dá suporte apenas a [SAS de Conta](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
+Observe que AzCopy atualmente suporta apenas Olá [SAS conta](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ### <a name="journal-file-folder"></a>Pasta de arquivo de diário
-Sempre que você emite um comando para o AzCopy, ele verifica se um arquivo de diário existe na pasta padrão ou se está em uma pasta especificada por meio dessa opção. Se o arquivo de diário não estiver em nenhum dos lugares, o AzCopy tratará a operação como nova e gerar um novo arquivo de diário.
+Cada vez que você emitir um comando tooAzCopy, ele verifica se um arquivo de diário existe na pasta padrão de hello, ou se ela existir em uma pasta que você especificou com esta opção. Se o arquivo de diário Olá não existir em qualquer lugar, AzCopy trata operação hello como novo e gera um novo arquivo de diário.
 
-Se o arquivo de diário existir, o AzCopy verificará se a linha de comando inserida corresponde à linha de comando no arquivo de diário. Se as duas linhas de comando forem correspondentes, o AzCopy retomará a operação incompleta. Se elas não forem correspondentes, o AzCopy solicitará que o usuário substitua o arquivo de diário para iniciar uma nova operação ou cancele a operação atual.
+Se existir um arquivo de diário hello, o AzCopy verifica se o hello linha de comando que você inserir coincide com a saudação de linha de comando no arquivo de diário hello. Se duas linhas de comando Olá corresponder, AzCopy reinicia a operação de incompleta de saudação. Se eles não corresponderem, AzCopy solicita usuário tooeither substituir Olá diário arquivo toostart uma nova operação ou a operação atual do toocancel hello.
 
-Se você quiser usar o local padrão para o arquivo de diário:
+Se desejar que o local do toouse saudação padrão para o arquivo de diário hello:
 
 ```azcopy
 azcopy \
@@ -643,9 +643,9 @@ azcopy \
     --resume
 ```
 
-Se você omitir a opção `--resume` ou especificar a opção `--resume` sem o caminho da pasta, conforme mostrado acima, o AzCopy criará o arquivo de diário no local padrão, que é `~\Microsoft\Azure\AzCopy`. Se o arquivo de diário já existir, o AzCopy retomará a operação com base no arquivo de diário.
+Se você omitir a opção `--resume`, ou especifique a opção `--resume` sem o caminho da pasta hello, como mostrado acima, AzCopy cria o arquivo de diário Olá no local padrão de saudação, que é `~\Microsoft\Azure\AzCopy`. Se já existir um arquivo de diário Olá, AzCopy retoma operação Olá com base no arquivo de diário hello.
 
-Se você quiser especificar um local personalizado para o arquivo de diário:
+Se você desejar toospecify um local personalizado para o arquivo de diário hello:
 
 ```azcopy
 azcopy \
@@ -655,12 +655,12 @@ azcopy \
     --resume "/mnt/myjournal"
 ```
 
-Este exemplo criará o arquivo de diário se ele ainda não existir. Se ele existir, o AzCopy retomará a operação com base no arquivo de diário.
+Este exemplo cria o arquivo de diário Olá se ele ainda não existir. Se ele existir, AzCopy retoma operação Olá com base no arquivo de diário hello.
 
-Se desejar retomar uma operação do AzCopy, repita o mesmo comando. Em seguida, o AzCopy no Linux solicitará a confirmação:
+Se você desejar tooresume uma operação AzCopy, repita Olá mesmo comando. Em seguida, o AzCopy no Linux solicitará a confirmação:
 
 ```azcopy
-Incomplete operation with same command line detected at the journal directory "/home/myaccount/Microsoft/Azure/AzCopy", do you want to resume the operation? Choose Yes to resume, choose No to overwrite the journal to start a new operation. (Yes/No)
+Incomplete operation with same command line detected at hello journal directory "/home/myaccount/Microsoft/Azure/AzCopy", do you want tooresume hello operation? Choose Yes tooresume, choose No toooverwrite hello journal toostart a new operation. (Yes/No)
 ```
 
 ### <a name="output-verbose-logs"></a>Logs detalhados de saída
@@ -673,31 +673,31 @@ azcopy \
     --verbose
 ```
 
-### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Especificar o número de operações simultâneas para começar
-A opção `--parallel-level` especifica o número de operações de cópia simultâneas. Por padrão, o AzCopy inicia uma determinada quantidade de operações simultâneas para aumentar a taxa de transferência de dados. O número de operações simultâneas é igual a oito vezes o número de processadores que você tem. Se você estiver executando o AzCopy em uma rede de baixa largura de banda, poderá especificar um número menor para o nível --parallel-, a fim de evitar uma falha causada pela competição de recursos.
+### <a name="specify-hello-number-of-concurrent-operations-toostart"></a>Saudação de número de operações simultâneas toostart
+Opção `--parallel-level` Especifica o número de saudação de operações simultâneas de cópia. Por padrão, AzCopy inicia um determinado número de operações simultâneas tooincrease Olá transferência de transferência de dados. saudação de número de operações simultâneas é igual Olá de oito vezes o número de processadores que você tem. Se você estiver executando o AzCopy através de uma rede de baixa largura de banda, você pode especificar um número mais baixo para - falhas no nível de paralelo tooavoid causado por divisão dos recursos.
 
 [!TIP]
->Para exibir a lista completa de parâmetros do AzCopy, confira o menu “azcopy --help”.
+>lista completa de saudação tooview AzCopy parâmetros, check-out 'azcopy – Ajuda' menu.
 
 ## <a name="known-issues-and-best-practices"></a>Problemas conhecidos e melhores práticas
-### <a name="error-net-core-is-not-found-in-the-system"></a>Erro: o .NET Core não foi encontrado no sistema.
-Se você receber um erro informando que o .NET Core não está instalado no sistema, a variável PATH do binário `dotnet` do .NET Core poderá estar ausente.
+### <a name="error-net-core-is-not-found-in-hello-system"></a>Erro: O .NET Core não é encontrado no sistema de saudação.
+Se você encontrar um erro informando que o núcleo do .NET não está instalado no sistema hello, Olá binário de .NET Core toohello caminho `dotnet` podem estar ausentes.
 
-Para resolver esse problema, encontre o binário do .NET Core no sistema:
+Em ordem tooaddress esse problema, localize o binário do .NET Core Olá no sistema de saudação:
 ```bash
 sudo find / -name dotnet
 ```
 
-Isso retorna o caminho para o binário do dotnet. 
+Isso retorna Olá caminho toohello dotnet binário. 
 
     /opt/rh/rh-dotnetcore11/root/usr/bin/dotnet
     /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/dotnet
     /opt/rh/rh-dotnetcore11/root/usr/lib64/dotnetcore/shared/Microsoft.NETCore.App/1.1.2/dotnet
 
-Agora adicione esse caminho à variável PATH. Para o sudo, edite secure_path para conter o caminho para o binário do dotnet:
+Agora, adicione essa variável de caminho de toohello de caminho. Sudo, edite secure_path toocontain Olá caminho toohello dotnet binário:
 ```bash 
 sudo visudo
-### Append the path found in the preceding example to 'secure_path' variable
+### Append hello path found in hello preceding example too'secure_path' variable
 ```
 
 Neste exemplo, a variável secure_path é:
@@ -706,10 +706,10 @@ Neste exemplo, a variável secure_path é:
 secure_path = /sbin:/bin:/usr/sbin:/usr/bin:/opt/rh/rh-dotnetcore11/root/usr/bin/
 ```
 
-Para o usuário atual, edite .bash_profile/.profile para incluir o caminho para o binário do dotnet na variável PATH 
+Para o usuário atual do hello, editar.bash_profile/.profile tooinclude Olá caminho toohello dotnet binário na variável PATH 
 ```bash
 vi ~/.bash_profile
-### Append the path found in the preceding example to 'PATH' variable
+### Append hello path found in hello preceding example too'PATH' variable
 ```
 
 Verifique se o .NET Core agora está em PATH:
@@ -719,7 +719,7 @@ sudo which dotnet
 ```
 
 ### <a name="error-installing-azcopy"></a>Erro ao instalar o AzCopy
-Caso tenha problemas com a instalação do AzCopy, tente executar o AzCopy usando o script bash na pasta `azcopy` extraída.
+Se você tiver problemas com a instalação de AzCopy, você pode tentar toorun AzCopy usando scripts de bash Olá em Olá extraído `azcopy` pasta.
 
 ```bash
 cd azcopy
@@ -727,25 +727,25 @@ cd azcopy
 ```
 
 ### <a name="limit-concurrent-writes-while-copying-data"></a>Limite gravações simultâneas durante a cópia de dados
-Ao copiar blobs ou arquivos usando o AZCopy, lembre-se de que outro aplicativo pode estar modificando os dados enquanto você os copia. Se possível, verifique se os dados que está copiando não estão sendo modificados durante a cópia. Por exemplo, ao copiar um VHD associado a uma máquina virtual do Azure, verifique se nenhum outro aplicativo está gravando no VHD, no momento. Uma boa maneira de fazer isso é ceder o recurso para ser copiado. Também é possível criar um instantâneo do VHD primeiro e, em seguida, copiar o instantâneo.
+Quando você copia blobs ou arquivos com AzCopy, tenha em mente que outro aplicativo esteja modificando dados saudação enquanto você estiver copiando-lo. Se possível, certifique-se de que dados Olá que você está copiando não está sendo modificados durante a operação de cópia de saudação. Por exemplo, ao copiar um VHD associado a uma máquina virtual do Azure, certifique-se de que nenhum outro aplicativo no momento está escrevendo toohello VHD. Toodo uma boa maneira trata concedendo Olá recurso toobe copiado. Como alternativa, você pode criar um instantâneo de saudação VHD primeiro e copie instantâneo hello.
 
-Se não for possível evitar que outros aplicativos gravem em blobs ou arquivos enquanto são copiados, lembre-se que, quando o trabalho terminar, os recursos copiados não poderão mais ter paridade total com os recursos de origem.
+Se você não pode impedir que outros aplicativos gravando tooblobs ou arquivos enquanto eles estão sendo copiados, em seguida, tenha em mente que, pelo trabalho de Olá Olá tempo termina, hello recursos copiados não podem mais ter paridade completa com os recursos de origem hello.
 
 ### <a name="run-one-azcopy-instance-on-one-machine"></a>Execute uma instância de AzCopy em um computador.
-O AzCopy foi projetado para maximizar a utilização de seu recurso de máquina para acelerar a transferência de dados, é recomendável executar apenas uma instância de AzCopy em um único computador e especifique a opção `--parallel-level` se precisar de mais operações em simultâneo. Para obter mais detalhes, digite `AzCopy --help parallel-level` na linha de comando.
+AzCopy é projetado toomaximize Olá utilização sua máquina recurso tooaccelerate Olá de transferência de dados, é recomendável executar apenas uma instância de AzCopy em um computador e especificar a opção Olá `--parallel-level` se você precisar de operações simultâneas mais. Para obter mais detalhes, digite `AzCopy --help parallel-level` na linha de comando hello.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, consulte os seguintes recursos:
+Para obter mais informações sobre o armazenamento do Azure e AzCopy, consulte Olá recursos a seguir:
 
 ### <a name="azure-storage-documentation"></a>Documentação do Armazenamento do Azure:
-* [Introdução ao Armazenamento do Azure](storage-introduction.md)
+* [Introdução tooAzure armazenamento](storage-introduction.md)
 * [Criar uma conta de armazenamento](storage-create-storage-account.md)
 * [Gerenciar blobs com o Gerenciador de Armazenamento](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs)
-* [Usando a CLI 2.0 do Azure com o Armazenamento do Azure](storage-azure-cli.md)
-* [Como usar o armazenamento de Blob por meio do C++](storage-c-plus-plus-how-to-use-blobs.md)
-* [Como usar o Armazenamento de Blob do Java](storage-java-how-to-use-blob-storage.md)
-* [Como usar o armazenamento de Blob do Node.js](storage-nodejs-how-to-use-blob-storage.md)
-* [Como usar o armazenamento de Blob no Python](storage-python-how-to-use-blob-storage.md)
+* [Usando Olá 2.0 do CLI do Azure com o armazenamento do Azure](storage-azure-cli.md)
+* [Como toouse armazenamento de Blob de C++](storage-c-plus-plus-how-to-use-blobs.md)
+* [Como toouse armazenamento de Blob do Java](storage-java-how-to-use-blob-storage.md)
+* [Como toouse armazenamento de Blob do Node. js](storage-nodejs-how-to-use-blob-storage.md)
+* [Como toouse armazenamento de Blob do Python](storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Postagens de blog de armazenamento do Azure:
 * [Anunciando a Versão Prévia do AzCopy no Linux](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)

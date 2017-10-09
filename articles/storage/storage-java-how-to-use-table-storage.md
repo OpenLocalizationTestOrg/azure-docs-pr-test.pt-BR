@@ -1,6 +1,6 @@
 ---
-title: Como usar o Armazenamento de Tabelas do Java | Microsoft Docs
-description: "Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
+title: aaaHow toouse o armazenamento de tabela do Java | Microsoft Docs
+description: "Armazene dados estruturados em nuvem hello usando o armazenamento de tabela do Azure, um repositório de dados NoSQL."
 services: storage
 documentationcenter: java
 author: mmacy
@@ -14,20 +14,20 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: a4d6f144cc6940ffe2b2c6f27553cd7aa3bcb381
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f72cac3fc10cf0aef74780b84c515d93d715d787
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-table-storage-from-java"></a>Como usar o Armazenamento de Tabela do Java
+# <a name="how-toouse-table-storage-from-java"></a>Como toouse o armazenamento de tabela do Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Visão geral
-Este guia mostra como executar cenários comuns usando o serviço de Armazenamento de Tabela do Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários abrangidos incluem **criar**, **listar** e **excluir** tabelas, além de **inserir**, **consultar**, **modificar** e **excluir** entidades em uma tabela. Para obter mais informações sobre tabelas, consulte a seção [Próximas etapas](#Next-Steps) .
+Este guia mostrará como tooperform cenários comuns usando Olá serviço de armazenamento de tabela do Azure. exemplos de saudação são escritos em Java e usam Olá [SDK de armazenamento do Azure para Java][Azure Storage SDK for Java]. Olá cenários abordados incluem **criando**, **listando**, e **excluindo** tabelas, bem como **inserindo**,  **consultando**, **modificando**, e **excluindo** entidades em uma tabela. Para obter mais informações sobre tabelas, consulte Olá [próximas etapas](#Next-Steps) seção.
 
-Observação: um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [Azure Storage SDK for Android][Azure Storage SDK for Android] (SDK de Armazenamento do Azure para Android).
+Observação: um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte Olá [SDK de armazenamento do Azure para Android][Azure Storage SDK for Android].
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -36,30 +36,30 @@ Observação: um SDK está disponível para os desenvolvedores que usam o Armaze
 ## <a name="create-a-java-application"></a>Criar um aplicativo Java
 Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em uma função web ou de trabalho do Azure.
 
-Para isso, você precisará instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você precisará verificar se o sistema de desenvolvimento atende aos requisitos mínimos e às dependências listadas no repositório [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java) no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
+toodo assim, você precisará tooinstall Olá Java Development Kit (JDK) e criar uma conta de armazenamento do Azure em sua assinatura do Azure. Depois de você ter feito isso, você precisará tooverify seu sistema de desenvolvimento atende aos requisitos mínimos de saudação e dependências que são listadas no hello [SDK de armazenamento do Azure para Java] [ Azure Storage SDK for Java] repositório no GitHub. Se seu sistema atende a esses requisitos, você pode seguir as instruções de saudação para baixar e instalar Olá bibliotecas de armazenamento do Azure para Java em seu sistema desse repositório. Depois de concluir essas tarefas, será possível toocreate um aplicativo Java que usa exemplos Olá neste artigo.
 
-## <a name="configure-your-application-to-access-table-storage"></a>Configurar seu aplicativo para acessar o armazenamento de tabelas
-Adicione as seguintes instruções de importação na parte superior do arquivo Java em que deseja usar as APIs de armazenamento do Microsoft Azure para acessar tabelas:
+## <a name="configure-your-application-tooaccess-table-storage"></a>Configurar o armazenamento de tabela do aplicativo tooaccess
+Adicione Olá importação instruções toohello superior do arquivo de Java Olá onde você deseja que as tabelas de tooaccess toouse Microsoft Azure armazenamento APIs a seguir:
 
 ```java
-// Include the following imports to use table APIs
+// Include hello following imports toouse table APIs
 import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.table.*;
 import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de armazenamento do Azure
-Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome de sua conta de armazenamento e a tecla de Acesso primário da conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey*. Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:
+Um cliente de armazenamento do Azure usa um pontos de extremidade de toostore de cadeia de caracteres de conexão de armazenamento e as credenciais para acessar os serviços de gerenciamento de dados. Quando em execução em um aplicativo cliente, deve fornecer a cadeia de conexão de armazenamento Olá no formato a seguir, usando o nome de saudação da sua conta de armazenamento de saudação e Olá chave de acesso primária para conta de armazenamento Olá listada no hello [portal do Azure](https://portal.azure.com)para Olá *AccountName* e *AccountKey* valores. Este exemplo mostra como você pode declarar uma cadeia de caracteres de conexão do campo estático toohold hello:
 
 ```java
-// Define the connection-string with your values.
+// Define hello connection-string with your values.
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
 
-Em um aplicativo que esteja sendo executado em uma função no Microsoft Azure, essa cadeia pode ser armazenada no arquivo de configuração do serviço, *ServiceConfiguration.cscfg*, podendo ser acessada com uma chamada para o método **RoleEnvironment.getConfigurationSettings** . Segue um exemplo de como obter a cadeia de conexão de um elemento **Setting** denominado *StorageConnectionString* no arquivo de configuração de serviço:
+Em um aplicativo em execução dentro de uma função no Microsoft Azure, essa cadeia de caracteres pode ser armazenada no arquivo de configuração do serviço hello, *ServiceConfiguration*e pode ser acessado com uma chamada toohello  **RoleEnvironment.getConfigurationSettings** método. Aqui está um exemplo de obter a cadeia de caracteres de conexão de saudação de um **configuração** elemento chamado *StorageConnectionString* no arquivo de configuração de serviço hello:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -67,10 +67,10 @@ String storageConnectionString =
     RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 ```
 
-Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.
+Olá exemplos a seguir pressupõem que você usou uma cadeia de conexão de armazenamento esses dois métodos tooget hello.
 
 ## <a name="how-to-create-a-table"></a>Como: criar uma tabela
-Um objeto **CloudTableClient** permite obter os objetos de referência para tabelas e entidades. O código a seguir cria um objeto **CloudTableClient** e o usa para criar um novo objeto **CloudTable**, o qual representa uma tabela nomeada "pessoas". (Observação: existem outras maneiras de criar objetos **CloudStorageAccount**. Para saber mais, veja **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure]).
+Um objeto **CloudTableClient** permite obter os objetos de referência para tabelas e entidades. Olá código a seguir cria um **CloudTableClient** do objeto e o utiliza toocreate um novo **CloudTable** objeto que representa uma tabela denominada "pessoal". (Observação: existem outras maneiras toocreate **CloudStorageAccount** objetos; para obter mais informações, consulte **CloudStorageAccount** em Olá [referência de SDK de cliente de armazenamento de Azure].)
 
 ```java
 try
@@ -79,23 +79,23 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Create the table if it doesn't exist.
+    // Create hello table if it doesn't exist.
     String tableName = "people";
     CloudTable cloudTable = tableClient.getTableReference(tableName);
     cloudTable.createIfNotExists();
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
-## <a name="how-to-list-the-tables"></a>Como: listar as tabelas
-Para obter uma lista de tabelas, chame o método **CloudTableClient.listTables()** para recuperar uma lista iterável de nomes de tabela.
+## <a name="how-to-list-hello-tables"></a>Como: listar tabelas Olá
+tooget uma lista de tabelas, chamada hello **CloudTableClient.listTables()** método tooretrieve uma lista que pode ser iterada dos nomes de tabela.
 
 ```java
 try
@@ -104,10 +104,10 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Loop through the collection of table names.
+    // Loop through hello collection of table names.
     for (String table : tableClient.listTables())
     {
         // Output each table name.
@@ -116,13 +116,13 @@ try
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
-## <a name="how-to-add-an-entity-to-a-table"></a>Como: adicionar uma entidade a uma tabela
-As entidades mapeiam para os objetos do Java que usam uma classe personalizada, implementando **TableEntity**. Para sua conveniência, a classe **TableServiceEntity** implementa **TableEntity** e usa reflexão para mapear as propriedades para os métodos getter e setter nomeados para as propriedades. Para adicionar uma entidade a uma tabela, primeiro crie uma classe que defina as propriedades da sua entidade. O código a seguir define uma classe de entidade que usa o nome do cliente como a chave de linha e o sobrenome como a chave de partição. Juntas, uma chave de partição e uma chave de linha identificam exclusivamente a entidade na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rápido do que aquelas com chaves de partição diferentes.
+## <a name="how-to-add-an-entity-tooa-table"></a>Como: adicionar uma tabela de entidade tooa
+Entidades são mapeadas tooJava objetos usando uma implementação de classe personalizada **TableEntity**. Para sua conveniência, Olá **TableServiceEntity** classe implementa **TableEntity** e usa reflexão toomap propriedades de métodos toogetter e setter para Olá propriedades. tooadd uma tabela de tooa de entidade, primeiro crie uma classe que define as propriedades de saudação da entidade. Olá código a seguir define uma classe de entidade que usa o nome saudação do cliente como chave de linha de saudação e último nome como chave de partição hello. Juntas, chave de linha e de partição da entidade identificam exclusivamente Olá entidade na tabela de saudação. Entidades com a mesma chave de partição pode ser consultado com mais rapidez do que aquelas com diferentes chaves de partição de saudação.
 
 ```java
 public class CustomerEntity extends TableServiceEntity {
@@ -154,7 +154,7 @@ public class CustomerEntity extends TableServiceEntity {
 }
 ```
 
-As operações de tabela que envolvem entidades exigem umobjeto **TableOperation** . Este objeto define a operação a ser realizada em uma entidade, que pode ser executada com um objeto **CloudTable** . O código a seguir cria uma nova instância da classe **CustomerEntity** com alguns dados do cliente que serão armazenados. O próximo código chama **TableOperation.insertOrReplace** para criar um objeto **TableOperation** para inserir uma entidade em uma tabela e associa a nova **CustomerEntity** a ele. Por fim, o código chama o método **execute** no objeto **CloudTable**, especificando a tabela “pessoas" e a nova **TableOperation**, que envia uma solicitação para o serviço de armazenamento para inserir a nova entidade de cliente na tabela “pessoas” ou substituir a entidade se ela já existir.
+As operações de tabela que envolvem entidades exigem umobjeto **TableOperation** . Este objeto define Olá toobe de operação executada em uma entidade, que pode ser executada com um **CloudTable** objeto. Olá, código a seguir cria uma nova instância da saudação **CustomerEntity** classe com alguns toobe de dados do cliente armazenado. Olá chamadas próximas código **TableOperation.insertOrReplace** toocreate um **TableOperation** tooinsert uma entidade do objeto em uma tabela, e associa Olá novos **CustomerEntity**com ele. Finalmente, o código de saudação chama Olá **executar** método hello **CloudTable** objeto, especificando a tabela de "people" hello e hello novo **TableOperation**, que, em seguida, envia um entidade de solicitação toohello armazenamento serviço tooinsert Olá novo cliente na tabela de "people" hello, ou substituir entidade Olá se ele já existe.
 
 ```java
 try
@@ -163,10 +163,10 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Create a cloud table object for the table.
+    // Create a cloud table object for hello table.
     CloudTable cloudTable = tableClient.getTableReference("people");
 
     // Create a new customer entity.
@@ -174,21 +174,21 @@ try
     customer1.setEmail("Walter@contoso.com");
     customer1.setPhoneNumber("425-555-0101");
 
-    // Create an operation to add the new customer to the people table.
+    // Create an operation tooadd hello new customer toohello people table.
     TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
 
-    // Submit the operation to the table service.
+    // Submit hello operation toohello table service.
     cloudTable.execute(insertCustomer1);
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
 ## <a name="how-to-insert-a-batch-of-entities"></a>Como: inserir um lote de entidades
-Você pode inserir um lote de entidades ao serviço Tabela em uma operação de gravação. O código a seguir cria um objeto **TableBatchOperation** e adiciona três operações de inserção a ele. Cada operação de inserção é adicionada criando um novo objeto de entidade, definindo seus valores e, em seguida, chamando o método **insert** no objeto **TableBatchOperation** para associar a entidade a uma nova operação de inserção. Em seguida, o código chama **execute** no objeto **CloudTable**, especificando a tabela “pessoas" e o objeto **TableBatchOperation**, que envia o lote de operações da tabela para o serviço de armazenamento em uma única solicitação.
+Você pode inserir um lote de serviço de tabela de toohello de entidades em uma operação de gravação. Olá código a seguir cria um **TableBatchOperation** do objeto, em seguida, adiciona três tooit de operações de inserção. Cada operação de inserção é adicionada por criar um novo objeto de entidade, definir seus valores e, em seguida, chamar hello **inserir** método hello **TableBatchOperation** objeto de entidade de saudação tooassociate com um novo operação de inserção. Olá, em seguida, chamadas de código **executar** em Olá **CloudTable** objeto, especificando a tabela de "people" hello e hello **TableBatchOperation** objeto, que envia o lote de saudação da tabela serviço de armazenamento de toohello de operações em uma única solicitação.
 
 ```java
 try
@@ -197,52 +197,52 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
     // Define a batch operation.
     TableBatchOperation batchOperation = new TableBatchOperation();
 
-    // Create a cloud table object for the table.
+    // Create a cloud table object for hello table.
     CloudTable cloudTable = tableClient.getTableReference("people");
 
-    // Create a customer entity to add to the table.
+    // Create a customer entity tooadd toohello table.
     CustomerEntity customer = new CustomerEntity("Smith", "Jeff");
     customer.setEmail("Jeff@contoso.com");
     customer.setPhoneNumber("425-555-0104");
     batchOperation.insertOrReplace(customer);
 
-    // Create another customer entity to add to the table.
+    // Create another customer entity tooadd toohello table.
     CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
     customer2.setEmail("Ben@contoso.com");
     customer2.setPhoneNumber("425-555-0102");
     batchOperation.insertOrReplace(customer2);
 
-    // Create a third customer entity to add to the table.
+    // Create a third customer entity tooadd toohello table.
     CustomerEntity customer3 = new CustomerEntity("Smith", "Denise");
     customer3.setEmail("Denise@contoso.com");
     customer3.setPhoneNumber("425-555-0103");
     batchOperation.insertOrReplace(customer3);
 
-    // Execute the batch of operations on the "people" table.
+    // Execute hello batch of operations on hello "people" table.
     cloudTable.execute(batchOperation);
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
-Algumas outras observações sobre as operações em lote:
+Toonote algumas coisas em operações em lote:
 
-* Você pode executar até 100 operações de inserção, exclusão, mesclagem, substituição, inserção ou mesclagem e inserção ou substituição em qualquer combinação em um único lote.
-* Uma operação em lote pode ter uma operação de recuperação se ela for a única operação no lote.
-* Todas as entidades em uma única operação em lote devem ter a mesma chave de partição.
-* Uma operação em lote está limitada a uma carga de dados de 4 MB.
+* Você pode realizar backup too100 insert, delete, merge, replace, insert ou merge e, em seguida, inserir ou substituir operações em qualquer combinação em um único lote.
+* Uma operação em lote pode ter uma operação de recuperação, se for a única operação Olá em lote de saudação.
+* Todas as entidades em uma única operação de lote devem ter Olá mesma chave de partição.
+* Uma operação em lote é limitada tooa carga de dados de 4MB.
 
 ## <a name="how-to-retrieve-all-entities-in-a-partition"></a>Como recuperar todas as entidades em uma partição
-Para consultar uma tabela de todas as entidades em uma partição, use **TableQuery**. Chame **TableQuery.from** para criar uma consulta em uma determinada tabela que retorna um tipo de resultado especificado. O código a seguir especifica um filtro para entidades onde 'Smith' é a chave da partição. **TableQuery.generateFilterCondition** é um método auxiliar para criar filtros para consultas. Chame **where** na referência retornada pelo método **TableQuery.from** para aplicar o filtro à consulta. Quando a chamada é executada com uma chamada para **execute** no objeto **CloudTable**, ela retorna um **Iterator** com o tipo de resultado **CustomerEntity** especificado. Com isso, você pode usar o **Iterator** retornado em cada loop para consumir os resultados. Esse código imprime os campos de cada entidade nos resultados da consulta no console.
+tooquery uma tabela para entidades em uma partição, você pode usar um **TableQuery**. Chamar **TableQuery.from** toocreate uma consulta em uma determinada tabela que retorna um tipo de resultado especificado. Olá código a seguir especifica um filtro para entidades onde 'Smith' é a chave de partição hello. **TableQuery.generateFilterCondition** é um método auxiliar toocreate filtros para consultas. Chamar **onde** em referência Olá retornada por Olá **TableQuery.from** consulta toohello do método tooapply Olá filter. Quando Olá consulta é executada com uma chamada muito**executar** em Olá **CloudTable** do objeto, ele retorna um **iterador** com hello **CustomerEntity**especificado do tipo de resultado. Você pode usar Olá **iterador** retornados em um para cada loop tooconsume Olá obter os resultados. Esse código imprime campos de saudação de cada entidade no console de toohello de resultados de consulta de saudação.
 
 ```java
 try
@@ -256,24 +256,24 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Create a cloud table object for the table.
+    // Create a cloud table object for hello table.
     CloudTable cloudTable = tableClient.getTableReference("people");
 
-    // Create a filter condition where the partition key is "Smith".
+    // Create a filter condition where hello partition key is "Smith".
     String partitionFilter = TableQuery.generateFilterCondition(
         PARTITION_KEY,
         QueryComparisons.EQUAL,
         "Smith");
 
-    // Specify a partition query, using "Smith" as the partition key filter.
+    // Specify a partition query, using "Smith" as hello partition key filter.
     TableQuery<CustomerEntity> partitionQuery =
         TableQuery.from(CustomerEntity.class)
         .where(partitionFilter);
 
-    // Loop through the results, displaying information about the entity.
+    // Loop through hello results, displaying information about hello entity.
     for (CustomerEntity entity : cloudTable.execute(partitionQuery)) {
         System.out.println(entity.getPartitionKey() +
             " " + entity.getRowKey() +
@@ -283,13 +283,13 @@ try
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
 ## <a name="how-to-retrieve-a-range-of-entities-in-a-partition"></a>Como: recuperar um intervalo de entidades em uma partição
-Se não desejar consultar todas as entidades em uma partição, você poderá especificar um intervalo, usando as operações de comparação em um filtro. O código a seguir combina dois filtros para obter todas as entidades na partição "Smith", onde a chave de linha (nome) começa com uma letra até a letra 'E' do alfabeto. Em seguida, eleimprime os resultados da consulta. Se você usar as entidades adicionadas à tabela na seção de inserção do lote deste guia, apenas duas entidades serão retornadas desta vez (Ben e Denise Smith); Jeff Smith não será incluído.
+Se você não quiser tooquery todas as entidades de saudação em uma partição, você pode especificar um intervalo usando os operadores de comparação em um filtro. Olá dois filtros tooget todas as entidades na partição "Smith" onde a chave de linha de saudação (nome) começa com uma letra too'E combina o código a seguir ' alfabeto hello. Imprime resultados da consulta hello. Se você usar a tabela de toohello adicionado Olá entidades em lote Olá Inserir seção deste guia, apenas duas entidades são retornadas neste momento (Ben e Denise Smith); Jeff Smith não está incluído.
 
 ```java
 try
@@ -303,35 +303,35 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Create a cloud table object for the table.
+    // Create a cloud table object for hello table.
     CloudTable cloudTable = tableClient.getTableReference("people");
 
-    // Create a filter condition where the partition key is "Smith".
+    // Create a filter condition where hello partition key is "Smith".
     String partitionFilter = TableQuery.generateFilterCondition(
         PARTITION_KEY,
         QueryComparisons.EQUAL,
         "Smith");
 
-    // Create a filter condition where the row key is less than the letter "E".
+    // Create a filter condition where hello row key is less than hello letter "E".
     String rowFilter = TableQuery.generateFilterCondition(
         ROW_KEY,
         QueryComparisons.LESS_THAN,
         "E");
 
-    // Combine the two conditions into a filter expression.
+    // Combine hello two conditions into a filter expression.
     String combinedFilter = TableQuery.combineFilters(partitionFilter,
         Operators.AND, rowFilter);
 
-    // Specify a range query, using "Smith" as the partition key,
-    // with the row key being up to the letter "E".
+    // Specify a range query, using "Smith" as hello partition key,
+    // with hello row key being up toohello letter "E".
     TableQuery<CustomerEntity> rangeQuery =
         TableQuery.from(CustomerEntity.class)
         .where(combinedFilter);
 
-    // Loop through the results, displaying information about the entity
+    // Loop through hello results, displaying information about hello entity
     for (CustomerEntity entity : cloudTable.execute(rangeQuery)) {
         System.out.println(entity.getPartitionKey() +
             " " + entity.getRowKey() +
@@ -341,13 +341,13 @@ try
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
 ## <a name="how-to-retrieve-a-single-entity"></a>Como: recuperar uma única entidade
-Você pode escrever uma consulta para recuperar uma entidade única e específica. O código a seguir chama **TableOperation.retrieve** com uma chave de partição e parâmetros da chave de linha para especificar o cliente "Jeff Smith", em vez de criar uma **TableQuery** e usar filtros para executar a mesma tarefa. Quando executada, a operação de recuperação retorna apenas uma entidade, em vez de uma coleção. O método **getResultAsType** converte o resultado para o tipo de destino da atribuição, um objeto **CustomerEntity**. Se esse tipo não for compatível com o tipo especificado na consulta, uma exceção será lançada. Um valor nulo será retornado se nenhuma entidade tiver uma correspondência exata de chave de partição e chave de linha. Especificar chaves de partição e de linha em uma consulta é a maneira mais rápida de recuperar uma única entidade de serviço Table.
+Você pode escrever uma consulta tooretrieve uma entidade única e específica. chamadas de código a seguir Olá **TableOperation.retrieve** com partição chave e a linha de parâmetros de chave toospecify Olá cliente "Jeff Smith", em vez de criar um **TableQuery** e usando Olá de toodo filtros mesma coisa. Quando executado, Olá recuperar operação retorna apenas uma entidade, em vez de uma coleção. Olá **getResultAsType** método converte o tipo de toohello de resultado de saudação do destino da atribuição de saudação, um **CustomerEntity** objeto. Se esse tipo não é compatível com tipo hello especificado para a consulta hello, uma exceção será lançada. Um valor nulo será retornado se nenhuma entidade tiver uma correspondência exata de chave de partição e chave de linha. Especificar chaves de partição e de linha em uma consulta é tooretrieve de maneira mais rápida de Olá uma única entidade de serviço de tabela de saudação.
 
 ```java
 try
@@ -356,21 +356,21 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Create a cloud table object for the table.
+    // Create a cloud table object for hello table.
     CloudTable cloudTable = tableClient.getTableReference("people");
 
-    // Retrieve the entity with partition key of "Smith" and row key of "Jeff"
+    // Retrieve hello entity with partition key of "Smith" and row key of "Jeff"
     TableOperation retrieveSmithJeff =
         TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-    // Submit the operation to the table service and get the specific entity.
+    // Submit hello operation toohello table service and get hello specific entity.
     CustomerEntity specificEntity =
         cloudTable.execute(retrieveSmithJeff).getResultAsType();
 
-    // Output the entity.
+    // Output hello entity.
     if (specificEntity != null)
     {
         System.out.println(specificEntity.getPartitionKey() +
@@ -381,13 +381,13 @@ try
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
 ## <a name="how-to-modify-an-entity"></a>Como modificar uma entidade
-Para modificar uma entidade, recupere-a do serviço Tabela, altere o objeto de entidade e, em seguida, salve as alterações novamente no serviço Tabela com uma operação de substituição ou mesclagem. O código a seguir altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert**como fizemos para inserir, esse código chama **TableOperation.replace**. O método **CloudTableClient.execute** chamará o serviço Tabela e a entidade será atualizada, a menos que outro aplicativo a tenha alterado desde o momento em que ela foi recuperada por esse aplicativo. Quando isso acontece, uma exceção é lançada e a entidade deve ser recuperada, modificada e salva novamente. Esse padrão de repetição de simultaneidade otimista é comum em um sistema de armazenamento distribuído.
+toomodify uma entidade, recuperá-lo do serviço de tabela hello, fazer alterações de objeto de entidade de toohello e salvar as alterações de saudação back toohello serviço de tabela com uma operação de substituição ou mesclagem. Olá código a seguir altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert** como fizemos tooinsert, esse código chama **TableOperation.replace**. Olá **CloudTable.execute** método chama o serviço de tabela hello e entidade Olá é substituída, a menos que outro aplicativo alterado em tempo de saudação desde que este aplicativo recuperá-lo. Quando isso acontece, uma exceção será lançada e entidade Olá deve ser recuperada, modificada e salvas novamente. Esse padrão de repetição de simultaneidade otimista é comum em um sistema de armazenamento distribuído.
 
 ```java
 try
@@ -396,38 +396,38 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Create a cloud table object for the table.
+    // Create a cloud table object for hello table.
     CloudTable cloudTable = tableClient.getTableReference("people");
 
-    // Retrieve the entity with partition key of "Smith" and row key of "Jeff".
+    // Retrieve hello entity with partition key of "Smith" and row key of "Jeff".
     TableOperation retrieveSmithJeff =
         TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-    // Submit the operation to the table service and get the specific entity.
+    // Submit hello operation toohello table service and get hello specific entity.
     CustomerEntity specificEntity =
         cloudTable.execute(retrieveSmithJeff).getResultAsType();
 
     // Specify a new phone number.
     specificEntity.setPhoneNumber("425-555-0105");
 
-    // Create an operation to replace the entity.
+    // Create an operation tooreplace hello entity.
     TableOperation replaceEntity = TableOperation.replace(specificEntity);
 
-    // Submit the operation to the table service.
+    // Submit hello operation toohello table service.
     cloudTable.execute(replaceEntity);
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
 ## <a name="how-to-query-a-subset-of-entity-properties"></a>Como: consultar um subconjunto de propriedades de entidade
-Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. A consulta no código a seguir usa o método **select** para retornar apenas os endereços de e-mail das entidades na tabela. Os resultados são projetados em um coleção de **String** com a ajuda de um **EntityResolver**, que faz a conversão de tipo nas entidades retornadas do servidor. Saiba mais sobre projeção em [Microsoft Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Tabelas do Microsoft Azure: Apresentando a projeção de upsert e de consulta). Observe que a projeção não é compatível com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço tabela.
+Uma tabela de consulta tooa pode recuperar apenas algumas propriedades de uma entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. Olá, consulta em Olá código a seguir usa Olá **selecione** método tooreturn somente Olá endereços de email de entidades na tabela de saudação. Olá resultados são projetados para uma coleção de **cadeia de caracteres** com a Ajuda de saudação de um **EntityResolver**, qual Olá a conversão de tipo em entidades Olá retornado do servidor de saudação. Saiba mais sobre projeção em [Microsoft Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Tabelas do Microsoft Azure: Apresentando a projeção de upsert e de consulta). Observe que projeção não é suportada no emulador de armazenamento local hello, para que este código seja executado somente quando usar uma conta no serviço de tabela de saudação.
 
 ```java
 try
@@ -436,18 +436,18 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Create a cloud table object for the table.
+    // Create a cloud table object for hello table.
     CloudTable cloudTable = tableClient.getTableReference("people");
 
-    // Define a projection query that retrieves only the Email property
+    // Define a projection query that retrieves only hello Email property
     TableQuery<CustomerEntity> projectionQuery =
         TableQuery.from(CustomerEntity.class)
         .select(new String[] {"Email"});
 
-    // Define a Entity resolver to project the entity to the Email value.
+    // Define a Entity resolver tooproject hello entity toohello Email value.
     EntityResolver<String> emailResolver = new EntityResolver<String>() {
         @Override
         public String resolve(String PartitionKey, String RowKey, Date timeStamp, HashMap<String, EntityProperty> properties, String etag) {
@@ -455,7 +455,7 @@ try
         }
     };
 
-    // Loop through the results, displaying the Email values.
+    // Loop through hello results, displaying hello Email values.
     for (String projectedString :
         cloudTable.execute(projectionQuery, emailResolver)) {
             System.out.println(projectedString);
@@ -463,13 +463,13 @@ try
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
 ## <a name="how-to-insert-or-replace-an-entity"></a>Como: inserir ou substituir uma entidade
-Em geral, você deseja adicionar uma entidade a uma tabela sem saber se ela já existe na tabela. Uma operação de inserção ou substituição permite que você faça uma única solicitação para inserir a entidade, se ela não existir, ou para substituir a entidade existente, se ela existir. Com base nos exemplos anteriores, o código a seguir insere ou substitui a entidade para "Walter Harp". Depois de criar uma nova entidade, esse código chamará o método **TableOperation.insertOrReplace** . Em seguida, esse código chamará **execute** no objeto **CloudTable** com a tabela e a operação de inserção ou substituição de tabela como os parâmetros. Para atualizar somente parte de uma entidade, o método **TableOperation.insertOrMerge** pode ser usado em vez disso. Observe que inserir ou substituir não tem suporte com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço tabela. Saiba mais sobre inserção ou substituição e inserção ou mesclagem em [Microsoft Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Tabelas do Microsoft Azure: Apresentando a projeção de upsert e de consulta).
+Geralmente, você deseja tooadd uma tabela de entidade tooa sem saber se ele já existe na tabela de saudação. Uma operação de inserção ou substituição permite que você toomake uma única solicitação que irá inserir a entidade Olá se ele não existe ou substituir Olá existente a um caso. Criando exemplos anteriores, hello código a seguir insere ou substitui a entidade Olá para "Walter Harp". Depois de criar uma nova entidade, esse código chama Olá **TableOperation.insertOrReplace** método. Esse código, em seguida, chama **executar** em Olá **CloudTable** de objeto com a inserção de tabela e Olá Olá ou operação de tabela como parâmetros de saudação de substituição. tooupdate apenas parte de uma entidade, Olá **TableOperation.insertOrMerge** método pode ser usado em vez disso. Observe que inserir-ou-substituir não tem suporte no emulador de armazenamento local hello, para que este código seja executado somente quando usar uma conta no serviço de tabela de saudação. Saiba mais sobre inserção ou substituição e inserção ou mesclagem em [Microsoft Azure Tables: Introducing Upsert and Query Projection][Azure Tables: Introducing Upsert and Query Projection] (Tabelas do Microsoft Azure: Apresentando a projeção de upsert e de consulta).
 
 ```java
 try
@@ -478,10 +478,10 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Create a cloud table object for the table.
+    // Create a cloud table object for hello table.
     CloudTable cloudTable = tableClient.getTableReference("people");
 
     // Create a new customer entity.
@@ -489,21 +489,21 @@ try
     customer5.setEmail("Walter@contoso.com");
     customer5.setPhoneNumber("425-555-0106");
 
-    // Create an operation to add the new customer to the people table.
+    // Create an operation tooadd hello new customer toohello people table.
     TableOperation insertCustomer5 = TableOperation.insertOrReplace(customer5);
 
-    // Submit the operation to the table service.
+    // Submit hello operation toohello table service.
     cloudTable.execute(insertCustomer5);
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
 ## <a name="how-to-delete-an-entity"></a>Como excluir uma entidade
-Você poderá excluir uma entidade facilmente depois que recuperá-la. Depois que a entidade for recuperada, chame **TableOperation.delete** com a entidade a excluir. Em seguida, chame **execute** no objeto **CloudTable**. O código a seguir recupera e exclui uma entidade de cliente.
+Você poderá excluir uma entidade facilmente depois que recuperá-la. Depois que a entidade de saudação é recuperada, chamar **TableOperation.delete** com hello toodelete de entidade. Em seguida, chame **executar** em Olá **CloudTable** objeto. saudação de código a seguir recupera e exclui uma entidade customer.
 
 ```java
 try
@@ -512,34 +512,34 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Create a cloud table object for the table.
+    // Create a cloud table object for hello table.
     CloudTable cloudTable = tableClient.getTableReference("people");
 
-    // Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
+    // Create an operation tooretrieve hello entity with partition key of "Smith" and row key of "Jeff".
     TableOperation retrieveSmithJeff = TableOperation.retrieve("Smith", "Jeff", CustomerEntity.class);
 
-    // Retrieve the entity with partition key of "Smith" and row key of "Jeff".
+    // Retrieve hello entity with partition key of "Smith" and row key of "Jeff".
     CustomerEntity entitySmithJeff =
         cloudTable.execute(retrieveSmithJeff).getResultAsType();
 
-    // Create an operation to delete the entity.
+    // Create an operation toodelete hello entity.
     TableOperation deleteSmithJeff = TableOperation.delete(entitySmithJeff);
 
-    // Submit the delete operation to the table service.
+    // Submit hello delete operation toohello table service.
     cloudTable.execute(deleteSmithJeff);
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
 
 ## <a name="how-to-delete-a-table"></a>Como excluir uma tabela
-Finalmente, o código a seguir excluirá uma tabela de uma conta de armazenamento. Uma tabela que tenha sido excluída não estará disponível para ser recriada por um período de tempo após a exclusão, geralmente menos de 40 segundos.
+Por fim, hello código a seguir exclui uma tabela de uma conta de armazenamento. Uma tabela que foi excluída será toobe indisponível recriado por um período de tempo após a exclusão de hello, geralmente menos de 40 segundos.
 
 ```java
 try
@@ -548,16 +548,16 @@ try
     CloudStorageAccount storageAccount =
         CloudStorageAccount.parse(storageConnectionString);
 
-    // Create the table client.
+    // Create hello table client.
     CloudTableClient tableClient = storageAccount.createCloudTableClient();
 
-    // Delete the table and all its data if it exists.
+    // Delete hello table and all its data if it exists.
     CloudTable cloudTable = tableClient.getTableReference("people");
     cloudTable.deleteIfExists();
 }
 catch (Exception e)
 {
-    // Output the stack trace.
+    // Output hello stack trace.
     e.printStackTrace();
 }
 ```
@@ -565,18 +565,18 @@ catch (Exception e)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo e gratuito da Microsoft que possibilita o trabalho visual com os dados do Armazenamento do Azure no Windows, MacOS e Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo gratuito da Microsoft que permite que você toowork visualmente com dados de armazenamento do Azure no Linux, Windows e macOS.
 * [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java)
-* [Referência de SDK do cliente de armazenamento do Azure][Referência de SDK do cliente de armazenamento do Azure]
+* [referência de SDK de cliente de armazenamento de Azure][referência de SDK de cliente de armazenamento de Azure]
 * [Azure Storage REST API Reference][Azure Storage REST API] (Referência de API REST do Armazenamento do Azure)
 * [Microsoft Azure Storage Team Blog][Azure Storage Team Blog] (Blog da equipe de Armazenamento do Microsoft Azure)
 
-Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](/develop/java/).
+Para obter mais informações, consulte também Olá [Central de desenvolvedores de Java](/develop/java/).
 
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
+[referência de SDK de cliente de armazenamento de Azure]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

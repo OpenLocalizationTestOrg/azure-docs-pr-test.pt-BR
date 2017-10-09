@@ -1,7 +1,7 @@
 ---
-title: "Executar novamente o assistente de instalação do Azure AD Connect | Microsoft Docs"
-description: "Explica como o assistente de instalação funciona na segunda vez que é executado."
-keywords: "O assistente de instalação do Azure AD Connect permite configurar as configurações de manutenção da segunda vez que é executado"
+title: "Executando novamente o Assistente para instalação do conectar Olá AD do Azure | Microsoft Docs"
+description: "Explica como o Assistente de instalação Olá funciona Olá segunda vez que você executá-lo."
+keywords: "Assistente de instalação do Hello AD do Azure Connect permite configurar Olá de configurações de manutenção segunda vez que você executá-lo"
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -15,29 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 42855b785c0ab334e33a622c8db912ce2438c627
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 83cc74aca471ef9b4f65f7f3582e3e48d3d81cfe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: executar o assistente de instalação pela segunda vez
-Na primeira vez que você executa o assistente de instalação do Azure AD Connect, ele explica como configurar a instalação. Se você executar o assistente de instalação novamente, ele oferecerá opções para manutenção.
+# <a name="azure-ad-connect-sync-running-hello-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: executando o Assistente de instalação de saudação uma segunda vez
+Olá primeira vez que executar o Assistente de instalação do hello Azure AD Connect, ele orienta como tooconfigure sua instalação. Se você executar o Assistente de instalação Olá novamente, ele oferece opções para manutenção.
 
-Você pode encontrar o assistente de instalação no menu Iniciar chamado **Azure Connect AD**.
+Você pode encontrar o Assistente de instalação Olá no menu de início Olá denominado **do Azure AD Connect**.
 
 ![Menu Iniciar](./media/active-directory-aadconnectsync-installation-wizard/startmenu.png)
 
-Ao iniciar o assistente de instalação, você vê uma página com as seguintes opções:
+Quando você inicia o Assistente de instalação hello, você pode ver uma página com as seguintes opções:
 
 ![Página com uma lista de tarefas adicionais](./media/active-directory-aadconnectsync-installation-wizard/additionaltasks.png)
 
-Se tiver instalado o ADFS com o Azure AD Connect, você terá ainda mais opções. As opções adicionais disponíveis para ADFS estão documentadas em [Gerenciamento do ADFS](active-directory-aadconnect-federation-management.md#manage-ad-fs).
+Se tiver instalado o ADFS com o Azure AD Connect, você terá ainda mais opções. Olá opções adicionais disponíveis para AD FS estão documentados em [gerenciamento do ADFS](active-directory-aadconnect-federation-management.md#manage-ad-fs).
 
-Selecione uma das tarefas e clique em **Avançar** para continuar.
+Selecione uma das tarefas de saudação e clique em **próximo** toocontinue.
 
 > [!IMPORTANT]
-> Enquanto o assistente de instalação estiver aberto, todas as operações no mecanismo de sincronização serão suspensas. Lembre-se de fechar o assistente de instalação assim que concluir as alterações de configuração.
+> Com o Assistente de instalação Olá aberto, todas as operações no mecanismo de sincronização de saudação são suspensos. Verifique se que você fechar o Assistente de instalação de saudação assim que você concluiu as alterações de configuração.
 >
 >
 
@@ -46,45 +46,45 @@ Essa opção fornece uma visão rápida das opções configuradas no momento.
 
 ![Página com uma lista de todas as opções e seus estados](./media/active-directory-aadconnectsync-installation-wizard/viewconfig.png)
 
-Clique em **Voltar** para voltar. Se você selecionar **Sair**, o assistente de instalação será fechado.
+Clique em **anterior** toogo novamente. Se você selecionar **Exit**, feche o Assistente de instalação de saudação.
 
 ## <a name="customize-synchronization-options"></a>Personalizar opções de sincronização
-Esta opção é usada para fazer alterações na configuração de sincronização. Você vê um subconjunto das opções do caminho de instalação de configuração personalizada. Você vê essa opção mesmo que tenha usado a instalação expressa inicialmente.
+Essa opção é a configuração de sincronização de toohello toomake usado alterações. Você verá um subconjunto das opções do caminho de instalação de configuração personalizada de saudação. Você vê essa opção mesmo que tenha usado a instalação expressa inicialmente.
 
 * [Adicionar mais diretórios](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Para remover um diretório, consulte [Excluir um Conector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
 * [Alterar a filtragem de domínio e de unidade organizacional](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
 * Remova a filtragem de grupo.
 * [Alterar recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features).
 
-As outras opções de instalação inicial não podem ser alteradas e não estão disponíveis. Essas opções são:
+Olá outras opções de instalação de saudação inicial não podem ser alteradas e não estão disponíveis. Essas opções são:
 
-* Altere o atributo a ser usado para userPrincipalName e sourceAnchor.
-* Altere o método de ingresso para objetos de uma floresta diferente.
+* Alterar Olá atributo toouse para userPrincipalName e sourceAnchor.
+* Alterar Olá unindo o método para objetos de floresta diferente.
 * Habilite a filtragem baseada em grupo.
 
 ## <a name="refresh-directory-schema"></a>Atualizar esquema de diretório
-Essa opção é usada se você alterou o esquema em uma das suas florestas do AD DS locais. Por exemplo você pode ter instalado o Exchange ou atualizado para um esquema do Windows Server 2012 com objetos de dispositivo. Nesse caso, você precisa instruir o Azure AD Connect para ler o esquema novamente do AD DS e atualizar seu cache. Essa ação também regenera as Regras de Sincronização. Se você adicionar o esquema do Exchange, por exemplo, as Regras de Sincronização para o Exchange serão adicionadas à configuração.
+Essa opção é usada se você tiver alterado o esquema de saudação em uma das suas instalações florestas do AD DS. Por exemplo, você deve ter instalado o Exchange ou atualizar esquema tooa Windows Server 2012 com objetos de dispositivo. Nesse caso, você precisa tooinstruct do Azure AD Connect tooread Olá esquema novamente do AD DS e atualizar seu cache. Essa ação também regenera Olá regras de sincronização. Se você adicionar o esquema de saudação do Exchange, como um exemplo, regras de sincronização de saudação do Exchange são adicionadas toohello configuração.
 
-Quando você seleciona essa opção, todos os diretórios na sua configuração são listados. Você pode manter a configuração padrão e atualizar todas as florestas ou desmarcar algumas delas.
+Quando você seleciona essa opção, todos os diretórios de saudação em sua configuração são listados. Você pode manter a configuração padrão de saudação e atualizar todas as florestas ou desmarque algumas delas.
 
-![Página com uma lista de todos os diretórios no ambiente](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
+![Página com uma lista de todos os diretórios no ambiente de saudação](./media/active-directory-aadconnectsync-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>Configurar modo de preparo
-Essa opção permite habilitar e desabilitar o modo de preparo no servidor. Encontre mais informações sobre o modo de preparo e como ele é usado em [Operações](active-directory-aadconnectsync-operations.md#staging-mode).
+Essa opção permite que você tooenable e desabilitar o modo de preparo no servidor de saudação. Encontre mais informações sobre o modo de preparo e como ele é usado em [Operações](active-directory-aadconnectsync-operations.md#staging-mode).
 
-A opção mostra se o teste está habilitado ou desabilitado atualmente:   
-![Opção que também está mostrando o estado atual do modo de preparo](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
+opção Olá mostra se o preparo está habilitado ou desabilitado no momento:  
+![Opção que também está mostrando o estado atual de saudação do modo de preparo](./media/active-directory-aadconnectsync-installation-wizard/stagingmodecurrentstate.png)
 
-Para alterar o estado, selecione essa opção e marque ou desmarque a caixa de seleção.  
-![Opção que também está mostrando o estado atual do modo de preparo](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
+toochange Olá estado, selecione essa opção e marque ou desmarque Olá caixa de seleção.  
+![Opção que também está mostrando o estado atual de saudação do modo de preparo](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>Alterar a entrada do usuário
-Esta opção permite mudar da sincronização de senha para federação ou o oposto. Você não pode alterar para **não configurar**.
+Essa opção permite que você toochange de toofederation de sincronização de senha ou Olá oposto. Você não pode alterar muito**não configurar**.
 
 Para obter mais informações sobre essa opção, consulte [entrada do usuário](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o modelo de configuração usado pela sincronização do Azure AD Connect em [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* Saiba mais sobre o modelo de configuração de saudação usado pela sincronização do Azure AD Connect em [Noções básicas sobre o provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 **Tópicos de visão geral**
 

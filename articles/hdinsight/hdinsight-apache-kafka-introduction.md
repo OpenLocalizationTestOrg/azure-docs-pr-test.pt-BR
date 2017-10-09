@@ -1,6 +1,6 @@
 ---
-title: "Uma introdução ao Apache Kafka no HDInsight - Azure | Microsoft Docs"
-description: "Saiba mais sobre o Apache Kafka no HDInsight: o que é o que ele faz e onde encontrar exemplos e informações de introdução."
+title: "Introdução de aaaAn tooApache Kafka no HDInsight - Azure | Microsoft Docs"
+description: "Saiba mais sobre o Apache Kafka no HDInsight: o que é, o que ele faz e onde os exemplos de toofind e introdução a informações."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,56 +15,56 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: larryfr
-ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1bc198d4cf93a4682030d4fa5f71030f49ad64be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introdução ao Apache Kafka no HDInsight (visualização)
 
-O [Apache Kafka](https://kafka.apache.org) é uma plataforma de streaming distribuída de software livre que pode ser usada para compilar pipelines e aplicativos de dados de streaming em tempo real. O Kafka também fornece funcionalidade de agente de mensagem semelhante a uma fila de mensagens, onde você pode publicar e assinar os fluxos de dados nomeados. O Kafka no HDInsight oferece um serviço gerenciado, altamente escalonável e altamente disponível na nuvem do Microsoft Azure.
+[Apache Kafka](https://kafka.apache.org) é uma plataforma de streaming distribuído código-fonte aberto que pode ser usadas em tempo real de toobuild streaming pipelines de dados e aplicativos. Kafka também fornece o agente de mensagem funcionalidade semelhante tooa fila de mensagens, onde você pode publicar e assinar toonamed fluxos de dados. Kafka no HDInsight fornece um serviço gerenciado, altamente disponível e altamente escalonável na nuvem do Microsoft Azure hello.
 
 ## <a name="why-use-kafka-on-hdinsight"></a>Por que usar o Kafka no HDInsight?
 
-O Kafka fornece as seguintes funcionalidades:
+Kafka fornece Olá recursos a seguir:
 
-* Padrão de mensagens publicar-assinar: o Kafka fornece uma API de Produtor para publicação de registros em um tópico do Kafka. A API de Consumidor é usada na assinatura de um tópico.
+* Padrão de mensagens de publicação / assinatura: Kafka fornece uma API de produtor para publicar registros tooa tópico Kafka. Olá API de consumidor é usado durante a assinatura de tópico tooa.
 
-* Processamento de fluxo: o Kafka é frequentemente usado com o Apache Storm ou o Spark para processamento de fluxo em tempo real. O Kafka 0.10.0.0 (HDInsight versão 3.5) introduziu uma API de streaming que permite que você crie soluções de transmissão sem a necessidade do Storm ou do Spark.
+* Processamento de fluxo: o Kafka é frequentemente usado com o Apache Storm ou o Spark para processamento de fluxo em tempo real. Kafka 0.10.0.0 (HDInsight versão 3.5) introduziu uma API de streaming que permite que você toobuild streaming soluções sem a necessidade de tempestade ou Spark.
 
-* Escala horizontal: o Kafka particiona fluxos entre os nós no cluster HDInsight. Os processos do Consumidor podem ser associados a partições individuais para fornecer balanceamento de carga ao consumir registros.
+* Escala horizontal: Kafka particiona fluxos em nós de saudação no cluster do HDInsight hello. Processos de consumidor podem ser associados a partições individuais tooprovide balanceamento de carga durante o consumo de registros.
 
-* Entrega em ordem: dentro de cada partição, os registros são armazenados no fluxo na ordem em que foram recebidos. Ao associar um processo do consumidor por partição, você pode garantir que os registros sejam processados na ordem.
+* Entrega em ordem: dentro de cada partição, os registros são armazenados no fluxo de saudação na ordem de saudação que foram recebidos. Ao associar um processo do consumidor por partição, você pode garantir que os registros sejam processados na ordem.
 
-* Tolerante a falhas: as partições podem ser replicadas entre nós para fornecer tolerância a falhas.
+* Tolerância: Partições podem ser replicadas entre a tolerância a falhas de tooprovide nós.
 
-* Integração com os Azure Managed Disks: os discos gerenciados fornecem maior escala e taxa de transferência para os discos usados pelas máquinas virtuais no cluster HDInsight.
+* Integração com o Azure gerenciados discos: discos gerenciado fornece maior escala e taxa de transferência para discos de saudação usados nas máquinas virtuais no cluster do HDInsight Olá Olá.
 
-    Os discos gerenciados são habilitados por padrão para o Kafka no HDInsight e o número de discos usados por nó pode ser configurado durante a criação do HDInsight. Para saber mais sobre discos gerenciados, veja [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
+    Discos gerenciados são habilitados por padrão para Kafka no HDInsight e número de saudação de discos usados por nó pode ser configurado durante a criação de HDInsight. Para saber mais sobre discos gerenciados, veja [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     Para saber mais sobre como configurar discos gerenciados com o Kafka no HDInsight, veja [Aumentar a escalabilidade do Kafka no HDInsight](hdinsight-apache-kafka-scalability.md).
 
 ## <a name="use-cases"></a>Casos de uso
 
-* **Mensagens**: já que ele oferece suporte ao padrão de mensagem publicar-assinar, o Kafka geralmente é usado como um agente de mensagem.
+* **Mensagens**: uma vez que ele dá suporte a saudação padrão de mensagens de publicação / assinatura, Kafka geralmente é usada como um agente de mensagens.
 
-* **Rastreamento de atividades**: como o Kafka oferece o registro em log ordenado de registros, pode ser usado para rastrear e recriar as atividades. Por exemplo, as ações do usuário em um site ou em um aplicativo.
+* **Atividade de controle**: Kafka desde que fornece o registro em log na ordem de registros, pode ser usado tootrack e crie novamente as atividades. Por exemplo, as ações do usuário em um site ou em um aplicativo.
 
-* **Agregação**: usando processamento de fluxo, você pode agregar informações de fluxos diferentes para combinar e centralizar as informações em dados operacionais.
+* **Agregação**: usando processamento de fluxo, você pode agregar informações de fluxos diferentes toocombine e centralizar Olá informações em dados operacionais.
 
 * **Transformação**: usando processamento de fluxo, você pode combinar e enriquecer dados de vários tópicos de entrada em um ou mais tópicos de saída.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Use os links a seguir para aprender a usar o Apache Kafka no HDInsight:
+Links a seguir do uso Olá toolearn como toouse Kafka do Apache no HDInsight:
 
 * [Introdução ao Kafka no HDInsight](hdinsight-apache-kafka-get-started.md)
 
-* [Usar MirrorMaker para criar uma réplica de Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Use MirrorMaker toocreate uma réplica de Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)
 
 * [Usar Apache Storm com Kafka no HDInsight](hdinsight-apache-storm-with-kafka.md)
 
 * [Usar o Apache Spark com o Kafka no HDInsight](hdinsight-apache-spark-with-kafka.md)
 
-* [Conectar-se ao Kafka no HDInsight (preview) por meio de uma Rede Virtual do Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [Conecte-se tooKafka por meio de uma rede Virtual do Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)

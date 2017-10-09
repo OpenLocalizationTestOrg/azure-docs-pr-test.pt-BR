@@ -1,5 +1,5 @@
 ### <a name="app-service-plan"></a>Plano do Serviço de Aplicativo
-Cria o plano de serviço para hospedar o aplicativo Web. Forneça o nome do plano por meio do parâmetro **hostingPlanName** . O local do plano é o mesmo usado para o grupo de recursos. O tipo de preços e o tamanho do trabalhador são especificados nos parâmetros **sku** e **workerSize**
+Cria o plano do serviço Olá para hospedar o aplicativo web de saudação. Fornecer nome Olá Olá plano por meio de saudação **hostingPlanName** parâmetro. local de saudação do plano de saudação é hello mesmo local usado para o grupo de recursos de saudação. tamanho preços Olá camada e de trabalho estão especificados na Olá **sku** e **workerSize** parâmetros
 
     {
       "apiVersion": "2015-08-01",

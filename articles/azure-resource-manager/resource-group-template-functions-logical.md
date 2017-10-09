@@ -1,6 +1,6 @@
 ---
-title: "Funções do modelo do Azure Resource Manager – lógicas | Microsoft Docs"
-description: "Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos."
+title: "funções de modelo Gerenciador de recursos aaaAzure - lógicas | Microsoft Docs"
+description: "Descreve Olá toouse de funções em valores lógicos do modelo toodetermine um Gerenciador de recursos do Azure."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 313601ad99cdc12c4b50f5469959d37a9fa70d35
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: aec6341fbde00b4eba3b4539ff9a9aec774333fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos do Azure Resource Manager
 
@@ -39,8 +39,8 @@ Verifica se os dois valores de parâmetro são verdadeiros.
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Booliano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |Booliano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |Sim |Booliano |Olá primeiro toocheck de valor se for verdadeira. |
+| arg2 |Sim |Booliano |Olá toocheck do segundo valor se for verdadeira. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -48,7 +48,7 @@ Retorna **True** se os dois valores forem verdadeiros; caso contrário, **False*
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como usar funções lógicas.
+Olá mostrado no exemplo a seguir como toouse as funções lógicas.
 
 ```json
 {
@@ -72,7 +72,7 @@ O exemplo a seguir mostra como usar funções lógicas.
 }
 ```
 
-O resultado do exemplo anterior é:
+saída Olá Olá anterior exemplo é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -84,20 +84,20 @@ O resultado do exemplo anterior é:
 ## <a name="bool"></a>bool
 `bool(arg1)`
 
-Converte o parâmetro em um booliano.
+Converte Olá tooa parâmetro booliano.
 
 ### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
+| arg1 |Sim |string ou int |Olá tooa de tooconvert de valor booliano. |
 
 ### <a name="return-value"></a>Valor de retorno
-Um booliano do valor convertido.
+Um valor booleano da saudação converter valor.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como usar um booliano com uma cadeia de caracteres ou um inteiro.
+Olá mostrado no exemplo a seguir como toouse bool com uma cadeia de caracteres ou um inteiro.
 
 ```json
 {
@@ -125,7 +125,7 @@ O exemplo a seguir mostra como usar um booliano com uma cadeia de caracteres ou 
 }
 ```
 
-A saída do exemplo anterior com os valores padrão é:
+saudação de saída de saudação anterior exemplo com valores padrão de saudação é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -143,9 +143,9 @@ Retorna um valor com base em se uma condição é verdadeira ou falsa.
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| condition |Sim |Booliano |O valor para verificar se é verdadeiro. |
-| trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
-| falseValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
+| condition |Sim |Booliano |Olá toocheck valor se for verdadeiro. |
+| trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |Olá valor tooreturn quando Olá condição for verdadeira. |
+| falseValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |Olá valor tooreturn quando Olá condição for falsa. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -153,7 +153,7 @@ Retorna o segundo parâmetro quando o primeiro parâmetro é **True**; caso cont
 
 ### <a name="remarks"></a>Comentários
 
-Você pode usar essa função definir condicionalmente uma propriedade de recurso. O exemplo a seguir não é um modelo completo, mas ele mostra as partes relevantes para a configuração condicional do conjunto de disponibilidade.
+Você pode usar esse conjunto de tooconditionally de função uma propriedade de recurso. Olá exemplo a seguir não é um modelo completo, mas ele mostra as partes relevantes de saudação para definir o conjunto de disponibilidade Olá condicionalmente.
 
 ```json
 {
@@ -199,7 +199,7 @@ Você pode usar essa função definir condicionalmente uma propriedade de recurs
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como usar a função `if`.
+Olá mostrado no exemplo a seguir como toouse Olá `if` função.
 
 ```json
 {
@@ -220,7 +220,7 @@ O exemplo a seguir mostra como usar a função `if`.
 }
 ```
 
-O resultado do exemplo anterior é:
+saída Olá Olá anterior exemplo é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -231,13 +231,13 @@ O resultado do exemplo anterior é:
 ## <a name="not"></a>não
 `not(arg1)`
 
-Converte o valor booliano em seu valor oposto.
+Converte o valor booliano tooits oposta valor.
 
-### <a name="parameters"></a>Parâmetros
+### <a name="parameters"></a>parâmetros
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Booliano |O valor a ser convertido. |
+| arg1 |Sim |Booliano |Olá tooconvert de valor. |
 
 
 ### <a name="return-value"></a>Valor de retorno
@@ -246,7 +246,7 @@ Retorna **True** quando o parâmetro é **False**. Retorna **False** quando o pa
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como usar funções lógicas.
+Olá mostrado no exemplo a seguir como toouse as funções lógicas.
 
 ```json
 {
@@ -270,7 +270,7 @@ O exemplo a seguir mostra como usar funções lógicas.
 }
 ```
 
-O resultado do exemplo anterior é:
+saída Olá Olá anterior exemplo é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -278,7 +278,7 @@ O resultado do exemplo anterior é:
 | orExampleOutput | Bool | Verdadeiro |
 | notExampleOutput | Bool | Falso |
 
-O exemplo a seguir usa **não** com [é igual a](resource-group-template-functions-comparison.md#equals).
+Olá exemplo a seguir usa **não** com [é igual a](resource-group-template-functions-comparison.md#equals).
 
 ```json
 {
@@ -294,7 +294,7 @@ O exemplo a seguir usa **não** com [é igual a](resource-group-template-functio
     }
 ```
 
-O resultado do exemplo anterior é:
+saída Olá Olá anterior exemplo é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -310,8 +310,8 @@ Verifica se o valor do parâmetro é true.
 
 | Parâmetro | Obrigatório | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |Booliano |O primeiro valor para verificar se é verdadeiro. |
-| arg2 |Sim |Booliano |O segundo valor para verificar se é verdadeiro. |
+| arg1 |Sim |Booliano |Olá primeiro toocheck de valor se for verdadeira. |
+| arg2 |Sim |Booliano |Olá toocheck do segundo valor se for verdadeira. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -319,7 +319,7 @@ Retorna **True** se qualquer valor é verdadeiro; caso contrário, **False**.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo a seguir mostra como usar funções lógicas.
+Olá mostrado no exemplo a seguir como toouse as funções lógicas.
 
 ```json
 {
@@ -343,7 +343,7 @@ O exemplo a seguir mostra como usar funções lógicas.
 }
 ```
 
-O resultado do exemplo anterior é:
+saída Olá Olá anterior exemplo é:
 
 | Nome | Tipo | Valor |
 | ---- | ---- | ----- |
@@ -353,8 +353,8 @@ O resultado do exemplo anterior é:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter uma descrição das seções de um modelo do Azure Resource Manager, veja [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md).
-* Para mesclar vários modelos, veja [Usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
-* Para iterar um número de vezes especificado ao criar um tipo de recurso, consulte [Criar várias instâncias de recursos no Gerenciador de Recursos do Azure](resource-group-create-multiple.md).
-* Para ver como implantar o modelo que você criou, veja [Implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
+* Para obter uma descrição das seções de saudação em um modelo do Gerenciador de recursos do Azure, consulte [modelos de autoria do Azure Resource Manager](resource-group-authoring-templates.md).
+* toomerge vários modelos, consulte [usando modelos vinculados com o Azure Resource Manager](resource-group-linked-templates.md).
+* tooiterate um número de vezes especificado durante a criação de um tipo de recurso, consulte [criar várias instâncias de recursos no Gerenciador de recursos do Azure](resource-group-create-multiple.md).
+* toosee como modelo de saudação toodeploy que você criou, consulte [implantar um aplicativo com o modelo do Azure Resource Manager](resource-group-template-deploy.md).
 

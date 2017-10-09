@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao próximo salto no Observador de Rede do Azure | Microsoft Docs"
-description: "Esta página fornece uma visão geral da capacidade do próximo salto do Observador de Rede"
+title: aaaIntroduction toonext salto observador de rede do Azure | Microsoft Docs
+description: "Esta página fornece uma visão geral Olá observador de rede de recurso do próximo salto"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 5dd65d2418cae206965a13013dd990b916ad0733
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 916af736d0d52abadeafed746f0f8a0173b11033
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-next-hop-in-azure-network-watcher"></a>Introdução ao próximo salto no Observador de Rede do Azure
+# <a name="introduction-toonext-hop-in-azure-network-watcher"></a>Salto toonext Introdução observador de rede do Azure
 
-O tráfego de uma VM é enviado para um destino com base nas rotas efetivas associadas a uma NIC. O próximo salto obtém o tipo do próximo salto e o endereço IP de um pacote em uma máquina virtual específica e na NIC. Isso ajuda a determinar se o pacote está sendo direcionado para o destino ou se o tráfego está tornando-se um buraco negro. Uma configuração incorreta das rotas feita pelo usuário, onde um tráfego é direcionado para um caminho local ou um dispositivo virtual, pode levar a problemas de conectividade. O próximo salto também retorna a tabela de rotas associada ao próximo salto. Ao consultar um próximo salto, se a rota for especificada como sendo definida pelo usuário, ela será retornada. Caso contrário, o Próximo salto retornará a "Rota do Sistema".
+O tráfego de uma VM é enviado tooa destino com base nas rotas efetiva de saudação associadas a uma NIC. Próximo salto obtém o tipo de próximo salto hello e endereço IP de um pacote de uma máquina virtual específica e a NIC. Isso ajuda a toodetermine se hello pacote está sendo direcionado toohello destino ou é holed de tráfego Olá sendo preto. Uma configuração incorreta de rotas por usuário hello, onde um tráfego é direcionado tooan no local ou um dispositivo virtual, pode levar a problemas de tooconnectivity. Próximo salto também retorna a tabela de rotas Olá associada próximo salto de saudação. Ao consultar um próximo salto se rota de saudação é definida como uma rota definida pelo usuário, essa rota será retornada. Caso contrário, o Próximo salto retornará a "Rota do Sistema".
 
 ![visão geral do próximo salto][1]
 
-A seguir está uma lista dos tipos de próximos salto que podem ser retornados ao consultar o Próximo salto.
+a seguir Olá é uma lista de saudação tipos de próximo salto que podem ser retornados ao consultar o próximo salto.
 
 * Internet
 * VirtualAppliance
@@ -38,7 +38,7 @@ A seguir está uma lista dos tipos de próximos salto que podem ser retornados a
 
 ### <a name="next-steps"></a>Próximas etapas
 
-Saiba como usar o próximo salto para localizar problemas de conectividade de rede visitando [Verificar o próximo salto em uma VM](network-watcher-check-next-hop-portal.md)
+Saiba como toouse próximo salto toofind problemas de conectividade de rede visitando [seleção Olá próximo salto em uma máquina virtual](network-watcher-check-next-hop-portal.md)
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png

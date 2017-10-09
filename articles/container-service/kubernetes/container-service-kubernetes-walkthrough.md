@@ -1,6 +1,6 @@
 ---
-title: "Guia de início rápido - cluster Kubernetes do Azure para Linux | Microsoft Docs"
-description: "Aprenda a criar um cluster Kubernetes para contêineres do Linux no Serviço de Contêiner do Azure rapidamente com a CLI do Azure."
+title: aaaQuickstart - cluster Kubernetes do Azure para Linux | Microsoft Docs
+description: "Aprenda rapidamente toocreate um cluster Kubernetes para contêineres do Linux no serviço de contêiner do Azure com hello CLI do Azure."
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -17,33 +17,33 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 5a2131659903e79b28f4d1b795d25a31d8d4ce8d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8b0d7a803148c1cbf329f4b76f2e99b4b7e14983
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Implantar um cluster Kubernetes para contêineres do Linux
 
-Neste início rápido, um cluster Kubernetes é implantado usando a CLI do Azure. Em seguida, um aplicativo com vários contêineres, composto por um front-end na Web e uma instância Redis, é executado no cluster. Depois de concluído, o aplicativo pode ser acessado pela internet. 
+Esse início rápido, um cluster Kubernetes é implantado usando Olá CLI do Azure. Um aplicativo de contêiner vários consistindo de front-end da web e uma instância do Redis, em seguida, é implantado e executado no cluster hello. Depois de concluído, o aplicativo hello está acessível pela internet de hello. 
 
-O exemplo de aplicativo usado neste documento é escrito em Python. Os conceitos e as etapas detalhadas aqui podem ser usadas para implantar uma imagem de contêiner em um cluster Kubernetes. O código, Dockerfile e arquivos de manifesto do Kubernetes criados previamente relacionados a este projeto estão disponíveis no [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
+aplicativo de exemplo Hello usado neste documento é gravado em Python. conceitos de saudação e as etapas descritas aqui podem ser usado toodeploy qualquer contêiner da imagem em um cluster de Kubernetes. Hello código, Dockerfile e projeto de toothis relacionados de arquivos de manifesto Kubernetes pré-criados estão disponíveis em [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
-![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Imagem de navegação tooAzure voto](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-Este início rápido pressupõe uma compreensão básica dos conceitos de Kubernetes; para saber mais sobre Kubernetes, consulte a [documentação do Kubernetes]( https://kubernetes.io/docs/home/).
+Esse início rápido pressupõe uma compreensão básica dos conceitos de Kubernetes, para obter informações detalhadas sobre Kubernetes consulte Olá [Kubernetes documentação]( https://kubernetes.io/docs/home/).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você escolher tooinstall e usa o hello CLI localmente, este guia de início rápido requer que você está executando a versão de CLI do Azure Olá 2.0.4 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. 
+Criar um grupo de recursos com hello [criar grupo az](/cli/azure/group#create) comando. Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. 
 
-O seguinte exemplo cria um grupo de recursos chamado *myResourceGroup* no local *westeurope*.
+Olá, exemplo a seguir cria um grupo de recursos denominado *myResourceGroup* em Olá *westeurope* local.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location westeurope
@@ -66,27 +66,27 @@ Saída:
 
 ## <a name="create-kubernetes-cluster"></a>Criar cluster Kubernetes
 
-Crie um cluster Kubernetes no Serviço de Contêiner do Azure com o comando [az acs create](/cli/azure/acs#create). O exemplo a seguir cria um cluster denominado *myK8sCluster* com um nó Linux mestre e três nós de agente do Linux.
+Criar um cluster Kubernetes no serviço de contêiner do Azure com hello [az acs criar](/cli/azure/acs#create) comando. Olá, exemplo a seguir cria um cluster denominado *myK8sCluster* com um Linux mestre de nó e três nós de agente do Linux.
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
 ```
 
-Após alguns minutos, o comando é concluído e retorna informações formatadas em json sobre o cluster. 
+Após alguns minutos, o comando de saudação for concluído e retorna informações de formatados em json sobre cluster de saudação. 
 
-## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
+## <a name="connect-toohello-cluster"></a>Conecte-se o cluster toohello
 
-Para gerenciar um cluster Kubernetes, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comando Kubernetes. 
+use toomanage um cluster de Kubernetes [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), cliente de linha de comando do hello Kubernetes. 
 
-Se você estiver usando o Azure CloudShell, o kubectl já estará instalado. Se você deseja instalá-lo localmente, pode usar o comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli).
+Se você estiver usando o Azure CloudShell, o kubectl já estará instalado. Se você quiser tooinstall localmente, você pode usar Olá [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) comando.
 
-Para configurar o kubectl e se conectar ao cluster Kubernetes, execute o comando [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials). Esta etapa baixa credenciais e configura a CLI de Kubernetes para usá-las.
+tooconfigure kubectl tooconnect tooyour Kubernetes cluster, execute Olá [az get-credenciais do acs kubernetes](/cli/azure/acs/kubernetes#get-credentials) comando. Esta etapa baixa credenciais e configura Olá toouse Kubernetes CLI-los.
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8sCluster
 ```
 
-Para verificar a conexão ao seu cluster, use o comando [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) para retornar uma lista de nós do cluster.
+tooverify Olá conexão tooyour cluster use Olá [kubectl obter](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) tooreturn comando uma lista de nós de cluster de saudação.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -102,11 +102,11 @@ k8s-agent-14ad53a1-2    Ready                      10m       v1.6.6
 k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 ```
 
-## <a name="run-the-application"></a>Executar o aplicativo
+## <a name="run-hello-application"></a>Executar o aplicativo hello
 
-Um arquivo de manifesto Kubernetes define um estado desejado para o cluster, incluindo as imagens de contêiner que devem estar em execução. Neste exemplo, um manifesto é usado para criar todos os objetos necessários para executar o aplicativo Azure Vote. 
+Um arquivo de manifesto Kubernetes define o estado desejado para cluster hello, incluindo quais imagens de contêiner devem estar em execução. Neste exemplo, um manifesto é usada toocreate todos os objetos necessários toorun Olá aplicativo voto do Azure. 
 
-Crie um arquivo chamado `azure-vote.yml` e copie no YAML a seguir. Se você estiver trabalhando no Azure Cloud Shell, esse arquivo poderá ser criado usando o vi ou Nano, como se estivesse trabalhando em um sistema físico ou virtual.
+Crie um arquivo chamado `azure-vote.yml` e copie nele Olá YAML a seguir. Se você estiver trabalhando no Azure Cloud Shell, esse arquivo poderá ser criado usando o vi ou Nano, como se estivesse trabalhando em um sistema físico ou virtual.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -169,7 +169,7 @@ spec:
     app: azure-vote-front
 ```
 
-Use o comando [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) para executar o aplicativo.
+Saudação de uso [kubectl criar](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) aplicativo hello de toorun de comando.
 
 ```azurecli-interactive
 kubectl create -f azure-vote.yml
@@ -184,45 +184,45 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Testar o aplicativo
+## <a name="test-hello-application"></a>Testar o aplicativo hello
 
-Conforme o aplicativo é executado, um [serviço Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) é criado para expor o front-end do aplicativo à Internet. A conclusão desse processo pode levar alguns minutos. 
+Como o aplicativo hello é executado, uma [Kubernetes serviço](https://kubernetes.io/docs/concepts/services-networking/service/) é criado que expõe Olá toohello de front-end do aplicativo à internet. Esse processo pode levar alguns toocomplete de minutos. 
 
-Para monitorar o andamento, use o comando [kubectl get service](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) com o argumento `--watch`.
+toomonitor andamento, use Olá [kubectl obter serviço](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) com hello `--watch` argumento.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch
 ```
 
-Inicialmente o **EXTERNAL -IP** para o serviço *azure-vote-front* aparece como *pendente*. Depois que o endereço EXTERNAL -IP foi alterado de *pendente* para *endereço IP*, use `CTRL-C` para interromper o processo kubectl watch. 
+Olá inicialmente **IP externo** para Olá *front do azure-voto* serviço aparece como *pendente*. Depois que o endereço IP externo de saudação foi alterado de *pendente* tooan *endereço IP*, use `CTRL-C` processo de inspeção de kubectl toostop hello. 
   
 ```bash
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-Agora você pode navegar para o endereço IP externo a fim de ver o aplicativo Azure Vote.
+Agora você pode procurar toohello externo toosee hello Azure voto de aplicativo do IP endereço.
 
-![Imagem de navegação para o Voto do Azure](media/container-service-kubernetes-walkthrough/azure-vote.png)  
+![Imagem de navegação tooAzure voto](media/container-service-kubernetes-walkthrough/azure-vote.png)  
 
 ## <a name="delete-cluster"></a>Excluir cluster
-Quando o cluster não for mais necessário, você poderá usar o comando [az group delete](/cli/azure/group#delete) para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
+Ao cluster Olá não for mais necessário, você pode usar o hello [excluir grupo de az](/cli/azure/group#delete) comando tooremove grupo de recursos de hello, serviço de contêiner e recursos todos relacionados.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="get-the-code"></a>Obter o código
+## <a name="get-hello-code"></a>Obter o código de saudação
 
-Neste início rápido, foram usadas imagens de contêiner criadas previamente para criar uma implantação de Kubernetes. O código de aplicativo relacionado, o Dockerfile e o arquivo de manifesto Kubernetes estão disponíveis no GitHub.
+Nesse início rápido, imagens de contêiner criada previamente foram usada toocreate uma implantação Kubernetes. Olá relacionados ao código do aplicativo, Dockerfile, e o arquivo de manifesto Kubernetes estão disponíveis no GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você implantou um cluster Kubernetes e um aplicativo de com vários contêineres nele. 
+Nesse início rápido, implantado um cluster Kubernetes e implantado um aplicativo de multi-contêiner tooit. 
 
-Para saber mais sobre o Serviço de Contêiner do Azure e percorrer um código completo de exemplo de implantação, prossiga para o tutorial de cluster Kubernetes.
+toolearn mais sobre o serviço de contêiner do Azure e passo a passo de um exemplo de código completo a toodeployment, continuar tutorial de cluster Kubernetes toohello.
 
 > [!div class="nextstepaction"]
 > [Gerenciar um cluster ACS Kubernetes](./container-service-tutorial-kubernetes-prepare-app.md)

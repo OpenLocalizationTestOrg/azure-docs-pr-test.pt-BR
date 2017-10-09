@@ -1,6 +1,6 @@
 ---
-title: "Implantar o serviço do StorSimple Device Manager | Microsoft Docs"
-description: "Explica como criar e excluir o serviço Gerenciador de Dispositivo do StorSimple no Portal do Azure, além de descrever como gerenciar a chave de registro do serviço."
+title: "aaaDeploy serviço do Gerenciador de dispositivos de StorSimple | Microsoft Docs"
+description: "Explica como toocreate e delete Olá serviço do Gerenciador de dispositivos do StorSimple no hello portal do Azure e descreve como toomanage Olá a chave de registro de serviço."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,102 +14,102 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
-ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9064053addc7b3dfcce08b47e81b38c2e0e1b559
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implantar o serviço Gerenciador de Dispositivo do StorSimple para a Matriz Virtual do StorSimple
+# <a name="deploy-hello-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Implante o serviço de Gerenciador de dispositivos de StorSimple Olá para matriz Virtual StorSimple
 ## <a name="overview"></a>Visão geral
 
-O serviço Gerenciador de Dispositivo do StorSimple é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Depois de criar o serviço, você pode usá-lo para gerenciar os dispositivos no portal do Microsoft Azure em execução em um navegador. Isso permite monitorar todos os dispositivos que estão conectados ao serviço Gerenciador de Dispositivo do StorSimple de um local único e central, minimizando a sobrecarga administrativa.
+saudação de serviço do Gerenciador de dispositivos do StorSimple é executado no Microsoft Azure e conecta dispositivos de StorSimple toomultiple. Depois de criar o serviço hello, você pode usar dispositivos toomanage Olá Olá Microsoft Azure portal em execução em um navegador. Isso permite que você toomonitor todos os dispositivos de saudação que são conectado toohello Gerenciador de dispositivos do StorSimple do serviço de um único local central, minimizando a carga administrativa.
 
-As tarefas comuns relacionadas a um serviço Gerenciador de Dispositivo do StorSimple são:
+Olá comuns tarefas relacionadas tooa serviço do Gerenciador de dispositivos do StorSimple são:
 
 * Criar um serviço
 * Excluir um serviço
-* Obtenha a chave de registro do serviço
-* Regenerar a chave de registro do serviço
+* Obter chave de registro de serviço Olá
+* Regenerar chave de registro de serviço Olá
 
-Este tutorial descreve como executar cada uma dessas tarefas. As informações contidas neste artigo aplicam-se apenas a Matrizes Virtuais do StorSimple. Para obter mais informações sobre a série 8000 do StorSimple, acesse [implantar um serviço StorSimple Manager](storsimple-manage-service.md).
+Este tutorial descreve como tooperform de Olá tarefas anteriores. informações de saudação contidas neste artigo são aplicável somente tooStorSimple Virtual matrizes. Para obter mais informações sobre o StorSimple série 8000, vá muito[implantar um serviço StorSimple Manager](storsimple-manage-service.md).
 
 ## <a name="create-a-service"></a>Criar um serviço
 
-Para criar um serviço, você precisa ter:
+toocreate um serviço, é necessário toohave:
 
 * Uma assinatura com um Enterprise Agreement
 * Uma conta de armazenamento ativa do Microsoft Azure
-* As informações de cobrança que são usadas para gerenciamento de acesso
+* Olá informações de cobrança que são usadas para gerenciamento de acesso
 
-Também é possível optar por gerar uma conta de armazenamento ao criar o serviço.
+Além disso, é possível toogenerate uma conta de armazenamento ao criar serviço hello.
 
-Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias do serviço para trabalhar com diferentes assinaturas, organizações ou até mesmo locais de implantação.
+Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter vários toowork de instâncias de serviço com diferentes assinaturas, organizações ou mesmo regiões de implantação.
 
 > [!NOTE]
-> Você precisa de instâncias separadas do serviço Gerenciador de Dispositivo do StorSimple para gerenciar as Matrizes Virtuais e os dispositivos da série 8000 do StorSimple.
+> Você precisa de instâncias separadas de dispositivos da série StorSimple 8000 Gerenciador de dispositivos do StorSimple service toomanage e matrizes de Virtual do StorSimple.
 
 
-Execute as etapas a seguir para criar um serviço.
+Execute Olá etapas toocreate um serviço a seguir.
 
 [!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
 ## <a name="delete-a-service"></a>Excluir um serviço
 
-Antes de excluir um serviço, verifique se nenhum dispositivo conectado está usando ele. Se o serviço estiver em uso, desative os dispositivos conectados. A operação de desativação desfaz a conexão entre o dispositivo e o serviço, mas preserva os dados do dispositivo na nuvem.
+Antes de excluir um serviço, verifique se nenhum dispositivo conectado está usando ele. Se o serviço de saudação está em uso, desative os dispositivos de saudação conectado. Olá desativar operação sever conexão Olá entre dispositivo hello e serviço hello, mas preservar os dados do dispositivo Olá na nuvem hello.
 
 > [!IMPORTANT]
-> Depois que um serviço é excluído, a operação não pode ser revertida. Qualquer dispositivo que estava usando o serviço precisará ser redefinida para as configurações de fábrica para que possa ser usado com outro serviço. Nesse cenário, os dados locais no dispositivo, bem como a configuração, serão perdidos.
+> Depois que um serviço é excluído, operação Olá não pode ser revertida. Qualquer dispositivo que esteja usando o serviço de saudação precisará toobe antes que ele pode ser usado com outro serviço de redefinição de fábrica. Nesse cenário, os dados de locais de saudação em dispositivo hello, bem como configuração Olá, serão perdidas.
  
 
-Execute as etapas a seguir para excluir um serviço.
+Execute Olá etapas toodelete um serviço a seguir.
 
-#### <a name="to-delete-a-service"></a>Para excluir um serviço
+#### <a name="toodelete-a-service"></a>toodelete um serviço
 
-1. Acesse **Todos os recursos**. Pesquise por seu serviço Gerenciador de Dispositivo do StorSimple. Selecione o serviço que você deseja excluir.
+1. Vá muito**todos os recursos**. Pesquise por seu serviço Gerenciador de Dispositivo do StorSimple. Selecione o serviço de saudação que você deseja toodelete.
    
-    ![Selecione o serviço para exclusão](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Acesse o painel do serviço para garantir que nenhum dispositivo esteja conectado a ele. Se não houver algum dispositivo registrado nesse serviço, você também verá uma mensagem de cabeçalho sobre isso. Clique em **Excluir**.
+    ![Selecione o serviço toodelete](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
+2. Vá tooyour tooensure de painel de controle de serviço não há nenhum dispositivo conectado toohello serviço. Se não houver nenhum dispositivo registrado com esse serviço, você também verá um efeito de toohello de mensagem de faixa. Clique em **Excluir**.
    
     ![Excluir serviço](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 
-3. Quando receber a solicitação de confirmação, clique em **Sim** na notificação de confirmação. 
+3. Quando solicitado a confirmar, clique em **Sim** na notificação de confirmação de saudação. 
    
     ![Confirmar exclusão do serviço](./media/storsimple-virtual-array-manage-service/deleteservice4.png)
-4. Pode levar alguns minutos para que o serviço seja excluído. Após a exclusão bem-sucedida do serviço, você receberá uma notificação.
+4. Ele pode levar alguns minutos para Olá serviço toobe excluído. Depois de saudação serviço é excluído com êxito, você será notificado.
    
     ![Exclusão bem-sucedida do serviço](./media/storsimple-virtual-array-manage-service/deleteservice6.png)
 
-A lista de serviços será atualizada.
+lista de saudação de serviços será atualizada.
 
  ![Lista de serviços atualizada](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
-## <a name="get-the-service-registration-key"></a>Obtenha a chave de registro do serviço
-Depois de ter criado um serviço com êxito, você precisará registrar o dispositivo StorSimple no serviço. Para registrar seu primeiro dispositivo StorSimple, será necessária a chave de registro do serviço. Para registrar dispositivos adicionais em um serviço StorSimple existente, serão necessárias a chave de registro e a chave de criptografia dos dados de serviço (que é gerada durante o registro do primeiro dispositivo). Para obter mais informações sobre a chave de criptografia dos dados de serviço, consulte [Segurança do StorSimple](storsimple-security.md). Você pode obter a chave de registro acessando a folha **Chaves** de seu serviço.
+## <a name="get-hello-service-registration-key"></a>Obter chave de registro de serviço Olá
+Depois que você criou com êxito um serviço, você precisará tooregister seu dispositivo StorSimple com o serviço de saudação. tooregister seu dispositivo StorSimple primeiro, será necessário Olá o chave de registro de serviço. tooregister dispositivos adicionais com um serviço StorSimple existente, você precisará chave de registro hello e chave criptografia de dados de serviço de saudação (que é gerado no primeiro dispositivo de saudação durante o registro). Para obter mais informações sobre a chave de criptografia de dados de serviço hello, consulte [segurança de StorSimple](storsimple-security.md). Você pode obter a chave de registro Olá acessando Olá **chaves** folha do seu serviço.
 
-Execute as etapas a seguir para obter a chave de registro do serviço.
+Execute Olá etapas tooget Olá chave de registro a seguir.
 
-#### <a name="to-get-the-service-registration-key"></a>Para obter a chave de registro do serviço
-1. No **Gerenciador de Dispositivo do StorSimple**, acesse **Gerenciamento&gt;** **Chaves**.
+#### <a name="tooget-hello-service-registration-key"></a>chave de registro tooget Olá
+1. Em Olá **Gerenciador de dispositivos de StorSimple** folha, ir muito**gerenciamento &gt;**  **chaves**.
    
    ![Folha Chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
-2. Na folha **Chaves**, uma chave de registro de serviço será exibida. Copie a chave de registro usando o ícone de cópia. 
+2. Em Olá **chaves** folha, uma chave de registro de serviço aparece. Copiar a chave de registro de saudação usando o ícone para copiar hello. 
 
-Mantenha a chave de registro do serviço em local seguro. Você precisará dessa chave, bem como da chave de criptografia dos dados de serviço, para registrar dispositivos adicionais nesse serviço. Depois de obter a chave de registro do serviço, você precisará configurar o dispositivo usando o Windows PowerShell para interface do StorSimple.
+Mantenha a chave de registro do serviço de saudação em um local seguro. Você precisará essa chave, bem como chave de criptografia de dados de serviço hello, tooregister de dispositivos adicionais com este serviço. Depois de obter a chave de registro de serviço hello, você precisará tooconfigure seu dispositivo por meio de saudação do Windows PowerShell para StorSimple interface.
 
-## <a name="regenerate-the-service-registration-key"></a>Regenerar a chave de registro do serviço
-Você precisará regenerar uma chave de registro de serviço se tiver que executar a rotação de chave ou se a lista de administradores de serviço tiver mudado. Quando você regenera a chave, a nova chave é usada somente para registrar dispositivos subsequentes. Os dispositivos que já foram registrados não serão afetados por esse processo.
+## <a name="regenerate-hello-service-registration-key"></a>Regenerar chave de registro de serviço Olá
+Se for necessário tooperform a rotação de chaves ou se a lista de saudação de administradores de serviço foi alterada, você precisará tooregenerate uma chave de registro de serviço. Quando você regenerar chave Olá, a nova chave de saudação é usado apenas para registrar dispositivos subsequentes. dispositivos de saudação que já foram registrados não são afetados por esse processo.
 
-Execute as etapas a seguir para regenerar uma chave de registro de serviço.
+Execute Olá etapas tooregenerate uma chave de registro de serviço a seguir.
 
-#### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registro de serviço
-1. No **Gerenciador de Dispositivo do StorSimple**, acesse **Gerenciamento&gt;** **Chaves**.
+#### <a name="tooregenerate-hello-service-registration-key"></a>chave de registro tooregenerate Olá
+1. Em Olá **Gerenciador de dispositivos de StorSimple** folha, ir muito**gerenciamento &gt;**  **chaves**.
    
    ![Folha Chaves](./media/storsimple-virtual-array-manage-service/getregkey2.png)
-2. Na folha **Chaves**, clique em **Regenerar**.
+2. Em Olá **chaves** folha, clique em **regenerar**.
    
    ![Clique em regenerar](./media/storsimple-virtual-array-manage-service/getregkey5.png)
-3. Na folha **Regenerar chave de registro do serviço**, revise a ação necessária quando as chaves forem geradas novamente. Todos os dispositivos subsequentes registrados com esse serviço usarão a nova chave de registro. Clique em **Regenerar** para confirmar. Você receberá uma notificação após a conclusão do registro.
+3. Em Olá **regenerar chave de registro** folha, examine Olá necessária uma ação quando hello chaves são geradas novamente. Todos os dispositivos de saudação subsequentes que são registrados com este serviço usará a nova chave de registro hello. Clique em **regenerar** tooconfirm. Você será notificado depois Olá registro for concluído.
    
    ![Confirmar regeneração da chave](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. Uma nova chave de registro de serviço será exibida.
@@ -119,6 +119,6 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
    Copie essa chave e salve-a para registrar todos os novos dispositivos nesse serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como obter uma [Introdução](storsimple-virtual-array-deploy1-portal-prep.md) com uma Matriz Virtual do StorSimple.
-* Saiba como [administrar o seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
+* Saiba como muito[começar](storsimple-virtual-array-deploy1-portal-prep.md) com uma matriz Virtual StorSimple.
+* Saiba como muito[administrar seu dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 

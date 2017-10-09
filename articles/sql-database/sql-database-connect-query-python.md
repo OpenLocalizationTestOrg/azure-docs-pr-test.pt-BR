@@ -1,6 +1,6 @@
 ---
-title: Usar o Python para consultar banco de dados SQL do Azure | Microsoft Docs
-description: "Este tópico mostra como usar Python para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL."
+title: aaaUse Python tooquery banco de dados do SQL Azure | Microsoft Docs
+description: "Este tópico mostra como toouse Python toocreate um programa que se conecta tooan banco de dados do SQL Azure e a consulta usando instruções Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,51 +15,51 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/08/2017
 ms.author: carlrab
-ms.openlocfilehash: afffcb9a4938bf97626f182bb4f4d099d807d411
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6c786e7a61f5ed3e7d2395da59acfeae008e90e3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-python-to-query-an-azure-sql-database"></a>Usar Python para consultar um banco de dados SQL do Azure
+# <a name="use-python-tooquery-an-azure-sql-database"></a>Usar o Python tooquery um banco de dados do SQL Azure
 
- Este guia de início rápido demonstra como usar o [Python](https://python.org) para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
+ Este guia rápido demonstra como toouse [Python](https://python.org) tooconnect tooan SQL do Azure do banco de dados e usar dados de tooquery de instruções Transact-SQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial de início rápido, tenha o seguinte:
+toocomplete rápido nesse tutorial de início, verifique se você tem o seguinte hello:
 
-- Um banco de dados SQL do Azure. Este início rápido usa os recursos criados em um destes inícios rápidos: 
+- Um banco de dados SQL do Azure. Esse início rápido usa recursos de saudação criados em um desses inícios rápidos: 
 
    - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
    - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
    - [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
-- Uma [regra de firewall no nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador usado neste tutorial de início rápido.
+- Um [regra de firewall de nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público de saudação do computador Olá usar para este tutorial de início rápido.
 
 - Você instalou o Python e o software relacionado para seu sistema operacional.
 
-    - **MacOS**: instale o Homebrew e o Python, instale o driver ODBC e o SQLCMD e, em seguida, instale o Driver Python para SQL Server. Consulte [Etapas 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
-    - **Ubuntu**: instale o Python e outros pacotes necessários e, em seguida, instale o Driver Python para SQL Server. Consulte [Etapas 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
-    - **Windows**: instale a versão mais recente do Python (a variável de ambiente agora está configurada para você), instale o driver ODBC e o SQLCMD e então instale o Driver Python para o SQL Server. Veja a [Etapa 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
+    - **MacOS**: instalar o Homebrew Python, instalar o driver ODBC hello e SQLCMD e, em seguida, instale o hello Python Driver para SQL Server. Consulte [Etapas 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
+    - **Ubuntu**: instalar o Python e outros necessários pacotes e, em seguida, instalar Olá Python Driver para SQL Server. Consulte [Etapas 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu/).
+    - **Windows**: instalar a versão mais recente de saudação do Python (variável de ambiente agora está configurada para você), instale o driver ODBC hello e SQLCMD e, em seguida, instale o hello Python Driver para SQL Server. Veja a [Etapa 1.2, 1.3 e 2.1](https://www.microsoft.com/sql-server/developer-get-started/python/windows/). 
 
 ## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
-Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
+Obter Olá conexão informações necessárias tooconnect toohello SQL Azure banco de dados. Será necessário o nome totalmente qualificado do servidor de saudação, nome do banco de dados e informações de logon em procedimentos Avançar hello.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. Na página **Visão geral** do banco de dados, examine o nome totalmente qualificado do servidor, como mostrado na imagem a seguir. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**.  
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
+2. Selecione **bancos de dados SQL** no menu esquerdo do hello e clique em seu banco de dados em Olá **bancos de dados SQL** página. 
+3. Em Olá **visão geral** página do banco de dados, examine Olá nome totalmente qualificado do servidor conforme Olá a imagem a seguir. Você pode focalizar Olá toobring de nome de servidor backup Olá **clique toocopy** opção.  
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se você se esquecer das informações de logon do servidor, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor e, se necessário, redefinir a senha.     
+4. Se você esquecer suas informações de logon de servidor, navegar toohello banco de dados do SQL server página tooview Olá administrador nome do servidor e, se necessário, Redefinir senha hello.     
     
-## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar o banco de dados SQL 
+## <a name="insert-code-tooquery-sql-database"></a>Insira o banco de dados SQL do código tooquery 
 
 1. Em seu editor de texto favorito, crie um novo arquivo, **sqltest.py**.  
 
-2. Substitua o conteúdo pelo código a seguir e adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
+2. Substitua o conteúdo de saudação com hello seguinte código e adicionar os valores apropriados para seu servidor, banco de dados, usuário e senha hello.
 
 ```Python
 import pyodbc
@@ -77,15 +77,15 @@ while row:
     row = cursor.fetchone()
 ```
 
-## <a name="run-the-code"></a>Executar o código
+## <a name="run-hello-code"></a>Executar o código de saudação
 
-1. No prompt de comando, execute estes comandos:
+1. No prompt de comando hello, execute Olá comandos a seguir:
 
    ```Python
    python sqltest.py
    ```
 
-2. Verifique se as 20 linhas superiores são retornadas e, em seguida, feche a janela do aplicativo.
+2. Verifique se que 20 linhas de saudação principais são retornadas e, em seguida, feche a janela do aplicativo hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 

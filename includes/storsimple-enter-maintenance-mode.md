@@ -1,12 +1,12 @@
 <!--author=SharS last changed: 12/01/15-->
 
-#### <a name="to-enter-maintenance-mode"></a>Para entrar no modo de Manutenção
-1. No menu do console serial, escolha a opção 1, **Efetuar login com acesso total**.
-2. Digite a senha. A senha padrão é **Senha1**.
-3. No prompt de comando, digite
+#### <a name="tooenter-maintenance-mode"></a>modo de manutenção de tooenter
+1. No menu do console serial hello, escolha a opção 1, **entrar com acesso completo**.
+2. Digite a senha de saudação. a senha padrão Olá é **Password1**.
+3. No prompt de comando hello, digite
    
      `Enter-HcsMaintenanceMode`
-4. Você verá uma mensagem de aviso informando que o modo de Manutenção interromperá todas as solicitações de E/S e a conexão com o portal clássico do Azure, e você será solicitado a confirmar. Digite **Y** para entrar no modo de Manutenção.
+4. Você verá uma mensagem de aviso informando que o modo de manutenção irá interromper todas as solicitações de e/s e servidor Olá conexão toohello portal clássico do Azure, e você será solicitado a confirmar. Tipo **Y** tooenter modo de manutenção.
    
-    Ambos os controladores serão reiniciados. Quando a reinicialização estiver concluída, outra mensagem será exibida indicando que o dispositivo está em modo de Manutenção.
+    Ambos os controladores serão reiniciados. Quando a saudação reinicialização é concluída, outra mensagem será exibida indicando que o dispositivo hello está no modo de manutenção.
 

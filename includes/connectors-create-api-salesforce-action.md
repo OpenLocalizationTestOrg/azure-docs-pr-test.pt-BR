@@ -1,42 +1,42 @@
-Agora que você adicionou uma condição, é hora de fazer algo interessante com os dados gerados pelo gatilho. Siga estas etapas para adicionar a ação **Salesforce - Obter objeto** . Essa ação obterá os dados sempre que um novo cliente potencial for criado. Você também adicionará uma segunda ação que usará os dados da ação Salesforce - Obter um objeto para enviar um email usando o conector do Office 365.  
+Agora que você adicionou uma condição, seu toodo tempo algo interessante com dados de saudação que são gerados pelo gatilho Olá. Siga essas Olá de tooadd etapas **Salesforce - objeto Get** ação. Essa ação obterá dados saudação sempre que é criado um novo cliente potencial. Você também adicionará uma segunda ação que usará dados Olá Olá Salesforce - Get toosend de ação um objeto um email usando o conector Olá Office 365.  
 
-Para configurar essa ação, você precisará fornecer as seguintes informações. Você notará como é fácil usar os dados gerados pelo gatilho como entrada para algumas das propriedades para o novo arquivo:
+tooconfigure Olá esta ação, você precisará Olá tooprovide informações a seguir. Você notará que é fácil toouse dados gerados pelo gatilho hello como entrada para algumas das propriedades de saudação para o novo arquivo de saudação:
 
 | Criar propriedade do arquivo | Descrição |
 | --- | --- |
-| Tipo de objeto |Esse é o tipo do objeto do Salesforce que lhe interessa. Alguns exemplos são Cliente Potencial, Conta, etc. |
-| ID de objeto |Isso representa um identificador do objeto. |
+| Tipo de objeto |Esse é o tipo de saudação do objeto da equipe de vendas que lhe interessam. Alguns exemplos são Cliente Potencial, Conta, etc. |
+| ID de objeto |Isso representa um identificador de objeto de saudação. |
 
-1. Selecione o link **Adicionar uma ação** . Isso abre a caixa de pesquisa, na qual é possível procurar qualquer ação que você deseja realizar. Neste exemplo, as ações do Salesforce são pontos de interesse.      
+1. Selecione o link **Adicionar uma ação** . Essa caixa de pesquisa de Olá abre onde você pode procurar qualquer ação que você gostaria de tootake. Neste exemplo, as ações do Salesforce são pontos de interesse.      
    ![Imagem de ação do Salesforce 1](./media/connectors-create-api-salesforce/action-1.png)  
-2. Digite *salesforce* para pesquisar as ações relacionadas ao salesforce.
-3. Selecione **Salesforce - Obter objeto** como a ação a ser tomada.   **Observação**: será solicitado que você autorize o aplicativo lógico a acessar sua conta do Salesforce, caso já não tenha feito isso.    
+2. Digite *salesforce* toosearch para toosalesforce de ações relacionadas.
+3. Selecione **Salesforce - objeto Get** como Olá tootake de ação.   **Observação**: você será solicitado tooauthorize tooaccess de aplicativo sua lógica sua equipe de vendas de conta, se você não tiver feito isso anteriormente.    
    ![Imagem de ação do Salesforce 2](./media/connectors-create-api-salesforce/action-2.png)    
-4. O controle **Obter objeto** é aberto.  
-5. Selecione *cliente potencial* como o tipo de objeto.
-6. Selecione o controle **ID de Objeto** .
-7. Selecione **...** para expandir a lista de tokens que podem ser usados como entrada para ações.       
+4. Olá **objeto Get** controlar é aberta.  
+5. Selecione *levar* como tipo de objeto hello.
+6. Selecione Olá **ID de objeto** controle.
+7. Selecione **...**  tooexpand lista de saudação de tokens que podem ser usados como entrada para ações.       
    ![Imagem de ação do Salesforce 3](./media/connectors-create-api-salesforce/action-3.png)    
 8. Selecione o controle **ID de Cliente Potencial** para abri-lo.   
    ![Imagem de ação do Salesforce 4](./media/connectors-create-api-salesforce/action-4.png)     
-9. Observe que o token ID de Cliente Potencial agora está no controle de ID de Objeto, indicando que a ação Obter objeto procurará por um cliente potencial com uma ID igual à ID do cliente potencial do líder que disparou esse aplicativo lógico.  
+9. Observe que esse token de ID de cliente potencial hello está agora no hello controle de ID de objeto, indicando que Olá Get objeto ação irá procurar por um cliente potencial com uma ID que é igual toohello lead ID de cliente potencial que disparou este aplicativo lógico.  
    ![Imagem de ação do Salesforce 5](./media/connectors-create-api-salesforce/action-5.png)  
-10. Salve seu trabalho. Ou seja, você adicionou a ação Obter objeto ao seu aplicativo lógico. O controle Obter objeto deve ser semelhante isso:     
+10. Salve seu trabalho. Isso é tudo, você adicionou Olá Get objeto ação tooyour lógica aplicativo. O controle Obter objeto deve ser semelhante isso:     
     ![Imagem de ação do Salesforce 6](./media/connectors-create-api-salesforce/action-6.png)  
 
-Agora que você adicionou uma ação para obter um cliente potencial, faça algo interessante com o cliente potencial recém-criado. Em uma empresa, você pode enviar um email para notificar uma lista de distribuição que um novo cliente potencial foi criado. Vamos usar o conector do Office 365 para enviar um email com algumas das informações relevantes do novo objeto de cliente potencial no Salesforce.  
+Agora que você adicionou uma ação tooget um cliente potencial, talvez você queira toodo algo interessante com lead Olá recém-criado. Em uma empresa, convém toosend toonotify um email que foi criado um novo cliente potencial de uma lista de distribuição. Vamos usar Olá Office 365 conector toosend um email com algumas informações relevantes de saudação do novo objeto de cliente potencial Olá no Salesforce.  
 
-1. Selecione **Adicionar uma ação** e digite *email* no controle de pesquisa. Isso filtra as ações relacionadas ao envio e recebimento de email.  
-2. Selecione o item de lista **Office 365 Outlook - Enviar um email** . Se você ainda não tiver criado uma *conexão* com sua conta do Office 365, será solicitado que você insira suas credenciais do Office 365 para criá-la agora. Depois de terminar, o controle **Enviar um email** é aberto.        
+1. Selecione **adicionar uma ação** , em seguida, digite *email* no controle de pesquisa de saudação. Isso filtra Olá ações toothose toosending relacionado e receber email.  
+2. Selecione Olá **Outlook do Office 365 - enviar um email** item de lista. Se você ainda não tiver criado um *conexão* tooyour conta do Office 365, você vai ser solicitado tooenter seu toocreate de credenciais do Office 365 it agora. Ao terminar, Olá **enviar um email** controlar é aberta.        
    ![Imagem de ação do Salesforce 7](./media/connectors-create-api-salesforce/action-7.png)  
-3. Insira o endereço de email para o qual você gostaria de enviar o email no controle **Para** .
-4. No controle **Assunto**, digite *Novo cliente potencial criado* e selecione o token *Empresa*. Isso exibirá o campo *empresa* do novo cliente potencial criado no Salesforce.  
-5. No controle **corpo** , você pode selecionar qualquer um dos tokens do novo objeto de cliente potencial e também pode inserir qualquer texto que você desejar exibir no corpo do email. Aqui está um exemplo:   
+3. Inserir endereço de email de saudação que queira saudação do toosend email tooin **para** controle.
+4. Em Olá **assunto** de controle, digite *novo cliente potencial criado* - selecione Olá *empresa* token. Isso exibirá Olá *empresa* campo de saudação novo cliente potencial criado na equipe de vendas.  
+5. Em Olá **corpo** controle, você pode selecionar qualquer um dos tokens de saudação do novo objeto de cliente potencial hello e você também pode digitar qualquer texto que você gostaria que toodisplay no corpo de saudação do hello email. Aqui está um exemplo:  
    ![Imagem de ação do Salesforce 8](./media/connectors-create-api-salesforce/action-8.png)   
 6. Salve seu fluxo de trabalho.  
 
 É isso. Seu aplicativo lógico está pronto.  
 
-Agora você pode testar seu aplicativo lógico: no Salesforce, crie um novo cliente potencial que atenda à condição que você criou.  Se você seguiu totalmente esse passo a passo, basta criar um cliente potencial com um endereço de email contendo *amazon.com* . Depois de alguns segundos, seu aplicativo lógico deve ser disparado e os resultados podem ser semelhantes a:   
+Agora, você pode testar seu aplicativo lógico: no Salesforce, crie um novo cliente potencial que atende a condição de saudação que você criou.  Se você seguiu totalmente esse passo a passo, basta criar um cliente potencial com um endereço de email contendo *amazon.com* . Depois de alguns segundos o lógica de aplicativo deve ser disparado e resultados de saudação podem parecer semelhante toothis:  
 ![Imagem de ação do Salesforce 9](./media/connectors-create-api-salesforce/action-9.png)  
 

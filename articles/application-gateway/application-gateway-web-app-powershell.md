@@ -1,6 +1,6 @@
 ---
-title: Proteger aplicativos Web com o Gateway de Aplicativo do Azure - PowerShell | Microsoft Docs
-description: "Este artigo oferece orientação sobre como configurar aplicativos Web como hosts back-end em um gateway de aplicativo novo ou existente."
+title: aaaProtect os aplicativos web com o Gateway de aplicativo do Azure - PowerShell | Microsoft Docs
+description: "Este artigo fornece orientação sobre como os aplicativos web tooconfigure como back end hosts em um gateway de aplicativo novo ou existente."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -13,49 +13,49 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: eab15513e15ea897881edabab38f4d24d7002c04
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2e5d3ba9acc2f60499e7102961e631ee3d44eede
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>Configurar Aplicativos Web do Serviço de Aplicativo com o Gateway de Aplicativo 
 
-O gateway de aplicativo permite que você tenha um Aplicativo Web do Azure, ou outro serviço multilocatário, como um membro de pool de back-ends. Neste artigo, você aprenderá a configurar um aplicativo Web do Azure com o Gateway de Aplicativo. O primeiro exemplo mostra como configurar um gateway de aplicativo existente para usar um aplicativo Web como membro do pool de back-ends. O segundo exemplo mostra como criar um novo gateway de aplicativo com um aplicativo Web como membro do pool de back-ends.
+Gateway de aplicativo permite que você toohave um aplicativo Web do Azure ou outro serviço multilocatário como um membro do pool de back-end. Neste artigo, tooyou Saiba tooconfigure um aplicativo web do Azure com o Application Gateway. Olá primeiro exemplo mostra a você como tooconfigure um toouse de gateway existentes do aplicativo um aplicativo da web como um membro do pool de back-end. Olá segundo exemplo mostra a você como toocreate um novo gateway de aplicativo com um aplicativo da web como um membro do pool de back-end.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>Configurar um aplicativo Web por trás de um gateway de aplicativo existente
 
-O exemplo a seguir adiciona um aplicativo Web como membro do pool de back-ends para um gateway de aplicativo existente. Tanto a opção `-PickHostNamefromBackendHttpSettings` na configuração de Investigação quanto `-PickHostNameFromBackendAddress` nas configurações de http de back-end devem ser fornecidas para que os aplicativos Web funcionem.
+Olá exemplo a seguir adiciona um aplicativo web como um gateway de aplicativo existente do pool de back-end membro tooan. Ambos Olá comutador `-PickHostNamefromBackendHttpSettings`na configuração de teste hello e `-PickHostNameFromBackendAddress` em http de back-end Olá configurações devem ser fornecidas para que toowork de aplicativos da web.
 
 ```powershell
-# FQDN of the web app
+# FQDN of hello web app
 $webappFQDN = "<enter your webapp FQDN i.e mywebsite.azurewebsites.net>"
 
 # Retrieve an existing application gateway
 $gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
 
-# Define the status codes to match for the probe
+# Define hello status codes toomatch for hello probe
 $match=New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 
-# Add a new probe to the application gateway
+# Add a new probe toohello application gateway
 Add-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway $gw -Protocol Http -Path / -Interval 30 -Timeout 120 -UnhealthyThreshold 3 -PickHostNameFromBackendHttpSettings -Match $match
 
-# Retrieve the newly added probe
+# Retrieve hello newly added probe
 $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway $gw
 
 # Configure an existing backend http settings 
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
-# Add the web app to the backend pool
+# Add hello web app toohello backend pool
 Set-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -ApplicationGateway $gw -BackendIPAddresses $webappFQDN
 
-# Update the application gateway
+# Update hello application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="configure-a-web-application-behind-a-new-application-gateway"></a>Configurar um aplicativo Web por trás de um novo gateway de aplicativo
 
-Este cenário implanta um aplicativo Web com o site de introdução asp.net e um gateway de aplicativo.
+Este cenário implanta um aplicativo web com o asp.net Olá obtendo site iniciada e um application gateway.
 
 ```powershell
 # Defines a variable for a dotnet get started web app repository location
@@ -73,7 +73,7 @@ New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName 
 # Creates a web app
 $webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs -AppServicePlan $webappname
 
-# Configure GitHub deployment from your GitHub repo and deploy once to web app.
+# Configure GitHub deployment from your GitHub repo and deploy once tooweb app.
 $PropertiesObject = @{
     repoUrl = "$gitrepo";
     branch = "master";
@@ -81,13 +81,13 @@ $PropertiesObject = @{
 }
 Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName $rg.ResourceGroupName -ResourceType Microsoft.Web/sites/sourcecontrols -ResourceName $webappname/web -ApiVersion 2015-08-01 -Force
 
-# Creates a subnet for the application gateway
+# Creates a subnet for hello application gateway
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-# Creates a vnet for the application gateway
+# Creates a vnet for hello application gateway
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGroupName -Location EastUs -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-# Retrieve the subnet object for use later
+# Retrieve hello subnet object for use later
 $subnet=$vnet.Subnets[0]
 
 # Create a public IP address
@@ -96,16 +96,16 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName 
 # Create a new IP configuration
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-# Create a backend pool with the hostname of the web app
+# Create a backend pool with hello hostname of hello web app
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendPool -BackendIPAddresses $webapp.HostNames
 
-# Define the status codes to match for the probe
+# Define hello status codes toomatch for hello probe
 $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 
-# Create a probe with the PickHostNameFromBackendHttpSettings switch for web apps
+# Create a probe with hello PickHostNameFromBackendHttpSettings switch for web apps
 $probeconfig = New-AzureRmApplicationGatewayProbeConfig -name webappprobe -Protocol Http -Path / -Interval 30 -Timeout 120 -UnhealthyThreshold 3 -PickHostNameFromBackendHttpSettings -Match $match
 
-# Define the backend http settings
+# Define hello backend http settings
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120 -PickHostNameFromBackendAddress -Probe $probeconfig
 
 # Create a new front-end port
@@ -114,22 +114,22 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 # Create a new front end IP configuration
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-# Create a new listener using the front-end ip configuration and port created earlier
+# Create a new listener using hello front-end ip configuration and port created earlier
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Create a new rule
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool 
 
-# Define the application gateway SKU to use
+# Define hello application gateway SKU toouse
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-# Create the application gateway
+# Create hello application gateway
 $appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName -Location EastUs -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -Probes $probeconfig -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
 ## <a name="get-application-gateway-dns-name"></a>Obter um nome DNS de Gateway de Aplicativo
 
-Depois de criar o gateway, a próxima etapa será configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam alcançar o gateway de aplicativo, um registro CNAME pode ser usado para apontar para o ponto de extremidade público do gateway de aplicativo. Para criar o alias, recupere os detalhes do Gateway de Aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao Gateway de Aplicativo. Isso pode ser feito com o DNS do Azure ou outros provedores de DNS, criando um registro CNAME que aponta para o [endereço IP público](../dns/dns-custom-domain.md#public-ip-address). O uso de registros A não é recomendável, pois o VIP pode mudar na reinicialização do gateway de aplicativo.
+Depois de criar o gateway hello, Olá próxima etapa é tooconfigure Olá front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. os usuários finais de tooensure pode pressionar o gateway de aplicativo hello, um registro CNAME pode ser usado toopoint toohello ponto de extremidade público do gateway de aplicativo hello. Olá toocreate alias, recuperar detalhes de saudação de gateway do aplicativo hello e seu nome de IP/DNS associado usando Olá PublicIPAddress elemento toohello anexado application gateway. Isso pode ser feito com o DNS do Azure ou outros provedores DNS, por criar um registro CNAME que aponte toohello [endereço IP público](../dns/dns-custom-domain.md#public-ip-address). uso de saudação de registros de um não é recomendável porque Olá VIP pode ser alterado na reinicialização do application gateway.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName ContosoRG -Name publicIP01
@@ -159,4 +159,4 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como configurar o redirecionamento visitando: [Configurar o redirecionamento no Gateway de Aplicativo com o PowerShell](application-gateway-configure-redirect-powershell.md).
+Saiba como redirecionamento de tooconfigure visitando: [configurar o redirecionamento no Application Gateway com o PowerShell](application-gateway-configure-redirect-powershell.md).

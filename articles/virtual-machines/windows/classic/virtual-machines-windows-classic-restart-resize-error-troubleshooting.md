@@ -1,5 +1,5 @@
 ---
-title: "Problemas de reinicialização ou redimensionamento da VM | Microsoft Docs"
+title: aaaVM reiniciar ou redimensionar problemas | Microsoft Docs
 description: "Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 06/13/2017
 ms.devlang: na
 ms.author: delhan
-ms.openlocfilehash: 7fe0636366c60d4679cfc69bd96cd532695b080e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3d00ba17d9558941a37a29034604cb15e0803e0e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-windows-virtual-machine-in-azure"></a>Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure
 > [!div class="op_single_selector"]
@@ -28,58 +28,58 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma VM do Azure existente, o erro comum encontrado é uma falha de alocação. Esse erro ocorre quando o cluster ou a região não tem recursos disponíveis ou quando não dá suporte ao tamanho de VM solicitado.
+Quando você tentar toostart uma parada Máquina Virtual (VM) do Azure, ou redimensiona uma VM do Azure existente, o erro comum de saudação que encontrar é uma falha de alocação. Esse erro ocorre quando o cluster hello ou região ou não tem recursos disponíveis ou não suporte Olá solicitada tamanho da VM.
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação.
 > 
 > 
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>Coletar logs de auditoria
-Para iniciar a solução de problemas, colete os logs de auditoria para identificar o erro associado ao problema.
+toostart de solução de problemas, auditoria Olá coletar registra o erro de saudação de tooidentify associado Olá problema.
 
-No Portal do Azure, clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual Windows* > **Configurações** > **Logs de auditoria**.
+No portal do Azure de Olá, clique em **procurar** > **máquinas virtuais** > *sua máquina virtual do Windows*  >   **Configurações de** > **logs de auditoria**.
 
 ## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: erro ao iniciar uma VM parada
-Você tenta iniciar uma VM parada, mas ocorre uma falha de alocação.
+Tente toostart uma VM parada mas obterão uma falha de alocação.
 
 ### <a name="cause"></a>Causa
-Deve-se tentar fazer a solicitação de início da VM parada no cluster original que hospeda o serviço de nuvem. No entanto, o cluster não tem espaço livre disponível para atender à solicitação.
+solicitação de Olá Olá toostart interrompido VM tem toobe tentado no cluster original de saudação que hospeda o serviço de nuvem hello. No entanto, o cluster de saudação não tem solicitação de saudação do espaço livre disponível toofulfill.
 
 ### <a name="resolution"></a>Resolução
 * Crie um novo serviço de nuvem e o associe a uma região ou a uma rede virtual baseada em região, mas não a um grupo de afinidades.
-* Exclua a VM parada.
-* Recrie a VM no novo serviço de nuvem usando os discos.
-* Inicie a VM recriada.
+* Excluir Olá interrompido VM.
+* Recrie Olá VM no novo serviço de nuvem hello usando discos de saudação.
+* Iniciar Olá recriado VM.
 
-Se você obtiver um erro ao tentar criar um novo serviço de nuvem, tente novamente ou altere a região para o serviço de nuvem.
+Se você receber um erro ao tentar toocreate um novo serviço de nuvem, tente novamente mais tarde ou alterar a região Olá Olá serviço de nuvem.
 
 > [!IMPORTANT]
-> O novo serviço de nuvem terá um novo nome e VIP e, portanto, será necessário alterar essas informações em todas as dependências que usam essas informações para o serviço de nuvem existente.
+> novo serviço de nuvem Olá terá um novo nome e o VIP, portanto, será necessário toochange essas informações para todas as dependências de saudação que usam essas informações para o serviço de nuvem existente hello.
 > 
 > 
 
 ## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: erro ao redimensionar uma VM existente
-Você tenta redimensionar uma VM existente, mas ocorre uma falha de alocação.
+Tente tooresize uma VM existente mas obterão uma falha de alocação.
 
 ### <a name="cause"></a>Causa
-Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster original que hospeda o serviço de nuvem. No entanto, o cluster não dá suporte ao tamanho de VM solicitado.
+solicitação Olá Olá tooresize VM tem toobe tentado no cluster original Olá serviço em nuvem Olá hosts. No entanto, não oferece suporte cluster Olá Olá solicitado tamanho da VM.
 
 ### <a name="resolution"></a>Resolução
-Reduza o tamanho de VM solicitado e tente fazer novamente a solicitação de redimensionamento.
+Reduzir Olá solicitado tamanho da VM e repetição Olá redimensionar a solicitação.
 
-* Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > *sua máquina virtual* > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+* Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > *sua máquina virtual* > **Configurações** > **Tamanho**. Para obter etapas detalhadas, consulte [redimensionar a máquina virtual de saudação](https://msdn.microsoft.com/library/dn168976.aspx).
 
-Se não for possível reduzir o tamanho da VM, siga estas etapas:
+Se não for possível tooreduce Olá tamanho da VM, siga estas etapas:
 
-* Crie um novo serviço de nuvem, garantindo que ele não esteja vinculado a um grupo de afinidades nem associado a uma rede virtual vinculada a um grupo de afinidades.
+* Criar um novo serviço de nuvem, garantir que não é vinculado tooan grupo de afinidade e não associado a uma rede virtual que é o grupo de afinidade tooan vinculado.
 * Crie uma nova VM maior nele.
 
-É possível consolidar todas as VMs no mesmo serviço de nuvem. Se o serviço de nuvem existente estiver associado a uma rede virtual baseada em região, será possível conectar o novo serviço de nuvem à rede virtual existente.
+Você pode consolidar todas as suas VMs em Olá mesmo serviço de nuvem. Se seu serviço de nuvem existente estiver associado uma rede virtual com base em região, você pode conectar Olá nova nuvem serviço toohello rede virtual existente.
 
-Se o serviço de nuvem existente não estiver associado a uma rede virtual baseada em região, será necessário excluir as VMs no serviço de nuvem existente e recriá-las no novo serviço de nuvem por meio de seus discos. No entanto, é importante lembrar-se de que o novo serviço de nuvem terá um novo nome e VIP e, portanto, será necessário atualizá-los em todas as dependências que atualmente usam essas informações para o serviço de nuvem existente.
+Se o serviço de nuvem existente Olá não está associado uma rede virtual com base em região, depois você ter toodelete Olá VMs no serviço de nuvem existente hello e recriá-los no novo serviço de nuvem Olá de seus discos. No entanto, é importante tooremember que novo serviço de nuvem Olá terá um novo nome e o VIP, portanto, será necessário tooupdate para todas as dependências de saudação que atualmente usam essas informações para o serviço de nuvem existente hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você encontrar problemas ao criar uma nova VM do Windows no Azure, veja [Solucionar problemas de implantação com a criação de uma máquina virtual do Windows no Azure](../troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Integração do Azure Active Directory com o Help Scout | Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Azure Active Directory e o Help Scout."
+description: "Saiba como tooconfigure o logon único entre o Active Directory do Azure e Scout ajuda."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 84cee39c28a0f7e6b9878441e504131795673020
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 58edd140eb1eb5980796ca743b5f7acd891729a1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: integração do Azure Active Directory com o Help Scout
 
-Neste tutorial, você aprenderá a integrar o Help Scout ao Azure AD (Azure Active Directory).
+Neste tutorial, você aprenderá como toointegrate ajuda atendente com o Azure Active Directory (AD do Azure).
 
-Você obtém os seguintes benefícios ao integrar o Help Scout ao Azure AD:
+Você obtém Olá seguindo os benefícios da integração Scout ajudar com o Azure AD:
 
-- No Azure AD, é possível controlar quem tem acesso ao Help Scout.
-- Você pode conectar automaticamente seus usuários ao Help Scout usando o logon único e a conta do Azure AD de um usuário.
-- É possível gerenciar suas contas em uma, um local central e no portal do Azure.
+- No AD do Azure, você pode controlar quem tem acesso tooHelp Scout.
+- Você pode entrar automaticamente no seu tooHelp usuários Scout usando logon único e uma conta de usuário do AD do Azure.
+- Você pode gerenciar suas contas em um local central, Olá portal do Azure.
 
-Para saber mais sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, confira [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+toolearn mais sobre o software como uma integração de aplicativo de serviço (SaaS) com o AD do Azure, consulte [o que é o acesso ao aplicativo e logon único com o Active Directory do Azure?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Help Scout, você precisará dos seguintes itens:
+tooset a integração do AD do Azure com Scout ajuda, você precisa Olá itens a seguir:
 
 - Uma assinatura do AD do Azure
 - Uma assinatura do Help Scout, com o logon único ativado 
 
 > [!NOTE]
-> Em caso de testar as etapas deste tutorial, recomendamos não testá-las em um ambiente de produção.
+> Se você testar etapas Olá neste tutorial, é recomendável que você não testá-las em um ambiente de produção.
 
-Recomendações para testar as etapas deste tutorial:
+Recomendações para testar etapas Olá neste tutorial:
 
 - Não use o ambiente de produção, a menos que seja necessário.
 - Se não tiver um ambiente de avaliação do Azure AD, você poderá [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
@@ -50,172 +50,172 @@ Recomendações para testar as etapas deste tutorial:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. 
 
-O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+cenário de saudação descrito neste tutorial consiste em dois elementos básicos:
 
-1. Adicionar o Help Scout da galeria.
+1. Adicione Scout ajuda da Galeria de saudação.
 2. Configurar e testar o logon único do Azure AD.
 
-## <a name="add-help-scout-from-the-gallery"></a>Adicionar o Help Scout da galeria
-Para configurar a integração do Help Scout ao Azure AD, na galeria, adicione o Help Scout à sua lista de aplicativos SaaS gerenciados.
+## <a name="add-help-scout-from-hello-gallery"></a>Adicionar Scout ajuda da Galeria de saudação
+tooset a integração de saudação do Scout ajudar com o AD do Azure, na Galeria de hello, adicionar lista de tooyour de ajudar Scout de aplicativos SaaS gerenciados.
 
-Para adicionar o Help Scout da galeria:
+tooadd Scout ajuda da Galeria de saudação:
 
-1. No [portal do Azure](https://portal.azure.com), no menu esquerdo, selecione **Azure Active Directory**. 
+1. Em Olá [portal do Azure](https://portal.azure.com), no hello menu à esquerda, selecione **Active Directory do Azure**. 
 
-    ![O botão Azure Active Directory][1]
+    ![botão de Active Directory do Azure Olá][1]
 
 2. Selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 
-    ![A página de aplicativos empresariais][2]
+    ![página de aplicativos de empresa Olá][2]
     
-3. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
+3. tooadd um novo aplicativo, selecione **novo aplicativo**.
 
-    ![O botão Novo aplicativo][3]
+    ![Novo botão de aplicativo Hello][3]
 
-4. Na caixa de pesquisa, insira **Help Scout**. Nos resultados da pesquisa, selecione **Help Scout** e **Adicionar**.
+4. Na caixa de pesquisa hello, digite **Scout ajuda**. Nos resultados da pesquisa hello, selecione **ajuda Scout**e, em seguida, selecione **adicionar**.
 
-    ![Help Scout na lista de resultados](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_addfromgallery.png)
+    ![Ajuda Scout na lista de resultados de saudação](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_addfromgallery.png)
 
 ## <a name="set-up-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
 Nesta seção, você vai configurar e testar o logon único do Azure AD com o Help Scout, com base em uma usuária de teste chamada *Brenda Fernandes*.
 
-Para que o logon único funcione, o Azure AD precisa conhecer o usuário equivalente do Azure AD no Help Scout. É necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no Help Scout.
+Para toowork de logon único, o AD do Azure precisa tooknow Olá AD do Azure contraparte usuário Scout ajuda. Uma relação de link entre um usuário do AD do Azure e o usuário relacionado de saudação em Scout ajuda deve ser estabelecida.
 
-Para estabelecer a relação de vinculação, no Help Scout, para **Nome de usuário**, atribua o valor de **nome de usuário** no Azure AD.
+Olá tooestablish referente à relação, na Ajuda Scout, **Username**, atribuir valor Olá Olá **nome de usuário** no AD do Azure.
 
-Para configurar e testar o logon único do Azure AD com o Help Scout, conclua as seguintes tarefas:
+tooconfigure e teste de logon único do AD do Azure com Scout ajudar, Olá concluir tarefas a seguir:
 
-1. [Configurar o logon único do Azure AD](#set-up-azure-ad-single-sign-on). Configura um usuário para usar esse recurso.
-2. [Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user). Testa o logon único do Azure AD com a usuária Brenda Fernandes.
-3. [Criar um usuário de teste do Help Scout](#create-a-help-scout-test-user). Cria um equivalente de Brenda Fernandes no Help Scout que é vinculado à representação do usuário no Azure AD.
-4. [Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user). Configura Brenda Fernandes para usar o logon único do Azure AD.
-5. [Testar o logon único](#test-single-sign-on). Verifica se a configuração funciona.
+1. [Configurar o logon único do Azure AD](#set-up-azure-ad-single-sign-on). Configura um usuário toouse esse recurso.
+2. [Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user). Testes do AD do Azure-logon único com o usuário Olá Britta Simon.
+3. [Criar um usuário de teste do Help Scout](#create-a-help-scout-test-user). Cria um equivalente de Britta Simon Scout ajuda que é vinculado toohello representação do AD do Azure do usuário hello.
+4. [Atribuir um usuário de teste de saudação do AD do Azure](#assign-the-azure-ad-test-user). Define o Britta Simon toouse logon único do AD do Azure.
+5. [Testar o logon único](#test-single-sign-on). Verifica que se a configuração de saudação funciona.
 
 ### <a name="set-up-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
-Nesta seção, você configura o logon único do Azure AD no portal do Azure. Em seguida, define o logon único no aplicativo Help Scout.
+Nesta seção, você deve configurar o AD do Azure-logon único no portal do Azure de saudação. Em seguida, define o logon único no aplicativo Help Scout.
 
-Para configurar o logon único do Azure AD com o Help Scout:
+tooset o AD do Azure-logon único com Scout ajuda:
 
-1. No portal do Azure, na página de integração do aplicativo **Help Scout**, selecione **Logon único**.
+1. Em Olá portal do Azure, Olá **ajuda Scout** página de integração de aplicativos, selecione **o logon único**.
  
     ![Link Configurar logon único][4]
 
-2. Na página **Logon único**, para **Modo**, selecione **Logon com base em SAML**.
+2. Em Olá **o logon único** página, para **modo**, selecione **baseado no SAML logon**.
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_samlbase.png)
 
-3. Em **Domínio e URLs do Help Scout**, se quiser configurar o aplicativo no modo iniciado por IDP, concluas as seguintes etapas:
+3. Em **ajuda Scout domínio e URLs**, se você quiser tooset o aplicativo hello no modo iniciado pelo IDP, Olá concluir as etapas a seguir:
 
-    1. Na caixa **Identificador**, digite uma URL com o seguinte padrão: `urn:auth0:helpscout:<instancename>`
+    1. Em Olá **identificador** caixa, digite uma URL que tenha o saudação padrão a seguir:`urn:auth0:helpscout:<instancename>`
 
-    2. Na caixa **URL de Resposta**, digite uma URL com o seguinte padrão: `https://helpscout.auth0.com/login/callback?connection=<instancename>`
+    2. Em Olá **URL de resposta** caixa, digite uma URL que tenha o saudação padrão a seguir:`https://helpscout.auth0.com/login/callback?connection=<instancename>`
 
     ![Informações de logon único de Domínio e URLs do Help Scout](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url.png)
 
-4. Se você quiser configurar o aplicativo no modo iniciado pelo SP, marque a caixa de seleção **Mostrar configurações avançadas de URL** e siga este procedimento:
+4. Se você quiser tooset o aplicativo hello no modo iniciado pelo SP, selecione Olá **Mostrar configurações de URL avançadas** caixa de seleção e, em seguida, Olá a seguir:
 
-    * Na caixa **URL de Entrada**, digite uma URL com o seguinte formato: `https://secure.helpscout.net/members/login/`
+    * Em Olá **URL de logon** , digite uma URL com hello formato a seguir:`https://secure.helpscout.net/members/login/`
 
     ![Informações de logon único de Domínio e URLs do Help Scout](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_url1.png)
  
     > [!NOTE] 
-    > Os valores nessas URLs são apenas para demonstração. Atualize os valores com as verdadeiras URL de identificador e URL de resposta. Para obter esses valores, entre em contato com a [equipe de suporte do Help Scout](mailto:help@helpscout.com). 
+    > valores Hello essas URLs são apenas para demonstração. Atualize valores de saudação com URL de identificador real de saudação e a URL de resposta. entre em contato com tooget esses valores, [a equipe de suporte Scout ajuda](mailto:help@helpscout.com). 
 
-5. Em **Certificado de Autenticação SAML**, selecione **XML de Metadados** e salve o arquivo de metadados no computador.
+5. Em **o certificado de autenticação SAML**, selecione **Metadata XML**e, em seguida, salve o arquivo de metadados de saudação em seu computador.
 
-    ![O link de download do Certificado](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_certificate.png) 
+    ![link de download de certificado Olá](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_certificate.png) 
 
 6. Selecione **Salvar**.
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-helpscout-tutorial/tutorial_general_400.png)
     
-7. Para configurar o logon único no lado do Help Scout, envie o arquivo XML de metadados baixado para a [equipe de suporte do Help Scout](mailto:help@helpscout.com). A equipe de suporte do Help Scout aplica essa configuração para que a conexão de logon único do SAML seja definida corretamente em ambos os lados.
+7. tooset backup único logon no lado de ajuda Scout hello, enviar Olá baixado metadados XML arquivo toohello [a equipe de suporte Scout ajuda](mailto:help@helpscout.com). a equipe de suporte de ajuda Scout Olá aplica essa configuração para que Olá SAML único logon conexão está definida corretamente nos dois lados.
 
 > [!TIP]
-> É possível ler uma versão concisa dessas instruções no [portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo! Depois de adicionar o aplicativo selecionando **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único**. Você pode acessar a documentação inserida na seção **Configuração**, na parte inferior da página. Para saber mais, confira a [documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> Você pode ler uma versão concisa essas instruções Olá [portal do Azure](https://portal.azure.com), enquanto você estiver configurando seu aplicativo! Depois de adicionar o aplicativo hello selecionando **do Active Directory** > **aplicativos empresariais**, selecione Olá **Single Sign-On** guia. Você pode acessar a documentação Olá inserido em Olá **configuração** seção final Olá Olá página. Para saber mais, confira a [documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-Nesta seção, no portal do Azure, você criará uma usuária de teste chamada Brenda Fernandes.
+Nesta seção, no hello portal do Azure, você deve criar um usuário de teste chamado Britta Simon.
 
 ![Criar um usuário de teste do Azure AD][100]
 
-Para criar um usuário de teste no Azure AD:
+toocreate um usuário de teste no AD do Azure:
 
-1. No portal do Azure, no menu esquerdo, selecione **Azure Active Directory**.
+1. No hello portal do Azure, no menu da esquerda hello, selecione **Active Directory do Azure**.
 
-    ![O botão Azure Active Directory](./media/active-directory-saas-helpscout-tutorial/create_aaduser_01.png)
+    ![botão de Active Directory do Azure Olá](./media/active-directory-saas-helpscout-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, selecione **Usuários e grupos** e, em seguida, selecione **Todos os usuários**.
+2. lista de saudação do toodisplay de usuários, selecionados **usuários e grupos**e, em seguida, selecione **todos os usuários**.
 
     ![Selecionar Usuários e grupos e depois Todos os usuários](./media/active-directory-saas-helpscout-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, na parte superior da página **Todos os Usuários**, selecione **Adicionar**.
+3. Olá tooopen **usuário** caixa de diálogo, na parte superior de saudação do hello **todos os usuários** página, selecione **adicionar**.
 
-    ![O botão Adicionar](./media/active-directory-saas-helpscout-tutorial/create_aaduser_03.png)
+    ![botão Adicionar de saudação](./media/active-directory-saas-helpscout-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, conclua as seguintes etapas:
+4. Em Olá **usuário** caixa de diálogo, Olá concluir as etapas a seguir:
 
-    1. Na caixa **Nome**, insira **BrendaFernandes**.
+    1. Em Olá **nome** , digite **BrittaSimon**.
 
-    2. Na caixa **Nome de usuário**, insira o endereço de email da usuária Brenda Fernandes.
+    2. Em Olá **nome de usuário** , digite o endereço de email de saudação do usuário Britta Simon.
 
-    3. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+    3. Selecione Olá **Mostrar senha** caixa de seleção e anote o valor de saudação que é exibido no hello **senha** caixa.
 
     4. Selecione **Criar**.
 
-        ![A caixa de diálogo Usuário](./media/active-directory-saas-helpscout-tutorial/create_aaduser_04.png)
+        ![caixa de diálogo de usuário Olá](./media/active-directory-saas-helpscout-tutorial/create_aaduser_04.png)
 
  
 ### <a name="create-a-help-scout-test-user"></a>Criar um usuário de teste do Help Scout
 
-O objeto desta seção é criar um usuário chamado Brenda Fernandes no Help Scout. O Help Scout dá suporte ao provisionamento JIT (Just-In-Time), que é ativado por padrão.
+objeto Olá desta seção é toocreate um usuário chamado Britta Simon em Scout ajuda. O Help Scout dá suporte ao provisionamento JIT (Just-In-Time), que é ativado por padrão.
 
-Nesta seção, não há ação nem tarefa a ser executada. Se um usuário ainda não existir no Help Scout, um novo será criado quando você tentar acessar o Help Scout.
+Nesta seção, não há nenhum toocomplete de ação ou tarefa. Se um usuário não existir no Scout ajudar, um novo é criado quando você tenta tooaccess Scout ajuda.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name="assign-hello-azure-ad-test-user"></a>Atribuir um usuário de teste de saudação do AD do Azure
 
-Nesta seção, você permitirá que a usuária Brenda Fernandes use o logon único do Azure AD concedendo acesso de conta de usuário ao Help Scout.
+Nesta seção, você permitir que usuário Olá Britta Simon toouse AD do Azure-logon único concedendo Olá usuário conta acesso tooHelp Scout.
 
-![Atribuir a função de usuário][200] 
+![Atribuir função de usuário Olá][200] 
 
-Para atribuir Brenda Fernandes ao Help Scout:
+tooassign Britta Simon tooHelp Scout:
 
-1. No portal do Azure, abra a exibição de aplicativos e vá para a exibição de diretório. Selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. No portal do Azure de Olá, abrir modo de exibição de aplicativos hello e vá toohello exibição de diretório. Selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Help Scout**.
+2. Na lista de aplicativos hello, selecione **Scout ajuda**.
 
-    ![O link do Help Scout na lista de Aplicativos](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_app.png)  
+    ![link de ajuda Scout Olá na lista de aplicativos Olá](./media/active-directory-saas-helpscout-tutorial/tutorial_helpscout_app.png)  
 
-3. No menu esquerdo, selecione **Usuários e grupos**.
+3. No menu à esquerda do hello, selecione **usuários e grupos**.
 
-    ![O link Usuários e grupos][202]
+    ![Olá usuários e grupos de link][202]
 
-4. Selecione **Adicionar**. Na página **Adicionar Atribuição**, selecione **Usuários e grupos**.
+4. Selecione **Adicionar**. Em seguida, na Olá **Adicionar atribuição** página, selecione **usuários e grupos**.
 
-    ![O painel Adicionar Atribuição][203]
+    ![Painel de atribuição adicionar Olá][203]
 
-5. Na página **Usuários e grupos**, na lista de usuários, selecione **Brenda Fernandes**.
+5. Em Olá **usuários e grupos** página, na lista de saudação de usuários, selecionados **Britta Simon**.
 
-6. Na página **Usuários e grupos**, selecione **Selecionar**.
+6. Em Olá **usuários e grupos** página, selecione **selecione**.
 
-7. Na página **Adicionar Atribuição**, selecione **Atribuir**.
+7. Em Olá **Adicionar atribuição** página, selecione **atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+Nesta seção, você pode testar a AD do Azure única configuração de logon usando o painel de acesso de saudação.
 
-Ao selecionar o bloco Help Scout no painel de acesso, você deverá ser conectado automaticamente ao aplicativo Help Scout.
+Quando você seleciona lado a lado Olá Scout ajuda no painel de acesso hello, você deve ser conectado automaticamente tooyour aplicativo Scout ajuda.
 
-Para saber mais sobre o painel de acesso, veja [Introdução ao painel de acesso](active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [painel de acesso Introdução toohello](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como aplicativos de SaaS toointegrate com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

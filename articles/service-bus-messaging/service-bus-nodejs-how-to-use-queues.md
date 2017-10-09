@@ -1,6 +1,6 @@
 ---
-title: "Como usar as filas de Barramento de Serviço no Node.js | Microsoft Docs"
-description: "Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js."
+title: "filas de aaaHow toouse barramento de serviço no Node. js | Microsoft Docs"
+description: Saiba como toouse Service Bus filas no Azure de um aplicativo Node. js.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
@@ -14,31 +14,31 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: fe2c02534996d99c190593a419a4823888f03d31
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c55354b2061c41aba1093cc3f12ce2a1bc37a3cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs"></a>Como usar filas do Barramento de Serviço com Node.js
+# <a name="how-toouse-service-bus-queues-with-nodejs"></a>Como toouse Service Bus filas com Node. js
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como usar as filas do Barramento de Serviço com Node.js. As amostras são escritas em JavaScript e usam o módulo Node.js do Azure. Os cenários cobertos incluem **criar filas**, **enviar e receber mensagens** e **excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas](#next-steps) .
+Este artigo descreve como toouse Service Bus filas com Node. js. exemplos de saudação são escritos em JavaScript e usam Olá módulo Azure Node. js. Olá cenários abordados incluem **Criando filas**, **enviando e recebendo mensagens**, e **excluindo filas**. Para obter mais informações sobre filas, consulte Olá [próximas etapas](#next-steps) seção.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, confira [Criar e implantar um aplicativo do Node.js em um site da Web do Azure][Create and deploy a Node.js application to an Azure Website] ou [Serviço de Nuvem do Node.js][Node.js Cloud Service] usando o Windows PowerShell.
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como toocreate um aplicativo Node. js, consulte [criar e implantar um aplicativo de Node. js tooan site do Azure][Create and deploy a Node.js application tooan Azure Website], ou [serviço de nuvem do Node. js] [ Node.js Cloud Service] usando o Windows PowerShell.
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
-Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure Node.js. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
+## <a name="configure-your-application-toouse-service-bus"></a>Configurar seu toouse barramento de serviço do aplicativo
+toouse barramento de serviço do Azure, baixe e use Olá pacote do Azure Node. js. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço hello.
 
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
-1. Use a janela de comando **Windows PowerShell para Node.js** para navegar até a pasta **c:\\node\\sbqueues\\WebRole1** na qual você criou o aplicativo de exemplo.
-2. Digite **npm install azure** na janela Comando, o que deve resultar em uma saída semelhante à seguinte:
+### <a name="use-node-package-manager-npm-tooobtain-hello-package"></a>Usar o pacote de saudação do Gerenciador de pacote de nó (NPM) tooobtain
+1. Saudação de uso **do Windows PowerShell para Node.js** comando janela toonavigate toohello **c:\\nó\\sbqueues\\WebRole1** pasta na qual você criou seu aplicativo de exemplo.
+2. Tipo **npm instalar o azure** na janela de comando Olá, que deve resultar no seguinte de toohello semelhante de saída:
 
     ```
     azure@0.7.5 node_modules\azure
@@ -53,30 +53,30 @@ Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure Node.
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. Você pode executar manualmente o comando **ls** para verificar se uma pasta **node_modules** foi criada. Dentro dessa pasta, você encontrará o pacote **azure**, que contém as bibliotecas necessárias para acessar as filas do Barramento de Serviço.
+3. Você pode executar manualmente Olá **ls** tooverify de comando que um **node_modules** pasta foi criada. Dentro desse Olá de localizar pasta **azure** pacote, que contém as bibliotecas de saudação necessário tooaccess filas do barramento de serviço.
 
-### <a name="import-the-module"></a>Importar o módulo
-Usando o Bloco de Notas ou outro editor de texto, adicione o seguinte ao início do arquivo **server.js** do aplicativo:
+### <a name="import-hello-module"></a>Módulo de saudação de importação
+Usando o bloco de notas ou outro editor de texto, adicionar Olá após toohello superior de saudação **server.js** arquivo de aplicativo hello:
 
 ```javascript
 var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>Configurar uma conexão do barramento de serviço do Azure
-O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta chamando `createServiceBusService`.
+módulo do Azure Hello lê variável de ambiente Olá `AZURE_SERVICEBUS_CONNECTION_STRING` tooobtain informações necessárias tooconnect tooService barramento. Se essa variável de ambiente não for definida, você deve especificar as informações de conta de saudação ao chamar `createServiceBusService`.
 
-Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, confira [Serviço de Nuvem do Node.js com Armazenamento][Node.js Cloud Service with Storage].
+Para obter um exemplo de configuração de variáveis de ambiente Olá em um arquivo de configuração para um serviço de nuvem do Azure, consulte [Node. js serviço de nuvem com o armazenamento][Node.js Cloud Service with Storage].
 
-Para ver um exemplo de como definir variáveis de ambiente no [Portal do Azure][Azure portal] para um Site do Azure, veja [Aplicativo Web do Node.js com Armazenamento][Node.js Web Application with Storage].
+Para obter um exemplo de configuração de variáveis de ambiente Olá no hello [portal do Azure] [ Azure portal] para um site do Azure, consulte [aplicativo Web Node.js armazenamento] [ Node.js Web Application with Storage].
 
 ## <a name="create-a-queue"></a>Criar uma fila
-O objeto **ServiceBusService** permite que você trabalhe com filas de barramento de serviço. O código a seguir cria um objeto **ServiceBusService**. Adicione-o próximo ao início do arquivo **server.js** , após a instrução de importação do módulo Azure:
+Olá **ServiceBusService** objeto permite que você toowork com filas do barramento de serviço. Olá código a seguir cria um **ServiceBusService** objeto. Adicioná-lo superior de saudação do hello **server.js** arquivo após Olá tooimport da instrução Olá módulo do Azure:
 
 ```javascript
 var serviceBusService = azure.createServiceBusService();
 ```
 
-Ao chamar `createQueueIfNotExists` no objeto **ServiceBusService**, a fila especificada (se houver) é retornada ou uma nova fila com o nome especificado é criada. O código a seguir usa `createQueueIfNotExists` para criar ou conectar-se à fila denominada `myqueue`:
+Chamando `createQueueIfNotExists` em Olá **ServiceBusService** de objeto, Olá especificado fila será retornada (se houver) ou uma nova fila com o nome especificado da saudação é criada. código a seguir Olá usa `createQueueIfNotExists` toocreate ou conecte-se a fila de toohello denominada `myqueue`:
 
 ```javascript
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -86,7 +86,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 });
 ```
 
-O método `createServiceBusService` também dá suporte para opções adicionais, que permitem a substituição de configurações padrão da fila, como a vida útil da mensagem ou o tamanho máximo da fila. O exemplo a seguir define o tamanho máximo da fila como 5 GB e a vida útil (TTL) como um minuto:
+Olá `createServiceBusService` método também oferece suporte a opções adicionais, que permitem a você as configurações de fila de padrão de toooverride como tamanho de fila toolive ou máximo de tempo de mensagem. Olá exemplo a seguir define Olá máximo da fila tamanho too5 GB e um valor de (vida útil TTL) toolive tempo de 1 minuto:
 
 ```javascript
 var queueOptions = {
@@ -102,31 +102,31 @@ serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error
 ```
 
 ### <a name="filters"></a>Filtros
-É possível aplicar operações de filtragem opcionais às operações executadas usando **ServiceBusService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Filtros são objetos que implementam um método com a assinatura:
+Operações de filtragem opcionais podem ser aplicadas toooperations realizada usando **ServiceBusService**. As operações de filtragem podem incluir registro em log, repetição automática, etc. Os filtros são objetos que implementam um método com assinatura hello:
 
 ```javascript
 function handle (requestOptions, next)
 ```
 
-Após fazer seu pré-processamento nas opções de solicitação, o método precisará chamar `next`, passando um retorno de chamada com a assinatura a seguir:
+Depois de fazer seu pré-processamento nas opções de solicitação hello, deve chamar o método hello `next`, passando um retorno de chamada com hello assinatura a seguir:
 
 ```javascript
 function (returnObject, finalCallback, next)
 ```
 
-Nesse retorno de chamada, e após processar o `returnObject` (a resposta da solicitação ao servidor), o retorno de chamada precisará invocar `next`, se ele existir, para continuar processando outros filtros ou simplesmente invocar `finalCallback`, para terminar a invocação de serviço.
+Em que esse retorno de chamada e depois processamento Olá `returnObject` (hello a resposta do servidor de toohello de solicitação de saudação), retorno de chamada de saudação ou deve chamar `next` se ele existe toocontinue outros filtros de processamento ou simplesmente chamar `finalCallback`, que termina invocação de serviço Hello.
 
-Dois filtros que implementam a lógica de repetição são incluídos com o Azure SDK para Node.js, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. O código a seguir cria um objeto `ServiceBusService` que usa o `ExponentialRetryPolicyFilter`:
+Dois filtros que implementam a lógica de repetição são incluídos com hello Azure SDK para Node.js, `ExponentialRetryPolicyFilter` e `LinearRetryPolicyFilter`. Olá código a seguir cria um `ServiceBusService` objeto que usa Olá `ExponentialRetryPolicyFilter`:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 ```
 
-## <a name="send-messages-to-a-queue"></a>Enviar mensagens a uma fila
-Para enviar uma mensagem para uma fila do Barramento de Serviço, seu aplicativo chamará o método `sendQueueMessage` no objeto **ServiceBusService**. Mensagens enviadas para (e recebidas de) as filas do Barramento de Serviço são objetos **BrokeredMessage** e têm um conjunto de propriedades padrão (como **Label** e **TimeToLive**), um dicionário que é usado para manter propriedades personalizadas específicas ao aplicativo e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando uma cadeia de caracteres como a mensagem. As propriedades padrão necessárias são preenchidas com valores padrão.
+## <a name="send-messages-tooa-queue"></a>Mensagens tooa fila de envio
+toosend uma fila de barramento de serviço tooa mensagens, o aplicativo chama Olá `sendQueueMessage` método hello **ServiceBusService** objeto. As mensagens enviadas muito (e recebidas pelo) barramento de serviço filas são **BrokeredMessage** objetos e tem um conjunto de propriedades padrão (como **rótulo** e **TimeToLive**), um dicionário de propriedades específicas do aplicativo personalizadas de toohold usado e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo de saudação da mensagem de saudação, passando uma cadeia de caracteres como mensagem de saudação. As propriedades padrão necessárias são preenchidas com valores padrão.
 
-O exemplo a seguir demonstra como enviar uma mensagem de teste à fila chamada `myqueue` usando `sendQueueMessage`:
+Olá exemplo a seguir demonstra como toosend uma fila de toohello de mensagens de teste chamado `myqueue` usando `sendQueueMessage`:
 
 ```javascript
 var message = {
@@ -141,16 +141,16 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, confira [Service Bus quotas][Service Bus quotas] (Cotas do Barramento de Serviço).
+Filas do barramento de serviço de suportam a um tamanho máximo de 256 KB em Olá [camada padrão](service-bus-premium-messaging.md) e 1 MB de saudação [camada Premium](service-bus-premium-messaging.md). cabeçalho de saudação, que inclui o padrão de saudação e propriedades de aplicativo personalizado, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de saudação da mantidas em uma fila de mensagens, mas há um limite no tamanho total de saudação da mantidas por uma fila de mensagens de saudação. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, confira [Service Bus quotas][Service Bus quotas] (Cotas do Barramento de Serviço).
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-As mensagens são recebidas de uma fila usando o método `receiveQueueMessage` no objeto **ServiceBusService**. Por padrão, as mensagens são excluídas da fila à medida que são lidas; no entanto, você pode ler (pico) e bloquear a mensagem sem excluí-la da fila configurando o parâmetro opcional `isPeekLock` como **true**.
+As mensagens são recebidas de uma fila usando Olá `receiveQueueMessage` método hello **ServiceBusService** objeto. Por padrão, as mensagens serão excluídas da fila de saudação conforme elas são de leitura; No entanto, você pode ler (pico) e bloquear a mensagem de saudação sem excluí-la da fila de saudação pelo parâmetro opcional Olá configuração `isPeekLock` muito**true**.
 
-O comportamento padrão da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+Olá comportamento padrão de leitura e excluindo mensagem de saudação como parte da saudação de operação de recebimento é o modelo mais simples de saudação e funciona melhor nos cenários em que um aplicativo pode tolerar não processando uma mensagem em caso de saudação de falha. toounderstand isso, considere um cenário em que problemas do consumidor Olá Olá receber a solicitação e falha antes de processá-lo. Porque o barramento de serviço será marcou a mensagem de saudação como sendo consumida, em seguida, quando o aplicativo hello reinicia e começa a consumir mensagens novamente, ele terá perdido mensagem de saudação foi consumido falha toohello anterior.
 
-Se o parâmetro `isPeekLock` estiver definido como **true**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método `deleteMessage` e fornecendo a mensagem a ser excluída como um parâmetro. O método `deleteMessage` marcará a mensagem como sendo consumida e a removerá da assinatura.
+Se hello `isPeekLock` parâmetro está definido muito**true**, Olá recebimento torna-se uma operação de dois estágios, o que torna possível toosupport aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe uma solicitação, ele localiza Olá próxima mensagem toobe consumida, boqueia-tooprevent outros consumidores a recebam e retorna toohello aplicativo. Depois que o aplicativo hello termina de processar a mensagem de saudação (ou armazena com segurança para processamento futuro), ele conclui Olá segunda etapa de saudação processo de recebimento chamando `deleteMessage` método e fornecendo toobe de mensagem de saudação excluído como um parâmetro. Olá `deleteMessage` método marca a mensagem de saudação como sendo consumida e remove da fila de saudação.
 
-O exemplo a seguir demonstra como receber e processar mensagens usando `receiveQueueMessage`. Primeiro, o exemplo recebe e exclui uma mensagem, em seguida recebe a mensagem usando `isPeekLock` definido como **true** e, então, exclui a mensagem usando `deleteMessage`:
+Olá exemplo a seguir demonstra como tooreceive e processar mensagens usando `receiveQueueMessage`. Olá exemplo primeiro recebe e exclui uma mensagem e, em seguida, recebe uma mensagem usando `isPeekLock` definido muito**true**, em seguida, exclui hello usando `deleteMessage`:
 
 ```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
@@ -170,15 +170,15 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 });
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como tratar falhas do aplicativo e mensagens ilegíveis
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele chamará o método `unlockMessage` no objeto **ServiceBusService**. Isso fará com que o Service Bus desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
+## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Como o aplicativo de toohandle falha e mensagens ilegíveis
+Barramento de serviço fornece funcionalidade toohelp que normalmente recuperar de erros no seu aplicativo ou dificuldade para processar uma mensagem. Se um aplicativo receptor não puder tooprocess Olá mensagem por algum motivo, em seguida, pode chamar hello `unlockMessage` método hello **ServiceBusService** objeto. Isso causar toounlock do barramento de serviço a mensagem na fila de saudação e torná-lo disponível toobe recebida novamente, o hello pelo mesmo aplicativo ou por outro aplicativo de consumo de consumo.
 
-Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, em caso de falha do aplicativo), o Service Bus desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
+Também há um tempo limite associado a uma mensagem bloqueada em fila hello e se Olá falha de aplicativo hello tooprocess Olá mensagem antes de tempo limite de bloqueio expira (por exemplo, se o aplicativo hello falhar), em seguida, o barramento de serviço desbloquear mensagem de saudação automaticamente e torná-lo disponível toobe recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `deleteMessage` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
+Em Olá evento Olá aplicativo falha após o processamento de mensagem de saudação, mas antes de saudação `deleteMessage` método é chamado, mensagem de saudação será entregue novamente toohello aplicativo quando ele for reiniciado. Isso é geralmente chamado *, pelo menos, após processamento*, ou seja, cada mensagem será processada pelo menos uma vez, mas em certo Olá situações mesma mensagem pode ser entregue novamente. Se o cenário de saudação não puder tolerar o processamento duplicado, os desenvolvedores de aplicativos devem adicionar entrega de mensagens duplicadas lógica adicional tootheir aplicativos toohandle. Isso geralmente é obtido usando Olá **MessageId** propriedade da mensagem de saudação, que permanece constante entre tentativas de entrega.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre filas, veja os seguintes recursos.
+toolearn mais sobre as filas, consulte Olá recursos a seguir.
 
 * [Filas, tópicos e assinaturas][Queues, topics, and subscriptions]
 * Repositório do [SDK do Azure para Node][Azure SDK for Node] no GitHub
@@ -189,7 +189,7 @@ Para saber mais sobre filas, veja os seguintes recursos.
 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Create and deploy a Node.js application to an Azure Website]: ../app-service-web/app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application tooan Azure Website]: ../app-service-web/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

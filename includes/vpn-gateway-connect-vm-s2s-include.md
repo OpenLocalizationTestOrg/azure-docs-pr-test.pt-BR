@@ -1,10 +1,10 @@
-Você pode se conectar a uma VM que é implantada em sua rede virtual criando uma Conexão de Área de trabalho remota para a sua VM. É a melhor maneira de verificar inicialmente se você pode se conectar à sua VM usando seu endereço IP privado, em vez do nome do computador. Dessa forma, você está testando para ver se você pode se conectar, não se a resolução de nomes está configurada corretamente.
+Você pode conectar tooa VM é implantada tooyour VNet, criando um VM do tooyour de Conexão de área de trabalho remota. Hello tooinitially de maneira recomendada verificar se você pode se conectar tooyour VM é tooconnect por usando seu IP privado de endereços, em vez do nome do computador. Dessa forma, você está testando toosee se você puder se conectar, não se a resolução de nomes está configurada corretamente.
 
-1. Localize o endereço IP privado. Você pode encontrar o endereço IP privado de uma VM de várias maneiras. A seguir, mostramos as etapas para o portal do Azure e para o PowerShell.
+1. Localize o endereço IP privado de saudação. Você pode encontrar o endereço IP privado de saudação de uma VM de várias maneiras. A seguir, mostramos etapas Olá Olá portal do Azure e do PowerShell.
 
-  - Porta do Azure - Localize sua máquina virtual do Windows no portal do Azure. Exiba as propriedades para a VM. O endereço IP privado está listado.
+  - Portal do Azure - localizar sua máquina virtual no portal do Azure de saudação. Exibir as propriedades de saudação do hello VM. endereço IP privado de saudação é listado.
 
-  - PowerShell - Use o exemplo para exibir uma lista de VMs e endereços de IP privados dos seus grupos de recursos. Você não precisa modificar esse exemplo antes de usá-lo.
+  - PowerShell - Use Olá exemplo tooview uma lista de máquinas virtuais e endereços IP privados de seus grupos de recursos. Você não precisa toomodify Este exemplo antes de usá-lo.
 
     ```powershell
     $VMs = Get-AzureRmVM
@@ -19,15 +19,15 @@ Você pode se conectar a uma VM que é implantada em sua rede virtual criando um
     }
     ```
 
-2. Verifique se você está conectado à sua rede virtual usando a conexão VPN.
-3. Abra a **Conexão de Área de Trabalho Remota**, digitando "RDP" ou "Conexão de Área de Trabalho Remota" na caixa de pesquisa na barra de tarefas e, em seguida, selecione a Conexão de Área de Trabalho Remota. Você também pode abrir a Conexão de Área de Trabalho Remota usando o comando 'mstsc' no PowerShell. 
-4. Na Conexão de Área de Trabalho Remota, insira o endereço IP privado da VM. Você pode clicar em "Mostrar opções" para ajustar as configurações adicionais, em seguida, conectar-se.
+2. Verifique se você está conectado tooyour VNet usando a conexão de VPN hello.
+3. Abra **Conexão de área de trabalho remota** digitando "RDP" ou "Conexão de área de trabalho remota" na caixa de pesquisa de saudação na barra de tarefas hello, em seguida, selecionar Conexão de área de trabalho remota. Você também pode abrir a Conexão de área de trabalho remota usando o comando de 'mstsc' hello no PowerShell. 
+4. Na Conexão de área de trabalho remota, insira o endereço IP privado de saudação do hello VM. Você pode em configurações adicionais de tooadjust "Mostrar opções", e se conectar.
 
-### <a name="to-troubleshoot-an-rdp-connection-to-a-vm"></a>Para solucionar problemas de uma conexão de RDP para uma VM
+### <a name="tootroubleshoot-an-rdp-connection-tooa-vm"></a>tootroubleshoot uma conexão de RDP tooa VM
 
-Se você estiver tendo problemas para se conectar a uma máquina virtual em sua conexão VPN, verifique o seguinte:
+Se você estiver tendo problemas para se conectar a máquina virtual de tooa sobre sua conexão VPN, verifique o seguinte hello:
 
 - Verifique se a conexão VPN é estabelecida.
-- Verifique se você está se conectando ao endereço IP privado para a VM.
-- Se você puder se conectar à VM usando o endereço IP privado, mas não o nome do computador, verifique se você configurou o DNS corretamente. Para obter mais informações sobre como funciona a resolução de nome para VMs, confira [Resolução de nomes para VMs](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-- Para obter mais informações sobre conexões RDP, confira [Solucionar problemas de conexões da Área de Trabalho Remota a uma VM](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).
+- Verifique se você estiver se conectando a endereço IP privado de toohello para Olá VM.
+- Se você puder se conectar toohello VM usando IP privado Olá endereço, mas não Olá nome do computador, verifique se você configurou o DNS corretamente. Para obter mais informações sobre como funciona a resolução de nome para VMs, confira [Resolução de nomes para VMs](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+- Para obter mais informações sobre conexões RDP, consulte [tooa de conexões de área de trabalho remota solucionar VM](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md).

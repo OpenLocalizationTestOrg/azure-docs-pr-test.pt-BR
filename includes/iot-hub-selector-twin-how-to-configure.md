@@ -7,20 +7,20 @@
 
 ## <a name="introduction"></a>Introdução
 
-Em [Introdução a dispositivos gêmeos do Hub IoT][lnk-twin-tutorial], você aprendeu a definir metadados de dispositivo do back-end de solução usando *marcas*, relatar as condições de dispositivo de um aplicativo de dispositivo usando *propriedades relatadas* e consultar essas informações usando uma linguagem semelhante a SQL.
+Em [começar com twins de dispositivo do IoT Hub][lnk-twin-tutorial], você aprendeu como tooset metadados do dispositivo de volta a sua solução final usando *marcas*, reporte as condições de dispositivo de um aplicativo de dispositivo usando *relatado propriedades*e consultar essas informações usando uma linguagem SQL.
 
-Neste tutorial, você aprenderá a usar as *propriedades desejadas* do dispositivo gêmeo juntamente com as *propriedades relatadas*, para configurar os remotamente os aplicativos de dispositivo. Mais especificamente, este tutorial mostra como as propriedades relatadas e desejadas de um dispositivo gêmeo habilitam uma configuração de várias etapas de um aplicativo de dispositivo e fornecem a visibilidade para o back-end de solução do status da operação em todos os dispositivos. Você pode encontrar mais informações sobre a função das configurações do dispositivo em [Visão geral do gerenciamento de dispositivos com o Hub IoT][lnk-dm-overview].
+Neste tutorial, você aprenderá como toouse Olá do duas do dispositivo Olá *propriedades desejadas* juntamente com *relatado propriedades*, tooremotely configurar aplicativos de dispositivo. Mais especificamente, este tutorial mostra como uma duas de dispositivo relatado e propriedades desejadas habilite uma configuração de várias etapa de um aplicativo de dispositivo e fornecem Olá visibilidade toohello solução back-end de status Olá dessa operação em todos os dispositivos. Você pode encontrar mais informações sobre a função hello das configurações de dispositivo em [visão geral do gerenciamento de dispositivos com o IoT Hub][lnk-dm-overview].
 
-Em um nível elevado, usar dispositivos gêmeos permite que o back-end de solução especifique as configurações desejadas para os dispositivos gerenciados, em vez de enviar comandos específicos. Isso faz com que o dispositivo seja responsável por definir a melhor maneira de atualizar sua configuração (muito importante em cenários de IoT em que condições específicas de dispositivo afetam a capacidade de executar imediatamente comandos específicos), enquanto relata continuamente para o back-end da solução o estado atual e possíveis condições de erro do processo de atualização. Esse padrão é fundamental para o gerenciamento de grandes conjuntos de dispositivos, pois ele permite que o back-end da solução tenha visibilidade total do estado do processo de configuração em todos os dispositivos.
+Em um nível alto, usar twins dispositivo habilita Olá solução back-end toospecify Olá desejado configuração para dispositivos Olá gerenciado, em vez de enviar comandos específicos. Isso coloca o dispositivo Olá responsável por configurar Olá melhor maneira tooupdate sua configuração (muito importante em cenários de IoT onde as condições de dispositivo específico afetam Olá capacidade tooimmediately executadas comandos específicos), ao relatar continuamente toohello solução novamente terminar o estado atual da saudação e possíveis condições de erro do processo de atualização de saudação. Esse padrão é toohello fundamental para o gerenciamento de grandes conjuntos de dispositivos, pois permite Olá solução back-end toohave visibilidade total do estado de saudação do processo de configuração de saudação em todos os dispositivos.
 
 > [!NOTE]
 > Em cenários em que os dispositivos são controlados de forma mais interativa (ativar um ventilador por meio de um aplicativo controlado pelo usuário), considere usar [métodos diretos][lnk-methods].
 > 
 > 
 
-Neste tutorial, o back-end de solução altera a configuração de telemetria de um dispositivo de destino e, como resultado disso, o aplicativo do dispositivo segue um processo de várias etapas para aplicar uma atualização de configuração (por exemplo, exigir a reinicialização de um módulo de software, que este tutorial simula com um atraso simples).
+Neste tutorial, alterações de back-end de solução de saudação configuração de telemetria de saudação de um dispositivo de destino e, como resultado que, o aplicativo de dispositivo Olá segue um processo de várias etapas de tooapply uma configuração de atualização (por exemplo, que requerem a reinicialização de módulo de software, que esse tutorial simula com um atraso simple).
 
-O back-end de solução armazena a configuração nas propriedades desejadas do gêmeo do dispositivo da seguinte maneira:
+back-end de solução Olá armazena a configuração de saudação nas propriedades desejada do duas do dispositivo Olá Olá maneira a seguir:
 
         {
             ...
@@ -28,7 +28,7 @@ O back-end de solução armazena a configuração nas propriedades desejadas do 
                 ...
                 "desired": {
                     "telemetryConfig": {
-                        "configId": "{id of the configuration}",
+                        "configId": "{id of hello configuration}",
                         "sendFrequency": "{config}"
                     }
                 }
@@ -38,18 +38,18 @@ O back-end de solução armazena a configuração nas propriedades desejadas do 
         }
 
 > [!NOTE]
-> Como as configurações podem ser objetos complexos, geralmente são atribuídos a IDs exclusivas (hashes ou [GUIDs][lnk-guid]) para simplificar suas comparações.
+> Como as configurações podem ser objetos complexos, elas geralmente são atribuídas ids exclusivas (hashes ou [GUIDs][lnk-guid]) toosimplify seus comparações.
 > 
 > 
 
-O aplicativo do dispositivo relata sua configuração atual espelhando a propriedade desejada **telemetryConfig** nas propriedades relatadas:
+aplicativo de dispositivo Hello relatórios sua configuração atual de espelhamento propriedade Olá desejado **telemetryConfig** no hello reportada propriedades:
 
         {
             "properties": {
                 ...
                 "reported": {
                     "telemetryConfig": {
-                        "changeId": "{id of the current configuration}",
+                        "changeId": "{id of hello current configuration}",
                         "sendFrequency": "{current configuration}",
                         "status": "Success",
                     }
@@ -58,20 +58,20 @@ O aplicativo do dispositivo relata sua configuração atual espelhando a proprie
             }
         }
 
-Observe como o relatório **telemetryConfig** tem uma propriedade adicional **status**, usada para relatar o estado do processo de atualização de configuração.
+Observe como Olá relatadas **telemetryConfig** tem uma propriedade adicional **status**, usado tooreport estado de saudação do processo de atualização de configuração de saudação.
 
-Quando uma nova configuração desejada é recebida, o aplicativo de dispositivo relata uma configuração pendente alterando as informações:
+Quando uma nova configuração desejada é recebida, aplicativo de dispositivo Olá relata uma configuração pendente alterando Olá informações:
 
         {
             "properties": {
                 ...
                 "reported": {
                     "telemetryConfig": {
-                        "changeId": "{id of the current configuration}",
+                        "changeId": "{id of hello current configuration}",
                         "sendFrequency": "{current configuration}",
                         "status": "Pending",
                         "pendingConfig": {
-                            "changeId": "{id of the pending configuration}",
+                            "changeId": "{id of hello pending configuration}",
                             "sendFrequency": "{pending configuration}"
                         }
                     }
@@ -80,13 +80,13 @@ Quando uma nova configuração desejada é recebida, o aplicativo de dispositivo
             }
         }
 
-Em seguida, posteriormente, o aplicativo do dispositivo relatará o sucesso ou a falha dessa operação atualizando a propriedade acima.
-Observe como o back-end da solução é capaz de, a qualquer momento, consultar o status do processo de configuração em todos os dispositivos.
+Em seguida, posteriormente, Olá dispositivo aplicativo será relatar Olá êxito ou falha dessa operação atualizando Olá acima de propriedade.
+Observe como solução Olá back-end é a capacidade, a qualquer momento, o status de saudação tooquery do processo de configuração de saudação em todos os dispositivos de saudação.
 
 Este tutorial mostra como:
 
-* Criar um aplicativo de dispositivo simulado que recebe atualizações de configuração de back-end da solução e relata várias atualizações como *propriedades relatadas* no processo de atualização da configuração.
-* Crie um aplicativo de back-end que atualiza a configuração desejada de um dispositivo e consulta o processo de atualização de configuração.
+* Criar um aplicativo de dispositivo simulado que recebe atualizações de configuração de back-end de solução hello e relatórios de várias atualizações como *relatado propriedades* na configuração de saudação o processo de atualização.
+* Crie um aplicativo de back-end que atualizações Olá configuração desejada de um dispositivo e, em seguida, consultas Olá o processo de atualização de configuração.
 
 <!-- links -->
 

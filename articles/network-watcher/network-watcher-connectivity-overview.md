@@ -1,6 +1,6 @@
 ---
-title: "Introdução à verificação de conectividade no Observador de Rede do Azure | Microsoft Docs"
-description: "Esta página apresenta uma visão geral da capacidade de conectividade do Observador de Rede"
+title: "seleção de tooconnectivity aaaIntroduction no Inspetor de rede do Azure | Microsoft Docs"
+description: "Esta página fornece uma visão geral da saudação capacidade de conectividade do observador de rede"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,46 +13,46 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
-ms.openlocfilehash: c29f5afe59f57112fe1f115df6bc53645f3c0d34
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 52fc4547f167cea2992a046859dc0550d136e80d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-connectivity-check-in-azure-network-watcher"></a>Introdução à verificação de conectividade no Observador de Rede do Azure
+# <a name="introduction-tooconnectivity-check-in-azure-network-watcher"></a>Introdução tooconnectivity seleção no Inspetor de rede do Azure
 
-O recurso de conectividade do Observador de Rede fornece a capacidade de verificar uma conexão TCP direta de uma máquina virtual a uma VM (máquina virtual), FQDN (nome de domínio totalmente qualificado), URI ou endereço IPv4. Os cenários de rede são complexos, são implementados usando Grupos de Segurança de Rede, firewalls, rotas definidas pelo usuário e recursos fornecidos pelo Azure. Configurações complexas tornam a solução de problemas de conectividade desafiadora. O Observador de Rede ajuda a reduzir a quantidade de tempo para localizar e detectar problemas de conectividade. Os resultados retornados podem fornecer informações sobre se um problema de conectividade é devido a uma plataforma ou um problema de configuração do usuário. A conectividade pode ser verificada com o [PowerShell](network-watcher-connectivity-powershell.md), a [CLI do Azure](network-watcher-connectivity-cli.md) e a [API REST](network-watcher-connectivity-rest.md).
+Olá recurso de conectividade do observador de rede fornece Olá recurso toocheck uma conexão TCP direta de uma máquina virtual tooa máquina virtual (VM), o nome de domínio totalmente qualificado (FQDN), URI, ou o endereço IPv4. Os cenários de rede são complexos, são implementados usando Grupos de Segurança de Rede, firewalls, rotas definidas pelo usuário e recursos fornecidos pelo Azure. Configurações complexas tornam a solução de problemas de conectividade desafiadora. Observador de rede ajuda a reduzir Olá toofind tempo e detectar problemas de conectividade. resultados de saudação retornados podem fornecer informações sobre se um problema de conectividade é devido a plataforma de tooa ou um problema de configuração do usuário. A conectividade pode ser verificada com o [PowerShell](network-watcher-connectivity-powershell.md), a [CLI do Azure](network-watcher-connectivity-cli.md) e a [API REST](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão de saudação em uma VM do Windows, visite [extensão de máquina virtual do agente do Inspetor de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a visita de VM do Linux [extensão de máquina virtual do agente do Inspetor de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="response"></a>Resposta
 
-A tabela a seguir mostra as propriedades retornadas quando uma verificação de conectividade conclui a execução.
+Olá, a tabela a seguir mostra as propriedades de saudação retornadas quando uma verificação de conectividade concluiu a execução.
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|ConnectionStatus     | O status da verificação de conectividade. Os resultados possíveis são **Acessível** e **Inacessível**.        |
-|AvgLatencyInMs     | Latência média durante a verificação de conectividade em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
-|MinLatencyInMs     | Latência mínima durante a verificação de conectividade em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
-|MaxLatencyInMs     | Latência máxima durante a verificação de conectividade em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
-|ProbesSent     | Número de investigações enviadas durante a verificação. O valor máximo é de 100.        |
-|ProbesFailed     | Número de investigações que falharam durante a verificação. O valor máximo é de 100.        |
-|Hops     | Caminho salto a salto da origem ao destino.        |
+|ConnectionStatus     | status de saudação de verificação de conectividade de saudação. Os resultados possíveis são **Acessível** e **Inacessível**.        |
+|AvgLatencyInMs     | Latência média durante a verificação de conectividade de saudação em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
+|MinLatencyInMs     | Verificação de latência mínima durante a conectividade de saudação em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
+|MaxLatencyInMs     | Latência máxima durante conectividade Olá verificação em milissegundos. (Exibido somente se a verificação de status estiver acessível)        |
+|ProbesSent     | Número de investigações enviada durante a verificação de saudação. O valor máximo é de 100.        |
+|ProbesFailed     | Número de testes que falharam durante a verificação de saudação. O valor máximo é de 100.        |
+|Hops     | Salto pelo caminho de nó de origem toodestination.        |
 |Hops[].Type     | Tipo de recurso. Os valores possíveis são **Source**, **VirtualAppliance**, **VnetLocal** e **Internet**.        |
-|Hops[].Id | Identificador exclusivo do salto.|
-|Hops[].Address | Endereço IP do salto.|
-|Hops[].ResourceId | ResourceID do salto se o salto for um recurso do Azure. Se for um recurso de Internet, ResourceID será **Internet**. |
-|Hops[].NextHopIds | O identificador exclusivo do próximo salto dado.|
-|Hops[].Issues | Uma coleção dos problemas encontrados durante a verificação do salto. Se não houver problemas, o valor ficará em branco.|
-|Hops[].Issues[].Origin | No salto atual, o ponto em que o problema ocorreu. Os valores possíveis são:<br/> **Entrada** – o problema está no link do salto anterior para o salto atual<br/>**Saída** – o problema está no link do salto atual para o próximo salto<br/>**Local** – problema está no salto atual.|
-|Hops[].Issues[].Severity | A gravidade do problema detectado. Os valores possíveis são **Erro** e **Aviso**. |
-|Hops[].Issues[].Type |O tipo de problema encontrado. Os valores possíveis são: <br/>**CPU**<br/>**Memória**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
-|Hops[].Issues[].Context |Detalhes sobre o problema encontrado.|
-|Hops[].Issues[].Context[].key |Chave do par chave-valor retornado.|
-|Hops[].Issues[].Context[].value |Valor do par chave-valor retornado.|
+|Hops[].Id | Identificador exclusivo do nó de saudação.|
+|Hops[].Address | Endereço IP de salto hello.|
+|Hops[].ResourceId | ResourceID do salto Olá se salto Olá é um recurso do Azure. Se for um recurso de Internet, ResourceID será **Internet**. |
+|Hops[].NextHopIds | Identificador exclusivo de saudação do próximo salto de saudação tomado.|
+|Hops[].Issues | Uma coleção dos problemas encontrados durante a verificação de saudação a esse salto. Se não houver nenhum problema, o valor de saudação é em branco.|
+|Hops[].Issues[].Origin | No nó de atual de hello, onde o problema ocorreu. Os valores possíveis são:<br/> **Entrada** -se no link de saudação do atual-salto anterior toohello de salto Olá<br/>**Saída** -se no link de saudação do next-hop atual toohello de salto Olá<br/>**Local** -problema é salto atual hello.|
+|Hops[].Issues[].Severity | severidade Olá Olá problema detectado. Os valores possíveis são **Erro** e **Aviso**. |
+|Hops[].Issues[].Type |tipo de saudação do problema encontrado. Os valores possíveis são: <br/>**CPU**<br/>**Memória**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Hops[].Issues[].Context |Detalhes sobre o problema de saudação encontrado.|
+|Hops[].Issues[].Context[].key |Chave do par chave-valor de saudação retornado.|
+|Hops[].Issues[].Context[].value |O valor do par chave-valor de saudação retornado.|
 
-O seguinte é um exemplo de um problema encontrado em um salto.
+a seguir Olá é um exemplo de um problema encontrado em um nó.
 
 ```json
 "Issues": [
@@ -71,20 +71,20 @@ O seguinte é um exemplo de um problema encontrado em um salto.
 ```
 ## <a name="fault-types"></a>Tipos de Falha
 
-A verificação de conectividade retorna tipos de falha sobre a conexão. A tabela a seguir fornece uma lista dos tipos de falhas atuais retornados.
+verificação de conectividade Olá retorna tipos de falhas sobre conexão hello. Olá tabela a seguir fornece uma lista de tipos de falhas atual hello retornadas.
 
 |Tipo  |Descrição  |
 |---------|---------|
 |CPU     | Alta utilização da CPU.       |
 |Memória     | Alta utilização de memória.       |
-|GuestFirewall     | O tráfego é bloqueado devido a uma configuração de firewall da máquina virtual.        |
-|DNSResolution     | Falha na resolução DNS para o endereço de destino.        |
+|GuestFirewall     | O tráfego é bloqueado devido a configuração de firewall tooa máquina virtual.        |
+|DNSResolution     | Falha na resolução DNS para o endereço de destino hello.        |
 |NetworkSecurityRule    | O tráfego é bloqueado por uma Regra NSG (a Regra é retornada)        |
-|UserDefinedRoute|O tráfego é descartado devido a uma rota do sistema ou definida pelo usuário. |
+|UserDefinedRoute|O tráfego é descartado devido definida pelo usuário de tooa ou rota do sistema. |
 
 ### <a name="next-steps"></a>Próximas etapas
 
-Saiba como verificar a conectividade a um recurso visitando: [verificar a conectividade com o Observador de Rede do Azure](network-watcher-connectivity-powershell.md).
+Saiba como recursos de tooa tooverify conectividade visitando: [Verifique a conectividade com o observador de rede do Azure](network-watcher-connectivity-powershell.md).
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png

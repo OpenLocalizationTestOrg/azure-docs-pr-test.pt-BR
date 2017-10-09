@@ -1,6 +1,6 @@
 ---
-title: "Monitoramento de operações de Hub IoT do Azure | Microsoft Docs"
-description: "Como usar o monitoramento das operações do Hub IoT do Azure para monitorar o status das operações no seu Hub IoT em tempo real."
+title: "monitoramento de operações de Hub IoT aaaAzure | Microsoft Docs"
+description: "Como as operações de Azure IoT Hub toouse monitoramento toomonitor Olá status das operações em seu hub IoT em tempo real."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.openlocfilehash: b6de5c5df5f9401a41be152bfa06eb994594e83d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a0b233ef2d9bd0827e19fa30fdbdd49b2b61b813
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitoramento de operações do Hub IoT
 
-O monitoramento das operações do Hub IoT permite monitorar o status das operações no seu Hub IoT em tempo real. O Hub IoT controla eventos em várias categorias de operações. Você pode aceitar o envio de eventos de uma ou mais categorias para um ponto de extremidade do seu Hub IoT para processamento. É possível monitorar os dados em busca de erros ou configurar processamento mais complexo com base nos padrões de dados.
+Monitoramento de operações de IoT Hub permite toomonitor status de saudação de operações em seu hub IoT em tempo real. O Hub IoT controla eventos em várias categorias de operações. Você pode optar por enviar eventos de um ou mais categorias tooan ponto de extremidade do seu hub IoT para processamento. Você pode monitorar dados Olá erros ou configurar o processamento mais complexo com base nos padrões de dados.
 
 O Hub IoT monitora seis categorias de eventos:
 
@@ -33,28 +33,28 @@ O Hub IoT monitora seis categorias de eventos:
 * Carregamentos de arquivos
 * Roteamento de mensagem
 
-## <a name="how-to-enable-operations-monitoring"></a>Como habilitar o monitoramento de operações
+## <a name="how-tooenable-operations-monitoring"></a>Como tooenable operações de monitoramento
 
-1. Crie um Hub IoT. Você pode encontrar instruções sobre como criar um Hub IoT no guia de [Introdução][lnk-get-started].
+1. Crie um Hub IoT. Você pode encontrar instruções sobre como toocreate um hub IoT Olá [começar] [ lnk-get-started] guia.
 
-1. Abra a folha do seu Hub IoT. Nela, clique em **Monitoramento de operações**.
+1. Abra a folha de saudação do seu hub IoT. Nela, clique em **Monitoramento de operações**.
 
-    ![Acessar a configuração do monitoramento de operações no portal][1]
+    ![Operações de acesso de monitoramento de configuração no portal de saudação][1]
 
-1. Selecione as categorias de monitoramento que deseja monitorar e, em seguida, clique em **Salvar**. Os eventos estão disponíveis para leitura no ponto de extremidade compatível com o Hub de Eventos listado em **Configurações de monitoramento**. O ponto de extremidade do Hub IoT chama-se `messages/operationsmonitoringevents`.
+1. Selecione Olá monitoramento categorias que você deseja toomonitor e, em seguida, clique em **salvar**. Olá eventos estão disponíveis para leitura do ponto de extremidade de saudação compatível com o Hub de evento listada na **configurações de monitoramento**. Olá ponto de extremidade de IoT Hub é chamado `messages/operationsmonitoringevents`.
 
     ![Configurar o monitoramento de operações no Hub IoT][2]
 
 > [!NOTE]
-> A seleção do monitoramento **Detalhado** para a categoria **Conexões** faz com que o Hub IoT gere mensagens de diagnóstico adicionais. Para todas as outras categorias, a configuração **Detalhada** muda a quantidade de informações incluídas pelo Hub IoT em cada mensagem de erro.
+> Selecionando **detalhado** monitoramento para Olá **conexões** categoria faz com que o IoT Hub toogenerate mensagens de diagnósticos adicionais. Para todas as outras categorias, Olá **detalhado** quantidade de saudação do IoT Hub de informações de alterações de configuração incluem em cada mensagem de erro.
 
-## <a name="event-categories-and-how-to-use-them"></a>Categorias de evento e como usá-las
+## <a name="event-categories-and-how-toouse-them"></a>Categorias de evento e como toouse-los
 
 Cada categoria de monitoramento de operações rastreia um tipo diferente de interação com o Hub IoT e cada categoria de monitoramento tem um esquema que define como os eventos nessa categoria são estruturados.
 
 ### <a name="device-identity-operations"></a>Operações de identidade do dispositivo
 
-A categoria de operações de identidade do dispositivo rastreia erros que ocorrem quando você tenta criar, atualizar ou excluir uma entrada no registro de identidade do seu Hub IoT. O rastreamento dessa categoria é útil em cenários de provisionamento.
+categoria de operações de identidade de dispositivo Olá rastreia erros que ocorrem durante a tentativa de toocreate, atualizar ou excluir uma entrada no registro de identidade do seu hub IoT. O rastreamento dessa categoria é útil em cenários de provisionamento.
 
 ```json
 {
@@ -73,7 +73,7 @@ A categoria de operações de identidade do dispositivo rastreia erros que ocorr
 
 ### <a name="device-telemetry"></a>Telemetria de dispositivo
 
-A categoria de telemetria de dispositivo rastreia erros que ocorrem no Hub IoT e estão relacionados ao pipeline de telemetria. Essa categoria inclui erros que ocorrem no envio de eventos de telemetria (como limitação) e no recebimento de eventos de telemetria (como leitor não autorizado). Essa categoria não pode capturar erros causados pelo código em execução no próprio dispositivo.
+categoria de telemetria do dispositivo Olá rastreia erros que ocorrem no hub IoT de saudação e pipeline de telemetria toohello relacionados. Essa categoria inclui erros que ocorrem no envio de eventos de telemetria (como limitação) e no recebimento de eventos de telemetria (como leitor não autorizado). Esta categoria não pode capturar erros causados pelo código em execução no dispositivo de saudação em si.
 
 ```json
 {
@@ -97,7 +97,7 @@ A categoria de telemetria de dispositivo rastreia erros que ocorrem no Hub IoT e
 
 ### <a name="cloud-to-device-commands"></a>Comandos da nuvem para o dispositivo
 
-A categoria de comandos da nuvem para o dispositivo rastreia erros que ocorrem no Hub IoT e são relacionados ao pipeline de mensagem da nuvem para o dispositivo. Essa categoria inclui erros que ocorrem no envio (tal como remetente não autorizado) e recebimento (como contagem de entrega excedida) de mensagens da nuvem para o dispositivo e no recebimento de comentários de mensagens da nuvem para o dispositivo (como comentário expirado). Essa categoria não capturará erros de um dispositivo que manipula incorretamente uma mensagem da nuvem para o dispositivo se tal mensagem tiver sido entregue com êxito.
+categoria de comandos de nuvem para dispositivo Olá rastreia erros que ocorrem no hub IoT de saudação e pipeline de mensagem de nuvem para dispositivo toohello relacionados. Essa categoria inclui erros que ocorrem no envio (tal como remetente não autorizado) e recebimento (como contagem de entrega excedida) de mensagens da nuvem para o dispositivo e no recebimento de comentários de mensagens da nuvem para o dispositivo (como comentário expirado). Esta categoria não capturar erros de um dispositivo que manipula incorretamente uma mensagem de nuvem para dispositivo se a mensagem de saudação do nuvem para dispositivo foi entregue com êxito.
 
 ```json
 {
@@ -121,7 +121,7 @@ A categoria de comandos da nuvem para o dispositivo rastreia erros que ocorrem n
 
 ### <a name="connections"></a>Conexões
 
-A categoria de conexões rastreia erros que ocorrem quando os dispositivos se conectam a um Hub IoT ou se desconectam dele. Rastrear essa categoria é útil para identificar tentativas de conexão não autorizada e para saber quando dispositivos em áreas de conectividade ruim perdem conexão.
+categoria de conexões Olá rastreia erros que ocorrem quando os dispositivos se conectar ou desconectar um hub IoT. Rastrear essa categoria é útil para identificar tentativas de conexão não autorizada e para saber quando dispositivos em áreas de conectividade ruim perdem conexão.
 
 ```json
 {
@@ -141,13 +141,13 @@ A categoria de conexões rastreia erros que ocorrem quando os dispositivos se co
 
 ### <a name="file-uploads"></a>Carregamentos de arquivos
 
-A categoria de carregamento de arquivo rastreia erros que ocorrem no Hub IoT e estão relacionados à funcionalidade de carregamento de arquivo. Essa categoria inclui:
+categoria de carregamento de arquivo Hello rastreia erros que ocorrem no hub IoT de saudação e funcionalidade de carregamento de toofile relacionados. Essa categoria inclui:
 
-* Erros que ocorrem com o URI de SAS, como quando ele expirar antes que um dispositivo notifique o hub de um carregamento concluído.
-* Carregamentos com falha relatados pelo dispositivo.
+* Erros que ocorrem com hello SAS URI, como quando ele expirar antes que um dispositivo notifica o hub de saudação de um carregamento concluído.
+* Falha carregamentos relatados pelo dispositivo hello.
 * Erros que ocorrem quando um arquivo não for encontrado no armazenamento durante a criação de mensagem de notificação do Hub IoT.
 
-Essa categoria não pode capturar erros que ocorrem diretamente enquanto o dispositivo está carregando um arquivo no armazenamento.
+Esta categoria não pode capturar erros que ocorrem diretamente ao dispositivo hello está carregando um arquivo toostorage.
 
 ```json
 {
@@ -168,7 +168,7 @@ Essa categoria não pode capturar erros que ocorrem diretamente enquanto o dispo
 
 ### <a name="message-routing"></a>Roteamento de mensagem
 
-A categoria de roteamento de mensagem acompanha os erros que ocorrem durante a avaliação da rota da mensagem e da integridade do ponto de extremidade, conforme visto pelo Hub IoT. Essa categoria inclui eventos, por exemplo, quando uma regra é avaliada como "não definida", quando o Hub IoT marca um ponto de extremidade como inativo e todos os outros erros são recebidos de um ponto de extremidade. Essa categoria não inclui erros específicos sobre as próprias mensagens (como erros de limitação de dispositivo), que são relatados na categoria "telemetria de dispositivo".
+categoria de roteamento de mensagem de saudação rastreia erros que ocorrem durante a avaliação de rota de mensagem e a integridade do ponto de extremidade conforme percebido pelo IoT Hub. Essa categoria inclui eventos, como quando uma regra é avaliada muito "indefinidos", ao IoT Hub marca um ponto de extremidade como inativo e todos os outros erros recebidos de um ponto de extremidade. Esta categoria não inclui erros específicos sobre mensagens de saudação si (como dispositivo erros de limitação), que são relatados na categoria de "telemetria do dispositivo" hello.
 
 ```json
 {
@@ -187,49 +187,49 @@ A categoria de roteamento de mensagem acompanha os erros que ocorrem durante a a
 
 ## <a name="view-events"></a>Exibir eventos
 
-Você pode usar a ferramenta *iothub explorer* para testar rapidamente se o Hub IoT está gerando eventos de monitoramento. Para instalar a ferramenta, consulte as instruções no repositório do GitHub [iothub-explorer][lnk-iothub-explorer].
+Você pode usar o hello *Gerenciador de Hub IOT* tooquickly da ferramenta de teste que o hub IoT está gerando eventos de monitoramento. Olá tooinstall ferramenta, consulte as instruções de Olá Olá [Gerenciador de Hub IOT] [ lnk-iothub-explorer] repositório GitHub.
 
-1. Certifique-se de que a categoria de monitoramento **Conexões** esteja definida como **Detalhadas** no portal.
+1. Verifique se Olá **conexões** monitoramento categoria está definido muito**detalhado** no portal de saudação.
 
-1. No prompt de comando, execute o seguinte comando para ler do ponto de extremidade de monitoramento:
+1. No prompt de comando, execute Olá após o comando tooread Olá monitoramento de ponto de extremidade:
 
     ```
     iothub-explorer monitor-ops --login {your iothubowner connection string}
     ```
 
-1. Em outro prompt de comando, execute o seguinte comando para simular um dispositivo enviando mensagens do dispositivo para a nuvem:
+1. No prompt de comando outra, execute Olá toosimulate de comando a seguir um dispositivo de envio de mensagens de dispositivo para nuvem:
 
     ```
     iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
     ```
 
-1. O primeiro prompt de comando mostra os eventos de monitoramento conforme o dispositivo simulado se conecta ao seu Hub IoT.
+1. prompt de comando da primeira Olá mostra eventos de monitoramento de saudação como dispositivo simulado Olá conecta tooyour hub IoT.
 
-## <a name="connect-to-the-monitoring-endpoint"></a>Conectar-se ao ponto de extremidade de monitoramento
+## <a name="connect-toohello-monitoring-endpoint"></a>Conecte-se toohello monitoramento de ponto de extremidade
 
-O ponto de extremidade de monitoramento em seu Hub IoT é um ponto de extremidade compatível com o Hub de Eventos. Você pode usar qualquer mecanismo que funciona com os Hubs de Eventos para ler mensagens de monitoramento desse ponto de extremidade. A amostra a seguir cria um leitor básico que não é adequado para uma implantação com alta taxa de transferência. Para obter mais informações sobre como processar as mensagens dos Hubs de Eventos, confira o tutorial [Introdução aos Hubs de Eventos][lnk-eventhubs-tutorial].
+Olá, monitoramento de ponto de extremidade em seu hub IoT é um ponto de extremidade compatível com o evento Hub. Você pode usar qualquer mecanismo que funciona com Hubs de eventos tooread monitoramentos mensagens esse ponto de extremidade. Olá, exemplo a seguir cria um leitor básico que não é adequado para uma implantação de alta taxa de transferência. Para obter mais informações sobre como tooprocess mensagens de Hubs de eventos, consulte Olá [Introdução aos Hubs de eventos] [ lnk-eventhubs-tutorial] tutorial.
 
-Para se conectar ao ponto de extremidade de monitoramento, você precisa de uma cadeia de conexão e do nome do ponto de extremidade. As etapas a seguir mostram como localizar os valores necessários no portal:
+tooconnect toohello ponto de extremidade monitoramento, é necessário um nome de ponto de extremidade de saudação e de cadeia de caracteres de conexão. Olá, as etapas a seguir mostra como toofind Olá valores necessários no portal de saudação:
 
-1. No portal, navegue até a folha de recursos do Hub IoT.
+1. No portal de hello, navegue até tooyour folha de recursos de IoT Hub.
 
-1. Escolha **Monitoramento de operações** e anote os valores do **Nome compatível com o Hub de Eventos** e do **Ponto de extremidade compatível com o Hub de Eventos**:
+1. Escolha **monitoramento das operações**e anote Olá **nome compatível com o evento Hub** e **ponto de extremidade compatível com o evento Hub** valores:
 
     ![Valores de ponto de extremidade compatível com o Hub de Eventos][img-endpoints]
 
-1. Escolha **Políticas de acesso compartilhado** e, em seguida, escolha **serviço**. Anote o valor da **Chave primária**:
+1. Escolha **Políticas de acesso compartilhado** e, em seguida, escolha **serviço**. Anote Olá **chave primária** valor:
 
     ![Chave primária de política de acesso compartilhado de serviço][img-service-key]
 
-O exemplo de código C# a seguir provém de um aplicativo de console C# da **Área de Trabalho Clássica do Windows** do Visual Studio. O projeto tem o pacote do NuGet **WindowsAzure.ServiceBus** instalado.
+Olá seguinte exemplo de código c# é obtido de um Visual Studio **área de trabalho clássica do Windows** o aplicativo de console c#. projeto de saudação tem Olá **windowsazure. ServiceBus** pacote do NuGet instalada.
 
-* Substitua o espaço reservado da cadeia de conexão por uma cadeia de conexão que usa os valores de **ponto de extremidade compatível com o Hub de Eventos** e **Chave primária** do serviço anotados anteriormente, conforme mostrado no exemplo a seguir:
+* Substitua o espaço reservado de cadeia de caracteres de conexão Olá com uma cadeia de caracteres de conexão que usa Olá **ponto de extremidade compatível com o evento Hub** e serviço **chave primária** valores anotados anteriormente, conforme mostrado na seguinte Olá exemplo:
 
     ```cs
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
-* Substitua o espaço reservado nome de ponto de extremidade de monitoramento pelo valor de **Nome compatível com o Hub de Eventos** que você anotou anteriormente.
+* Substituir saudação monitoramento de espaço reservado para nome de ponto de extremidade com hello **nome compatível com o evento Hub** valor que você anotou anteriormente.
 
 ```cs
 class Program
@@ -240,7 +240,7 @@ class Program
 
     static void Main(string[] args)
     {
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n");
+        Console.WriteLine("Monitoring. Press Enter key tooexit.\n");
 
         eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName);
         var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds;
@@ -282,7 +282,7 @@ class Program
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+toofurther explorar recursos de saudação do IoT Hub, consulte:
 
 * [Guia do desenvolvedor do Hub IoT][lnk-devguide]
 * [Simulando um dispositivo com Azure IoT Edge][lnk-iotedge]

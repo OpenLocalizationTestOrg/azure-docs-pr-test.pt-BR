@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: eae4c112accaefa8bd1bf85f7b43badc2f491dfd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: cc7add6273e66aadeca9a4915a44f5edf61a0a59
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting"></a>Solucionar problemas
 
@@ -28,21 +28,21 @@ ms.lasthandoff: 08/03/2017
 
 ### <a name="ti-sensortag-cannot-be-connected"></a>SensorTag de TI não pode ser conectado
 
-Para solucionar problemas de conectividade do SensorTag, use o [aplicativo SensorTag](http://processors.wiki.ti.com/index.php/SensorTag_User_Guide#SensorTag_App_user_guide).
+problemas de conectividade de SensorTag tootroubleshoot, use Olá [SensorTag aplicativo](http://processors.wiki.ti.com/index.php/SensorTag_User_Guide#SensorTag_App_user_guide).
 
 ### <a name="have-an-issue-with-intel-nuc"></a>Problemas com o NUC da Intel
 
-Para solucionar problemas de inicialização, consulte [solução de problemas de inicialização no NUC da Intel](http://www.intel.com/content/www/us/en/support/boards-and-kits/000005845.html).
+tootroubleshoot problemas de inicialização, consulte muito[solução de problemas de inicialização não Intel NUC](http://www.intel.com/content/www/us/en/support/boards-and-kits/000005845.html).
 
-Para solucionar problemas do sistema operacional, consulte [solução de problemas de sistema operacional no NUC da Intel](http://www.intel.com/content/www/us/en/support/boards-and-kits/000006018.html).
+tootroubleshoot problemas do sistema operacional, consulte muito[solução de problemas de sistema operacional Intel NUC](http://www.intel.com/content/www/us/en/support/boards-and-kits/000006018.html).
 
-Para solucionar outros problemas, consulte [Códigos de Piscada e de Bipe para o NUC da Intel](http://www.intel.com/content/www/us/en/support/boards-and-kits/intel-nuc-boards/000005854.html).
+tootroubleshoot outros problemas, consulte muito[códigos de piscar e avisar para Intel NUC](http://www.intel.com/content/www/us/en/support/boards-and-kits/intel-nuc-boards/000005854.html).
 
 ## <a name="nodejs-package-issues"></a>Problemas do pacote de Node.js
 
 ### <a name="no-response-during-gulp-tasks"></a>Sem resposta durante as tarefas de gulp
 
-Se você encontrar problemas ao executar tarefas de gulp, adicione a opção `--verbose` para depuração. Tente finalizar as tarefas de gulp atuais usando `Ctrl + C` e, em seguida, execute o seguinte comando na janela do console para ver mensagens de depuração. Você pode ver mensagens de erro detalhadas em sua saída do console.
+Se você encontrar problemas em vez de tarefas em execução, você pode adicionar Olá `--verbose` opção de depuração. Tente tooterminate atual gulp tarefas usando `Ctrl + C`, e, em seguida, Olá execução após o comando em suas mensagens de depuração de toosee de janela de console. Você pode ver mensagens de erro detalhadas em sua saída do console.
 
 ```bash
 gulp --verbose
@@ -50,35 +50,35 @@ gulp --verbose
 
 ### <a name="device-discovery-issues"></a>Problemas de descoberta de dispositivo
 
-Para obter ajuda na solução de problemas comuns com o comando `discover-sensortag`, consulte a [página wiki](https://wiki.archlinux.org/index.php/bluetooth#Bluetoothctl).
+Para obter ajuda na solução de problemas comuns com hello `discover-sensortag` de comando, verifique Olá [página wiki](https://wiki.archlinux.org/index.php/bluetooth#Bluetoothctl).
 
 ### <a name="npm-issues"></a>problemas de npm
 
-Tente atualizar o pacote npm executando o comando a seguir:
+Tente tooupdate seu pacote npm executando Olá comando a seguir:
 
 ```bash
 npm install -g npm
 ```
 
-Se o problema persistir, deixe seus comentários no final deste artigo ou crie um problema de GitHub em nosso [repositório de exemplo](https://github.com/azure-samples/iot-hub-c-intel-nuc-gateway-getting-started).
+Se o problema de saudação ainda existe, deixar seus comentários no final deste artigo hello ou criar um problema do GitHub em nosso [repositório de exemplo](https://github.com/azure-samples/iot-hub-c-intel-nuc-gateway-getting-started).
 
 ## <a name="remote-debugging"></a>Depuração Remota
 > As instruções abaixo se destinam à depuração dos scripts node.js usados neste tutorial.
-### <a name="run-the-sample-application-in-debug-mode"></a>Execute o aplicativo de exemplo no modo de depuração
+### <a name="run-hello-sample-application-in-debug-mode"></a>Execute o aplicativo de exemplo hello no modo de depuração
 
-Execute o aplicativo de exemplo no modo de depuração executando o seguinte comando:
+Execute o aplicativo de exemplo hello no modo de depuração por meio de saudação comando a seguir:
 
 ```bash
 gulp run --debug
 ```
 
-Quando o mecanismo de depuração estiver pronto, você deverá ver `Debugger listening on port 5858` na saída do console.
+Quando o mecanismo de depuração Olá estiver pronto, você deverá ver `Debugger listening on port 5858` na saída do console hello.
 
-### <a name="configure-visual-studio-code-to-connect-to-the-remote-device"></a>Configurar o Visual Studio Code para se conectar ao dispositivo remoto
+### <a name="configure-visual-studio-code-tooconnect-toohello-remote-device"></a>Configure o dispositivo remoto do Visual Studio Code tooconnect toohello
 
-1. Abra o painel **Depurar** painel no lado esquerdo.
-2. Clique no botão verde **Iniciar Depuração** (F5). O Visual Studio Code abre um arquivo `launch.json`.
-3. Atualize o arquivo `launch.json` com o seguinte conteúdo. Substitua `[device hostname or IP address]` pelo nome do host ou endereço IP do dispositivo real.
+1. Olá abrir **depurar** painel no lado esquerdo de saudação.
+2. Clique em Olá verde **iniciar depuração** botão (F5). O Visual Studio Code abre um arquivo `launch.json`.
+3. Saudação de atualização `launch.json` arquivo com hello conteúdo a seguir. Substituir `[device hostname or IP address]` com o nome de host ou endereço IP de dispositivo real do hello.
 
    ``` json
    {
@@ -102,23 +102,23 @@ Quando o mecanismo de depuração estiver pronto, você deverá ver `Debugger li
 
 ![Configuração de Depuração Remota](./media/iot-hub-gateway-kit-lessons/troubleshooting/remote_debugging_configuration.png)
 
-### <a name="attach-to-the-remote-application"></a>Anexar ao aplicativo remoto
+### <a name="attach-toohello-remote-application"></a>Anexar o aplicativo remoto toohello
 
-Clique no botão verde **Iniciar Depuração** (F5) para iniciar a depuração.
+Clique em Olá verde **iniciar depuração** (F5) botão toostart depuração.
 
-Leia [JavaScript no Código do VS](https://code.visualstudio.com/docs/languages/javascript#_debugging) para saber mais sobre o depurador.
+Leitura [JavaScript no código VS](https://code.visualstudio.com/docs/languages/javascript#_debugging) toolearn mais sobre o depurador de saudação.
 
 ![Depurar o Exemplo de BLE](./media/iot-hub-gateway-kit-lessons/troubleshooting/debugging_ble_sample.png)
 
 ## <a name="azure-cli-issues"></a>Problemas da CLI do Azure
 
-A interface de linha de comando do Azure (CLI do Azure) é uma compilação de visualização. Para procurar soluções, você pode consultar o [Guia de Instalação de Visualização](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
+Hello Azure interface de linha de comando (CLI do Azure) é uma compilação de visualização. soluções de tooseek, você pode usar o hello [guia de instalação de visualização](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
 
-Se você encontrar erros com a ferramenta, emita um [problema](https://github.com/Azure/azure-cli/issues) na seção **problemas** do repositório do GitHub.
+Se você encontrar quaisquer erros com a ferramenta hello, arquivo um [problema](https://github.com/Azure/azure-cli/issues) em Olá **problemas** seção do repositório do GitHub hello.
 
-Para obter ajuda para solucionar problemas comuns, consulte o [Leiame](https://github.com/Azure/azure-cli/blob/master/README.rst).
+Para obter ajuda na solução de problemas comuns, consulte Olá [Leiame](https://github.com/Azure/azure-cli/blob/master/README.rst).
 
-Se você receber a mensagem “Não foi possível localizar uma versão que atenda ao requisito”, execute o seguinte comando para atualizar o pip para a versão mais recente.
+Se você atender a "Não foi possível localizar uma versão que satisfaz o requisito de hello", por favor, comando a seguir de execução Olá versão de toolastest pip tooupgrade.
 
 ```bash
 python -m pip install --upgrade pip
@@ -128,47 +128,47 @@ python -m pip install --upgrade pip
 
 ### <a name="legacy-installation-issues-macos"></a>Problemas de instalação herdada (macOS)
 
-Ao instalar o pip, um erro de permissão será lançado quando houver pacotes herdados instalados com permissões **su**. Essa situação ocorre porque a instalação anterior do Python usando brew (macOS) não está completamente desinstalada. Alguns pacotes do pip de uma instalação anterior foram criados pela raiz, o que causa o erro de permissão. A solução é remover os pacotes instalados pela raiz. Use as etapas a seguir para concluir esta tarefa:
+Ao instalar o pip, um erro de permissão será lançado quando houver pacotes herdados instalados com permissões **su**. Essa situação ocorre porque a instalação anterior do Python usando brew (macOS) não está completamente desinstalada. Alguns pacotes de pip de uma instalação anterior foram criados pela raiz, que faz com que o erro de permissão de saudação. Olá solução é tooremove esses pacotes instalados pela raiz. Use essa tarefa de saudação toocomplete as etapas a seguir:
 
-1. Acesse `/usr/local/lib/python2.7/site-packages`
+1. Vá muito`/usr/local/lib/python2.7/site-packages`
 2. Listar pacotes criados por raiz: `ls -l | grep root`
 3. Desinstalar pacotes da etapa 2: `sudo rm -rf {package name}`
 4. Reinstale o Python.
 
 ## <a name="azure-iot-hub-issues"></a>Problemas do Hub IoT do Azure
 
-Se você tiver provisionado com êxito o Hub IoT do Azure com a CLI do Azure e precisar de uma ferramenta para gerenciar os dispositivos conectados ao seu Hub IoT, tente as seguintes ferramentas.
+Se você tiver configurado com êxito o hub IoT do Azure com hello CLI do Azure, e você precisa de uma ferramenta toomanage Olá os dispositivos que estão se conectando tooyour IoT hub, tente Olá ferramentas a seguir.
 
 ### <a name="device-explorer"></a>Gerenciador de Dispositivos
 
-O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) é executado no computador local do Windows e se conecta ao seu hub IoT no Azure. Ele se comunica com os seguintes [pontos de extremidade de Hub IoT](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
+[Gerenciador de dispositivo](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) é executado em sua máquina local do Windows e se conecta tooyour IoT hub no Azure. Ele se comunica com os seguintes Olá [pontos de extremidade de IoT Hub](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
 
-- Gerenciamento de identidade do dispositivo para provisionar e gerenciar dispositivos registrados com o Hub IoT.
-- Receber do dispositivo para nuvem para que você possa monitorar as mensagens enviadas de seu dispositivo ao Hub IoT.
-- Enviar da nuvem para o dispositivo para que você possa enviar mensagens para seus dispositivos do Hub IoT.
+- Tooprovision de gerenciamento de identidade do dispositivo e gerenciar dispositivos registrados com o hub IoT.
+- Receba o dispositivo na nuvem para que você pode monitorar as mensagens enviadas do hub IoT de tooyour de dispositivo.
+- Envie nuvem para dispositivo para que você pode enviar mensagens tooyour dispositivos do seu hub IoT.
 
-Configure a cadeia de conexão do Hub IoT dentro desta ferramenta para usar todos os seus recursos.
+Configure todos os seus recursos de sua cadeia de conexão de hub IoT dentro toouse essa ferramenta.
 
 ### <a name="iothub-explorer"></a>iothub-explorer
 
-[iothub-explorer](https://github.com/Azure/iothub-explorer) é uma ferramenta de CLI de várias plataformas de exemplo para gerenciar clientes de dispositivo. Use a ferramenta para gerenciar os dispositivos no registro de identidade, monitorar mensagens de dispositivo para a nuvem e enviar comandos de nuvem para o dispositivo.
+[Gerenciador de Hub IOT](https://github.com/Azure/iothub-explorer) é uma ferramenta CLI em várias plataformas de exemplo toomanage clientes de dispositivos. Você pode usar dispositivos de Olá Olá ferramenta toomanage no registro de identidade hello, monitorar mensagens de dispositivo para nuvem e enviar comandos de nuvem para dispositivo.
 
-Para instalar a versão mais recente (pré-lançamento) da ferramenta iothub-explorer, execute o comando a seguir:
+tooinstall Olá versão mais recente (pré-lançamento) da ferramenta de Gerenciador de Hub IOT hello, executar Olá comando a seguir:
 
 ```bash
 npm install -g iothub-explorer@latest
 ```
 
-Para obter ajuda adicional sobre todos os comandos do iothub-explorer e seus parâmetros, execute o comando a seguir:
+tooget obter ajuda adicional sobre todos os Olá comandos do Gerenciador de Hub IOT e seus parâmetros, execute Olá comando a seguir:
 
 ```bash
 iothub-explorer help
 ```
 
-### <a name="the-azure-portal"></a>O Portal do Azure
+### <a name="hello-azure-portal"></a>Olá portal do Azure
 
-Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recursos do Azure. Você também poderá usar o [portal do Azure](https://azure.microsoft.com/en-us/documentation/articles/azure-portal-overview/) para ajudar a provisionar, gerenciar e depurar seus recursos do Azure.
+Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recursos do Azure. Você também poderá Olá toouse [portal do Azure](https://azure.microsoft.com/en-us/documentation/articles/azure-portal-overview/) toohelp provisionar, gerenciar e depurar seus recursos do Azure.
 
 ## <a name="azure-storage-issues"></a>Problemas de Armazenamento do Azure
 
-[O Gerenciador de Armazenamento do Microsoft Azure (Preview)](http://storageexplorer.com/) é um aplicativo autônomo da Microsoft que pode ser usado para trabalhar com dados do Armazenamento do Azure no Windows, macOS e Linux. Com essa ferramenta você pode se conectar à sua tabela e ver os dados contidos nela. Você pode usar essa ferramenta para solucionar seus problemas de Armazenamento do Azure.
+[Gerenciador de armazenamento do Microsoft Azure (visualização)](http://storageexplorer.com/) é um aplicativo autônomo da Microsoft que você pode usar toowork com dados de armazenamento do Azure no Linux, Windows e macOS. Usando essa ferramenta, você pode conectar-se a tabela de tooyour e ver dados hello. Você pode usar essa ferramenta tootroubleshoot seus problemas de armazenamento do Azure.

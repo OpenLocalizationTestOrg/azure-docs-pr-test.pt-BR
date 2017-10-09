@@ -1,6 +1,6 @@
 ---
-title: "Início Rápido do Azure – Criar CLI de VM do Windows | Microsoft Docs"
-description: "Aprenda rapidamente criar máquinas virtuais Windows com a CLI do Azure."
+title: "aaaAzure início rápido - criar CLI de VM do Windows | Microsoft Docs"
+description: "Aprenda rapidamente toocreate um máquinas virtuais do Windows com hello CLI do Azure."
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,29 +16,29 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: fcb2f1389b3434d0d2e3145217e54ceb2326b969
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 029bdecec219b12b80b958ceeedda214f1b13149
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual do Windows com a CLI do Azure
+# <a name="create-a-windows-virtual-machine-with-hello-azure-cli"></a>Criar uma máquina virtual do Windows com hello CLI do Azure
 
-A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso da CLI do Azure para implantar uma máquina virtual executando o Windows Server 2016. Depois que a implantação for concluída, nos conectamos ao servidor e instalamos o IIS.
+Olá CLI do Azure é usado toocreate e gerenciar recursos do Azure Olá linha de comando ou em scripts. Esses detalhes de guia usando Olá CLI do Azure toodeploy uma máquina virtual executando o Windows Server 2016. Depois que a implantação for concluída, vamos conectar toohello servidor e instale o IIS.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você escolher tooinstall e usa o hello CLI localmente, este guia de início rápido requer que você está executando a versão de CLI do Azure Olá 2.0.4 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos com [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+Olá, exemplo a seguir cria um grupo de recursos denominado *myResourceGroup* em Olá *eastus* local.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -48,13 +48,13 @@ az group create --name myResourceGroup --location eastus
 
 Crie uma VM com [az vm create](/cli/azure/vm#create). 
 
-O exemplo a seguir cria uma VM chamada *myVM*. Este exemplo usa o *azureuser* para um nome de usuário administrativo e *myPassword12* como a senha. Atualize esses valores para algo apropriado para seu ambiente. Esses valores são necessários durante a criação de uma conexão com a máquina virtual.
+Olá, exemplo a seguir cria uma VM denominada *myVM*. Este exemplo usa *azureuser* para um nome de usuário administrativo e *myPassword12* senha hello. Atualize ambiente de tooyour apropriado de toosomething esses valores. Esses valores são necessários para criar uma conexão com máquina virtual de saudação.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
 ```
 
-Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes ao exemplo a seguir. Anote `publicIpAaddress`. Esse endereço é usado para acessar a VM.
+Quando Olá VM tiver sido criado, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir. Anote Olá `publicIpAaddress`. Esse endereço é usado tooaccess Olá VM.
 
 ```azurecli-interactive 
 {
@@ -71,16 +71,16 @@ Quando a VM tiver sido criada, a CLI do Azure mostra informações semelhantes a
 
 ## <a name="open-port-80-for-web-traffic"></a>Abra a porta 80 para tráfego da Web 
 
-Por padrão, somente as conexões de RDP são permitidas em máquinas virtuais Windows implantadas no Azure. Se essa VM for se transformar em um servidor Web, você precisará abrir a porta 80 na Internet. Use o comando [az vm open-port](/cli/azure/vm#open-port) para abrir a porta desejada.  
+Por padrão, apenas as conexões RDP são permitidas em máquinas virtuais de tooWindows implantadas no Azure. Se essa VM for toobe um servidor Web, você precisa tooopen porta 80 de saudação à Internet. Saudação de uso [az vm abrir portas](/cli/azure/vm#open-port) saudação do comando tooopen desejado de porta.  
  
  ```azurecli-interactive  
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
 
-## <a name="connect-to-virtual-machine"></a>Conectar-se à máquina virtual
+## <a name="connect-toovirtual-machine"></a>Conectar máquina toovirtual
 
-Use o seguinte comando para criar uma sessão de área de trabalho remota com a máquina virtual. Substitua o endereço IP pelo endereço IP público de sua máquina virtual. Quando solicitado, insira as credenciais usadas ao criar a máquina virtual.
+A seguir Olá Use o comando toocreate uma sessão de área de trabalho remota com a máquina virtual de saudação. Substitua o endereço IP de saudação pelo endereço IP público de saudação de sua máquina virtual. Quando solicitado, insira as credenciais de saudação usadas ao criar a máquina virtual de saudação.
 
 ```bash 
 mstsc /v:<Public IP Address>
@@ -88,21 +88,21 @@ mstsc /v:<Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>Instalar o IIS usando o PowerShell
 
-Agora que você fez logon na VM do Azure, pode usar uma única linha do PowerShell para instalar o IIS e habilitar a regra de firewall local para permitir o tráfego da Web. Abra um promt do PowerShell e execute o seguinte comando:
+Agora que você fez no toohello VM do Azure, você pode usar uma única linha do PowerShell tooinstall IIS e permitir o tráfego da web do hello firewall local regra tooallow. Abra um prompt do PowerShell e execute Olá comando a seguir:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-## <a name="view-the-iis-welcome-page"></a>Exibir a página de boas-vindas do IIS
+## <a name="view-hello-iis-welcome-page"></a>Olá exibir página de boas-vindas do IIS
 
-Com o IIS instalado e a porta 80 que agora está aberta na sua VM da Internet, você pode usar um navegador da Web de sua escolha para exibir a página de boas-vindas do IIS padrão. Certifique-se de usar o endereço IP público que você documentou acima para visitar a página padrão. 
+Com o IIS instalado e a porta 80 agora aberta na sua VM de saudação à Internet, você pode usar um navegador da web da sua página Bem-vindo do tooview choice saudação padrão IIS. Ser se toouse Olá endereço IP público documentado acima da página do toovisit saudação padrão. 
 
 ![Site do IIS padrão](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#delete) para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Quando não é mais necessário, você pode usar o hello [excluir grupo de az](/cli/azure/group#delete) tooremove grupo de recursos de saudação, a VM e relacionados com todos os recursos de comando.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -110,7 +110,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você implantou uma máquina virtual simples, uma regra de grupo de segurança de rede e instalou um servidor Web. Para saber mais sobre máquinas virtuais do Azure, continue o tutorial para VMs do Windows.
+Neste início rápido, você implantou uma máquina virtual simples, uma regra de grupo de segurança de rede e instalou um servidor Web. toolearn mais sobre máquinas virtuais do Azure, continuar toohello tutorial para VMs do Windows.
 
 > [!div class="nextstepaction"]
 > [Tutoriais de máquina virtual do Windows Azure](./tutorial-manage-vm.md)

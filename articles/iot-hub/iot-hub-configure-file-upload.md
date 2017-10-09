@@ -1,6 +1,6 @@
 ---
-title: Usar o portal do Azure para configurar o carregamento do arquivo | Microsoft Docs
-description: "Como usar o Portal do Azure para configurar o Hub IoT a fim de habilitar transferências de arquivos de dispositivos conectados. Inclui informações sobre como configurar a conta de armazenamento do Azure de destino."
+title: "carregamento do arquivo aaaUse Olá tooconfigure portal do Azure | Microsoft Docs"
+description: "Como toouse Olá tooconfigure portal do Azure seu arquivo de tooenable de hub IoT carregamentos de dispositivos conectados. Inclui informações sobre como configurar a conta de armazenamento do Azure de destino hello."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 149dd84d7d8f4ff9cd30f9fc649ced3cb364cfb7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b90c3fbed47b4eb144d3cb7480068b7cfc776ba6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurar uploads de arquivo do Hub IoT usando o Portal do Azure
+# <a name="configure-iot-hub-file-uploads-using-hello-azure-portal"></a>Configurar o IoT Hub carregamentos de arquivo usando Olá portal do Azure
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
 ## <a name="file-upload"></a>Upload de arquivos
 
-Para usar a [funcionalidade de upload de arquivo no Hub IoT][lnk-upload], primeiro você deve associar uma conta de Armazenamento do Azure ao hub. Selecione **Upload de arquivo** para exibir uma lista de propriedades de upload de arquivo para o hub IoT que está sendo modificado.
+Olá toouse [funcionalidade de carregamento de arquivo no IoT Hub][lnk-upload], primeiro você deve associar uma conta de armazenamento do Azure com o hub. Selecione **carregamento do arquivo** toodisplay uma lista de propriedades de carregamento de arquivo para o hub IoT Olá que está sendo modificado.
 
-![Exibir configurações de upload de arquivo do Hub IoT no portal][13]
+![As configurações no portal de saudação de carregamento de arquivo de IoT Hub de exibição][13]
 
-**Contêiner de armazenamento**: use o Portal do Azure para selecionar um contêiner de blobs em uma conta de Armazenamento do Azure na assinatura atual do Azure para associar ao Hub IoT. Se for necessário, você pode criar uma conta de Armazenamento do Azure na folha **Contas de armazenamento** e um contêiner de blob na folha **Contêineres**. O Hub IoT gera automaticamente os URIs de SAS com permissões de gravação para esse contêiner de blob para dispositivos a serem usados ao carregar arquivos.
+**Contêiner de armazenamento**: Use Olá tooselect portal do Azure de um contêiner de blob em uma conta de armazenamento do Azure no seu atual tooassociate de assinatura do Azure com o IoT Hub. Se necessário, você pode criar uma conta de armazenamento do Azure no hello **contas de armazenamento** contêiner de blob e folha em Olá **contêineres** folha. IoT Hub gera automaticamente os URIs de SAS com contêiner de blob de toothis de permissões de gravação para dispositivos toouse ao carregar arquivos.
 
-![Exibir contêineres de armazenamento para upload de arquivos no portal][14]
+![Contêineres de armazenamento de modo de exibição para o carregamento do arquivo no portal de saudação][14]
 
-**Receber notificações para os arquivos carregados**: habilitar ou desabilitar notificações de upload de arquivo por meio de um botão de opção.
+**Receber notificações para arquivos carregados**: habilitar ou desabilitar notificações de carregamento de arquivo por meio da alternância de saudação.
 
-**TTL de SAS**: essa configuração é a vida útil dos URIs de SAS retornados para o dispositivo pelo Hub IoT. Definido para uma hora por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+**SAS TTL**: essa configuração é hello tempo de vida da saudação SAS URIs retornados toohello dispositivo pelo IoT Hub. Definir tooone horas por padrão, mas podem ser personalizado tooother valores usando Olá controle deslizante.
 
-**TTL de configurações de notificação de arquivo padrão**: a vida útil de uma notificação de upload de arquivo antes de sua expiração. Definido para um dia por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+**Notificação de tempo de vida padrão de configurações de arquivo**: Olá tempo de vida de uma notificação de carregamento de arquivo antes de expirar. Definir dia tooone por padrão, mas podem ser personalizado tooother valores usando Olá controle deslizante.
 
-**Contagem de entrega máxima de notificação de arquivo**: o número de vezes que o Hub IoT tenta entregar uma notificação de carregamento de arquivo. Definido como 10 por padrão, mas pode ser personalizado para outros valores usando o controle deslizante.
+**Contagem máxima de entrega de notificação de arquivo**: Olá número de vezes Olá toodeliver tentativas de IoT Hub uma notificação de carregamento de arquivo. Definir too10 por padrão, mas podem ser personalizado tooother valores usando Olá controle deslizante.
 
-![Configurar o upload de arquivos do Hub IoT no portal][15]
+![Configurar o carregamento do arquivo de IoT Hub no portal de saudação][15]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os recursos de upload de arquivo do Hub IoT, consulte [Carregar arquivos de um dispositivo][lnk-upload] no guia do desenvolvedor do Hub IoT.
+Para obter mais informações sobre os recursos de carregamento de arquivo hello IoT Hub, consulte [carregar arquivos de um dispositivo] [ lnk-upload] em Olá guia do desenvolvedor de IoT Hub.
 
-Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
+Siga essas toolearn links mais sobre como gerenciar o Azure IoT Hub:
 
 * [Gerenciamento em massa de dispositivos IoT][lnk-bulk]
 * [Métricas do Hub IoT][lnk-metrics]
 * [Monitoramento de operações][lnk-monitor]
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+toofurther explorar recursos de saudação do IoT Hub, consulte:
 
 * [Guia do desenvolvedor do Hub IoT][lnk-devguide]
 * [Simulando um dispositivo com IoT Edge][lnk-iotedge]
-* [Proteger sua solução de IoT desde o início][lnk-securing]
+* [Proteger a sua solução de IoT da saudação de plano de fundo para cima][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
 [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png

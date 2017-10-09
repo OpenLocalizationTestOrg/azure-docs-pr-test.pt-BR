@@ -1,7 +1,7 @@
-Para marcar um recurso durante a implantação, adicione o elemento `tags` ao recurso que você está implantando. Forneça o nome e o valor da marca.
+tootag um recurso durante a implantação, adicionar Olá `tags` recurso de toohello do elemento está implantando. Fornece o valor e o nome da marca hello.
 
-### <a name="apply-a-literal-value-to-the-tag-name"></a>Aplicar um valor literal ao nome da marca
-O exemplo a seguir mostra uma conta de armazenamento com duas marcas (`Dept` e `Environment`) que são definidas como valores literais:
+### <a name="apply-a-literal-value-toohello-tag-name"></a>Aplicar um nome de marca do valor literal toohello
+Olá, exemplo a seguir mostra uma conta de armazenamento com duas marcas (`Dept` e `Environment`) que são definidos valores tooliteral:
 
 ```json
 {
@@ -27,8 +27,8 @@ O exemplo a seguir mostra uma conta de armazenamento com duas marcas (`Dept` e `
 }
 ```
 
-### <a name="apply-an-object-to-the-tag-element"></a>Aplicar um objeto ao elemento da marca
-Você pode definir um parâmetro de objeto que armazena várias marcas e aplicar esse objeto para o elemento de marca. Cada propriedade no objeto se torna uma marca separada para o recurso. O exemplo a seguir tem um parâmetro chamado `tagValues` que é aplicado ao elemento de marca.
+### <a name="apply-an-object-toohello-tag-element"></a>Aplique um elemento de marca do objeto toohello
+Você pode definir um parâmetro de objeto que armazena várias marcas e aplicar esse elemento de marca do objeto toohello. Cada propriedade no objeto Olá se torna uma marca separada para o recurso de saudação. Olá, exemplo a seguir tem um parâmetro chamado `tagValues` que é o elemento de marca toohello aplicado.
 
 ```json
 {
@@ -60,9 +60,9 @@ Você pode definir um parâmetro de objeto que armazena várias marcas e aplicar
 }
 ```
 
-### <a name="apply-a-json-string-to-the-tag-name"></a>Aplicar uma cadeia de caracteres JSON ao nome da marca
+### <a name="apply-a-json-string-toohello-tag-name"></a>Aplicar um nome de marca de toohello de cadeia de caracteres JSON
 
-Para armazenar diversos valores em uma única marca, aplica uma cadeia de caracteres JSON que representa os valores. A cadeia de caracteres JSON inteira é armazenada como uma marca que não pode exceder 256 caracteres. O exemplo a seguir tem uma única marca denominada `CostCenter` que contém vários valores de uma cadeia de caracteres JSON:  
+toostore muitos valores em uma única marca, aplicar uma cadeia de caracteres JSON que representa valores hello. cadeia de caracteres Hello de inteira JSON é armazenada como uma marca que não pode exceder 256 caracteres. Olá, exemplo a seguir tem uma única marca nomeada `CostCenter` que contém vários valores de uma cadeia de caracteres JSON:  
 
 ```json
 {

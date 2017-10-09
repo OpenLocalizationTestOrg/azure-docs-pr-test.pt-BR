@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de Blobs de Armazenamento do Azure para Data Lake Store| Microsoft Docs
-description: "Use a ferramenta AdlCopy para copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake"
+title: "dados de aaaCopy de Blobs de armazenamento do Azure no repositório Data Lake | Microsoft Docs"
+description: "Usar dados de toocopy ferramenta AdlCopy do repositório Azure armazenamento de Blobs tooData Lake"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: 68f44991432a76c2ef1c79ec6dffdea4c62bcb17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3d4172eaefe7395cdef2fff72691bd70f642b78
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake
+# <a name="copy-data-from-azure-storage-blobs-toodata-lake-store"></a>Copiar dados do repositório Azure armazenamento de Blobs tooData Lake
 > [!div class="op_single_selector"]
 > * [Como usar DistCp](data-lake-store-copy-data-wasb-distcp.md)
 > * [Como usar AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 >
 >
 
-O Azure Data Lake Store fornece uma ferramenta de linha de comando, [AdlCopy](http://aka.ms/downloadadlcopy), para copiar dados das seguintes fontes:
+Repositório Azure Data Lake fornece uma ferramenta de linha de comando, [AdlCopy](http://aka.ms/downloadadlcopy), dados de toocopy de saudação as origens a seguir:
 
-* Dos Blobs de Armazenamento do Azure no Data Lake Store. Você não pode usar o AdlCopy para copiar dados do Repositório Data Lake para os blobs de Armazenamento do Azure.
+* Dos Blobs de Armazenamento do Azure no Data Lake Store. Você não pode usar dados de toocopy AdlCopy de blobs de armazenamento do repositório Data Lake tooAzure.
 * Entre duas contas do Azure Data Lake Store.
 
-Além disso, você pode usar a ferramenta AdlCopy de dois modos diferentes:
+Além disso, você pode usar a ferramenta de AdlCopy de saudação em dois modos diferentes:
 
-* **Autonomamente**, em que a ferramenta usa recursos do Repositório Data Lake para executar a tarefa.
-* **Usando uma conta da Análise Data Lake**, em que as unidades atribuídas à sua conta da Análise Data Lake são usadas para executar a operação de cópia. Você pode usar essa opção quando quiser executar as tarefas de cópia de forma previsível.
+* **Autônomo**, onde a ferramenta Olá usa tarefa de saudação do repositório Data Lake recursos tooperform.
+* **Usando uma conta da análise Data Lake**, onde unidades Olá atribuídas tooyour análise Data Lake conta são usados tooperform operação de cópia de saudação. Talvez você queira toouse essa opção quando estiver buscando a tarefas de cópia de saudação tooperform de maneira previsível.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este artigo, você deve ter o seguinte:
+Antes de começar este artigo, você deve ter o seguinte hello:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Blobs de Armazenamento do Azure** com alguns dados.
-* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
-* **Conta do Azure Data Lake Analytics (opcional)** : confira [Introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obter instruções sobre como criar uma conta do Repositório Data Lake.
-* **Ferramenta AdlCopy**. Instale a ferramenta de AdlCopy de [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
+* **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como um, ver toocreate [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
+* **Análise do Azure Data Lake conta (opcional)** -consulte [Introdução à análise Azure Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obter instruções sobre como toocreate um Data Lake armazenam conta.
+* **Ferramenta AdlCopy**. Instalar a ferramenta de AdlCopy de saudação do [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
 
-## <a name="syntax-of-the-adlcopy-tool"></a>Sintaxe da ferramenta AdlCopy
-Use a sintaxe a seguir para trabalhar com a ferramenta AdlCopy
+## <a name="syntax-of-hello-adlcopy-tool"></a>Sintaxe da ferramenta de AdlCopy Olá
+Use Olá seguindo a sintaxe toowork com a ferramenta de AdlCopy Olá
 
     AdlCopy /Source <Blob or Data Lake Store source> /Dest <Data Lake Store destination> /SourceKey <Key for Blob account> /Account <Data Lake Analytics account> /Unit <Number of Analytics units> /Pattern
 
-Os parâmetros na sintaxe estão descritos abaixo:
+parâmetros de saudação na sintaxe de saudação são descritos abaixo:
 
 | Opção | Descrição |
 | --- | --- |
-| Fonte |Especifica o local da fonte de dados no blob de armazenamento do Azure. A origem pode ser um contêiner de blob, um blob ou outra conta do Data Lake Store. |
-| Dest |Especifica o destino do Repositório Data Lake para onde copiar. |
-| SourceKey |Especifica a chave de acesso de armazenamento para a fonte de blob de armazenamento do Azure. Esse parâmetro será necessário apenas se a origem for um contêiner de blob ou um blob. |
-| Conta |**Opcional**. Use essa opção se você deseja usar a conta do Azure Data Lake Analytics para executar o trabalho de cópia. Se você usar a opção /Account na sintaxe, mas não especificar uma conta do Data Lake Analytics, o AdlCopy usará uma conta padrão para executar o trabalho. Além disso, se você usar essa opção, deverá adicionar a origem (Blob de Armazenamento do Azure) e o destino (Repositório Azure Data Lake) como fontes de dados para sua conta do Data Lake Analytics. |
-| Unidades |Especifica o número de unidades do Data Lake Analytics que será usado para o trabalho de cópia. Essa opção é obrigatória se você usar a opção **/Account** para especificar a conta do Data Lake Analytics. |
-| Padrão |Especifica um padrão regex que indica quais blobs ou arquivos copiar. O AdlCopy usa correspondência que diferencia maiúsculas de minúsculas. O padrão usado quando nenhum padrão é especificado é copiar todos os itens. Não é possível especificar diversos padrões para os arquivos. |
+| Fonte |Especifica o local de Olá Olá dos dados de origem no blob de armazenamento do Azure hello. origem de saudação pode ser um contêiner de blob, um blob ou outra conta de repositório Data Lake. |
+| Dest |Especifica o toocopy de destino de repositório Data Lake Olá para. |
+| SourceKey |Especifica a chave de acesso de armazenamento Olá para fonte de saudação do blob de armazenamento do Azure. Isso é necessário apenas se a origem de saudação é um contêiner de blob ou um blob. |
+| Conta |**Opcional**. Use isso se desejar que o trabalho de cópia toouse análise Azure Data Lake conta toorun hello. Se você usa a opção de conta de saudação na sintaxe hello, mas não especificar uma conta da análise Data Lake, AdlCopy usa um trabalho de saudação do toorun de conta padrão. Além disso, se você usar essa opção, adicione a origem de saudação (Blob de armazenamento do Azure) e de destino (repositório Azure Data Lake) como fontes de dados para sua conta da análise Data Lake. |
+| Unidades |Especifica o número de saudação de unidades de análise Data Lake que será usado para o trabalho de cópia hello. Essa opção é obrigatória se você usar o hello **/conta** opção conta de análise Data Lake toospecify hello. |
+| Padrão |Especifica um padrão de regex que indica qual toocopy blobs ou arquivos. O AdlCopy usa correspondência que diferencia maiúsculas de minúsculas. padrão de saudação usado quando nenhum padrão for especificado será toocopy todos os itens. Não é possível especificar diversos padrões para os arquivos. |
 
-## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>Usar o AdlCopy (como autônomo) para copiar dados de um blob de armazenamento do Azure
-1. Abra um prompt de comando e navegue até o diretório onde AdlCopy está instalado, normalmente `%HOMEPATH%\Documents\adlcopy`.
-2. Execute o seguinte comando para copiar um blob específico do contêiner de origem para um Repositório Data Lake:
+## <a name="use-adlcopy-as-standalone-toocopy-data-from-an-azure-storage-blob"></a>Usar dados de toocopy AdlCopy (como autônomo) de um blob de armazenamento do Azure
+1. Abra um prompt de comando e navegue diretório toohello onde AdlCopy é instalado, normalmente `%HOMEPATH%\Documents\adlcopy`.
+2. Execute Olá toocopy de comando a seguir um blob específico de saudação fonte contêiner tooa repositório Data Lake:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
@@ -72,9 +72,9 @@ Os parâmetros na sintaxe estão descritos abaixo:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
-    >[AZURE.NOTE] A sintaxe acima especifica o arquivo a ser copiado para uma pasta na conta do Data Lake Store. A ferramenta AdlCopy criará uma pasta se o nome da pasta especificado não existir.
+    >[AZURE.NOTE] sintaxe de saudação acima Especifica Olá toobe tooa copiado arquivo na conta do repositório Data Lake hello. Ferramenta de AdlCopy cria uma pasta se Olá nome de pasta especificado não existe.
 
-    Você precisará inserir as credenciais da assinatura do Azure vinculadas à conta do Data Lake Store. Você verá uma saída semelhante ao seguinte:
+    Será tooenter solicitada credenciais Olá Olá assinatura do Azure sob a qual você tem a sua conta do repositório Data Lake. Você verá uma saída semelhante toohello a seguir:
 
         Initializing Copy.
         Copy Started.
@@ -82,7 +82,7 @@ Os parâmetros na sintaxe estão descritos abaixo:
         Finishing Copy.
         Copy Completed. 1 file copied.
 
-1. Você também pode copiar todos os blobs de um contêiner para a conta do Repositório Data Lake usando o seguinte comando:
+1. Você também pode copiar todos os blobs de saudação da conta de repositório Data Lake toohello de um contêiner usando Olá comando a seguir:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
@@ -92,13 +92,13 @@ Os parâmetros na sintaxe estão descritos abaixo:
 
 ### <a name="performance-considerations"></a>Considerações sobre o desempenho
 
-Se você estiver copiando de uma conta de Armazenamento de Blobs do Azure, poderá haver limitação durante a cópia do lado do Armazenamento de Blobs. Isso poderá degradar o desempenho do seu trabalho de cópia. Para saber mais sobre os limites do Armazenamento de Blobs do Azure, confira Limites de Armazenamento do Azure em [Limites de serviço e assinatura do Azure](../azure-subscription-service-limits.md).
+Se você estiver copiando de uma conta de armazenamento de BLOBs do Azure, podem ser aceleradas durante a cópia no lado de armazenamento de blob hello. Isso prejudicará o desempenho de saudação do seu trabalho de cópia. toolearn mais sobre limites de saudação do armazenamento de BLOBs do Azure, consulte os limites de armazenamento do Azure em [assinatura do Azure e limites de serviço](../azure-subscription-service-limits.md).
 
-## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-store-account"></a>Usar o AdlCopy (como autônomo) para copiar dados de outra conta do Data Lake Store
-Você também pode usar o AdlCopy para copiar dados entre duas contas do Data Lake Store.
+## <a name="use-adlcopy-as-standalone-toocopy-data-from-another-data-lake-store-account"></a>Usar dados de toocopy AdlCopy (como autônomo) com outra conta de repositório Data Lake
+Você também pode usar dados de toocopy AdlCopy entre duas contas do repositório Data Lake.
 
-1. Abra um prompt de comando e navegue até o diretório onde AdlCopy está instalado, normalmente `%HOMEPATH%\Documents\adlcopy`.
-2. Execute o comando a seguir para copiar um arquivo específico de uma conta do Data Lake Store para outra.
+1. Abra um prompt de comando e navegue diretório toohello onde AdlCopy é instalado, normalmente `%HOMEPATH%\Documents\adlcopy`.
+2. Olá toocopy de comando a seguir ao execute um arquivo específico de um tooanother de conta do repositório Data Lake.
 
         AdlCopy /Source adl://<source_adls_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adls_account>.azuredatalakestore.net/<path>/
 
@@ -107,36 +107,36 @@ Você também pode usar o AdlCopy para copiar dados entre duas contas do Data La
         AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
 
    > [!NOTE]
-   > A sintaxe acima especifica o arquivo a ser copiado para uma pasta na conta de destino do Data Lake Store. A ferramenta AdlCopy criará uma pasta se o nome da pasta especificado não existir.
+   > sintaxe de saudação acima Especifica Olá toobe tooa copiado arquivo na conta de repositório Data Lake Olá destino. Ferramenta de AdlCopy cria uma pasta se Olá nome de pasta especificado não existe.
    >
    >
 
-    Você precisará inserir as credenciais da assinatura do Azure vinculadas à conta do Data Lake Store. Você verá uma saída semelhante ao seguinte:
+    Será tooenter solicitada credenciais Olá Olá assinatura do Azure sob a qual você tem a sua conta do repositório Data Lake. Você verá uma saída semelhante toohello a seguir:
 
         Initializing Copy.
         Copy Started.|
         100% data copied.
         Finishing Copy.
         Copy Completed. 1 file copied.
-3. O comando a seguir copia todos os arquivos de uma pasta específica na conta de origem do Data Lake Store para uma pasta na conta de destino do Data Lake Store.
+3. Olá comando a seguir copia todos os arquivos de uma pasta específica na pasta Olá origem repositório Data Lake conta tooa no destino Olá conta do repositório Data Lake.
 
         AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/ /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
 
 ### <a name="performance-considerations"></a>Considerações sobre o desempenho
 
-Ao usar AdlCopy como uma ferramenta autônoma, a cópia é executada em recursos gerenciados e compartilhados do Azure. O desempenho que pode ser obtido nesse ambiente depende da carga do sistema e dos recursos disponíveis. Esse modo é melhor usado para transferências ad hoc pequenas. Não há necessidade de ajustar nenhum parâmetro ao usar AdlCopy como uma ferramenta autônoma.
+Ao usar AdlCopy como uma ferramenta autônoma, cópia Olá é executada em compartilhadas, recursos gerenciados do Azure. Você pode obter nesse ambiente de desempenho de saudação depende de carga do sistema e dos recursos disponíveis. Esse modo é melhor usado para transferências ad hoc pequenas. Nenhum parâmetro necessário toobe ajustado ao usar AdlCopy como uma ferramenta autônoma.
 
-## <a name="use-adlcopy-with-data-lake-analytics-account-to-copy-data"></a>Usar o AdlCopy (com a conta do Data Lake Analytics) para copiar dados
-Você também pode usar sua conta da Análise Data Lake a fim de executar o trabalho AdlCopy para copiar dados de blobs do armazenamento do Azure para o Repositório Data Lake. Você normalmente usará essa opção quando os dados a serem movidos estiverem no intervalo de gigabytes e terabytes e desejar uma taxa de transferência com desempenho melhor e previsível.
+## <a name="use-adlcopy-with-data-lake-analytics-account-toocopy-data"></a>Usar dados de toocopy AdlCopy (com a conta da análise Data Lake)
+Você também pode usar a análise Data Lake conta tooData Lake armazenamento de blobs do hello toorun AdlCopy dados de toocopy do trabalho do armazenamento do Azure. Normalmente você usaria essa opção quando Olá dados toobe movido está no intervalo de saudação de gigabytes e terabytes e desejar que a taxa de transferência previsível e melhor desempenho.
 
-Para usar a conta do Data Lake Analytics com o AdlCopy para copiar de um Blob de Armazenamento do Azure, a origem (Blob de Armazenamento do Azure) deve ser adicionada como uma fonte de dados para sua conta do Data Lake Analytics. Para obter instruções sobre como adicionar fontes de dados adicionais para sua conta da Data Lake Analytics, confira [Gerenciar fontes de dados de conta da Data Lake Analytics](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources).
+toouse que sua conta da análise Data Lake com toocopy AdlCopy de um Blob de armazenamento do Azure, a origem de saudação (Blob de armazenamento do Azure) deve ser adicionada como uma fonte de dados para sua conta da análise Data Lake. Para obter instruções sobre como adicionar a conta de análise Data Lake de tooyour de fontes de dados adicionais, consulte [fontes de dados de conta de gerenciamento de análise do Data Lake](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#manage-data-sources).
 
 > [!NOTE]
-> Se estiver copiando uma conta do Azure Data Lake Store como a origem usando uma conta do Data Lake Analytics, você não precisará associar a conta do Data Lake Store à conta do Data Lake Analytics. O requisito para associar o repositório de origem à conta do Data Lake Analytics é somente quando a origem for uma conta de Armazenamento do Azure.
+> Se você estiver copiando de uma conta do repositório Azure Data Lake como fonte de saudação usando uma conta da análise Data Lake, não é necessário tooassociate Olá conta do repositório Data Lake com hello conta da análise Data Lake. Olá Olá requisito tooassociate armazenamento de origem com hello conta da análise Data Lake é somente quando a fonte de saudação é uma conta de armazenamento do Azure.
 >
 >
 
-Execute o seguinte comando para copiar de um blob de Armazenamento do Azure para uma conta do Data Lake Store usando a conta do Data Lake Analytics:
+Execute Olá toocopy de comando a seguir de uma conta de repositório Data Lake do armazenamento do Azure blob tooa usando a conta da análise Data Lake:
 
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Unit <number_of_data_lake_analytics_units_to_be_used>
 
@@ -144,19 +144,19 @@ Por exemplo:
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
-De modo semelhante, execute o comando a seguir para copiar de um blob de Armazenamento do Azure para uma conta do Data Lake Store usando a conta do Data Lake Analytics:
+Da mesma forma, execute Olá toocopy de comando a seguir de uma conta de repositório Data Lake do armazenamento do Azure blob tooa usando a conta da análise Data Lake:
 
     AdlCopy /Source adl://mysourcedatalakestore.azuredatalakestore.net/mynewfolder/ /dest adl://mydestdatastore.azuredatalakestore.net/mynewfolder/ /Account mydatalakeanalyticaccount /Units 2
 
 ### <a name="performance-considerations"></a>Considerações sobre o desempenho
 
-Ao copiar dados no intervalo de terabytes, usar AdlCopy com sua própria conta do Azure Data Lake Analytics fornece um desempenho melhor e mais previsível. O parâmetro que deve ser ajustado é o número de unidades do Azure Data Lake Analytics a ser usado para o trabalho de cópia. Aumentar o número de unidades elevará o desempenho do seu trabalho de cópia. Cada arquivo a ser copiado pode usar uma unidade no máximo. Especificar mais unidades do que o número de arquivos que estão sendo copiados não aumentará o desempenho.
+Ao copiar dados no intervalo de saudação de terabytes, usar AdlCopy com sua própria conta da análise Azure Data Lake fornece desempenho melhor e mais previsível. parâmetro Hello que deve ser ajustado é o número de saudação de unidades de análise do Azure Data Lake toouse para o trabalho de cópia hello. Aumentar o número de saudação de unidades de aumentarão o desempenho de saudação do seu trabalho de cópia. Cada toobe do arquivo copiado pode usar uma unidade máxima. Especificação de mais unidades que o número de saudação de arquivos que estão sendo copiados não aumentará o desempenho.
 
-## <a name="use-adlcopy-to-copy-data-using-pattern-matching"></a>Usar o AdlCopy para copiar dados usando a correspondência de padrões
-Nesta seção, você aprenderá a usar o AdlCopy para copiar dados de uma origem (em nosso exemplo abaixo usamos o Blob de Armazenamento do Azure) para uma conta de destino do Data Lake Store usando a correspondência de padrões. Por exemplo, é possível usar as etapas abaixo para copiar todos os arquivos com extensão .csv do blob de origem para o destino.
+## <a name="use-adlcopy-toocopy-data-using-pattern-matching"></a>Usar AdlCopy toocopy dados usando a correspondência de padrões
+Nesta seção, você aprenderá como toouse AdlCopy toocopy dados de uma fonte (em nosso exemplo abaixo usamos o Blob de armazenamento do Azure) tooa conta de repositório Data Lake de destino usando a correspondência de padrões. Por exemplo, você pode usar o hello etapas abaixo toocopy todos os arquivos com extensão. csv do hello fonte blob toohello de destino.
 
-1. Abra um prompt de comando e navegue até o diretório onde AdlCopy está instalado, normalmente `%HOMEPATH%\Documents\adlcopy`.
-2. Execute o seguinte comando para copiar todos os arquivos com a extensão *.csv de um blob específico do contêiner de origem para um Data Lake Store:
+1. Abra um prompt de comando e navegue diretório toohello onde AdlCopy é instalado, normalmente `%HOMEPATH%\Documents\adlcopy`.
+2. Execute Olá toocopy de comando a seguir todos os arquivos com extensão *. csv de um blob específico de saudação fonte contêiner tooa repositório Data Lake:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
@@ -165,18 +165,18 @@ Nesta seção, você aprenderá a usar o AdlCopy para copiar dados de uma origem
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
 ## <a name="billing"></a>Cobrança
-* Se você usar a ferramenta AdlCopy autonomamente, será cobrado pelos custos de egresso para movimentação de dados se a conta de armazenamento do Azure de origem não estiver na mesma região que o Repositório Data Lake.
-* Se você usar a ferramenta AdlCopy com sua conta da Análise Data Lake, as [taxas de cobrança da Análise Data Lake](https://azure.microsoft.com/pricing/details/data-lake-analytics/) padrão serão aplicadas.
+* Se você usar ferramenta de AdlCopy hello como autônomo, que você será cobrado para custos de saída para a movimentação de dados, se a fonte Olá conta de armazenamento do Azure não está em Olá mesma região como Olá repositório Data Lake.
+* Se você usar a ferramenta de AdlCopy Olá com sua análise Data Lake conta padrão [análise Data Lake taxas de cobrança](https://azure.microsoft.com/pricing/details/data-lake-analytics/) será aplicada.
 
 ## <a name="considerations-for-using-adlcopy"></a>Considerações para o uso do AdlCopy
-* O AdlCopy (para a versão 1.0.5) permite copiar dados de origens que, juntas, têm mais de milhares de arquivos e pastas. No entanto, se você encontrar problemas ao copiar um conjunto de dados grande, poderá distribuir os arquivos/pastas em subpastas diferentes e usar o caminho para as subpastas como a origem em vez disso.
+* O AdlCopy (para a versão 1.0.5) permite copiar dados de origens que, juntas, têm mais de milhares de arquivos e pastas. No entanto, se você encontrar problemas ao copiar um conjunto de dados grande, distribuir Olá arquivos/pastas em subpastas diferentes e usar subpastas do hello caminho toothose como fonte de saudação em vez disso.
 
 ## <a name="performance-considerations-for-using-adlcopy"></a>Considerações de desempenho para o uso do AdlCopy
 
-O AdlCopy dá suporte à cópia de dados que contém milhares de arquivos e pastas. No entanto, se você encontrar problemas para copiar um grande conjunto de dados, será possível distribuir as arquivos/pastas em subpastas menores. O AdlCopy foi desenvolvido para cópias ad hoc. Se você estiver tentando copiar dados de forma recorrente, considere usar o [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md), que fornece gerenciamento completo sobre as operações de cópia.
+O AdlCopy dá suporte à cópia de dados que contém milhares de arquivos e pastas. No entanto, se você encontrar problemas ao copiar um conjunto de dados grande, você pode distribuir Olá arquivos/pastas em subpastas menores. O AdlCopy foi desenvolvido para cópias ad hoc. Se você estiver tentando toocopy dados de forma recorrente, você deve considerar o uso [do Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) que fornece gerenciamento completo em torno de operações de cópia de saudação.
 
 ## <a name="release-notes"></a>Notas de versão
-* 1.0.13 – se você estiver copiando dados para a mesma conta do Azure Data Lake Store entre vários comandos adlcopy, você não precisará mais digitar suas credenciais novamente para cada execução. O Adlcopy agora gravará essas informações em cache entre várias execuções.
+* 1.0.13 - se você estiver copiando dados toohello mesma conta do repositório Azure Data Lake em adlcopy vários comandos, não é necessário tooreenter suas credenciais para cada mais executados. O Adlcopy agora gravará essas informações em cache entre várias execuções.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)

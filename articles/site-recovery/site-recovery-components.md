@@ -1,5 +1,5 @@
 ---
-title: "Como funciona a Recuperação de Site? | Microsoft Docs"
+title: "aaaHow faz o trabalho de recuperação de Site? | Microsoft Docs"
 description: "Este artigo fornece uma visão geral da arquitetura de Recuperação de Site"
 services: site-recovery
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.date: 06/14/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: site-recovery-azure-to-azure-architecture
-ms.openlocfilehash: e8faa2c7cde18fc08f0255e80f0acdb961082fcb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ff1580d0fe294148dc0c621728491e6119c3048a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-does-azure-site-recovery-work-for-on-premises-infrastructure"></a>Como funciona o Azure Site Recovery para a infraestrutura local?
 
@@ -28,174 +28,174 @@ ms.lasthandoff: 07/11/2017
 > * [Replicar as máquinas virtuais do Azure](site-recovery-azure-to-azure-architecture.md)
 > * [Replicar as máquinas locais](site-recovery-components.md)
 
-Este artigo descreve a arquitetura subjacente do serviço [Azure Site Recovery](site-recovery-overview.md) e os componentes que permitem seu funcionamento para replicar as cargas de trabalho do local para o Azure.
+Este artigo descreve a arquitetura subjacentes do hello [do Azure Site Recovery](site-recovery-overview.md) serviço e Olá componentes funcionam para replicar as cargas de trabalho de tooAzure local.
 
-Poste comentários na parte inferior deste artigo ou no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Lançar os comentários na parte inferior deste artigo ou de saudação do hello [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="replicate-to-azure"></a>Replicar no Azure
+## <a name="replicate-tooazure"></a>Replicar tooAzure
 
-Você pode replicar e proteger a seguinte infraestrutura local para o Azure:
+Você pode replicar e proteger os seguintes Olá tooAzure de infraestrutura local:
 
 - **VMware**: VMS VMware locais em execução em um [host com suporte](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). Replique VMs VMware executando [sistemas operacionais com suporte](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
 - **Hyper-V**: VMs Hyper-V locais em execução em [hosts com suporte](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers).
 - **Máquinas físicas**: servidores físicos locais executando Windows ou Linux em [sistemas operacionais com suporte](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions). Replique VMs Hyper-V executando qualquer sistema operacional convidado [com suporte do Hyper-V e do Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
-## <a name="vmware-to-azure"></a>VMware no Azure
+## <a name="vmware-tooazure"></a>VMware tooAzure
 
-Veja o que você precisa para replicar VMs VMware no Azure.
+Aqui está o que você precisa para replicar tooAzure VMs VMware.
 
 Área | Componente | Detalhes
 --- | --- | ---
-**Servidor de configuração** | Um único servidor de gerenciamento (VM VMWare) executa todos os locais - servidor de configuração, servidor de processo, servidor de destino mestre | O servidor de configuração coordena a comunicação entre o ambiente local e o Azure e gerencia a replicação de dados.
- **Servidor de processo**:  | Instalado por padrão no servidor de configuração. | Atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para o Armazenamento do Azure.<br/><br/> O servidor de processo também manipula a instalação por push do Serviço de mobilidade em computadores protegidos e executa a descoberta automática de máquinas virtuais VMware.<br/><br/> À medida que a implantação cresce, você pode adicionar outros servidores de processo dedicados separados para lidar com o aumento do volume de tráfego de replicação.
- **Servidor de destino mestre** | Instalado por padrão no servidor de configuração local. | Lida com os dados de replicação durante o failback do Azure.<br/><br/> Se os volumes de tráfego de failback forem altos, você poderá implantar um servidor de destino mestre separado para failback.
-**Servidores VMware** | VMs VMware são hospedadas em servidores ESXi vSphere, e recomendamos que um servidor vCenter gerencie os hosts. | Adicione servidores VMware ao seu cofre dos Serviços de Recuperação.<br/><br/>
-**Computadores replicados** | O serviço de Mobilidade será instalado em cada VM VMware que você deseja replicar. Ele pode ser instalado manualmente em cada computador ou com uma instalação por push do servidor de processo.| -
+**Servidor de configuração** | Um único servidor de gerenciamento (VM VMWare) executa todos os locais - servidor de configuração, servidor de processo, servidor de destino mestre | servidor de configuração de saudação coordena as comunicações entre o local e o Azure e gerencia a replicação de dados.
+ **Servidor de processo**:  | Instalado por padrão no servidor de configuração de saudação. | Atua como um gateway de replicação. Recebe dados de replicação, otimizá-lo com o cache, a compactação e criptografia e envia tooAzure armazenamento.<br/><br/> servidor de processo Olá também lida com a instalação por push de máquinas de tooprotected de serviço de mobilidade hello e executa a descoberta automática de máquinas virtuais do VMware.<br/><br/> À medida que aumenta sua implantação, você pode adicionar mais processo dedicado separado servidores toohandle aumentar os volumes de tráfego de replicação.
+ **Servidor de destino mestre** | Instalado por padrão no servidor de configuração local hello. | Lida com os dados de replicação durante o failback do Azure.<br/><br/> Se os volumes de tráfego de failback forem altos, você poderá implantar um servidor de destino mestre separado para failback.
+**Servidores VMware** | Máquinas virtuais do VMware são hospedadas em servidores de ESXi do vSphere, e é recomendável um vCenter hosts de saudação do servidor toomanage. | Adicione o Cofre de serviços de recuperação de tooyour de servidores do VMware.<br/><br/>
+**Computadores replicados** | Olá serviço de mobilidade será instalado em cada máquina virtual que você deseja tooreplicate VMware. Ele pode ser instalado manualmente em cada computador, ou com uma instalação por push saudação do servidor de processo.| -
 
-**Figura 1: VMware para componentes do Azure**
+**Figura 1: VMware tooAzure componentes**
 
 ![Componentes](./media/site-recovery-components/arch-enhanced.png)
 
 ### <a name="replication-process"></a>Processo de replicação
 
-1. Configure a implantação, incluindo os componentes do Azure e um cofre dos Serviços de Recuperação. No cofre, você especifica a origem da replicação e o destino, configura o servidor de configuração, adiciona servidores VMware, cria uma política de replicação, implanta o serviço de mobilidade, habilita a replicação e executa um teste de failover.
-2.  As máquinas iniciam a replicação de acordo com a política de replicação, e uma cópia inicial dos dados é replicada para o armazenamento do Azure.
-4. A replicação de alterações delta para o Azure começa após a replicação inicial terminar. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
-    - As máquinas que estão sendo replicadas se comunicam com o servidor de configuração na porta HTTPS 443 de entrada para o gerenciamento de replicação.
-    - As máquinas que estão sendo replicadas enviam dados de replicação para o servidor de processo na porta 9443 HTTPS de entrada (pode ser configurada).
-    - O servidor de configuração coordena o gerenciamento de replicação com o Azure pela porta HTTPS 443 de saída.
-    - O servidor de processo recebe dados de máquinas de origem, otimiza-os e criptografa-os e os envia para o armazenamento do Azure pela porta 443 de saída.
-    - Se você habilitar a consistência de várias VMS, as máquinas no grupo de replicação se comunicarão entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Isso é útil se os computadores estão executando a mesma carga de trabalho e precisam ser consistentes.
-5. O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings#public-peering) do Azure ExpressRoute. Não há suporte para a replicação do tráfego através de uma VPN de site a site de um site local para o Azure.
+1. Configurar implantação hello, incluindo componentes do Azure e um cofre de serviços de recuperação. No cofre Olá você especificar origem da replicação hello e destino, configurar o servidor de configuração Olá, adicionar servidores VMware, crie uma política de replicação, implantar o serviço de mobilidade Olá, habilitar a replicação e executar um failover de teste.
+2.  Máquinas iniciam a replicação de acordo com a política de replicação Olá, e uma cópia inicial dos dados de saudação é replicado tooAzure armazenamento.
+4. A replicação de tooAzure de alterações delta começa após a conclusão da replicação inicial de saudação. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
+    - Replicadas máquinas se comunicar com servidor de configuração de saudação na porta HTTPS 443 entrada para o gerenciamento de replicação.
+    - Replicadas máquinas enviam servidor de processo de toohello de dados de replicação na porta HTTPS 9443 entrada (pode ser configurado).
+    - servidor de configuração de saudação orquestra o gerenciamento de replicação com o Azure através da porta HTTPS 443 de saída.
+    - servidor de processo Olá recebe dados de máquinas de origem, otimiza criptografa e envia tooAzure armazenamento pela porta 443 saída.
+    - Se você habilitar a consistência de várias VMs, em seguida, máquinas no grupo de replicação Olá comunicam entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Isso é útil se estiver executando máquinas Olá a mesma carga de trabalho e precisam toobe consistente.
+5. O tráfego é replicado tooAzure armazenamento pontos de extremidade públicos, mais Olá da internet. Como alternativa, você pode usar o [emparelhamento público](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings#public-peering) do Azure ExpressRoute. Replicação do tráfego por uma VPN site a site de um tooAzure de site local não tem suporte.
 
-**Figura 2: replicação do VMware para o Azure**
+**Figura 2: VMware tooAzure replicação**
 
 ![Avançado](./media/site-recovery-components/v2a-architecture-henry.png)
 
 ### <a name="failover-and-failback"></a>Failover e failback
 
-1. Depois de verificar que o teste de failover está funcionando conforme o esperado, execute failovers não planejados para o Azure conforme o necessário. Não há suporte para failover planejado.
-2. Faça o failover de um único computador, ou crie [planos de recuperação](site-recovery-create-recovery-plans.md) para realizar o failover de várias VMs.
-3. Ao executar um failover, VMs de réplica são criadas no Azure. Você confirma um failover para começar a acessar a carga de trabalho por meio da VM do Azure de réplica.
-4. Quando o site primário local estiver disponível novamente, você poderá executar o failback. Você configura uma infraestrutura de failback, inicia a replicação da máquina do site secundário para o primário e executa um failover não planejado do site secundário. Depois que você confirmar esse failover, os dados estarão novamente no local e será necessário habilitar a replicação no Azure de novo. [Saiba mais](site-recovery-failback-azure-to-vmware.md)
+1. Depois de verificar que se o failover de teste está funcionando como esperado, você pode executar failovers não planejados tooAzure conforme necessário. Não há suporte para failover planejado.
+2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md), toofail entre várias VMs.
+3. Ao executar um failover, VMs de réplica são criadas no Azure. Você pode confirmar uma failover toostart acessando Olá carga de trabalho da réplica Olá VM do Azure.
+4. Quando o site primário local estiver disponível novamente, você poderá executar o failback. Configurar uma infra-estrutura de failback, iniciar a replicação de máquina de saudação do hello site secundário toohello primário e executar um failover não planejado do site secundário hello. Após você confirmar esse failover, dados serão back local e você precisa tooenable replicação tooAzure novamente. [Saiba mais](site-recovery-failback-azure-to-vmware.md)
 
 **Figura 3: failback físico/de VMware**
 
 ![Failback](./media/site-recovery-components/enhanced-failback.png)
 
-## <a name="physical-to-azure"></a>Físico para Azure
+## <a name="physical-tooazure"></a>TooAzure físico
 
-Quando você replica servidores físicos locais no Azure, a replicação também usa os mesmos componentes e processos que o [VMware no Azure](#vmware-replication-to-azure), mas observe essas diferenças:
+Quando você replica tooAzure de servidores locais físicos, a replicação usa também Olá mesmo componentes e processos como [tooAzure VMware](#vmware-replication-to-azure), mas observe essas diferenças:
 
-- Você pode usar um servidor físico para o servidor de configuração, em vez de uma VM do VMware
-- Você precisará de uma infraestrutura do VMware local para failback. Você não pode realizar o failback para um computador físico.
+- Você pode usar um servidor físico para o servidor de configuração hello, em vez de uma VM do VMware
+- Você precisará de uma infraestrutura do VMware local para failback. Não é possível reprovar máquina física tooa voltar.
 
-## <a name="hyper-v-to-azure"></a>Hyper-V para Azure
+## <a name="hyper-v-tooazure"></a>TooAzure Hyper-V
 
 ### <a name="replication-process"></a>Processo de replicação
 
-1. Você configura os componentes do Azure. Recomendamos que você configure as contas de armazenamento e rede antes de começar a implantação da Recuperação de Site.
+1. Você configurar Olá componentes do Azure. Recomendamos que você configure as contas de armazenamento e rede antes de começar a implantação da Recuperação de Site.
 2. Crie um cofre de Serviços de Replicação para Recuperação de Site e defina configurações de cofre, incluindo:
-    - Configurações de origem e destino. Se não estiver gerenciando hosts Hyper-V em uma nuvem VMM, você criará para o destino um contêiner de site do Hyper-V e adicionará hosts Hyper-V a ele. Se os hosts Hyper-V forem gerenciados no VMM, a origem será a nuvem do VMM. O destino é o Azure.
-    - Instalação do provedor do Azure Site Recovery e do agente dos Serviços de Recuperação do Microsoft Azure. Se você tiver o VMM, o provedor será instalado nele, e o agente em cada host Hyper-V. Se você não tiver o VMM, o Provedor e o agente serão instalados em cada host.
-    - Você cria uma política de replicação para o site do Hyper-V ou a nuvem do VMM. A política é aplicada a todas as VMs localizadas nos hosts na nuvem ou no site.
-    - Você habilita a replicação para VMs do Hyper-V. A replicação inicial ocorre de acordo com as configurações de política de replicação.
-4. As alterações de dados são acompanhadas, e a replicação de alterações delta para o Azure começa após a replicação inicial terminar. As alterações acompanhadas para um item são mantidas em um arquivo .hrl.
-5. Você executa um failover de teste para verificar se tudo está funcionando.
+    - Configurações de origem e destino. Se você não estiver gerenciando hosts Hyper-V em uma nuvem VMM, para o destino de saudação você cria um contêiner do Hyper-V site e adicionar tooit de hosts do Hyper-V. Se os hosts Hyper-V gerenciados no VMM, origem Olá é saudação do VMM. destino de saudação é o Azure.
+    - Instalação do hello provedor Azure Site Recovery e o agente de serviços de recuperação do Microsoft Azure hello. Se você tiver Olá VMM provedor será instalado nele e Olá agente em cada host Hyper-V. Se você não tiver o VMM, Olá provedor e agente estão instalados em cada host.
+    - Você criar uma política de replicação para o site do Hyper-V hello ou nuvem do VMM. política de saudação é tooall aplicada VMs localizadas em hosts na nuvem ou site hello.
+    - Você habilita a replicação para VMs do Hyper-V. A replicação inicial ocorre de acordo com as configurações de política de replicação hello.
+4. As alterações de dados são rastreadas e a replicação de tooAzure de alterações delta começa após a conclusão da replicação inicial de saudação. As alterações acompanhadas para um item são mantidas em um arquivo .hrl.
+5. Executar um toomake de failover de teste se tudo está funcionando.
 
 ### <a name="failover-and-failback-process"></a>Processo de failover e failback
 
-1. Você pode executar um [failover](site-recovery-failover.md) planejado ou não planejado de VMs Hyper-V locais para o Azure. Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
-2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md) para orquestrar o failover de vários computadores.
-4. Após executar o failover, você deve ser capaz de ver as VMs de réplica criadas no Azure. Você pode atribuir um endereço IP público à VM, se necessário.
-5. Você confirma então o failover para começar a acessar a carga de trabalho por meio da VM do Azure de réplica.
-6. Quando o site primário local estiver disponível novamente, você poderá executar o [failback](site-recovery-failback-from-azure-to-hyper-v.md). Você dispara um failover planejado do Azure para o site primário. Para um failover planejado, você pode selecionar failback para a mesma VM ou um local alternativo e sincronizar alterações entre o Azure e o local, para garantir que não haja perda de dados. Quando as VMs são criadas no local, você confirma o failover.
+1. Você pode executar um planejado ou não planejado [failover](site-recovery-failover.md) de tooAzure de VMs Hyper-V local. Se você executar um failover planejado, máquinas virtuais de origem são encerrados tooensure sem perda de dados.
+2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md) tooorchestrate failover de várias máquinas.
+4. Depois de executar failover hello, deve ser capaz de toosee Olá criado VMs de réplica no Azure. Você pode atribuir um toohello de endereço IP público VM se necessário.
+5. Em seguida, confirmar Olá failover toostart acessando a carga de trabalho de saudação da réplica Olá VM do Azure.
+6. Quando o site primário local estiver disponível novamente, você poderá executar o [failback](site-recovery-failback-from-azure-to-hyper-v.md). Disparar um failover planejado de um site primário toohello do Azure. Para um failover planejado, que você pode selecione toofailback toohello mesmo VM ou tooan um local alternativo e sincronizar alterações entre o Azure e no local, tooensure sem perda de dados. Quando as VMs são criadas no local, você confirmar failover de saudação.
 
-**Figura 4: replicação de site de Hyper-V para o Azure**
+**Figura 4: Replicação de tooAzure do site de Hyper-V**
 
 ![Componentes](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
 
-**Figura 5: replicação de Hyper-V em nuvens do VMM para o Azure**
+**Figura 5: TooAzure replicação de nuvem do Hyper-V no VMM**
 
 ![Componentes](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
 
-## <a name="replicate-to-a-secondary-site"></a>Replicar para um site secundário
+## <a name="replicate-tooa-secondary-site"></a>Site secundário tooa replicar
 
-Replique o seguinte no site secundário:
+Você pode replicar Olá site secundário tooyour a seguir:
 
 - **VMware**: VMS VMware locais em execução em um [host com suporte](site-recovery-support-matrix-to-sec-site.md#on-premises-servers). Replique VMs VMware executando [sistemas operacionais com suporte](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions)
 - **Máquinas físicas**: servidores físicos locais executando Windows ou Linux em [sistemas operacionais com suporte](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
 - **Hyper-V**: VMs Hyper-V locais em execução em [hosts Hyper-V com suporte](site-recovery-support-matrix-to-sec-site.md#on-premises-servers) gerenciados em nuvens VMM. [hosts com suporte](site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers). Replique VMs Hyper-V executando qualquer sistema operacional convidado [com suporte do Hyper-V e do Azure](https://technet.microsoft.com/en-us/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 
 
-## <a name="vmwarephysical-to-a-secondary-site"></a>VMware/físico para um site secundário
+## <a name="vmwarephysical-tooa-secondary-site"></a>Site secundário tooa VMware/físicos
 
-Replique VMs VMware ou servidores físicos para um site secundário usando o InMage Scout.
+Replicar máquinas virtuais do VMware ou servidores físicos tooa secundário usando InMage Scout.
 
 ### <a name="components"></a>Componentes
 
 **Área** | **Componente** | **Detalhes**
 --- | --- | ---
-**Servidor de processo** | Localizado no site primário | Implante o servidor de processo para manipular o caching, a compactação e a otimização de dados.<br/><br/> Ele também trata da instalação por push do Agente Unificado nas máquinas que você deseja proteger.
-**Servidor de configuração** | Localizado no site secundário | O servidor de configuração gerencia, configura e monitora sua implantação, usando o site de gerenciamento ou o console do vContinuum.
-**Servidor vContinuum** | Opcional. Instalado no mesmo local que o servidor de configuração. | Ele fornece um console para o gerenciamento e monitoramento de seu ambiente protegido.
-**Servidor de destino mestre** | Localizado no site secundário | O servidor de destino mestre armazena os dados replicados. Ele recebe os dados do servidor de processo, cria uma máquina de réplica no site secundário e mantém os pontos de retenção dos dados.<br/><br/> O número de servidores de destino mestre necessário depende do número de máquinas que você está protegendo.<br/><br/> Se você quiser realizar o failback no site primário, também precisará de um servidor de destino mestre nesse local. O Agente Unificado está instalado neste servidor.
-**Servidor VMware ESX/ESXi e vCenter** |  VMs são hospedadas em hosts ESX/ESXi. Hosts são gerenciados com um servidor do vCenter | Você precisa de uma infraestrutura do VMware para replicar VMs VMware.
-**VMs/servidores físicos** |  Agente Unificado instalado em VMs VMware ou em servidores físicos que você deseja replicar. | O agente atua como um provedor de comunicação entre todos os componentes.
+**Servidor de processo** | Localizado no site primário | Implantar Olá processo servidor toohandle cache, a compactação e a otimização de dados.<br/><br/> Ele também lida com a instalação por push de hello toomachines Unified agente deseja tooprotect.
+**Servidor de configuração** | Localizado no site secundário | gerencia o servidor de configuração de Hello, configurar e monitorar sua implantação, ou usando o site de gerenciamento de saudação ou console de vContinuum de saudação.
+**Servidor vContinuum** | Opcional. Instalado em Olá mesmo local como servidor de configuração de saudação. | Ele fornece um console para o gerenciamento e monitoramento de seu ambiente protegido.
+**Servidor de destino mestre** | Localizado no site secundário Olá | o servidor de destino mestre Olá mantém os dados replicados. Recebe dados de saudação do servidor de processo, cria uma máquina de réplica no site secundário hello e contém pontos de retenção de dados de saudação.<br/><br/> número de saudação de servidores de destino mestre que você precisa depende número Olá das máquinas que você está protegendo.<br/><br/> Se desejar que o site primário do toofail toohello back, é necessário um servidor de destino mestre há muito. Olá unificado agente está instalado neste servidor.
+**Servidor VMware ESX/ESXi e vCenter** |  VMs são hospedadas em hosts ESX/ESXi. Hosts são gerenciados com um servidor do vCenter | Você precisa de uma infra-estrutura de VMware tooreplicate VMs VMware.
+**VMs/servidores físicos** |  Unified agente instalado em máquinas virtuais do VMware e servidores físicos que você deseja tooreplicate. | Agente de saudação atua como um provedor de comunicação entre todos os componentes de saudação.
 
 
 ### <a name="replication-process"></a>Processo de replicação
 
-1. Configure os servidores de componente em cada site (configuração, processo, destino mestre) e instale o Agente Unificado nos computadores que você deseja replicar.
-2. Após a replicação inicial, os agentes em cada computador enviam as alterações de replicação delta para o servidor de processo.
-3. O servidor de processo otimiza os dados e os transfere para o servidor de destino mestre no site secundário. O servidor de configuração gerencia o processo de replicação.
+1. Configurar servidores de componente de saudação em cada site (configuração, processo, destino mestre) e instalar Olá unificada agente em computadores que você deseja tooreplicate.
+2. Após a replicação inicial, o agente de saudação em cada computador envia o servidor de processo do delta replicação alterações toohello.
+3. servidor de processo Olá otimiza os dados de saudação e transfere-o servidor de destino mestre toohello no site secundário hello. servidor de configuração de saudação gerencia o processo de replicação de saudação.
 
-**Figura 6: replicação do VMware para o VMware**
+**Figura 6: VMware tooVMware replicação**
 
-![VMware para VMware](./media/site-recovery-components/vmware-to-vmware.png)
+![VMware tooVMware](./media/site-recovery-components/vmware-to-vmware.png)
 
 
 
-## <a name="hyper-v-to-a-secondary-site"></a>Hyper-V para um site secundário
+## <a name="hyper-v-tooa-secondary-site"></a>Site secundário do Hyper-V tooa
 
-Veja o que você precisa para replicar VMs Hyper-V em um site secundário.
+Aqui está o que você precisa para a replicação de site secundário do tooa de VMs Hyper-V.
 
 
 **Área** | **Componente** | **Detalhes**
 --- | --- | ---
-**Servidor VMM** | Recomendamos um servidor VMM no site primário e um no site secundário | Cada servidor VMM devem estar conectados à Internet.<br/><br/> Cada servidor deve ter pelo menos uma nuvem privada de VMM, com o conjunto de perfis de funcionalidade do Hyper-V.<br/><br/> Instale o Provedor do Azure Site Recovery no servidor do VMM. O Provedor coordena e organiza a replicação com o serviço Recuperação de Site pela Internet. As comunicações entre o Provedor e o Azure são protegidas e criptografadas.
-**Servidor Hyper-V** |  Um ou mais servidores de host do Hyper-V nas nuvens do VMM primárias e secundárias.<br/><br/> Os servidores devem estar conectados à Internet.<br/><br/> Os dados são replicados entre os servidores de host Hyper-V primários e secundários pela LAN ou VPN usando a autenticação Kerberos ou autenticação de certificado.  
-**VMs Hyper-V** | Localizado no servidor de host Hyper-V de origem. | O servidor host de origem deve ter pelo menos uma VM que você deseja replicar.
+**Servidor VMM** | É recomendável um servidor do VMM no site primário hello e um no site secundário Olá | Cada servidor do VMM deve ser toohello conectado à internet.<br/><br/> Cada servidor deve ter pelo menos uma nuvem privada do VMM, com um conjunto de perfis de funcionalidade Olá Hyper-V.<br/><br/> Você pode instalar Olá provedor Azure Site Recovery no servidor do VMM hello. Olá provedor coordena e coordena a replicação com o serviço de recuperação de Site do hello sobre Olá internet. As comunicações entre hello provedor e do Azure são seguro e criptografado.
+**Servidor Hyper-V** |  Um ou mais servidores Hyper-V host nas nuvens de saudação primários e secundários do VMM.<br/><br/> Os servidores devem estar toohello conectado à internet.<br/><br/> Dados são replicados entre Olá servidores primários e secundários Hyper-V host via LAN hello ou VPN, usando a autenticação Kerberos ou certificados.  
+**VMs Hyper-V** | Localizado no servidor de host do Hyper-V de origem hello. | servidor de host de origem Olá deve ter pelo menos uma VM que você deseja tooreplicate.
 
 ### <a name="replication-process"></a>Processo de replicação
 
-1. Você configura a conta do Azure.
+1. Configurar Olá conta do Azure.
 2. Crie um cofre de Serviços de Replicação para Recuperação de Site e defina configurações de cofre, incluindo:
 
-    - Origem e destino de replicação (sites primários e secundários).
-    - Instalação do provedor do Azure Site Recovery e do agente dos Serviços de Recuperação do Microsoft Azure. O provedor está instalado nos servidores do VMM, e o agente em cada host Hyper-V.
-    - Você cria uma política de replicação para a nuvem do VMM de origem. A política é aplicada a todas as VMs localizadas nos hosts na nuvem.
-    - Você habilita a replicação para VMs do Hyper-V. A replicação inicial ocorre de acordo com as configurações de política de replicação.
-4. As alterações de dados são acompanhadas, e a replicação de alterações delta começa após a replicação inicial terminar. As alterações acompanhadas para um item são mantidas em um arquivo .hrl.
-5. Você executa um failover de teste para verificar se tudo está funcionando.
+    - origem de replicação de saudação e de destino (sites primários e secundários).
+    - Instalação do hello provedor Azure Site Recovery e o agente de serviços de recuperação do Microsoft Azure hello. Olá provedor é instalado em servidores do VMM e o agente de saudação em cada host Hyper-V.
+    - Você cria uma política de replicação para a nuvem do VMM de origem. política de saudação é aplicado tooall as VMs localizadas nos hosts na nuvem de saudação.
+    - Você habilita a replicação para VMs do Hyper-V. A replicação inicial ocorre de acordo com as configurações de política de replicação hello.
+4. As alterações de dados são controladas, e a replicação delta altera toobegins após a conclusão da replicação inicial de saudação. As alterações acompanhadas para um item são mantidas em um arquivo .hrl.
+5. Executar um toomake de failover de teste se tudo está funcionando.
 
-**Figura 7: replicação de VMM para VMM**
+**Figura 7: Replicação de tooVMM VMM**
 
-![Local para o próprio local](./media/site-recovery-components/arch-onprem-onprem.png)
+![Tooon local no local](./media/site-recovery-components/arch-onprem-onprem.png)
 
 ### <a name="failover-and-failback"></a>Failover e failback
 
-1. Você pode executar um [failover](site-recovery-failover.md) planejado ou não planejado entre sites locais. Se você executar um failover planejado, as VMs de origem serão desligadas para evitar a perda de dados.
-2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md) para orquestrar o failover de vários computadores.
-4. Se você executar um failover não planejado para um site secundário, depois as máquinas de failover no local secundário não serão habilitadas para replicação ou proteção. Depois de executar um failover planejado, os computadores no local secundário são protegidos.
-5. Em seguida, você confirma o failover para começar a acessar a carga de trabalho na VM de réplica.
-6. Quando seu site primário estiver disponível novamente, você poderá iniciar a replicação inversa para replicar do site secundário para o primário. A replicação inversa coloca as máquinas virtuais em um estado protegido, mas o datacenter secundário permanece sendo o local ativo.
-7. Para transformar o site primário em local ativo novamente, inicie um failover planejado do site secundário para o primário, seguido por outra replicação inversa.
+1. Você pode executar um [failover](site-recovery-failover.md) planejado ou não planejado entre sites locais. Se você executar um failover planejado, máquinas virtuais de origem são encerrados tooensure sem perda de dados.
+2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md) tooorchestrate failover de várias máquinas.
+4. Se você executar um failover não planejado tooa site secundário, depois de executar failover em máquinas Olá no local secundário Olá não está habilitado para proteção ou replicação. Se você tiver executado um failover planejado, após o failover hello, as máquinas no local secundário Olá são protegidas.
+5. Em seguida, você confirmar Olá failover toostart acessando Olá carga de trabalho da réplica Olá VM.
+6. Quando seu site primário está disponível novamente, você pode iniciar tooreplicate replicação inversa da saudação site secundário toohello primário. Replicação inversa coloca máquinas virtuais de saudação em um estado protegido, mas o datacenter secundário Olá ainda é local ativo hello.
+7. site primário do hello toomake em local ativo Olá novamente, você iniciar um failover planejado de tooprimary secundário, seguido de outra replicação inversa.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba mais](site-recovery-hyper-v-azure-architecture.md) sobre o fluxo de trabalho de replicação do Hyper-V.
+- [Saiba mais](site-recovery-hyper-v-azure-architecture.md) sobre fluxo de trabalho de replicação Olá Hyper-V.
 - [Verificar pré-requisitos](site-recovery-prereq.md)

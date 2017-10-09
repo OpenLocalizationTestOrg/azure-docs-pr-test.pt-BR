@@ -1,6 +1,6 @@
 ---
-title: "Executar consultas do Hive usando o SDK do HDInsight .NET – Azure | Microsoft Docs"
-description: Saiba como enviar trabalhos Hadoop para o Hadoop no Azure HDInsight usando o SDK .NET do HDInsight.
+title: consultas de Hive aaaRun usando o HDInsight .NET SDK - Azure | Microsoft Docs
+description: Saiba como toosubmit Hadoop trabalhos tooAzure HDInsight Hadoop usando o HDInsight .NET SDK.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,38 +16,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jgao
-ms.openlocfilehash: 7b1a5f7ea3b2bda438727dc75a85557ea7930280
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 11f07d90405d3e804774610e242813927df59a03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas Hive usando o SDK .NET do HDInsight
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Saiba como enviar consultas do Hive usando o SDK .NET do HDInsight. Você escreve um programa em C# para enviar uma consulta do Hive para listar tabelas de Hive e exibir os resultados.
+Saiba como toosubmit Hive consultas usando o HDInsight .NET SDK. Escrever uma consulta de Hive para listar as tabelas da seção de um toosubmit de programa c# e exibir resultados de saudação.
 
 > [!NOTE]
-> As etapas neste artigo devem ser executadas em um cliente do Windows. Para obter informações sobre como usar um cliente Linux, OS X ou Unix para trabalhar com o Hive, use o seletor de tabulação mostrado na parte superior do artigo.
+> etapas de saudação neste artigo devem ser executadas de um cliente do Windows. Para obter informações sobre como usar um Linux, OS X ou Unix cliente toowork com Hive, use o seletor de guia de saudação mostrado na parte superior de saudação do artigo hello.
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este artigo, você deve ter os seguintes itens:
+Antes de começar este artigo, você deve ter Olá itens a seguir:
 
 * **Um cluster Hadoop no HDInsight**. Confira a [Introdução ao uso do Hadoop baseado em Linux no HDInsight](./hdinsight-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013/2015/2017**.
 
 ## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>Enviar consultas do Hive usando o SDK do .NET do HDInsight
-O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET. 
+Olá HDInsight .NET SDK fornece bibliotecas de cliente .NET, o que torna mais fácil toowork com clusters de HDInsight do .NET. 
 
-**Para enviar trabalhos**
+**trabalhos de tooSubmit**
 
 1. No Visual Studio, crie um aplicativo de console C#.
-2. No Console do Gerenciador de Pacotes NuGet, execute o comando a seguir:
+2. Olá Nuget Package Manager Console, execute Olá comando a seguir:
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
-3. Use o seguinte código:
+3. Use Olá código a seguir:
 
     ```csharp
         using System.Collections.Generic;
@@ -75,14 +75,14 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
    
                 static void Main(string[] args)
                 {
-                    System.Console.WriteLine("The application is running ...");
+                    System.Console.WriteLine("hello application is running ...");
    
                     var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
                     _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
    
                     SubmitHiveJob();
    
-                    System.Console.WriteLine("Press ENTER to continue ...");
+                    System.Console.WriteLine("Press ENTER toocontinue ...");
                     System.Console.ReadLine();
                 }
    
@@ -97,13 +97,13 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
                         Arguments = args
                     };
    
-                    System.Console.WriteLine("Submitting the Hive job to the cluster...");
+                    System.Console.WriteLine("Submitting hello Hive job toohello cluster...");
                     var jobResponse = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
                     var jobId = jobResponse.JobSubmissionJsonResponse.Id;
                     System.Console.WriteLine("Response status code is " + jobResponse.StatusCode);
                     System.Console.WriteLine("JobId is " + jobId);
    
-                    System.Console.WriteLine("Waiting for the job completion ...");
+                    System.Console.WriteLine("Waiting for hello job completion ...");
    
                     // Wait for job completion
                     var jobDetail = _hdiJobManagementClient.JobManagement.GetJob(jobId).JobDetail;
@@ -131,18 +131,18 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
             }
         }
     ```
-4. Pressione **F5** para executar o aplicativo.
+4. Pressione **F5** aplicativo hello de toorun.
 
-A saída do aplicativo deverá ser semelhante a:
+saída de saudação do aplicativo hello deverá ser semelhante a:
 
 ![Saída do trabalho do Hive do Hadoop HDInsight](./media/hdinsight-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
+Neste artigo, você aprendeu um cluster HDInsight toocreate de várias maneiras. toolearn mais, consulte Olá artigos a seguir:
 
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
 * [Criar clusters Hadoop no HDInsight][hdinsight-provision]
-* [Gerenciar clusters Hadoop no HDInsight usando o Portal do Azure](hdinsight-administer-use-management-portal.md)
+* [Gerenciar clusters Hadoop em HDInsight usando Olá portal do Azure](hdinsight-administer-use-management-portal.md)
 * [Referência de SDK .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Use o Sqoop com o HDInsight](hdinsight-use-sqoop-mac-linux.md)

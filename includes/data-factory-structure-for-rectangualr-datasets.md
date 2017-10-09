@@ -1,16 +1,16 @@
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especifica a definição de estrutura para conjuntos de dados retangulares
-A seção de estrutura em conjuntos de dados JSON é uma seção **opvional** para tabelas retangulares (com linhas e colunas) e contém uma coleção de colunas para a tabela. Você usará a seção de estrutura tanto para fornecer informações de tipo para conversões de tipo quanto para fazer mapeamentos de coluna. As seções a seguir descrevem esses recursos detalhadamente. 
+Olá seção estrutura Olá conjuntos de dados JSON é um **opcional** seção retangulares tabelas (com linhas e colunas) e contém uma coleção de colunas da tabela de saudação. Você usará a seção de estrutura de saudação para qualquer contendo informações de tipo para conversões de tipo ou fazer mapeamentos de coluna. Olá seções a seguir descreve esses recursos em detalhes. 
 
-Cada coluna contém as seguintes propriedades:
+Cada coluna contém Olá propriedades a seguir:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| name |Nome da coluna. |Sim |
-| type |Tipo de dados da coluna. Consulte a seção de conversões de tipo abaixo para obter mais detalhes sobre quando deve você especificar informações de tipo |Não |
-| culture |Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. O padrão é "en-us". |Não |
-| formato |O formato de cadeia de caracteres a ser usado quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. |Não |
+| name |Nome da coluna de saudação. |Sim |
+| type |Tipo de dados da coluna de saudação. Consulte a seção de conversões de tipo abaixo para obter mais detalhes sobre quando deve você especificar informações de tipo |Não |
+| culture |.NET com base em cultura toobe usado quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. O padrão é "en-us". |Não |
+| formato |Formatar toobe de cadeia de caracteres usada quando o tipo é especificado e é o tipo .NET Datetime ou Datetimeoffset. |Não |
 
-O exemplo a seguir mostra a seção da estrutura JSON para uma tabela que tem três colunas userid, name e lastlogindate.
+Olá exemplo a seguir mostra a saudação estrutura seção JSON para uma tabela que tem três colunas userid, nome e lastlogindate.
 
 ```json
 "structure": 
@@ -21,17 +21,17 @@ O exemplo a seguir mostra a seção da estrutura JSON para uma tabela que tem tr
 ],
 ```
 
-Use as diretrizes a seguir referentes a quando incluir informações de "estrutura" e o que incluir na seção **estrutura** .
+Use Olá diretrizes a seguir para quando informações de "structure" tooinclude e quais tooinclude em Olá **estrutura** seção.
 
-* **Para fontes de dados estruturados** que armazenam o esquema de dados e informações de tipo junto com os dados em si (fontes como tabela do Azure do SQL Server, Oracle, etc.), você deve especificar a seção "estrutura" apenas se quiser fazer o mapeamento de coluna de colunas de origem específicas para colunas específicas no coletor e seus nomes não forem iguais (consulte detalhes na seção mapeamento de coluna abaixo). 
+* **Para fontes de dados estruturados** que armazenam informações de esquema e o tipo de dados junto com hello dados em si (fontes como o SQL Server, Oracle, tabelas etc.), você deve especificar a seção de "estrutura" hello somente se você quiser mapeamento de coluna de específicos são colunas toospecific no coletor e os nomes de colunas de origem não Olá mesmo (consulte detalhes na seção de mapeamento de coluna abaixo). 
   
-    Conforme mencionado acima, as informações de tipo são opcionais na seção "estrutura". Para fontes estruturadas, as informações de tipo já estão disponíveis como parte da definição de conjunto de dados no repositório de dados, portanto, você não deve incluir informações de tipo quando você incluir a seção "estrutura".
-* **Para esquema de fontes de dados de leitura (especificamente o blob do Azure)** , você pode optar por armazenar os dados sem armazenar nenhuma informação de tipo ou esquema juntamente com esses dados. Para esses tipos de fontes de dados, você deve incluir "estrutura" nos 2 casos a seguir:
-  * Você deseja fazer o mapeamento de coluna.
-  * Quando o conjunto de dados é uma fonte em uma Atividade de cópia, você pode fornecer informações de tipo em "estrutura" e o data factory usará essas informações de tipo para conversão em tipos nativos para o coletor. Consulte o artigo [Mover dados de e para o Blob do Azure](../articles/data-factory/data-factory-azure-blob-connector.md) para obter mais informações.
+    Conforme mencionado acima, as informações de tipo de saudação serão opcionais na seção "estrutura". Para fontes estruturados, informações de tipo já estão disponíveis como parte da definição de conjunto de dados no repositório de dados Olá, portanto você não deve incluir informações de tipo quando você inclui uma seção de "structure" hello.
+* **Para o esquema de fontes de dados de leitura (especificamente BLOBs do Azure)** você pode escolher dados toostore sem armazenar qualquer informação de tipo ou esquema com dados saudação. Para esses tipos de fontes de dados, você deve incluir "structure" no hello 2 casos a seguir:
+  * Você deseja que o mapeamento de coluna toodo.
+  * Quando Olá conjunto de dados é uma fonte em uma atividade de cópia, você pode fornecer informações de tipo em "structure" e fábrica de dados usará essas informações de tipo para tipos de toonative de conversão para o coletor de saudação. Consulte [mover tooand de dados de Blob do Azure](../articles/data-factory/data-factory-azure-blob-connector.md) artigo para obter mais informações.
 
 ### <a name="supported-net-based-types"></a>Tipos baseados em .NET para os quais há suporte
-O data factory dá suporte aos valores de tipo baseados em .NET compatíveis com CLS a seguir, para fornecer informações de tipo em "estrutura" para esquema de fontes de dados de leitura, como blob do Azure.
+Valores de tipo para fornecer informações de tipo em "structure" para o esquema de fontes de dados de leitura, como BLOBs do Azure com base em dados fábrica dá suporte a saudação seguir .NET compatível com CLS.
 
 * Int16
 * Int32 
@@ -47,5 +47,5 @@ O data factory dá suporte aos valores de tipo baseados em .NET compatíveis com
 * Datetimeoffset
 * Timespan 
 
-Para Datetime e Datetimeoffset, você também pode especificar as cadeias de caracteres para "cultura" e "formato" para facilitar a análise de sua cadeia de caracteres Datetime personalizada. Consulte o exemplo de conversão de tipo abaixo.
+Para Datetime e Datetimeoffset você também pode especificar "culture" & toofacilitate da cadeia de caracteres "format" análise de sua cadeia de caracteres de data e hora personalizada. Consulte o exemplo de conversão de tipo abaixo.
 

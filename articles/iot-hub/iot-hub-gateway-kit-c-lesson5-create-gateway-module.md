@@ -1,6 +1,6 @@
 ---
-title: "Criar seu primeiro módulo Azure IoT Gateway | Microsoft Docs"
-description: "Crie um módulo e adicioná-la a um aplicativo de exemplo para personalizar os comportamentos de módulo."
+title: "aaaCreate seu módulo de Azure IoT Gateway primeiro | Microsoft Docs"
+description: "Crie um módulo e adicioná-lo a comportamentos de módulo tooa exemplo aplicativo toocustomize."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,26 +17,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 5e28422158684c3aaf0ac3fdf5b19c80fbccfb02
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 48996fc026c8b708e328b5629801465810e5b6a2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="lesson-5-create-your-first-azure-iot-gateway-module"></a>Lição 5: Criar o primeiro módulo de Gateway de IoT do Azure
-Embora o Azure IoT Edge permita que você crie módulos escritos em Java, .NET ou Node.js, este tutorial explica as etapas para criar um módulo em C.
+Enquanto o Azure IoT borda permite toobuild módulos escritos em Java, .NET ou Node. js, este tutorial orienta você pelas etapas de saudação para a criação de um módulo em C.
 
 ## <a name="what-you-will-do"></a>O que você fará
 
-- Compile e execute o aplicativo de exemplo hello_world no Intel NUC.
+- Compile e execute o aplicativo de exemplo hello hello_world em NUC Intel.
 - Crie um módulo e o compile no Intel NUC.
-- Adicione o novo módulo ao aplicativo de exemplo hello_world e então execute a amostra no Intel NUC. O novo módulo imprime mensagens de "hello_world" com um carimbo de hora.
+- Adicionar Olá novo módulo toohello hello_world aplicativo de exemplo e, em seguida, executar o exemplo hello em NUC Intel. novo módulo de saudação imprime mensagens de "hello_world" com um carimbo de hora.
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 
-- Como compilar e executar um aplicativo de exemplo no Intel NUC.
-- Como criar um módulo.
-- Como adicionar o módulo para um aplicativo de exemplo.
+- Como toocompile e executar um aplicativo de exemplo em NUC Intel.
+- Como toocreate um módulo.
+- Como tooadd módulo tooa aplicativo de exemplo.
 
 ## <a name="what-you-need"></a>O que você precisa
 
@@ -44,20 +44,20 @@ O Azure IoT Edge foi instalado no computador host.
 
 ## <a name="folder-structure"></a>Estrutura de pastas
 
-Na subpasta Lesson 5 do código de exemplo que você clonou na lição 1, há uma pasta `module` e uma pasta `sample`.
+Na subpasta Olá lição 5 do código de exemplo hello que você clonou na lição 1, há um `module` pasta e um `sample` pasta.
 
 ![my_module](media/iot-hub-gateway-kit-lessons/lesson5/my_module.png)
 
-- A pasta `module/my_module` contém o código-fonte e o script para criar o módulo.
-- A pasta `sample` contém o código-fonte e o script para criar o aplicativo de exemplo.
+- Olá `module/my_module` pasta contém Olá código e script toobuild Olá módulo de fonte.
+- Olá `sample` pasta contém Olá fonte código e script toobuild Olá aplicativo de exemplo.
 
-## <a name="compile-and-run-the-helloworld-sample-app-on-intel-nuc"></a>Compile e execute o aplicativo de exemplo hello_world em Intel NUC
+## <a name="compile-and-run-hello-helloworld-sample-app-on-intel-nuc"></a>Compilar e executar o aplicativo de exemplo hello hello_world no Intel NUC
 
-O exemplo `hello_world` cria um gateway com base no arquivo `hello_world.json` que especifica os dois módulos predefinidos associados ao aplicativo. O gateway registra uma mensagem "hello world" em um arquivo de 5 segundos. Nesta seção, você pode compilar e executar o aplicativo `hello_world` com seu módulo padrão.
+Olá `hello_world` exemplo cria um gateway com base em Olá `hello_world.json` arquivo que especifica Olá dois módulos predefinidos associados ao aplicativo hello. logs do gateway do Hello um arquivo de tooa de mensagem "hello world" a cada 5 segundos. Nesta seção, você pode compilar e executar Olá `hello_world` aplicativo com o seu módulo padrão.
 
-Para compilar e executar o aplicativo `hello_world`, siga estas etapas no computador host:
+Olá toocompile e execute `hello_world` aplicativo, siga estas etapas no computador host:
 
-1. Inicialize os arquivos de configuração executando os seguintes comandos:
+1. Inicialize os arquivos de configuração Olá executando Olá comandos a seguir:
 
    ```bash
    cd iot-hub-c-intel-nuc-gateway-getting-started
@@ -66,9 +66,9 @@ Para compilar e executar o aplicativo `hello_world`, siga estas etapas no comput
    gulp init
    ```
 
-1. Atualize o arquivo de configuração do gateway com o endereço MAC do Intel NUC. Ignore esta etapa se você visto a lição para [configurar e executar um aplicativo de exemplo BLE][config_ble].
+1. Atualize o arquivo de configuração do gateway de saudação com hello endereço MAC de NUC Intel. Ignore esta etapa se você tiver feito por meio da lição Olá muito[configurar e executar um aplicativo de exemplo Bilitar][config_ble].
 
-   1. Abra o arquivo de configuração do gateway executando o seguinte comando:
+   1. Abra o arquivo de configuração do gateway de saudação executando Olá comando a seguir:
 
       ```bash
       # For Windows command prompt
@@ -78,31 +78,31 @@ Para compilar e executar o aplicativo `hello_world`, siga estas etapas no comput
       code ~/.iot-hub-getting-started/config-gateway.json
       ```
 
-   1. Atualize o endereço MAC do gateway quando [configurar o Intel NUC como um gateway IoT][setup_nuc] e então salve o arquivo.
+   1. Do gateway da saudação de atualização endereços MAC quando você [configurar NUC Intel como um gateway IoT][setup_nuc]e, em seguida, salve o arquivo hello.
 
-1. Compile o código-fonte, executando o seguinte comando:
+1. Compile o código-fonte exemplo hello executando Olá comando a seguir:
 
    ```bash
    gulp compile
    ```
 
-   O comando transfere o código-fonte para Intel NUC e executa `build.sh` para compilá-lo.
+   Olá comando transfere Olá exemplo fonte código tooIntel NUC e executa `build.sh` toocompile-lo.
 
-1. Execute o aplicativo `hello_world` no Intel NUC executando o seguinte comando:
+1. Executar Olá `hello_world` aplicativo no Intel NUC executando Olá comando a seguir:
 
    ```bash
    gulp run
    ```
 
-   O comando executa `../Tools/run-hello-world.js`, que é especificado em `config.json` para iniciar o aplicativo de exemplo no Intel NUC.
+   Olá a execução do comando `../Tools/run-hello-world.js` especificada na `config.json` toostart aplicativo de exemplo hello em NUC Intel.
 
    ![run_sample](media/iot-hub-gateway-kit-lessons/lesson5/run_sample.png)
 
 ## <a name="create-a-new-module-and-compile-it-on-intel-nuc"></a>Crie um novo módulo e compilá-lo na Intel NUC
 
-As etapas a seguir orientam você durante a criação de um novo módulo e compile-o no Intel NUC. O módulo imprime mensagens com um carimbo de hora após recebê-los. Você irá criar o primeiro módulo gateway personalizado nesta seção.
+etapas de saudação abaixo orientarão-lo a criar um novo módulo e compilação-lo em NUC Intel. módulo de saudação imprime mensagens com um carimbo de hora após recebê-los. Você irá criar o primeiro módulo gateway personalizado nesta seção.
 
-Qualquer módulo do Azure IoT Edge deve implementar as seguintes interfaces:
+Qualquer módulo do Azure IoT borda deve implementar Olá interfaces a seguir:
 
    ```C
    pfModule_ParseConfigurationFromJson Module_ParseConfigurationFromJson
@@ -112,19 +112,19 @@ Qualquer módulo do Azure IoT Edge deve implementar as seguintes interfaces:
    pfModule_Receive Module_Receive
    ```
 
-Opcionalmente, você pode implementar a interface a seguir:
+Opcionalmente, você pode implementar Olá interface a seguir:
 
    ```C
    pfModule_Start Module_Start
    ```
 
-O diagrama a seguir mostra os caminhos de estado importantes de um módulo. Os retângulos quadrados representam métodos que implementar para executar operações quando o módulo se movem entre estados. Os ovais são principais estados que de módulo pode ser no.
+Olá diagrama a seguir mostra os caminhos de estado importantes de saudação de um módulo. retângulos quadrado Olá representam métodos implementar operações tooperform quando o módulo de saudação se move entre estados. elipses Olá são principais estados Olá módulo pode ser no.
 
 ![state_path](media/iot-hub-gateway-kit-lessons/lesson5/state_path.png)
 
-Agora vamos criar um módulo com base no modelo:
+Agora vamos criar um módulo com base no modelo de saudação:
 
-1. Abra a pasta de modelos, executando o seguinte comando:
+1. Abra a pasta de modelo de saudação executando Olá comando a seguir:
 
    ```bash
    code module/my_module
@@ -132,16 +132,16 @@ Agora vamos criar um módulo com base no modelo:
 
    ![code_module](media/iot-hub-gateway-kit-lessons/lesson5/code_module.png)
 
-   - `src/my_module.c` serve como um modelo que facilita a criação de um módulo. O modelo declara as interfaces. Tudo o que você precisa fazer é adicionar lógica à função `MyModule_Receive`.
-   - `build.sh` é o script de compilação para compilar o módulo no Intel NUC.
-1. Abra o `src/my_module.c` de arquivo e inclui dois arquivos de cabeçalho:
+   - `src/my_module.c`serve como um modelo que facilita a criação de saudação de um módulo. modelo de saudação declara interfaces hello. Você só precisa toodo é tooadd lógica toohello `MyModule_Receive` função.
+   - `build.sh`é Olá compilação script toocompile Olá módulo em NUC Intel.
+1. Olá abrir `src/my_module.c` de arquivo e incluir os dois arquivos de cabeçalho:
 
    ```C
    #include <stdio.h>
    #include "azure_c_shared_utility/xlogging.h"
    ```
 
-1. Adicione o seguinte código à função `MyModule_Receive`:
+1. Adicionar Olá toohello de código a seguir `MyModule_Receive` função:
 
    ```C
    if (message == NULL)
@@ -150,9 +150,9 @@ Agora vamos criar um módulo com base no modelo:
    }
    else
    {
-      // get the message content
+      // get hello message content
       const CONSTBUFFER * content = Message_GetContent(message);
-      // get the local time and format it
+      // get hello local time and format it
       time_t temp = time(NULL);
       if (temp == (time_t)-1)
       {
@@ -170,7 +170,7 @@ Agora vamos criar um módulo com base no modelo:
               char timetemp[80] = { 0 };
               if (strftime(timetemp, sizeof(timetemp) / sizeof(timetemp[0]), "%c", t) == 0)
               {
-                  LogError("unable to strftime");
+                  LogError("unable toostrftime");
               }
               else
               {
@@ -181,15 +181,15 @@ Agora vamos criar um módulo com base no modelo:
    }
    ```
 
-1. Atualize o arquivo `config.json` para especificar a pasta `workspace` no computador host e o caminho de implantação no Intel NUC. Durante a compilação, os arquivos na pasta `workspace` serão transferidos para o caminho de implantação.
+1. Saudação de atualização `config.json` saudação do arquivo toospecify `workspace` pasta no seu computador e hello implantação caminho do host no Intel NUC. Durante a compilação, Olá arquivos Olá `workspace` pasta será transferido toohello caminho de implantação.
 
-   1. Abra o arquivo `config.json` executando o seguinte comando:
+   1. Olá abrir `config.json` arquivo executando Olá comando a seguir:
 
       ```bash
       code config.json
       ```
 
-   1. Atualize `config.json` com a seguinte configuração:
+   1. Atualização `config.json` com hello a seguinte configuração:
 
       ```json
       "workspace": "./module/my_module",
@@ -198,41 +198,41 @@ Agora vamos criar um módulo com base no modelo:
 
       ![config_json](media/iot-hub-gateway-kit-lessons/lesson5/config_json.png)
 
-1. Compile o módulo executando o seguinte comando:
+1. Compile o módulo Olá executando Olá comando a seguir:
 
    ```bash
    gulp compile
    ```
 
-   O comando transfere o código-fonte para Intel NUC e executa `build.sh` para compilar o módulo.
+   Olá comando transfere Olá fonte código tooIntel NUC e executa `build.sh` toocompile módulo de saudação.
 
-## <a name="add-the-module-to-the-helloworld-sample-app-and-run-the-app-on-intel-nuc"></a>Adicionar o módulo para o aplicativo de exemplo hello_world e execute o aplicativo em Intel NUC
+## <a name="add-hello-module-toohello-helloworld-sample-app-and-run-hello-app-on-intel-nuc"></a>Adicionar o aplicativo de exemplo hello módulo toohello hello_world e executar o aplicativo hello no Intel NUC
 
-Para executar essa tarefa, siga estas etapas:
+tooperform tarefas, siga estas etapas:
 
-1. Liste todos os módulo binários (arquivos .so) no Intel NUC executando o seguinte comando:
+1. Lista todos os binários de módulo de saudação (arquivos. SO) Intel NUC executando Olá comando a seguir:
 
    ```bash
    gulp modules --list
    ```
 
-   O caminho binário do `my_module` que você compilou deve estar listado como abaixo:
+   caminho binário de saudação do `my_module` que é compilado deve ser listado abaixo:
 
    ```path
    /root/gateway_sample/module/my_module/build/libmy_module.so
    ```
 
-   Se você alterar o nome de usuário de logon padrão em `config-gateway.json`, o caminho binário será iniciado com `home/<your username>` em vez de `root`.
+   Se você alterar o nome de usuário de logon padrão de saudação em `config-gateway.json`, caminho binário Olá iniciará com `home/<your username>` em vez de `root`.
 
-1. Adicione `my_module` ao aplicativo e exemplo `hello_world`:
+1. Adicionar `my_module` toohello `hello_world` aplicativo de exemplo:
 
-   1. Abra o arquivo `hello_world.json` executando o seguinte comando:
+   1. Olá abrir `hello_world.json` arquivo executando Olá comando a seguir:
 
       ```bash
       code sample/hello_world/src/hello_world.json
       ```
 
-   1. Adicione o seguinte código à seção `modules`:
+   1. Adicionar Olá toohello de código a seguir `modules` seção:
 
       ```json
       {
@@ -247,8 +247,8 @@ Para executar essa tarefa, siga estas etapas:
       }
       ```
 
-      O valor de `module.path` deve ser `/root/gateway_sample/module/my_module/build/libmy_module.so`. O código declara `my_module` a ser associado com o gateway, bem como o local do módulo binário especificado em `module.path`.
-   1. Adicione o seguinte código à seção `links`:
+      Olá valor `module.path` devem ser `/root/gateway_sample/module/my_module/build/libmy_module.so`. Olá código declara `my_module` toobe associado gateway hello, bem como o local de saudação de binários de módulo Olá especificado em `module.path`.
+   1. Adicionar Olá toohello de código a seguir `links` seção:
 
       ```json
       {
@@ -257,25 +257,25 @@ Para executar essa tarefa, siga estas etapas:
       }
       ```
 
-      Esse código especifica que as mensagens são transferidas do `hello_world` módulo `my_module`.
+      Esse código especifica que as mensagens são transferidas da saudação `hello_world` módulo muito`my_module`.
 
       ![hello_world_json](media/iot-hub-gateway-kit-lessons/lesson5/hello_world_json.png)
 
-1. Execute o `hello_world` aplicativo de exemplo, executando o seguinte comando:
+1. Executar Olá `hello_world` amostra de aplicativo executando Olá comando a seguir:
 
    ```bash
    gulp run --config sample/hello_world/src/hello_world.json
    ```
 
-   O `--config` parâmetro força o `run-hello-world.js` script a ser executado usando o `hello_world.json` arquivo.
+   Olá `--config` parâmetro força Olá `run-hello-world.js` script toorun usando Olá `hello_world.json` arquivo.
 
    ![hello_world_new](media/iot-hub-gateway-kit-lessons/lesson5/hello_world_new.png)
 
-Parabéns. Agora você pode ver o comportamento do novo módulo, ele simplesmente imprime mensagens de "hello world" com um carimbo de hora, um resultado diferente do módulo "hello_world" original.
+Parabéns. Agora você pode ver o comportamento de saudação do novo módulo, simplesmente exibe mensagens de "hello world" com um carimbo de hora, um resultado diferente do módulo do hello original "hello_world".
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você já criou um novo módulo, adicionou à hello_world exemplo e obter o aplicativo de exemplo para executar com o novo módulo no gateway. Se você quiser saber mais sobre os módulos de gateway IoT do Azure, você pode encontrar mais exemplos de módulo: [https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules).
+Você já criou um novo módulo, adicionado toohello hello_world exemplo e get hello exemplo aplicativo toorun com o novo módulo de saudação no gateway. Se você quiser toolearn mais sobre os módulos de gateway IoT do Azure, você pode encontrar mais amostras de módulo: [https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules](https://github.com/Azure/azure-iot-gateway-sdk/tree/master/modules).
 
 <!-- Images and links -->
 

@@ -1,15 +1,15 @@
-## <a name="push-to-azure-from-git"></a>Enviar do Git para o Azure
+## <a name="push-tooazure-from-git"></a>TooAzure de envio por push do Git
 
-Adicione um Azure remoto ao seu repositório Git local.
+Adicione um repositório Git local do Azure tooyour remoto.
 
 ```bash
 git remote add azure <URI from previous step>
 ```
 
-Envie por push para o Azure remoto para implantar seu aplicativo. Você recebe uma solicitação pela senha criada anteriormente ao criar o usuário de implantação. Verifique se você inseriu a senha que você criou em [Configurar um usuário de implantação](#configure-a-deployment-user), não a senha usada para fazer logon no Portal do Azure.
+Enviar seu aplicativo por push toohello toodeploy remoto do Azure. Você será solicitado para senha Olá criado anteriormente ao criar usuário de implantação de saudação. Certifique-se de que você insira a senha Olá criada na [configurar um usuário de implantação](#configure-a-deployment-user), Olá a senha não use toolog em toohello portal do Azure.
 
 ```bash
 git push azure master
 ```
 
-O comando anterior exibe informações semelhantes ao seguinte exemplo:
+Olá precede o comando exibe informações semelhantes toohello exemplo a seguir:

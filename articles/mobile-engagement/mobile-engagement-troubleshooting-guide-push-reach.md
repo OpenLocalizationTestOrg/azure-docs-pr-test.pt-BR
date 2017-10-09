@@ -1,5 +1,5 @@
 ---
-title: "Guia de Solução de Problemas do Azure Mobile Engagement - Push/Reach"
+title: aaaAzure Mobile Engagement Troubleshooting Guide - envio/alcance
 description: "Solucionando problemas de notificação e interação do usuário no Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
@@ -14,65 +14,65 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ef6f34404b97a6972fc136262920a1bdbc4117b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4ee0b34b9b753a98ccf24863acb28a5dc76bfb95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-guide-for-push-and-reach-issues"></a>Guia de solução para problemas de Push e Reach
-Estes são os possíveis problemas que podem ser encontrados em como o Azure Mobile Engagement envia informações para seus usuários.
+Olá seguem possíveis problemas que podem ser encontrados em como o Azure Mobile Engagement envia informações tooyour os usuários.
 
 ## <a name="push-failures"></a>Falhas de push
 ### <a name="issue"></a>Problema
 * Os pushes não funcionam (no aplicativo, fora do aplicativo ou ambos).
 
 ### <a name="causes"></a>Causas
-* Muitas vezes, uma falha de push é uma indicação de que o Azure Mobile Engagement, Reach ou outro recurso avançado do Azure Mobile Engagement não está integrado corretamente ou que uma atualização é necessária no SDK para corrigir um problema conhecido com uma nova plataforma do Sistema operacional ou do Dispositivo.
-* Teste apenas um push No Aplicativo e apenas um push Fora do Aplicativo para determinar se algo é um problema No Aplicativo ou Fora do Aplicativo.
-* Teste a partir da Interface do Usuário e da API como uma etapa de solução de problemas para ver quais informações de erro adicionais estão disponíveis nos dois lugares.
-* O envio fora do aplicativo não funcionará a menos que o Azure Mobile Engagement e Reach estejam integrados no SDK.
-* Os pushes não funcionarão se os certificados não forem válidos ou estiverem usando PROD versus DEV corretamente (somente iOS). (**Observação** : as notificações por push "Fora do aplicativo" não poderão ser entregues ao iOS, se você tiver as versões de desenvolvimento (DEV) e de produção (PROD) do seu aplicativo instaladas no mesmo dispositivo, uma vez que o token de segurança associado ao certificado pode ser invalidado pela Apple. Para resolver esse problema, desinstale as versões DEV e PROD do seu aplicativo e reinstale a uma versão em seu dispositivo.)
-* As contagens do push Fora do Aplicativo são tratadas de maneira diferente em diferentes plataformas (o iOS mostra menos informações que o Android, caso os pushes nativos estejam desabilitados em um dispositivo; a API pode fornecer mais informações do que a interface do usuário nas estatísticas do push).
+* Uma falha de envio por push muitas vezes é uma indicação de que Azure Mobile Engagement, alcance ou outro recurso avançado do Azure Mobile Engagement não está corretamente integrado ou que uma atualização é necessária Olá SDK toofix um problema conhecido com uma nova plataforma de sistema operacional ou o dispositivo.
+* Teste apenas um envio por push no aplicativo e apenas um toodetermine de envio por push do aplicativo se algo é um problema no aplicativo ou do aplicativo.
+* Teste de saudação da interface do usuário e Olá API como uma solução de problemas toosee de etapa quais informações de erro adicionais estão disponíveis dois locais.
+* Fora do aplicativo envios por Push não funcionarão a menos que o Azure Mobile Engagement e alcance estão integrados Olá SDK.
+* Os pushes não funcionarão se os certificados não forem válidos ou estiverem usando PROD versus DEV corretamente (somente iOS). (**Observação:** "fora do aplicativo" notificações por push podem não ser entregue tooiOS, se você tiver dois desenvolvimento hello (desenvolvimento) e versões de produção (produção) do seu aplicativo instalado em Olá mesmo dispositivo desde Olá token de segurança associado com o seu certificado pode ser invalidado pela Apple. tooresolve esse problema, desinstale Olá desenvolvimento e produção de versões do seu aplicativo e reinstale somente Olá uma versão em seu dispositivo.)
+* Fora do aplicativo por push contagens são tratadas diferentemente em diferentes plataformas (iOS mostra menos informações que Android se envios por push nativo estão desabilitados em um dispositivo, Olá API pode fornecer mais informações de saudação da interface do usuário nas estatísticas de envio por push).
 * Os pushes Fora do Aplicativo podem ser bloqueados pelos clientes ao nível do SO (iOS e Android).
-* Os pushes Fora do Aplicativo serão mostrados como desabilitados na interface do usuário do Azure Mobile Engagement, caso não estejam integrados corretamente, mas poderão falhar sem aviso na API.
-* Os pushes No Aplicativo não funcionarão a menos que o Azure Mobile Engagement e o Reach estejam integrados no SDK.
-* Os pushes GCM e ADM não funcionarão a menos que o Azure Mobile Engagement e o servidor específico estejam integrados no SDK (Android apenas).
-* Os pushes No Aplicativo e Fora do Aplicativo devem ser testados separadamente para determinar se é um problema de Push ou Reach.
-* Os pushes No Aplicativo requerem que o aplicativo seja aberto para ser recebido.
-* Os pushes No Aplicativo geralmente são configurados para serem filtrados por uma marca de informações do aplicativo de aceitação ou recusa.
-* Se você usar uma categoria personalizada no Reach para exibir notificações do aplicativo, precisará seguir o ciclo de vida correto da notificação, caso contrário, a notificação não poderá ser limpa quando o usuário descartá-la.
-* Se você iniciar uma campanha sem data de término e um dispositivo receber a notificação no aplicativo, mas não exibí-la ainda, o usuário ainda receberá a notificação na próxima vez em que fizer logon no aplicativo, mesmo se você encerrar manualmente a campanha.
-* Para os problemas com a API do Push, confirme se você realmente deseja usar a API do Push, em vez da API do Reach (já que a API do Reach é usada com mais frequência) e se não está confundindo os parâmetros "payload" e "notifier".
-* Teste sua campanha por push com os dispositivos conectados via WIFI e 3G para eliminar a conexão de rede como uma possível fonte de problemas.
+* Envios por push fora do aplicativo serão mostrados como desativado no hello interface de usuário do Azure Mobile Engagement se não estiver integrados corretamente, mas pode falhar em modo silencioso da saudação API.
+* No aplicativo envios por Push não funcionarão a menos que o Azure Mobile Engagement e alcance estão integrados Olá SDK.
+* Envios por push GCM e ADM não funcionarão a menos que o Azure Mobile Engagement e servidor específicos Olá estão integrados Olá SDK (somente Android).
+* No aplicativo e fora do aplicativo envios por push devem ser separadamente testada toodetermine se for um problema de envio por Push ou de alcance.
+* No aplicativo envios requerem que o aplicativo hello toobe abrir recebido.
+* No aplicativo envios por push geralmente são filtrado por uma marca de informações do aplicativo de aceitação ou recusa de toobe de instalação.
+* Se você usar uma categoria personalizada em notificações do alcance toodisplay no aplicativo, é necessário toofollow Olá correto ciclo de vida de notificação de saudação, caso contrário, não pode ser limpa a notificação de saudação ao usuário Olá descartá-lo.
+* Se você iniciar uma campanha com nenhuma data de término e um dispositivo recebe a saudação na notificação do aplicativo, mas não exibi-lo ainda, Olá usuário ainda receberá Olá Olá de notificação próxima vez que fizerem logon no aplicativo hello, mesmo se você encerrar a campanha Olá manualmente.
+* Para problemas com hello API por Push, confirme que você realmente deseja toouse Olá API por Push em vez da saudação API de alcance (desde Olá API de alcance é usado com mais frequência) e que não é confuso hello "carga" e os parâmetros "notificação".
+* Teste sua campanha de push com dois um dispositivo conectado por Wi-Fi e 3G tooeliminate Olá rede conexão como uma possível fonte de problemas.
 
 ## <a name="push-testing"></a>Teste do Push
 ### <a name="issue"></a>Problema
-* Os pushes podem ser enviados para um dispositivo específico com base em uma ID do Dispositivo.
+* Envios por push podem ser enviados tooa dispositivo específico com base em uma ID de dispositivo.
 
 ### <a name="causes"></a>Causas
-* Os dispositivos de teste são configurados de modo diferente para cada plataforma, mas causar um evento em seu aplicativo em um dispositivo de teste e procurar a ID do Dispositivo no portal deverão funcionar para localizar a ID do dispositivo para todas as plataformas.
+* Dispositivos de teste são diferentes para cada plataforma, mas fazendo com que um evento em seu aplicativo em um dispositivo de teste e observando a ID do dispositivo no portal de saudação devem funcionar toofind a ID do dispositivo para todas as plataformas.
 * Os dispositivos de teste funcionam de forma diferente com IDFA versus IDFV (iOS apenas).
 
 ## <a name="push-customization"></a>Personalização do Push
 ### <a name="issue"></a>Problema
 * O item de conteúdo do push avançado não funcionará (notificação, toque, vibração, imagem etc.).
-* Os links dos pushes não funcionam (fora do aplicativo, no aplicativo, em um site, em um local no aplicativo).
-* As estatísticas do push mostram que um push não foi enviado para muitas pessoas conforme o esperado (muitas ou insuficientes).
+* Links de envios por Push não funcionam (fora do aplicativo, no aplicativo, site tooa, tooa local no aplicativo).
+* Mostrar estatísticas de envio que um envio por push não foi enviado tooas muitas pessoas conforme esperado (muitos ou insuficiente).
 * Push duplicado e recebido duas vezes.
 * Não é possível registrar o dispositivo de teste para os Pushes do Azure Mobile Engagement (com seu próprio aplicativo PROD ou DEV).
 
 ### <a name="causes"></a>Causas
-* Vincular a um local específico no aplicativo requer "categorias" (Android apenas).
-* Os esquemas de vinculação profundos para redirecionar os usuários para um local alternativo depois de clicarem em uma notificação por push precisam ser criados e gerenciados por seu aplicativo e o SO do dispositivo, não pelo Mobile Engagement diretamente. (**Observação:** as notificações fora do aplicativo não podem vincular diretamente os locais do aplicativo com o iOS, como podem com o Android.)
-* Os servidores de imagem externos precisam ser capazes de usar o HTTP "GET" e "HEAD" para os pushes gerais funcionarem (Android apenas).
-* Em seu código, você pode desabilitar o agente Azure Mobile Engagement quando o teclado é aberto e fazer com que seu código reative o agente assim que o teclado é fechado para que o teclado não afete a aparência de sua notificação (iOS apenas).
+* tooa de toolink local específico no aplicativo requer "categorias" (somente Android).
+* Profundo de esquemas de vinculação local alternativo do tooredirect usuários tooan depois de clicar em uma notificação por push necessário toobe criado no e gerenciados pelo seu aplicativo e hello SO do dispositivo não pelo Mobile Engagement diretamente. (**Observação:** fora do aplicativo notificações não é possível vincular diretamente tooin locais de aplicativo com o iOS como podem Android.)
+* Servidores de imagem externa precisam toobe capaz de toouse HTTP "GET" e "HEAD" para o panorama envia toowork (somente Android).
+* No seu código, você pode desabilitar o agente do Azure Mobile Engagement hello quando o teclado de saudação é aberto e têm seu código reativar o agente do Azure Mobile Engagement hello quando teclado Olá for fechado para que hello teclado não afeta a aparência de saudação do seu notificação (somente iOS).
 * Alguns itens não funcionam nas simulações de teste, mas somente nas campanhas reais (notificação, toque, vibração, imagem etc.).
-* Nenhum dado no lado do servidor é registrado quando você usa o botão para “testar” os pushes. Os dados só são registrados para as campanhas de push reais.
-* Para ajudar a isolar o problema, solucione os problemas com: teste, simulação e uma campanha real, pois cada um deles funciona de forma um pouco diferente.
-* O período de tempo no qual as campanhas "no aplicativo" e "sempre" estão agendadas para a execução pode afetar os números de entrega, pois uma campanha só será entregue aos usuários que estão "no aplicativo" durante a execução dela (e os usuários com as configurações do dispositivo definidas para receber as notificações "fora do aplicativo").
-* As diferenças entre como o Android e o iOS lidam com as notificações fora do aplicativo dificultam comparar diretamente as estatísticas do push entre as versões Android e iOS de seu aplicativo. O Android fornece mais informações de notificação ao nível do SO do que o iOS. O Android informa quando uma notificação nativa é recebida, clicada ou excluída no centro de notificações, mas o iOS não informa isto, a menos que a notificação seja clicada. 
-* O principal motivo para os números enviados por “push” serem diferentes dos números “entregues” para as campanhas Reach é que as notificações “no aplicativo” e “fora do aplicativo” são contadas de modo diferente. As notificações "No aplicativo" são lidadas pelo Mobile Engagement, mas as notificações "Fora do aplicativo" são lidadas pelo centro de notificações no SO do dispositivo.
+* Nenhum lado servidor dados são registrados quando você usar o botão de saudação muito "testar" envia. Os dados só são registrados para as campanhas de push reais.
+* toohelp isolar o problema, solucionar problemas com: teste, simular e uma campanha real, desde que cada um deles funcionam de forma ligeiramente diferente.
+* Olá tempo que seu "no aplicativo" e campanhas de "sempre" são toorun agendada pode afetar a números de entrega desde uma campanha serão entregues somente toousers que estão "aplicativo" durante a execução de campanha hello (e os usuários que têm suas configurações de dispositivo definem tooreceive notificações "fora do aplicativo").
+* diferenças de saudação entre como o identificador do Android e iOS notificações do aplicativo torna difícil toodirectly comparam as estatísticas de envio entre a versão Android e iOS saudação do seu aplicativo. O Android fornece mais informações de notificação ao nível do SO do que o iOS. Android informa quando uma notificação nativa é recebida, clicada ou excluída no Centro de notificação hello, mas iOS não relatar essas informações, a menos que a notificação de saudação é clicada. 
+* Olá principal motivo que números "enviados" são diferentes de diferentes de números "entregues" para alcançar campanhas é que "no aplicativo" e "fora do aplicativo" notificações são contadas diferentemente. "No aplicativo" notificações são manipuladas pelo Mobile Engagement, mas "fora do aplicativo" notificações são manipuladas pelo Centro de notificação de saudação em Olá SO do dispositivo.
 
 ## <a name="push-targeting"></a>Direcionamento do push
 ### <a name="issue"></a>Problema
@@ -82,21 +82,21 @@ Estes são os possíveis problemas que podem ser encontrados em como o Azure Mob
 * As opções de idioma não funcionam conforme o esperado.
 
 ### <a name="causes"></a>Causas
-* Verifique se você carregou as marcas de informações do aplicativo por meio da interface do usuário do Azure Mobile Engagement ou da API.
-* Diminuir a velocidade do push ou a cota do push no nível do aplicativo, ou limitar o público no nível da campanha pode impedir que uma pessoa receba um push específico, mesmo que atenda a outros critérios de direcionamento. 
+* Certifique-se de que você carregou marcas de informações do aplicativo por meio de saudação do Azure Mobile Engagement UI ou API.
+* Limitação Olá velocidade ou push cota push no nível de aplicativo hello ou limitação público Olá no nível da campanha de saudação pode impedir que uma pessoa receber um envio por push específico, mesmo se eles atendem aos seus outros critérios de destino. 
 * Definir um "Idioma" é diferente de direcionar com base no país ou na localidade, que também é diferente de direcionar com base na Localização geográfica em um telefone local ou GPS.
-* A mensagem em "idioma padrão" é enviada para qualquer cliente que não tem seu dispositivo definido para um dos idiomas alternativos especificados.
+* mensagem de saudação em hello "idioma padrão" é enviada cliente tooany que não tenha o seu dispositivo definido tooone de idiomas alternativos hello, que você especificar.
 
 ## <a name="push-scheduling"></a>Agendamento do push
 ### <a name="issue"></a>Problema
 * O agendamento do push não funciona conforme o esperado (enviado muito cedo ou atrasado).
 
 ### <a name="causes"></a>Causas
-* Os fusos horários podem ter problemas com o agendamento, especialmente ao usar o fuso horário dos usuários finais.
+* Fusos horários pode problemas com o agendamento, especialmente ao usar o fuso horário Olá dos usuários finais.
 * Os recursos avançados do push podem atrasar os pushes.
-* O direcionamento com base nas configurações do telefone (em vez das Marcas de Informações do Aplicativo) pode atrasar os pushes, uma vez o Azure Mobile Engagement pode ter que solicitar dados do telefone em tempo real antes de enviar um push.
-* As campanhas criadas sem uma data de término armazenam o envio por push localmente no dispositivo e mostram-no na próxima vez em que o aplicativo é aberto, mesmo que a campanha seja encerrada manualmente.
-* Iniciar mais de uma campanha ao mesmo tempo pode levar mais tempo para verificar sua base de usuários (tente iniciar apenas uma campanha por vez, com um máximo de quatro, também destine apenas para os usuários ativos, para que os antigos usuários não precisem ser verificados).
-* Se você usar a opção "Ignorar Público, o push será enviado para os usuários por meio da API" na seção "Campanha" de uma campanha Reach, a campanha NÃO será enviada automaticamente e você precisará enviá-la manualmente através da API do Reach.
-* Se você usar uma categoria personalizada no Reach para exibir as notificações no aplicativo, precisará seguir o ciclo de vida correto da notificação; caso contrário, a notificação poderá não ser limpa quando o usuário descartá-la.
+* Direcionamento com base no telefone configurações (em vez de marcas de informações de aplicativo) podem atrasar envia desde que o Azure Mobile Engagement pode ter dados toorequest Olá telefone em tempo real antes de enviar um envio por push.
+* Campanhas criadas sem uma data de término armazenam Olá push localmente no dispositivo hello e mostrá-lo Olá próxima vez aplicativo hello for aberto, mesmo que a campanha Olá é encerrada manualmente.
+* Iniciar mais de uma campanha em Olá a mesmo tempo pode levar uma tooscan de tempo mais longo sua base de usuários (tente tooonly iniciar uma campanha por vez com um máximo de quatro, apenas usuários ativos tooyour de destino também, para que os usuários não tenham toobe verificado).
+* Se você usar a opção de "Ignorar público, push será enviado toousers via API de hello" Olá, na seção de "Da campanha" hello de uma campanha de alcance, campanha de saudação não enviará automaticamente, você precisará toosend-los manualmente por meio de saudação API de alcance.
+* Se você usar uma categoria personalizada em notificações do alcance toodisplay no aplicativo, é necessário toofollow Olá correto ciclo de vida de uma notificação, caso contrário, não pode ser limpa a notificação de saudação ao usuário Olá descartá-lo.
 

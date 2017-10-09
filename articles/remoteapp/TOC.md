@@ -25,15 +25,15 @@
 # Como
 
 ## [Migrar dados de usuário do Azure RemoteApp](remoteapp-migrate.md)
-## [Migrar para MyCloudIT](remoteapp-migrate-mycloudit.md)
-## [Migrar para o Citrix XenApp Essentials](remoteapp-migrate-citrix.md)
+## [Migrar tooMyCloudIT](remoteapp-migrate-mycloudit.md)
+## [Migrar tooCitrix XenApp Essentials](remoteapp-migrate-citrix.md)
 ## Criar uma coleção de RemoteApp
 ### [De qual coleção você precisa?](remoteapp-collections.md)
 ### [Criar uma coleção na nuvem](remoteapp-create-cloud-deployment.md)
 ### [Criar uma coleção híbrida](remoteapp-create-hybrid-deployment.md)
 ### [Atualizar sua coleção](remoteapp-update.md)
 ### [Criar uma imagem do RemoteApp](remoteapp-imageoptions.md)
-### [O que há na imagem do modelo?](remoteapp-images.md)
+### [Novidades na imagem de modelo Olá?](remoteapp-images.md)
 ### [Requisitos de imagem](remoteapp-imagereqs.md)
 ### [Carregar uma imagem](remoteapp-uploadimage.md)
 ### [Criar uma imagem usando uma VM do Azure](remoteapp-image-on-azurevm.md)
@@ -41,13 +41,13 @@
 ### [Planejar sua VNET](remoteapp-planvnet.md)
 ### [Informações sobre porta e URL](remoteapp-ports.md)
 ### [Validar sua VNET](remoteapp-vnet.md)
-### [Migrar para uma VNET do Azure](remoteapp-migratevnet.md)
+### [Migrar tooan VNET do Azure](remoteapp-migratevnet.md)
 ## Publicar aplicativos
-### [Como publicar um aplicativo](remoteapp-publish.md)
+### [Como um aplicativo de toopublish](remoteapp-publish.md)
 ## Gerenciar usuários
-### [Como adicionar usuários](remoteapp-user.md)
+### [Como os usuários de tooadd](remoteapp-user.md)
 ### [Configurar o Active Directory](remoteapp-ad.md)
-### [Alterar o locatário do Azure AD](remoteapp-changetenant.md)
+### [Locatário de saudação do AD do Azure de alteração](remoteapp-changetenant.md)
 ### [Contas de usuário do Office 365](remoteapp-o365user.md)
 ### [Dados Seguros](remoteapp-secureaccess.md)
 ### [Dados do usuário](remoteapp-upd.md)

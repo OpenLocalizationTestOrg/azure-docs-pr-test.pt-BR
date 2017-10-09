@@ -1,6 +1,6 @@
 ---
-title: Usando discos gerenciados nos modelos do Azure Resource Manager | Microsoft Docs
-description: Detalha sobre como utilizar discos gerenciados nos modelos do Azure Resource Manager
+title: aaaUsing gerenciados discos em modelos do Gerenciador de recursos do Azure | Microsoft Docs
+description: Detalha como toouse gerenciada misks em modelos do Gerenciador de recursos do Azure
 services: storage
 documentationcenter: 
 author: jboeshart
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
-ms.openlocfilehash: 4c502784a57850d6f11200e95f7432d2206e920a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ea83f4ed11acfd8f642dbc8331fa8cf077ef577c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilizar discos gerenciados nos modelos do Azure Resource Manager
 
-Este documento aborda as diferenças entre discos gerenciados e não gerenciados ao utilizar os modelos do Azure Resource Manager para provisionar máquinas virtuais. Isso irá ajudá-lo a atualizar os modelos existentes que utilizam Discos não gerenciados para discos gerenciados. Para referência, estamos usando o modelo [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) como um guia. É possível visualizar o modelo utilizando ambos os [Discos gerenciados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) e uma versão anterior utilizando [discos não gerenciados](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json), se você deseja compará-los diretamente.
+Este documento explica como as diferenças de saudação entre discos gerenciados e ao usar máquinas virtuais do Azure Resource Manager modelos tooprovision. Isso ajudará tooupdate modelos existentes que estão usando discos de toomanaged de discos não gerenciados. Para referência, estamos usando Olá [101-vm simples do windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) modelo como um guia. Você pode ver o modelo hello usando [discos gerenciado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) e uma versão anterior usando [não gerenciado discos](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) se você gostaria que toodirectly compará-los.
 
 ## <a name="unmanaged-disks-template-formatting"></a>Formatação de modelo de Discos não gerenciados
 
-Para começar, veremos como os discos não gerenciados são implantados. Ao criar discos não gerenciados, é necessária uma conta de armazenamento para armazenar os arquivos de VHD. É possível criar uma nova conta de armazenamento ou utilizar uma conta já existente. Este artigo mostra como criar uma nova conta de armazenamento. Para fazer isso, você precisa de um recurso de conta de armazenamento em bloco de recursos, conforme mostrado abaixo.
+toobegin, vamos dar uma olhada em discos como não gerenciados são implantados. Durante a criação de discos não gerenciados, é necessário um arquivos VHD do armazenamento conta toohold hello. É possível criar uma nova conta de armazenamento ou utilizar uma conta já existente. Este artigo mostra como toocreate uma nova conta de armazenamento. tooaccomplish isso, é necessário um recurso de conta de armazenamento em bloco de recursos hello, conforme mostrado abaixo.
 
 ```
 {
@@ -40,7 +40,7 @@ Para começar, veremos como os discos não gerenciados são implantados. Ao cria
 }
 ```
 
-Dentro do objeto de máquina virtual, é preciso uma dependência na conta de armazenamento para garantir que é criada antes da máquina virtual. Na seção `storageProfile` especificamos o URI completo do local do VHD que faz referência à conta de armazenamento e necessário para o disco do SO e qualquer disco de dados. 
+No objeto de máquina virtual hello, precisamos de uma dependência no hello tooensure de conta de armazenamento que ele foi criado antes da máquina virtual de saudação. Dentro de saudação `storageProfile` seção, em seguida, especificamos Olá URI completo do hello local do VHD, que faz referência a conta de armazenamento hello e é necessária para o disco Olá SO e discos de dados. 
 
 ```
 {
@@ -90,16 +90,16 @@ Dentro do objeto de máquina virtual, é preciso uma dependência na conta de ar
 
 ## <a name="managed-disks-template-formatting"></a>Formatação de modelo de discos gerenciados
 
-Com o Azure Managed Disks, o disco torna-se um recurso de nível superior e não exige mais uma conta de armazenamento a ser criada pelo usuário. Os discos gerenciados foram expostos pela primeira vez na versão da API `2016-04-30-preview`. Eles estão disponíveis em todas as versões de API subsequentes e agora são o tipo de disco padrão. As seções a seguir percorrem as configurações padrão e detalham como personalizar ainda mais seus discos.
+Com discos gerenciado do Azure, disco Olá se torna um recurso de nível superior e não requer mais um toobe de conta de armazenamento criada pelo usuário hello. Discos gerenciados primeiro foram expostos no hello `2016-04-30-preview` versão da API, eles estão disponíveis em todas as versões de API subsequentes e agora são o tipo de disco saudação padrão. Olá seções a seguir percorrer as configurações padrão de saudação e detalham de como toofurther personalizar seus discos.
 
 > [!NOTE]
-> Recomendamos usar uma versão da API posterior a `2016-04-30-preview`, pois houve alterações consideráveis entre `2016-04-30-preview` e `2017-03-30`.
+> É recomendável toouse uma API versão posterior `2016-04-30-preview` como houve alterações significativas entre `2016-04-30-preview` e `2017-03-30`.
 >
 >
 
 ### <a name="default-managed-disk-settings"></a>Configurações de disco gerenciados padrão
 
-Para criar uma VM com discos gerenciados, não é mais necessário criar o recurso da conta de armazenamento e atualizar o recurso da máquina virtual, conforme a seguir. Observe especificamente que `apiVersion` reflete `2017-03-30` e `osDisk` e `dataDisks` não referem-se mais a um URI específico para VHD. Ao implantar sem especificar propriedades adicionais, o disco usará o [Armazenamento LRS Standard](storage-redundancy.md). Se nenhum nome for especificado, será necessário o formato de `<VMName>_OsDisk_1_<randomstring>` para o disco do SO e `<VMName>_disk<#>_<randomstring>` para cada disco de dados. Por padrão, a criptografia do disco do Azure está desabilitada; o caching é Leitura/Gravação para o disco do OS e Nenhum para os discos de dados. É possível notar no exemplo abaixo que ainda há uma dependência de conta de armazenamento, porém, isso é apenas para armazenamento de diagnósticos e não é necessário para armazenamento em disco.
+toocreate uma VM com discos gerenciados, você não precisar de recursos de conta de armazenamento toocreate hello e pode atualizar o recurso de máquina virtual da seguinte maneira. Especificamente, observe que Olá `apiVersion` reflete `2017-03-30` e hello `osDisk` e `dataDisks` não mais se referir tooa URI específico para Olá VHD. Ao implantar sem especificar propriedades adicionais, disco Olá usará [armazenamento padrão LRS](storage-redundancy.md). Se nenhum nome for especificado, ele assume o formato de saudação do `<VMName>_OsDisk_1_<randomstring>` para disco Olá SO e `<VMName>_disk<#>_<randomstring>` para cada disco de dados. Por padrão, a criptografia de disco do Azure está desabilitada; o cache é leitura/gravação para disco Olá SO e nenhum para discos de dados. Você pode perceber no exemplo hello abaixo que se ainda há uma dependência de conta de armazenamento, embora isso seja somente para armazenamento de diagnóstico e não é necessário para armazenamento em disco.
 
 ```
 {
@@ -140,7 +140,7 @@ Para criar uma VM com discos gerenciados, não é mais necessário criar o recur
 
 ### <a name="using-a-top-level-managed-disk-resource"></a>Utilizar um recurso de disco gerenciado de nível superior
 
-Como alternativa para especificar a configuração do disco no objeto da máquina virtual, você pode criar um recurso de disco de nível superior e anexá-lo como parte da criação da máquina virtual. Por exemplo, é possível criar um recurso de disco da seguinte forma para utiiza como um disco de dados.
+Como uma configuração de disco de Olá toospecifying alternativa no objeto de máquina virtual hello, você pode criar um recurso de disco de nível superior e anexá-lo como parte da criação da máquina virtual hello. Por exemplo, podemos criar um recurso de disco da seguinte maneira toouse como um disco de dados.
 
 ```
 {
@@ -160,7 +160,7 @@ Como alternativa para especificar a configuração do disco no objeto da máquin
 }
 ```
 
-Dentro do objeto da VM é possível fazer referência a este objeto de disco para ser anexado. Especificar o ID do recurso do disco gerenciado criado na propriedade `managedDisk` permite a conexão do disco à medida que a VM é criada. Observe que o `apiVersion` para o recurso da VM está definido como `2017-03-30`. Observe também que uma dependência foi criada no recurso de disco para garantir que tenha sido criado com êxito antes da criação da VM. 
+No objeto da VM Olá, podemos podem fazer referência a esta toobe de objeto de disco anexado. Especificando a ID de recurso de saudação do hello gerenciados disco criamos em Olá `managedDisk` propriedade permite que o anexo de saudação do disco hello como Olá VM é criada. Observe que Olá `apiVersion` para Olá recursos da VM é definido muito`2017-03-30`. Observe também que criamos uma dependência em Olá tooensure de recursos de disco que é criado com êxito antes da criação de VM. 
 
 ```
 {
@@ -205,7 +205,7 @@ Dentro do objeto da VM é possível fazer referência a este objeto de disco par
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Criar conjuntos de disponibilidade gerenciados com VMs utilizando discos gerenciados
 
-Para criar conjuntos de disponibilidade gerenciados com VMs utilizando discos gerenciados, adicione o objeto `sku` ao recurso do conjunto de disponibilidade e defina a propriedade `name` para `Aligned`. Isso garante que os discos para cada VM estejam suficientemente isolados uns dos outros para evitar pontos únicos de falha. Observe também que o `apiVersion` para o recurso do conjunto de disponibilidade está definido como `2017-03-30`.
+toocreate gerenciados disponibilidade conjuntos com VMs usando discos gerenciados, adicione Olá `sku` disponibilidade do objeto toohello definir recursos e definir Olá `name` propriedade muito`Aligned`. Isso garante que discos Olá para cada VM sejam suficientemente isolados de outro tooavoid pontos únicos de falha. Observe também que Olá `apiVersion` para disponibilidade de saudação do conjunto de recursos está definido muito`2017-03-30`.
 
 ```
 {
@@ -225,15 +225,15 @@ Para criar conjuntos de disponibilidade gerenciados com VMs utilizando discos ge
 
 ### <a name="additional-scenarios-and-customizations"></a>Cenários e personalizações adicionais
 
-Para encontrar informações completas sobre as especificações de API REST, revise [criar uma documentação de API REST de disco gerenciado](/rest/api/manageddisks/disks/disks-create-or-update). Você encontrará cenários adicionais, assim como valores padrão e aceitáveis que podem ser enviados para a API por meio de implantações de modelos. 
+informações completas toofind especificações de API REST hello, analise Olá [criar um disco gerenciado documentação da API REST](/rest/api/manageddisks/disks/disks-create-or-update). Você encontrará cenários adicionais, bem como padrão e os valores aceitáveis que podem ser enviados toohello API por meio de implantações de modelo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para modelos completos que utilizam discos gerenciados, visite os seguintes links do Repositório de Início Rápido do Azure.
+* Para modelos completos que usam discos gerenciados visite Olá seguindo os links de repositório de início rápido do Azure.
     * [VM do Windows VM com disco gerenciado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [VM do Linux VM com disco gerenciado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
     * [Lista completa de modelos de disco gerenciado](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
-* Consulte o documento [Visão Geral do Azure Managed Disks](storage-managed-disks-overview.md) para saber mais sobre discos gerenciados.
-* Revise a documentação de referência do modelo para recursos da máquina virtual, visitando o documento em [Microsoft.Compute/referência de modelo de virtualMachines](/templates/microsoft.compute/virtualmachines).
-* Revise a documentação de referência do modelo para recursos de disco, visitando o documento em [Microsoft.Compute/referência de modelo de discos](/templates/microsoft.compute/disks).
+* Visite Olá [visão geral do Azure gerenciados discos](storage-managed-disks-overview.md) documento toolearn mais sobre discos de gerenciado.
+* Examine a documentação de referência de modelo Olá para recursos da máquina virtual visitando Olá [referência de modelo Microsoft.Compute/virtualMachines](/templates/microsoft.compute/virtualmachines) documento.
+* Examine a documentação de referência de modelo Olá para recursos de disco visitando Olá [referência de modelo Microsoft.Compute/disks](/templates/microsoft.compute/disks) documento.
  

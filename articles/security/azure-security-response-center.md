@@ -1,6 +1,6 @@
 ---
-title: Microsoft Security Response Center | Microsoft Docs
-description: "O artigo fornece uma lista selecionada de recursos do MSRC (Microsoft Security Response Center) que podem ser usados para obter mais informações sobre recomendações e práticas recomendadas do MSRC."
+title: aaaMicrosoft Security Response Center | Microsoft Docs
+description: "artigo Olá fornece uma lista de curadoria de recursos do Microsoft Security Response Center (MSRC) que pode ser usado tooobtain obter mais informações sobre recomendações e práticas recomendadas do MSRC."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: db261c34968e61905a5705d3a7d5fbbc8e308744
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft Security Response Center
-O MSRC (Microsoft Security Response Center) é organizada por alguns dos especialistas de segurança mais experientes do mundo. Esses especialistas identificam, monitoram, resolvem e respondem a incidentes de segurança e vulnerabilidades locais e de nuvem o tempo todo, todos os dias do ano.
+Olá Microsoft Security Response Center (MSRC) é organizada por alguns dos especialistas de segurança mais experientes Olá mundo. Esses especialistas identificarem, monitoram, respondem a incidentes de segurança resolve tooand e local e nuvem vulnerabilidades em torno de relógio hello, cada dia do ano de saudação.
 
-Além do trabalho contínuo que o MSRC faz em segundo plano, a equipe do MSRC tem um número de recursos disponíveis para você para que você possa entender como proteger seus ativos e implantações do Azure com mais eficiência.
+Além disso toohello trabalho contínuo Olá MSRC não no plano de fundo Olá, equipe MSRC Olá tem um número de tooyou de recursos disponíveis para que você possa entender como toosecure seus ativos do Azure e implantações com mais eficiência.
 
-## <a name="the-msrc-blog"></a>O Blog do MSRC
-O [blog do MSRC](https://blogs.technet.microsoft.com/msrc/) é o lugar certo para obter as últimas notícias sobre o que o MSRC está fazendo para ajudar a proteger você contra ameaças de nuvem.
+## <a name="hello-msrc-blog"></a>Olá Blog do MSRC
+Olá [blog do MSRC](https://blogs.technet.microsoft.com/msrc/) é Olá local toogo tooget Olá notícias mais recentes sobre quais Olá MSRC está fazendo toohelp protegê-lo contra ameaças de nuvem.
 
 ## <a name="white-papers"></a>White Papers
-O MSRC publicou um número de [white papers](https://technet.microsoft.com/library/bb969102.aspx) que ajudarão você a entender o que eles fazem e como fazê-lo. Alguns fornecem informações sobre como protegemos a nuvem da Microsoft e incluem informações úteis sobre como você pode empregar as mesmas configurações de segurança.
+Olá MSRC publicou um número de [white papers](https://technet.microsoft.com/library/bb969102.aspx) que ajudarão você a entender o que eles fazem e como fazê-lo. Alguns fornecem informações sobre como podemos proteger nuvem da Microsoft hello e incluem informações úteis sobre como você pode empregar Olá mesmo as configurações de segurança.
 
 ## <a name="security-researcher-engagement-and-bounty-programs"></a>Contrato do Pesquisador de Segurança e Programas de Recompensa
-O MSRC dá suporte à colaboração e relacionamentos com os pesquisadores de segurança globalmente, para promover avanços na segurança dos produtos Microsoft.
+Olá MSRC dá suporte à colaboração e relações com pesquisadores de segurança global tooadvance segurança de produto da Microsoft.
 
 Os programas de recompensa da Microsoft pagam os pesquisadores por técnicas de exploração inovadoras, ideias defensivas que atenuem explorações inovadoras e identificação de vulnerabilidades críticas em softwares locais e na nuvem da Microsoft.
 
-Saiba mais sobre esses programas na página [MSRC Bug Bounty (Recompensas para detecção de bugs do MSRC)](https://technet.microsoft.com/security/dn425036) e o [blog do MSRC](https://blogs.technet.microsoft.com/msrc/).
+Saiba mais sobre esses programas em Olá [grande variedade de Bug do MSRC](https://technet.microsoft.com/security/dn425036) página e hello [blog do MSRC](https://blogs.technet.microsoft.com/msrc/).
 
-Para saber mais sobre o MSRC, visite a [home page do MSRC](https://technet.microsoft.com/library/dn440717.aspx).
+toolearn mais sobre Olá MSRC, visite Olá [home page do MSRC](https://technet.microsoft.com/library/dn440717.aspx).

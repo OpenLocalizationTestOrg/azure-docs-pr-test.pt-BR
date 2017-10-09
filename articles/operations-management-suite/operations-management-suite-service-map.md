@@ -1,6 +1,6 @@
 ---
-title: "Usar a solução Mapa do Serviço no Operations Management Suite | Microsoft Docs"
-description: "O Mapa do Serviço é uma solução do Operations Management Suite que descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre a implantação do Mapa do Serviço em seu ambiente e sobre como usá-lo em diversos cenários."
+title: "Olá aaaUse solução de mapa de serviço no Operations Management Suite | Microsoft Docs"
+description: "Mapa de serviço é uma solução Operations Management Suite que detecta automaticamente os componentes do aplicativo no Windows e mapas e sistemas Linux Olá comunicação entre serviços. Este artigo fornece detalhes sobre a implantação do Mapa do Serviço em seu ambiente e sobre como usá-lo em diversos cenários."
 services: operations-management-suite
 documentationcenter: 
 author: daveirwin1
@@ -14,112 +14,112 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f7c209182c9171cc520192ac13ca4d85174081b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usar a solução Mapa do Serviço no Operations Management Suite
-O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
+# <a name="use-hello-service-map-solution-in-operations-management-suite"></a>Usar solução de mapa de serviço de saudação do Operations Management Suite
+Mapa de serviço detecta automaticamente os componentes do aplicativo em sistemas Windows e Linux e mapas Olá comunicação entre serviços. Com mapa de serviço, você pode exibir os servidores de forma Olá que você imagina: como sistemas interconectados que fornecem serviços essenciais. Mapa de serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectado por TCP, sem nenhuma configuração necessária que Olá instalação de um agente.
 
-Este artigo descreve os detalhes de como usar o Mapa do Serviço. Para obter mais informações sobre como configurar o Mapa do Serviço e os agentes de integração, consulte [Configurar a solução Mapa do Serviço no Operations Management Suite](operations-management-suite-service-map-configure.md).
+Este artigo descreve os detalhes de saudação do uso de mapa de serviço. Para obter mais informações sobre como configurar o Mapa do Serviço e os agentes de integração, consulte [Configurar a solução Mapa do Serviço no Operations Management Suite](operations-management-suite-service-map-configure.md).
 
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: Fazer com que seus processos de TI reconheçam a dependência
 
 ### <a name="discovery"></a>Descoberta
-O Mapa do Serviço compila automaticamente um mapa de referência comum de dependências em seus servidores, processos e serviços de terceiros. Ele descobre e mapeia todas as dependências TCP, identificando conexões inesperadas, sistemas remotos de terceiros dos quais você depende e dependências para áreas escuras tradicionais da rede, como o Active Directory. O Mapa do Serviço descobre conexões de rede com falha que seus sistemas gerenciados estão tentando realizar, ajudando você a identificar potenciais configurações incorretas do servidor, interrupções de serviço e problemas de rede.
+O Mapa do Serviço compila automaticamente um mapa de referência comum de dependências em seus servidores, processos e serviços de terceiros. Ele descobre e mapeia todas as dependências TCP, identificando surpresa conexões, sistemas remotos de terceiros que depende de você e dependências tootraditional as áreas escuras da sua rede, como o Active Directory. Mapa de serviço descobre as conexões de rede com falha que seus sistemas gerenciados estão tentando toomake, ajudando você a identificar possíveis erros de configuração do servidor, a interrupção do serviço e problemas de rede.
 
 ### <a name="incident-management"></a>Gerenciamento de incidentes
-O Mapa do Serviço ajuda a eliminar as suposições de isolamento do problema, mostrando a você como os sistemas estão conectados e afetando uns aos outros. Além de identificar conexões com falha, ele ajuda a identificar balanceadores de carga configurados incorretamente, carga excessiva ou inesperada em serviços críticos e clientes invasores, como computadores de desenvolvedores conversando com sistemas de produção. Ao utilizar fluxos de trabalho integrados com o Controle de Alterações do Operations Management Suite, também é possível verificar se um evento de alteração em um computador de back-end ou serviço explica a causa raiz de um incidente.
+Mapa de serviço ajuda a eliminar as suposições de saudação do isolamento do problema, mostrando como os sistemas estão conectados e que afetam uns aos outros. Além disso, tooidentifying falha conexões, ajuda a identificar os balanceadores de carga configurado incorretamente, surpreendente ou excessiva de carga em serviços essenciais e autorizados clientes, como computadores de desenvolvedor falando tooproduction sistemas. Usando fluxos de trabalho integrados com o Operations Management Suite Change Tracking, você também pode ver se um evento de alteração em um computador de back-end ou serviço explica a causa raiz de saudação de um incidente.
 
 ### <a name="migration-assurance"></a>Garantia de migração
-Ao utilizar o Mapa do Serviço você pode, efetivamente, planejar, acelerar e validar as migrações do Azure, permitindo assegurar que nada seja deixado para trás e que interrupções inesperadas não ocorram. Você pode descobrir todos os sistemas interdependentes que precisam migrar juntos, avaliar a capacidade e a configuração do sistema e identificar se um sistema em execução ainda está atendendo aos usuários ou é candidato para encerramento em vez de migração. Após a conclusão do movimento será possível inspecionar a identidade e carregamento do cliente para verificar se os sistemas de teste e os clientes estão se conectando. Se o seu planejamento de sub-rede e definições de firewall tiverem problemas, as conexões com falha em mapas do Mapa do Serviço apontarão para os sistemas que precisam de conectividade.
+Ao utilizar o Mapa do Serviço você pode, efetivamente, planejar, acelerar e validar as migrações do Azure, permitindo assegurar que nada seja deixado para trás e que interrupções inesperadas não ocorram. Você pode descobrir interdependentes todos os sistemas que toomigrate necessidade juntos, avaliar a capacidade e a configuração do sistema e identificar se um sistema em execução ainda está atendendo usuários ou é um candidato para encerramento em vez de migração. Após a conclusão da movimentação hello, você pode verificar tooverify de carga e a identidade do cliente que sistemas de teste e os clientes que estão se conectando. Se suas definições de planejamento e de firewall de sub-rede tiverem problemas, as conexões com falha no mapa de serviço mapas ponto toohello sistemas que precisam de conectividade.
 
 ### <a name="business-continuity"></a>Continuidade dos negócios
-Se você estiver usando o Azure Site Recovery e precisar de ajuda para definir a sequência de recuperação para seu ambiente de aplicativo, o Mapa do Serviço poderá mostrar automaticamente como os sistemas dependem uns dos outros para assegurar que seu plano de recuperação seja confiável. Ao escolher um grupo ou servidor crítico e exibir seus clientes, será possível identificar quais são os sistemas front-end a serem recuperados depois que o servidor estiver restaurado e disponível. Por outro lado, ao analisar as dependências de back-end de servidores críticos, você poderá identificar os sistemas a serem recuperados antes que seus sistemas de foco sejam restaurados.
+Se você estiver usando o Azure Site Recovery e precisa de ajuda para definir a sequência de recuperação Olá para o seu ambiente de aplicativo, o mapa de serviço podem automaticamente mostram como sistemas dependem uns aos outros tooensure que seu plano de recuperação é confiável. Escolhendo um servidor crítico ou grupo e exibir seus clientes, você pode identificar quais sistemas de front-end toorecover depois que o servidor de saudação foi restaurado e está disponível. Por outro lado, observando as dependências de back-end de servidores críticos, você pode identificar quais sistemas toorecover antes de seus sistemas de foco são restaurados.
 
 ### <a name="patch-management"></a>Gerenciamento de patch
-O Mapa do Serviço aprimora seu uso da Avaliação de Atualização do Sistema do Operations Management Suite, mostrando quais outras equipes e servidores dependem do seu serviço, de modo que você possa notificá-los com antecedência antes de tornar inoperante seus sistemas para aplicação de patches. O Mapa do Serviço também aprimora o gerenciamento de patch no Operations Management Suite, mostrando se seus serviços estão disponíveis e conectados corretamente após terem sido corrigidos e reiniciados.
+Mapa de serviço melhora a utilização do hello avaliação de atualização de sistema do Operations Management Suite mostrando quais outras equipes e servidores dependem de seu serviço, portanto você pode notificá-lo com antecedência antes de você colocar os sistemas para aplicação de patch. O Mapa do Serviço também aprimora o gerenciamento de patch no Operations Management Suite, mostrando se seus serviços estão disponíveis e conectados corretamente após terem sido corrigidos e reiniciados.
 
 
 ## <a name="mapping-overview"></a>Visão geral do mapeamento
-Os agentes do Mapa do Serviço coletam informações sobre todos os processos conectados a TCP no servidor em que estão instalados e detalhes sobre as conexões de entrada e saída de cada processo. Na lista no painel esquerdo, você pode selecionar computadores ou grupos que possuem agentes do Mapa do Serviço para visualizar suas dependências em um intervalo de tempo especificado. Os mapas de dependência de computador concentram-se em um computador específico e mostram todos os computadores que são clientes TCP diretos ou servidores daquele computador.  Os mapas do Grupo de Computadores mostram os conjuntos de servidores e suas dependências.
+Agentes de mapa de serviço coletam informações sobre todos os processos de conexão TCP Olá servidor em que são instalados e detalhes sobre Olá conexões de entrada e saída de cada processo. Na lista de saudação no painel esquerdo do hello, você pode selecionar computadores ou grupos que têm toovisualize de agentes do mapa de serviço suas dependências em um intervalo de tempo especificado. Dependência de máquina mapeia o foco em um computador específico e eles mostram todas as máquinas de saudação que são clientes TCP diretos ou servidores da máquina.  Os mapas do Grupo de Computadores mostram os conjuntos de servidores e suas dependências.
 
 ![Visão geral do Mapa do Serviço](media/oms-service-map/service-map-overview.png)
 
-Máquinas podem ser expandidas no mapa para mostrar os processos em execução com conexões de rede ativas durante o intervalo de tempo selecionado. Quando um computador remoto com um agente do Mapa do Serviço é expandido para mostrar os detalhes do processo, somente os processos comunicando-se com o computador serão mostrados. A contagem de computadores front-end sem agente conectando-se com o computador de foco é indicada no lado esquerdo dos processos aos quais se conectam. Se o computador de foco estiver fazendo uma conexão com um computador back-end que não possui nenhum agente, o servidor back-end será incluído em um Grupo de Portas de Servidor, juntamente com outras conexões com o mesmo número da porta.
+Máquinas podem ser expandidas em Olá Olá de tooshow mapa executando processos com conexões de rede durante o intervalo de tempo de saudação selecionado. Quando um computador remoto com um agente de mapa de serviço é expandido tooshow detalhes do processo, são mostrados apenas os processos que se comunicam com a máquina de foco hello. Contagem de saudação de máquinas de front-end sem agente que se conectam à máquina de foco de saudação é indicada no lado esquerdo de saudação de processos de saudação que se conectam ao. Se a máquina de foco Olá faz uma máquina de back-end de tooa de conexão que não tiver um agente, servidor de back-end de saudação é incluído em um grupo de porta do servidor, junto com outra conexões toohello mesmo número da porta.
 
-Por padrão, os mapas do Mapa do Serviço mostram os últimos 30 minutos de informações de dependência. Ao usar os controles de tempo na parte superior esquerda, você poderá consultar mapas para intervalos de tempo históricos de até uma hora para mostrar como as dependências foram analisadas no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração). Os dados do Mapa do Serviço são armazenados por 30 dias em espaços de trabalho pagos, e por sete dias em espaços de trabalho gratuitos.
+Por padrão, o mapa de serviço mapeia Mostrar Olá últimos 30 minutos de informações de dependência. Usando controles de tempo de saudação à esquerda superior hello, você pode consultar mapas para intervalos de tempo de histórico de backup tooone hora tooshow como dependências pesquisadas no hello passado (por exemplo, durante um incidente ou antes de uma alteração ocorreu). Os dados do Mapa do Serviço são armazenados por 30 dias em espaços de trabalho pagos, e por sete dias em espaços de trabalho gratuitos.
 
 ## <a name="status-badges-and-border-coloring"></a>Notificações de status e a cor de borda
-Na parte inferior de cada servidor no mapa pode haver uma lista de notificações de status que passam informações sobre o status do servidor. As notificações indicam que há algumas informações relevantes para o servidor de uma das integrações de solução do Operations Management Suite. Ao clicar em uma notificação, você será direcionado diretamente para os detalhes do status no painel direito. As notificações de status atualmente disponíveis incluem Alertas, Central de Serviços, Alterações, Segurança e Atualizações.
+Olá inferior de cada servidor no mapa de saudação é uma lista de notificações de status transmitir informações de status sobre o servidor de saudação. notificações de saudação indicam que há algumas informações relevantes para o servidor de saudação de uma das integrações de solução do hello Operations Management Suite. Clicar em uma notificação leva você diretamente toohello detalhes do status de saudação no painel direito da saudação. Olá atualmente selos de status disponíveis incluem alertas, Central de serviços, as alterações, segurança e atualizações.
 
-Dependendo da gravidade das notificações de status, as bordas do nó do computador poderão ser coloridas em vermelho (crítico), amarelo (aviso) ou azul (informativo). A cor representa o status mais grave de qualquer uma das notificações de status. Uma borda cinza indica um nó que não possui indicadores de status.
+Dependendo da severidade Olá de notificações de status de hello, bordas de nó da máquina podem ser colorido vermelho (crítico), amarelo (aviso) ou azul (informativas). cor de saudação representa status mais graves de saudação de qualquer uma das notificações de status de saudação. Uma borda cinza indica um nó que não possui indicadores de status.
 
 ![Notificações de status](media/oms-service-map/status-badges.png)
 
 ## <a name="machine-groups"></a>Grupos de Computadores
-Grupos de Computadores permitem que você veja mapas centrados em torno de um conjunto de servidores e não apenas um, de modo que você possa ver todos os membros de um aplicativo multicamada ou cluster de servidores em um mapa.
+Grupos de computadores permitem que você toosee mapas gira em torno de um conjunto de servidores, não apenas um para ver todos os membros de saudação de um cluster de várias camado de aplicativo ou servidor em um mapa.
 
-Os usuários selecionam quais servidores pertencem em um grupo e escolhem um nome para o grupo.  É possível escolher exibir o grupo com todos os seus processos e conexões ou visualizá-lo com apenas os processos e conexões que se relacionam diretamente com os outros membros do grupo.
+Os usuários selecionar quais servidores pertencem juntos em um grupo e escolha um nome para o grupo de saudação.  Você pode escolher tooview Olá grupo com todos os seus processos e conexões, ou exibi-lo com apenas processos hello e conexões que estão diretamente relacionam toohello outros membros do grupo de saudação.
 
 ![Grupo de Computadores](media/oms-service-map/machine-group.png)
 
 ### <a name="creating-a-machine-group"></a>Criar um Grupo de Computadores
-Para criar um grupo, selecione o computador ou os computadores que você deseja na lista Computadores e clique em **Adicionar ao grupo**.
+toocreate um grupo, selecione hello ou mais máquinas desejado em máquinas de saudação lista e clique em **adicionar toogroup**.
 
 ![Criar Grupo](media/oms-service-map/machine-groups-create.png)
 
-Nesse ponto, é possível escolher **Criar novo** e atribuir ao grupo um nome.
+Lá, você pode escolher **criar novo** e dê um nome de grupo de saudação.
 
 ![Nome do Grupo](media/oms-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Atualmente, os grupos de computadores são limitados a 10 servidores, mas planejamos aumentar esse limite em breve.
+>Grupos de computadores são servidores too10 atualmente limitado, mas estamos planejando tooincrease esse limite em breve.
 
 ### <a name="viewing-a-group"></a>Exibir um Grupo
-Depois de criar alguns grupos, você poderá exibi-los clicando na guia Grupos.
+Depois de criar alguns grupos, você pode exibi-los, escolhendo a guia de grupos de saudação.
 
 ![Guia Grupos](media/oms-service-map/machine-groups-tab.png)
 
-Em seguida, selecione o nome do Grupo para exibir o mapa para esse Grupo de Computadores.
-![Grupo de Computadores](media/oms-service-map/machine-group.png) Os computadores que pertencem ao grupo são contornados em branco no mapa.
+Selecione o mapa de saudação do hello grupo nome tooview para esse grupo de computadores.
+![Grupo de computadores](media/oms-service-map/machine-group.png) máquinas Olá que pertencem a toohello grupo são descritas em branco no mapa de saudação.
 
-Ao expandir o Grupo, serão listados os computadores que constituem o Grupo de Computadores.
+Olá expansão grupo listará máquinas Olá que compõem a saudação grupo de computadores.
 
 ![Computadores do Grupo de Computadores](media/oms-service-map/machine-groups-machines.png)
 
 ### <a name="filter-by-processes"></a>Filtrar por processos
-É possível alternar a exibição do mapa entre mostrar todos os processos e conexões no Grupo e apenas aqueles que se relacionam diretamente com o Grupo de Computadores.  A exibição padrão é mostrar todos os processos.  Você pode alterar a exibição, clicando no ícone do filtro acima do mapa.
+Você pode alternar exibição de mapa de saudação entre mostrando todas as conexões e processos no grupo de saudação e Olá apenas aqueles que estão diretamente relacionados toohello grupo de computadores.  Olá exibição padrão é tooshow todos os processos.  Você pode alterar a exibição de Olá Olá ícone de filtro acima mapa hello.
 
 ![Grupo do Filtro](media/oms-service-map/machine-groups-filter.png)
 
-Quando **Todos os processos** estiver selecionado, o mapa incluirá todos os processos e conexões em cada um dos computadores no Grupo.
+Quando **todos os processos** é selecionada, mapa Olá incluirá todas as conexões em cada uma das máquinas hello e processos em Olá grupo.
 
 ![Todos os processos do Grupo de Computadores](media/oms-service-map/machine-groups-all.png)
 
-Se você alterar a exibição para mostrar apenas os **processos conectados por grupo** , o mapa será inoperante apenas para os processos e conexões diretamente conectados a outros computadores do grupo, criando uma exibição simplificada.
+Se você alterar Olá tooshow de exibição somente **grupo conectado processos**, mapa hello serão restritas para baixo tooonly esses processos e as conexões que estão diretamente conectados tooother máquinas no grupo hello, criando uma exibição simplificada.
 
 ![Processos filtrados do Grupo de Computadores](media/oms-service-map/machine-groups-filtered.png)
  
-### <a name="adding-machines-to-a-group"></a>Adicionar computadores a um grupo
-Para adicionar computadores a um grupo existente, marque as caixas ao lado dos computadores que deseja e clique em **Adicionar ao grupo**.  Em seguida, escolha o grupo para o qual deseja adicionar os computadores.
+### <a name="adding-machines-tooa-group"></a>Adicionar grupo de tooa de máquinas
+tooadd máquinas grupo existente tooan, verifique a saudação caixas próximas máquinas toohello desejado e, em seguida, clique em **adicionar toogroup**.  Em seguida, escolha o grupo de saudação para que deseja tooadd Olá máquinas.
  
 ### <a name="removing-machines-from-a-group"></a>Remover computadores de um grupo
-Na Lista de Grupos, expanda o nome do grupo para listar os computadores no Grupo de Computadores.  Em seguida, clique no menu de reticências próximo ao computador que deseja remover e escolha **Remover**.
+Na lista de grupos de Olá, expanda Olá grupo nome toolist Olá máquinas Olá grupo de computadores.  Em seguida, clique em Olá reticências menu próximo toohello computador você deseja tooremove e escolha **remover**.
 
 ![Remova o computador do grupo](media/oms-service-map/machine-groups-remove.png)
 
 ### <a name="removing-or-renaming-a-group"></a>Remover ou renomear um grupo
-Clique no menu de reticências próximo ao nome do grupo na Lista de Grupos.
+Clique em Olá reticências menu próxima toohello grupo nome no hello lista de grupos.
 
 ![Menu do Grupo de Computadores](media/oms-service-map/machine-groups-menu.png)
 
 
 ## <a name="role-icons"></a>Ícones de função
-Alguns processos possuem funções específicas em computadores: servidores Web, servidores de aplicativos, banco de dados, etc. O Mapa do Serviço adiciona ao processo e às caixas do computador ícones de função para ajudar a identificar rapidamente a função de um processo ou servidor.
+Alguns processos possuem funções específicas em computadores: servidores Web, servidores de aplicativos, banco de dados, etc. Mapa de serviço anota processo e identificam caixas de máquina com toohelp de ícones de função em um servidor ou função de saudação rapidamente um processo desempenha.
 
 | Ícone de função | Descrição |
 |:--|:--|
@@ -133,44 +133,44 @@ Alguns processos possuem funções específicas em computadores: servidores Web,
 
 
 ## <a name="failed-connections"></a>Conexões com falha
-As conexões com falha são mostradas nos mapas do Mapa do Serviço para processos e computadores, com uma linha vermelha tracejada indicando que um sistema cliente está falhando em alcançar um processo ou uma porta. Conexões com falha são reportadas de qualquer sistema com um agente do Mapa do Serviço implantado, se esse sistema estiver tentando a conexão com falha. O Mapa do Serviço mede esse processo, observando os soquetes TCP que falham ao estabelecer uma conexão. Isso pode ocorrer devido a um firewall, uma configuração incorreta no cliente ou servidor ou um serviço remoto não disponível.
+Conexões com falha são mostrados no mapa de serviço é mapeado para processos e computadores, com uma linha vermelha tracejada que indica que um sistema cliente está falhando tooreach um processo ou uma porta. Conexões com falha são relatados de qualquer sistema com um agente de mapa de serviço implantado, se o sistema é uma tentativa de conexão de saudação falhada Olá. Mapa de serviço mede esse processo observando soquetes TCP que não tooestablish uma conexão. Essa falha pode resultar de um firewall, uma configuração incorreta no hello cliente ou servidor, ou um serviço remoto não está disponível.
 
 ![Conexões com falha](media/oms-service-map/failed-connections.png)
 
-Entender as conexões com falha pode ajudar com a solução de problemas, validação da migração, análise de segurança e noções básicas sobre arquitetura em geral. Às vezes, as conexões com falhas são inofensivas, mas frequentemente apontam diretamente para um problema, como um ambiente de failover tornando-se inacessível repentinamente ou, duas camadas de aplicativos sem comunicação após uma migração na nuvem.
+Entender as conexões com falha pode ajudar com a solução de problemas, validação da migração, análise de segurança e noções básicas sobre arquitetura em geral. Conexões com falha, às vezes, serão inofensivos, mas eles geralmente apontem diretamente tooa problema, como um ambiente de failover de repente se torne inacessível, ou de duas camadas de aplicativo que está sendo tootalk não é possível após a migração de nuvem.
 
 ## <a name="client-groups"></a>Grupos de Clientes
-Os Grupos de Clientes são caixas no mapa que representam computadores cliente que não possuem Agentes de Dependência. Um Grupo de Clientes único representa os clientes para um computador ou processo individual.
+Grupos de cliente são caixas no mapa de saudação que representam computadores cliente que não têm agentes de dependência. Um único grupo de cliente representa clientes Olá para um processo individual ou uma máquina.
 
 ![Grupos de Clientes](media/oms-service-map/client-groups.png)
 
-Para ver os endereços IP dos servidores em um Grupo de Clientes, selecione o grupo. O conteúdo do grupo está listado no painel **Propriedades do Grupo de Clientes**.
+endereços IP de saudação de toosee dos servidores de saudação em um grupo de cliente, o grupo Olá select. conteúdo de saudação do grupo Olá listados Olá **propriedades do grupo de cliente** painel.
 
 ![Propriedades do Grupo de Clientes](media/oms-service-map/client-group-properties.png)
 
 ## <a name="server-port-groups"></a>Grupos de Portas do Servidor
-Os Grupos de Portas do Servidor são caixas que representam portas de servidor em servidores que não possuem Agentes de Dependência. A caixa contém a porta do servidor e uma contagem do número de servidores com conexões para essa porta. Expanda a caixa para ver conexões e servidores individuais. Se houver apenas um servidor na caixa, o nome ou endereço IP será listado.
+Os Grupos de Portas do Servidor são caixas que representam portas de servidor em servidores que não possuem Agentes de Dependência. caixa de Olá contém a porta do servidor de saudação e uma contagem do número de saudação de servidores com a porta de toothat de conexões. Expanda as conexões e servidores individuais do Olá Olá caixa toosee. Se houver apenas um servidor na caixa hello, Olá nome ou endereço IP é listado.
 
 ![Grupos de Portas do Servidor](media/oms-service-map/server-port-groups.png)
 
 ## <a name="context-menu"></a>Menu de contexto
-Ao clicar nas reticências (...), no canto superior direito de qualquer servidor, o menu de contexto desse servidor será exibido.
+Clicando em reticências hello (...) na parte superior de saudação à direita de qualquer servidor exibe o menu de contexto de saudação para esse servidor.
 
 ![Conexões com falha](media/oms-service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Carregar mapa do servidor
-Ao clicar em **Carregar Mapa do Servidor**, você será direcionado para um novo mapa com o servidor selecionado como um novo computador de foco.
+Clicando em **carregar o mapa de servidor** leva você tooa novo mapa com servidor de saudação selecionado como a nova máquina de foco hello.
 
 ### <a name="show-self-links"></a>Mostrar self-links
-Ao clicar em **Mostrar Self-Links** redefine o nó de servidor, incluindo quaisquer self-links, que são conexões TCP que iniciam e finalizam em processos dentro do servidor. Se os self-links forem mostrados, o comando de menu irá alterar para **Ocultar Self-Links**, de modo que você possa desativá-los.
+Clicando em **Self-Links Mostrar** redesenha Olá server nó, incluindo quaisquer links automáticos, que são conexões TCP que começam e terminam com processos no servidor de saudação. Se links automáticos são mostrados, Olá alterações de comando de menu muito**Self-Links ocultar**, de modo que você pode desativá-los.
 
 ## <a name="computer-summary"></a>Resumo do computador
-O painel **Resumo do Computador** inclui uma visão geral do sistema operacional de um servidor, contagens de dependência e dados de outras soluções do Operations Management Suite. Esses dados incluem métricas de desempenho, tíquetes de central serviços, controle de alterações, segurança e atualizações.
+Olá **Resumo da máquina** painel inclui uma visão geral do sistema operacional do servidor, as contagens de dependência e dados de outras soluções do Operations Management Suite. Esses dados incluem métricas de desempenho, tíquetes de central serviços, controle de alterações, segurança e atualizações.
 
 ![Painel Resumo do Computador](media/oms-service-map/machine-summary.png)
 
 ## <a name="computer-and-process-properties"></a>Propriedades do computador e do processo
-Ao navegar no mapa do Mapa do Serviço, é possível selecionar computadores e processos para obter um contexto adicional sobre suas propriedades. Os computadores fornecem informações sobre o nome DNS, endereços IPv4, CPU e capacidade de memória, tipo de VM, sistema operacional e versão, último tempo de reboot e IDs dos agentes do Mapa do Serviço e Operations Management Suite.
+Quando você navega em um mapa de mapa de serviço, você pode selecionar máquinas e processos toogain um contexto adicional sobre suas propriedades. Máquinas fornecem informações sobre DNS nome, IPv4 endereços, CPU e memória, capacidade, tipo VM, sistema operacional e versão, reinicialize última hora e IDs de saudação de seus agentes do Operations Management Suite e mapa de serviço.
 
 ![Painel Propriedades do Computador](media/oms-service-map/machine-properties.png)
 
@@ -178,53 +178,53 @@ Ao navegar no mapa do Mapa do Serviço, é possível selecionar computadores e p
 
 ![Painel Propriedades do Processo](media/oms-service-map/process-properties.png)
 
-O painel **Resumo do Processo** fornece informações adicionais sobre a conectividade do processo, incluindo suas portas associadas, conexões de entrada e saída e conexões com falha.
+Olá **resumo do processo** painel fornece informações adicionais sobre a conectividade do processo hello, incluindo suas portas associadas, conexões de entrada e saída e conexões com falha.
 
 ![Painel Resumo do Processo](media/oms-service-map/process-summary.png)
 
 ## <a name="operations-management-suite-alerts-integration"></a>Integração de Alertas do Operations Management Suite
-O Mapa do Serviço integra-se com os Alertas do Operations Management Suite para mostrar alertas disparados ao servidor selecionado no intervalo de tempo selecionado. Se houver alertas atuais, o servidor exibirá um ícone e o painel **Alertas do Computador** listará os alertas.
+Mapa de serviço se integra ao Operations Management Suite alertas tooshow acionado alertas para servidor de saudação selecionado no intervalo de tempo de saudação selecionado. servidor de saudação exibe um ícone se há alertas atuais e hello **máquina alertas** painel lista os alertas de saudação.
 
 ![Painel Alertas do Computador](media/oms-service-map/machine-alerts.png)
 
-Para habilitar o Mapa do Serviço para exibir alertas relevantes, crie uma regra de alerta que dispara para um computador específico. Para criar alertas apropriadas:
-- Inclua uma cláusula para agrupar por computador (por exemplo, **intervalo de 1 minuto por Computador**).
-- Escolha o alerta com base na medida métrica.
+alertas relevantes do tooenable mapa de serviço toodisplay, crie uma regra de alerta é acionado para um computador específico. alertas de toocreate adequada:
+- Incluir uma cláusula toogroup por computador (por exemplo, **pelo intervalo de computador 1 minuto**).
+- Escolha tooalert com base na medida de métrica.
 
 ![Configuração do alerta](media/oms-service-map/alert-configuration.png)
 
 
 ## <a name="operations-management-suite-log-events-integration"></a>Integração de eventos de log do Operations Management Suite
-O Mapa do Serviço integra-se à Pesquisa de Logs para mostrar uma contagem de todos os eventos de log disponíveis para o servidor selecionado no intervalo de tempo selecionado. Você pode clicar em qualquer linha na lista de contagens de eventos para pular para a Pesquisa de Logs e ver os eventos de log individuais.
+Mapa de serviço se integra com tooshow de pesquisa de Log uma contagem de todos os eventos de log disponíveis para o servidor de saudação selecionado durante o intervalo de tempo de saudação selecionado. Você pode clicar qualquer linha na lista de saudação do evento contagens toojump tooLog pesquisa e ver os eventos de log individuais hello.
 
 ![Painel Eventos de Log do Computador](media/oms-service-map/log-events.png)
 
 ## <a name="operations-management-suite-service-desk-integration"></a>Integração da Central de Serviços do Operations Management Suite
-A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviço de TI é automática quando ambas as soluções estão habilitadas e configuradas no espaço de trabalho do Operations Management Suite. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+Integração com o mapa de serviço com hello conector de gerenciamento de serviço de TI é automática quando ambas as soluções são habilitadas e configuradas no seu espaço de trabalho do Operations Management Suite. integração de saudação no mapa de serviço denominada "Central de serviços". Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
-O painel **Central de Serviços do Computador** lista todos os eventos de Gerenciamento de Serviço de TI para o servidor selecionado no intervalo de tempo selecionado. Se houver itens atuais, o servidor exibirá um ícone e o painel da Central de Serviços do Computador irá listá-los.
+Olá **Central de serviços de máquina** painel lista todos os eventos de gerenciamento de serviços para o servidor de saudação selecionado no intervalo de tempo de saudação selecionado. servidor de saudação exibe um ícone se o item atual e painel de Central de serviços de máquina Olá listá-los.
 
 ![Painel Central de Serviços do Computador](media/oms-service-map/service-desk.png)
 
-Para abrir o item na sua solução ITSM conectada, clique em **Exibir Item de Trabalho**.
+item de saudação tooopen em sua solução ITSM conectada, clique em **Item de trabalho do modo de exibição**.
 
-Para exibir os detalhes do item na Pesquisa de Logs, clique em **Mostrar na Pesquisa de Logs**.
+tooview Olá detalhes do item de saudação na pesquisa de Log, clique em **Mostrar na pesquisa de Log**.
 
 
 ## <a name="operations-management-suite-change-tracking-integration"></a>Integração do Controle de Alterações do Operations Management Suite
 A integração do Mapa do Serviço com o Controle de Alterações é automática quando ambas as soluções estão habilitadas e configuradas no espaço de trabalho do Operations Management Suite.
 
-O painel **Controle de Alterações do Computador** lista todas as alterações, as mais recentes primeiro, juntamente com um link para fazer busca detalhada da Pesquisa de Logs para obter detalhes adicionais.
+Olá **o controle de alterações da máquina** painel lista todas as alterações, com hello mais recente primeiro, junto com um toodrill link para baixo tooLog pesquisa para obter detalhes adicionais.
 
 ![Painel Controle de Alterações do Computador](media/oms-service-map/change-tracking.png)
 
-A imagem a seguir é uma exibição detalhada de um evento ConfigurationChange que poderá ser exibido após selecionar **Mostrar no Log Analytics**.
+Olá, imagem a seguir é uma exibição detalhada de um evento ConfigurationChange que você pode ver depois de selecionar **Mostrar na análise de Log**.
 
 ![Evento ConfigurationChange](media/oms-service-map/configuration-change-event.png)
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Integração de desempenho do Operations Management Suite
-O painel **Desempenho do Computador** exibe métricas de desempenho padrão para o servidor selecionado. As métricas incluem utilização de CPU, utilização de memória, bytes de rede enviados e recebidos, e uma lista dos principais processos por bytes de rede enviados e recebidos. Para obter os dados de desempenho da rede, você também deverá habilitar a solução Wire Data 2.0 no Operations Management Suite.
+Olá **o desempenho da máquina** painel exibe as métricas de desempenho padrão do servidor de saudação selecionado. métricas de saudação incluem utilização de CPU, utilização de memória, bytes de rede enviados e recebidos e uma lista dos principais processos de saudação por bytes de rede enviados e recebidos. dados de desempenho da rede tooget hello, você também deve ter habilitado Olá solução 2.0 de dados de transmissão no Operations Management Suite.
 
 ![Painel Desempenho do Computador](media/oms-service-map/machine-performance.png)
 
@@ -232,7 +232,7 @@ O painel **Desempenho do Computador** exibe métricas de desempenho padrão para
 ## <a name="operations-management-suite-security-integration"></a>Integração de segurança do Operations Management Suite
 A integração do Mapa do Serviço com a Segurança e Auditoria é automática quando ambas as soluções estão habilitadas e configuradas no espaço de trabalho do Operations Management Suite.
 
-O painel **Segurança do Computador** mostra os dados da solução de Segurança e Auditoria do Operations Management Suite para o servidor selecionado. O painel lista um resumo de quaisquer problemas de segurança pendentes para o servidor durante o intervalo de tempo selecionado. Ao clicar em qualquer um dos problemas de segurança, a busca detalhada será realizada em uma Pesquisa de Logs para obter mais detalhes sobre esses problemas.
+Olá **de segurança do computador** painel mostra dados de saudação solução Operations Management Suite segurança e auditoria para o servidor de saudação selecionado. Painel de saudação lista um resumo dos problemas de segurança pendentes para o servidor de saudação durante o intervalo de tempo de saudação selecionado. Clicar em qualquer um de saudação detalhada de problemas de segurança para baixo em uma pesquisa de Log para obter detalhes sobre eles.
 
 ![Painel Segurança do Computador](media/oms-service-map/machine-security.png)
 
@@ -240,76 +240,76 @@ O painel **Segurança do Computador** mostra os dados da solução de Segurança
 ## <a name="operations-management-suite-updates-integration"></a>Integração de Atualizações do Operations Management Suite
 A integração do Mapa do Serviço com o Gerenciamento de Atualizações é automática quando ambas as soluções estão habilitadas e configuradas no espaço de trabalho do Operations Management Suite.
 
-O painel **Atualizações do Computador** exibe dados da solução de Gerenciamento de Atualizações do Operations Management Suite para o servidor selecionado. O painel lista um resumo de quaisquer atualizações ausentes para o servidor durante o intervalo de tempo selecionado.
+Olá **máquina atualizações** painel exibe dados de Olá solução de gerenciamento de atualizações do Operations Management Suite para servidor de saudação selecionado. Painel de saudação lista um resumo de todas as atualizações ausentes para o servidor de saudação durante o intervalo de tempo de saudação selecionado.
 
 ![Painel Controle de Alterações do Computador](media/oms-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
-Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../log-analytics/log-analytics-log-searches.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
+Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../log-analytics/log-analytics-log-searches.md) no Log Analytics. Você pode aplicar essa tooscenarios de dados que inclui o planejamento da migração, análise de capacidade de descoberta e solução de problemas de desempenho sob demanda.
 
-Um registro é gerado por hora para cada computador e processo exclusivo, além dos registros que são gerados quando um processo ou computador inicia ou é integrado ao Mapa do Serviço. Esses registros têm as propriedades descritas nas tabelas a seguir. Os campos e valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso do Computador na API do ServiceMap do Azure Resource Manager. Os campos e valores nos eventos ServiceMapProcess_CL mapeiam para os campos do recurso do Processo na API do ServiceMap do Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nome no recurso do Gerenciador de Recursos correspondente. 
+Um registro é gerado por hora para cada computador exclusivo e o processo, além de toohello registros que são gerados quando um processo ou o computador for iniciado ou estiver onboard tooService do mapa. Esses registros têm propriedades de saudação no hello tabelas a seguir. campos de saudação e os valores em eventos de ServiceMapComputer_CL Olá mapeiam toofields de saudação recursos de máquina em Olá ServiceMap API do Azure Resource Manager. Hello campos e valores em eventos de ServiceMapProcess_CL Olá mapeiam campos toohello de saudação recurso processo Olá ServiceMap API do Azure Resource Manager. campo de ResourceName_s de saudação coincide com o campo de nome de saudação no recurso de Gerenciador de recursos correspondente hello. 
 
 >[!NOTE]
->À medida que os recursos do Mapa do Serviço crescem, esses campos estarão sujeitos a alterações.
+>Como aumentarem os recursos de mapa de serviço, esses campos são toochange de assunto.
 
-Há propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
+Há propriedades geradas internamente, você pode usar computadores e processos exclusivo tooidentify:
 
-- Computador: Utilize ResourceId ou ResourceName_s para identificar exclusivamente um computador em um espaço de trabalho do Operations Management Suite.
-- Processo: Utilize ResourceId para identificar exclusivamente um processo em um espaço de trabalho do Operations Management Suite. ResourceName_s é exclusivo dentro do contexto do computador no qual o processo está em execução (MachineResourceName_s) 
+- Computador: Use ResourceId ou ResourceName_s toouniquely identificar um computador em um espaço de trabalho do Operations Management Suite.
+- Processo: Use ResourceId toouniquely identificar um processo dentro de um espaço de trabalho do Operations Management Suite. ResourceName_s é exclusivo no contexto de saudação da máquina de saudação no qual Olá processo está sendo executado (MachineResourceName_s) 
 
-Como vários registros podem existir para um processo e computador específicos em um intervalo de tempo específico, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir somente o registro mais recente, adicione "| dedup ResourceId" à consulta.
+Porque podem haver vários registros para um processo especificado e o computador em um intervalo de tempo especificado, as consultas podem retornar mais de um registro para Olá mesmo computador ou processo. tooinclude Olá somente o registro mais recente, adicione "| eliminação de duplicação ResourceId"toohello consulta.
 
 ### <a name="servicemapcomputercl-records"></a>Registros ServiceMapComputer_CL
-Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes do Mapa do Serviço. Esses registros têm as propriedades descritas na tabela a seguir:
+Registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes do Mapa do Serviço. Esses registros têm propriedades Olá em Olá a tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
 | Tipo | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | O identificador exclusivo para um computador dentro do espaço de trabalho |
-| ResourceName_s | O identificador exclusivo para um computador dentro do espaço de trabalho |
-| ComputerName_s | O FQDN do computador |
-| Ipv4Addresses_s | Uma lista dos endereços IPv4 do servidor |
-| Ipv6Addresses_s | Uma lista dos endereços IPv6 do servidor |
+| ResourceId | Olá identificador exclusivo para uma máquina no espaço de trabalho de saudação |
+| ResourceName_s | Olá identificador exclusivo para uma máquina no espaço de trabalho de saudação |
+| ComputerName_s | computador Olá FQDN |
+| Ipv4Addresses_s | Uma lista de endereços do IPv4 do servidor de saudação |
+| Ipv6Addresses_s | Uma lista de endereços do IPv6 do servidor de saudação |
 | DnsNames_s | Uma matriz de nomes DNS |
 | OperatingSystemFamily_s | Windows ou Linux |
-| OperatingSystemFullName_s | O nome completo do sistema operacional  |
-| Bitness_s | O número de bit do computador (32-BIT ou 64-BIT)  |
-| PhysicalMemory_d | A memória física em MB |
-| Cpus_d | O número de CPUs |
-| CpuSpeed_d | A velocidade da CPU em MHz|
+| OperatingSystemFullName_s | Olá nome completo do sistema operacional de saudação  |
+| Bitness_s | número de bits de saudação da máquina de saudação (32 bits ou 64 bits)  |
+| PhysicalMemory_d | memória física Olá em MB |
+| Cpus_d | número de saudação de CPUs |
+| CpuSpeed_d | Olá velocidade da CPU em MHz|
 | VirtualizationState_s | *desconhecido*, *físico*, *virtual*, *hipervisor* |
 | VirtualMachineType_s | *hyperv*, *vmware*, e assim por diante |
-| VirtualMachineNativeMachineId_g | A ID da VM conforme atribuída pelo seu hipervisor |
-| VirtualMachineName_s | O nome da VM |
-| BootTime_t | O tempo de inicialização |
+| VirtualMachineNativeMachineId_g | Olá ID da VM conforme atribuído pelo seu hipervisor |
+| VirtualMachineName_s | nome de saudação do hello VM |
+| BootTime_t | tempo de inicialização de saudação |
 
 
 
 ### <a name="servicemapprocesscl-type-records"></a>Registros do tipo ServiceMapProcess_CL Type
-Registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos conectados com TCP em servidores com agentes do Mapa do Serviço. Esses registros têm as propriedades descritas na tabela a seguir:
+Registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos conectados com TCP em servidores com agentes do Mapa do Serviço. Esses registros têm propriedades Olá em Olá a tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
 | Tipo | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceId | O identificador exclusivo para um processo dentro do espaço de trabalho |
-| ResourceName_s | O identificador exclusivo para um processo dentro do computador no qual está sendo executado|
-| MachineResourceName_s | O nome do recurso do computador |
-| ExecutableName_s | O nome do processo executável |
-| StartTime_t | O tempo de início do pool de processos |
-| FirstPid_d | O primeiro PID no pool de processos |
-| Description_s | A descrição do processo |
-| CompanyName_s | O nome da empresa |
-| InternalName_s | O nome interno |
-| ProductName_s | O nome do produto |
-| ProductVersion_s | A versão do produto |
-| FileVersion_s | A versão do arquivo |
-| CommandLine_s | A linha de comando |
-| ExecutablePath _s | O caminho para o arquivo executável |
-| WorkingDirectory_s | O diretório de trabalho |
-| UserName | A conta sob a qual o processo está sendo executado |
-| UserDomain | O domínio sob o qual o processo está sendo executado |
+| ResourceId | Olá identificador exclusivo de um processo no espaço de trabalho de saudação |
+| ResourceName_s | Olá identificador exclusivo para um processo em máquina Olá no qual ele está em execução|
+| MachineResourceName_s | nome do recurso de saudação da máquina Olá |
+| ExecutableName_s | nome de saudação do executável do processo Olá |
+| StartTime_t | hora de início de pool de processo Olá |
+| FirstPid_d | saudação PID primeiro no pool de processos de saudação |
+| Description_s | Descrição do processo Olá |
+| CompanyName_s | nome de saudação da empresa de saudação |
+| InternalName_s | nome interno da saudação |
+| ProductName_s | nome de saudação do produto de saudação |
+| ProductVersion_s | versão do produto Olá |
+| FileVersion_s | versão do arquivo Hello |
+| CommandLine_s | linha de comando Olá |
+| ExecutablePath _s | arquivo executável do Hello caminho toohello |
+| WorkingDirectory_s | diretório de trabalho Olá |
+| UserName | conta de saudação no qual Olá processo está em execução. |
+| UserDomain | domínio Olá no qual Olá processo está em execução. |
 
 
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
@@ -317,13 +317,13 @@ Registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para p
 ### <a name="list-all-known-machines"></a>Lista todas as máquinas conhecidas
 Type=ServiceMapComputer_CL | dedup ResourceId
 
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Lista a capacidade de memória física de todos os computadores gerenciados.
+### <a name="list-hello-physical-memory-capacity-of-all-managed-computers"></a>Capacidade de memória física de saudação da lista de todos os computadores gerenciados.
 Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Listar o nome, DNS, IP e sistema operacional do computador.
 Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
 
-### <a name="find-all-processes-with-sql-in-the-command-line"></a>Localizar todos os processos com "sql" na linha de comando
+### <a name="find-all-processes-with-sql-in-hello-command-line"></a>Localiza todos os processos com "sql" na linha de comando Olá
 Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Localizar uma máquina (registro mais recente) por nome de recurso
@@ -346,21 +346,21 @@ Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct Com
 
 
 ## <a name="rest-api"></a>API REST
-Todos os dados do servidor, do processo e de dependência no Mapa do Serviço estão disponíveis por meio da [API REST do Mapa do Serviço](https://docs.microsoft.com/rest/api/servicemap/).
+Todos os dados de servidor, o processo e a dependência da saudação no mapa de serviço está disponível por meio de saudação [API REST do serviço mapa](https://docs.microsoft.com/rest/api/servicemap/).
 
 
 ## <a name="diagnostic-and-usage-data"></a>Dados de uso e de diagnóstico
-A Microsoft coleta automaticamente dados de uso e de desempenho por meio do uso do serviço Mapa do Serviço. A Microsoft utiliza esses dados para fornecer e aprimorar a qualidade, segurança e integridade do serviço do Mapa do Serviço. Para fornecer recursos de solução de problemas precisos e eficientes, os dados incluem informações sobre a configuração do seu software, como sistema operacional e versão, endereço IP, nome DNS e nome da estação de trabalho. A Microsoft não coleta nomes, endereços ou outras informações de contato.
+A Microsoft coleta automaticamente dados de uso e desempenho por meio do hello serviço mapa de serviço. A Microsoft usa esse tooprovide de dados e melhorar a qualidade do hello, segurança e integridade de saudação serviço mapa de serviço. tooprovide recursos para solução de problemas precisos e eficientes, dados de saudação incluem informações sobre a configuração de saudação do seu software, como o sistema operacional e versão, endereço IP, nome DNS e o nome de estação de trabalho. A Microsoft não coleta nomes, endereços ou outras informações de contato.
 
-Para obter mais informações sobre a coleta e uso de dados, consulte a [Política de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+Para obter mais informações sobre o uso e coleta de dados, consulte Olá [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [pesquisas de logs](../log-analytics/log-analytics-log-searches.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
+Saiba mais sobre [pesquisas de log](../log-analytics/log-analytics-log-searches.md) nos dados de tooretrieve de análise de Log que são coletados pelo mapa de serviço.
 
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-Consulte a [seção Solução de problemas do documento Configurando o mapa do serviço](operations-management-suite-service-map-configure.md#troubleshooting).
+Consulte Olá [Olá documento de mapa de serviço de configuração de solução de problemas](operations-management-suite-service-map-configure.md#troubleshooting).
 
 
 ## <a name="feedback"></a>Comentários

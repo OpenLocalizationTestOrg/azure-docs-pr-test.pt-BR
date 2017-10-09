@@ -1,45 +1,45 @@
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entrar toohello [portal do Azure](https://portal.azure.com).
 
-2. Começando no canto superior esquerdo, clique em **Nova > Computação > Datacenter do Windows Server 2016**.
+2. Iniciando na parte superior esquerda do hello, clique em **Novo > computação > Windows Server 2016 Datacenter**.
 
-    ![Navegar até as imagens de VM do Azure no portal](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
+    ![Navegue toohello imagens de VM do Azure no portal de saudação](./media/virtual-machines-common-portal-create-fqdn/marketplace-new.png)
 
-3. No Datacenter do Windows Server 2016, selecione o modelo de implantação Clássico. Clique em Criar.
+3. Na Olá Datacenter do Windows Server 2016, selecione o modelo de implantação clássico hello. Clique em Criar.
 
-    ![Captura de tela que mostra as imagens da VM do Azure disponíveis no portal](./media/virtual-machines-common-portal-create-fqdn/deployment-classic-model.png)
+    ![Captura de tela que mostra imagens de VM do Azure Olá disponíveis no portal de saudação](./media/virtual-machines-common-portal-create-fqdn/deployment-classic-model.png)
 
 ## <a name="1-basics-blade"></a>1. Folha de Noções básicas
 
-A folha de Noções básicas solicita informações administrativas da máquina virtual.
+folha de Noções básicas de saudação solicita informações administrativas para a máquina virtual de saudação.
 
-1. Insira um **Nome** para a máquina virtual. Neste exemplo, o nome da máquina virtual é _HeroVM_. O nome deve ter de 1 a 15 caracteres e não pode conter caracteres especiais.
+1. Insira um **nome** para a máquina virtual de saudação. No exemplo hello, _HeroVM_ é Olá nome da máquina virtual de saudação. nome de saudação deve ser de 1 a 15 caracteres e não pode conter caracteres especiais.
 
-2. Insira um **Nome de usuário** e uma **Senha** forte que serão usados para criar uma conta local na VM. A conta local é usada para conectar e gerenciar a VM. Neste exemplo, o nome de usuário é _azureuser_.
+2. Insira um **nome de usuário** e um forte **senha** que são usada toocreate uma conta local Olá VM. Olá conta local é usada toosign em tooand gerenciar Olá VM. No exemplo hello, _azureuser_ é o nome de usuário de saudação.
 
- A senha deve ter de 8 a 123 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Veja mais sobre os [requisitos de nome de usuário e senha](../articles/virtual-machines/windows/faq.md).
+ Olá senha deve ter 8 123 caracteres e atender aos três das quatro seguintes requisitos de complexidade Olá: caractere minúscula, caractere um maiusculo, um número e um caractere especial. Veja mais sobre os [requisitos de nome de usuário e senha](../articles/virtual-machines/windows/faq.md).
 
-3. A **Assinatura** é opcional. Uma configuração comum é "Pré-pago".
+3. Olá **assinatura** é opcional. Uma configuração comum é "Pré-pago".
 
-4. Selecione um **Grupo de recursos** existente ou digite o nome de um novo. Neste exemplo, o nome do grupo de recursos é _HeroVMRG_.
+4. Selecione uma existente **grupo de recursos** ou nome de saudação do tipo para um novo. No exemplo hello, _HeroVMRG_ é nome Olá Olá do grupo de recursos.
 
-5. Selecione um **Local** de datacenter do Azure no qual você deseja que a VM seja executada. Neste exemplo, o local é **Leste dos EUA**.
+5. Selecione um datacenter do Azure **local** onde você deseja Olá toorun VM. No exemplo hello, **Leste dos EUA** é Olá local.
 
-6. Ao terminar, clique em **Avançar** para continuar na próxima folha.
+6. Quando terminar, clique em **próximo** toocontinue toohello próxima folha.
 
-    ![Captura de tela que mostra as configurações na folha Noções básicas para configurar uma VM do Azure](./media/virtual-machines-common-portal-create-fqdn/basics-blade-classic.png)
+    ![Captura de tela que mostra as configurações de saudação na folha de Noções básicas de saudação para configurar uma VM do Azure](./media/virtual-machines-common-portal-create-fqdn/basics-blade-classic.png)
 
 ## <a name="2-size-blade"></a>2. Folha Tamanho
 
-A folha Tamanho identifica os detalhes de configuração da VM e lista várias opções que incluem o sistema operacional, o número de processadores, o tipo de armazenamento em disco e os custos mensais estimados de uso.  
+folha de tamanho de saudação identifica os detalhes de configuração de saudação de saudação VM e lista as várias opções que incluem o sistema operacional, o número de processadores, o tipo de armazenamento de disco e custos estimados de uso mensal.  
 
-Escolha um tamanho de VM e, em seguida, clique em **Selecionar** para continuar. Neste exemplo, o tamanho da VM é _DS1_\__V2 Standard_.
+Escolha um tamanho de VM e, em seguida, clique em **selecione** toocontinue. Neste exemplo, _DS1_\__V2 padrão_ é o tamanho da VM hello.
 
-  ![Captura de tela da folha Tamanho que mostra a VM do Azure que você pode selecionar](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
+  ![Captura de tela da folha de tamanho de saudação que mostra Olá tamanhos de VM do Azure que você pode selecionar](./media/virtual-machines-common-portal-create-fqdn/vm-size-classic.png)
 
 
 ## <a name="3-settings-blade"></a>3. Folha de configurações
 
-A folha de Configurações solicita opções de armazenamento e de rede. Você pode aceitar as configurações padrão. O Azure cria entradas apropriadas quando necessário.
+folha de configurações de saudação solicitações de opções de armazenamento e rede. Você pode aceitar as configurações padrão de saudação. O Azure cria entradas apropriadas quando necessário.
 
 Se você selecionou um tamanho de máquina virtual que dá suporte a isso, poderá experimentar o Armazenamento Premium do Azure, selecionando Premium (SSD) em Tipo de disco.
 
@@ -47,10 +47,10 @@ Quando terminar de fazer as alterações, clique em **OK**.
 
 ## <a name="4-summary-blade"></a>4. Folha de Resumo
 
-A folha de Resumo lista as configurações especificadas nas folhas anteriores. Clique em **OK** quando estiver pronto para criar a imagem.
+folha de resumo de saudação lista configurações de Olá especificadas em folhas de saudação anterior. Clique em **Okey** quando estiver pronto toomake imagem de saudação.
 
- ![Relatório da folha de Resumo fornecendo as configurações especificadas da máquina virtual](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
+ ![Relatório de resumo de folha fornecendo configurações especificadas da máquina virtual de saudação](./media/virtual-machines-common-portal-create-fqdn/summary-blade-classic.png)
 
-Depois que a máquina virtual é criada, o portal lista a nova máquina virtual em **Todos os recursos** e exibe um bloco da máquina virtual no painel. O serviço de nuvem correspondente e a conta de armazenamento também são criados e listados. A máquina virtual e o serviço de nuvem são iniciados automaticamente, e seu status é listado como **Em Execução**.
+Após a criação de máquina virtual de hello, portal Olá lista Olá nova máquina virtual em **todos os recursos**e exibe um bloco de máquina virtual de saudação no painel de saudação. Olá correspondente nuvem serviço e conta de armazenamento também são criadas e listadas. Máquina virtual de saudação e o serviço de nuvem são iniciados automaticamente e seu status é listado como **executando**.
 
- ![Configurar Agente de VM e os pontos de extremidade da máquina virtual](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)
+ ![Configurar o agente de VM e hello pontos de extremidade da máquina virtual de saudação](./media/virtual-machines-common-portal-create-fqdn/portal-with-new-vm.png)

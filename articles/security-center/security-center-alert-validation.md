@@ -1,6 +1,6 @@
 ---
-title: "Validação de alertas na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento ajuda a validar os alertas de segurança na Central de Segurança do Azure."
+title: "aaaAlerts validação na Central de segurança do Azure | Microsoft Docs"
+description: "Este documento ajudará a alertas de segurança Olá toovalidate na Central de segurança do Azure."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,40 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: yurid
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 030e9e74303758192eedaf517f1cb0d2e4a7852e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validação de alertas na Central de Segurança do Azure
-Este documento ensina você a verificar se o sistema está configurado corretamente para os alertas da Central de Segurança do Azure.
+Este documento ajuda você a aprender como tooverify se o sistema está configurado corretamente para os alertas da Central de segurança do Azure.
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
-A Central de Segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e das soluções de parceiros conectados, como firewall e soluções de proteção de ponto de extremidade, a fim de detectar e alertar sobre ameaças. Leia [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) para saber mais sobre alertas de segurança e [Noções básicas sobre alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) para saber mais sobre os diferentes tipos de alertas.
+Central de segurança automaticamente coleta, analisa e integra dados de log de seus recursos do Azure, rede hello e soluções de parceiros conectados, como soluções de proteção de firewall e de ponto de extremidade, toodetect e alerta você toothreats. Leitura [toosecurity está respondendo e gerenciamento de alertas na Central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) para obter mais informações sobre alertas de segurança e ler [Noções básicas sobre alertas de segurança na Central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) toolearn mais sobre os diferentes tipos de alertas hello.
 
 ## <a name="alert-validation"></a>Validação de alerta
-Depois que o agente da Central de Segurança for instalado no seu computador, siga as etapas abaixo no computador alvo do alerta:
+Depois que a Central de segurança é instalado em seu computador, siga as etapas de saudação abaixo do computador Olá onde você deseja toobe Olá atacado recursos de alerta de saudação:
 
-1. Copie um arquivo executável (por exemplo, calc.exe) para a área de trabalho do computador ou outro diretório desejado.
-2. Renomeie o arquivo como **ASC_AlertTest_662jfi039N.exe**.
-3. Abra o prompt de comando e execute o arquivo com um argumento (apenas um nome de argumento falso), como: *ASC_AlertTest_662jfi039N.exe -foo*
-4. Aguarde 5 a 10 minutos e abra Alertas da Central de Segurança. Lá você deve encontrar um alerta semelhante ao seguinte:
+1. Copie um toohello executável (por exemplo calc.exe) da área de trabalho ou outro diretório de sua conveniência.
+2. Renomear esse arquivo também**ASC_AlertTest_662jfi039N.exe**.
+3. Abra o prompt de comando hello e execute este arquivo com um argumento (apenas um nome de argumento falsa), como: *ASC_AlertTest_662jfi039N.exe - foo*
+4. Aguarde 5 minutos too10 e abra alertas da Central de segurança. Lá, você deve encontrar um alerta toofollowing semelhante um:
 
     ![Validação de alerta](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
 
-Ao revisar o alerta, verifique se o campo Auditoria de Argumentos Habilitada aparece como true. Se ele mostra false, você precisa habilitar a auditoria de argumentos na linha de comando. Você pode habilitar essa opção usando a seguinte linha de comando:
+Ao revisar este alerta, certifique-se de campo Olá argumentos auditoria habilitada aparece como true. Se ele mostra falso, será necessário tooenable argumentos de linha de comando de auditoria. Você pode habilitar essa opção usando Olá linha de comando a seguir:
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
 
 ## <a name="see-also"></a>Consulte também
-Este artigo apresentou a você o processo de validação de alertas. Agora que você está familiarizado com esse tipo de validação, experimente os seguintes artigos:
+Este artigo introduzido toohello processo de validação de alertas. Agora que você estiver familiarizado com esse tipo de validação, tente Olá artigos a seguir:
 
-* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerenciar alertas e responder a incidentes de segurança na Central de Segurança.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). Saiba como monitorar a integridade dos recursos do Azure.
-* [Noções básicas de alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
-* [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como solucionar problemas comuns na Central de Segurança. 
-* [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Encontre as perguntas frequentes sobre como usar o serviço.
+* [Gerenciando e respondendo toosecurity alertas na Central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como toomanage alertas e responder toosecurity incidentes na Central de segurança.
+* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md). Saiba como toomonitor Olá a integridade de seus recursos do Azure.
+* [Noções básicas de alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de saudação de alertas de segurança.
+* [Guia de solução de problemas da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como tootroubleshoot comum problemas na Central de segurança. 
+* [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md). Localize as perguntas frequentes sobre como usar o serviço de saudação.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre postagens no blog sobre a conformidade e segurança do Azure.
 

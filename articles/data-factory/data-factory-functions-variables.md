@@ -1,5 +1,5 @@
 ---
-title: "Funções do Data Factory e Variáveis do Sistema | Microsoft Docs"
+title: "aaaData variáveis de sistema e funções da fábrica | Microsoft Docs"
 description: "Fornece uma lista de funções do Azure Data Factory e variáveis do sistema"
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
-ms.openlocfilehash: 72a966bdc271f86b9568d3310d2e22d83b447594
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2936c2821797947bb37d9775226a6c19c4b8ab9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funções e Variáveis do Sistema
 Este artigo fornece informações sobre funções e variáveis com suporte no Azure Data Factory.
@@ -26,17 +26,17 @@ Este artigo fornece informações sobre funções e variáveis com suporte no Az
 ## <a name="data-factory-system-variables"></a>Variáveis do sistema do Data Factory
 | Nome de variável | Descrição | Escopo do objeto | Escopo JSON e casos de uso |
 | --- | --- | --- | --- |
-| WindowStart |Início do intervalo de tempo para a janela da execução de atividade atual |atividade |<ol><li>Especifica consultas de seleção de dados. Veja os artigos sobre o conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) .</li> |
+| WindowStart |Início do intervalo de tempo para a janela da execução de atividade atual |atividade |<ol><li>Especifica consultas de seleção de dados. Consulte os artigos de conector referenciados em Olá [atividades de movimentação de dados](data-factory-data-movement-activities.md) artigo.</li> |
 | WindowEnd |Fim do intervalo de tempo para a janela da execução de atividade atual |atividade |igual a WindowStart. |
 | SliceStart |Início do intervalo de tempo para a fatia de dados sendo gerada |atividade<br/>conjunto de dados |<ol><li>Especifique caminhos de pasta dinâmicos e nomes de arquivos enquanto estiver trabalhando com o [Blob do Azure](data-factory-azure-blob-connector.md) e [Conjuntos de dados do sistema de arquivos](data-factory-onprem-file-system-connector.md).</li><li>Especificar dependências de entrada com funções de data factory na coleção de entradas da atividade.</li></ol> |
 | SliceEnd |Fim do intervalo de tempo da fatia de dados atual. |atividade<br/>dataset |o mesmo que SliceStart. |
 
 > [!NOTE]
-> Atualmente, o data factory exige que o agendamento especificado na atividade corresponda exatamente ao agendamento especificado na disponibilidade do conjunto de dados de saída. Portanto, WindowStart, WindowEnd, SliceStart e SliceEnd sempre são mapeados para o mesmo período de tempo e uma única fatia de saída.
+> No momento fábrica de dados requer que Olá agendar Olá especificado na atividade corresponde exatamente a agenda de saudação especificada na disponibilidade do conjunto de dados de saída de hello. Portanto, WindowStart, WindowEnd e SliceStart e SliceEnd sempre mapeiam toohello período e uma fatia de saída única a mesma hora.
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Exemplo para usar uma variável de sistema
-No exemplo a seguir, o ano, o mês, o dia e a hora de **SliceStart** são extraídos em variáveis separadas que são usadas pelas propriedades **folderPath** e **fileName**.
+Em Olá seguindo o exemplo, ano, mês, dia e hora do **SliceStart** são extraídos em variáveis separadas que são usadas por **folderPath** e **fileName** propriedades.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -51,16 +51,16 @@ No exemplo a seguir, o ano, o mês, o dia e a hora de **SliceStart** são extra�
 ```
 
 ## <a name="data-factory-functions"></a>Funções do Data Factory
-Você pode usar funções no Data Factory junto com as variáveis do sistema para as seguintes finalidades:
+Você pode usar as funções na fábrica de dados juntamente com variáveis de sistema para Olá propósitos a seguir:
 
-1. Especificando consultas de seleção de dados (veja os artigos sobre o conector referenciados no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) .
+1. Especificando consultas de seleção de dados (consulte os artigos de conector referenciados por Olá [atividades de movimentação de dados](data-factory-data-movement-activities.md) artigo.
    
-   A sintaxe para invocar uma função do Data Factory é: **$$<function>** para consultas de seleção de dados e outras propriedades na atividade e nos conjuntos de dados.  
+   Olá tooinvoke sintaxe é uma função da fábrica de dados:  **$$ <function>**  para consultas de seleção de dados e outras propriedades na atividade hello e conjuntos de dados.  
 2. Especificar dependências de entrada com funções de data factory na coleção de entradas da atividade.
    
     $$ não é necessário para especificar expressões de dependência de entrada.     
 
-No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atribuída a um valor retornado pela função `Text.Format`. Este exemplo também usa uma variável de sistema chamada **WindowStart**, que representa a hora de início da janela de execução de atividade.
+Em Olá seguindo a amostra, **sqlReaderQuery** propriedade em um arquivo JSON é atribuída o valor de tooa retornado por Olá `Text.Format` função. Este exemplo também usa uma variável de sistema chamada **WindowStart**, que representa a hora de início de saudação da janela de execução da atividade hello.
 
 ```json
 {
@@ -72,34 +72,34 @@ No exemplo a seguir, a propriedade **sqlReaderQuery** em um arquivo JSON é atri
 Confira o tópico [Cadeias de caracteres de formato de data e hora personalizado](https://msdn.microsoft.com/library/8kb3ddd4.aspx) que descreve as diferentes opções de formatação que você pode usar (por exemplo: aa versus aaaa). 
 
 ### <a name="functions"></a>Funções
-As tabelas a seguir listam todas as funções no Azure Data Factory:
+Olá tabelas a seguir lista todas as funções hello na fábrica de dados do Azure:
 
 | Categoria | Função | Parâmetros | Descrição |
 | --- | --- | --- | --- |
-| Hora |AddHours(X,Y) |X: DateTime  <br/><br/>Y: int |Adiciona Y horas até o momento X determinado. <br/><br/>Exemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| Hora |AddMinutes(X,Y) |X: DateTime  <br/><br/>Y: int |Adiciona Y minutos a X.<br/><br/>Exemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Hora |StartOfHour(X) |X: DateTime  |Obtém a hora de início para a hora representada pelo componente de hora do X. <br/><br/>Exemplo: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Data |AddDays(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y dias a X. <br/><br/>Exemplo: 15/9/2013 12:00:00 + 2 dias = 17/9/2013 12:00:00.<br/><br/>Você pode subtrair dias também, especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Data |AddMonths(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y meses a X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Você pode subtrair meses também, especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Data |AddQuarters(X,Y) |X: DateTime  <br/><br/>Y: int |Adiciona Y * 3 meses a X.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Data |AddWeeks(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y * 7 dias a X<br/><br/>Exemplo: 15/9/2013 12:00:00 + 1 semana = 22/9/2013 12:00:00<br/><br/>Você pode subtrair semanas também, especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Data |AddYears(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y dias a X<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Você pode subtrair anos também, especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Data |Day(X) |X: DateTime  |Obtém o componente de dia de X.<br/><br/>Exemplo: `Day of 9/15/2013 12:00:00 PM is 9`. |
-| Data |DayOfWeek(X) |X: DateTime  |Obtém o componente de dia da semana de X.<br/><br/>Exemplo: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
-| Data |DayOfYear(X) |X: DateTime  |Obtém o dia do ano que representa o componente de ano de X.<br/><br/>Exemplos:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| Data |DaysInMonth(X) |X: DateTime  |Obtém os dias do mês representados pelo componente de mês do parâmetro X.<br/><br/>Exemplo: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
-| Data |EndOfDay(X) |X: DateTime  |Obtém a data e hora que representam o fim do dia (componente do dia) do X.<br/><br/>Exemplo: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Data |EndOfMonth(X) |X: DateTime  |Obtém o fim do mês representado pelo componente de mês do parâmetro X. <br/><br/>Exemplo: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data/hora que representa o fim do mês de setembro) |
-| Data |StartOfDay(X) |X: DateTime  |Obtém o início do dia representado pelo componente dia do parâmetro X.<br/><br/>Exemplo: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |From(X) |X: Cadeia de caracteres |Analise a cadeia de caracteres X para um valor de data e hora. |
-| DateTime |Ticks(X) |X: DateTime  |Obtém os tiques de propriedade do parâmetro X. Um tique é igual a 100 nanossegundos. O valor dessa propriedade representa o número de tiques que se passaram desde 0h, meia-noite de 1º de janeiro de 0001. |
-| Texto |Format(X) |X: variável de cadeia de caracteres |Formata o texto (use a combinação `\\'` para escapar o caractere `'`).|
+| Hora |AddHours(X,Y) |X: DateTime  <br/><br/>Y: int |Adiciona Y horas toohello momento X. <br/><br/>Exemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Hora |AddMinutes(X,Y) |X: DateTime  <br/><br/>Y: int |Adiciona Y minutos tooX.<br/><br/>Exemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Hora |StartOfHour(X) |X: DateTime  |Obtém Olá hora inicial da hora Olá representada pelo componente de hora de saudação do X. <br/><br/>Exemplo: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Data |AddDays(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y dias tooX. <br/><br/>Exemplo: 15/9/2013 12:00:00 + 2 dias = 17/9/2013 12:00:00.<br/><br/>Você pode subtrair dias também, especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Data |AddMonths(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y meses tooX.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Você pode subtrair meses também, especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Data |AddQuarters(X,Y) |X: DateTime  <br/><br/>Y: int |Adiciona Y * 3 meses tooX.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Data |AddWeeks(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y * 7 dias tooX<br/><br/>Exemplo: 15/9/2013 12:00:00 + 1 semana = 22/9/2013 12:00:00<br/><br/>Você pode subtrair semanas também, especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Data |AddYears(X,Y) |X: DateTime <br/><br/>Y: int |Adiciona Y anos tooX.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Você pode subtrair anos também, especificando Y como um número negativo.<br/><br/>Exemplo: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Data |Day(X) |X: DateTime  |Obtém o componente de dia de saudação do X.<br/><br/>Exemplo: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Data |DayOfWeek(X) |X: DateTime  |Obtém o dia de saudação do componente de semana de X.<br/><br/>Exemplo: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Data |DayOfYear(X) |X: DateTime  |Obtém Olá dia no ano Olá representado pelo componente de ano de saudação do X.<br/><br/>Exemplos:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Data |DaysInMonth(X) |X: DateTime  |Obtém os dias de saudação do mês de saudação representado pelo componente de mês de saudação do parâmetro X.<br/><br/>Exemplo: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in hello September month`. |
+| Data |EndOfDay(X) |X: DateTime  |Obtém a data e hora Olá que representa o fim de saudação do dia de saudação (componente do dia) de X.<br/><br/>Exemplo: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Data |EndOfMonth(X) |X: DateTime  |Obtém a fim de saudação do mês de saudação representado pelo componente de mês do parâmetro X. <br/><br/>Exemplo: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data que representa a fim de saudação do mês de setembro) |
+| Data |StartOfDay(X) |X: DateTime  |Obtém o início de saudação do dia Olá representado pelo componente de dia de saudação do parâmetro X.<br/><br/>Exemplo: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| DateTime |From(X) |X: Cadeia de caracteres |Analise a cadeia de caracteres X tooa data hora. |
+| Datetime |Ticks(X) |X: DateTime  |Obtém tiques Olá propriedade Olá parâmetro X. Um tique é igual a 100 nanossegundos. valor Olá dessa propriedade representa o número de saudação de tiques que passaram desde 12:00:00 meia-noite de 1 de janeiro, 0001. |
+| Texto |Format(X) |X: variável de cadeia de caracteres |Olá de formatos de texto (use `\\'` tooescape combinação `'` caractere).|
 
 > [!IMPORTANT]
-> Ao usar uma função dentro de outra função, você não precisa usar o prefixo **$$** para a função interna. Por exemplo: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' e RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe que o prefixo **$$** não é usado para a função **Time.AddHours**. 
+> Ao usar uma função dentro de outra função, não é necessário toouse  **$$**  prefixo para a função interna de saudação. Por exemplo: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' e RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). Neste exemplo, observe que  **$$**  prefixo não é usado para Olá **Time.AddHours** função. 
 
 #### <a name="example"></a>Exemplo
-No exemplo a seguir, os parâmetros de entrada e saída da atividade do Hive são determinados com o uso da função `Text.Format` e da variável do sistema SliceStart. 
+Olá seguintes parâmetros de exemplo, a entrada e saída para a atividade de Hive Olá são determinados usando Olá `Text.Format` funções e variáveis de sistema SliceStart. 
 
 ```json  
 {
@@ -140,7 +140,7 @@ No exemplo a seguir, os parâmetros de entrada e saída da atividade do Hive sã
 
 ### <a name="example-2"></a>Exemplo 2
 
-No exemplo a seguir, o parâmetro DateTime da Atividade de Procedimento Armazenado é determinado com o uso de Text. Format e da variável SliceStart. 
+Em Olá exemplo a seguir, Olá parâmetro DateTime hello que atividade de procedimento armazenado é determinada pelo texto de saudação. Formatar a função e Olá SliceStart variável. 
 
 ```json
 {
@@ -175,7 +175,7 @@ No exemplo a seguir, o parâmetro DateTime da Atividade de Procedimento Armazena
 ```
 
 ### <a name="example-3"></a>Exemplo 3
-Para ler dados do dia anterior em vez do dia representado pelo SliceStart, use a função AddDays conforme mostrado no exemplo a seguir: 
+tooread dados do dia anterior em vez de dia representado pelo Olá SliceStart, use a função de AddDays de saudação conforme mostrado no exemplo a seguir de saudação: 
 
 ```json
 {

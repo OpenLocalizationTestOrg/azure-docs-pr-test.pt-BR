@@ -1,6 +1,6 @@
 ---
-title: Substituir a bateria em um dispositivo Microsoft Azure StorSimple | Microsoft Docs
-description: "Descreve como remover, substituir e realizar manutenção no módulo de bateria de backup do dispositivo StorSimple."
+title: bateria aaaReplace no dispositivo StorSimple do Microsoft Azure | Microsoft Docs
+description: "Descreve como tooremove, substituir e manter o módulo de bateria de backup Olá em seu dispositivo StorSimple."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: f8b89b3f6851ec9ee0570f551b5407419fdba2d6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 542774a5f451ec7ad2bd442f88598df318d8b285
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substitua o módulo de bateria de backup no dispositivo StorSimple
+# <a name="replace-hello-backup-battery-module-on-your-storsimple-device"></a>Substituir o módulo de bateria de backup Olá em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
-O módulo de energia e refrigeração (PCM) do compartimento primário no dispositivo Microsoft Azure StorSimple tem um pacote de bateria adicional. Esse pacote fornece energia para que o dispositivo StorSimple possa salvar dados caso haja perda de energia CA no compartimento primário. Esse pacote de bateria é conhecido como *módulo de bateria de backup*. O módulo de bateria de backup existe somente para o compartimento primário em seu dispositivo StorSimple (o compartimento EBOD não contém um módulo de bateria de backup). 
+compartimento principal de saudação Power e módulo de resfriamento (PCM) no seu dispositivo StorSimple do Microsoft Azure tem um pacote adicional de bateria. Esse pacote fornece energia para que hello dispositivo StorSimple pode salvar dados caso haja perda de compartimento principal de toohello de alimentação de CA. Esse pacote de bateria é chamado tooas Olá *módulo de bateria de backup*. módulo de bateria de backup Olá existe somente para o compartimento principal de saudação em seu dispositivo StorSimple (Olá compartimento EBOD não contém um módulo de bateria de backup). 
 
 Este tutorial explica como:
 
-* Remover o módulo de bateria de backup 
+* Remover o módulo de bateria de backup Olá 
 * Instalar um novo módulo de bateria de backup
-* Realizar manutenção no módulo de bateria de backup
+* Manter o módulo de bateria de backup Olá
 
 > [!IMPORTANT]
-> Antes de remover e de substituir um módulo de bateria de backup, examine as informações de segurança em [Introdução à substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+> Antes de remover e substituir um módulo de bateria de backup, analisar informações de segurança Olá Olá [substituição de componentes de hardware Introdução tooStorSimple](storsimple-hardware-component-replacement.md).
 > 
 > 
 
-## <a name="remove-the-backup-battery-module"></a>Remover o módulo de bateria de backup
-O módulo de bateria de backup de seu dispositivo StorSimple é uma unidade substituível no local. Antes de ser instalado no PCM, o módulo de bateria deve ser armazenado em seu pacote original. Execute as etapas a seguir para remover a bateria de backup.
+## <a name="remove-hello-backup-battery-module"></a>Remover o módulo de bateria de backup Olá
+módulo de bateria de backup Olá para seu dispositivo StorSimple é uma unidade substituível de campo. Antes de ser instalada em Olá PCM, o módulo da bateria Olá deve ser armazenado em sua embalagem original. Execute Olá bateria de backup tooremove Olá etapas a seguir.
 
-#### <a name="to-remove-the-backup-battery-module"></a>Para remover o módulo de bateria de backup
-1. No portal clássico do Azure, vá até **Dispositivos** > **Manutenção** > **Status de Hardware**. Em **Componentes compartilhados**, observe o status da bateria.
-2. Identifique o PCM no qual a bateria falhou. A Figura 1 mostra a parte traseira do dispositivo StorSimple.
+#### <a name="tooremove-hello-backup-battery-module"></a>módulo de bateria de backup Olá tooremove
+1. No hello portal clássico do Azure, vá muito**dispositivos** > **manutenção** > **Status do Hardware**. Em **componentes compartilhados**, observar Olá status da bateria hello.
+2. Identifica Olá PCM no qual Olá bateria falhou. A Figura 1 mostra Olá parte posterior do dispositivo do StorSimple hello.
    
     ![Backplane dos módulos do compartimento primário do dispositivo](./media/storsimple-battery-replacement/IC740994.png)
    
@@ -53,11 +53,11 @@ O módulo de bateria de backup de seu dispositivo StorSimple é uma unidade subs
    | 3 |Controlador 0 |
    | 4 |Controlador 1 |
    
-    Conforme mostrado pelo número 3 na Figura 2, o LED indicador de monitoramento no PCM 0 que corresponde à **Falha de bateria** deve estar aceso.
+    Conforme mostrado pelo número 3 na Figura 2 de hello, Olá monitoramento indicador LED no PCM 0 que corresponde muito**falha de bateria** deve estar aceso.
    
     ![Backplane dos LEDs indicadores de monitoramento de PCM do dispositivo](./media/storsimple-battery-replacement/IC740992.png)
    
-    **Figura 2** Parte traseira do PCM mostrando os LEDs indicadores de monitoramento
+    **Figura 2** saudação do parte posterior do PCM mostrando LEDs indicadores de monitoramento
    
    | Rótulo | Descrição |
    |:--- |:--- |
@@ -67,44 +67,44 @@ O módulo de bateria de backup de seu dispositivo StorSimple é uma unidade subs
    | 4 |PCM OK |
    | 5 |Falha de energia CC |
    | 6 |Bateria íntegra |
-3. Para remover o PCM com uma bateria com falha, siga as etapas em [Remover um PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
-4. Com o PCM removido, levante e gire a alça do módulo da bateria para cima, conforme indicado na figura a seguir, e puxe-a para remover a bateria.
+3. Olá tooremove PCM com uma bateria com falha, execute as etapas de saudação em [remover um PCM](storsimple-power-cooling-module-replacement.md#remove-a-pcm).
+4. Olá PCM removido, comparação de precisão e bateria Olá girar módulo tratar para cima, conforme indicado na figura a seguir de saudação e levante-o backup de bateria de saudação tooremove.
    
     ![Removendo bateria do PCM](./media/storsimple-battery-replacement/IC741019.png)
    
-    **Figura 3** Remoção da bateria do PCM
-5. Coloque o módulo na embalagem da unidade substituível no local.
-6. Devolva a unidade com defeito à Microsoft para que a manutenção e o manuseio adequados sejam realizados.
+    **Figura 3** removendo bateria de saudação do hello PCM
+5. Coloque o módulo de saudação no pacote da unidade substituível em campo hello.
+6. Retorne Olá tooMicrosoft de unidade defeituosa para serviços e reparos adequados.
 
 ## <a name="install-a-new-backup-battery-module"></a>Instalar um novo módulo de bateria de backup
-Execute as etapas a seguir para instalar o módulo de bateria de reposição no PCM no compartimento primário do seu dispositivo StorSimple.
+Execute Olá seguindo o módulo de bateria de substituição etapas tooinstall Olá no hello PCM no compartimento primário de saudação do seu dispositivo StorSimple.
 
-#### <a name="to-install-the-battery-module"></a>Para instalar o módulo de bateria
-1. Coloque o módulo de bateria de backup na direção correta no PCM.
-2. Pressione para baixo a alça do módulo da bateria até o conector no banco
-3. Substitua o PCM no compartimento primário, seguindo as orientações em [Substituir um módulo de energia e refrigeração no seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md).
-4. Após a substituição ser concluída, vá até **Dispositivos** > **Manutenção** > **Status de Hardware** no portal clássico do Azure. Verifique o status da bateria para se certificar de que a instalação foi bem-sucedida. Um status verde indica que a bateria está íntegra.
+#### <a name="tooinstall-hello-battery-module"></a>módulo de bateria Olá tooinstall
+1. Coloque o módulo de bateria de backup de saudação na orientação correta de saudação no hello PCM.
+2. Pressione para baixo o módulo da bateria Olá lidar com todas as conector de Olá Olá maneira tooseat.
+3. Substituir Olá PCM no compartimento primário Olá seguindo as diretrizes Olá [substituir de energia e resfriamento módulo em seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md).
+4. Após a conclusão da substituição hello, vá muito**dispositivos** > **manutenção** > **Status de Hardware** no hello portal clássico do Azure. Verificar o status da saudação do hello bateria toomake-se de que a instalação de saudação foi bem-sucedida. Um status verde indica que a bateria hello está íntegra.
 
-## <a name="maintain-the-backup-battery-module"></a>Realizar manutenção no módulo de bateria de backup
-No seu dispositivo StorSimple, o módulo de bateria de backup fornece energia ao controlador durante um evento de perda de energia. Ele permite que o dispositivo StorSimple salve dados críticos antes de encerrar de maneira controlada. Com duas baterias completamente carregadas nos PCMs, o sistema pode manipular dois eventos consecutivos de perda.
+## <a name="maintain-hello-backup-battery-module"></a>Manter o módulo de bateria de backup Olá
+Em seu dispositivo StorSimple, o módulo de bateria de backup Olá fornece controlador toohello de energia durante um evento de perda de energia. Ele permite Olá StorSimple dispositivo toosave dados críticos anterior tooshutting para baixo de forma controlada. Com duas baterias completamente no hello PCMs, sistema Olá pode lidar com dois eventos consecutivos de perda.
 
-No Portal clássico do Azure, o **Status de Hardware** na página **Manutenção** indica se a bateria está com defeito ou se está próxima do fim da vida útil. O status da bateria é indicado por **Bateria no PCM 0** ou **Bateria no PCM 1** em **Componentes compartilhados**. Essa página mostrará um estado **DEGRADADO** quando próximo do fim da vida útil e **FALHA** quando atingir o fim da vida útil. 
+No portal clássico do Azure do hello, Olá **Status do Hardware** em Olá **manutenção** página indica se a bateria hello está funcionando corretamente ou Olá fim da vida está se aproximando. status da bateria Olá é indicado por **bateria no PCM 0** ou **bateria no PCM 1** em **componentes compartilhados**. Essa página mostrará um estado **DEGRADADO** quando próximo do fim da vida útil e **FALHA** quando atingir o fim da vida útil. 
 
 > [!NOTE]
-> A bateria pode relatar **FALHA** quando precisar apenas ser carregada.
+> Olá bateria pode relatar **falha** quando ele precisa apenas toobe cobrado.
 > 
 > 
 
-Se o estado **DEGRADADO** for exibido, recomendamos o seguinte curso de ação:
+Se hello **DEGRADADO** estado é exibido, é recomendável Olá curso de ação a seguir:
 
-* O sistema pode ter tido uma perda de energia recente ou as baterias podem estar passando por manutenção periódica. Observe o sistema por 12 horas antes de continuar.
+* sistema Olá pode encontraram uma perda de energia recentes ou baterias Olá podem ser passando por manutenção periódica. Observe o sistema Olá para 12 horas antes de continuar.
   
-  * Se o estado ainda estiver **DEGRADADO** após 12 horas de conexão contínua à energia CA com os controladores e os PCMs em execução, então a bateria precisará ser substituída. Por favor [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter um módulo de bateria de backup de reposição.
-  * Se o estado estiver OK após 12 horas, a bateria está operacional e precisava apenas de uma carga de manutenção.
-* Se não houve uma perda associada à energia AC e o PCM está ligado e conectado à corrente alternada, a bateria precisa ser substituído. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para solicitar um módulo de bateria de reposição.
+  * Se o estado de saudação ainda **DEGRADADO** após 12 horas de energia de tooAC de conexão contínua com hello controladores e execução, de PCMs, em seguida, Olá bateria precisa toobe substituído. Por favor [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter um módulo de bateria de backup de reposição.
+  * Se o estado da saudação se tornará Okey após 12 horas, Olá bateria está operacional e somente é necessário um custo de manutenção.
+* Se não houve uma perda associada alternada e hello PCM está ligada e conectado tooAC power, bateria Olá precisa toobe substituído. [Entre em contato com o Microsoft Support](storsimple-contact-microsoft-support.md) tooorder uma substituição de módulo de bateria de backup.
 
 > [!IMPORTANT]
-> Descarte a bateria com falha de acordo com as regulamentações nacionais e regionais. 
+> Descarte Olá Falha na bateria de acordo com as normas regionais e toonational. 
 > 
 > 
 

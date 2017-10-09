@@ -1,6 +1,6 @@
 ---
-title: "Como localizar uma API específica necessária para um aplicativo personalizado | Microsoft Docs"
-description: "Como configurar as permissões que você precisa para acessar uma API em particular em seu aplicativo personalizado do Azure AD"
+title: "aaaHow toofind uma API específica necessária para um aplicativo personalizado | Microsoft Docs"
+description: "Como permissões de saudação tooconfigure necessário tooaccess uma API em particular em personalizados desenvolvidos aplicativo AD do Azure"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e0c07fd030339d025894520500d2cd948d31af45
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7331129204d8b34b4ef9671749bd702f893768ff
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Como localizar uma API específica necessária para um aplicativo personalizado
+# <a name="how-toofind-a-specific-api-needed-for-a-custom-developed-application"></a>Como toofind uma API específica necessária para um aplicativo personalizado
 
-O acesso às APIs exigem configuração de escopos de acesso e funções. Se você quiser expor suas APIs web do aplicativo de recursos para aplicativos cliente, precisará configurar escopos de acesso e funções da API. Se desejar que um aplicativo cliente acesse uma API web, você precisará configurar permissões para acessar a API no registro de aplicativo.
+Acesso tooAPIs exigem configuração de funções e escopos de acesso. Se você quiser tooexpose seus aplicativos de tooclient APIs do recurso aplicativo da web, você precisa tooconfigure acesso escopos e funções para Olá API. Se você quiser que um aplicativo de cliente tooaccess uma API da web, você precisa tooconfigure permissões tooaccess Olá API no registro do aplicativo hello.
 
-## <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configurando um aplicativo de recurso para expor APIs Web
+## <a name="configuring-a-resource-application-tooexpose-web-apis"></a>Configurando um recurso aplicativo tooexpose APIs da web
 
-Quando você expõe sua API web, a API é exibida na lista **Selecionar uma API** ao adicionar permissões a um registro de aplicativo. Para adicionar escopos de acesso, siga as etapas descritas em [Adicionando escopos de acesso ao seu aplicativo de recurso](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-access-scopes-to-your-resource-application).
+Quando você expõe a API da web, exibido no Olá Olá API **selecionar uma API** ao adicionar um registro de aplicativo tooan permissões de lista. tooadd escopos de acesso, execute as etapas de saudação descritas em [adicionar acesso escopos do aplicativo de recurso tooyour](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-access-scopes-to-your-resource-application).
 
-## <a name="configuring-a-client-application-to-access-web-apis"></a>Configurando um aplicativo cliente para acessar APIs Web
+## <a name="configuring-a-client-application-tooaccess-web-apis"></a>Configurando um cliente aplicativo tooaccess APIs da web
 
-Quando você adiciona permissões em seu registro de aplicativo, você pode **Adicionar acesso à API** para APIs web expostas. Para acessar APIs web, siga as etapas descritas em [Adicionar credenciais ou permissões para acessar APIs web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-credentials-or-permissions-to-access-web-apis).
+Quando você adiciona um registro de aplicativo tooyour permissões, você pode **adicionar acesso à API** tooexposed APIs da web. tooaccess APIs da web, siga etapas Olá descritas em [adicionar tooaccess credenciais ou permissões de APIs da web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-credentials-or-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 -   [Integrando aplicativos com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
--   [Noções básicas sobre o manifesto de aplicativo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
+-   [Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure Olá](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
 
 

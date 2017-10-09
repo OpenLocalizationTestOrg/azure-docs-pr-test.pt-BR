@@ -1,22 +1,22 @@
-Para adicionar uma marca a um grupo de recursos, use **azure group set**. Se o grupo de recursos não tiver todas as marcas existentes, passe a marca.
+tooadd um grupo de recursos de tooa de marca, use **conjunto de grupos do azure**. Se o grupo de recursos de saudação não tem marcas existentes, passe na marca de saudação.
 
 ```azurecli
 azure group set -n tag-demo-group -t Dept=Finance
 ```
 
-Marcações são atualizadas como um todo. Se desejar adicionar uma marca a um grupo de recursos com marcas existentes, passe todas as marcas. 
+Marcações são atualizadas como um todo. Se você quiser tooadd um grupo de recursos de tooa marca que tem marcas existentes, passe todas as marcas de saudação. 
 
 ```azurecli
 azure group set -n tag-demo-group -t Dept=Finance;Environment=Production;Project=Upgrade
 ```
 
-Marcas não são herdadas pelos recursos em um grupo de recursos. Para adicionar uma marca a um recurso, use **azure resource set**. Passe o número de versão de API para o tipo de recurso ao qual você está adicionando a marca. Se precisa recuperar a versão de API, use o comando a seguir com o provedor de recursos para o tipo que você está configurando:
+Marcas não são herdadas pelos recursos em um grupo de recursos. tooadd um recurso de tooa de marca, use **conjunto de recursos do azure**. Passe Olá número de versão de API Olá tipo de recurso que você está adicionando marca hello. Se você precisar de versão de API de saudação tooretrieve, use Olá comando com o provedor de recursos Olá para o tipo de saudação que você está definindo a seguir:
 
 ```azurecli
 azure provider show -n Microsoft.Storage --json
 ```
 
-Nos resultados, procure o tipo de recurso desejado.
+Nos resultados de hello, procure por tipo de recurso de saudação desejado.
 
 ```azurecli
 "resourceTypes": [
@@ -38,13 +38,13 @@ Agora, forneça essa versão de API, nome do grupo de recursos, nome do recurso,
 azure resource set -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -t Dept=Finance -o 2016-01-01
 ```
 
-Marcações existem diretamente em recursos e grupos de recursos. Para ver as marcações existentes, obtenha um grupo de recursos e seus recursos com **azure group show**.
+Marcações existem diretamente em recursos e grupos de recursos. marcas existentes do toosee hello, obter um grupo de recursos e seus recursos com **Mostrar de grupo do azure**.
 
 ```azurecli
 azure group show -n tag-demo-group --json
 ```
 
-Ele retorna metadados sobre o grupo de recursos, incluindo todas as marcas aplicadas a esse grupo.
+Que retorna metadados sobre o grupo de recursos hello, incluindo qualquer tooit marcas aplicadas.
 
 ```azurecli
 {
@@ -63,25 +63,25 @@ Ele retorna metadados sobre o grupo de recursos, incluindo todas as marcas aplic
 }
 ```
 
-Você pode exibir as marcações de um recurso específico usando **azure resource show**.
+Exibir marcas Olá para um recurso específico usando **Mostrar recurso do azure**.
 
 ```azurecli
 azure resource show -g tag-demo-group -n storagetagdemo -r Microsoft.Storage/storageAccounts -o 2016-01-01 --json
 ```
 
-Para recuperar todos os recursos com um valor de marca, use:
+tooretrieve todos os recursos de saudação com um valor de marca, use:
 
 ```azurecli
 azure resource list -t Dept=Finance --json
 ```
 
-Para recuperar todos os grupos de recursos com um valor de marca, use:
+tooretrieve todos os grupos de recursos de saudação com um valor de marca, use:
 
 ```azurecli
 azure group list -t Dept=Finance
 ```
 
-Você pode exibir as marcas existentes em sua assinatura com o seguinte comando:
+Você pode exibir as marcas existentes Olá em sua assinatura com hello comando a seguir:
 
 ```azurecli
 azure tag list

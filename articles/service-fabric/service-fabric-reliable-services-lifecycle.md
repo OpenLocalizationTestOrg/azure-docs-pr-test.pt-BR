@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do ciclo de vida do Azure Service Fabric Reliable Services | Microsoft Docs"
-description: Saiba mais sobre os diferentes eventos de ciclo de vida no Service Fabric Reliable Services
+title: "aaaOverview de saudação do ciclo de vida de serviços do Azure Service Fabric confiáveis | Microsoft Docs"
+description: "Saiba mais sobre eventos de ciclo de vida diferente Olá em serviços confiáveis do Service Fabric"
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 16021ca72a2f10070b6409417ff0d88009591331
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0d75ed5ee7cda85ac9af6a02e160727277804a2b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida do Reliable Services
 > [!div class="op_single_selector"]
@@ -27,105 +27,105 @@ ms.lasthandoff: 08/18/2017
 >
 >
 
-Ao pensar sobre os ciclos de vida do Reliable Services, os conceitos básicos são os mais importantes. Em geral:
+Ao pensar Olá ciclos de vida de serviços confiáveis, Noções básicas de saudação do ciclo de vida de saudação são hello mais importante. Em geral:
 
 - Durante a inicialização
   - Serviços são construídos
-  - Eles têm a oportunidade de construir e retornar zero ou mais ouvintes
-  - Todos os ouvintes retornados são abertos, permitindo a comunicação com o serviço
-  - O método RunAsync do serviço é chamado, possibilitando um serviço de longa execução ou trabalho em segundo plano
+  - Eles têm uma oportunidade tooconstruct e retornam zero ou mais ouvintes
+  - Todos os ouvintes retornados abertos, permitindo que a comunicação com o serviço de saudação
+  - RunAsync saudação do serviço método é chamado, permitindo Olá toodo de longa execução do serviço ou trabalho de plano de fundo
 - Durante o desligamento
-  - O token de cancelamento passado para RunAsync é cancelado e os ouvintes são fechados
-  - Assim que estiver concluído, o objeto do serviço será destruído
+  - tooRunAsync passado token de cancelamento Olá será cancelada e ouvintes de saudação são fechadas
+  - Assim que estiver concluído, próprio objeto de serviço Olá é destruído
 
-Há detalhes sobre a ordem exata desses eventos. Em especial, a ordem de eventos pode mudar um pouco dependendo se o Reliable Service tem estado ou não. Além disso, para serviços com estado, temos de lidar com o cenário de troca primário. Durante esta sequência, a função da Primária é transferida para outra réplica (ou retorna) sem o desligamento do serviço. Por fim, temos de pensar sobre as condições de erro ou falha.
+Há detalhes sobre Olá exata de ordenação desses eventos. Em particular, a ordem de saudação de eventos pode mudar um pouco dependendo se Olá serviço confiável é sem monitoração de estado ou de monitoração de estado. Além disso, para os serviços com monitoração de estado, temos toodeal com cenário de troca primário hello. Durante essa sequência, função hello principal é transferido tooanother réplica (ou voltar a ficar) sem o desligamento do serviço hello. Por fim, temos toothink sobre condições de erro ou falha.
 
 ## <a name="stateless-service-startup"></a>Inicialização de serviço sem estado
-O ciclo de vida de um serviço sem estado é bastante simples. Aqui está a ordem de eventos:
+saudação de ciclo de vida de um serviço sem monitoração de estado é bastante simples. Aqui está a ordem de saudação de eventos:
 
-1. O Serviço foi construído
+1. Olá serviço é construído
 2. Em seguida, ocorrem duas coisas em paralelo:
     - `StatelessService.CreateServiceInstanceListeners()` é invocado e todos os ouvintes retornados são Abertos. `ICommunicationListener.OpenAsync()` é chamado em cada ouvinte
-    - O método `StatelessService.RunAsync()` do serviço é chamado
-3. Se estiver presente, o método `StatelessService.OnOpenAsync()` do serviço será chamado. Essa não é uma substituição comum, mas está disponível.
+    - Olá do serviço `StatelessService.RunAsync()` é chamado de método
+3. Se estiver presente, Olá do serviço `StatelessService.OnOpenAsync()` método é chamado. Essa não é uma substituição comum, mas está disponível.
 
-É importante observar que não há nenhuma ordem entre as chamadas para criar e abrir os ouvintes e o RunAsync. Os ouvintes podem ser abertos antes de RunAsync ser iniciado. Da mesma forma, RunAsync pode acabar sendo invocado antes que os ouvintes de comunicação sejam abertos ou até mesmo antes de serem construídos. Se nenhuma sincronização for necessária, isso será deixado como um exercício para o implementador. Soluções comuns:
+É importante toonote que não há nenhuma ordem entre Olá chamadas toocreate e ouvintes de saudação aberto e RunAsync. ouvintes de saudação podem abrir antes RunAsync é iniciado. Da mesma forma, RunAsync poderá acabar invocado antes de ouvintes de comunicação Olá estão abertas ou até mesmo foram construídos. Se nenhuma sincronização é necessária, ela será deixada como implementador de toohello um exercício. Soluções comuns:
 
   - Algumas vezes os ouvintes não funcionam até que outras informações sejam criadas ou algum trabalho seja realizado. Para serviços sem estado, esse trabalho geralmente pode ser feito em outros locais, como: 
-    - no construtor do serviço
-    - durante a chamada de `CreateServiceInstanceListeners()`
-    - como parte da construção do ouvinte em si
-  - Às vezes, o código em RunAsync não é iniciado até que os ouvintes estejam abertos. Nesse caso, coordenação adicional será necessária. Uma solução comum é uma sinalização nos ouvintes, indicando quando eles foram concluídos. Esse sinalizador é verificado no RunAsync antes da continuação do trabalho real.
+    - no construtor do serviço Olá
+    - durante a saudação `CreateServiceInstanceListeners()` chamar
+    - como parte da construção de saudação do ouvinte Olá próprio
+  - Às vezes, hello código RunAsync não quer toostart até ouvintes Olá estão abertas. Nesse caso, coordenação adicional será necessária. Uma solução comum é alguns sinalizador em ouvintes Olá indicando quando eles forem concluídas. Este sinalizador será verificado em RunAsync antes de continuar o trabalho de tooactual.
 
 ## <a name="stateless-service-shutdown"></a>Desligamento de serviço sem estado
-Ao desligar um serviço sem estado, o mesmo padrão é seguido, porém na ordem inversa:
+Ao desligar um serviço sem monitoração de estado, Olá mesmo padrão é seguido apenas na ordem inversa:
 
 1. Em paralelo
     - Todos os ouvintes abertos são Fechados. `ICommunicationListener.CloseAsync()` é chamado em cada ouvinte.
-    - O token de cancelamento passado para `RunAsync()` é cancelado. A verificação da propriedade `IsCancellationRequested` do token de cancelamento retorna true e, se chamado, o método `ThrowIfCancellationRequested` do token vai lançar `OperationCanceledException`.
-2. Uma vez que `CloseAsync()` é concluído em cada ouvinte e `RunAsync()` também é finalizado, o método `StatelessService.OnCloseAsync()` do serviço será chamado, se estiver presente. Não é comum substituir `StatelessService.OnCloseAsync()`.
-3. Depois da conclusão de `StatelessService.OnCloseAsync()`, o objeto de serviço é destruído
+    - o token de cancelamento Olá passado muito`RunAsync()` é cancelada. Do token de cancelamento de saudação verificando `IsCancellationRequested` propriedade retorna true e se a chamada do token Olá `ThrowIfCancellationRequested` método lança um `OperationCanceledException`.
+2. Uma vez `CloseAsync()` conclusão em cada ouvinte e `RunAsync()` também completa do serviço Olá `StatelessService.OnCloseAsync()` método é chamado, se presente. É comum toooverride `StatelessService.OnCloseAsync()`.
+3. Depois de `StatelessService.OnCloseAsync()` for concluído, o objeto de serviço Olá é destruído
 
 ## <a name="stateful-service-startup"></a>Inicialização de serviço com estado
-Serviços com estado têm um padrão semelhante aos serviços sem monitoração de estado, com algumas alterações. Ao iniciar um serviço com estado, a ordem de eventos é a seguinte:
+Serviços com monitoração de estado tem serviços um toostateless padrão semelhantes, com poucas alterações. Ao iniciar o serviço com monitoração de estado, a ordem de saudação de eventos é o seguinte:
 
-1. O Serviço foi construído
-2. `StatefulServiceBase.OnOpenAsync()` é chamado. Isso raramente é substituído no serviço.
-3. As seguintes ações ocorrem paralelamente
+1. Olá serviço é construído
+2. `StatefulServiceBase.OnOpenAsync()` é chamado. Isso é substituído uncommonly no serviço de saudação.
+3. Olá acontecem estas coisas em paralelo
     - `StatefulServiceBase.CreateServiceReplicaListeners()` é invocado 
-      - Se o serviço for Primário, todos os ouvintes retornados serão Abertos. `ICommunicationListener.OpenAsync()` é chamado em cada ouvinte.
-      - Se o serviço for um Secundário, somente esses ouvintes marcados como `ListenOnSecondary = true` serão abertos. Ter ouvintes que estão abertos em Secundários é menos comum.
-    - Se, no momento, o serviço for um Primário, o método `StatefulServiceBase.RunAsync()` do serviço será chamado
-4. Depois que todas as chamadas a `OpenAsync()` do ouvinte da réplica forem concluídas e `RunAsync()` for chamado, `StatefulServiceBase.OnChangeRoleAsync()` será chamado. Isso raramente é substituído no serviço.
+      - Se o serviço Olá é primária todos os ouvintes retornados são abertos. `ICommunicationListener.OpenAsync()` é chamado em cada ouvinte.
+      - Se o serviço de saudação um secundário, somente esses ouvintes marcado como `ListenOnSecondary = true` estão abertas. Ter ouvintes que estão abertos em Secundários é menos comum.
+    - Olá se Olá serviço atualmente é um serviço de saudação primário, `StatefulServiceBase.RunAsync()` é chamado de método
+4. Depois que todos os Olá do ouvinte de réplica `OpenAsync()` concluir chamadas e `RunAsync()` é chamado, `StatefulServiceBase.OnChangeRoleAsync()` é chamado. Isso é substituído uncommonly no serviço de saudação.
 
-Semelhante aos serviços sem estado, não há coordenação entre a ordem em que os ouvintes são criados e abertos e quando RunAsync é chamado. Se você precisar de coordenação, as soluções são muito parecidas. Há um caso adicional: digamos que as chamadas que chegam aos ouvintes de comunicação exijam que as informações sejam mantidas em algumas [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md). Como os ouvintes de comunicação podem ser abertos antes que as coleções confiáveis fiquem legíveis ou graváveis e antes de RunAsync ser iniciado, é necessário realizar a coordenação. A solução mais simples e mais comum é os ouvintes de comunicação retornarem um código de erro que o cliente usa para repetir a solicitação.
+Serviços de toostateless da mesma forma, não há nenhum coordenação entre ordem Olá no qual Olá ouvintes são criados e abertos e quando RunAsync é chamado. Se você precisar de coordenação, soluções Olá são muito Olá mesmo. Há um caso adicional: diga Olá chamadas que chegam ao ouvintes de comunicação Olá exigem informações mantidas dentro de alguns [coleções confiável](service-fabric-reliable-services-reliable-collections.md). Porque os ouvintes de comunicação Olá foi aberto antes de coleções de saudação confiável serão de leitura ou gravável e antes de RunAsync pode iniciar, alguns coordenação adicional é necessária. solução mais simples e mais comum de saudação é para tooreturn de ouvintes de comunicação Olá algum código de erro que Olá Olá a solicitação do cliente usa tooknow tooretry.
 
 ## <a name="stateful-service-shutdown"></a>Desligamento de serviço com estado
-Da mesma forma que os serviços sem monitoração de estado, os eventos de ciclo de vida durante o desligamento são os mesmos que durante a inicialização, porém invertidos. Quando um serviço com estado está sendo desligado, ocorrem os seguintes eventos:
+Da mesma forma tooStateless serviços, eventos de ciclo de vida de saudação durante o desligamento são Olá mesmo como durante a inicialização, mas revertidas. Quando um serviço com monitoração de estado está sendo desligado, hello seguintes eventos ocorrem:
 
 1. Em paralelo
     - Todos os ouvintes abertos são Fechados. `ICommunicationListener.CloseAsync()` é chamado em cada ouvinte.
-    - O token de cancelamento passado para `RunAsync()` é cancelado. A verificação da propriedade `IsCancellationRequested` do token de cancelamento retorna true e, se chamado, o método `ThrowIfCancellationRequested` do token vai lançar `OperationCanceledException`.
-2. Uma vez que `CloseAsync()` é concluído em cada ouvinte e `RunAsync()` também é finalizado, o `StatefulServiceBase.OnChangeRoleAsync()` do serviço é chamado. (Isso raramente é substituído no serviço.)
-    - Aguardar a conclusão de RunAsync só será necessário se essa réplica de serviço for um Primário.
-3. Depois que o método `StatefulServiceBase.OnChangeRoleAsync()` for concluído, o método `StatefulServiceBase.OnCloseAsync()` será chamado. Essa não é uma substituição comum, mas está disponível.
-3. Depois da conclusão de `StatefulServiceBase.OnCloseAsync()`, o objeto de serviço é destruído.
+    - o token de cancelamento Olá passado muito`RunAsync()` é cancelada. Do token de cancelamento de saudação verificando `IsCancellationRequested` propriedade retorna true e se a chamada do token Olá `ThrowIfCancellationRequested` método lança um `OperationCanceledException`.
+2. Uma vez `CloseAsync()` conclusão em cada ouvinte e `RunAsync()` também completa do serviço Olá `StatefulServiceBase.OnChangeRoleAsync()` é chamado. (Isso é uncommonly substituído no serviço hello.)
+    - Aguardando RunAsync toocomplete só é necessária se esta réplica de serviço primária.
+3. Uma vez Olá `StatefulServiceBase.OnChangeRoleAsync()` método é concluído, hello `StatefulServiceBase.OnCloseAsync()` método é chamado. Essa não é uma substituição comum, mas está disponível.
+3. Depois de `StatefulServiceBase.OnCloseAsync()` for concluído, o objeto de serviço Olá é destruído.
 
 ## <a name="stateful-service-primary-swaps"></a>Trocas de primária do serviço com estado
-Enquanto um serviço com estado é executado, somente as réplicas Primárias destes serviços com estado terão seus ouvintes de comunicação abertos e seu método RunAsync chamado. Secundárias são construídas, mas não recebem chamadas. Contudo, enquanto um serviço com estado é executado, qual réplica é a Primária no momento pode mudar. O que isso significa em termos dos eventos do ciclo de vida que uma réplica pode ver? O comportamento que uma réplica com estado vê depende se ela é a réplica que está sendo rebaixada ou promovida durante a troca.
+Durante a execução de um serviço com monitoração de estado, só hello réplicas primárias do que os serviços com monitoração de estado tem seus ouvintes de comunicação abertos e seu método RunAsync chamado. Secundárias são construídas, mas não recebem chamadas. Enquanto um serviço com monitoração de estado é executado no entanto, qual réplica está Olá primário pode alterar. O que isso significa em termos de eventos de ciclo de vida de saudação pode ver uma réplica? Olá comportamento Olá réplica com monitoração de estado vê depende se ela é réplica Olá sendo rebaixada ou promovida durante a troca de saudação.
 
-### <a name="for-the-primary-being-demoted"></a>Para a primária sendo rebaixada
-O Service Fabric precisa que esta réplica interrompa o processamento de mensagens e feche todo o trabalho em segundo plano que estiver sendo realizado. Por isso, essa etapa é semelhante a quando o serviço está sendo desligado. Uma diferença é que o Serviço não é destruído ou fechado, pois ele permanece como uma Secundária. As seguintes APIs são chamadas:
+### <a name="for-hello-primary-being-demoted"></a>Para Olá primário que está sendo rebaixado
+Service Fabric precisa este toostop réplica processamento de mensagens e feche qualquer trabalho em segundo plano que está fazendo. Como resultado, essa etapa parece semelhante toowhen Olá serviço está sendo desligado. Uma diferença é que hello serviço não é destruído ou fechado, pois ele permanece como um secundário. é chamada de saudação APIs a seguir:
 
 1. Em paralelo
     - Todos os ouvintes abertos são Fechados. `ICommunicationListener.CloseAsync()` é chamado em cada ouvinte.
-    - O token de cancelamento passado para `RunAsync()` é cancelado. A verificação da propriedade `IsCancellationRequested` do token de cancelamento retorna true e, se chamado, o método `ThrowIfCancellationRequested` do token vai lançar `OperationCanceledException`.
-2. Uma vez que `CloseAsync()` é concluído em cada ouvinte e `RunAsync()` também é finalizado, o `StatefulServiceBase.OnChangeRoleAsync()` do serviço é chamado. Isso raramente é substituído no serviço.
+    - o token de cancelamento Olá passado muito`RunAsync()` é cancelada. Do token de cancelamento de saudação verificando `IsCancellationRequested` propriedade retorna true e se a chamada do token Olá `ThrowIfCancellationRequested` método lança um `OperationCanceledException`.
+2. Uma vez `CloseAsync()` conclusão em cada ouvinte e `RunAsync()` também completa do serviço Olá `StatefulServiceBase.OnChangeRoleAsync()` é chamado. Isso é substituído uncommonly no serviço de saudação.
 
-### <a name="for-the-secondary-being-promoted"></a>Para a secundária que está sendo promovida
-Da mesma forma, o Service Fabric precisa que essa réplica comece a escutar as mensagens durante a transmissão e inicie as tarefas em segundo plano que são importantes. Por isso, esse processo é similar à criação do serviço, exceto que a própria réplica já existe. As seguintes APIs são chamadas:
+### <a name="for-hello-secondary-being-promoted"></a>Para Olá secundária que está sendo promovido
+Da mesma forma, do Service Fabric precisa este toostart réplica ouvindo mensagens percurso hello e iniciar as tarefas em segundo plano são importantes. Como resultado, essa parece processo serviço de saudação toowhen semelhante é criado, exceto que a réplica Olá em si já existe. é chamada de saudação APIs a seguir:
 
 1. Em paralelo
     - `StatefulServiceBase.CreateServiceReplicaListeners()` é invocado e todos os ouvintes retornados são Abertos. `ICommunicationListener.OpenAsync()` é chamado em cada ouvinte.
-    - O método `StatefulServiceBase.RunAsync()` do serviço é chamado
-2. Depois que todas as chamadas a `OpenAsync()` do ouvinte da réplica forem concluídas e `RunAsync()` tiver sido chamado, `StatefulServiceBase.OnChangeRoleAsync()` será chamado. Isso raramente é substituído no serviço.
+    - Olá do serviço `StatefulServiceBase.RunAsync()` é chamado de método
+2. Depois que todos os Olá do ouvinte de réplica `OpenAsync()` concluir chamadas e `RunAsync()` foi chamado, `StatefulServiceBase.OnChangeRoleAsync()` é chamado. Isso é substituído uncommonly no serviço de saudação.
 
 ### <a name="common-issues-during-stateful-service-shutdown-and-primary-demotion"></a>Problemas comuns durante o desligamento do serviço com estado e rebaixamento do primário
-O Service Fabric altera o Primário de um serviço com estado por vários motivos. Os mais comuns são [rebalanceamento do cluster](service-fabric-cluster-resource-manager-balancing.md) e [upgrade de aplicativo](service-fabric-application-upgrade.md). Durante essas operações (bem como durante o desligamento normal do serviço, como você veria se o serviço fosse excluído), é importante que o serviço respeite o `CancellationToken`. Os serviços que não tratarem o cancelamento corretamente enfrentarão vários problemas. Particularmente, essas operações ficarão lentas, uma vez que o Service Fabric espera que os serviços parem normalmente. Em última instância, isso leva a falhas de upgrade que atingem um tempo limite e são revertidas. Não respeitar o token de cancelamento também pode resultar em clusters desequilibrados, pois os nós são ativados, mas os serviços não podem ser rebalanceados, uma vez que é muito demorado movê-los para qualquer outro lugar. 
+Alterações do Service Fabric Olá primário de um serviço com monitoração de estado para uma variedade de razões. Hello mais comuns são [cluster rebalanceamento](service-fabric-cluster-resource-manager-balancing.md) e [atualização de aplicativo](service-fabric-application-upgrade.md). Durante essas operações (bem como durante o desligamento normal do serviço, como você veria se o serviço de saudação foi excluído), é importante que Olá Olá de relação serviço `CancellationToken`. Os serviços que não tratarem o cancelamento corretamente enfrentarão vários problemas. Em particular, essas operações será lentas pois Service Fabric aguarda Olá serviços toostop normalmente. Isso pode levar toofailed atualizações esse tempo limite e revertê-lo, por fim. Token de cancelamento falha toohonor Olá também pode causar clusters desequilibrados porque nós obtém ativos, mas não podem ser balanceados serviços Olá desde que demora muito toomove-los em outro lugar. 
 
-Como os serviços têm estado, também é provável que eles estejam usando as [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md). No Service Fabric, quando um Primário é rebaixado, uma das primeiras coisas que acontece é que o acesso de gravação ao estado subjacente é revogado. Isso leva a um segundo conjunto de problemas que pode afetar o ciclo de vida do serviço. As coleções retornam Exceções que se baseiam no tempo e se a réplica está sendo movida ou desligada. Essas exceções devem ser tratadas corretamente. As exceções geradas pelo Service Fabric se classificam nas categorias permanentes [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) e transitórias [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet). As exceções permanentes devem ser registradas e lançadas, enquanto as exceções transitórias podem ser recuperadas com base em alguma lógica de repetição.
+Como os serviços de saudação com monitoração de estado, também é provável que estão usando Olá [coleções confiável](service-fabric-reliable-services-reliable-collections.md). Na malha do serviço, quando primário é rebaixado, uma saudação coisas mais importantes que acontece é que o estado do acesso de gravação toohello subjacente é revogado. Isso leva tooa segundo conjunto de problemas que podem afetar o ciclo de vida de serviço hello. coleções de saudação retorno exceções com base no tempo de saudação e se a réplica hello está sendo movida ou desligar. Essas exceções devem ser tratadas corretamente. As exceções geradas pelo Service Fabric se classificam nas categorias permanentes [(`FabricException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricexception?view=azure-dotnet) e transitórias [(`FabricTransientException`)](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabrictransientexception?view=azure-dotnet). Exceções permanentes devem ser registradas e lançadas ao exceções transitórias Olá podem ser repetidas com base em alguma lógica de repetição.
 
-O tratamento das exceções que resultam do uso de `ReliableCollections` em conjunto com eventos de ciclo de vida do serviço é uma importante etapa do teste e da validação de um Serviço Confiável. A recomendação é sempre executar seu serviço sob carga durante a execução de upgrades e sempre [fazer o teste de caos](service-fabric-controlled-chaos.md) antes de implantar no ambiente de produção. Essas etapas básicas ajudam a garantir que o serviço seja implementado corretamente, além de tratar os eventos do ciclo de vida corretamente.
+Tratamento de exceções de saudação que vêm do uso de saudação `ReliableCollections` em conjunto com eventos de ciclo de vida do serviço é uma parte importante de teste e validação de um serviço confiável. Olá recomendação é sempre toorun seu serviço sob carga durante a execução de atualizações e [caos teste](service-fabric-controlled-chaos.md) antes de implantar nunca tooproduction. Essas etapas básicas ajudam a garantir que o serviço seja implementado corretamente, além de tratar os eventos do ciclo de vida corretamente.
 
 
 ## <a name="notes-on-service-lifecycle"></a>Observações sobre o ciclo de vida do serviço
-  - Tanto o método `RunAsync()` quanto as chamadas `CreateServiceReplicaListeners/CreateServiceInstanceListeners` são opcionais. Um serviço pode ter um deles, ambos ou nenhum. Por exemplo, se o serviço fizer todo seu trabalho em resposta a chamadas do usuário, não será necessário implementar `RunAsync()`. Apenas os ouvintes de comunicação e seu código associado são necessários. Da mesma forma, criar e retornar ouvintes de comunicação é opcional, pois o serviço pode ter apenas trabalho em segundo plano e só precisar implementar `RunAsync()`
-  - Isso é válido para um serviço concluir `RunAsync()` com êxito e retornar dele. A conclusão não é uma condição de falha. A conclusão de `RunAsync()` indica que o trabalho em segundo plano do serviço foi concluído. Para serviços confiáveis com estado, `RunAsync()` será chamado novamente se a réplica tiver sido rebaixada de Primária para Secundária e promovida de volta para Primária.
-  - Se um serviço sair de `RunAsync()` lançando uma exceção inesperada, isso constituirá uma falha. O objeto de serviço será desligado e um erro de integridade reportado.
-  - Embora não haja um limite de tempo para o retorno desses métodos, você perde imediatamente a capacidade de gravar em Reliable Collections e, portanto, não pode concluir qualquer trabalho real. Recomendamos que você retorne o mais rápido possível após o recebimento da solicitação de cancelamento. Se o serviço não responder a essas chamadas à API dentro de um período razoável, o Service Fabric poderá forçar o encerramento do serviço. Geralmente isso ocorre apenas durante atualizações de aplicativo ou quando um serviço está sendo excluído. Esse tempo limite é de 15 minutos por padrão.
-  - Falhas no caminho de `OnCloseAsync()` resultam em uma chamada de `OnAbort()`, que é uma oportunidade de melhor esforço de última chance para o serviço ser limpo e liberar quaisquer recursos ocupados.
+  - Ambos os Olá `RunAsync()` método e hello `CreateServiceReplicaListeners/CreateServiceInstanceListeners` chamadas são opcionais. Um serviço pode ter um deles, ambos ou nenhum. Por exemplo, se o serviço de saudação faz seu trabalho em resposta toouser chamadas, não é necessário para que ele tooimplement `RunAsync()`. É necessário apenas os ouvintes de comunicação hello e seu código associado. Da mesma forma, criando e retornando ouvintes de comunicação é opcional, pois o serviço Olá pode ter apenas em segundo plano toodo de trabalho e então só precisa tooimplement`RunAsync()`
+  - Ele é válido para um serviço toocomplete `RunAsync()` com êxito e retorno dele. A conclusão não é uma condição de falha. Concluindo `RunAsync()` indica que o trabalho em segundo plano de saudação do serviço de saudação foi concluída. Para serviços confiáveis com monitoração de estado, `RunAsync()` é chamado novamente se a réplica Olá foram rebaixada de tooSecondary primária e, em seguida, promovida tooPrimary voltar.
+  - Se um serviço sair de `RunAsync()` lançando uma exceção inesperada, isso constituirá uma falha. o objeto de serviço Olá é desligado e relatou um erro de integridade.
+  - Embora não haja nenhum limite de tempo no retorno de um desses métodos, você perde imediatamente Olá capacidade toowrite tooReliable coleções e, portanto, não pode concluir qualquer trabalho real. É recomendável que você retorne mais rápido possível após o recebimento da solicitação de cancelamento de saudação. Se o serviço não responder chamadas de API do toothese em um período razoável que do Service Fabric pode forçar cancelar seu serviço. Geralmente isso ocorre apenas durante atualizações de aplicativo ou quando um serviço está sendo excluído. Esse tempo limite é de 15 minutos por padrão.
+  - Falhas em Olá `OnCloseAsync()` resultados de caminho em `OnAbort()` sendo chamada que é uma oportunidade de melhor esforço de última chance de saudação serviço tooclean backup e liberar todos os recursos que eles já solicitou.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Introdução ao Reliable Services](service-fabric-reliable-services-introduction.md)
+- [Serviços de tooReliable de Introdução](service-fabric-reliable-services-introduction.md)
 - [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
 - [Uso avançado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)

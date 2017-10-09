@@ -1,5 +1,5 @@
 ---
-title: "Implementar o aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure | Microsoft Docs"
+title: "aplicativo de SaaS multilocatário aaaImplement com o banco de dados do SQL Azure | Microsoft Docs"
 description: "Implementar o aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: 
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/08/2017
 ms.author: AyoOlubek
-ms.openlocfilehash: 0aea69d86a51c38c99a72f46737de1eea27bef83
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b87b8f296e2c20a8f674b56375f43fdc92df76d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="implement-a-multi-tenant-saas-application-using-azure-sql-database"></a>Implementar um aplicativos SaaS multilocatário usando o Banco de Dados SQL do Azure
 
-Um aplicativo multilocatário é um aplicativo hospedado em um ambiente de nuvem e fornece o mesmo conjunto de serviços para centenas ou milhares de locatários que não compartilham ou veem os dados uns dos outros. Um exemplo é um aplicativo SaaS que fornece serviços para locatários em um ambiente hospedado em nuvem. Esse modelo isola os dados de cada locatário e otimiza a distribuição dos recursos, reduzindo os custos. 
+Um aplicativo multilocatário é um aplicativo hospedado em um ambiente de nuvem e que fornece Olá mesmo conjunto de serviços toohundreds ou milhares de locatários que não compartilham ou ver dados uns dos outros. Um exemplo é um aplicativo SaaS que fornece serviços tootenants em um ambiente hospedado na nuvem. Esse modelo isola dados saudação para cada locatário e otimiza a distribuição de saudação do custo de recursos. 
 
-Este tutorial demonstra como criar um aplicativo SaaS multilocatário usando o Banco de Dados SQL do Azure.
+Este tutorial demonstra como toocreate um aplicativo de SaaS multilocatário usando o banco de dados do SQL Azure.
 
 Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
-> * Configurar um ambiente de banco de dados para dar suporte a um aplicativo SaaS multilocatário, usando o padrão de banco de dados por locatário
+> * Configurar um aplicativo de SaaS multilocatário, usando o padrão de banco de dados por locatário Olá um toosupport do ambiente de banco de dados
 > * Criar um catálogo de locatários
-> * Provisionar um banco de dados de locatário e registrá-lo no catálogo de locatários
+> * Provisionar um banco de dados de locatário e registrá-lo no catálogo de locatário Olá
 > * Configurar um aplicativo Java de exemplo 
 > * Acessar um bancos de dados de locatários simples com um aplicativo de console Java
 > * Excluir um locatário
@@ -41,23 +41,23 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, verifique se você tem:
+toocomplete este tutorial, verifique se você tem:
 
-* Instalada a versão mais recente do PowerShell e o [SDK mais recente do Azure PowerShell](http://azure.microsoft.com/downloads/)
+* A versão mais recente instalada saudação do PowerShell e Olá [SDK mais recente do PowerShell do Azure](http://azure.microsoft.com/downloads/)
 
-* Instalada a versão mais recente do [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Instalar o SQL Server Management Studio também instala a versão mais recente do SQLPackage, um utilitário de linha de comando que pode ser usado para automatizar diversas tarefas de desenvolvimento de banco de dados.
+* A versão mais recente instalada saudação do [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Instalar o SQL Server Management Studio também instala a versão mais recente de saudação do SQLPackage, um utilitário de linha de comando que pode ser usado tooautomate uma variedade de tarefas de desenvolvimento de banco de dados.
 
-* [JRE 8 (Java Runtime Environment)](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) e o [JDK (JAVA Development Kit) mais recente](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) foram instalados em seu computador. 
+* Olá instalado [Java Runtime Environment (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) e hello [mais recente JAVA Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) instalado em seu computador. 
 
-* Instalado o [Apache Maven](https://maven.apache.org/download.cgi). O Maven será usado para ajudar a gerenciar as dependências, compilar, testar e executar seu projeto Java de exemplo
+* Instalado o [Apache Maven](https://maven.apache.org/download.cgi). Será usado o Maven toohelp gerenciar dependências, criar, testar e executar o projeto de Java do exemplo hello
 
 ## <a name="set-up-data-environment"></a>Configurar o ambiente de dados
 
-Você provisionará um banco de dados por locatário. O modelo de banco de dados por locatário proporciona o mais alto grau de isolamento entre locatários, pouco custo de DevOps. Para otimizar o custo dos recursos de nuvem, você também provisionará os bancos de dados do locatário em um pool elástico, que permite a otimização do desempenho de preço de um grupo de bancos de dados. Para saber mais sobre outro modelos de provisionamento de banco de dados [clique aqui](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
+Você provisionará um banco de dados por locatário. modelo de banco de dados por locatário Olá fornece hello mais alto grau de isolamento entre locatários, com baixo custo de DevOps. custo de saudação toooptimize de recursos de nuvem, você será também ser Provisionando Olá locatário bancos de dados em um pool Elástico, que permite que você toooptimize Olá preço desempenho para um grupo de bancos de dados. toolearn sobre outros modelos de provisionamento do banco de dados [ver aqui](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
-Execute estas etapas para criar um SQL Server e um pool elástico que hospedará todos os seus bancos de dados de locatário. 
+Siga estas etapas toocreate do SQL server e um pool Elástico que hospedará a todos os seus bancos de dados do locatário. 
 
-1. Crie variáveis para armazenar valores que serão usados no restante do tutorial. Modifique a variável de endereço IP para incluir seu endereço IP 
+1. Crie variáveis toostore valores que serão usados no restante de saudação do tutorial de saudação. Certifique-se de que toomodify Olá IP tooinclude variável endereço seu endereço IP 
    
    ```PowerShell 
    # Set an admin login and password for your database
@@ -69,15 +69,15 @@ Execute estas etapas para criar um SQL Server e um pool elástico que hospedará
    $tenant1 = "geolamice"
    $tenant2 = "ranplex"
    
-   # Store current client IP address (modify to include your IP address)
+   # Store current client IP address (modify tooinclude your IP address)
    $startIpAddress = 0.0.0.0 
    $endIpAddress = 0.0.0.0
    ```
    
-2. Fazer logon no Azure e criar um SQL Server e pool elástico 
+2. TooAzure de logon e criar um pool de servidor e Elástico do SQL 
    
    ```PowerShell
-   # Login to Azure 
+   # Login tooAzure 
    Login-AzureRmAccount
    
    # Create resource group 
@@ -105,9 +105,9 @@ Execute estas etapas para criar um SQL Server e um pool elástico que hospedará
    
 ## <a name="create-tenant-catalog"></a>Criar um catálogo de locatários 
 
-Em um aplicativo SaaS multilocatário, é importante saber onde estão armazenadas as informações de um locatário. Normalmente, elas ficam armazenadas em um banco de dados de catálogo. O banco de dados de catálogo é usado como um mapeamento entre um locatário e um banco de dados no qual os dados do locatário estão armazenados.  O padrão básico se aplica se um banco de dados multilocatário ou um banco de dados de locatário único for usado.
+Em um aplicativo de SaaS multilocatário, é importante tooknow armazenamento de informações para um locatário. Normalmente, elas ficam armazenadas em um banco de dados de catálogo. banco de dados de catálogo Olá é toohold usado um mapeamento entre um locatário e um banco de dados no qual os dados desse locatário estão armazenados.  padrão básico Olá se aplica se uma multilocatário ou um banco de dados único locatário é usado.
 
-Execute estas etapas para criar um banco de dados de catálogo para o aplicativo SaaS de exemplo.
+Siga essas etapas toocreate um banco de dados de catálogo para o aplicativo de SaaS do exemplo hello.
 
 ```PowerShell
 # Create empty database in pool
@@ -116,7 +116,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName "tenantCatalog" `
     -ElasticPoolName "myElasticPool"
 
-# Create table to track mapping between tenants and their databases
+# Create table tootrack mapping between tenants and their databases
 $commandText = "
 CREATE TABLE Tenants
 (
@@ -138,7 +138,7 @@ Invoke-SqlCmd `
 ```
 
 ## <a name="provision-database-for-tenant1-and-register-in-tenant-catalog"></a>Provisione o banco de dados para o 'locatário1' e registre no catálogo de locatários 
-Use o Powershell para provisionar um banco de dados para um novo locatário, 'locatário1', e registre esse locatário no catálogo. 
+Use o Powershell tooprovision um banco de dados para um novo locatário 'locatário1' e registre este locatário no catálogo de saudação. 
 
 ```PowerShell
 # Create empty database in pool for 'tenant1'
@@ -147,7 +147,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName $tenant1 `
     -ElasticPoolName "myElasticPool"
 
-# Create table WhoAmI and insert tenant name into the table 
+# Create table WhoAmI and insert tenant name into hello table 
 $commandText = "
 CREATE TABLE WhoAmI (TenantName NVARCHAR(128) NOT NULL);
 INSERT INTO WhoAmI VALUES ('Tenant $tenant1');"
@@ -161,7 +161,7 @@ Invoke-SqlCmd `
     -Query $commandText `
     -EncryptConnection
 
-# Register 'tenant1' in the tenant catalog 
+# Register 'tenant1' in hello tenant catalog 
 $commandText = "
 INSERT INTO Tenants VALUES ('$tenant1', '$tenant1');"
 Invoke-SqlCmd `
@@ -175,7 +175,7 @@ Invoke-SqlCmd `
 ```
 
 ## <a name="provision-database-for-tenant2-and-register-in-tenant-catalog"></a>Provisione o banco de dados para o 'locatário2' e registre no catálogo de locatários
-Use o Powershell para provisionar um banco de dados para um novo locatário, 'locatário2', e registre esse locatário no catálogo. 
+Use o Powershell tooprovision um banco de dados para um novo locatário 'tenant2' e registre este locatário no catálogo de saudação. 
 
 ```PowerShell
 # Create empty database in pool for 'tenant2'
@@ -184,7 +184,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName $tenant2 `
     -ElasticPoolName "myElasticPool"
 
-# Create table WhoAmI and insert tenant name into the table 
+# Create table WhoAmI and insert tenant name into hello table 
 $commandText = "
 CREATE TABLE WhoAmI (TenantName NVARCHAR(128) NOT NULL);
 INSERT INTO WhoAmI VALUES ('Tenant $tenant2');"
@@ -198,7 +198,7 @@ Invoke-SqlCmd `
     -Query $commandText `
     -EncryptConnection
 
-# Register tenant 'tenant2' in the tenant catalog 
+# Register tenant 'tenant2' in hello tenant catalog 
 $commandText = "
 INSERT INTO Tenants VALUES ('$tenant2', '$tenant2');"
 Invoke-SqlCmd `
@@ -213,13 +213,13 @@ Invoke-SqlCmd `
 
 ## <a name="set-up-sample-java-application"></a>Configurar um aplicativo Java de exemplo 
 
-1. Criar um projeto do Maven. Digite o seguinte em uma janela de prompt de comando:
+1. Criar um projeto do Maven. Digite o seguinte de saudação em uma janela de prompt de comando:
    
    ```
    mvn archetype:generate -DgroupId=com.microsoft.sqlserver -DartifactId=mssql-jdbc -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
    
-2. Adicione esta dependência, o nível da linguagem e a opção de compilação para oferecer suporte a arquivos de manifesto em jars para o arquivo pom.xml:
+2. Adicionar essa dependência, o nível de linguagem e arquivos de manifesto no arquivo de pom.xml toohello jars do toosupport opção de compilação:
    
    ```XML
    <dependency>
@@ -251,7 +251,7 @@ Invoke-SqlCmd `
    </build>
    ```
 
-3. Adicione o seguinte ao arquivo App.java:
+3. Adicione a seguir no arquivo de App.java Olá Olá:
 
    ```java 
    package com.sqldbsamples;
@@ -306,7 +306,7 @@ Invoke-SqlCmd `
    
    System.out.println(" " + CMD_QUERY + " <NAME> - connect and tenant query tenant <NAME>");
    
-   System.out.println(" " + CMD_QUIT + " - quit the application\n");
+   System.out.println(" " + CMD_QUIT + " - quit hello application\n");
    
    try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
    
@@ -352,7 +352,7 @@ Invoke-SqlCmd `
    
    private static void listTenants() {
    
-   // List all tenants that currently exist in the system
+   // List all tenants that currently exist in hello system
    
    String sql = "SELECT TenantName FROM Tenants";
    
@@ -380,7 +380,7 @@ Invoke-SqlCmd `
    
    private static void queryTenant(String name) {
    
-   // Query the data that was previously inserted into the primary database from the geo replicated database
+   // Query hello data that was previously inserted into hello primary database from hello geo replicated database
    
    String url = null;
    
@@ -445,21 +445,21 @@ Invoke-SqlCmd `
    }
    ```
 
-4. Salve o arquivo.
+4. Salve o arquivo hello.
 
-5. Acesse o console de comando e execute
+5. Vá toocommand console e executar
 
    ```bash
    mvn package
    ```
 
-6. Quando terminar, execute o seguinte para executar o aplicativo 
+6. Quando terminar, execute Olá após o aplicativo de hello toorun 
    
    ```
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
    ```
    
-A saída será parecida com esta, se for executado com êxito:
+Olá saída será assim se ele for executado com êxito:
 
 ```
 ############################
@@ -474,15 +474,15 @@ LIST - list tenants
 
 QUERY <NAME> - connect and tenant query tenant <NAME>
 
-QUIT - quit the application
+QUIT - quit hello application
 
-* List the tenants
+* List hello tenants
 
 * Query tenants you created
 ```
 
 ## <a name="delete-first-tenant"></a>Excluir primeiro locatário 
-Use o PowerShell para excluir a entrada no banco de dados e no catálogo de locatários do primeiro locatário.
+Use PowerShell toodelete Olá locatário banco de dados e o catálogo de entrada para o locatário primeiro hello.
 
 ```PowerShell
 # Remove 'tenant1' from catalog 
@@ -502,15 +502,15 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
     -DatabaseName $tenant1
 ```
 
-Tente se conectar a 'locatário1' usando o aplicativo Java. Você receberá um erro informando que o locatário não existe.
+Tente conectar-se muito usando 'locatário1' hello aplicativo Java. Você obterá um erro informando que locatário Olá não existe.
 
 ## <a name="next-steps"></a>Próximas etapas 
 
 Neste tutorial, você aprendeu a:
 > [!div class="checklist"]
-> * Configurar um ambiente de banco de dados para dar suporte a um aplicativo SaaS multilocatário, usando o padrão de banco de dados por locatário
+> * Configurar um aplicativo de SaaS multilocatário, usando o padrão de banco de dados por locatário Olá um toosupport do ambiente de banco de dados
 > * Criar um catálogo de locatários
-> * Provisionar um banco de dados de locatário e registrá-lo no catálogo de locatários
+> * Provisionar um banco de dados de locatário e registrá-lo no catálogo de locatário Olá
 > * Configurar um aplicativo Java de exemplo 
 > * Acessar um bancos de dados de locatários simples com um aplicativo de console Java
 > * Excluir um locatário

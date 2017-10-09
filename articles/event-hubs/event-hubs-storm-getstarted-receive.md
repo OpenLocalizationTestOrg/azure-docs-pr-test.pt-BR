@@ -1,5 +1,5 @@
 ---
-title: Receber eventos de Hubs de Eventos do Azure usando o Apache Storm | Microsoft Docs
+title: eventos de aaaReceive de Hubs de eventos do Azure usando o Apache Storm | Microsoft Docs
 description: Comece a receber de Hubs de Eventos usando o Apache Storm
 services: event-hubs
 documentationcenter: 
@@ -14,25 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a0ab860ee8d504a28aac380c504c928f0d6dbc1e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Receber eventos de Hubs de Eventos usando o Apache Storm
 
-[Apache Storm](https://storm.incubator.apache.org) é um sistema de computação distribuído em tempo real que simplifica o processamento confiável de fluxos de dados ilimitados. Esta seção mostra como usar um spout do Storm de Hubs de Eventos do Azure para receber eventos de Hubs de Eventos. Usando o Apache Storm, você pode dividir eventos em vários processos hospedados em nós diferentes. A integração de Hubs de Eventos com o Storm simplifica o consumo de eventos pela verificação de forma transparente de seu progresso usando a instalação de Zookeeper do Storm, gerenciando pontos de verificação persistentes e recebimentos paralelos de Hubs de Eventos.
+[Apache Storm](https://storm.incubator.apache.org) é um sistema de computação distribuído em tempo real que simplifica o processamento confiável de fluxos de dados ilimitados. Esta seção mostra como toouse uma profusão de Hubs de eventos do Azure spout tooreceive eventos dos Hubs de eventos. Usando o Apache Storm, você pode dividir eventos em vários processos hospedados em nós diferentes. Olá integração com Hubs de evento com Storm simplifica consumo de eventos pelo ponto de verificação transparente seu progresso usando a instalação de Zookeeper do Storm, gerenciar pontos de verificação persistentes e paralelo recebe de Hubs de eventos.
 
-Para obter mais informações sobre padrões de recebimento de Hubs de Eventos, consulte [Visão geral de hubs de eventos][Event Hubs overview].
+Para obter mais informações sobre Hubs de eventos de recebimento padrões, consulte Olá [visão geral de Hubs de eventos][Event Hubs overview].
 
 ## <a name="create-project-and-add-code"></a>Criar o projeto e adicionar o código
 
-Este tutorial usa uma instalação do [HDInsight Storm][HDInsight Storm], que acompanha o spout de Hubs de Eventos já disponível.
+Este tutorial usa um [profusão de HDInsight] [ HDInsight Storm] instalação, o que vem com hello spout Hubs de eventos já disponível.
 
-1. Siga o procedimento [HDInsight Storm - Introdução](../hdinsight/hdinsight-storm-overview.md) para criar um novo cluster HDInsight e conectá-lo por meio da Área de Trabalho Remota.
-2. Copie o arquivo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` para seu ambiente de desenvolvimento local. Ele contém o events-storm-spout.
-3. Use o seguinte comando para instalar o pacote no armazenamento Maven local. Isso permite que você adicione-o como uma referência no projeto Storm em uma etapa posterior.
+1. Siga Olá [HDInsight Storm - Introdução](../hdinsight/hdinsight-storm-overview.md) procedimento toocreate HDInsight um novo cluster e conectar-se tooit por meio da área de trabalho remota.
+2. Saudação de cópia `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` ambiente de desenvolvimento local do arquivo tooyour. Ele contém Olá eventos storm spout.
+3. Saudação de uso após o pacote de saudação do comando tooinstall no repositório local de Maven hello. Isso permite que você tooadd-lo como uma referência em Olá profusão de projeto em uma etapa posterior.
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
@@ -41,9 +41,9 @@ Este tutorial usa uma instalação do [HDInsight Storm][HDInsight Storm], que ac
    
     ![][12]
 5. Selecione **Uso do local de espaço de trabalho padrão** e clique em **Avançar**
-6. Selecione o arquétipo **maven-archetype-quickstart**, depois clique em **Avançar**
+6. Selecione Olá **maven-arquétipo-quickstart** arquétipo, em seguida, clique em **Avançar**
 7. Insira um **GroupId** e **ArtifactId** e clique em **Concluir**
-8. Em **pom.xml**, adicione as seguintes dependências ao nó `<dependency>`.
+8. Em **pom.xml**, adicionar Olá seguindo as dependências no hello `<dependency>` nó.
 
     ```xml  
     <dependency>
@@ -75,7 +75,7 @@ Este tutorial usa uma instalação do [HDInsight Storm][HDInsight Storm], que ac
     </dependency>
     ```
 
-9. Na pasta **src**, crie um arquivo chamado **Config.properties** e copie o seguinte conteúdo, substituindo os valores `receive rule key` e `event hub name`:
+9. Em Olá **src** pasta, crie um arquivo chamado **config** e cópia hello conteúdo a seguir, substituindo Olá `receive rule key` e `event hub name` valores:
 
     ```java
     eventhubspout.username = ReceiveRule
@@ -90,8 +90,8 @@ Este tutorial usa uma instalação do [HDInsight Storm][HDInsight Storm], que ac
     eventhubspout.checkpoint.interval = 10
     eventhub.receiver.credits = 10
     ```
-    O valor para **eventhub.receiver.credits** determina quantos eventos são divididos em lotes antes de liberá-los para o pipeline do Storm. Para simplificar, este exemplo define esse valor como 10. Em produção, ele normalmente deve ser definido para valores mais altos; por exemplo, 1024.
-10. Crie uma nova classe chamada **LoggerBolt** com o seguinte código:
+    Olá valor **eventhub.receiver.credits** determina quantos eventos são em lote antes de liberar o pipeline de profusão de toohello. Para a mesma Olá de simplicidade, este exemplo define too10 esse valor. Em produção, normalmente, ele deve ser definido toohigher valores; Por exemplo, 1024.
+10. Criar uma nova classe chamada **LoggerBolt** com hello código a seguir:
     
     ```java
     import java.util.Map;
@@ -130,8 +130,8 @@ Este tutorial usa uma instalação do [HDInsight Storm][HDInsight Storm], que ac
     }
     ```
     
-    Este bolt do Storm registra o conteúdo dos eventos recebidos. Isso pode ser estendido facilmente para armazenar tuplas em um serviço de armazenamento. O [tutorial de análise de sensor HDInsight] usa essa mesma abordagem para armazenar dados em HBase.
-11. Crie uma classe chamada **LogTopology** com o código a seguir:
+    Este raio Storm registra o conteúdo de saudação do eventos Olá recebida. Isso pode ser facilmente estendido toostore tuplas em um serviço de armazenamento. Olá [tutorial de análise de sensor HDInsight] usa os mesmos dados toostore abordagem em HBase.
+11. Criar uma classe chamada **LogTopology** com hello código a seguir:
     
     ```java
     import java.io.FileReader;
@@ -182,9 +182,9 @@ Este tutorial usa uma instalação do [HDInsight Storm][HDInsight Storm], que ac
                     namespaceName, entityPath, partitionCount, zkEndpointAddress,
                     checkpointIntervalInSeconds, receiverCredits);
         
-            // set the number of workers to be the same as partition number.
-            // the idea is to have a spout and a logger bolt co-exist in one
-            // worker to avoid shuffling messages across workers in storm cluster.
+            // set hello number of workers toobe hello same as partition number.
+            // hello idea is toohave a spout and a logger bolt co-exist in one
+            // worker tooavoid shuffling messages across workers in storm cluster.
             numWorkers = spoutConfig.getPartitionCount();
         
             if (args.length > 0) {
@@ -235,10 +235,10 @@ Este tutorial usa uma instalação do [HDInsight Storm][HDInsight Storm], que ac
     }
     ```
 
-    Essa classe cria um novo spout de Hubs de Eventos, usando as propriedades no arquivo de configuração para instanciá-lo. É importante observar que esse exemplo cria tantas tarefas spouts quanto o número de partições no hub de eventos, para usar o paralelismo máximo permitido por esse hub de eventos.
+    Essa classe cria um novo spout de Hubs de eventos, usando as propriedades de saudação no hello tooinstantiate de arquivo de configuração-lo. É importante toonote Este exemplo cria quantas spouts tarefas como número de saudação de partições no hub de eventos hello, em ordem toouse Olá máximo paralelismo permitido por esse hub de eventos.
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
+Você pode aprender mais sobre os Hubs de eventos visitando Olá links a seguir:
 
 * [Visão Geral dos Hubs de Eventos][Event Hubs overview]
 * [Criar um hub de eventos](event-hubs-create.md)

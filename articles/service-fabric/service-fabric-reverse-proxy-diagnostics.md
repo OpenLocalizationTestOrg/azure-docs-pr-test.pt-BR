@@ -1,6 +1,6 @@
 ---
-title: "Diagnóstico de proxy reverso do Azure Service Fabric | Microsoft Docs"
-description: "Saiba como monitorar e diagnosticar o processamento de solicitação no proxy reverso."
+title: "aaaAzure Service Fabric Inverter diagnóstico proxy | Microsoft Docs"
+description: "Saiba como toomonitor e diagnosticar o processamento de solicitação no proxy reverso hello."
 services: service-fabric
 documentationcenter: .net
 author: kavyako
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 3bc631606afbc93d5bca94f4955fd2ef816fa9fd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 9687b9688dc26ba619cbdfab1b1f49a3035345c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Monitorar e diagnosticar o processamento de solicitação no proxy reverso
+# <a name="monitor-and-diagnose-request-processing-at-hello-reverse-proxy"></a>Monitorar e diagnosticar o processamento de solicitação no proxy reverso Olá
 
-A partir da versão 5.7 do Service Fabric, os eventos de métrica de carga e integridade estão disponíveis para coleta. Os eventos estão disponíveis em dois canais, um somente com eventos de erro relacionados à falha no processamento da solicitação no proxy reverso e outro contendo eventos detalhados com entradas de solicitações bem-sucedidas e com falha.
+Começando com a versão 5.7 de saudação do Service Fabric, eventos de proxy reverso estão disponíveis para a coleção. eventos de saudação estão disponíveis nos dois canais, uma com apenas os eventos de erro relacionadas toorequest falha de processamento no proxy reverso hello e segundo canal contendo eventos detalhados com entradas de solicitações bem-sucedidas e com falha.
 
-Confira [Coletar eventos de proxy reverso](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) para habilitar a coleta de eventos desses canais nos clusters locais e do Azure Service Fabric.
+Consulte também[coletar eventos de proxy reverso](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) tooenable coletando eventos desses canais no local e clusters de malha do serviço do Azure.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Solucionar problemas usando logs de diagnóstico
-Aqui estão alguns exemplos de como interpretar os logs de falha comuns que podem ser encontrados:
+Aqui estão alguns exemplos sobre como logs de falha comuns toointerpret Olá um pode encontrar:
 
 1. Proxy reverso retorna código de status de resposta 504 (tempo limite).
 
-    Um motivo pode ser que o serviço não responde dentro do período de tempo limite da solicitação.
-O primeiro evento abaixo registra os detalhes da solicitação recebida no proxy reverso. O segundo evento indica que a solicitação falhou no encaminhamento para o serviço devido a "internal error = ERROR_WINHTTP_TIMEOUT" 
+    Um motivo pode ser devido a falha do serviço toohello tooreply dentro do período de espera de solicitação de saudação.
+Olá primeiro evento abaixo registra os detalhes de saudação do hello solicitação recebida no proxy reverso hello. Hello segundo evento indica que a solicitação Olá falhou ao tooservice de encaminhamento devido muito "Erro interno = ERROR_WINHTTP_TIMEOUT" 
 
-    A carga inclui:
+    carga de saudação inclui:
 
-    *  **traceId**: esse GUID pode ser usado para correlacionar todos os eventos correspondentes a uma mesma solicitação. Nos dois eventos abaixo, traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, indicando que pertencem à mesma solicitação.
-    *  **requestUrl**: a URL (URL de Proxy Reverso) à qual a solicitação foi enviada.
+    *  **traceId**: esse GUID pode ser usado toocorrelate todos os eventos de saudação correspondente tooa única solicitação. Em Olá abaixo dois eventos, Olá traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**, indicando que eles pertencem toohello mesma solicitação.
+    *  **requestUrl**: Olá URL (URL de proxy reverso) toowhich Olá solicitação foi enviada.
     *  **verb**: verbo HTTP.
-    *  **remoteAddress**: endereço do cliente que envia a solicitação.
-    *  **resolvedServiceUrl**: URL de ponto de extremidade de serviço para a qual a solicitação de entrada foi resolvida. 
-    *  **errorDetails**: informações adicionais sobre a falha.
+    *  **remoteAddress**: endereço de envio de solicitação de saudação do cliente.
+    *  **resolvedServiceUrl**: serviço ponto de extremidade URL toowhich Olá solicitação de entrada foi resolvida. 
+    *  **errorDetails**: informações adicionais sobre a falha de saudação.
 
     ```
     {
@@ -67,7 +67,7 @@ O primeiro evento abaixo registra os detalhes da solicitação recebida no proxy
     {
       "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
       ...
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
+      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request tooservice: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
       ...
       "Payload": {
         "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
@@ -81,15 +81,15 @@ O primeiro evento abaixo registra os detalhes da solicitação recebida no proxy
 
 2. Proxy reverso retorna código de status de resposta 404 (não encontrado). 
     
-    Eis um evento de exemplo em que o proxy reverso retorna 404, já que não conseguiu localizar o ponto de extremidade de serviço correspondente.
-    As entradas de carga de interesse aqui são:
-    *  **processRequestPhase**: indica a fase durante o processamento da solicitação em que a falha ocorreu, ***TryGetEndpoint***, ou seja, durante a tentativa de buscar o ponto de extremidade de serviço para encaminhamento. 
-    *  **errorDetails**: lista os critérios de pesquisa de ponto de extremidade. Aqui você pode ver que o listenerName especificado = **FrontEndListener**, enquanto a lista de ponto de extremidade de réplica contém somente um ouvinte com o nome **OldListener**.
+    Aqui está um evento de exemplo em que o proxy inverso retorna 404 porque ele falhou Olá toofind correspondência de ponto de extremidade de serviço.
+    Olá carga entradas de interesse aqui mencionados são:
+    *  **processRequestPhase**: indica a fase Olá durante o processamento da solicitação quando ocorreu a falha de hello, ***TryGetEndpoint*** ou seja ao tentar toofetch Olá serviço ponto de extremidade tooforward para. 
+    *  **errorDetails**: lista de critérios de pesquisa de ponto de extremidade de saudação. Aqui você pode ver que listenerName Olá especificado = **FrontEndListener** enquanto a lista de ponto de extremidade de réplica Olá contém apenas um ouvinte com o nome da saudação **OldListener**.
     
     ```
     {
       ...
-      "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward to service: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
+      "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward tooservice: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
       "ProcessId": 57696,
       "Level": "Warning",
       "EventName": "ReverseProxy",
@@ -102,21 +102,21 @@ O primeiro evento abaixo registra os detalhes da solicitação recebida no proxy
       }
     }
     ```
-    Outro exemplo em que o proxy reverso pode retornar 404 Não Encontrado é: parâmetro de configuração ApplicationGateway\Http **SecureOnlyMode** está definido como true, com um proxy inverso escutando **HTTPS**; no entanto, nenhum ponto de extremidade de réplica é seguro (escutando HTTP).
-    Proxy reverso retorna 404, já que não consegue localizar um ponto de extremidade de escuta HTTPS para encaminhar a solicitação. A análise dos parâmetros na carga do evento ajuda a delimitar o problema:
+    Outro exemplo em que o proxy reverso pode retornar 404 não encontrados é: o parâmetro de configuração ApplicationGateway\Http **SecureOnlyMode** definida tootrue com escuta de proxy reverso do hello **HTTPS**, No entanto, todos os pontos de extremidade de réplica Olá são não seguros (escuta HTTP).
+    Inverta retorna proxy 404 porque não é possível localizar um ponto de extremidade escutando em uma solicitação de saudação tooforward HTTPS. Analisar parâmetros Olá na carga do evento Olá ajuda toonarrow problema hello:
     
     ```
         "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
     ```
 
-3. Falha na solicitação para o proxy reverso com erro de tempo limite. 
-    Os logs de evento contêm um evento com os detalhes da solicitação recebida (não mostrados aqui).
-    O próximo evento mostra que o serviço respondeu com um código de status 404 e o proxy reverso inicia uma ação de resolver novamente. 
+3. Proxy reverso de toohello de solicitação falha com um erro de tempo limite. 
+    logs de eventos de saudação contêm um evento com detalhes de solicitação recebida de saudação (não mostrados aqui).
+    próximo evento a saudação mostra que o serviço Olá respondeu com um código de 404 status e proxy reverso inicia um resolver novamente. 
 
     ```
     {
       ...
-      "Message": "7ac6212c-c8c4-4c98-9cf7-c187a94f141e Request to service returned: status code = 404, status description = , Reresolving ",
+      "Message": "7ac6212c-c8c4-4c98-9cf7-c187a94f141e Request tooservice returned: status code = 404, status description = , Reresolving ",
       "Payload": {
         "traceId": "7ac6212c-c8c4-4c98-9cf7-c187a94f141e",
         "statusCode": 404,
@@ -132,11 +132,11 @@ O primeiro evento abaixo registra os detalhes da solicitação recebida no proxy
       }
     }
     ```
-    Ao coletar todos os eventos, você verá uma cadeia de eventos mostrando cada resolução e a tentativa de encaminhamento.
-    O último evento na série mostra que o processamento de solicitação falhou alcançando o tempo limite, juntamente com o número de tentativas de resolução com êxito.
+    Ao coletar todos os eventos de hello, você verá um treinamento de mostrando cada resolução e a tentativa de encaminhamento de eventos.
+    último evento Olá em série Olá mostra o processamento da solicitação Olá falhou com um tempo limite, juntamente com número de saudação de tentativas de resolver com êxito.
     
     > [!NOTE]
-    > É recomendável manter a coleta de eventos do canal detalhado desabilitada por padrão e habilitá-la para a solução de problemas caso a caso.
+    > Ele é recomendado a coleta de eventos de canal detalhado Olá tookeep desabilitada por padrão e habilitá-la para solução de problemas em uma base de necessidade.
 
     ```
     {
@@ -155,18 +155,18 @@ O primeiro evento abaixo registra os detalhes da solicitação recebida no proxy
     }
     ```
     
-    Se a coleta está habilitada somente para eventos de erro/crítico, você verá um evento com detalhes sobre o tempo limite e o número de tentativas de resolução. 
+    Se a coleção está habilitada para eventos de erro/crítico apenas, você verá um evento com detalhes sobre o tempo limite de saudação e número de saudação de tentativas de resolver. 
     
-    Se o serviço pretende enviar um código de status 404 para o usuário, ele deve vir acompanhado de um cabeçalho "X-ServiceFabric". Depois de corrigir isso, você verá que o proxy reverso encaminha o código de status para o cliente.  
+    Se o serviço de saudação pretenda toosend um usuário de toohello voltar do código de 404 status, ele deve vir acompanhado de um cabeçalho "X-ServiceFabric". Depois de corrigir isso, você verá esse proxy reverso encaminhamentos Olá status código back toohello cliente.  
 
-4. Casos em que o cliente desconectou a solicitação.
+4. Casos quando Olá cliente se desconectou Olá solicitação.
 
-    O evento abaixo é registrado quando o proxy reverso está encaminhando a resposta ao cliente, mas o cliente se desconecta:
+    Olá abaixo o evento é registrado quando o proxy reverso está encaminhando Olá resposta tooclient mas Olá cliente se desconecta:
 
     ```
     {
       ...
-      "Message": "6e2571a3-14a8-4fc7-93bb-c202c23b50b8 Unable to send response to client: phase = SendResponseHeaders, error = -805306367, internal error = ERROR_SUCCESS ",
+      "Message": "6e2571a3-14a8-4fc7-93bb-c202c23b50b8 Unable toosend response tooclient: phase = SendResponseHeaders, error = -805306367, internal error = ERROR_SUCCESS ",
       "ProcessId": 57696,
       "Level": "Warning",
       ...
@@ -181,10 +181,10 @@ O primeiro evento abaixo registra os detalhes da solicitação recebida no proxy
     ```
 
 > [!NOTE]
-> Eventos relacionados ao processamento de solicitação de websocket não estão registrados em log no momento. Isso será adicionado na próxima versão.
+> Processamento de solicitação de toowebsocket relacionados de eventos não está conectado no momento. Isso será adicionado na próxima versão do hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Agregação e coleta de eventos usando o Diagnóstico do Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md) para habilitar a coleta de logs em clusters do Azure.
-* Para exibir eventos do Service Fabric no Visual Studio, confira [Monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-* Consulte [Configurar o proxy reverso para se conectar aos serviços seguros](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para obter exemplos de modelo do Azure Resource Manager a fim de configurar o proxy reverso seguro com as diferentes opções de validação de certificado do serviço.
-* Leia [Proxy reverso do Service Fabric](service-fabric-reverseproxy.md) para saber mais.
+* eventos do Service Fabric tooview no Visual Studio, consulte [monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+* Consulte também[configurar proxy reverso tooconnect toosecure serviços](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) para o Azure Resource Manager proxy reverso segura de tooconfigure com opções de validação de certificado de serviço diferentes Olá amostras de modelo.
+* Leitura [proxy reverso do Service Fabric](service-fabric-reverseproxy.md) toolearn mais.

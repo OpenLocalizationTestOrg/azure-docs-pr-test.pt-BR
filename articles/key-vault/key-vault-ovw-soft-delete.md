@@ -1,70 +1,70 @@
 ---
 ms.assetid: 
-title: "Exclusão reversível do Azure Key Vault | Microsoft Docs"
+title: "exclusão reversível do Cofre de chaves aaaAzure | Microsoft Docs"
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 07/10/2017
-ms.openlocfilehash: c873b153ef9c7d5f55672a5918c9dc4fb7256701
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1b402c58db6f25ae4ae5e2720786fa81eb0e839a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
-O recurso de exclusão reversível do Azure Key Vault permite a recuperação de cofres e objetos de cofre excluídos, o que é conhecido como exclusão reversível. Especificamente, abordamos os seguintes cenários:
+Recurso de exclusão reversível do cofre da chave permite a recuperação de cofres Olá excluído e objetos de cofre, conhecidos como exclusão reversível. Especificamente, podemos endereço Olá os seguintes cenários:
 
 - Suporte à exclusão reversível de cofres de chaves
 - Suporte à exclusão recuperável de objetos do cofre de chaves (por exemplo, chaves, segredos, certificados)
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
-O recurso de exclusão reversível está inicialmente disponível por meio das interfaces da REST, do .NET/C# e do PowerShell. Consulte as referências para obter esses e mais detalhes, [Referência do Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Olá recurso soft excluir está inicialmente disponível por meio Olá REST, .NET / interfaces do c# e do PowerShell. Para obter mais detalhes, consulte referências toohello [referência de chave de cofre](https://docs.microsoft.com/azure/key-vault/).
 
 ## <a name="scenarios"></a>Cenários
 
-Os Azure Key Vaults são recursos controlados, gerenciados pelo Azure Resource Manager. O Azure Resource Manager também especifica um comportamento bem definido para a exclusão, que exige que uma operação DELETE bem-sucedida faça com que esse recurso não esteja mais acessível. O recurso de exclusão reversível aborda a recuperação do objeto excluído, independentemente se a exclusão foi acidental ou intencional.
+Os Azure Key Vaults são recursos controlados, gerenciados pelo Azure Resource Manager. O Azure Resource Manager também especifica um comportamento bem definido para a exclusão, que exige que uma operação DELETE bem-sucedida faça com que esse recurso não esteja mais acessível. endereços de recurso de exclusão reversível Olá Olá recuperação do objeto Olá excluído, se a exclusão de saudação foi acidental ou intencional.
 
-1. No cenário típico, um usuário pode ter acidentalmente excluído um cofre de chaves ou um objeto do cofre de chaves; se esse cofre de chaves ou objeto do cofre de chaves precisar ser recuperável por um período predeterminado, o usuário poderá desfazer a exclusão e recuperar seus dados.
+1. No cenário típico de saudação, um usuário pode ter inadvertidamente excluído um cofre de chaves ou um objeto de Cofre de chaves. Se esse Cofre de chaves ou uma chave de cofre objeto foram toobe recuperáveis por um período predeterminado, o usuário de saudação pode desfazer a exclusão de saudação e recuperar seus dados.
 
-2. Em um cenário diferente, um usuário mal-intencionado pode tentar excluir um cofre de chaves ou um objeto do cofre de chaves, como uma chave dentro de um cofre, para causar uma interrupção dos negócios. A separação da exclusão do cofre de chaves ou do objeto do cofre de chaves da exclusão real dos dados subjacentes pode ser usada como uma medida de segurança, por exemplo, restringindo as permissões de exclusão de dados a outra função confiável. Essa abordagem efetivamente exige quorum para uma operação que, de outro modo, poderá resultar em uma perda de dados imediata.
+2. Em um cenário diferente, um usuário mal-intencionado pode tentar toodelete um cofre de chaves ou um objeto de Cofre de chaves, como uma chave dentro de um cofre, toocause uma interrupção dos negócios. Separar a exclusão de saudação do Cofre de chaves hello ou objeto de Cofre de chaves de exclusão real de saudação do hello dados subjacentes pode ser usado como uma medida de segurança, por exemplo, restringindo as permissões de tooa de exclusão de dados diferente, confiável de função. Essa abordagem efetivamente exige quorum para uma operação que, de outro modo, poderá resultar em uma perda de dados imediata.
 
 ### <a name="soft-delete-behavior"></a>Comportamento de exclusão reversível
 
-Com esse recurso, a operação DELETE em um cofre de chaves ou objeto do cofre de chaves é uma exclusão reversível, efetivamente mantendo os recursos por um período de retenção especificado, ao mesmo tempo aparentando ter excluído o objeto. Além disso, o serviço fornece um mecanismo para recuperar o objeto excluído, basicamente, desfazendo a exclusão. 
+Com esse recurso, Olá a operação de exclusão em um cofre de chaves ou objeto de Cofre de chaves é um software-delete, mantendo efetivamente recursos Olá por um período de retenção especificado, enquanto dando a aparência de saudação objeto Olá é excluído. serviço de saudação ainda mais fornece um mecanismo para recuperar o objeto Olá excluído, essencialmente, desfazendo exclusão hello. 
 
-A exclusão reversível é um comportamento opcional do Key Vault e **não está habilitado por padrão** nesta versão. Para obter detalhes sobre como habilitar a exclusão reversível em seu cofre de chaves, consulte as diretrizes específicas na referência da interface de sua escolha, [Referência do Key Vault](https://docs.microsoft.com/azure/key-vault/).
+A exclusão reversível é um comportamento opcional do Key Vault e **não está habilitado por padrão** nesta versão. Para obter detalhes sobre como habilitar a exclusão reversível para seu Cofre de chaves, consulte Olá orientação específica sobre referência de saudação para interface de saudação de sua escolha, [referência de chave de cofre](https://docs.microsoft.com/azure/key-vault/).
 
 ### <a name="key-vault-recovery"></a>Recuperação do cofre de chaves
 
-Ao excluir um cofre de chaves, o serviço cria um recurso de proxy na assinatura, adicionando metadados suficientes para recuperação. O recurso de proxy é um objeto armazenado, disponível na mesma localização do cofre de chaves excluído. 
+Após excluir um cofre de chaves, serviço Olá cria um recurso de proxy na assinatura hello, adicionar metadados suficientes para recuperação. recursos de proxy de saudação é um objeto armazenado, disponível no hello mesmo local que o Cofre de chaves Olá excluído. 
 
 ### <a name="key-vault-object-recovery"></a>Recuperação de objetos do cofre de chaves
 
-Depois de excluir um objeto do cofre de chaves, como uma chave, o serviço colocará o objeto em um estado excluído, tornando-o inacessível para todas as operações de recuperação. Nesse estado, o objeto do cofre de chaves só poderá ser listado, recuperado ou excluído permanentemente/de maneira forçada. 
+Após a exclusão de um objeto de Cofre de chaves, como uma chave, serviço Olá colocará objeto Olá em estado excluído, tornando as operações de recuperação de tooany inacessível. Nesse estado, objeto de chave de cofre Olá só pode ser listado, recuperado, ou forçar/será excluída permanentemente. 
 
-Ao mesmo tempo, o Key Vault agendará a exclusão dos dados subjacentes correspondentes ao cofre de chaves ou objeto do cofre de chaves excluído para execução após um intervalo de retenção predeterminado. O registro DNS correspondente ao cofre também é mantido durante o intervalo de retenção.
+Em Olá mesmo tempo, chave de cofre agendará exclusão de saudação do hello subjacente toohello correspondente de dados excluído Cofre de chaves ou objeto de Cofre de chaves para execução após um intervalo de retenção predeterminado. Olá DNS registro toohello cofre correspondente também é mantido por duração de saudação do intervalo de retenção de saudação.
 
 ### <a name="soft-delete-retention-period"></a>Período de retenção da exclusão reversível
 
-Os recursos excluídos de maneira reversível são mantidos por um período definido de tempo, 90 dias. Durante o intervalo de retenção da exclusão reversível, o seguinte se aplica:
+Os recursos excluídos de maneira reversível são mantidos por um período definido de tempo, 90 dias. Durante o intervalo de retenção de exclusão reversível hello, Olá seguinte se aplica:
 
-- É possível listar todos os cofres de chaves e objetos do cofre de chaves no estado de exclusão reversível de sua assinatura, bem como informações de exclusão e recuperação de acesso sobre eles.
+- Você pode listar todos os cofres chave hello e objetos de Cofre de chaves em estado de exclusão reversível Olá para sua assinatura bem como informações de exclusão e recuperação de acesso sobre eles.
     - Somente usuários com permissões especiais podem listar os cofres excluídos. Recomendamos que nossos usuários criem uma função personalizada com essas permissões especiais para a manipulação dos cofres excluídos.
-- Não é possível criar um cofre de chaves com o mesmo nome na mesma localização; do mesmo modo, não é possível criar um objeto do cofre de chaves em determinado cofre se esse cofre de chaves contém um objeto com o mesmo nome e que está no estado excluído 
-- Somente um usuário com privilégios específicos pode restaurar um cofre de chaves ou objeto do cofre de chaves emitindo um comando de recuperação no recurso de proxy correspondente.
-    - O usuário, membro da função personalizada, que tem o privilégio para criar um cofre de chaves no grupo de recursos pode restaurar o cofre.
-- Somente um usuário com privilégios específicos pode excluir por imposição um cofre de chaves ou objeto do cofre de chaves emitindo um comando de exclusão no recurso de proxy correspondente.
+- Um cofre de chaves com hello mesmo nome não pode ser criado em Olá mesmo local. de forma correspondente, um objeto de Cofre de chaves não pode ser criado um determinado cofre se o Cofre de chaves que contém um objeto com hello mesmo nome e que está no estado excluído 
+- Apenas um usuário privilegiado especificamente pode restaurar um cofre de chaves ou o objeto de Cofre de chaves ao emitir um comando de recuperação no recurso de proxy Olá correspondente.
+    - usuário Hello, membro de função personalizada de Olá, com Olá privilégio toocreate um cofre de chaves em um grupo de recursos de saudação pode restaurar cofre hello.
+- Somente um usuário com privilégios especificamente à força pode excluir um cofre de chaves ou o objeto de Cofre de chaves ao emitir um comando delete no recurso de proxy Olá correspondente.
 
-A menos que um cofre de chaves ou objeto do cofre de chaves seja recuperado, ao final do intervalo de retenção, o serviço realizará uma limpeza do cofre de chaves ou do objeto do cofre de chaves de excluídos de maneira reversível e de seu conteúdo. A exclusão de recursos não pode ser reagendada.
+A menos que um cofre de chaves ou o objeto de Cofre de chaves é recuperado, a saudação final do serviço de saudação do intervalo de retenção de saudação executa uma limpeza do Cofre de chaves Olá excluídos por software ou objeto de Cofre de chaves e seu conteúdo. A exclusão de recursos não pode ser reagendada.
 
 ### <a name="permitted-purge"></a>Limpeza permitida
 
-A exclusão permanente, limpeza, de um cofre de chaves é possível por meio de uma operação POST no recurso de proxy e exige privilégios especiais. Geralmente, apenas o proprietário da assinatura poderá limpar um cofre de chaves. A operação POST dispara a exclusão imediata e irrecuperável desse cofre. 
+Permanentemente excluindo, limpeza, um cofre de chaves é possível por meio de uma operação POST no recurso de proxy hello e requer privilégios especiais. Em geral, proprietário da assinatura Olá só será capaz de toopurge um cofre de chaves. gatilhos de operação POST Olá Olá exclusão imediata e irrecuperável de que os. 
 
-Uma exceção é quando a assinatura do Azure foi marcada como *não excluível*. Neste caso, apenas o serviço pode executar a exclusão real e ele o fará como um processo agendado. 
+Toothis uma exceção é o caso de Olá Olá assinatura do Azure foi marcada como *não excluível*. Nesse caso, apenas o serviço de saudação pode executar exclusão real hello e faz isso como um processo agendado. 
 
 
 

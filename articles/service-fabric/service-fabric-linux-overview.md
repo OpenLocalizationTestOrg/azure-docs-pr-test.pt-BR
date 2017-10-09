@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric no Linux | Microsoft Docs
-description: "Os clusters do Service Fabric dão suporte para o Linux e para o Java, o que significa que você poderá implantar e hospedar aplicativos do Service Fabric escritos em Java e em C# no Linux."
+title: aaaAzure Service Fabric no Linux | Microsoft Docs
+description: "Suportam a clusters Service Fabric Linux e Java, o que significa que você será capaz de toodeploy e hospedar aplicativos do Service Fabric escritos em Java e c# em Linux."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: SubramaR
-ms.openlocfilehash: dddc9f698d9776999d406117b46285a0f90d9620
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ca0e092b00faec560963c0d6cc379593d085f6a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-on-linux"></a>Service Fabric no Linux
-A visualização do Service Fabric no Linux permite criar, implantar e gerenciar aplicativos altamente disponíveis e altamente escalonáveis no Linux, assim como você faria no Windows. As estruturas do Service Fabric (Reliable Services e Reliable Actors) estão disponíveis em Java no Linux, além de em C# (.NET Core).  Você também pode compilar os [serviços executáveis convidados](service-fabric-deploy-existing-app.md) com qualquer linguagem ou estrutura. Além disso, a preview também dá suporte à orquestração de contêineres de Docker. Os contêineres de Docker podem executar arquivos executáveis de convidado ou serviços nativos do Service Fabric, que usam as estruturas do Service Fabric.
+visualização de saudação do Service Fabric no Linux permite toobuild, implantar e gerenciar aplicativos altamente escalonáveis, altamente disponíveis no Linux, exatamente como você faria no Windows. estruturas de malha do serviço de saudação (serviços confiáveis e atores confiável) estão disponíveis em Java no Linux em adição tooC # (.NET Core).  Você também pode compilar os [serviços executáveis convidados](service-fabric-deploy-existing-app.md) com qualquer linguagem ou estrutura. Além disso, visualização de saudação também oferece suporte a orquestração contêineres do Docker. Contêineres do docker podem executar arquivos executáveis de convidado ou nativo serviços do Service Fabric, que usa estruturas de malha do serviço de saudação.
 
-O Service Fabric no Linux é conceitualmente equivalente ao Service Fabric no Windows (exceto pelas especificações de sistema operacional e pelo suporte à linguagem de programação). Portanto, a maior parte da nossa [documentação existente](http://aka.ms/servicefabricdocs) destina-se a ajudar você a se familiarizar com a tecnologia.
+O Service Fabric no Linux é conceitualmente equivalente tooService malha no Windows (exceto para as especificações de sistema operacional e suporte de linguagem de programação). Portanto, a maioria dos nossos [documentação existente](http://aka.ms/servicefabricdocs) aplica-se em ajudando você se familiarizará com a tecnologia de saudação.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Service-Fabric-Linux-Preview/player]
 >
 >
 
 ## <a name="supported-operating-systems-and-programming-languages"></a>Sistemas operacionais e linguagens de programação com suporte
-A visualização limitada oferece suporte à criação de clusters de desenvolvimento de uma caixa, além de clusters de vários computadores no Azure executando o Ubuntu Server 16.04. A preview dá suporte para Reliable Actors e para as estruturas de serviços sem monitoração de estado confiáveis em Java e em C#, além dos executáveis de convidado e da orquestração de contêineres de Docker.  
+Olá limitado visualização dá suporte a saudação criação de desenvolvimento de uma caixa de clusters Além disso toomulti máquina clusters no Azure em execução 16.04 de servidor do Ubuntu. dá suporte à visualização de Olá Olá Reliable Actors e Olá estruturas de serviços sem estado confiável em Java e c# em adição tooguest executáveis e orquestrar a contêineres do Docker.  
 
 > [!NOTE]
-> O Linux ainda não dá suporte às Reliable Collections. Também não há suporte para clusters autônomos – somente os clusters de uma caixa e de vários computadores Linux do Azure têm suporte na preview.
+> O Linux ainda não dá suporte às Reliable Collections. Não há suporte para clusters somente de suporte-apenas uma caixa e clusters de vários computadores Linux do Azure são compatíveis com visualização hello.
 >
 >
 
 
 ## <a name="supported-tooling"></a>Ferramentas com suporte
-A versão prévia dá suporte à interação com o cluster por meio da CLI do Service Fabric. Para desenvolvedores Java, a integração com o Eclipse e o Yeoman é fornecida com o Eclipse com suporte no Linux e no OSX. A integração OSX usa uma VM do Linux nos bastidores por meio do Vagrant. Para desenvolvedores C#, a integração com o Yeoman é fornecida para gerar modelos de aplicativos.
+visualização de saudação dá suporte à interação com o cluster Olá por meio da CLI de malha do serviço. Para desenvolvedores Java, a integração com o Eclipse e o Yeoman é fornecida com o Eclipse com suporte no Linux e no OSX. Olá integração OSX usa uma VM do Linux subjacente Olá via vagrant. Para desenvolvedores do c#, integração com Yeoman é fornecida toogenerate modelos de aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Familiarize-se com as estruturas de programação [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [Reliable Services](service-fabric-reliable-services-introduction.md)
+* Familiarize-se com hello [Reliable Actors](service-fabric-reliable-actors-introduction.md) e [serviços confiáveis](service-fabric-reliable-services-introduction.md) estruturas de programação
 * [Preparar seu ambiente de desenvolvimento no Linux](service-fabric-get-started-linux.md)
 * [Preparar seu ambiente de desenvolvimento no OSX](service-fabric-get-started-mac.md)
 * [Criar seu primeiro aplicativo do Java do Service Fabric no Linux](service-fabric-create-your-first-linux-application-with-java.md)

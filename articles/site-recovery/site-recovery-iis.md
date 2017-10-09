@@ -1,6 +1,6 @@
 ---
-title: "Replicar um aplicativo Web baseado em IIS de várias camadas usando o Azure Site Recovery | Microsoft Docs"
-description: "Este artigo descreve como replicar máquinas de virtuais de um farm da Web do IIS usando o Azure Site Recovery."
+title: aaaReplicate um IIS multicamado com base em aplicativo web usando o Azure Site Recovery | Microsoft Docs
+description: "Este artigo descreve como tooreplicate IIS web farm máquinas de virtuais usando o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1974265b3cb05f6dc57049876306d2e08424bb97
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>Replicar um aplicativo Web baseado em IIS de várias camadas usando o Azure Site Recovery
 
 ## <a name="overview"></a>Visão geral
 
 
-Software de aplicativo é o motor da produtividade comercial em uma organização. Vários aplicativos Web podem servir para propósitos diferentes em uma organização. Alguns deles, como processamento de folha de pagamento, aplicativos financeiros e sites voltados para o cliente podem ser essenciais para uma organização. É importante que a organização os tenha sempre em execução para evitar a perda de produtividade e, acima de tudo, evitar danos à imagem da marca da organização.
+Software de aplicativo é o mecanismo de saudação de produtividade de negócios em uma organização. Vários aplicativos Web podem servir para propósitos diferentes em uma organização. Alguns deles, como processamento de folha de pagamento, aplicativos financeiros e sites voltados para o cliente podem ser essenciais para uma organização. É importante para Olá organização toohave-los para cima e em execução com perda de tooprevent de todos os tempos de produtividade e mais importante evitar qualquer imagem de marca toohello danos da organização hello.
 
-Os aplicativos Web críticos normalmente são configurados como aplicativos de várias camadas, com a Web, o banco de dados e o aplicativo em camadas diferentes. Além do serem espalhados em várias camadas, os aplicativos também podem usar vários servidores em cada camada a fim de balancear o tráfego. Além disso, os mapeamentos entre várias camadas e no servidor Web podem ter base em endereços IP estáticos. Durante o failover, será necessário atualizar alguns desses mapeamentos, especialmente se houver vários sites configurados no servidor da Web. No caso de aplicativos Web que usam SSL, será necessário atualizar as associações de certificado.
+Aplicativos web críticos geralmente são definidos como aplicativos de várias camadas com Olá web, o banco de dados e o aplicativo em diferentes camadas. Seja espalhada em várias camadas, além de aplicativos de saudação também podem usar vários servidores em cada camada tooload Olá balancear. Além disso, os mapeamentos de saudação entre várias camadas e no servidor de web hello podem ser baseados em endereços IP estáticos. Durante o failover, alguns destes mapeamentos precisará toobe atualizado, especialmente, se você tiver vários sites configurados no servidor de web hello. No caso de aplicativos web usando SSL, associações de certificado serão necessário toobe atualizado.
 
-Os métodos tradicionais de recuperação sem base na replicação envolvem o backup de vários arquivos de configuração, configurações do Registro, associações, componentes personalizados (COM ou .NET), conteúdo e também certificados e recuperação dos arquivos por meio de um conjunto de etapas manuais. Está claro que essas técnicas são inconvenientes, propensas a erros e não escalonáveis. É possível, por exemplo, que você se esqueça facilmente de fazer backup de certificados e acabe ficando sem outra opção além de comprar novos certificados para o servidor após o failover.
+Métodos tradicionais de recuperação baseados em replicação não envolvem fazendo backup de vários arquivos de configuração, as configurações do registro, associações, componentes personalizados (COM ou .NET), conteúdo e também certificados e recuperar arquivos Olá por meio de um conjunto de etapas manuais. Está claro que essas técnicas são inconvenientes, propensas a erros e não escalonáveis. Ele é, por exemplo, facilmente possível tooforget fazendo backup de certificados e ficar com nenhuma opção mas toobuy novos certificados para o servidor de saudação após o failover.
 
-Uma boa solução de recuperação de desastres deve permitir a modelagem de planos de recuperação em torno das arquiteturas de aplicativo complexas indicadas acima, e também tem a capacidade de adicionar etapas personalizadas para lidar com mapeamentos de aplicativo entre as várias camadas, fornecendo uma solução certeira acionada com um único clique no caso de um desastre resultar em um RTO inferior.
+Uma solução de recuperação de desastres BOM, deve permitir modelagem de planos de recuperação em torno de saudação acima arquiteturas de aplicativos complexos e também ter Olá capacidade tooadd personalizado etapas toohandle aplicativo mapeamentos entre várias camadas, portanto, fornecendo um Clique se captura solução no evento de saudação de um desastre esquerda tooa reduzir o RTO.
 
 
-Este artigo descreve como proteger um aplicativo Web baseado em IIS usando o [Azure Site Recovery](site-recovery-overview.md). Este artigo abordará as práticas recomendadas para a replicação de um aplicativo Web baseado em IIS no Azure, como você pode fazer uma análise de recuperação de desastres e como é possível realizar o failover do aplicativo no Azure.
+Este artigo descreve como tooprotect um IIS com base em aplicativo web usando um [do Azure Site Recovery](site-recovery-overview.md). Este artigo aborda as práticas recomendadas para a replicação de uma camada de três IIS com base tooAzure de aplicativo web, como você pode fazer uma simulação de recuperação de desastres e como é possível o failover Olá aplicativo tooAzure.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, você precisa entender o seguinte:
+Antes de começar, certifique-se de que compreender o seguinte hello:
 
-1. [Replicar uma máquina virtual no Azure](site-recovery-vmware-to-azure.md)
-1. Como [criar uma rede de recuperação](site-recovery-network-design.md)
-1. [Executar um failover de teste no Azure](./site-recovery-test-failover-to-azure.md)
-1. [Executar um failover no Azure](site-recovery-failover.md)
-1. Como [replicar um controlador de domínio](site-recovery-active-directory.md)
-1. Como [replicar o SQL Server](site-recovery-sql.md)
+1. [Replicando tooAzure uma máquina virtual](site-recovery-vmware-to-azure.md)
+1. Como muito[criar uma rede de recuperação](site-recovery-network-design.md)
+1. [Fazer um tooAzure de failover de teste](./site-recovery-test-failover-to-azure.md)
+1. [Fazer um failover tooAzure](site-recovery-failover.md)
+1. Como muito[replicar um controlador de domínio](site-recovery-active-directory.md)
+1. Como muito[replicar do SQL Server](site-recovery-sql.md)
 
 ## <a name="deployment-patterns"></a>Padrões de implantação
-Um aplicativo Web baseado no IIS normalmente segue um destes padrões de implantação:
+Um aplicativo de web do IIS com base em geralmente segue uma saudação padrões de implantação a seguir:
 
 **Padrão de implantação 1** Um farm da Web baseado no IIS com ARR (Application Request Routing), o Servidor IIS e o Microsoft SQL Server.
 
@@ -62,11 +62,11 @@ Um aplicativo Web baseado no IIS normalmente segue um destes padrões de implant
 
 ## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
-Para a criação deste artigo, usamos as máquinas virtuais VMware com o Servidor IIS versão 7.5 no Windows Server 2012 R2 Enterprise. Como a replicação de recuperação do site é independente do aplicativo, as recomendações fornecidas aqui devem servir para os seguintes cenários, bem como para uma versão diferente do IIS.
+Para fins de saudação de criação neste artigo as máquinas virtuais VMware com o servidor IIS versão 7.5 no Windows Server 2012 R2 Enterprise foram usados. Como a replicação de recuperação de site é independente do aplicativo, recomendações Olá fornecidos aqui são apenas toohold esperado nos seguintes cenários de e para uma versão diferente do IIS.
 
 ### <a name="source-and-target"></a>Origem e destino
 
-**Cenário** | **Para um site secundário** | **Para o Azure**
+**Cenário** | **site secundário tooa** | **tooAzure**
 --- | --- | ---
 **Hyper-V** | Sim | Sim
 **VMware** | Sim | Sim
@@ -74,39 +74,39 @@ Para a criação deste artigo, usamos as máquinas virtuais VMware com o Servido
 
 ## <a name="replicate-virtual-machines"></a>Replicar máquinas virtuais
 
-Siga [este guia](site-recovery-vmware-to-azure.md) para começar a replicar todas as máquinas virtuais do farm da Web do IIS no Azure.
+Execute [neste guia](site-recovery-vmware-to-azure.md) toostart replicando todas as Olá IIS web farm máquinas virtuais tooAzure.
 
-Se você estiver usando um IP estático, especifique o IP que você deseja usar na máquina virtual na configuração [**IP de Destino**](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties), nas configurações de Rede e Computação.
+Se você estiver usando um endereço IP estático, especifique Olá IP que você deseja Olá tootake de máquina virtual em Olá [ **IP de destino** ](./site-recovery-replicate-vmware-to-azure.md#view-and-manage-vm-properties) configuração em configurações de rede e computação.
 
 ![IP de Destino](./media/site-recovery-active-directory/dns-target-ip.png)
 
 
 ## <a name="creating-a-recovery-plan"></a>Criar um plano de recuperação
 
-Um plano de recuperação permite o sequenciamento do failover de várias camadas em um aplicativo de várias camadas, mantendo assim a consistência do aplicativo. Execute as etapas abaixo ao criar um plano de recuperação para um aplicativo Web de várias camadas.  [Saiba mais sobre a criação de um plano de recuperação](./site-recovery-create-recovery-plans.md).
+Um plano de recuperação permite sequenciamento Olá failover de várias camadas em um aplicativo de várias camada, assim, manter a consistência do aplicativo. Siga Olá etapas a seguir ao criar um plano de recuperação para um aplicativo web de várias camadas.  [Saiba mais sobre a criação de um plano de recuperação](./site-recovery-create-recovery-plans.md).
 
-### <a name="adding-virtual-machines-to-failover-groups"></a>Adicionar máquinas virtuais aos grupos de failover
-Um aplicativo Web comum do IIS de várias camadas será formado por uma camada de banco de dados com máquinas virtuais SQL, pela camada da Web composta por um Servidor IIS, e uma camada de aplicativo. Adicione todas essas máquinas virtuais a outro grupo com base na camada abaixo. [Saiba mais sobre como personalizar o plano de recuperação](site-recovery-runbook-automation.md#customize-the-recovery-plan).
+### <a name="adding-virtual-machines-toofailover-groups"></a>A adição de grupos de toofailover de máquinas virtuais
+Um aplicativo de web IIS de várias camado típico consiste em uma camada de banco de dados com máquinas virtuais do SQL, camada da web de saudação constituído por um servidor do IIS e uma camada de aplicativo. Adicione todos os grupo de toodifferent essas máquinas virtuais com base na camada como abaixo. [Saiba mais sobre como personalizar o plano de recuperação](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
-1. Crie um plano de recuperação. Adicione as máquinas virtuais da camada de banco de dados ao Grupo 1 para garantir que elas sejam encerradas por último e ativadas primeiro.
+1. Crie um plano de recuperação. Adicione máquinas virtuais de camada de banco de dados Olá em 1 grupo tooensure que eles são desligadas última e colocado primeiro.
 
-1. Adicione as máquinas virtuais de camada de aplicativo ao Grupo 2, para que elas sejam acionadas após o acionamento da camada de banco de dados.
+1. Adicione máquinas virtuais de camada de aplicativo hello sob o grupo 2, de modo que eles sejam ativados após a camada de banco de dados de saudação foram ativada.
 
-1. Adicione as máquinas virtuais de camada da Web ao Grupo 3, para que elas sejam acionadas após o acionamento da camada de aplicativo.
+1. Adicione máquinas virtuais do Olá web camada no grupo 3, de modo que eles sejam ativados depois de camada de aplicativo hello foram ativada.
 
-1. Adicione as máquinas virtuais de balanceamento de carga ao Grupo 4, para que elas sejam acionadas após o acionamento da camada da Web.
+1. Adicione balancear a carga de máquinas virtuais no grupo 4, de modo que eles sejam ativados depois da camada de dados da web hello foram ativada.
 
 
-### <a name="adding-scripts-to-the-recovery-plan"></a>Adicionar scripts ao plano de recuperação
-Talvez seja necessário fazer algumas operações nas máquinas virtuais do Azure após o failover/teste de failover a fim de fazer o farm da Web do IIS funcionar corretamente. Automatize a operação pós-failover, como a atualização da entrada DNS, alteração da associação de site, alteração na cadeia de conexão, adicionando scripts correspondentes no plano de recuperação, conforme mostrado a seguir. [Saiba mais sobre como adicionar script ao plano de recuperação](./site-recovery-create-recovery-plans.md#add-scripts).
+### <a name="adding-scripts-toohello-recovery-plan"></a>Adicionar plano de recuperação de toohello de scripts
+Talvez seja necessário toodo algumas operações em máquinas virtuais do Azure post/teste de failover failover toomake função do IIS web farm de saudação corretamente. Você pode automatizar a operação de failover Olá post como atualizar a entrada DNS, alterando a associação do site, alterações na cadeia de caracteres de conexão adicionando scripts correspondentes no plano de recuperação hello como abaixo. [Saiba mais sobre como adicionar script ao plano de recuperação](./site-recovery-create-recovery-plans.md#add-scripts).
 
 #### <a name="dns-update"></a>Atualização de DNS
-Se o DNS estiver configurado para atualização dinâmica de DNS, as máquinas virtuais normalmente atualizarão o DNS com o novo IP quando forem iniciadas. Se você quiser adicionar uma etapa explícita para atualizar o DNS com os novos IPs das máquinas virtuais, adicione este [script para atualizar o IP no DNS](https://aka.ms/asr-dns-update) como uma ação posterior nos grupos de plano de recuperação.  
+Se Olá DNS é configurado para a atualização dinâmica de DNS máquinas virtuais normalmente atualizar Olá DNS com hello novo IP quando eles são iniciados. Se desejar tooadd um tooupdate etapa explícita DNS com hello novos IPs de máquinas virtuais de hello, em seguida, adicione isso [script tooupdate IP no DNS](https://aka.ms/asr-dns-update) como uma ação de postagem em grupos do plano de recuperação.  
 
 #### <a name="connection-string-in-an-applications-webconfig"></a>Cadeia de conexão no web.config do aplicativo
-A cadeia de conexão especifica o banco de dados com o qual o banco de dados se comunica.
+cadeia de caracteres de conexão de saudação especifica o banco de dados Olá Olá site da web se comunica com.
 
-Se a cadeia de conexão levar o nome da máquina virtual do banco de dados, nenhuma outra etapa será necessária após o failover, e o aplicativo será capaz de se comunicar automaticamente com o banco de dados. Além disso, se o endereço IP da máquina virtual do banco de dados for mantido, ele não será necessário para atualizar a cadeia de conexão. Se a cadeia de conexão se referir à máquina virtual do banco de dados usando um endereço IP, será necessário atualizá-lo após o failover. Por exemplo a cadeia de conexão abaixo aponta para o banco de dados com IP 127.0.1.2
+Se cadeia de caracteres de conexão Olá assume o nome de saudação da máquina de virtual de banco de dados hello, nenhuma etapa adicional será necessária post failover e aplicativo hello poderá tooautomatically se comunicam toohello banco de dados. Além disso, se o endereço IP Olá Olá máquina de virtual de banco de dados é mantido, não será necessária a cadeia de caracteres de conexão do tooupdate hello. Se a cadeia de caracteres de conexão de saudação refere-se a máquina de virtual de banco de dados toohello usando um endereço IP, será necessário toobe atualizado após failover. Por exemplo Olá abaixo de cadeia de caracteres de conexão aponta toohello banco de dados com IP 127.0.1.2
 
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
@@ -115,53 +115,53 @@ Se a cadeia de conexão levar o nome da máquina virtual do banco de dados, nenh
         </connectionStrings>
         </configuration>
 
-Atualize a cadeia de conexão na camada da Web adicionando o [script de atualização de conexão do IIS](https://aka.ms/asr-update-webtier-script-classic) após o Grupo 3 no plano de recuperação.
+Você pode atualizar a cadeia de caracteres de conexão de saudação na camada da web adicionando [script de atualização de conexão do IIS](https://aka.ms/asr-update-webtier-script-classic) após o grupo 3 no plano de recuperação de saudação.
 
-#### <a name="site-bindings-for-the-application"></a>Associações de site para o aplicativo
-Cada site é composto por informações de associação que incluem o tipo de associação, o endereço IP no qual o servidor IIS escuta as solicitações para o site, o número da porta e os nomes de host do site. No momento de um failover, talvez seja necessário atualizar essas associações se houver uma alteração no endereço IP associado a elas.
+#### <a name="site-bindings-for-hello-application"></a>Ligações do site para o aplicativo hello
+Cada site consiste em informações que incluem o tipo de saudação de associação, o endereço IP de Olá no qual Olá servidor IIS escuta solicitações de toohello para site hello, número da porta hello e nomes de host de saudação do site Olá de associação. Em tempo de saudação de um failover, essas associações talvez seja necessário toobe atualizado se houver uma alteração no endereço IP hello associado a eles.
 
 > [!NOTE]
 >
-> Se você tiver marcado 'todos não atribuídos' para a associação de site, como no exemplo a seguir, não será necessário atualizar essa associação após o failover. Além disso, se o endereço IP associado a um site não for alterado após o failover, não será necessário atualizar a associação do site (a retenção do endereço IP depende da arquitetura de rede e das sub-redes atribuídas aos sites primário e de recuperação e, assim, pode ou não ser viável para a sua organização.)
+> Se você tiver marcado como 'all unassigned' para associação do site Olá exemplo hello abaixo, você não precisará tooupdate esse failover de postagem de associação. Além disso, se o endereço IP de saudação associado a um site não for alterado após failover, associação do site Olá necessário não ser atualizada (retenção de endereço IP hello depende da arquitetura de rede hello e sub-redes atribuído toohello sites primário e de recuperação e, portanto, podem ou não seja viável para sua organização.)
 
 ![Associação de SSL](./media/site-recovery-iis/sslbinding.png)
 
-Se você tiver associado o endereço IP a um site, será necessário atualizar todas as associações de site com o novo endereço IP. Adicione o [script de atualização da camada da Web do IIS](https://aka.ms/asr-web-tier-update-runbook-classic) após o Grupo 3 no plano de recuperação para alterar as associações de site.
+Se você associou o endereço IP de saudação com um site, você precisará tooupdate todas as associações de site com o novo endereço IP hello. Você pode adicionar [script de atualização da camada da Web do IIS](https://aka.ms/asr-web-tier-update-runbook-classic) após o grupo 3 em associações de site saudação do toochange de plano de recuperação.
 
 
 #### <a name="update-load-balancer-ip-address"></a>Atualizar o endereço IP do balanceador de carga
-Se você tiver uma máquina virtual com Application Request Routing, adicione o [script de failover de ARR do IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) após o Grupo 4 para atualizar o endereço IP.
+Se você tiver máquina de virtual Application Request Routing, adicione [script de failover de ARR IIS](https://aka.ms/asr-iis-arrtier-failover-script-classic) após o endereço IP do grupo 4 tooupdate hello.
 
-#### <a name="the-ssl-cert-binding-for-an-https-connection"></a>A associação de certificados SSL para uma conexão https
-Os sites podem ter um certificado SSL associado que ajuda a garantir uma comunicação segura entre o servidor Web e o navegador do usuário. Se o site tiver uma conexão https e uma associação de site https associada ao endereço IP do servidor IIS com uma associação de certificado SSL, será necessário adicionar uma nova associação de site ao certificado com o IP da máquina virtual do IIS após o failover.
+#### <a name="hello-ssl-cert-binding-for-an-https-connection"></a>associação de certificado SSL Olá para uma conexão https
+Sites podem ter um certificado SSL associado que ajuda a garantir uma comunicação segura entre Olá servidorweb e navegador saudação do usuário. Se o site Olá tem uma conexão https e um endereço IP https associado site associação toohello saudação do servidor do IIS com uma associação de certificado SSL, uma nova associação de site precisará toobe adicionado cert Olá com hello IP da máquina de virtual IIS Olá após o failover.
 
-O certificado SSL pode ser executado:
+certificado SSL Olá pode ser emitido em relação a-
 
-a) No nome de domínio totalmente qualificado do site<br>
-b) No nome do servidor<br>
-c) Em um certificado curinga para o nome de domínio<br>
-d) Em um endereço IP – Se o certificado SSL for emitido para o IP do servidor IIS, outro certificado SSL deverá ser emitido para o endereço IP do servidor IIS no site do Azure, e será necessário criar uma associação SSL adicional para esse certificado. Portanto, não aconselhamos o uso de um certificado SSL emitido com base no IP. Essa é uma opção menos usada e em breve será substituída de acordo com as novas alterações na CA/fórum do navegador.
+um) nome de domínio totalmente qualificado de Olá do site Olá<br>
+b) nome saudação do servidor de saudação<br>
+c) um certificado curinga para o nome de domínio Olá<br>
+d) um endereço IP – se o certificado SSL da saudação é feito em IP hello saudação do servidor do IIS, outro toobe de necessidades de certificado SSL emitido para o endereço IP de saudação do hello servidor IIS em Olá site do Azure e uma associação de SSL adicional para este certificado será necessário toobe criado. Portanto, é aconselhável toonot usar um certificado SSL emitido em IP. Essa é uma opção menos usada e em breve será substituída de acordo com as novas alterações na CA/fórum do navegador.
 
-#### <a name="update-the-dependency-between-the-web-and-the-application-tier"></a>Atualizar a dependência entre a camada da Web e de aplicativo
-Se você tiver uma dependência específica do aplicativo com base no endereço IP das máquinas virtuais, será necessário atualizar essa dependência após o failover.
+#### <a name="update-hello-dependency-between-hello-web-and-hello-application-tier"></a>Atualização Olá dependência entre Olá web e a camada de aplicativo hello
+Se você tiver uma dependência específicas de aplicativo com base no endereço IP hello de máquinas virtuais de saudação, você precisa tooupdate esse failover de postagem de dependência.
 
 ## <a name="doing-a-test-failover"></a>Executar um failover de teste
-Siga [este guia](site-recovery-test-failover-to-azure.md) fazer um failover de teste.
+Execute [neste guia](site-recovery-test-failover-to-azure.md) toodo um failover de teste.
 
-1.  Acesse o Portal do Azure e selecione seu cofre do Serviço de Recuperação.
-1.  Clique no plano de recuperação criado para o farm da Web do IIS.
+1.  Vá tooAzure portal e selecione seu Cofre de recuperação de serviço.
+1.  Clique no plano de recuperação de saudação criado para o farm da web do IIS.
 1.  Clique em 'Failover de Teste'.
-1.  Selecione o ponto e recuperação e a rede virtual do Azure para iniciar o processo de failover de teste.
-1.  Quando o ambiente secundário estiver funcionando, você poderá executar sua validações.
-1.  Após a conclusão das validações, selecione 'Validações concluídas', e o ambiente do failover de teste será limpo.
+1.  Selecione o ponto de recuperação e o processo de failover de teste do rede virtual do Azure toostart hello.
+1.  Após ambiente secundário hello, você pode executar a validação.
+1.  Depois que as validações de saudação estiverem concluídas, você pode selecionar 'Validações Concluir' e ambiente de failover de teste hello serão limpos.
 
 ## <a name="doing-a-failover"></a>Executar um failover
 Siga [este guia](site-recovery-failover.md) quando estiver realizando um failover.
 
-1.  Acesse o Portal do Azure e selecione seu cofre do Serviço de Recuperação.
-1.  Clique no plano de recuperação criado para o farm da Web do IIS.
+1.  Vá tooAzure portal e selecione seu Cofre de recuperação de serviço.
+1.  Clique no plano de recuperação de saudação criado para o farm da web do IIS.
 1.  Clique em 'Failover'.
-1.  Selecione o ponto de recuperação para iniciar o processo de failover.
+1.  Selecione o processo de failover de saudação de toostart de ponto de recuperação.
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [replicar outros aplicativos](site-recovery-workload.md) usando o Site Recovery.

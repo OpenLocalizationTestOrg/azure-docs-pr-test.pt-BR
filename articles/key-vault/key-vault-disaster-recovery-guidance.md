@@ -1,6 +1,6 @@
 ---
-title: "O que fazer no caso de uma interrupção de serviço do Azure afetar o Cofre de Chaves do Azure | Microsoft Docs"
-description: "Saiba o que fazer no caso de uma interrupção de serviço do Azure afetar o Cofre de Chaves do Azure."
+title: "toodo aaaWhat no evento de saudação de uma interrupção de serviço do Azure que afeta o Cofre de chaves do Azure | Microsoft Docs"
+description: "Saiba quais toodo no evento de saudação de uma interrupção de serviço do Azure que afeta o Cofre de chaves do Azure."
 services: key-vault
 documentationcenter: 
 author: adamglick
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
-ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 88eec82ada401a28323b3eea126168185ba4cdb0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de Chaves do Azure
-O Cofre de Chaves do Azure tem várias camadas de redundância, a fim de garantir que seus segredos e chaves permaneçam disponíveis para seu aplicativo até mesmo se os componentes individuais do serviço falharem.
+Cofre de chaves do Azure apresenta várias camadas de redundância toomake se suas chaves e segredos permanecem disponíveis tooyour aplicativo mesmo se os componentes individuais do hello serviço falhar.
 
-O conteúdo de seu cofre de chaves é replicado na região e em uma região secundária a pelo menos 150 milhas de distância, mas na mesma região geográfica. Isso mantém a alta durabilidade de seus segredos e chaves. Consulte o documento [Regiões emparelhadas do Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) para obter detalhes sobre pares de regiões específicos.
+Olá conteúdo de seu Cofre de chaves é replicado dentro Olá regiões e tooa secundário, pelo menos, 150 milhas imediatamente, mas dentro de saudação mesmo Geografia. Isso mantém a alta durabilidade de seus segredos e chaves. Consulte Olá [Azure emparelhado regiões](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) documento para obter detalhes sobre os pares de região específica.
 
-Se os componentes individuais dentro do serviço de cofre de chaves falharem, os componentes alternativos dentro da região interferirão para atender à sua solicitação, de modo a garantir que não haja degradação da funcionalidade. Você não precisa executar qualquer ação para disparar esse recurso. Ele ocorre automaticamente de modo transparente para você.
+Se os componentes individuais no serviço de Cofre de chaves Olá falharem, componentes alternativos na região Olá etapa na tooserve seu toomake solicitação se não há nenhuma degradação de funcionalidade. Você não precisa tootake tootrigger qualquer ação isso. Ela ocorre automaticamente e será tooyou transparente.
 
-No eventual caso de uma região inteira do Azure ficar indisponível, as solicitações que você faz do Cofre de Chaves do Azure nessa região são roteadas automaticamente (*failover*) para uma região secundária. Quando a região primária estiver disponível novamente, as solicitações serão roteadas de volta (*failback*) para a região primária. Novamente, não é necessário executar nenhuma ação, pois isso acontecerá de modo automático.
+No evento raro Olá que toda a uma região do Azure está disponível, Olá solicitações feitas de Cofre de chaves do Azure nessa região são roteadas automaticamente (*failover*) região secundária tooa. Quando a região primária Olá esteja disponível novamente, as solicitações são roteadas novamente (*falha volta*) região primária toohello. Novamente, não é necessário tootake qualquer ação porque isso ocorre automaticamente.
 
-Há algumas advertências que você deve conhecer:
+Há alguns toobe de advertências atento:
 
-* No caso de um failover de região, pode levar alguns minutos para o serviço executar failover. Solicitações feitas durante esse período podem falhar até que o failover seja concluído.
+* Evento de saudação de um failover de região, levará alguns minutos para Olá serviço toofail. As solicitações feitas durante esse tempo podem falhar até a conclusão do failover de saudação.
 * Após a conclusão de um failover, o cofre de chaves estará no modo somente leitura. As solicitações permitidas nesse modo são:
   * Listar cofres de chave
   * Obter propriedades de cofres de chave

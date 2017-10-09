@@ -1,20 +1,20 @@
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="log-in-toohello-azure-portal"></a>Faça logon no toohello portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Faça logon no toohello [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database-using-the-azure-portal"></a>Criar um Banco de Dados SQL em branco usando o portal do Azure
+## <a name="create-a-blank-sql-database-using-hello-azure-portal"></a>Criar um banco de dados SQL em branco usando Olá portal do Azure
 
-Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](../articles/sql-database/sql-database-service-tiers.md). O banco de dados é criado dentro de um [grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md) e em um [servidor lógico de banco de dados SQL do Azure](../articles/sql-database/sql-database-features.md). 
+Um banco de dados SQL do Azure é criado com um conjunto definido de [recursos de computação e armazenamento](../articles/sql-database/sql-database-service-tiers.md). banco de dados de saudação é criado em um [grupo de recursos do Azure](../articles/azure-resource-manager/resource-group-overview.md) e, em um [servidor lógico do banco de dados do Azure SQL](../articles/sql-database/sql-database-features.md). 
 
-Siga estas etapas para criar um banco de dados SQL em branco. 
+Siga essas etapas toocreate um banco de dados SQL em branco. 
 
-1. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
+1. Clique em Olá **novo** botão localizado no canto superior esquerdo de saudação do hello portal do Azure.
 
-2. Selecione **Bancos de Dados** na página **Novo** e **Banco de Dados SQL** na página **Bancos de Dados**. 
+2. Selecione **bancos de dados** de saudação **novo** página e selecione **banco de dados SQL** de saudação **bancos de dados** página. 
 
    ![criar banco de dados vazio](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
-3. Preencha o formulário do Banco de Dados SQL com as informações abaixo, conforme mostrado na imagem anterior:   
+3. Preencha formulário de banco de dados SQL Olá com hello seguintes informações, conforme mostrado na saudação anterior imagem:   
 
    | Configuração | Valor sugerido | Descrição |
    | --------| --------------- | ----------- | 
@@ -24,13 +24,13 @@ Siga estas etapas para criar um banco de dados SQL em branco.
    | **Selecionar fonte** | Banco de dados em branco | Especifica que um banco de dados em branco deve ser criado. |
    ||||
 
-4. Clique em **Servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** com as seguintes informações: 
+4. Clique em **Server** toocreate e configurar um novo servidor para o novo banco de dados. Preencha Olá **novo formulário de servidor** com hello informações a seguir: 
 
    | Configuração | Valor sugerido | Descrição |
    | --------| --------------- | ----------- | 
    | **Nome do servidor** | Qualquer nome exclusivo globalmente. | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Logon de administrador do servidor** | Qualquer nome válido. | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Senha** | Qualquer senha válida. | Sua senha deve ter, pelo menos, oito caracteres e deve conter caracteres de três das seguintes categorias: caracteres com letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos. |
+   | **Senha** | Qualquer senha válida. | Sua senha deve ter pelo menos oito caracteres e deve conter caracteres de três das Olá categorias a seguir: caracteres em letras maiusculas, letras minúsculas, números e caracteres não alfanuméricos. |
    | **Localidade** | Qualquer local válido. | Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). |
    ||||
 
@@ -38,65 +38,65 @@ Siga estas etapas para criar um banco de dados SQL em branco.
 
 5. Clique em **Selecionar**.
 
-6. Clique em **Tipo de preço** para especificar o nível de desempenho e o tipo de serviço para o novo banco de dados. Para este tutorial, selecione **20 DTUs** e **250** GB de armazenamento.
+6. Clique em **preço** toospecify Olá desempenho e da camada de nível de serviço para o novo banco de dados. Para este tutorial, selecione **20 DTUs** e **250** GB de armazenamento.
 
    ![Criar database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 7. Clique em **Aplicar**.  
 
-8. Selecione um **agrupamento** para o banco de dados em branco (para este tutorial, use o valor padrão). Para obter mais informações sobre agrupamentos, consulte [Agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations)
+8. Selecione um **agrupamento** para banco de dados em branco (para este tutorial, usar o valor padrão Olá) hello. Para obter mais informações sobre agrupamentos, consulte [Agrupamentos](https://docs.microsoft.com/sql/t-sql/statements/collations)
 
-9. Clique em **Criar** para provisionar o banco de dados. O provisionamento leva cerca de um minuto e meio para concluir. 
+9. Clique em **criar** banco de dados do tooprovision hello. Provisionamento leva sobre toocomplete um minuto e meia. 
 
-10. Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
+10. Na barra de ferramentas hello, clique em **notificações** toomonitor processo de implantação de saudação.
 
    ![notificação](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule-using-the-azure-portal"></a>Criar uma regra de firewall de nível de servidor usando o portal do Azure
+## <a name="create-a-server-level-firewall-rule-using-hello-azure-portal"></a>Criar uma regra de firewall de nível de servidor usando Olá portal do Azure
 
-O serviço Banco de Dados SQL cria um firewall no nível do servidor. Inicialmente, o firewall impede ferramentas externas e aplicativos de se conectarem ao servidor ou a bancos de dados no servidor. As conexões são permitidas depois que uma regra de firewall é criada para abrir os endereços IP específicos. Execute estas etapas a fim de criar uma [regra de firewall no nível do servidor do Banco de Dados SQL](../articles/sql-database/sql-database-firewall-configure.md) para o endereço IP do seu cliente e habilitar a conectividade externa por meio do firewall do Banco de Dados SQL somente para seu endereço IP. 
+Olá serviço de banco de dados SQL cria um firewall no nível de servidor de saudação. Inicialmente firewall Olá impede ferramentas externas e aplicativos de conexão de servidor toohello ou tooany bancos de dados no servidor de saudação. Conexões são permitidas depois que uma regra de firewall é criada tooopen endereços IP específicos. Siga estas etapas toocreate um [regra de firewall de nível de servidor de banco de dados SQL](../articles/sql-database/sql-database-firewall-configure.md) para o endereço IP e a conectividade externa tooenable através do firewall do banco de dados SQL Olá para seu endereço de IP do cliente. 
 
 
 > [!NOTE]
-> O Banco de Dados SQL do Azure se comunica pela porta 1433. Você só pode se conectar ao banco de dados SQL depois que o firewall da sua rede permite o tráfego de saída pela porta 1433.
+> O Banco de Dados SQL do Azure se comunica pela porta 1433. Você pode conectar tooSQL banco de dados somente depois que o firewall de saudação da sua rede permite o tráfego de saída pela porta 1433.
 
 
-1. Depois da implantação ser concluída, clique em **Bancos de dados SQL** no menu à esquerda, depois, clique em **mySampleDatabase** na página **Bancos de dados SQL**. Uma página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver20170313.database.windows.net**) e fornece opções para configurações adicionais. Copie esse nome totalmente qualificado do servidor para um uso posterior.
+1. Após a conclusão da implantação hello, clique em **bancos de dados SQL** no menu esquerdo hello e clique **mySampleDatabase** em Olá **bancos de dados SQL** página. Olá, página de visão geral para o banco de dados abre, mostrando a você Olá totalmente qualificado nome do servidor (como **mynewserver20170313.database.windows.net**) e fornece opções de configuração adicional. Copie esse nome totalmente qualificado do servidor para um uso posterior.
 
    > [!IMPORTANT]
-   > Você precisará desse nome totalmente qualificado do servidor para conectar o servidor e seus bancos de dados nos inícios rápidos subsequentes.
+   > É necessário que este servidor de tooyour de tooconnect de nome totalmente qualificado do servidor e seus bancos de dados em início rápido subsequente.
    > 
 
    ![nome do servidor](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-2. Clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem anterior. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta. 
+2. Clique em **definir o firewall do servidor** na barra de ferramentas Olá conforme mostrado na imagem anterior hello. Olá **configurações de Firewall** página para o servidor de banco de dados SQL Olá é aberta. 
 
    ![regra de firewall do servidor](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 
-3. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar seu endereço IP atual a uma nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
+3. Clique em **Adicionar IP do cliente** em Olá barra de ferramentas tooadd seu atual endereço IP tooa nova regra de firewall. Uma regra de firewall pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP.
 
-4. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para a porta de abertura 1433 de seu endereço IP atual no servidor lógico.
+4. Clique em **Salvar**. Uma regra de firewall de nível de servidor é criada para seu endereço IP atual, abrir a porta 1433 no servidor lógico hello.
 
    ![definir regra de firewall do servidor](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule-set.png) 
 
-4. Clique em **OK**, em seguida, feche a página **Configurações do Firewall**.
+4. Clique em **Okey** e, em seguida, feche Olá **configurações de Firewall** página.
 
-Agora você pode se conectar ao servidor Banco de Dados SQL e a seus bancos de dados usando uma ferramenta como o SS;S (SQL Server Management Studio). A conexão vem desse endereço IP e usa a conta de administrador do servidor criada anteriormente.
+Agora você pode conectar o servidor de banco de dados do Azure SQL toohello e seus bancos de dados usando uma ferramenta como o SQL Server Management Studio (SSMS). conexão Hello está usando esse endereço IP e usa a conta de administrador de servidor de saudação criada anteriormente.
 
 
 > [!IMPORTANT]
-> Por padrão, o acesso através do firewall do Banco de Dados SQL está habilitado para todos os serviços do Azure. Clique em **DESATIVAR** nesta página para desabilitar todos os serviços do Azure.
+> Por padrão, o acesso através do firewall do banco de dados SQL hello está habilitado para todos os serviços do Azure. Clique em **OFF** em toodisable essa página para todos os serviços do Azure.
 
 
-## <a name="get-connection-string-values-using-the-azure-portal"></a>Obter valores de cadeia de conexão usando o portal do Azure
+## <a name="get-connection-string-values-using-hello-azure-portal"></a>Obter valores de cadeia de caracteres de conexão usando Olá portal do Azure
 
-Obtenha o nome de servidor totalmente qualificado para o servidor de Banco de Dados SQL do Azure no Portal do Azure. Use o nome do servidor totalmente qualificado para se conectar ao servidor usando o SQL Server Management Studio.
+Obter nome de totalmente qualificado do servidor de saudação de seu servidor de banco de dados do Azure SQL Olá portal do Azure. Você usa Olá totalmente qualificado nome tooconnect tooyour server usando o SQL Server Management Studio.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
+2. Selecione **bancos de dados SQL** no menu esquerdo do hello e clique em seu banco de dados em Olá **bancos de dados SQL** página. 
 
-3. No painel **Essentials**, na página do Portal do Azure de seu banco de dados, localize e copie o **Nome do servidor**.
+3. Em Olá **Essentials** painel Olá página do portal do Azure para seu banco de dados, localize e copie Olá **nome do servidor**.
 
    ![informações da conexão](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 

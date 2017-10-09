@@ -1,57 +1,57 @@
 
 # <a name="azure-and-internet-of-things"></a>Azure e Internet das Coisas
 
-Bem vindo ao Microsoft Azure e à IoT (Internet das Coisas). Este artigo apresenta uma arquitetura de solução IoT que descreve as características comuns de uma solução IoT, que você pode implantar usando os serviços do Azure. Uma solução de IoT exige uma comunicação bidirecional segura entre dispositivos, possivelmente contabilizando milhões, e um back-end da solução. Por exemplo, um back-end da solução pode usar análise preditiva automatizada para revelar insights do fluxo de eventos do dispositivo para a nuvem.
+Bem-vindo tooMicrosoft do Azure e Olá Internet das coisas (IoT). Este artigo apresenta uma arquitetura de solução de IoT que descreve características comuns de saudação de uma solução de IoT, que você pode implantar usando os serviços do Azure. Soluções de IoT exigem a proteger a comunicação bidirecional entre os dispositivos, possivelmente numeração hello milhões e um back-end da solução. Por exemplo, um back-end da solução pode usar a análise automatizada e previsão toouncover insights de seu fluxo de eventos de dispositivo para nuvem.
 
 O Hub IoT do Azure é um bloco de construção fundamental na implementação dessa arquitetura de solução de IoT usando os serviços do Azure. O IoT Suite fornece implementações completas de ponta a ponta dessa arquitetura para cenários específicos de IoT. Por exemplo:
 
-* A solução *monitoramento remoto* permite que você monitore o status de dispositivos como máquinas de venda automáticas.
-* A solução *manutenção preditiva* ajuda a prever as necessidades de manutenção de dispositivos, como bombas em estações de bombeamento remotas, e a evitar o tempo de inatividade não programado.
-* A solução *fábrica conectada* ajuda você a se conectar e monitorar os dispositivos industriais.
+* Olá *monitoramento remoto* solução permite que você toomonitor status de saudação de dispositivos como máquinas de vendas automáticas.
+* Olá *manutenção preditiva* solução ajuda a tooanticipate necessidades de manutenção de dispositivos como bombas em estações bombeamento remotas e tempo de inatividade tooavoid agendada.
+* Olá *fábrica conectada* solução ajuda a tooconnect e monitorar seus dispositivos industriais.
 
 ## <a name="iot-solution-architecture"></a>Arquitetura da solução de IoT
 
-O diagrama abaixo mostra uma arquitetura comum da solução IoT. O diagrama não inclui os nomes de todos os serviços específicos do Azure, mas descreve os principais elementos em uma arquitetura da solução de IoT genérica. Nessa arquitetura, os dispositivos IoT coletam dados que eles enviam para um gateway de nuvem. O gateway de nuvem torna os dados disponíveis para processamento por outros serviços de back-end, por meio dos quais os dados são entregues para outros aplicativos de linha de negócios ou para operadores humanos através de um painel ou de outros dispositivos de apresentação.
+Olá diagrama a seguir mostra uma arquitetura de solução de IoT típica. diagrama de saudação não inclue nomes de saudação de todos os serviços do Azure específicos, mas descreve Olá principais elementos em uma arquitetura de solução de IoT genérico. Nessa arquitetura, dispositivos IoT coletam dados que enviam tooa gateway de nuvem. gateway de nuvem Olá disponibiliza Olá dados para processamento por outros serviços de back-end de onde os dados são entregues tooother aplicativos de linha de negócios ou operadores toohuman por meio de um painel ou outro dispositivo de apresentação.
 
 ![Arquitetura da solução de IoT][img-solution-architecture]
 
 > [!NOTE]
-> Para ver uma análise detalhada da arquitetura IoT, consulte a [Arquitetura de Referência do IoT do Microsoft Azure][lnk-refarch].
+> Para obter uma discussão detalhada da arquitetura do IoT, consulte Olá [arquitetura de referência do Microsoft Azure IoT][lnk-refarch].
 
 ### <a name="device-connectivity"></a>Conectividade do dispositivo
 
-Nesta arquitetura da solução IoT, os dispositivos enviam telemetria, como leituras de sensor de uma estação de bombeamento, para um ponto de extremidade da nuvem para armazenamento e processamento. Em um cenário de manutenção preditiva, o back-end da solução pode usar a transmissão de dados do sensor para determinar quando uma bomba específica necessita de manutenção. Os dispositivos também podem receber e responder às mensagens de nuvem para o dispositivo lendo mensagens de um ponto de extremidade de nuvem. Por exemplo, no cenário de manutenção preditiva, o back-end da solução pode enviar mensagens para que outras bombas na estação de bombeamento comecem a rotear de novo os fluxos antes da manutenção devida iniciar. Esse procedimento irá assegurar que o engenheiro de manutenção possa começar assim que chegar.
+Nesta arquitetura de solução de IoT, dispositivos enviam telemetria, como leituras do sensor de uma estação bombeamento, tooa o ponto de extremidade de nuvem para armazenamento e processamento. Em um cenário de manutenção preditiva, back-end de solução Olá pode usar fluxo de saudação do sensor dados toodetermine quando uma bomba específica requer manutenção. Dispositivos também podem receber e responder mensagens toocloud para dispositivo lendo mensagens de um ponto de extremidade de nuvem. Por exemplo, na solução de Olá Olá manutenção preditiva cenário back-end pode enviar mensagens bombas tooother em Olá bombeamento estação toobegin redirecionamento fluxos antes de manutenção está vencida toostart. Esse procedimento seria Certifique-se de engenheiro de manutenção Olá pode começar assim que ela for recebida.
 
-Um dos maiores desafios enfrentados por projetos IoT é sobre conectar dispositivos de forma confiável e segura com o back-end da solução. Os dispositivos IoT têm características diferentes em comparação com outros clientes, como navegadores e aplicativos móveis. Dispositivos IoT:
+Um dos maiores desafios de saudação voltada para projetos de IoT é como tooreliably e se conectar com segurança dispositivos toohello solução back-end. Dispositivos IoT têm características diferentes, como clientes tooother comparados como navegadores e aplicativos móveis. Dispositivos IoT:
 
 * Com frequência, são sistemas internos sem operadores humanos.
 * Eles podem ser implantados em locais remotos, nos quais o acesso físico é caro.
-* Só podem ser acessados por meio do back-end da solução. Não há outra maneira de interagir com o dispositivo.
+* Só podem ser alcançadas por meio de back-end de solução hello. Não há nenhum outro toointeract maneira com dispositivo hello.
 * Podem ter recursos de energia e de processamento limitados.
 * Podem ter conectividade de rede intermitente, lenta ou cara.
-* Talvez precisem de protocolos de aplicativo proprietários, personalizados ou específicos do setor.
+* Talvez seja necessário toouse protocolos de aplicativo proprietárias, personalizados ou específicos do setor.
 * Podem ser criados usando um grande conjunto de plataformas de hardware e de software conhecidas.
 
-Além dos requisitos acima, todas as soluções IoT também deverão oferecer escala, segurança e confiabilidade. O conjunto de requisitos de conectividade resultante tem implementação difícil e demorada por meio das tecnologias tradicionais, como contêineres da Web e agentes de mensagens. O Hub IoT do Azure e os SDKs do dispositivo IoT do Azure facilitam a implementação de soluções que atendam a esses requisitos.
+Além disso requisitos toohello acima, qualquer solução de IoT deve também fornecer dimensionamento, segurança e confiabilidade. Olá, conjunto de requisitos de conectividade resultante é difícil e demorado tooimplement usando tecnologias tradicionais como contêineres de web e os agentes de mensagens. IoT Hub do Azure e Olá SDKs de dispositivo IoT do Azure tornam mais fácil soluções tooimplement que atendem a esses requisitos.
 
-Um dispositivo pode se comunicar diretamente com um ponto de extremidade de gateway de nuvem ou se o dispositivo não puder usar qualquer um dos protocolos de comunicação ao qual o gateway de nuvem dá suporte, ele pode se conectar por meio de um gateway intermediário. Por exemplo, o [gateway de protocolo IoT do Azure][lnk-protocol-gateway] poderá realizar a conversão de protocolo se os dispositivos não puderem usar um dos protocolos com suporte pelo Hub IoT.
+Um dispositivo pode se comunicar diretamente com um ponto de extremidade de gateway de nuvem, ou se o dispositivo de saudação não é possível usar qualquer um dos protocolos de comunicação de saudação que Olá dá suporte ao gateway de nuvem, ele pode se conectar por meio de um gateway intermediário. Por exemplo, Olá [gateway do protocolo IoT do Azure] [ lnk-protocol-gateway] pode executar a conversão de protocolo se dispositivos não é possível usar qualquer um dos protocolos de saudação que dá suporte ao IoT Hub.
 
 ### <a name="data-processing-and-analytics"></a>Processamento de dados e análise
 
-Na nuvem, um back-end da solução IoT é onde ocorre a maior parte do processamento dos dados, por exemplo, a filtragem e a agregação de telemetria, com o roteamento para outros serviços. O back-end da solução IoT:
+Na nuvem hello, um IoT solução back-end é onde ocorre a maior parte do processamento de dados de saudação, tais como filtragem e agregação de telemetria e roteá-la tooother serviços. Olá back-end de solução IoT:
 
-* Recebe telemetria em escala de seus dispositivos e determina como processar e armazenar os dados. 
-* Pode permitir enviar comandos da nuvem para o dispositivo específico.
-* Fornece capacidades de registro de dispositivo que possibilitam que você provisione dispositivos e controle quais dispositivos têm permissão para se conectar à sua infraestrutura.
-* Permite acompanhar o estado de seus dispositivos e monitorar suas atividades.
+* Recebe telemetria em escala de seus dispositivos e determina como tooprocess e armazenar os dados. 
+* Poderá permitir que você toosend comandos de dispositivo de toospecific nuvem hello.
+* Fornece recursos de registro de dispositivo que permitem que você tooprovision dispositivos e toocontrol quais dispositivos são permitidos tooconnect tooyour infraestrutura.
+* Permite que você tootrack Olá estado de seus dispositivos e monitorar suas atividades.
 
-No cenário de manutenção preditiva, o back-end da solução armazena dados históricos de telemetria. O back-end da solução pode usar esses dados para identificar padrões que indicam que a manutenção é necessária em determinada bomba.
+No cenário de manutenção preditiva hello, back-end de solução Olá armazena dados de telemetria históricos. back-end de solução Olá pode usar este padrões tooidentify toouse de dados que indicam a manutenção ocorre em uma bomba específica.
 
-As soluções de IoT podem incluir loops automáticos de comentários. Por exemplo, um módulo de análise no back-end da solução pode identificar da telemetria que a temperatura de um dispositivo específico está acima do nível operacional normal. A solução pode enviar um comando para o dispositivo, instruindo-o para executar uma ação corretiva.
+As soluções de IoT podem incluir loops automáticos de comentários. Por exemplo, um módulo de análise no back-end de solução Olá pode identificar da telemetria temperatura Olá de um dispositivo específico está acima do normais níveis operacionais. solução de saudação pode enviar um dispositivo de toohello de comando, instruindo-tootake uma ação corretiva.
 
 ### <a name="presentation-and-business-connectivity"></a>Conectividade de negócios e apresentação
 
-A camada de conectividade de negócios e apresentação permite que os usuários finais interajam com os dispositivos e solução IoT. Ela permite aos usuários exibir e analisar os dados coletados de seus dispositivos. Esses modos de exibição podem assumir a forma de painéis ou relatórios de BI, que podem exibir tanto os dados históricos quanto os dados quase em tempo real. Por exemplo, um operador pode verificar o status de estações de bombeamento específicas e ver quaisquer alertas gerados pelo sistema. Essa camada também permite a integração do back-end da solução IoT com aplicativos de linhas de negócios existentes para ligar fluxos de trabalho e processos de negócios. Por exemplo, a solução de manutenção preditiva pode ser integrada a um sistema de agendamento que programa a visita de um engenheiro em uma estação de bombeamento quando a solução identifica uma bomba que precisa de manutenção.
+camada de conectividade de apresentação e de negócios Olá permite aos usuários finais toointeract com hello solução de IoT e dispositivos de saudação. Ele permite que os usuários tooview e analisar dados de saudação coletados em seus dispositivos. Esses modos de exibição podem assumir a forma de saudação de painéis ou relatórios de BI que podem exibir os dados históricos ou próximo a dados em tempo real. Por exemplo, um operador pode verificar status de saudação de estação bombeamento específica e ver todos os alertas gerados pelo sistema hello. Essa camada também permite que a integração de saudação IoT solução back-end com tootie de aplicativos de linha de negócios existentes em processos de negócios da empresa ou fluxos de trabalho. Por exemplo, solução de manutenção preditiva Olá pode integrar com um sistema de agendamento que manuais toovisit um engenheiro uma estação bombeamento quando a solução Olá identifica uma bomba que necessitam de manutenção.
 
 ![Painel da solução IoT][img-dashboard]
 

@@ -1,6 +1,6 @@
 ---
-title: 'Backup do Azure: Usar o PowerShell para fazer backup de cargas de trabalho de DPM | Microsoft Docs'
-description: Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
+title: aaaAzure Backup - Use o PowerShell tooback cargas de trabalho do DPM | Microsoft Docs
+description: Saiba como toodeploy e gerenciar o Backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
 services: backup
 documentationcenter: 
 author: NKolli1
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 2e3b4a094511a59cfa02917efc2e3e053840af0c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 27d2b4b3127b68c9da564697eb61dc3ccbc34b3d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
+# <a name="deploy-and-manage-backup-tooazure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implantar e gerenciar o backup tooAzure para servidores do Data Protection Manager (DPM) usando o PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Clássico](backup-dpm-automation-classic.md)
 >
 >
 
-Este artigo mostra como usar o Azure PowerShell para configurar o Backup do Azure em um servidor DPM e para gerenciar backups e recuperações.
+Este artigo mostra como toouse PowerShell toosetup Backup do Azure em um servidor DPM e toomanage backup e recuperação.
 
-## <a name="setting-up-the-powershell-environment"></a>Configurando o ambiente do PowerShell
+## <a name="setting-up-hello-powershell-environment"></a>Configurando o ambiente do PowerShell Olá
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Antes de usar o PowerShell para gerenciar backups do Data Protection Manager para o Azure, você precisará ter o ambiente certo no PowerShell. No início da sessão do PowerShell, certifique-se de executar o comando a seguir para importar os módulos corretos e permitir que você faça referência corretamente aos cmdlets do DPM:
+Antes de você pode usar o PowerShell toomanage backups tooAzure Data Protection Manager, é necessário toohave Olá direita ambiente PowerShell. No início de saudação da sessão do PowerShell Olá, certifique-se de que você execute Olá módulos corretos do comando tooimport Olá a seguir e permitem que você toocorrectly Referência Olá DPM cmdlets:
 
 ```
 PS C:> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
 
-Welcome to the DPM Management Shell!
+Welcome toohello DPM Management Shell!
 
 Full list of cmdlets: Get-Command
 Only DPM cmdlets: Get-DPMCommand
@@ -48,45 +48,45 @@ Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## <a name="setup-and-registration"></a>Configuração e registro
-Para começar:
+toobegin:
 
 1. [Baixe o PowerShell mais recente](https://github.com/Azure/azure-powershell/releases) (a versão mínima exigida é: 1.0.0)
-2. Habilite os commandlets do Backup do Azure alternando para o modo *AzureResourceManager* usando o commandlet **Switch-AzureMode** :
+2. Habilitar cmdlets do Backup do Azure Olá alternando muito*AzureResourceManager* modo usando Olá **Switch-AzureMode** commandlet:
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
 ```
 
-As seguintes tarefas de configuração e de registro podem ser automatizadas com o PowerShell:
+Olá tarefas de registro e configuração a seguir podem ser automatizadas com o PowerShell:
 
 * Criar um cofre dos Serviços de Recuperação
-* Instalando o agente de Backup do Azure
-* Registrando-se no serviço de Backup do Azure
+* Instalando o agente de Backup do Azure Olá
+* Registrando Olá serviço Backup do Azure
 * Configurações de rede
 * Configurações de criptografia
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
-As etapas a seguir orientarão você durante a criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de Backup.
+Olá etapas levá-lo na criação de um cofre de serviços de recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de Backup.
 
-1. Se você estiver usando um Backup do Azure pela primeira vez, deverá usar o cmdlet **Register-AzureRMResourceProvider** para registrar o provedor do Serviço de Recuperação do Azure com sua assinatura.
+1. Se você estiver usando o Backup do Azure para Olá primeira vez, você deve usar o hello **registro AzureRMResourceProvider** provedor de serviço de recuperação do Azure do cmdlet tooregister Olá com sua assinatura.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-2. O cofre dos Serviços de Recuperação é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Você pode usar um grupo de recursos existente ou criar um novo. Ao criar um novo grupo de recursos, especifique o nome e o local para o grupo de recursos.  
+2. Olá Cofre de serviços de recuperação é um recurso do ARM, portanto, você precisa tooplace-lo em um grupo de recursos. Você pode usar um grupo de recursos existente ou criar um novo. Ao criar um novo grupo de recursos, especifique o nome de saudação e local para o grupo de recursos de saudação.  
 
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-3. Use o cmdlet **New-AzureRmRecoveryServicesVault** para criar um novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
+3. Saudação de uso **AzureRmRecoveryServicesVault novo** cmdlet toocreate um novo cofre. Certifique-se de que toospecify Olá mesmo local para o cofre Olá que foi usada para o grupo de recursos de saudação.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Especifique o tipo de redundância de armazenamento a usar. Você pode usar o [Armazenamento com Redundância Local (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) ou o [Armazenamento com Redundância Geográfica (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testVault está definida como GeoRedundant.
+4. Especificar o tipo de saudação do toouse de redundância de armazenamento; Você pode usar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) ou [Geo redundante GRS (armazenamento)](../storage/common/storage-redundancy.md#geo-redundant-storage). Olá exemplo a seguir mostra Olá - BackupStorageRedundancy opção testVault é definida tooGeoRedundant.
 
    > [!TIP]
-   > Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
+   > Muitos cmdlets do Backup do Azure exigem Olá objeto de Cofre de serviços de recuperação como entrada. Por esse motivo, é conveniente toostore Olá serviços de recuperação de Backup cofre objeto em uma variável.
    >
    >
 
@@ -95,10 +95,10 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
-## <a name="view-the-vaults-in-a-subscription"></a>Exibir os cofres em uma assinatura
-Use **Get-AzureRmRecoveryServicesVault** para exibir a lista de todos os cofres da assinatura atual. Você pode usar esse comando para verificar se um novo cofre foi criado ou para ver quais cofres estão disponíveis na assinatura.
+## <a name="view-hello-vaults-in-a-subscription"></a>Exibição Olá cofres em uma assinatura
+Use **Get-AzureRmRecoveryServicesVault** tooview lista de saudação de todos os cofres na assinatura atual hello. Você pode usar este toocheck de comando que um novo cofre foi criado ou toosee que cofres estão disponíveis na assinatura de saudação.
 
-Execute o comando Get-AzureRmRecoveryServicesVault e todos os cofres na assinatura serão listados.
+Execute o comando hello, Get-AzureRmRecoveryServicesVault, e todos os cofres na assinatura de saudação são listados.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault
@@ -112,36 +112,36 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
-## <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Instalando o agente de Backup do Azure em um Servidor de DPM
-Antes de instalar o agente de Backup do Azure, você precisa ter o instalador baixado, já no Windows Server. Você pode obter a última versão do instalador no [Centro de Download da Microsoft](http://aka.ms/azurebackup_agent) ou na página Painel do cofre dos Serviços de Recuperação. Salve o instalador em um local de fácil acesso, como *C:\Downloads\*.
+## <a name="installing-hello-azure-backup-agent-on-a-dpm-server"></a>Instalando o agente de Backup do Azure Olá em um servidor DPM
+Antes de instalar o agente de Backup do Azure Olá, você precisará instalador de saudação toohave baixado e presente no saudação do Windows Server. Você pode obter a versão mais recente de saudação do instalador de saudação de saudação [Microsoft Download Center](http://aka.ms/azurebackup_agent) ou da página de painel do Cofre de serviços de recuperação hello. Salvar instalador Olá tooan local facilmente acessível, como * C:\Downloads\*.
 
-Para instalar o agente, execute o seguinte comando em um console do PowerShell com privilégios elevados **no servidor do DPM**:
+tooinstall Olá execução do agente, Olá seguinte comando em um console do PowerShell com privilégios elevados **no servidor DPM Olá**:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
 ```
 
-Isso instala o agente com todas as opções padrão. A instalação demora alguns minutos, em segundo plano. Se você não especificar a opção */nu* , a janela do **Windows Update** será aberta ao fim da instalação para verificar se há atualizações.
+Isso instala o agente de saudação com todas as opções padrão de saudação. instalação de saudação leva alguns minutos no plano de fundo de saudação. Se você não especificar Olá */nu* Olá opção **Windows Update** janela será aberta no final de saudação do hello instalação toocheck para todas as atualizações.
 
-O agente será mostrado na lista de programas instalados. Para ver a lista de programas instalados, vá para **Painel de controle** > **Programas** > **Programas e recursos**.
+Agente de saudação são mostrados na lista de saudação de programas instalados. lista de saudação toosee de instalado programas, consulte muito**painel de controle** > **programas** > **programas e recursos**.
 
 ![Agente instalado](./media/backup-dpm-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Opções de instalação
-Para ver todas as opções disponíveis por meio da linha de comando, use o seguinte comando:
+toosee todas as opções de saudação disponíveis por meio de saudação de linha de comando, use Olá a seguir de comando:
 
 ```
 PS C:\> MARSAgentInstaller.exe /?
 ```
 
-As opções disponíveis incluem:
+Olá as opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
 | --- | --- | --- |
 | /q |Instalação silenciosa |- |
-| /p:"local" |Caminho para a pasta de instalação para o agente de Backup do Azure. |C:\Arquivos de Programas\Microsoft Azure Recovery Services Agent |
-| /s:"local" |Caminho para a pasta de cache para o agente de Backup do Azure. |C:\Arquivos de Programas\Microsoft Azure Recovery Services Agent\Scratch |
-| /m |Aceitar o Microsoft Update |- |
+| /p:"local" |Pasta de instalação de toohello de caminho para o agente de Backup do Azure hello. |C:\Arquivos de Programas\Microsoft Azure Recovery Services Agent |
+| /s:"local" |Pasta de cache de toohello de caminho para o agente de Backup do Azure hello. |C:\Arquivos de Programas\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |Aceitar tooMicrosoft atualização |- |
 | /nu |Não verificar se há atualizações após a conclusão da instalação |- |
 | /d |Desinstala o agente dos Serviços de Recuperação do Microsoft Azure |- |
 | /ph |Endereço do host do proxy |- |
@@ -149,8 +149,8 @@ As opções disponíveis incluem:
 | /pu |UserName do host do proxy |- |
 | /pw |Senha do proxy |- |
 
-## <a name="registering-dpm-to-a-recovery-services-vault"></a>Registrar o DPM para um Cofre dos Serviços de Recuperação
-Depois de criar o cofre dos Serviços de Recuperação, baixe o agente mais recente e as credenciais do cofre e armazene-os em um local conveniente como C:\Downloads.
+## <a name="registering-dpm-tooa-recovery-services-vault"></a>Registrando o DPM tooa Cofre de serviços de recuperação
+Depois que você criar o Cofre de serviços de recuperação de Olá, baixe o agente mais recente hello e as credenciais do cofre hello e armazená-lo em um local conveniente como C:\Downloads.
 
 ```
 PS C:\> $credspath = "C:\downloads"
@@ -159,7 +159,7 @@ PS C:\> $credsfilename
 C:\downloads\testvault\_Sun Apr 10 2016.VaultCredentials
 ```
 
-No servidor DPM, execute o cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) para registrar o computador no cofre.
+No servidor DPM hello, executar Olá [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet tooregister Olá máquina cofre hello.
 
 ```
 PS C:\> $cred = $credspath + $credsfilename
@@ -172,44 +172,44 @@ Machine registration succeeded.
 ```
 
 ### <a name="initial-configuration-settings"></a>Definições de configuração iniciais
-Depois que o Servidor de DPM estiver registrado no cofre dos Serviços de Recuperação, ele será iniciado com as configurações de assinatura padrão. Essas configurações de assinatura incluem Rede, Criptografia e Área de preparo. Para alterar as configurações de assinatura, primeiro você precisa obter um identificador nas configurações existentes (padrão) usando o cmdlet [Get-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) :
+Depois que o hello servidor DPM está registrado com hello Cofre de serviços de recuperação, ele começa com as configurações de assinatura padrão. Essas configurações de assinatura incluem Olá área de preparação, a criptografia e a rede. configurações de assinatura toochange necessário toofirst obtém um identificador nas configurações (padrão) existentes hello usando Olá [DPMCloudSubscriptionSetting Get](https://technet.microsoft.com/library/jj612793) cmdlet:
 
 ```
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Todas as modificações são feitas a este objeto local ```$setting``` do PowerShell e o objeto completo é confirmado no DPM e no Backup do Azure para salvá-los usando o cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) . Você precisa usar o sinalizador ```–Commit``` para garantir que as alterações sejam mantidas. As configurações não serão aplicadas nem usadas pelo Backup do Azure, a menos que sejam confirmadas.
+Todas as modificações são feitas toothis local PowerShell objeto ```$setting``` e completa do objeto Olá é confirmada tooDPM e toosave de Backup do Azure-los usando Olá [DPMCloudSubscriptionSetting conjunto](https://technet.microsoft.com/library/jj612791) cmdlet. Você precisa Olá toouse ```–Commit``` tooensure de sinalizador que Olá alterações são mantidas. configurações de saudação não serão aplicadas e usadas pelo Backup do Azure, a menos que confirmada.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
 ## <a name="networking"></a>Rede
-Se a conectividade do computador de DPM ao serviço de Backup do Azure na Internet é feita por meio de um servidor proxy, as configurações do servidor proxy devem ser fornecidas para backups bem-sucedidos. Isso é feito usando os parâmetros ```-ProxyServer``` e ```-ProxyPort```, ```-ProxyUsername``` e ```ProxyPassword``` com o cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Neste exemplo, não há nenhum servidor proxy, por isso estamos explicitamente omitindo todas as informações relacionadas a proxy.
+Se a conectividade de saudação do hello DPM máquina toohello serviço de Backup do Azure no hello internet for por meio de um servidor proxy, configurações do servidor proxy Olá devem ser fornecidas para os backups bem-sucedidos. Isso é feito usando Olá ```-ProxyServer```e ```-ProxyPort```, ```-ProxyUsername``` e hello ```ProxyPassword``` parâmetros com hello [DPMCloudSubscriptionSetting conjunto](https://technet.microsoft.com/library/jj612791) cmdlet. Neste exemplo, não há nenhum servidor proxy, por isso estamos explicitamente omitindo todas as informações relacionadas a proxy.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
 ```
 
-O uso de largura de banda também pode ser controlado com as opções de ```-WorkHourBandwidth``` e ```-NonWorkHourBandwidth``` para um determinado conjunto de dias da semana. Neste exemplo, não definimos nenhuma limitação.
+Uso de largura de banda também pode ser controlado com opções de ```-WorkHourBandwidth``` e ```-NonWorkHourBandwidth``` para um determinado conjunto de dias da semana hello. Neste exemplo, não definimos nenhuma limitação.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoThrottle
 ```
 
-## <a name="configuring-the-staging-area"></a>Configurando a Área de preparo
-O agente de Backup do Azure em execução no servidor DPM precisa armazenar temporariamente os dados restaurados da nuvem (área de preparação local). Configure a área de preparo usando o cmdlet [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) e o parâmetro ```-StagingAreaPath```.
+## <a name="configuring-hello-staging-area"></a>Configurando a área de preparação de saudação
+Hello Azure Backup agent em execução no servidor DPM Olá precisa de armazenamento temporário para os dados restaurados da nuvem de saudação (área de preparação local). Configurar área de preparação de saudação usando Olá [conjunto DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet e hello ```-StagingAreaPath``` parâmetro.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-No exemplo acima, a área de preparo será definida como *C:\StagingArea* no objeto do PowerShell```$setting```. Verifique se a pasta especificada já existe, ou a confirmação final das configurações de assinatura falhará.
+O exemplo hello acima, área de preparação de saudação será definida muito*C:\StagingArea* no objeto do PowerShell Olá ```$setting```. Certifique-se de que Olá a pasta especificada já existe, ou então a confirmação final Olá das configurações de assinatura Olá falhará.
 
 ### <a name="encryption-settings"></a>Configurações de criptografia
-Os dados de backup enviados para o Backup do Azure são criptografados para proteger a confidencialidade dos dados. A senha de criptografia é a "senha" para descriptografar os dados no momento da restauração. É importante manter essas informações seguras depois de defini-las.
+Olá enviados os dados de backup tooAzure Backup é tooprotect criptografados Olá confidencialidade de dados de saudação. senha de criptografia de saudação é dados de saudação toodecrypt senha"Olá" no tempo de saudação da restauração. É importante tookeep este seguro de informações e seguro depois que ela é definida.
 
-No exemplo abaixo, o primeiro comando converte a cadeia de caracteres ```passphrase123456789``` em uma cadeia de caracteres segura e atribui a sequência segura à variável chamada de ```$Passphrase```. O segundo comando define a cadeia de caracteres segura em ```$Passphrase``` como a senha para a criptografia de backups.
+Exemplo hello abaixo, comando primeiro Olá converte a cadeia de caracteres de saudação ```passphrase123456789``` tooa segura cadeia de caracteres e atribui Olá seguro toohello variável string denominada ```$Passphrase```. Olá segundo comando define a cadeia de caracteres segura Olá ```$Passphrase``` como senha Olá para criptografia de backups.
 
 ```
 PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPlainText -Force
@@ -218,52 +218,52 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 ```
 
 > [!IMPORTANT]
-> Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
+> Manter informações de senha Olá seguros e protegidos depois que ela é definida. Você não será capaz de toorestore a dados do Azure sem essa frase secreta.
 >
 >
 
-Neste ponto, você deve fez todas as alterações necessárias ao objeto ```$setting``` . Lembre-se de confirmar as alterações.
+Neste ponto, você deveria ter feito todas as toohello de alterações de saudação necessária ```$setting``` objeto. Lembre-se as alterações de saudação do toocommit.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
 ```
 
-## <a name="protect-data-to-azure-backup"></a>Proteger dados no Backup do Azure
-Nesta seção, você adicionará um servidor de produção ao DPM, protegerá os dados primeiro no armazenamento local do DPM e, em seguida, no Backup do Azure. Nos exemplos, demonstraremos como fazer backup de arquivos e pastas. A lógica pode ser facilmente estendida para fazer backup de qualquer fonte de dados para a qual há suporte no DPM. Todos os backups do DPM são regidos por um GP (Grupo de Proteção) com quatro partes:
+## <a name="protect-data-tooazure-backup"></a>Proteger dados tooAzure Backup
+Nesta seção, você adicionará um tooDPM do servidor de produção e, em seguida, proteger o armazenamento do DPM toolocal Olá dados e, em seguida, tooAzure Backup. Exemplos de hello, demonstraremos como tooback backup de arquivos e pastas. Olá lógica pode facilmente ser estendido toobackup qualquer fonte de dados com suporte ao DPM. Todos os backups do DPM são regidos por um GP (Grupo de Proteção) com quatro partes:
 
-1. **Membros do grupo** é uma lista de todos os objetos protegíveis (também conhecidos como *Fontes de dados* no DPM) que você deseja proteger no mesmo grupo de proteção. Por exemplo, convém proteger as VMs de produção em um grupo de proteção e os bancos de dados do SQL Server em outro grupo de proteção, pois eles podem ter requisitos de backup diferentes. Antes de poder fazer backup de qualquer fonte de dados em um servidor de produção, é necessário verificar se o agente do DPM está instalado no servidor e é gerenciado pelo DPM. Siga as etapas para a [instalação do Agente do DPM](https://technet.microsoft.com/library/bb870935.aspx) e vincule-o ao Servidor DPM apropriado.
-2. **Método de proteção de dados** especifica os locais de destino de backup – fita, disco e nuvem. Em nosso exemplo, protegeremos os dados no disco local e na nuvem.
-3. Um **agendamento de backup** que especifica quando os backups precisam ser executados e a frequência com que os dados devem ser sincronizados entre o servidor DPM e o servidor de produção.
-4. Um **cronograma de retenção** que especifica quanto tempo deve-se manter os pontos de recuperação no Azure.
+1. **Os membros do grupo** é uma lista de todos os objetos protegíveis de saudação (também conhecido como *fontes de dados* no DPM) que você deseja tooprotect em Olá mesmo grupo de proteção. Por exemplo, convém tooprotect produção VMs em um grupo de proteção e bancos de dados do SQL Server em outro grupo de proteção como eles podem ter diferentes requisitos de backup. Antes de fazer backup de qualquer fonte de dados em um servidor de produção, você precisa toomake o hello-se de que o agente do DPM está instalado no servidor de saudação e é gerenciado pelo DPM. Siga as etapas de saudação para [instalando Olá agente do DPM](https://technet.microsoft.com/library/bb870935.aspx) e vinculá-lo toohello apropriado do servidor DPM.
+2. **Método de proteção de dados** Especifica os locais de backup Olá destino - fita, disco e nuvem. Em nosso exemplo, protege dados toohello local em disco e toohello na nuvem.
+3. Um **agendamento de backup** que especifica quando backups necessário toobe feito e frequência hello dados devem ser sincronizados entre hello servidor DPM e o servidor de produção de hello.
+4. Um **agenda de retenção** que especifica quanto tempo os pontos de recuperação de saudação do tooretain no Azure.
 
 ### <a name="creating-a-protection-group"></a>Criando um grupo de proteção
-Comece criando um novo Grupo de Proteção usando o cmdlet [New-DPMProtectionGroup](https://technet.microsoft.com/library/hh881722) .
+Comece criando um novo grupo de proteção usando Olá [DPMProtectionGroup novo](https://technet.microsoft.com/library/hh881722) cmdlet.
 
 ```
 PS C:\> $PG = New-DPMProtectionGroup -DPMServerName " TestingServer " -Name "ProtectGroup01"
 ```
 
-O cmdlet acima criará um Grupo de Proteção chamado *ProtectGroup01*. Um grupo de proteção existente também pode ser modificado posteriormente para adicionar o backup à nuvem do Azure. No entanto, para fazer alterações ao Grupo de Proteção – novo ou existente – precisamos obter um identificador em um objeto *modificável* usando o cmdlet [Get-DPMModifiableProtectionGroup](https://technet.microsoft.com/library/hh881713) .
+Olá acima cmdlet criará um grupo de proteção chamada *ProtectGroup01*. Um grupo de proteção também pode ser modificado posteriormente tooadd toohello backup nuvem do Azure. No entanto, toomake alterações toohello grupo de proteção - novo ou existente - precisamos tooget um identificador em uma *modificável* objeto usando Olá [DPMModifiableProtectionGroup Get](https://technet.microsoft.com/library/hh881713) cmdlet.
 
 ```
 PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
-### <a name="adding-group-members-to-the-protection-group"></a>Adicionando membros do grupo ao Grupo de Proteção
-Cada Agente do DPM conhece a lista de fontes de dados no servidor em que está instalado. Para adicionar uma fonte de dados ao Grupo de Proteção, o Agente do DPM precisa enviar primeiro uma lista das fontes de dados de volta ao servidor DPM. Uma ou mais fontes de dados são então selecionadas e adicionadas ao Grupo de Proteção. As etapas do PowerShell necessárias para realizar isso são:
+### <a name="adding-group-members-toohello-protection-group"></a>Adicionar membros de grupo toohello grupo de proteção
+Cada agente do DPM sabe lista Olá de fontes de dados no servidor de saudação que ele está instalado. tooadd toohello uma fonte de dados grupo de proteção, Olá toofirst de necessidades de agente do DPM enviar uma lista de servidor DPM de toohello back Olá fontes de dados. Uma ou mais fontes de dados forem selecionadas e adicionadas toohello grupo de proteção. etapas do PowerShell Olá necessárias tooachieve isso são:
 
-1. Obter uma lista de todos os servidores gerenciados pelo DPM por meio do Agente do DPM.
+1. Obter uma lista de todos os servidores gerenciados pelo DPM por meio de saudação agente do DPM.
 2. Escolher um servidor específico.
-3. Obter uma lista de todas as fontes de dados no servidor.
-4. Escolher uma ou mais fontes de dados e adicioná-las ao Grupo de Proteção
+3. Obter uma lista de todas as fontes de dados no servidor de saudação.
+4. Escolha uma ou mais fontes de dados e adicioná-los toohello grupo de proteção
 
-A lista dos servidores nos quais o Agente do DPM está instalado e sendo gerenciado pelo servidor DPM é obtida usando o cmdlet [Get-DPMProductionServer](https://technet.microsoft.com/library/hh881600) . Neste exemplo, filtraremos e configuraremos apenas o PS com o nome *productionserver01* para o backup.
+Olá lista de servidores nos quais Olá agente do DPM está instalado e está sendo gerenciado pelo servidor DPM da saudação é adquirida com hello [DPMProductionServer Get](https://technet.microsoft.com/library/hh881600) cmdlet. Neste exemplo, filtraremos e configuraremos apenas o PS com o nome *productionserver01* para o backup.
 
 ```
 PS C:\> $server = Get-ProductionServer -DPMServerName "TestingServer" | where {($_.servername) –contains “productionserver01”
 ```
 
-Agora obtenha a lista de fontes de dados em ```$server``` usando o cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Neste exemplo, estamos filtrando para o volume *D:\*, que desejamos configurar para o backup. Esta fonte de dados é adicionada ao Grupo de Proteção usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Lembre-se de usar o objeto de grupo de proteção *modificável*```$MPG``` para fazer as adições.
+Agora obter lista de saudação de fontes de dados em ```$server``` usando Olá [DPMDatasource Get](https://technet.microsoft.com/library/hh881605) cmdlet. Neste exemplo nós estamos filtrando para volume hello * unidade d:\* que desejamos tooconfigure para backup. Esta fonte de dados é adicionada toohello grupo de proteção usando Olá [DPMChildDatasource adicionar](https://technet.microsoft.com/library/hh881732) cmdlet. Lembre-se de saudação toouse *modificável* objeto do grupo de proteção ```$MPG``` toomake adições de saudação.
 
 ```
 PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Name -contains “D:\” }
@@ -271,26 +271,26 @@ PS C:\> $DS = Get-Datasource -ProductionServer $server -Inquire | where { $_.Nam
 PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 ```
 
-Repita essa etapa quantas vezes for necessário, até adicionar todas as fontes de dados escolhidas ao grupo de proteção. Você também pode começar com apenas uma fonte de dados e concluir o fluxo de trabalho para criar o Grupo de Proteção e, posteriormente, adicionar mais fontes de dados ao Grupo de Proteção.
+Repita essa etapa, quantas vezes forem necessárias, até que você adicionou todos os Olá escolhido o grupo de proteção toohello fontes de dados. Você também pode iniciar com apenas uma fonte de dados e fluxo de trabalho Olá completa para a criação de grupo de proteção de saudação e posteriormente adicionar mais fontes de dados toohello grupo de proteção.
 
-### <a name="selecting-the-data-protection-method"></a>Selecionando o método de proteção de dados
-Depois de adicionar as fontes de dados ao Grupo de Proteção, a próxima etapa é especificar o método de proteção usando o cmdlet [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) . Neste exemplo, o Grupo de Proteção é configurado para backup no disco local e na nuvem. Você também precisa especificar a fonte de dados que deseja proteger na nuvem usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732.aspx) com o sinalizador -Online.
+### <a name="selecting-hello-data-protection-method"></a>Selecionar método de proteção de dados hello
+Depois de fontes de dados Olá adicionou toohello grupo de proteção, Olá próxima etapa é toospecify o método de proteção de saudação usando Olá [DPMProtectionType conjunto](https://technet.microsoft.com/library/hh881725) cmdlet. Neste exemplo, Olá grupo de proteção está configurado para o disco local e backup na nuvem. Você também precisa toospecify Olá a fonte de dados que você deseja toocloud tooprotect usando Olá [DPMChildDatasource adicionar](https://technet.microsoft.com/library/hh881732.aspx) cmdlet com - sinalizador Online.
 
 ```
 PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
 PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Online
 ```
 
-### <a name="setting-the-retention-range"></a>Configurando o intervalo de retenção
-Defina a retenção dos pontos de backup usando o cmdlet [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) . Embora possa parecer estranho definir a retenção antes de definir o agendamento de backup, usar o cmdlet ```Set-DPMPolicyObjective``` define automaticamente um agendamento de backup padrão que pode então ser modificado. Sempre é possível definir o agendamento de backup primeiro e a política de retenção posteriormente.
+### <a name="setting-hello-retention-range"></a>Definir o período de retenção de saudação
+Definir retenção Olá Olá backup pontos de usando Olá [DPMPolicyObjective conjunto](https://technet.microsoft.com/library/hh881762) cmdlet. Enquanto a retenção de saudação ímpar tooset pode parecer antes de agendamento de backup Olá tiver sido definido, usando Olá ```Set-DPMPolicyObjective``` cmdlet automaticamente define uma agenda de backup padrão que pode ser modificada. É sempre agendamento de backup possível tooset Olá primeiro e Olá a política de retenção depois.
 
-No exemplo abaixo, o cmdlet define os parâmetros de retenção para backups em disco. Isso manterá backups por 10 dias e sincronizará dados entre o servidor de produção e o servidor DPM a cada 6 horas. O ```SynchronizationFrequencyMinutes``` não define a frequência em que um ponto de backup é criado, mas a frequência em que os dados são copiados para o servidor DPM.  Essa configuração impede que os backups fiquem grandes demais.
+O exemplo hello abaixo, Olá define parâmetros de retenção Olá para backups em disco. Isso manterá backups para 10 dias e os dados de sincronização entre servidores de produção de hello e DPM Olá a cada 6 horas. Olá ```SynchronizationFrequencyMinutes``` não define quantas vezes um ponto de backup é criado, mas como dados geralmente são servidor DPM toohello copiado.  Essa configuração impede que os backups fiquem grandes demais.
 
 ```
 PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -RetentionRangeInDays 10 -SynchronizationFrequencyMinutes 360
 ```
 
-Para backups destinados ao Azure (o DPM refere-se a eles como backups Online), os períodos de retenção podem ser configurados para a [retenção de longo prazo usando um esquema GFS (Avô-Pai-Filho)](backup-azure-backup-cloud-as-tape.md). Ou seja, você pode definir uma política de retenção combinada que envolva políticas de retenção diárias, semanais, mensais e anuais. Neste exemplo, criamos uma matriz que representa o esquema de retenção complexo que queremos e, em seguida, configuramos o intervalo de retenção usando o cmdlet [Set-DPMPolicyObjective](https://technet.microsoft.com/library/hh881762) .
+Intervalos de retenção de saudação para backups vai tooAzure (DPM refere-se toothem como backups Online) podem ser configurados para [usando um esquema de avô-pai-filho (GFS) de retenção de longo prazo](backup-azure-backup-cloud-as-tape.md). Ou seja, você pode definir uma política de retenção combinada que envolva políticas de retenção diárias, semanais, mensais e anuais. Neste exemplo, criamos uma matriz que representa o esquema de retenção complexas Olá que queremos e, em seguida, configurar o período de retenção hello usando Olá [DPMPolicyObjective conjunto](https://technet.microsoft.com/library/hh881762) cmdlet.
 
 ```
 PS C:\> $RRlist = @()
@@ -301,8 +301,8 @@ PS C:\> $RRList += (New-Object -TypeName Microsoft.Internal.EnterpriseStorage.Dl
 PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -OnlineRetentionRangeList $RRlist
 ```
 
-### <a name="set-the-backup-schedule"></a>Definir o agendamento de backup
-O DPM define um agendamento padrão automaticamente se você especificar o objetivo de proteção usando o cmdlet ```Set-DPMPolicyObjective``` . Para alterar os agendamentos padrão, use o cmdlet [Get-DPMPolicySchedule](https://technet.microsoft.com/library/hh881749) seguido do cmdlet [Set-DPMPolicySchedule](https://technet.microsoft.com/library/hh881723).
+### <a name="set-hello-backup-schedule"></a>Agendamento de backup de saudação do conjunto
+O DPM define uma agenda de backup padrão automaticamente se você especificar o objetivo de proteção de saudação usando Olá ```Set-DPMPolicyObjective``` cmdlet. os agendamentos padrão Olá toochange, use Olá [Get-DPMPolicySchedule](https://technet.microsoft.com/library/hh881749) cmdlet seguido por Olá [DPMPolicySchedule conjunto](https://technet.microsoft.com/library/hh881723) cmdlet.
 
 ```
 PS C:\> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTerm Online
@@ -313,36 +313,36 @@ PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[3] -Tim
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 
-No exemplo acima, ```$onlineSch``` é uma matriz com quatro elementos que contém o agendamento de proteção online existente para o Grupo de Proteção no esquema GFS:
+Em hello, o exemplo acima ```$onlineSch``` é uma matriz que contém a agenda de proteção online existente Olá para Olá grupo de proteção no esquema GFS Olá com quatro elementos:
 
-1. ```$onlineSch[0]``` contém a agenda diária
-2. ```$onlineSch[1]``` contém a agenda semanal
-3. ```$onlineSch[2]``` contém a agenda mensal
-4. ```$onlineSch[3]``` contém a agenda anual
+1. ```$onlineSch[0]```contém a agenda diária Olá
+2. ```$onlineSch[1]```contém a agenda semanal Olá
+3. ```$onlineSch[2]```contém o agendamento mensal Olá
+4. ```$onlineSch[3]```contém a agenda de saudação anual
 
-Portanto, se precisar modificar o agendamento semanal, você precisa se referir a ```$onlineSch[1]```.
+Portanto, se você precisar agenda semanal do toomodify hello, você precisa toorefer toohello ```$onlineSch[1]```.
 
 ### <a name="initial-backup"></a>Backup inicial
-Ao fazer backup de uma fonte de dados pela primeira vez, o DPM precisa criar uma réplica inicial que cria uma cópia completa da fonte de dados que será protegida no volume de réplica do DPM. Essa atividade pode ser agendada para um horário específico ou pode ser disparada manualmente usando o cmdlet [Set-DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) com o parâmetro ```-NOW```.
+Ao fazer backup de uma fonte de dados para Olá primeira vez, o DPM necessidades cria réplica inicial que cria uma cópia completa de saudação toobe de fonte de dados protegido no volume de réplica do DPM. Essa atividade pode ser agendada durante um período específico ou pode ser disparada de manualmente, usando Olá [conjunto DPMReplicaCreationMethod](https://technet.microsoft.com/library/hh881715) cmdlet com o parâmetro hello ```-NOW```.
 
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
-### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Alterando o tamanho da réplica do DPM e o volume de ponto de recuperação
-Você também pode alterar o tamanho do volume de Réplica do DPM, e o volume de Cópia de Sombra usando o cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) , como no exemplo a seguir: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
+### <a name="changing-hello-size-of-dpm-replica--recovery-point-volume"></a>Alterando o tamanho de saudação de réplica do DPM e o volume de ponto de recuperação
+Você também pode alterar o tamanho de saudação do volume de réplica do DPM e a cópia de sombra de volume usando [DPMDatasourceDiskAllocation conjunto](https://technet.microsoft.com/library/hh881618.aspx) cmdlet como no exemplo a seguir de saudação: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - Datasource $DS - ProtectionGroup $MPG-manual - ReplicaArea (2 gb) - ShadowCopyArea (2 gb)
 
-### <a name="committing-the-changes-to-the-protection-group"></a>Confirmando as alterações ao Grupo de Proteção
-Por último, as alterações precisam ser confirmadas antes que o DPM possa fazer o backup de acordo com a nova configuração do Grupo de Proteção. Isso pode ser obtido usando o cmdlet [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) .
+### <a name="committing-hello-changes-toohello-protection-group"></a>Confirmar Olá altera toohello grupo de proteção
+Finalmente, alterações de saudação precisam toobe confirmada antes do DPM pode fazer backup de saudação por nova configuração de grupo de proteção hello. Isso pode ser feito usando Olá [DPMProtectionGroup conjunto](https://technet.microsoft.com/library/hh881758) cmdlet.
 
 ```
 PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
-## <a name="view-the-backup-points"></a>Exibir os pontos de backup
-Você pode usar o cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obter uma lista de todos os pontos de recuperação para uma fonte de dados. Neste exemplo, iremos:
+## <a name="view-hello-backup-points"></a>Exibir pontos de backup Olá
+Você pode usar o hello [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) tooget cmdlet uma lista de todos os pontos de recuperação para uma fonte de dados. Neste exemplo, iremos:
 
-* buscar todos os PGs no servidor DPM e armazenados em uma matriz ```$PG```
-* obter as fontes de dados correspondente ao ```$PG[0]```
-* obter todos os pontos de recuperação para uma fonte de dados.
+* busca todas Olá páginas no servidor DPM hello e armazenados em uma matriz```$PG```
+* obter Olá fontes de dados correspondente toohello```$PG[0]```
+* obter todos os pontos de recuperação Olá para uma fonte de dados.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -351,13 +351,13 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 ```
 
 ## <a name="restore-data-protected-on-azure"></a>Restaurar dados protegidos no Azure
-A restauração de dados é uma combinação de um objeto ```RecoverableItem``` e um objeto ```RecoveryOption```. Na seção anterior, obtivemos uma lista de pontos de backup para uma fonte de dados.
+A restauração de dados é uma combinação de um objeto ```RecoverableItem``` e um objeto ```RecoveryOption```. Na seção anterior do hello, nós temos uma lista de pontos de backup Olá para uma fonte de dados.
 
-No exemplo a seguir, demonstramos como restaurar uma máquina virtual Hyper-V por meio do Backup do Azure, combinando os pontos de backup com o destino para recuperação. Este exemplo inclui:
+O exemplo hello abaixo, demonstraremos como máquina virtual de toorestore um Hyper-V do Backup do Azure por pontos de backup combinando com hello de destino para recuperação. Este exemplo inclui:
 
-* Criar uma opção de recuperação usando o cmdlet [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592) .
-* Obter a matriz de pontos de backup usando o cmdlet ```Get-DPMRecoveryPoint``` .
-* Escolher um ponto de backup por meio do qual fazer a restauração.
+* Criando uma opção de recuperação usando Olá [DPMRecoveryOption novo](https://technet.microsoft.com/library/hh881592) cmdlet.
+* Matriz de Olá busca de pontos de backup usando Olá ```Get-DPMRecoveryPoint``` cmdlet.
+* Escolhendo um toorestore de ponto de backup do.
 
 ```
 PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation “C:\VMRecovery”
@@ -369,7 +369,7 @@ PS C:\> $RecoveryPoints = Get-DPMRecoverypoint -Datasource $DS[0] -Online
 PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -RecoveryOption $RecoveryOption
 ```
 
-Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados.
+comandos de saudação podem ser facilmente estendidos para qualquer tipo de fonte de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre o DPM para o Backup do Azure, confira [Introdução ao Backup do DPM](backup-azure-dpm-introduction.md)
+* Para obter mais informações sobre o DPM tooAzure Backup consulte [Introdução tooDPM Backup](backup-azure-dpm-introduction.md)

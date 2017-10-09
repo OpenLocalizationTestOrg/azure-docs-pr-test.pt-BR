@@ -1,6 +1,6 @@
 ---
-title: "Criar um balanceador de carga voltado para a Internet - Portal clássico do Azure | Microsoft Docs"
-description: "Saiba como criar um balanceador de carga para a Internet no modelo de implantação clássico usando o portal clássico do Azure"
+title: "Balanceador de carga aaaCreate um voltados para Internet - clássico do portal do Azure | Microsoft Docs"
+description: "Saiba como toocreate um balanceador de carga voltado para Internet no modelo de implantação clássico usando Olá portal clássico do Azure"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 27b0d5af6e7b493fa94a9dfbfa260483ae95a2fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Introdução à criação de um balanceador de carga para a Internet (clássico) no portal clássico do Azure
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-hello-azure-classic-portal"></a>Introdução à criação de uma balanceador de carga (clássico) no portal clássico do Azure de saudação da Internet
 
 > [!div class="op_single_selector"]
 > * [Portal clássico do Azure](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
@@ -32,33 +32,33 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Azure Resource Manager e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes clicando nas guias na parte superior deste artigo. Este artigo aborda o modelo de implantação clássico. Também é possível [Saber como criar um balanceador de carga para a Internet usando o Gerenciador de Recursos do Azure](load-balancer-get-started-internet-arm-ps.md).
+> Antes de trabalhar com recursos do Azure, é importante toounderstand que o Azure atualmente tem dois modelos de implantação: Gerenciador de recursos do Azure e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-classic-rm.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação de saudação para diferentes ferramentas clicando Olá guias na parte superior da saudação deste artigo. Este artigo aborda o modelo de implantação clássico hello. Você também pode [aprender a usar o Gerenciador de recursos do Azure de Balanceador de carga de toocreate um voltados à Internet de como](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="set-up-an-internet-facing-load-balancer-for-virtual-machines"></a>Configurar um balanceador de carga da Internet para máquinas virtuais
 
-Para balancear carga de tráfego de rede da Internet entre máquinas virtuais de um serviço de nuvem, você deve criar um conjunto de balanceamento de carga. Esse procedimento pressupõe que você já tenha criado as máquinas virtuais e que elas estejam todas no mesmo serviço de nuvem.
+No tráfego de rede ordem tooload saldo de saudação da Internet em máquinas virtuais de saudação de um serviço de nuvem, você deve criar um conjunto com balanceamento de carga. Esse procedimento pressupõe que você já criou máquinas virtuais de saudação e que são todos em Olá mesmo serviço de nuvem.
 
-**Para configurar um conjunto com balanceamento de carga de máquinas virtuais**
+**tooconfigure um conjunto com balanceamento de carga para máquinas virtuais**
 
-1. No portal clássico do Azure, clique em **Máquinas Virtuais**e, em seguida, clique no nome de uma máquina virtual no conjunto com balanceamento de carga.
+1. No portal clássico do Azure do hello, clique em **máquinas virtuais**e clique em nome de saudação de uma máquina virtual no conjunto de balanceamento de carga de saudação.
 2. Clique em **Pontos de Extremidade** e depois em **Adicionar**.
-3. Na página **Adicionar um ponto de extremidade a uma máquina virtual** , clique na seta para a direita.
-4. Na página **Especificar os detalhes do ponto de extremidade** :
+3. Em Olá **adicionar uma máquina de virtual do ponto de extremidade tooa** página, clique na seta direita hello.
+4. Em Olá **especificar detalhes de saudação do ponto de extremidade de saudação** página:
 
-   * Em **Nome**, digite um nome para o ponto de extremidade ou selecione o nome da lista de pontos de extremidade predefinidos para protocolos comuns.
-   * Em **Protocolo**, selecione o protocolo necessário para o tipo de ponto de extremidade, TCP ou UDP, conforme necessário.
-   * Em **Porta pública e Porta privada**, digite os números de porta que você deseja que a máquina virtual use, conforme necessário. Você pode usar as regras de firewall e porta privada na máquina virtual para redirecionar o tráfego de uma maneira que seja apropriado ao seu aplicativo. A porta privada pode ser a mesma que a porta pública. Por exemplo, para um ponto de extremidade para o tráfego da web (HTTP), você pode atribuir a porta 80 à porta pública e privada.
+   * Em **nome**, digite um nome para o ponto de extremidade de saudação ou selecione o nome de saudação da lista de saudação de pontos de extremidade predefinidas para protocolos comuns.
+   * Em **protocolo**, selecione o protocolo de saudação exigido pelo tipo de saudação do ponto de extremidade, TCP ou UDP, conforme necessário.
+   * Em **porta pública e porta privada**, digite Olá números de porta que você deseja Olá toouse de máquina virtual, conforme necessário. Você pode usar regras de firewall e porta privada Olá no tráfego de tooredirect Olá máquina virtual de forma que seja apropriado para seu aplicativo. porta privada Olá pode Olá igual a porta pública hello. Por exemplo, um ponto de extremidade para o tráfego da web (HTTP), você pode atribuir tooboth 80 Olá públicas e privadas porta.
 
-5. Selecione **Criar um conjunto de balanceamento de carga**e depois clique na seta para a direita.
-6. Na página **Configurar o conjunto de balanceamento de carga** , digite um nome para o conjunto e atribua os valores do comportamento de investigação do Balanceador de Carga do Azure. O Balanceador de Carga usa testes para determinar se as máquinas virtuais do conjunto de balanceamento de carga estão disponíveis para receber o tráfego de entrada.
-7. Clique na marca de seleção para criar o ponto de extremidade de balanceamento de carga. Você verá **Sim** na coluna **Nome do conjunto de balanceamento de carga** da página **Pontos de extremidade** da máquina virtual.
-8. No portal, clique em **Máquinas Virtuais**, clique no nome de uma máquina virtual adicional no conjunto de balanceamento de carga, clique em **Pontos de Extremidade** e em **Adicionar**.
-9. Na página **Adicionar ponto de extremidade a uma máquina virtual**, clique em **Adicionar ponto de extremidade a um conjunto existente de balanceamento de carga**, selecione o nome do conjunto de balanceamento de carga e, em seguida, clique na seta para a direita.
-10. Na página **Especificar os detalhes do ponto de extremidade** , digite um nome para o ponto de extremidade e, em seguida, clique na marca de seleção.
+5. Selecione **criar um conjunto com balanceamento de carga**e, em seguida, clique na seta direita hello.
+6. Em Olá **configurar conjunto de balanceamento de carga de saudação** página, digite um nome para o conjunto de balanceamento de carga hello e, em seguida, atribuir valores de saudação comportamento de sonda de saudação balanceador de carga do Azure. Olá balanceador de carga usa testes toodetermine se máquinas virtuais de saudação em conjunto com balanceamento de carga de saudação tooreceive disponível o tráfego de entrada.
+7. Clique em Olá marca de seleção toocreate Olá com balanceamento de carga de ponto de extremidade. Você verá **Sim** em Olá **o nome do conjunto com balanceamento de carga** coluna da saudação **pontos de extremidade** página para a máquina virtual de saudação.
+8. No portal de saudação, clique em **máquinas virtuais**, clique em nome de saudação de uma máquina virtual adicional no conjunto de balanceamento de carga de saudação **pontos de extremidade**e, em seguida, clique em **adicionar**.
+9. Em Olá **adicionar uma máquina de virtual do ponto de extremidade tooa** , clique em **Adicionar ponto de extremidade tooan existente com balanceamento de carga conjunto**, selecione o nome de saudação do conjunto de balanceamento de carga de hello e, em seguida, clique na seta direita hello.
+10. Em Olá **especificar detalhes de saudação do ponto de extremidade de saudação** página, digite um nome para o ponto de extremidade de saudação e, em seguida, clique em marca de seleção de saudação.
 
-Para as outras máquinas virtuais no conjunto de balanceamento de carga, repita as etapas de 8 a 10.
+Para Olá máquinas virtuais em conjunto com balanceamento de carga do hello, repita as etapas 8 a 10.
 
 ## <a name="next-steps"></a>Próximas etapas
 

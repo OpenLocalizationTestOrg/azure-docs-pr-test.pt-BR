@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas do Hive usando o Azure HDInsight | Microsoft Docs
-description: Obtenha respostas para perguntas comuns sobre como trabalhar com o Apache Hive e o Azure HDInsight.
+title: aaaTroubleshoot Hive usando o Azure HDInsight | Microsoft Docs
+description: Obter respostas a perguntas toocommon sobre como trabalhar com o Apache Hive e do Azure HDInsight.
 keywords: "Azure HDInsight, Hive, perguntas frequentes, guia de solução de problemas, perguntas comuns"
 services: Azure HDInsight
 documentationcenter: na
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: dharmeshkakadia
-ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ac459316e658d0b29eb66f5685f0bc7e693bb277
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Solucionar problemas do Hive usando o Azure HDInsight
 
-Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com cargas de Apache Hive no Apache Ambari.
+Saiba mais sobre Olá principais perguntas e suas resoluções durante o trabalho com o Apache Hive cargas no Apache Ambari.
 
 
 ## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Como fazer para exportar um metastore do Hive e importá-lo para outro cluster
@@ -31,9 +31,9 @@ Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com ca
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
-1. Conecte-se ao cluster HDInsight com um cliente SSH (Secure Shell). Para obter mais informações, consulte [Leituras adicionais](#additional-reading-end).
+1. Conecte o cluster do HDInsight toohello usando um cliente do Secure Shell (SSH). Para saber mais, veja [Leituras adicionais](#additional-reading-end).
 
-2. Execute o seguinte comando no cluster do HDInsight do qual você deseja exportar o metastore:
+2. Execute Olá comando a seguir no cluster do HDInsight de saudação do qual você deseja tooexport Olá metastore:
 
     ```apache
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
@@ -41,38 +41,38 @@ Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com ca
 
   Este comando gera um arquivo chamado allatables.sql.
 
-3. Copie o arquivo alltables.sql para o novo cluster do HDInsight e execute o seguinte comando:
+3. Copiar Olá arquivo alltables.sql toohello novo cluster HDInsight e execute Olá comando a seguir:
 
   ```apache
   hive -f alltables.sql
   ```
 
-O código nas etapas de resolução supõe que os caminhos de dados no novo cluster sejam iguais aos caminhos de dados no cluster antigo. Se os caminhos de dados forem diferentes, você poderá editar manualmente o arquivo alltables.sql gerado para refletir as alterações.
+código de saudação nas etapas de resolução de saudação supõe que dados são caminhos no cluster novo Olá Olá mesmo como caminhos de dados Olá no cluster antigo hello. Se os caminhos de dados Olá forem diferentes, você pode editar manualmente Olá gerado alltables.sql arquivo tooreflect quaisquer alterações.
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Conecte-se o cluster do HDInsight tooan usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
 ## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Como fazer para localizar logs do Hive em um cluster
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
-1. Conectar-se ao cluster HDInsight usando SSH. Para obter mais informações, consulte **Leituras adicionais**.
+1. Conecte o cluster do HDInsight toohello usando o SSH. Para saber mais, veja **Leituras adicionais**.
 
-2. Para exibir logs de cliente do Hive, use o seguinte comando:
+2. logs de cliente do Hive tooview, use Olá comando a seguir:
 
   ```apache
   /tmp/<username>/hive.log 
   ```
 
-3. Para exibir logs de metastore do Hive, use o seguinte comando:
+3. tooview Hive metastore logs, use Olá comando a seguir:
 
   ```apache
   /var/log/hive/hivemetastore.log 
   ```
 
-4. Para exibir logs do Hiveserver, use o seguinte comando:
+4. tooview Hiveserver logs, use Olá comando a seguir:
 
   ```apache
   /var/log/hive/hiveserver2.log 
@@ -80,26 +80,26 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Conecte-se o cluster do HDInsight tooan usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Como fazer para inicializar o shell do Hive com configurações específicas em um cluster
+## <a name="how-do-i-launch-hello-hive-shell-with-specific-configurations-on-a-cluster"></a>Como iniciar o hello Hive shell com configurações específicas em um cluster
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
-1. Especifique um par chave-valor de configuração quando iniciar o shell do Hive. Para obter mais informações, consulte [Leituras adicionais](#additional-reading-end).
+1. Especifique um par chave-valor de configuração quando você iniciar Olá Hive shell. Para saber mais, veja [Leituras adicionais](#additional-reading-end).
 
   ```apache
   hive -hiveconf a=b 
   ```
 
-2. Para listar todas as configurações efetivas no shell de Hive, use o seguinte comando:
+2. toolist todas as configurações efetivas no shell de Hive, Olá uso a seguir de comando:
 
   ```apache
   hive> set;
   ```
 
-  Por exemplo, use o seguinte comando para iniciar o shell do Hive com o registro em log de depuração habilitado no console:
+  Por exemplo, use Olá a seguir do shell de comando do Hive toostart com habilitado no console de saudação do log de depuração:
 
   ```apache
   hive -hiveconf hive.root.logger=ALL,console 
@@ -115,39 +115,39 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
 
 ### <a name="resolution-steps"></a>Etapas de resolução
  
-1. Para analisar um DAG (gráfico acíclico direcionado) do Apache Tez em um gráfico crítico do cluster, conecte-se ao cluster do HDInsight usando SSH. Para saber mais, veja [Leituras adicionais](#additional-reading-end).
+1. tooanalyze um Tez Apache direcionado gráfico acíclico (DAG) em um gráfico de cluster crítico, conecte-se o cluster do HDInsight toohello usando o SSH. Para saber mais, veja [Leituras adicionais](#additional-reading-end).
 
-2. No prompt de comando, execute o comando a seguir:
+2. Em um prompt de comando, execute Olá comando a seguir:
    
   ```apache
   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
   ```
 
-3. Para listar outros analisadores que podem ser usados para analisar o DAG do Tez, use o seguinte comando:
+3. toolist outros analisadores que podem ser usado tooanalyze Tez DAG, use Olá comando a seguir:
 
   ```apache
   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
   ```
 
-  Você precisa fornecer um programa de exemplo como o primeiro argumento.
+  Você deve fornecer um programa de exemplo como primeiro argumento de saudação.
 
   Nomes de programa válidos incluem:
     - **ContainerReuseAnalyzer**: imprimir detalhes de reutilização do contêiner em um DAG
-    - **CriticalPath**: localizar o caminho crítico de um DAG
+    - **CriticalPath**: caminho crítico de saudação de localização de um DAG
     - **LocalityAnalyzer**: imprimir detalhes de localidade em um DAG
-    - **ShuffleTimeAnalyzer**: analisar os detalhes de tempo de ordem aleatória em um DAG
-    - **SkewAnalyzer**: analisar os detalhes de distorção em um DAG
+    - **ShuffleTimeAnalyzer**: analisar os detalhes de tempo de ordem aleatória Olá em um DAG
+    - **SkewAnalyzer**: analisar os detalhes de distorção Olá em um DAG
     - **SlowNodeAnalyzer**: imprimir detalhes do nó em um DAG
     - **SlowTaskIdentifier**: imprimir detalhes de tarefa lenta em um DAG
     - **SlowestVertexAnalyzer**: imprimir detalhes do vértice mais lento em um DAG
     - **SpillAnalyzer**: imprimir detalhes de despejo em um DAG
-    - **TaskConcurrencyAnalyzer**: imprimir os detalhes de simultaneidade de tarefa em um DAG
-    - **VertexLevelCriticalPathAnalyzer**: encontrar o caminho crítico no nível do vértice em um DAG
+    - **TaskConcurrencyAnalyzer**: Imprimir Olá detalhes de simultaneidade de tarefa em um DAG
+    - **VertexLevelCriticalPathAnalyzer**: caminho crítico de saudação de localizar no nível de vértice em um DAG
 
 
 ### <a name="additional-reading"></a>Leitura adicional
 
-- [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Conecte-se o cluster do HDInsight tooan usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
 ## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Como fazer para baixar dados de DAG do Tez de um cluster
@@ -155,26 +155,26 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
 
 #### <a name="resolution-steps"></a>Etapas de resolução
 
-Há duas maneiras de coletar os dados de DAG do Tez:
+Há duas maneiras de dados de DAG Tez toocollect saudação:
 
-- Na linha de comando:
+- Olá linha de comando:
  
-    Conectar-se ao cluster HDInsight usando SSH. No prompt de comando, execute o comando a seguir:
+    Conecte o cluster do HDInsight toohello usando o SSH. No prompt de comando hello, execute Olá comando a seguir:
 
   ```apache
   hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId> 
   ```
 
-- Use o modo de exibição Tez do Ambari:
+- Use Olá Ambari Tez exibição:
    
-  1. Vá para o Ambari. 
-  2. Vá para o modo de exibição do Tez (sob o ícone de blocos no canto superior direito). 
-  3. Selecione o DAG que você deseja exibir.
+  1. Vá tooAmbari. 
+  2. Exibição de tooTez vá (no ícone de blocos de saudação no canto superior direito de saudação). 
+  3. Selecione Olá DAG tooview desejado.
   4. Selecione **Baixar dados**.
 
 ### <a name="additional-reading-end"></a>Leitura adicional
 
-[Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+[Conecte-se o cluster do HDInsight tooan usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
 

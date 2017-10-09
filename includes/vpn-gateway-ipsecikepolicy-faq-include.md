@@ -7,8 +7,8 @@ Você só pode especificar ***uma*** combinação de políticas para uma determi
 ### <a name="can-i-specify-a-partial-policy-on-a-connection-eg-only-ike-algorithms-but-not-ipsec"></a>Eu posso especificar uma política parcial em uma conexão? (Por exemplo, somente os algoritmos de IKE mas não IPsec)
 Não, você deve especificar todos os algoritmos e parâmetros para IKE (modo principal) e IPsec (modo rápido). A especificação de política parcial não é permitida.
 
-### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Quais são os algoritmos e as restrições principais suportadas na política personalizada?
-A tabela a seguir lista os algoritmos de criptografia compatíveis e restrições de chave configuráveis pelos clientes. Você deve selecionar uma opção para cada campo.
+### <a name="what-are-hello-algorithms-and-key-strengths-supported-in-hello-custom-policy"></a>Quais são os algoritmos de saudação e restrições de chave com suporte em política personalizada do hello?
+Olá tabela a seguir lista Olá suporte para algoritmos de criptografia e restrições de chave podem ser configuradas por clientes hello. Você deve selecionar uma opção para cada campo.
 
 | **IPsec/IKEv2**  | **Opções**                                                                   |
 | ---              | ---                                                                           |
@@ -23,14 +23,14 @@ A tabela a seguir lista os algoritmos de criptografia compatíveis e restriçõe
 |                  |                                                                               |
 
 > [!IMPORTANT]
-> 1. DHGroup2048 e PFS2048 são semelhantes ao Grupo Diffie-Hellman **14** em IKE e IPsec PFS. Veja [Grupos Diffie-Hellman](#DH) para obter os mapeamentos completos.
-> 2. Para os algoritmos GCMAES, você deve especificar o mesmo algoritmo GCMAES e o comprimento de chave para a Criptografia e a Integridade IPsec.
-> 3. O tempo de vida da SA de modo principal IKEv2 é fixo em 28.800 segundos nos gateways de VPN do Azure
+> 1. DHGroup2048 & PFS2048 são Olá mesmo como o grupo Diffie-Hellman **14** em IKE e IPsec PFS. Consulte [grupos Diffie-Hellman](#DH) para Olá concluir mapeamentos.
+> 2. Para os algoritmos GCMAES, você deve especificar Olá mesmo comprimento GCMAES algoritmo e a chave de criptografia IPsec e integridade.
+> 3. Tempo de vida do SA do modo principal IKEv2 é fixo em 28.800 segundos em gateways de VPN do Azure Olá
 > 4. As Vidas Úteis de SA QM são parâmetros opcionais. Se nenhum for especificado, os valores padrão de 27.000 segundos (7,5 horas) e 102400000 KBytes (102 GB) são usados.
-> 5. UsePolicyBasedTrafficSelector é um parâmetro de opção na conexão. Confira o próximo item de Perguntas frequentes para "UsePolicyBasedTrafficSelectors"
+> 5. UsePolicyBasedTrafficSelector é um parâmetro de opção de conexão de saudação. Consulte Perguntas frequentes sobre o hello próximo item para "UsePolicyBasedTrafficSelectors"
 
-### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>As configurações do dispositivo VPN local e a política do gateway de VPN do Azure devem corresponder em todos os aspectos?
-A configuração do dispositivo VPN local deve corresponder ou conter os seguintes algoritmos e parâmetros que você especifica na política de IPsec/IKE do Azure:
+### <a name="does-everything-need-toomatch-between-hello-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Tudo o que é necessário toomatch entre hello política de gateway de VPN do Azure e Minhas configurações de dispositivo VPN local?
+A configuração de dispositivo VPN local deve corresponder ou conter Olá algoritmos a seguir e parâmetros que você especificar na Olá diretiva IPsec/IKE do Azure:
 
 * Algoritmo de criptografia IKE
 * Algoritmo de integridade de IKE
@@ -40,18 +40,18 @@ A configuração do dispositivo VPN local deve corresponder ou conter os seguint
 * Grupo PFS
 * Seletor de tráfego (*)
 
-Os tempos de vida da SA são apenas especificações locais, portanto não precisam ser correspondentes.
+tempos de vida Olá SA especificações locais apenas, não é necessário toomatch.
 
-Caso habilite **UsePolicyBasedTrafficSelectors**, você precisa garantir que o seu dispositivo VPN tem os seletores de tráfego correspondentes definidos com todas as combinações de prefixos de rede local (gateway de rede local) de/para prefixos de rede virtual 'do Azure, em vez de "qualquer para qualquer". Por exemplo, se os prefixos da rede local são 10.1.0.0/16 e 10.2.0.0/16, e os prefixos da rede virtual são 192.168.0.0/16 e 172.16.0.0/16, você precisa especificar os seguintes seletores de tráfego:
+Se você habilitar **UsePolicyBasedTrafficSelectors**, você precisa tooensure seu dispositivo VPN tem Olá correspondência seletores de tráfego definidos com todas as combinações de seu local (gateway de rede local) de prefixos de rede de saudação Prefixos de rede virtual do Azure, em vez de para qualquer. Por exemplo, se os prefixos de rede local são 10.1.0.0/16 e 10.2.0.0/16, e os prefixos de rede virtual são 192.168.0.0/16 e 172.16.0.0/16, você precisa toospecify Olá seletores de tráfego a seguir:
 * 10.1.0.0/16 <====> 192.168.0.0/16
 * 10.1.0.0/16 <====> 172.16.0.0/16
 * 10.2.0.0/16 <====> 192.168.0.0/16
 * 10.2.0.0/16 <====> 172.16.0.0/16
 
-Consulte [Como conectar dispositivos VPN baseados em várias políticas locais](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter mais detalhes sobre como usar essa opção.
+Consulte também[conectar dispositivos VPN baseado em políticas vários locais](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) para obter mais detalhes sobre como toouse essa opção.
 
 ### <a name ="DH"></a>Há suporte para quais grupos Diffie-Hellman?
-A tabela abaixo lista os Grupos Diffie-Hellman com suporte para IKE (DHGroup) e IPsec (PFSGroup):
+Olá tabela a seguir lista Olá suporte para grupos de Diffie-Hellman IKE (DHGroup) e IPsec (PFSGroup):
 
 | **Grupo Diffie-Hellman**  | **DHGroup**              | **PFSGroup** | **Comprimento da chave** |
 | ---                       | ---                      | ---          | ---            |
@@ -63,25 +63,25 @@ A tabela abaixo lista os Grupos Diffie-Hellman com suporte para IKE (DHGroup) e 
 | 24                        | DHGroup24                | PFS24        | MODP de 2048 bits  |
 |                           |                          |              |                |
 
-Consulte a [RFC3526](https://tools.ietf.org/html/rfc3526) e a [RFC5114](https://tools.ietf.org/html/rfc5114) para obter mais detalhes.
+Consulte também[RFC3526](https://tools.ietf.org/html/rfc3526) e [RFC5114](https://tools.ietf.org/html/rfc5114) para obter mais detalhes.
 
-### <a name="does-the-custom-policy-replace-the-default-ipsecike-policy-sets-for-azure-vpn-gateways"></a>A política personalizada substitui os conjuntos de políticas de IPsec/IKE padrão para gateways de VPN do Azure?
-Sim, depois que uma política personalizada for especificada em uma conexão, o gateway de VPN do Azure usará a política na conexão, como iniciador do IKE e respondente do IKE.
+### <a name="does-hello-custom-policy-replace-hello-default-ipsecike-policy-sets-for-azure-vpn-gateways"></a>Política personalizada do hello substituir conjuntos de diretiva de IPsec/IKE saudação padrão para gateways de VPN do Azure?
+Sim, depois que uma política personalizada for especificada em uma conexão, gateway VPN do Azure só usará Olá política na conexão hello, como iniciador IKE e o respondedor IKE.
 
-### <a name="if-i-remove-a-custom-ipsecike-policy-does-the-connection-become-unprotected"></a>Se eu remover uma política de IPsec/IKE personalizada, a conexão ficará desprotegida?
-Não, a conexão ainda estará protegida por IPsec/IKE. Após você remover a política personalizada de uma conexão, o gateway de VPN do Azure reverterá para a [lista padrão de propostas de IPsec/IKE](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) e reiniciará o handshake do IKE novamente com o dispositivo VPN local.
+### <a name="if-i-remove-a-custom-ipsecike-policy-does-hello-connection-become-unprotected"></a>Se remover uma política personalizada do IPsec/IKE, conexão Olá ficará desprotegido?
+Não, conexão Olá ainda será protegido pelo IPsec/IKE. Quando você remover a política personalizada de saudação de uma conexão, gateway de VPN do Azure Olá reverterá back toohello [lista padrão de propostas de IPsec/IKE](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) e reinicie hello handshake IKE novamente com seu dispositivo VPN local.
 
 ### <a name="would-adding-or-updating-an-ipsecike-policy-disrupt-my-vpn-connection"></a>Adicionar ou atualizar uma política de IPsec/IKE pode atrapalhar minha conexão VPN?
-Sim, isso pode causar uma interrupção pequena (alguns segundos) uma vez que o gateway de VPN do Azure subdividirá a conexão existente e reiniciará o handshake do IKE para restabelecer o túnel IPsec com os algoritmos de criptografia e os parâmetros novos. Certifique-se de que o dispositivo VPN local também esteja configurado com os algoritmos correspondentes e as restrições de chave para minimizar a interrupção.
+Sim, isso pode causar uma pequena interrupção (alguns segundos) como gateway de VPN do Azure Olá será subdividir a conexão existente hello e reinicie Olá IKE handshake toore-estabelecer o túnel IPsec de saudação com novos algoritmos de criptografia hello e parâmetros. Verifique se que o dispositivo VPN local também é configurado com algoritmos de correspondência de saudação e restrições de chave toominimize Olá de interrupção.
 
 ### <a name="can-i-use-different-policies-on-different-connections"></a>Eu posso usar políticas diferentes em conexões diferentes?
-Sim. A política personalizada é aplicada em uma base por conexão. Você pode criar e aplicar políticas de IPsec/IKE diferentes em conexões diferentes. Também é possível aplicar políticas personalizadas em um subconjunto de conexões. As restantes usarão os conjuntos de políticas de IPsec/IKE padrão do Azure.
+Sim. A política personalizada é aplicada em uma base por conexão. Você pode criar e aplicar políticas de IPsec/IKE diferentes em conexões diferentes. Você também pode escolher tooapply políticas personalizadas em um subconjunto de conexões. Olá os restantes irá usar conjuntos de diretiva de IPsec/IKE saudação padrão do Azure.
 
-### <a name="can-i-use-the-custom-policy-on-vnet-to-vnet-connection-as-well"></a>Eu também posso usar a política personalizada na conexão de VNet para VNet?
+### <a name="can-i-use-hello-custom-policy-on-vnet-to-vnet-connection-as-well"></a>Pode usar política personalizada de saudação na conexão de rede virtual a rede também?
 Sim, você pode aplicar a política personalizada em conexões entre locais de IPsec ou conexões de VNet para VNet.
 
-### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>É necessário especificar a mesma política em ambos os recursos de conexão de VNet para VNet?
-Sim. Um túnel de VNet para VNet consiste em dois recursos de conexão no Azure, uma para cada sentido. Você precisa garantir que ambos os recursos de conexão tenham a mesma política, caso contrário a conexão de VNet para VNet não se estabelecerá.
+### <a name="do-i-need-toospecify-hello-same-policy-on-both-vnet-to-vnet-connection-resources"></a>É necessário toospecify Olá política mesmo em ambos os recursos de conexão de VNet para VNet?
+Sim. Um túnel de VNet para VNet consiste em dois recursos de conexão no Azure, uma para cada sentido. Você precisa tooensure tem ambos os recursos de conexão Olá a mesma diretiva, Olá othereise conexão de rede virtual a rede não estabelecerá.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>A política de IPsec/IKE personalizada funciona em conexão de ExpressRoute?
-Não. A política IPsec/IKE só funciona em conexões VNet para VNet e VPN S2S por meio de gateways de VPN do Azure.
+Não. Diretiva IPsec/IKE só funciona em VPN S2S e conexões de rede virtual a rede por meio de gateways de VPN do Azure hello.

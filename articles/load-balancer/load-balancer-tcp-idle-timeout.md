@@ -1,5 +1,5 @@
 ---
-title: Configurar tempo limite de ociosidade do TCP do balanceador de carga | Microsoft Docs
+title: tempo limite de ociosidade TCP de Balanceador de carga aaaConfigure | Microsoft Docs
 description: Configurar tempo limite de ociosidade do TCP do balanceador de carga
 services: load-balancer
 documentationcenter: na
@@ -13,45 +13,45 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: d040fe6580b8ae777aecc9dd385ed33861530c38
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2bf0704b891f708e0a5bd7aa827441930f51cfaf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Definir as configurações de tempo limite de ociosidade do TCP para o Azure Load Balancer
 
-Em sua configuração padrão, o Azure Load Balancer tem uma configuração de tempo limite de ociosidade de quatro minutos. Se um período de inatividade for maior que o valor de tempo limite, não haverá nenhuma garantia de que a sessão TCP ou HTTP seja mantida entre o cliente e o serviço de nuvem.
+Em sua configuração padrão, o Azure Load Balancer tem uma configuração de tempo limite de ociosidade de quatro minutos. Se um período de inatividade é maior que o valor de tempo limite de hello, não há nenhuma garantia de que Olá TCP ou sessão HTTP é mantido entre cliente hello e seu serviço de nuvem.
 
-Quando a conexão é fechada, seu aplicativo cliente pode recebe a seguinte mensagem de erro: "A conexão subjacente foi fechada: uma conexão que deveria ser mantida ativa foi fechada pelo servidor."
+Quando a conexão de saudação for fechada, seu aplicativo cliente pode receber Olá a seguinte mensagem de erro: "hello subjacente a conexão foi fechada: uma conexão que deveria toobe mantida ativa foi fechada pelo servidor de saudação."
 
-Uma prática comum é usar um TCP keep alive. Essa prática mantém a conexão ativa por um período maior. Para obter mais informações, consulte estes [exemplos do .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com o keep alive habilitado, os pacotes são enviados durante os períodos de inatividade na conexão. Esses pacotes keep alive garantem que o valor de tempo limite de ociosidade nunca será atingido e a conexão será mantida por um longo período.
+Uma prática comum é toouse um TCP keep-alive. Essa prática mantém a conexão Olá ativo por um período maior. Para obter mais informações, consulte estes [exemplos do .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com keep-alive habilitado, os pacotes são enviados durante períodos de inatividade da conexão hello. Esses pacotes keep-alive Certifique-se de que o valor de tempo limite de ociosidade Olá nunca é alcançado e conexão Olá é mantida por um longo período.
 
-Essa configuração só funciona para conexões de entrada. Para evitar a perda da conexão, você deve configurar o TCP keep-alive com um intervalo menor do que a configuração de tempo limite de ociosidade ou aumentar o valor do tempo limite de ociosidade. Para dar suporte a esses cenários, adicionamos suporte para um tempo limite de ociosidade configurável. Agora você pode defini-lo para uma duração entre quatro e 30 minutos.
+Essa configuração só funciona para conexões de entrada. tooavoid perder a conexão de hello, configure Olá TCP keep-alive com um intervalo menor do que Olá tempo limite de ociosidade configuração ou aumente Olá tempo limite de ociosidade valor. toosupport nesses cenários, adicionamos suporte para um tempo limite de ociosidade configurável. Agora você pode defini-lo por um período de 4 minutos too30.
 
-O TCP keep alive funciona bem para cenários em que a vida útil da bateria não é uma restrição. Não é recomendável para aplicativos móveis. Usar o TCP keep alive em um aplicativo móvel pode consumir a bateria do dispositivo mais rapidamente.
+O TCP keep alive funciona bem para cenários em que a vida útil da bateria não é uma restrição. Não é recomendável para aplicativos móveis. Usando um TCP keep-alive em um aplicativo móvel pode drenar bateria do dispositivo hello mais rapidamente.
 
 ![Tempo limite de TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-As seções a seguir descrevem como alterar as configurações de tempo limite de ociosidade em máquinas virtuais e serviços de nuvem.
+Olá seções a seguir descreve como toochange ocioso configurações de tempo limite em máquinas virtuais e serviços de nuvem.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configure o tempo limite de TCP para o IP Público em Nível de Instância para 15 minutos
+## <a name="configure-hello-tcp-timeout-for-your-instance-level-public-ip-too15-minutes"></a>Configurar o tempo limite TCP de saudação para seu minutos do nível de instância públicos IP too15
 
 ```powershell
 Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 ```
 
-`IdleTimeoutInMinutes` é opcional. Se não for definido, o tempo limite padrão será 4 minutos. O intervalo de tempo limite aceitável é entre quatro e 30 minutos.
+`IdleTimeoutInMinutes` é opcional. Se não for definida, o tempo limite padrão de saudação é 4 minutos. intervalo de tempo limite aceitável de saudação é 4 too30 minutos.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Defina o tempo limite de ociosidade durante a criação de um ponto de extremidade do Azure em uma máquina virtual
+## <a name="set-hello-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Definir tempo limite de ociosidade Olá durante a criação de um ponto de extremidade do Azure em uma máquina virtual
 
-Para alterar a configuração de tempo limite para um ponto de extremidade, use o seguinte:
+toochange Olá tempo limite de configuração para um ponto de extremidade, use Olá seguinte:
 
 ```powershell
 Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
 ```
 
-Para recuperar sua configuração de tempo limite de ociosidade, use o seguinte comando:
+tooretrieve sua configuração de tempo limite de ociosidade, use Olá comando a seguir:
 
     PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
@@ -71,9 +71,9 @@ Para recuperar sua configuração de tempo limite de ociosidade, use o seguinte 
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Defina o tempo limite do TCP em um conjunto do ponto de extremidade com balanceamento de carga
+## <a name="set-hello-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Definir tempo limite TCP de saudação em um conjunto de ponto de extremidade com balanceamento de carga
 
-Se os pontos de extremidade forem parte de um conjunto do ponto de extremidade com balanceamento de carga, o tempo limite do TCP deverá ser definido no conjunto de pontos de extremidade com balanceamento de carga. Por exemplo:
+Se os pontos de extremidade são parte de um conjunto de ponto de extremidade com balanceamento de carga, tempo limite TCP de saudação deve ser definido no conjunto de ponto de extremidade com balanceamento de carga de saudação. Por exemplo:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
@@ -81,9 +81,9 @@ Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Prot
 
 ## <a name="change-timeout-settings-for-cloud-services"></a>Alterar as configurações de tempo limite para serviços de nuvem
 
-É possível usar o SDK do Azure para atualizar seu serviço de nuvem. Você pode fazer configurações de ponto de extremidade para serviços de nuvem no arquivo .csdef. A atualização do tempo limite do TCP para a implantação de um serviço de nuvem exige uma atualização da implantação. Uma exceção é se o tempo limite do TCP é especificado somente para um IP público. As configurações de IP público estão no arquivo .cscfg e podem ser atualizadas por intermédio da atualização e do upgrade da implantação.
+Você pode usar o hello Azure SDK tooupdate seu serviço de nuvem. Você pode fazer configurações de ponto de extremidade para serviços de nuvem no arquivo. csdef de saudação. Atualizar o tempo limite TCP de saudação para implantação de um serviço de nuvem requer uma atualização de implantação. Uma exceção é se o tempo limite TCP de saudação for especificado apenas para um IP público. Configurações de IP público estão no arquivo. cscfg de saudação e pode atualizá-los por meio de atualização e a atualização de implantação.
 
-As alterações do .csdef para as configurações do ponto de extremidade são:
+Olá. csdef alterações para as configurações de ponto de extremidade são:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -93,7 +93,7 @@ As alterações do .csdef para as configurações do ponto de extremidade são:
 </WorkerRole>
 ```
 
-As alterações no .cscfg para a configuração de tempo limite em IPs públicos são:
+Olá. cscfg alterações de configuração de tempo limite de saudação em IPs públicos são:
 
 ```xml
 <NetworkConfiguration>
@@ -110,7 +110,7 @@ As alterações no .cscfg para a configuração de tempo limite em IPs públicos
 
 ## <a name="rest-api-example"></a>Exemplo de API REST
 
-Você pode configurar o tempo limite de ociosidade de TCP usando a API de Gerenciamento de Serviços. Certifique-se de que o cabeçalho `x-ms-version` esteja definido como a versão `2014-06-01` ou superior. Atualize a configuração dos pontos de extremidade de entrada com balanceamento de carga especificado em todas as máquinas virtuais em uma implantação.
+Você pode configurar o tempo limite de ociosidade TCP hello usando a API de gerenciamento do serviço de saudação. Certifique-se de que Olá `x-ms-version` cabeçalho é definido tooversion `2014-06-01` ou posterior. Configuração de saudação de atualização de saudação especificado pontos de extremidade de entrada com balanceamento de carga em todas as máquinas virtuais em uma implantação.
 
 ### <a name="request"></a>Solicitação
 

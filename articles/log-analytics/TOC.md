@@ -44,7 +44,7 @@
 ### [Perguntas frequentes](log-analytics-log-search-faq.md)
 ### [Visão geral das pesquisas de log](log-analytics-log-search-new.md)
 ### [Portais de pesquisa de logs](log-analytics-log-search-portals.md)
-#### [Use o portal de pesquisa de logs](log-analytics-log-search-log-search-portal.md)
+#### [Usar o portal de pesquisa de log de saudação](log-analytics-log-search-log-search-portal.md)
 ### [Transição do idioma herdado](log-analytics-log-search-transition.md)
 ### [Conector de fluxo](log-analytics-flow-tutorial.md)
 

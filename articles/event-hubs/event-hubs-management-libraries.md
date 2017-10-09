@@ -1,5 +1,5 @@
 ---
-title: Bibliotecas de gerenciamento dos Hubs de Eventos do Azure | Microsoft Docs
+title: bibliotecas de gerenciamento de Hubs de eventos aaaAzure | Microsoft Docs
 description: Gerenciar namespaces de Hubs de eventos e entidades do .NET
 services: event-hubs
 cloud: na
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 0d659cb860a6c98342b548212820efe046decfcc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: b7db0077f6f31397ae46e926c3c28630a157824c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gerenciamento dos Hubs de Eventos
 
-As bibliotecas de gerenciamento de Hubs de eventos podem provisionar dinamicamente entidades e namespaces de Hubs de eventos. Isso permite implantações e cenários de mensagens complexos, de modo que você possa determinar de forma programática quais entidades provisionar. Essas bibliotecas estão atualmente disponíveis para .NET.
+bibliotecas de gerenciamento de Hubs de eventos Olá dinamicamente podem provisionar entidades e namespaces de Hubs de eventos. Isso permite implantações complexas e cenários de mensagens, para que você possa determinar programaticamente tooprovision quais entidades. Essas bibliotecas estão atualmente disponíveis para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidade com suporte
 
@@ -32,19 +32,19 @@ As bibliotecas de gerenciamento de Hubs de eventos podem provisionar dinamicamen
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a usar as bibliotecas de gerenciamento de Hubs de eventos, você deverá se autenticar com o Azure Active Directory (AAD). AAD exige que você autentique como uma entidade de serviço, que fornece acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
+tooget iniciado usando bibliotecas de gerenciamento de Hubs de eventos hello, você deverá se autenticar com o Azure Active Directory (AAD). AAD requer que você se autenticar como uma entidade de serviço, que fornece acesso tooyour recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 
-* [Usar o portal do Azure para criar um aplicativo e entidade de serviço do Active Directory que pode acessar recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-* [Usar o Azure PowerShell para criar uma entidade de serviço a fim de acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md)
-* [Usar a CLI do Azure para criar uma entidade de serviço a fim de acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
+* [Use o aplicativo do hello toocreate portal do Azure Active Directory e a entidade de serviço que pode acessar os recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [Usar Azure PowerShell toocreate um serviço principal tooaccess recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* [Usar um serviço principal tooaccess recursos de toocreate CLI do Azure](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-Estes tutoriais fornecem uma `AppId` (ID do Cliente), `TenantId` e `ClientSecret` (chave de autenticação), todas usadas para autenticação pelas bibliotecas de gerenciamento. Você deve ter permissões de **Proprietário** para o grupo de recursos no qual você deseja executar.
+Esses tutoriais fornecem uma `AppId` (ID do cliente), `TenantId`, e `ClientSecret` (chave de autenticação), que são usados para autenticação, as bibliotecas de gerenciamento de saudação. Você deve ter **proprietário** permissões para grupo de recursos de saudação no qual você deseja toorun.
 
 ## <a name="programming-pattern"></a>Padrão de programação
 
-O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protocolo comum:
+Olá padrão toomanipulate qualquer recurso de Hubs de eventos segue um protocolo comum:
 
-1. Obtenha um token do AAD usando a biblioteca `Microsoft.IdentityModel.Clients.ActiveDirectory`.
+1. Obter um token do AAD usando Olá `Microsoft.IdentityModel.Clients.ActiveDirectory` biblioteca.
     ```csharp
     var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
@@ -54,7 +54,7 @@ O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protoc
     );
     ```
 
-1. Crie o objeto `EventHubManagementClient`.
+1. Criar hello `EventHubManagementClient` objeto.
     ```csharp
     var creds = new TokenCredentials(token);
     var ehClient = new EventHubManagementClient(creds)
@@ -63,7 +63,7 @@ O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protoc
     };
     ```
 
-1. Defina os parâmetros `CreateOrUpdate` com os valores especificados.
+1. Saudação de conjunto `CreateOrUpdate` valores de parâmetros tooyour especificados.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {
@@ -71,7 +71,7 @@ O padrão para manipular qualquer recurso de Hubs de eventos a seguir, um protoc
     };
     ```
 
-1. Execute a chamada.
+1. Olá chamada execute.
     ```csharp
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```

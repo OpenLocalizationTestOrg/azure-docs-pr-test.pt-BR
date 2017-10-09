@@ -1,6 +1,6 @@
 ---
-title: Proteger dados pessoais com controles de acesso e identidade do Azure | Microsoft Docs
-description: Usando os controles de acesso e identidade do Azure para ajudar a proteger dados pessoais
+title: dados pessoais de aaaProtect com controles de acesso e identidade do Azure | Microsoft Docs
+description: "Usando toohelp de controles de acesso e identidade do Azure que você proteja seus dados pessoais"
 services: security
 documentationcenter: na
 author: Barclayn
@@ -15,49 +15,49 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: b43754efd207679dbe08710f44f56454a5fd20ab
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3132c2af25f86662668e5b555eab1d81de7f2e6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Autenticação Multifator: proteger dados pessoais com controles de acesso e identidade
 
-Este artigo fornece informações e procedimentos que podem ser usados para proteger dados pessoais, usando os serviços e recursos de segurança do Azure Active Directory e da Autenticação multifator.
+Este artigo fornece informações e procedimentos que você pode usar dados pessoais de tooprotect usando os serviços e recursos de segurança do Active Directory do Azure e multi-factor authentication.
 
 ## <a name="scenario"></a>Cenário
 
-Uma empresa de cruzeiro de grande porte, com sede nos Estados Unidos, está expandindo suas operações para oferecer roteiros nos mares Mediterrâneo, Adriático e Báltico, bem como nas Ilhas Britânicas. Para dar suporte a esses esforços, ela adquiriu várias linhas de cruzeiro menores localizadas na Itália, na Alemanha, na Dinamarca e no Reino Unido. 
+Uma empresa cruzeiro grandes, com sede Olá dos Estados Unidos, está expandindo suas roteiros de toooffer operações Mediterrâneo hello, Adriatic e mares báltico, bem como Olá Britânicas. toosupport os esforços adquiriu várias linhas de cruzeiro menores na Itália, Alemanha, Dinamarca e hello UK 
 
-A empresa usa o Microsoft Azure para armazenar dados corporativos na nuvem. Eles incluem informações de identificação pessoal, como nomes, endereços, números de telefone e informações de cartão de crédito de sua base global de clientes. Ele também inclui informações de recursos humanos tradicionais, como endereços, números de telefone, números de identificação de imposto e médicas informações sobre os funcionários da empresa em todos os locais. A linha de cruzeiro também mantém um banco de dados grande de membros do programa de recompensa e fidelidade que inclui informações pessoais para acompanhamento das relações com os clientes atuais e anteriores.
+empresa de saudação usa dados corporativos do Microsoft Azure toostore na nuvem hello. Eles incluem informações de identificação pessoal, como nomes, endereços, números de telefone e informações de cartão de crédito de sua base global de clientes. Ele também inclui informações de recursos humanos tradicionais, como endereços, números de telefone, números de identificação de imposto e médicas informações sobre os funcionários da empresa em todos os locais. linha de cruzeiro Olá também mantém um banco de dados grande de membros do programa de recompensa e fidelidade que incluem informações pessoais tootrack relações com os clientes atuais e anteriores.
 
-Os funcionários corporativos acessam a rede de escritórios remotos da empresa e os agentes de viagem localizados no mundo todo têm acesso a alguns recursos da empresa.
+Os funcionários corporativos acesso Olá rede da empresa Olá escritórios remotos e agentes espalhados Olá, mundo têm acesso toosome recursos da empresa.
 
 ## <a name="problem-statement"></a>Problema declarado
 
-A empresa deve proteger a privacidade dos dados pessoais de clientes e funcionários contra invasores que buscam usar as identidades comprometidas para obter acesso. Ela também deve garantir que o acesso aos dados pessoais por usuários legítimos seja restrito somente àqueles que precisam deles para realizar seus trabalhos.
+empresa Olá deve proteger a privacidade de saudação dos dados pessoais dos funcionários e clientes contra invasores que buscam toouse comprometido identidades toogain acesso. Eles também devem garantir que toopersonal de acesso a dados por usuários legítimos é restrito a somente aqueles que precisam de toodo seus trabalhos.
 
 ## <a name="company-goal"></a>Meta da empresa
 
-A meta da empresa é garantir que o acesso a dados pessoais seja estritamente controlado. É essencial que as identidades de usuários com acesso a dados pessoais sejam protegidas pela autenticação forte. Uma política de [privilégio mínimo] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) deve ser imposta, de modo que os usuários legítimos tenham apenas o nível de acesso necessário e nada mais.
+a meta da empresa Olá é tooensure que acessam dados toopersonal é estritamente controlada. É essencial que as identidades de usuários com dados do access toopersonal ser protegidas por autenticação forte. Uma política de [privilégio mínimo] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) devem ser impostas para que os usuários legítimos único nível de saudação de acesso necessário e nada mais.
 
 ## <a name="solutions"></a>Soluções
 
-O Microsoft Azure fornece ferramentas de gerenciamento de identidade e acesso para ajudar as empresas a controlar quem tem acesso aos recursos que contêm dados pessoais.
+Microsoft Azure fornece ferramentas de gerenciamento de identidade e acesso toohelp empresas controlar acesso tooresources que contêm dados pessoais.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-O [AAD](https://docs.microsoft.com/azure/active-directory/) (Azure Active Directory) gerencia identidades e controla o acesso ao Azure, bem como outros recursos locais e outros recursos, dados e aplicativos de nuvem. O [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access) ajuda os administradores do Azure a minimizar o número de pessoas que têm acesso a determinadas informações como dados pessoais. Ele permite que eles descubram, restrinjam e monitorem identidades com privilégios e seu acesso a recursos, além de atribuir direitos administrativos JIT (Just-In-Time) temporários aos usuários qualificados. Também fornece informações sobre aqueles que têm privilégios administrativos do AAD.
+[Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/) (AAD) gerencia identidades e controla o acesso tooAzure bem como outros locais e outros recursos de nuvem, dados e aplicativos. [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/active-directory-securing-privileged-access) ajuda os administradores do Azure toominimize Olá várias pessoas têm acesso toocertain informações como dados pessoais. Ele permite toodiscover, restringir e monitorar seus tooresources e tooassign temporário, Just-in-(JIT) direitos administrativos tooeligible usuários de acesso e de identidades com privilégios. Também fornece informações sobre aqueles que têm privilégios administrativos do AAD.
 
-As atividades envolvidas no uso do AAD PIM incluem:
+atividades de saudação envolvidas usando AAD PIM incluem:
 
 - Habilitar o Privileged Identity Management no diretório
 
-- Usar o painel de administração do Privileged Identity Management para ver informações importantes rapidamente
+- Usando informações importantes do Privileged Identity Management admin painel toosee em um relance
 
-- Gerenciar as identidades com privilégios (administradores) adicionando ou removendo os administradores permanentes ou qualificados para cada função
+- Gerenciamento de identidades com privilégios de saudação (administradores) adicionando ou removendo a função de tooeach administradores permanentes ou qualificados
 
-- Definir as configurações de ativação de função
+- Definindo configurações de ativação de função hello
 
 - Ativar funções
 
@@ -65,17 +65,17 @@ As atividades envolvidas no uso do AAD PIM incluem:
 
 #### <a name="how-do-i-enable-aad-pim"></a>Como fazer para habilitar o AAD PIM?
 
-Para começar a usar o PIM no diretório, faça o seguinte:
+toostart usando PIM para seu diretório, Olá a seguir:
 
-1. Entre no portal do Azure como administrador global do diretório.
+1. Entre em toohello portal do Azure como um administrador global do seu diretório.
 
-2. Se sua organização tiver mais de um diretório, selecione seu nome de usuário no canto superior direito do portal do Azure. Selecione o diretório em que você usará o Privileged Identity Management do Azure AD.
+2. Se sua organização tiver mais de um diretório, selecione seu nome de usuário no canto superior direito de saudação do hello portal do Azure. Selecione o diretório de saudação onde você usará o Azure AD Privileged Identity Management.
 
-3. Selecione **Mais serviços** e use a caixa de texto **Filtrar** para pesquisar o Azure AD Privileged Identity Management.
+3. Selecione **mais serviços** e usar Olá **filtro** toosearch da caixa de texto para o Azure AD Privileged Identity Management.
 
-4. Marque **Fixar no painel** e então clique em **Criar**. O aplicativo Privileged Identity Management é aberto.
+4. Verificar **Pin toodashboard** e, em seguida, clique em **criar**. Olá aplicativo Privileged Identity Management é aberto.
 
-Depois que o Azure AD Privileged Identity Management estiver configurado, você verá a folha de navegação sempre que abrir o aplicativo.
+Depois de configurar o Azure AD Privileged Identity Management, você verá blade de navegação Olá sempre que você abrir o aplicativo hello.
 
 ![](media/protect-personal-data-identity-access-controls/azure-pim.png)
 
@@ -83,15 +83,15 @@ Para obter mais informações e instruções sobre como começar a usar o AAD PI
 
 ### <a name="azure-role-based-access-control"></a>Controle de Acesso Baseado em Função do Azure
 
-O [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (Controle de Acesso Baseado em Função do Azure) ajuda os administradores do Azure a gerenciar o acesso aos recursos do Azure, permitindo a concessão de acesso de acordo com a função atribuída do usuário. Segregue as tarefas dentro de uma equipe e conceda somente a quantidade de acesso que os usuários, os grupos e os aplicativos precisam para realizar seus trabalhos.
+[Controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) ajuda a administradores do Azure gerenciar acesso tooAzure recursos habilitando o Olá concessão de acesso baseado em função do usuário hello. Você pode separar tarefas dentro de uma equipe e conceder apenas Olá total acesso toousers, grupos e aplicativos que precisam tooperform seus trabalhos.
 
-O acesso baseado em função pode ser concedido aos usuários que usam o portal do Azure, as ferramentas de Linha de Comando do Azure ou as APIs de Gerenciamento do Azure.
+Acesso baseado em função pode ser concedido toousers usando Olá portal do Azure, as ferramentas de linha de comando do Azure ou APIs de gerenciamento do Azure.
 
-Para obter mais informações sobre os conceitos básicos do RBAC do Azure, consulte [Introdução ao Controle de Acesso Baseado em Função no Portal do Azure](https://docs.microsoft.com/active-directory/role-based-access-control-what-is).
+Para obter mais informações sobre aspectos básicos de RBAC do Azure, consulte [começar com controle de acesso baseado em função no hello Portal do Azure.](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>Como fazer para gerenciar o RBAC do Azure com o PowerShell?
 
-Use os cmdlets do PowerShell para gerenciar o RBAC do Azure, incluindo as seguintes tarefas de gerenciamento:
+Você pode usar os cmdlets de PowerShell toomanage RBAC do Azure, incluindo Olá tarefas de gerenciamento a seguir:
 
 - Listar funções
 
@@ -111,19 +111,19 @@ Use os cmdlets do PowerShell para gerenciar o RBAC do Azure, incluindo as seguin
 
 - Listar funções personalizadas
 
-Para obter instruções sobre como gerenciar o RBAC do Azure com o PowerShell, consulte [Gerenciar o Acesso Baseado em Função com o Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+Para obter instruções sobre como toomanage RBAC do Azure com o PowerShell, consulte [acesso baseado em função gerenciar com o Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Autenticação Multifator do Azure
 
-O [Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/) (Autenticação Multifator do Azure) é uma solução de verificação em duas etapas que ajuda a proteger o acesso a dados e aplicativos, enquanto atende às exigências do usuário por um processo de conexão simples. Ele fornece autenticação forte por meio de uma variedade de métodos de verificação, incluindo chamada telefônica, mensagem de texto ou verificação de aplicativo móvel.
+[Autenticação multifator do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/) (MFA) é uma solução de verificação de duas etapas que ajuda a proteger acesso toodata e aplicativos, enquanto atende a demanda do usuário para um processo de logon simple. Ele fornece autenticação forte por meio de uma variedade de métodos de verificação, incluindo chamada telefônica, mensagem de texto ou verificação de aplicativo móvel.
 
-Para implantar o MFA na nuvem do Azure, você precisa habilitá-lo primeiro e, em seguida, ativar a verificação em duas etapas para os usuários.
+toodeploy MFA Olá nuvem do Azure, você precisa toofirst habilitá-lo e, em seguida, ativar a verificação em duas etapas para os usuários.
 
-#### <a name="how-do-i-enable-azure-to-use-mfa"></a>Como fazer para habilitar o Azure a usar o MFA?
+#### <a name="how-do-i-enable-azure-toouse-mfa"></a>Como habilitar o Azure toouse MFA?
 
-Se os usuários tiverem licenças que incluem a Autenticação Multifator do Azure, nada precisará ser feito para ativar o MFA do Azure. Caso contrário, você precisará criar um provedor de Autenticação Multifator no diretório. Para fazer isso, siga estas etapas:
+Se os usuários tiverem licenças que incluem autenticação multifator do Azure, não há nada que você precisa tooturn toodo no Azure MFA. Caso contrário, você precisa toocreate um provedor de multi-Factor Auth em seu diretório. toodo isso, siga estas etapas:
 
-1. Selecione **Active Directory** no portal clássico do Azure (conectado como administrador).
+1. Selecione **do Active Directory** em Olá portal clássico do Azure (conectado como administrador).
 
 2. Selecione **Provedores de Autenticação Multifator.**
 
@@ -131,52 +131,52 @@ Se os usuários tiverem licenças que incluem a Autenticação Multifator do Azu
 
 4. Selecione **Criação Rápida.**
 
-5. Preencha o campo de nome e selecione um modelo de uso (por autenticação ou por usuário habilitado).
+5. Preencha o campo de nome hello e selecione um modelo de uso (por autenticação ou por usuário habilitado).
 
-6. Designe um diretório ao qual o Provedor de MFA está associado.
+6. Designa um diretório ao qual Olá provedor MFA está associado.
 
-7. Selecione o botão **Criar** .
+7. Clique em Olá **criar** botão.
 
 ![](media/protect-personal-data-identity-access-controls/quick-create.png)
 
-Para obter mais instruções sobre como gerenciar o Provedor de Autenticação Multifator, consulte [Introdução a um Provedor de Autenticação Multifator do Azure.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
+Para obter mais instruções sobre como toomanage seu provedor de autenticação multifator, consulte [guia de Introdução com um provedor de autenticação multifator do Azure.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 
 #### <a name="how-do-i-turn-on-two-step-verification-for-users"></a>Como fazer para ativar a verificação em duas etapas para os usuários?
 
-Imponha a verificação em duas etapas para todas as entradas ou crie políticas de acesso condicional para exigir uma verificação em duas etapas somente quando condições específicas forem aplicáveis.
+Você pode impor a verificação em duas etapas para todas as entradas ou você pode criar a verificação de duas etapas de toorequire de políticas de acesso condicional somente quando condições específicas.
 
-A habilitação do MFA do Azure com a alteração de estados do usuário é a abordagem tradicional para exigir a verificação em duas etapas. Todos os usuários habilitados terão o mesmo requisito de executar a verificação em duas etapas sempre que se conectarem. A habilitação de um usuário substitui qualquer política de acesso condicional que possa afetar esse usuário.
+Habilitar o Azure MFA alterando estados do usuário é a abordagem tradicional Olá para exigir a verificação em duas etapas. Todos os usuários de saudação que permitem que você terá Olá verificacao do mesmo requisito tooperform toda vez que entrar. A habilitação de um usuário substitui qualquer política de acesso condicional que possa afetar esse usuário.
 
-A habilitação do MFA do Azure com uma política de acesso condicional é uma abordagem mais flexível para exigir a verificação em duas etapas. Você pode criar políticas de acesso condicional que se aplicam a grupos, bem como a usuários individuais. Grupos de alto risco podem receber mais restrições do que grupos de baixo risco, ou a verificação em duas etapas pode ser exigida apenas para aplicativos de nuvem de alto risco e ignorada para os de baixo risco. No entanto, o acesso condicional um recurso pago do Azure Active Directory.
+A habilitação do MFA do Azure com uma política de acesso condicional é uma abordagem mais flexível para exigir a verificação em duas etapas. Você pode criar políticas de acesso condicional que se aplicam a toogroups, bem como para usuários individuais. Grupos de alto risco podem receber mais restrições do que grupos de baixo risco, ou a verificação em duas etapas pode ser exigida apenas para aplicativos de nuvem de alto risco e ignorada para os de baixo risco. No entanto, o acesso condicional um recurso pago do Azure Active Directory.
 
-Para habilitar o MFA alterando o estado do usuário, faça o seguinte:
+tooenable MFA por meio da alteração de estado do usuário, Olá a seguir:
 
-1. Entre no portal do Azure como administrador.
-2. Acesse **Azure Active Directory \> Usuários e grupos \> Todos os usuários**.
+1. Entre toohello portal do Azure como administrador.
+2. Vá muito**Active Directory do Azure \> usuários e grupos \> todos os usuários**.
 3. Selecione **Autenticação Multifator**.
-4. Localize o usuário que você deseja habilitar para a MFA do Azure. Talvez seja necessário alterar o modo de exibição na parte superior.
-5. Marque a caixa ao lado do nome do usuário.
-6. À direita, em etapas rápidas, escolha **Habilitar**.
+4. Localizar Olá usuário que você deseja tooenable para o Azure MFA. Talvez seja necessário toochange Olá exibição na parte superior da saudação.
+5. Verifique o nome da saudação caixa próxima toohello do usuário.
+6. Olá à direita, em etapas rápidas, escolha **habilitar**.
 
    ![](media/protect-personal-data-identity-access-controls/quick-create.png)
 
-7. Confirme sua seleção na janela pop-up que é aberta.  Os usuários para os quais o MFA foi habilitado deverão se registrar na próxima vez que se conectarem.
+7. Confirme sua seleção na janela pop-up de saudação que é aberta.  Os usuários para quem o MFA tiver sido habilitado deverá Olá tooregister próxima vez que entrar.
 
-Para habilitar o MFA do Azure com uma política de acesso condicional, faça o seguinte:
+tooenable MFA do Azure com uma política de acesso condicional, Olá a seguir:
 
-1. Entre no portal do Azure como administrador.
+1. Entre toohello portal do Azure como administrador.
 
-2. Acesse **Azure Active Directory \> Acesso condicional**.
+2. Vá muito**Active Directory do Azure \> acesso condicional**.
 
 3. Selecione **Nova política**.
 
-4. Em **Atribuições**, selecione **Usuários e grupos**. Use as guias **Incluir** e **Excluir** para especificar quais usuários e grupos serão gerenciados pela política.
+4. Em **Atribuições**, selecione **Usuários e grupos**. Saudação de uso **incluir** e **excluir** guias toospecify quais usuários e grupos que será gerenciado pela política de saudação.
 
-5. Em **Atribuições**, selecione **Aplicativos de nuvem.** Opte por **incluir Todos os aplicativos de nuvem**.
+5. Em **Atribuições**, selecione **Aplicativos de nuvem.** Escolha muito**incluem todos os aplicativos de nuvem**.
 6.  Em **Controles de acesso**, selecione **Grant**. Escolha **Exigir autenticação multifator**.
-7.  Alterne **Habilitar política** para **Ativado** e selecione **Salvar**.
+7.  Ativar **habilitar política** muito**na** e, em seguida, selecione **salvar**.
 
-Para obter informações sobre como definir as configurações do MFA do Azure para configurar alertas de fraudes, criar um bypass avulso, usar mensagens de voz personalizadas, configurar o cache, especificar IPs confiáveis, criar senhas de aplicativo, habilitar o reconhecimento do MFA de dispositivos de confiança para os usuários e selecionar métodos de verificação, consulte [Definir as configurações da Autenticação Multifator do Azure.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next)
+Para obter informações sobre como tooconfigure Azure MFA configurações tooset os alertas de fraude, criar um bypass avulso, usar mensagens de voz personalizadas, configurar o cache, especifique IPs confiáveis, criar senhas de aplicativo, habilitar a MFA para dispositivos que os usuários de confiança e selecione lembrar-se métodos de verificação, consulte [definir configurações de autenticação de multifator do Azure.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next)
 
 ## <a name="next-steps"></a>Próximas etapas
 

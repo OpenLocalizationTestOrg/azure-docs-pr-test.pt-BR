@@ -1,6 +1,6 @@
 ---
-title: Exemplo do PowerShell para restaurar o backup do Banco de Dados SQL do Azure | Microsoft Docs
-description: "Script de exemplo do Azure PowerShell para restaurar um Banco de Dados SQL do Azure de backups com redundância geográfica"
+title: "banco de dados do SQL aaaPowerShell exemplo-restauração do backup do Azure | Microsoft Docs"
+description: "Azure PowerShell exemplo script toorestore um banco de dados do SQL Azure de backups com redundância geográfica"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: ae1d0c828ae1e7e1e7e07dcc7d6157187a3859d3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68becb89e8a8680aa2efc3de8ad947e674c5fc35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>Usar o PowerShell para restaurar um Banco de Dados SQL do Azure de backups
+# <a name="use-powershell-toorestore-an-azure-sql-database-from-backups"></a>Use o PowerShell toorestore um banco de dados do SQL Azure de backups
 
-Este exemplo de script do PowerShell restaura um Banco de Dados SQL do Azure de um backup com redundância geográfica, restaura um Banco de Dados SQL do Azure excluído para o backup mais recente e restaura um Banco de Dados SQL do Azure para um ponto no tempo específico.  
+Este exemplo de script do PowerShell restaura um banco de dados do SQL Azure de um backup com redundância geográfica, restaura um excluída do Azure SQL database tooits mais recente backup e restaura um ponto específico de tooa de banco de dados SQL do Azure.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Criar Banco de Dados SQL")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Create SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
-Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Após a execução do exemplo de script hello, Olá comando a seguir pode ser usado tooremove grupo de recursos de saudação e todos os recursos associados a ele.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
@@ -42,7 +42,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa Olá comandos a seguir. Cada comando na documentação específica do toocommand Olá tabela links.
 
 | Command | Observações |
 |---|---|
@@ -56,6 +56,6 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre hello Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
 
-Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser encontrados nos [scripts do PowerShell do Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).
+Exemplos de script do PowerShell do banco de dados SQL adicionais podem ser encontrados no hello [scripts de banco de dados do SQL Azure PowerShell](../sql-database-powershell-samples.md).

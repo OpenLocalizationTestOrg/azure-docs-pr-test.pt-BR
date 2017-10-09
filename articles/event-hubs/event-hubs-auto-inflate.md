@@ -1,6 +1,6 @@
 ---
-title: Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure | Microsoft Docs
-description: "Habilitar Inflação automática em um namespace para escalar verticalmente automaticamente as unidades de produtividade"
+title: "escala de aaaAutomatically unidades de taxa de transferência de Hubs de eventos do Azure | Microsoft Docs"
+description: "Habilitar aumentar automaticamente em uma escala de tooautomatically namespace unidades de taxa de transferência"
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: shvija;sethm
-ms.openlocfilehash: b085091ea7bfd601efb0eee84144ddd091422d6e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0f5216bcd619ccddc1fd4063a2f0131bfa36c7d4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure
 
 ## <a name="overview"></a>Visão geral
 
-Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Dessa forma, os clientes do Hubs de Eventos geralmente aumentam seu uso após a migração para o serviço. Tal aumento exige o aumento de TUs (unidades de produtividade) predeterminadas para dimensionar os Hubs de Eventos e lidar com taxas de transferência maiores. O recurso *inflar automaticamente* dos Hubs de Eventos escala verticalmente automaticamente o número delas para atender às necessidades de uso. O aumento de TUs evita cenários com limitação, nos quais:
+Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Dessa forma, os clientes de Hubs de eventos geralmente aumentam seu uso depois integração toohello serviço. Esses aumentos exigem crescentes Olá predeterminado taxa de transferência unidades (elas) tooscale Hubs de eventos e lidar com taxas de transferência maior. Olá *aumentar automaticamente* recurso dos Hubs de eventos dimensiona automaticamente número de saudação de necessidades de uso de toomeet elas. O aumento de TUs evita cenários com limitação, nos quais:
 
 * As taxas de entrada de dados excedem as TUs definidas.
 * As taxas de solicitação de saída de dados excedem as TUs definidas.
 
 ## <a name="how-auto-inflate-works"></a>Como o Inflar automaticamente funciona
 
-O tráfego dos Hubs de Eventos é controlado por unidades de produtividade. Uma única TU permite o ingresso de 1 MB/s ou saída com duas vezes essa quantidade. Hubs de Evento Standard podem ser configurados com 1-20 unidades de produtividade. Inflar automaticamente permite que você comece pequeno, com o mínimo de unidades de produtividade necessárias. O recurso então dimensiona automaticamente para o limite máximo de unidades de produtividade que você precisa, dependendo do aumento de seu tráfego. O Inflar automaticamente oferece os seguintes benefícios:
+O tráfego dos Hubs de Eventos é controlado por unidades de produtividade. Uma única TU permite o ingresso de 1 MB/s ou saída com duas vezes essa quantidade. Hubs de Evento Standard podem ser configurados com 1-20 unidades de produtividade. Aumentar automaticamente habilita toostart pequeno com unidades de taxa de transferência mínima necessária de saudação. recurso Olá expande automaticamente toohello o limite máximo de unidades de taxa de transferência que precisar, dependendo de aumento de saudação de seu tráfego. Aumentar automaticamente fornece Olá benefícios a seguir:
 
-- Um mecanismo eficiente de colocação em escala para começar pequeno e escalar verticalmente conforme o crescimento.
-- Dimensione automaticamente para o limite superior especificado sem problemas de limitação.
-- Mais controle sobre a colocação em escala, já que você controla quando e quanto dimensionar.
+- Um eficiente toostart mecanismo escala pequena e a escala se você aumentam.
+- Dimensione automaticamente o limite superior especificado em toohello sem problemas de limitação.
+- Mais controle sobre o dimensionamento, como controlar quando e quanto tooscale.
 
 ## <a name="enable-auto-inflate-on-a-namespace"></a>Habilitar o Inflar automaticamente em um namespace
 
-Você pode habilitar ou desabilitar o Inflar automaticamente em um namespace usando qualquer um dos seguintes métodos:
+Você pode habilitar ou desabilitar a aumentar automaticamente em um namespace usando qualquer um dos métodos a seguir de saudação:
 
-1. O [Portal do Azure](https://portal.azure.com).
+1. Olá [portal do Azure](https://portal.azure.com).
 2. Um modelo do Azure Resource Manager.
 
-### <a name="enable-auto-inflate-through-the-portal"></a>Habilitar Inflar automaticamente por meio do Portal
+### <a name="enable-auto-inflate-through-hello-portal"></a>Habilitar aumentar automaticamente por meio do portal Olá
 
-Você pode habilitar o recurso Inflar automaticamente em um namespace durante a criação de um namespace de Hubs de Eventos:
+Você pode habilitar o recurso de aumentar automaticamente de saudação em um namespace durante a criação de um namespace de Hubs de eventos:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-Com essa opção habilitada, você pode começar pequeno em suas unidades de produtividade e escalar verticalmente à medida que suas necessidades de seu uso aumentam. O limite superior para inflação não afeta os preços, que dependem do número de TUs usadas por hora.
+Com essa opção habilitada, você pode começar pequeno em suas unidades de produtividade e escalar verticalmente à medida que suas necessidades de seu uso aumentam. Hello limite superior para inflação não afeta os preços, que depende de vários Olá elas usada por hora.
 
-Você também pode habilitar o Inflar automaticamente usando a opção **Dimensionar** na folha de configurações no portal:
+Você também pode habilitar inflar automática usando Olá **escala** opção na folha de configurações de saudação no portal de saudação:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Habilitar Inflar automaticamente usando um modelo do Azure Resource Manager
 
-Você pode habilitar o Inflar automaticamente durante uma implantação de modelo do Azure Resource Manager. Por exemplo, defina a propriedade `isAutoInflateEnabled` como **true** e defina `maximumThroughputUnits` como 10.
+Você pode habilitar o Inflar automaticamente durante uma implantação de modelo do Azure Resource Manager. Por exemplo, o conjunto Olá `isAutoInflateEnabled` propriedade muito**true** e defina `maximumThroughputUnits` too10.
 
 ```json
 "resources": [
@@ -101,11 +101,11 @@ Você pode habilitar o Inflar automaticamente durante uma implantação de model
     ]
 ```
 
-Para ver o modelo completo, consulte o modelo [Criar namespace de Hubs de Eventos e habilitar inflar](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) no GitHub.
+Para o modelo completo de Olá, consulte Olá [namespace criar Hubs de eventos e habilitar inflar](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) modelo no GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
+Você pode aprender mais sobre os Hubs de eventos visitando Olá links a seguir:
 
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)

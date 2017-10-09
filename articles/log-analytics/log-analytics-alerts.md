@@ -1,6 +1,6 @@
 ---
-title: "Noções básicas sobre alertas no Azure Log Analytics | Microsoft Docs"
-description: "Alertas no Log Analytics identificam informações importantes em seu repositório do OMS e podem notificar proativamente problemas ou invocar ações para tentar corrigi-los.  Este artigo descreve os diferentes tipos de regras de alerta e como elas são definidas."
+title: "alertas de aaaUnderstanding na análise de Log do Azure | Microsoft Docs"
+description: "Alertas de análise de Log identificar informações importantes no seu repositório do OMS e podem proativamente notificá-lo de problemas ou invocar ações tooattempt toocorrect-los.  Este artigo descreve Olá diferentes tipos de regras de alerta e como elas são definidas."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: bwren
-ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: bfa0a5aaeca81674e79a6d647f36d937efeeb439
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Noções básicas sobre alertas no Log Analytics
 
-Alertas no Log Analytics identificam informações importante no repositório de Log Analytics.  Este artigo fornece detalhes de como regras de alerta no Log Analytics funcionam e descreve as diferenças entre diferentes tipos de regras de alerta.
+Alertas no Log Analytics identificam informações importante no repositório de Log Analytics.  Este artigo fornece detalhes das regras de alerta como no trabalho de análise de Log e descreve as diferenças de saudação entre tipos diferentes de regras de alerta.
 
-Para o processo de criação de regras de alerta, consulte os artigos a seguir:
+Para obter Olá o processo de criação de regras de alerta, consulte Olá artigos a seguir:
 
 - Criar regras de alerta usando o [Portal do Azure](log-analytics-alerts-creating.md)
 - Criar regras de alerta usando o [modelo do Resource Manager](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)
@@ -33,57 +33,57 @@ Para o processo de criação de regras de alerta, consulte os artigos a seguir:
 
 ## <a name="alert-rules"></a>Regras de alerta
 
-Os alertas são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Se os resultados da pesquisa de log corresponderem a critérios específicos, um registro de alerta será criado.  A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo.  Diferentes tipos de regras de alerta usam lógicas diferentes para realizar essa análise.
+Os alertas são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Se os resultados de saudação de pesquisa de log de saudação corresponderem critérios específicos, será criado um registro de alerta.  regra de saudação poderá, em seguida, executar automaticamente uma ou mais tooproactively de ações notificá-lo de alerta de saudação ou chamar outro processo.  Diferentes tipos de regras de alerta usam uma lógica diferente tooperform essa análise.
 
 ![Alertas do Log Analytics](media/log-analytics-alerts/overview.png)
 
-Regras de Alerta são definidas pelos detalhes a seguir:
+Regras de alerta são definidas por Olá detalhes a seguir:
 
-- **Pesquisa de log**.  A consulta que é executada cada vez que a regra de alerta é acionada.  Os registros retornados por essa consulta serão usados para determinar se um alerta é criado.
-- **Janela de tempo**.  Especifica o intervalo de tempo para a consulta.  A consulta retorna somente os registros que foram criados dentro desse intervalo de tempo atual.  Este pode ser qualquer valor entre 5 minutos e 24 horas. Por exemplo, se a janela de tempo está definida para 60 minutos e a consulta é executada às 13h15, somente os registros criados entre 12h15 e 13h15 são retornados.
-- **Frequência**.  Especifica a frequência com que a consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual a ou menor que a janela de tempo.  Se o valor for maior que a janela de tempo, haverá o risco de que registros sejam perdidos.<br>Por exemplo, considere uma janela de tempo de 30 minutos e uma frequência de 60 minutos.  Se a consulta for executada à 1:00, retornará registros entre 12:30 e 1:00.  A próxima vez em que a consulta será executada é às 2:00, quando ela retornará registros entre 1:30 e 2:00.  Todos os registros criados entre 1:00 e 1:30 nunca seriam avaliados.
-- **Limite**.  Os resultados da pesquisa de logs são avaliados para determinar se um alerta deve ser criado.  O limite é diferente para os diferentes tipos de regras de alerta.
+- **Pesquisa de log**.  consulta de saudação que é executado sempre que a regra de alerta de saudação é acionado.  registros de saudação retornados por essa consulta é toodetermine usado se um alerta será criado.
+- **Janela de tempo**.  Especifica o intervalo de tempo de saudação para consulta hello.  consulta de saudação retorna somente os registros que foram criados neste intervalo de saudação hora atual.  Este pode ser qualquer valor entre 5 minutos e 24 horas. Por exemplo, se hello tempo janela é definida too60 minutos e consulta de saudação for executado em 1:15 PM, somente os registros criados entre 12:15 PM e 1:15 PM será retornado.
+- **Frequência**.  Especifica com que frequência hello consulta deve ser executada. Pode ser qualquer valor entre 5 minutos e 24 horas. Deve ser igual tooor inferior a janela de tempo de saudação.  Se o valor de saudação for maior que a janela de tempo de saudação, você poderá registros que está sendo ignorados.<br>Por exemplo, considere uma janela de tempo de 30 minutos e uma frequência de 60 minutos.  Se Olá consulta é executada à 1:00, ele retorna registros entre 12:30 e 1:00 PM.  Olá próxima vez consulta Olá executaria é 2:00 quando ela retorna registros entre 30:1 e 2:00.  Todos os registros criados entre 1:00 e 1:30 nunca seriam avaliados.
+- **Limite**.  resultados de Olá de pesquisa de log de saudação são avaliada toodetermine se um alerta deve ser criado.  limite de saudação é diferente para diferentes tipos de saudação de regras de alerta.
 
-Cada regra de alerta no Log Analytics é de um entre dois tipos.  Cada um desses tipos é descrito detalhadamente nas seções a seguir.
+Cada regra de alerta no Log Analytics é de um entre dois tipos.  Cada um desses tipos é descrita em detalhes nas seções de saudação que seguem.
 
-- **[Número de resultados](#number-of-results-alert-rules)**. Alerta único criado quando o número de registros retornados pela pesquisa de logs excedeu um número especificado.
-- **[Medida métrica](#metric-measurement-alert-rules)**.  Alerta criado para cada objeto nos resultados da pesquisa de logs com valores que excedem o limite especificado.
+- **[Número de resultados](#number-of-results-alert-rules)**. Alerta criada quando os registros de número Olá retornados pela pesquisa de log de saudação exceder um número especificado.
+- **[Medida métrica](#metric-measurement-alert-rules)**.  Alerta criada para cada objeto em resultados de saudação da pesquisa de log de saudação com valores que excedem o limite especificado.
 
-As diferenças entre tipos de regra de alerta são conforme descrito a seguir.
+diferenças de saudação entre tipos de regra de alerta são da seguinte maneira.
 
-- A regra de alerta **Número de resultados** sempre criará um único tempo de alerta, enquanto a regra de alerta **Medição métrica** criará um alerta para cada objeto que exceder o limite.
-- Regras de alerta de **Número de resultados** criarão um alerta quando o limite for excedido uma única vez. Regras de alerta de **Medição métrica** podem criar um alerta quando o limite é excedido um determinado número de vezes em um intervalo de tempo específico.
+- **Número de resultados** regra de alerta sempre criará um pouco de alerta único **medição métrica** regra de alerta cria um alerta para cada objeto que excede o limite de saudação.
+- **Número de resultados** regras de alerta criam um alerta quando o limite de saudação for excedido uma única vez. **Medição métrica** regras de alerta podem criar um alerta quando Olá limite for excedido um determinado número de vezes em um intervalo de tempo específico.
 
 ## <a name="number-of-results-alert-rules"></a>Regras de alerta de Número de resultados
-Regras de alerta de **Número de resultados** criam um único alerta quando o número de registros retornados pela consulta de pesquisa excede o limite especificado.
+**Número de resultados** regras de alerta criam um alerta quando o número de Olá de registros retornados pela consulta de pesquisa de saudação exceder o limite especificado de saudação.
 
 ### <a name="threshold"></a>Limite
-O limite para uma regra de alerta de **Número de resultados** é simplesmente maior ou menor que um valor específico.  Se o número de registros retornados pela pesquisa de logs corresponderem a esses critérios, um alerta será criado.
+limite de saudação para um **número de resultados** regra de alerta é simplesmente maior ou menor que um valor específico.  Se o número de saudação de registros retornados pela pesquisa de log de saudação corresponder esse critério, um alerta é criado.
 
 ### <a name="scenarios"></a>Cenários
 
 #### <a name="events"></a>Eventos
-Esse tipo de regra de alerta é ideal para trabalhar com eventos como logs de eventos do Windows, Syslog e logs Personalizados.  Pode ser útil criar um alerta quando um evento de erro específico é criado ou quando vários eventos de erros são criados dentro de uma janela de tempo específica.
+Esse tipo de regra de alerta é ideal para trabalhar com eventos como logs de eventos do Windows, Syslog e logs Personalizados.  Talvez você queira toocreate um alerta quando um evento de erro específico é criado, ou quando vários eventos de erro são criados dentro de uma janela de tempo específico.
 
-Para alertar quanto a um único evento, defina o número de resultados para maior que 0 e tanto a frequência quanto a janela de tempo para 5 minutos.  Isso executa a consulta a cada 5 minutos e verifica a ocorrência de um único evento que foi criado desde a última vez em que a consulta foi executada.  Uma frequência maior pode atrasar o tempo entre o evento que está sendo coletado e o alerta criado.
+tooalert em um único evento, o número de Olá de conjunto de resultados toogreater que 0 e frequência hello e minutos de too5 de janela de tempo.  Que executa a consulta Olá cada 5 minutos e verificar a ocorrência de saudação de um único evento que foi criado como Olá última hora Olá consulta foi executada.  Uma frequência maior pode atrasar o tempo de saudação entre Olá evento sendo coletados e alerta hello está sendo criado.
 
-Alguns aplicativos podem registrar um erro ocasional que não necessariamente gerará um alerta.  Por exemplo, o aplicativo pode repetir o processo que criou o evento de erro e depois ter êxito na próxima vez.  Nesse caso, não convém criar o alerta, a menos que vários eventos sejam criados dentro de uma janela de tempo específica.  
+Alguns aplicativos podem registrar um erro ocasional que não necessariamente gerará um alerta.  Por exemplo, o aplicativo hello pode repetir o processo Olá que criou o evento de erro de saudação e bem-sucedidos hello, em seguida, a próxima vez.  Nesse caso, não convém alerta de saudação toocreate, a menos que vários eventos são criados dentro de uma janela de tempo específico.  
 
-Em alguns casos, pode ser útil criar um alerta na ausência de um evento.  Por exemplo, um processo pode registrar eventos regulares para indicar que ele está funcionando corretamente.  Se ele não registrar um desses eventos dentro de uma janela de tempo específica, um alerta deverá ser criado.  Nesse caso você definiria o limite como **menos de 1**.
+Em alguns casos, convém toocreate um alerta na ausência de saudação de um evento.  Por exemplo, um processo pode registrar eventos regulares tooindicate que ele está funcionando corretamente.  Se ele não registrar um desses eventos dentro de uma janela de tempo específica, um alerta deverá ser criado.  Nesse caso, você configuraria o limite de saudação muito**menos de 1**.
 
 #### <a name="performance-alerts"></a>Alertas de desempenho
-[Os dados de desempenho](log-analytics-data-sources-performance-counters.md) são armazenado como registros no repositório do OMS de forma semelhante aos eventos.  Se você deseja alertar quando um contador de desempenho exceder um limite específico, esse limite deve ser incluído na consulta.
+[Dados de desempenho](log-analytics-data-sources-performance-counters.md) é armazenado como registros de saudação tooevents semelhante do repositório do OMS.  Se você quiser tooalert quando um contador de desempenho excede um determinado limite, esse limite deve ser incluído na consulta de saudação.
 
-Por exemplo, se você quisesse alertar quando o processador ultrapassasse 90%, usaria uma consulta como a seguinte, com o limite para a regra de alerta **maior do que 0**.
+Por exemplo, se você quisesse tooalert quando hello processador executa 90%, você usaria uma consulta como Olá a seguir com o limite de saudação de regra de alerta de saudação **maior que 0**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-Se você quisesse alertar quando o processador ficasse acima de 90% durante um determinado período, usaria uma consulta com o [comando measure](log-analytics-search-reference.md#commands), como no seguinte, com o limite para a regra de alerta **maior do que 0**.
+Se você quisesse tooalert ao processador Olá média mais de 90% de uma janela de tempo específico, você usaria uma consulta usando Olá [medir comando](log-analytics-search-reference.md#commands) seguinte Olá com limite de saudação de regra de alerta Olá **maior que 0** .
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 >[!NOTE]
-> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> Se seu espaço de trabalho tiver sido atualizado toohello [linguagem de consulta de análise de Log novo](log-analytics-log-search-upgrade.md), e em seguida, Olá acima consultas alteraria toohello a seguir:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
@@ -92,20 +92,20 @@ Se você quisesse alertar quando o processador ficasse acima de 90% durante um d
 >[!NOTE]
 > Regras de alerta de Medição métrica estão atualmente em visualização pública.
 
-Regras de alerta de **Medição métrica** criam um alerta para cada objeto em uma consulta com um valor que excede um limite especificado.  Eles têm as diferenças distintas a seguir em relação às regras de alerta de **Número de resultados**.
+Regras de alerta de **Medição métrica** criam um alerta para cada objeto em uma consulta com um valor que excede um limite especificado.  Tiverem Olá seguintes diferenças marcantes de **número de resultados** regras de alerta.
 
 #### <a name="log-search"></a>Pesquisa de log
-Embora você possa usar qualquer consulta para uma regra de alerta de **Número de resultados**, há requisitos específicos para a consulta para uma regra de alerta de Medição métrica.  Ela deve incluir um [comando Measure](log-analytics-search-reference.md#commands) para agrupar os resultados em um determinado campo. Os cabeçalhos devem incluir os elementos a seguir.
+Embora você possa usar qualquer consulta para um **número de resultados** regra de alerta, há consulta de saudação requisitos específicos para uma regra de alerta de métrica de medição.  Ele deve incluir um [medir comando](log-analytics-search-reference.md#commands) toogroup resultados de saudação em um determinado campo. Este comando deve incluir Olá elementos a seguir.
 
-- **Função de agregação**.  Determina o cálculo que será realizado e, potencialmente, um campo numérico a agregar.  Por exemplo, **count()** retornará o número de registros na consulta e **avg(CounterValue)** retornará a média do campo CounterValue durante o intervalo.
-- **Campo Grupo**.  Um registro com um valor agregado será criado para cada instância do campo e um alerta pode ser gerado para cada um deles.  Por exemplo, se você quisesse gerar um alerta para cada computador, você usaria **by Computer**.   
-- **Intervalo**.  Define o intervalo de tempo durante o qual os dados são agregados.  Por exemplo, se você especificasse **5 minutos**, um registro seria criado para cada instância do campo de grupo agregada em intervalos de 5 minutos durante a janela de tempo especificada para o alerta.
+- **Função de agregação**.  Determina o cálculo de saudação que é executado e potencialmente tooaggregate um campo numérico.  Por exemplo, **contagem** irá retornar o número de saudação de registros na consulta hello, **avg(CounterValue)** retornará média de saudação do campo de CounterValue Olá durante o intervalo de saudação.
+- **Campo Grupo**.  Um registro com um valor agregado será criado para cada instância do campo e um alerta pode ser gerado para cada um deles.  Por exemplo, se você quisesse toogenerate um alerta para cada computador, você usaria **pelo computador**.   
+- **Intervalo**.  Define o intervalo de tempo de saudação durante o qual os dados de saudação são agregados.  Por exemplo, se você especificou **5 minutos**, seria criado um registro para cada instância do campo de grupo Olá agregado em intervalos de 5 minutos em janela de tempo de saudação especificada para o alerta de saudação.
 
 #### <a name="threshold"></a>Limite
-O limite para regras de alerta de Medição métrica é definido por um valor de agregação e um número de violações.  Se qualquer ponto de dados na pesquisa de logs exceder esse valor, ele será considerado uma violação.  Se o número de violações de qualquer objeto nos resultados exceder o valor especificado, um alerta será criado para esse objeto.
+limite de saudação para regras de alerta de medição métrica é definido por um valor de agregação e um número de violações.  Se qualquer ponto de dados na pesquisa de log de saudação exceder esse valor, é uma violação.  Se excede o número Olá das violações de qualquer objeto nos resultados da saudação Olá especificado valor, um alerta é criado para esse objeto.
 
 #### <a name="example"></a>Exemplo
-Considere um cenário em que você deseje um alerta se qualquer computador exceda 90% de utilização do processador por três vezes em 30 minutos.  Você criaria uma regra de alerta com os detalhes a seguir.  
+Considere um cenário em que você deseje um alerta se qualquer computador exceda 90% de utilização do processador por três vezes em 30 minutos.  Você cria uma regra de alerta com hello detalhes a seguir.  
 
 **Consulta:** Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
 **Janela de tempo:** 30 minutos<br>
@@ -113,35 +113,35 @@ Considere um cenário em que você deseje um alerta se qualquer computador exced
 **Valor de agregação:** maior que 90<br>
 **Disparar alerta com base em:** total de violações maior que cinco<br>
 
-A consulta criaria um valor médio para cada computador em intervalos de cinco minutos.  Essa consulta seria executada cada cinco minutos para os dados coletados durante os 30 minutos anteriores.  Abaixo, são mostrados dados de exemplo para três computadores.
+consulta de saudação criaria um valor médio para cada computador em intervalos de 5 minutos.  Essa consulta seria executada a cada 5 minutos por dados coletados pela Olá 30 minutos anteriores.  Abaixo, são mostrados dados de exemplo para três computadores.
 
 ![Resultados da consulta de exemplo](media/log-analytics-alerts/metrics-measurement-sample-graph.png)
 
-Neste exemplo, alertas separados seriam criados para srv02 e srv03, já que eles violaram o limite de 90% três vezes durante a janela de tempo.  Se **Disparar alerta com base em:** fosse alterado para **Consecutivas**, o único alerta criado seria para srv03, já que ele violou o limite em três amostras consecutivas.
+Neste exemplo, alertas separadas seriam criadas para srv02 e srv03 desde que eles violação de limite de 90% de saudação 3 vezes em janela de tempo de saudação.  Se hello **alerta disparador com base em:** foram alteradas muito**consecutivas** um alerta deve ser criado apenas para srv03 desde que a violação de limite de saudação para 3 amostras consecutivas.
 
 ## <a name="alert-records"></a>Registros de alerta
-Registros de alerta criados por regras de alerta no Log Analytics têm um **Type** que indica **Alert** e um **SourceSystem** que indica **OMS**.  Eles têm as propriedades indicadas na tabela a seguir.
+Registros de alerta criados por regras de alerta no Log Analytics têm um **Type** que indica **Alert** e um **SourceSystem** que indica **OMS**.  Eles têm propriedades Olá no Olá a tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
 | Tipo |*Alerta* |
 | SourceSystem |*OMS* |
-| *Objeto*  | [Alertas de métrica de medição](#metric-measurement-alert-rules) terão uma propriedade para o campo de grupo.  Por exemplo, se a pesquisa de logs for agrupada em Computador, o registro de alerta terá um campo Computador com o nome do computador como o valor.
-| AlertName |Nome do alerta. |
-| AlertSeverity |Nível de severidade do alerta. |
-| LinkToSearchResults |Vincular a pesquisa de log do Log Analytics que retorna os registros da consulta que criou o alerta. |
-| Consultar |Texto da consulta que foi executada. |
-| QueryExecutionEndTime |Término do intervalo de tempo para a consulta. |
-| QueryExecutionStartTime |Início do intervalo de tempo para a consulta. |
-| ThresholdOperator | Operador que foi usado pela regra de alerta. |
-| ThresholdValue | Valor que foi usado pela regra de alerta. |
-| TimeGenerated |Data e hora em que o alerta foi criado. |
+| *Objeto*  | [Alertas de medição métrica](#metric-measurement-alert-rules) terão uma propriedade de campo de grupo hello.  Por exemplo, se a pesquisa de log de saudação grupos no computador, Olá registro com tem um campo de computador com o nome de saudação do computador de saudação como valor de saudação do alerta.
+| AlertName |Nome do alerta de saudação. |
+| AlertSeverity |Nível de severidade de alerta de saudação. |
+| LinkToSearchResults |Vincule a pesquisa de log de análise de tooLog que retorna registros de saudação da consulta de saudação que criou o alerta de saudação. |
+| Consultar |Texto da consulta Olá que foi executada. |
+| QueryExecutionEndTime |Final do intervalo de tempo de saudação para consulta de saudação. |
+| QueryExecutionStartTime |Início do intervalo de tempo de saudação para consulta hello. |
+| ThresholdOperator | Operador que foi usado pela regra de alerta de saudação. |
+| ThresholdValue | Valor que foi usado pela regra de alerta de saudação. |
+| TimeGenerated |Alerta de saudação de data e hora foi criado. |
 
-Há outros tipos de registros de alerta criados pela [solução de Gerenciamento de Alertas](log-analytics-solution-alert-management.md) e por [exportações do Power BI](log-analytics-powerbi.md).  Eles têm um **Type** que indica **Alert**, mas são diferenciados por seus **SourceSystem**.
+Outros tipos de registros de alertas criados por Olá [solução de gerenciamento de alertas](log-analytics-solution-alert-management.md) e [Power BI exporta](log-analytics-powerbi.md).  Eles têm um **Type** que indica **Alert**, mas são diferenciados por seus **SourceSystem**.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Instale a [solução de Gerenciamento de Alertas](log-analytics-solution-alert-management.md) para analisar os alertas criados no Log Analytics junto com aqueles coletados do System Center Operations Manager.
+* Instalar Olá [solução de gerenciamento de alertas](log-analytics-solution-alert-management.md) tooanalyze alertas criadas na análise de Log junto com alertas coletados pelo System Center Operations Manager.
 * Leia mais sobre [pesquisas de log](log-analytics-log-searches.md) que podem gerar alertas.
 * Conclua um passo a passo para [configurar um webhook](log-analytics-alerts-webhooks.md) com uma regra de alerta.  
-* Aprenda a criar [runbooks na Automação do Azure](https://azure.microsoft.com/documentation/services/automation) para corrigir os problemas identificados por alertas.
+* Saiba como toowrite [runbooks na automação do Azure](https://azure.microsoft.com/documentation/services/automation) tooremediate problemas identificados por alertas.

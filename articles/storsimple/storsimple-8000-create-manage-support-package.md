@@ -1,6 +1,6 @@
 ---
-title: "Criar um pacote de suporte do StorSimple da série 8000 | Microsoft Docs"
-description: "Saiba como criar, descriptografar e editar um pacote de suporte para o dispositivo StorSimple da série 8000."
+title: pacote de suporte de aaaCreate um StorSimple 8000 series | Microsoft Docs
+description: "Saiba como toocreate, descriptografar e editar um pacote de suporte para o dispositivo da série StorSimple 8000."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,115 +14,115 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 92abbb96b2117e10800de61b5c405a784453265b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 857555b6ba31b1527f8f00d19818ebbec6005d0e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerenciar um pacote de suporte do StorSimple da série 8000
 
 ## <a name="overview"></a>Visão geral
 
-Um pacote de suporte do StorSimple é um mecanismo fácil de usar que coleta todos os logs relevantes para ajudar o Suporte da Microsoft na solução de problemas do dispositivo StorSimple. Os logs coletados são criptografados e compactados.
+Um pacote de suporte do StorSimple é um mecanismo fácil de usar que coleta todos os logs relevantes tooassist Microsoft Support na solução de problemas no dispositivo StorSimple. Olá logs coletados são criptografados e compactados.
 
-Este tutorial inclui instruções passo a passo para criar e gerenciar o pacote de suporte para seu dispositivo StorSimple da série 8000. Se você estiver trabalhando com uma Matriz Virtual do StorSimple, acesse [Gerar um pacote de log](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+Este tutorial inclui instruções passo a passo toocreate e gerenciar o pacote de suporte de saudação para seu dispositivo da série StorSimple 8000. Se você estiver trabalhando com uma matriz Virtual StorSimple, vá muito[gerar um pacote de log](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## <a name="create-a-support-package"></a>Criar um pacote de suporte
 
-Em alguns casos, você precisará criar o pacote de suporte manualmente por meio do Windows PowerShell para StorSimple. Por exemplo:
+Em alguns casos, você precisará toomanually criar pacote de suporte de saudação por meio do Windows PowerShell para StorSimple. Por exemplo:
 
-* Se você precisar remover informações confidenciais de seus arquivos de log antes de compartilhar com o Microsoft Support.
-* Se você estiver tendo dificuldade para carregar o pacote devido a problemas de conectividade.
+* Se você precisar de informações confidenciais de tooremove de seu log de arquivos toosharing anterior com o Microsoft Support.
+* Se você estiver tendo dificuldades para carregar o pacote hello devido a problemas de tooconnectivity.
 
-Você pode compartilhar seu pacote de suporte gerado manualmente com o Suporte da Microsoft por email. Execute as etapas a seguir para criar um pacote de suporte no Windows PowerShell para StorSimple.
+Você pode compartilhar seu pacote de suporte gerado manualmente com o Suporte da Microsoft por email. Execute Olá seguindo as etapas toocreate um pacote de suporte no Windows PowerShell para StorSimple.
 
-#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Para criar um pacote de suporte no Windows PowerShell para StorSimple
+#### <a name="toocreate-a-support-package-in-windows-powershell-for-storsimple"></a>toocreate um pacote de suporte no Windows PowerShell para StorSimple
 
-1. Para iniciar uma sessão do Windows PowerShell como administrador no computador remoto usado para se conectar ao dispositivo StorSimple, insira o seguinte comando:
+1. toostart uma sessão do Windows PowerShell como administrador no computador remoto de saudação que tenha usado o dispositivo StorSimple tooyour tooconnect, digite Olá comando a seguir:
    
     `Start PowerShell`
-2. Na sessão do Windows PowerShell, conecte-se ao console do SSAdmin do dispositivo:
+2. Na sessão do Windows PowerShell hello, conecte-se toohello SSAdmin Console do seu dispositivo:
    
-   1. No prompt de comando, insira:
+   1. No prompt de comando hello, digite:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. Na caixa de diálogo que é aberta, insira sua senha de administrador do dispositivo. A senha padrão é _Senha1_.
+   2. Na caixa de diálogo de saudação que é aberta, digite sua senha de administrador do dispositivo. a senha padrão Olá é _Password1_.
      
       ![Caixa de diálogo da credencial do PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
    3. Selecione **OK**.
-   4. No prompt de comando, insira:
+   4. No prompt de comando hello, digite:
      
       `Enter-PSSession $MS`
-3. Na sessão que é aberta, insira o comando apropriado.
+3. Na sessão de saudação que é aberta, insira o comando apropriado hello.
    
    * Para compartilhamentos de rede protegidos por senha, insira:
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" –Credential "Username" -Force`
      
-       Você será solicitado a fornecer uma senha, um caminho para a pasta compartilhada de rede e uma frase secreta de criptografia (porque o pacote de suporte é criptografado). Um pacote de suporte é criado na pasta especificada.
-   * Para compartilhamentos que não são protegidos por senha, o parâmetro `-Credential` não é necessário. Insira o seguinte:
+       Você será solicitado para uma senha, uma caminho toohello pasta compartilhada e uma senha de criptografia (porque o pacote de suporte de saudação é criptografado). Um pacote de suporte é criado na pasta especificada hello.
+   * Para ações que não são protegidas por senha, você não precisa Olá `-Credential` parâmetro. Digite hello seguinte:
      
        `Export-HcsSupportPackage –PackageTag "MySupportPackage" -Force`
      
-       O pacote de suporte é criado para ambos os controladores na pasta compartilhada de rede especificada. Ele é um arquivo compactado e criptografado que pode ser enviado ao Suporte da Microsoft para solução de problemas. Para obter mais informações, consulte [Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
+       pacote de suporte de saudação é criado para ambos os controladores na pasta compartilhada de rede especificado hello. É um arquivo criptografado e compactado que pode ser enviado tooMicrosoft suporte para solução de problemas. Para obter mais informações, consulte [Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Os parâmetros do cmdlet Export-HcsSupportPackage
+### <a name="hello-export-hcssupportpackage-cmdlet-parameters"></a>Olá parâmetros do cmdlet Export-HcsSupportPackage
 
-Você pode usar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
+Você pode usar o hello parâmetros com hello Export-HcsSupportPackage cmdlet a seguir.
 
 | Parâmetro | Obrigatório/Opcional | Descrição |
 | --- | --- | --- |
-| `-Path` |Obrigatório |Use para fornecer o local da pasta compartilhada de rede na qual o pacote de suporte é colocado. |
-| `-EncryptionPassphrase` |Obrigatório |Use para fornecer uma frase secreta para ajudar a criptografar o pacote de suporte. |
-| `-Credential` |Opcional |Use para fornecer credenciais de acesso para a pasta compartilhada de rede. |
-| `-Force` |Opcional |Use para ignorar a etapa de confirmação de frase secreta de criptografia. |
-| `-PackageTag` |Opcional |Use para especificar um diretório no *Caminho* no qual o pacote de suporte é colocado. O padrão é [nome do dispositivo]-[data e hora atuais:aaaa-MM-dd-HH-mm-ss]. |
-| `-Scope` |Opcional |Especifique como **Cluster** (padrão) para criar um pacote de suporte para ambos os controladores. Se você quiser criar um pacote somente para o controlador atual, especifique **Controlador**. |
+| `-Path` |Obrigatório |Use tooprovide Olá local da pasta compartilhada da rede Olá quais Olá pacote de suporte é colocado. |
+| `-EncryptionPassphrase` |Obrigatório |Use tooprovide toohelp uma frase secreta criptografar o pacote de suporte de saudação. |
+| `-Credential` |Opcional |Use credenciais de acesso de toosupply para a pasta compartilhada de rede hello. |
+| `-Force` |Opcional |Use a etapa de confirmação de senha de criptografia do tooskip hello. |
+| `-PackageTag` |Opcional |Usar toospecify um diretório em *caminho* que dão suporte a saudação pacote é colocado. padrão de saudação é [nome do dispositivo]-[data atual e a data]. |
+| `-Scope` |Opcional |Especificar como **Cluster** toocreate (padrão) um pacote de suporte para ambos os controladores. Se você quiser toocreate um pacote somente para o controlador atual hello, especifique **controlador**. |
 
 ## <a name="edit-a-support-package"></a>Editar um pacote de suporte
 
-Após gerar um pacote de suporte, talvez seja necessário editar o pacote para remover informações confidenciais. Isso pode incluir nomes de volume, endereços IP do dispositivo e nomes de backup dos arquivos de log.
+Após gerar um pacote de suporte, talvez seja necessário tooedit Olá pacote tooremove sigilosos. Isso pode incluir nomes de volume, endereços IP do dispositivo e nomes de backup de arquivos de log de saudação.
 
 > [!IMPORTANT]
-> Você só pode editar um pacote de suporte que tenha sido gerado por meio do Windows PowerShell para StorSimple. Não é possível editar um pacote criado no Portal do Azure com o serviço do Gerenciador de Dispositivos do StorSimple.
+> Você só pode editar um pacote de suporte que tenha sido gerado por meio do Windows PowerShell para StorSimple. Você não pode editar um pacote criado no hello portal do Azure com o serviço do Gerenciador de dispositivos do StorSimple.
 
-Para editar um pacote de suporte antes de carregá-lo no site de Suporte da Microsoft, primeiro descriptografe o pacote de suporte, edite os arquivos e criptografe-os novamente. Execute as seguintes etapas:
+tooedit um pacote de suporte antes de carregá-lo no site do Microsoft Support hello, primeiro descriptografar o pacote de suporte de hello, editar arquivos hello e, em seguida, criptografe-a novamente. Execute Olá etapas a seguir.
 
-#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Para editar um pacote de suporte no Windows PowerShell para StorSimple
+#### <a name="tooedit-a-support-package-in-windows-powershell-for-storsimple"></a>tooedit um pacote de suporte no Windows PowerShell para StorSimple
 
-1. Gere um pacote de suporte conforme descrito anteriormente, em [Para criar um pacote de suporte no Windows PowerShell para StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Baixe o script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localmente em seu cliente.
-3. Importe o módulo do Windows PowerShell. Especifique o caminho para a pasta local em que você baixou o script. Para importar o módulo, insira:
+1. Gerar um pacote de suporte, conforme descrito anteriormente, [toocreate um pacote de suporte no Windows PowerShell para StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
+2. [Baixe o script hello](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localmente no seu cliente.
+3. Importe o módulo do Windows PowerShell de saudação. Especifique Olá caminho toohello pasta local em que você baixou o script hello. módulo de saudação tooimport, digite:
    
-    `Import-module <Path to the folder that contains the Windows PowerShell script>`
-4. Todos os arquivos são arquivos *.aes* compactados e criptografados. Para descompactar e descriptografar arquivos, insira:
+    `Import-module <Path toohello folder that contains hello Windows PowerShell script>`
+4. Todos os arquivos de saudação são *. AES* arquivos que são compactados e criptografados. toodecompress e descriptografar arquivos, digite:
    
-    `Open-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Open-HcsSupportPackage <Path toohello folder that contains support package files>`
    
-    Observe que as extensões de arquivo reais agora são exibidas para todos os arquivos.
+    Observe que as extensões de arquivo real Olá agora são exibidas para todos os arquivos de saudação.
    
     ![Editar pacote de suporte](./media/storsimple-8000-create-manage-support-package/IC750706.png)
-5. Quando você for solicitado a fornecer a senha de criptografia, digite a frase secreta usada quando o pacote de suporte foi criado.
+5. Quando você for solicitado para a senha de criptografia hello, insira a frase secreta de saudação que você usou quando o pacote de suporte de saudação foi criado.
    
         cmdlet Open-HcsSupportPackage at command pipeline position 1
    
-        Supply values for the following parameters:EncryptionPassphrase: ****
-6. Navegue até a pasta que contém os arquivos de log. Como os arquivos de log agora estão descompactados e descriptografados, eles terão as extensões de arquivo originais. Modifique esses arquivos para remover todas as informações específicas do cliente, como nomes de volume e endereços IP de dispositivos, e salve os arquivos.
-7. Feche os arquivos para compactá-los com o gzip e criptografe-os com AES-256. Isso é para a velocidade e segurança ao transferir o pacote de suporte em uma rede. Para compactar e criptografar arquivos, digite o seguinte:
+        Supply values for hello following parameters:EncryptionPassphrase: ****
+6. Procure pasta toohello que contém os arquivos de log hello. Porque os arquivos de log de Olá agora são descomprimidos e descriptografados, eles terão as extensões de arquivo original. Modificar esses arquivos tooremove todas as informações específicas do cliente, como nomes de volume e endereços IP do dispositivo e salvar arquivos hello.
+7. Olá fechar arquivos toocompress-los com gzip e criptografá-los com AES-256. Isso é para velocidade e segurança durante a transferência de pacote de suporte de saudação em uma rede. toocompress e criptografar os arquivos, digite Olá seguinte:
    
-    `Close-HcsSupportPackage <Path to the folder that contains support package files>`
+    `Close-HcsSupportPackage <Path toohello folder that contains support package files>`
    
     ![Editar pacote de suporte](./media/storsimple-8000-create-manage-support-package/IC750707.png)
-8. Quando solicitado, forneça uma frase secreta de criptografia para o pacote de suporte modificado.
+8. Quando solicitado, forneça uma senha de criptografia para o pacote de suporte modificado hello.
    
         cmdlet Close-HcsSupportPackage at command pipeline position 1
-        Supply values for the following parameters:EncryptionPassphrase: ****
-9. Anote a nova senha para que você possa compartilhá-la com o Suporte da Microsoft quando solicitado.
+        Supply values for hello following parameters:EncryptionPassphrase: ****
+9. Anote Olá nova senha, para que você pode compartilhá-lo com o Microsoft Support quando solicitado.
 
 ### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemplo: edição de arquivos em um pacote de suporte em um compartilhamento protegido por senha
 
-O exemplo a seguir mostra como descriptografar, editar e criptografar novamente um pacote de suporte.
+saudação de exemplo a seguir mostra como toodecrypt, editar e criptografar novamente um pacote de suporte.
 
         PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
@@ -130,7 +130,7 @@ O exemplo a seguir mostra como descriptografar, editar e criptografar novamente 
 
         cmdlet Open-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+        Supply values for hello following parameters:
 
         EncryptionPassphrase: ****
 
@@ -138,7 +138,7 @@ O exemplo a seguir mostra como descriptografar, editar e criptografar novamente 
 
         cmdlet Close-HcsSupportPackage at command pipeline position 1
 
-        Supply values for the following parameters:
+        Supply values for hello following parameters:
 
         EncryptionPassphrase: ****
 
@@ -146,7 +146,7 @@ O exemplo a seguir mostra como descriptografar, editar e criptografar novamente 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre as [informações coletadas no pacote de Suporte](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Saiba como [usar pacotes de suporte e logs de dispositivo para solucionar problemas de implantação do dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
-* Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Saiba mais sobre Olá [informações coletadas no pacote de suporte de saudação](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
+* Saiba como muito[use pacotes de suporte e dispositivo logs tootroubleshoot sua implantação de dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Saiba como muito[use Olá tooadminister de serviço do Gerenciador de dispositivos de StorSimple seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

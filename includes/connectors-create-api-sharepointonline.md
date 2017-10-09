@@ -1,19 +1,19 @@
 
 
-Para se conectar ao **SharePoint Online**, você precisa fornecer sua identidade (nome de usuário e senha, credenciais de cartão inteligente, etc.) para o SharePoint Online. Depois de se autenticar, você poderá continuar e usar o Conector do SharePoint Online em seu aplicativo lógico. 
+Em ordem tooconnect muito**SharePoint Online**, você precisa tooprovide Online a tooSharePoint sua identidade (nome de usuário e senha, as credenciais de cartão inteligente, etc.). Depois que você tenha sido autenticado, você poderá continuar o conector do SharePoint Online de saudação toouse em seu aplicativo de lógica. 
 
-No designer do aplicativo lógico, siga estas etapas para entrar no SharePoint e criar a **conexão** que será usada em seu aplicativo lógico:
+Enquanto no designer de saudação do seu aplicativo lógico, siga essas etapas toosign em SharePoint toocreate Olá **conexão** para uso em seu aplicativo lógico:
 
-1. Insira SharePoint na caixa de pesquisa e aguarde até que a pesquisa retorne todos os gatilhos com SharePoint Online no nome:   
+1. Insira do SharePoint na caixa de pesquisa hello e aguarde Olá pesquisa tooreturn todos os gatilhos e ações relacionadas tooSharePoint Online:   
    ![Configurar o SharePoint][1]  
-2. Selecione o gatilho **SharePoint Online - Quando um arquivo é criado**  
-3. Selecione **Entrar no SharePoint Online**:   
+2. Selecione Olá **do SharePoint Online, quando um arquivo é criado** gatilho  
+3. Selecione **entrar Online tooSharePoint**:   
    ![Configurar o SharePoint][2]    
-4. Forneça suas credenciais do SharePoint para entrar e se autenticar com o SharePoint    
+4. Forneça seu toosign de credenciais do SharePoint no tooauthenticate com o SharePoint   
    ![Configurar o SharePoint][3]     
-5. Após a autenticação, você será redirecionado ao seu aplicativo lógico. Pronto, a conexão foi criada. Observe a mensagem na parte inferior que indica que você agora está conectado ao SharePoint.  
+5. Após a conclusão da autenticação Olá você será redirecionado tooyour lógica aplicativo. Isso é tudo, conexão Olá foi criado. Mensagem de saudação do aviso na parte inferior da saudação que indica que você está agora conectado tooSharePoint.  
    ![Configurar o SharePoint][4]  
-6. Em seguida, é possível adicionar outros gatilhos e outras ações necessárias para concluir seu aplicativo lógico.   
+6. Em seguida, você pode adicionar outros gatilhos e ações que você precisa toocomplete seu aplicativo lógico.   
 
 [1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
 [2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png 

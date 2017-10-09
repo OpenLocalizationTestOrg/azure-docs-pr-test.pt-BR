@@ -1,6 +1,6 @@
 ---
-title: "Níveis de desempenho da API do DocumentDB | Microsoft Docs"
-description: "Saiba como os níveis de desempenho da API do DocumentDB permitem reservar a produtividade por contêiner."
+title: "níveis de desempenho aaaDocumentDB API | Microsoft Docs"
+description: "Saiba mais sobre como os níveis de desempenho de API DocumentDB habilitar tooreserve a taxa de transferência em uma base por contêiner."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,42 +15,42 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8d4733e57eb760dbb8e8ca96f6ba55671d1742f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 716bc11ae238dbb0feebf004ed8d5f8a7515ec6f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
+# <a name="retiring-hello-s1-s2-and-s3-performance-levels"></a>Desativar Olá S1, S2 e S3 níveis de desempenho
 
 > [!IMPORTANT] 
-> Os níveis de desempenho S1, S2 e S3 abordados neste artigo estão sendo desativados e não estão mais disponíveis para novas contas da API do DocumentDB.
+> Olá S1, S2 e S3 níveis de desempenho discutidos neste artigo estão sendo descartados e não estão mais disponíveis para novas contas de API do DocumentDB.
 >
 
-Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3 e analisa como as coleções que usam esses níveis serão migradas para as coleções de partição única em 1º de agosto de 2017. Após ler este artigo, você poderá responder as perguntas a seguir:
+Este artigo fornece uma visão geral dos níveis de desempenho S1, S2 e S3 e discute como coleções de saudação que usam esses níveis de desempenho serão migrados toosingle partição coleções em 1º de agosto de 2017. Depois de ler este artigo, você será capaz de tooanswer Olá perguntas a seguir:
 
-- [Por que os níveis de desempenho S1, S2 e S3 estão sendo desativados?](#why-retired)
-- [Como as coleções de partição única e as coleções particionadas se comparam com os níveis de desempenho S1, S2 e S3?](#compare)
-- [O que é necessário fazer para garantir o acesso ininterrupto aos meus dados?](#uninterrupted-access)
-- [Como a minha coleção mudará após a migração?](#collection-change)
-- [Como minha cobrança mudará depois que eu migrar para as coleções de partição única?](#billing-change)
+- [Por que são desempenho de S1, S2 e S3 Olá níveis desativada?](#why-retired)
+- [Como se as coleções de partição única e particionado comparam toohello S1, S2, níveis de desempenho S3?](#compare)
+- [O que fazer precisará toodo tooensure ininterrupto acesso toomy dados?](#uninterrupted-access)
+- [Como Minha coleção será alterado após a migração Olá?](#collection-change)
+- [Como minha cobrança será alterado depois que estou toosingle migrados partição coleções?](#billing-change)
 - [E se eu precisar de mais de 10 GB de armazenamento?](#more-storage-needed)
-- [Posso mudar entre os níveis de desempenho S1, S2 e S3 antes de 1º de agosto de 2017?](#change-before)
+- [Alterar entre níveis de desempenho S1, S2 e S3 de saudação antes de 1 de agosto de 2017?](#change-before)
 - [Como saberei quando minha coleção migrou?](#when-migrated)
-- [Como eu migro dos níveis de desempenho S1, S2 e S3 para as coleções de partição única sozinho?](#migrate-diy)
+- [Como migrar do hello S1, S2, S3 desempenho níveis toosingle coleções com uma partição por conta própria?](#migrate-diy)
 - [Como serei afetado se eu for um cliente EA?](#ea-customer)
 
 <a name="why-retired"></a>
 
-## <a name="why-are-the-s1-s2-and-s3-performance-levels-being-retired"></a>Por que os níveis de desempenho S1, S2 e S3 estão sendo desativados?
+## <a name="why-are-hello-s1-s2-and-s3-performance-levels-being-retired"></a>Por que são desempenho de S1, S2 e S3 Olá níveis desativada?
 
-Os níveis de desempenho S1, S2 e S3 não oferecem a flexibilidade que as coleções da API do DocumentDB oferecem. Com os níveis de desempenho S1, S2, S3, a produtividade e a capacidade de armazenamento eram predefinidas e não ofereciam elasticidade. Agora, o Azure Cosmos DB oferece a capacidade de personalizar a produtividade e o armazenamento, oferecendo muito mais flexibilidade em sua capacidade de dimensionar, conforme suas necessidades mudam.
+níveis de desempenho S1, S2 e S3 Olá não oferece flexibilidade de saudação que oferece as coleções de API do DocumentDB. Com hello S1, S2, S3 níveis de desempenho, capacidade Olá taxa de transferência e armazenamento foram predefinida e não oferecia elasticidade. Banco de dados do Azure Cosmos agora fornece Olá capacidade toocustomize sua taxa de transferência e armazenamento, oferece muito mais flexibilidade tooscale sua capacidade de suas necessidades.
 
 <a name="compare"></a>
 
-## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-to-the-s1-s2-s3-performance-levels"></a>Como as coleções de partição única e as coleções particionadas se comparam com os níveis de desempenho S1, S2 e S3?
+## <a name="how-do-single-partition-collections-and-partitioned-collections-compare-toohello-s1-s2-s3-performance-levels"></a>Como se as coleções de partição única e particionado comparam toohello S1, S2, níveis de desempenho S3?
 
-A tabela a seguir compara as opções da taxa de transferência e armazenamento disponíveis nas coleções de partição única, coleções particionadas e níveis de desempenho S1, S2 e S3. Aqui está um exemplo para a região no Leste dos EUA 2:
+Olá, a tabela a seguir compara Olá taxa de transferência e armazenamento opções disponíveis em coleções com uma única partição, coleções particionadas e S1, S2, níveis de desempenho S3. Aqui está um exemplo para a região no Leste dos EUA 2:
 
 |   |Coleção particionada|Coleção de partição única|S1|S2|S3|
 |---|---|---|---|---|---|
@@ -63,103 +63,103 @@ Você é um cliente EA? Se for, consulte [Como serei afetado se eu for um client
 
 <a name="uninterrupted-access"></a>
 
-## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>O que é necessário fazer para garantir o acesso ininterrupto aos meus dados?
+## <a name="what-do-i-need-toodo-tooensure-uninterrupted-access-toomy-data"></a>O que fazer precisará toodo tooensure ininterrupto acesso toomy dados?
 
-Nada. O Cosmos DB cuida da migração para você. Se você tiver uma coleção S1, S2 ou S3, a coleção atual será migrada para uma coleção de partição única em 31 de julho de 2017. 
+Nada, Cosmos DB lida com a migração de saudação para você. Se você tiver uma coleção de S1, S2 ou S3, a coleção atual será migrado tooa partição única coleção em 31 de julho de 2017. 
 
 <a name="collection-change"></a>
 
-## <a name="how-will-my-collection-change-after-the-migration"></a>Como a minha coleção mudará após a migração?
+## <a name="how-will-my-collection-change-after-hello-migration"></a>Como Minha coleção será alterado após a migração Olá?
 
-Se você tiver uma coleção S1, será migrado para uma coleção de partição única com uma taxa de transferência de 400 RU/s. 400 RU/s é a taxa de transferência mais baixa disponível com as coleções de partição única. No entanto, o custo de 400 RU/s em uma coleção de partição única é aproximadamente igual ao que você estava pagando com sua coleção S1 e 250 RU/s – assim, você não está pagando por 150 RU/s extras disponíveis.
+Se você tiver uma coleção de S1, será migrado tooa partição única coleção com taxa de transferência de 400 RU/s. 400 RU/s é hello mais baixa taxa de transferência disponível com coleções com uma única partição. No entanto, custo de saudação de 400 RU/s Olá coleção uma única partição é aproximadamente Olá mesmo que você foram pagar com sua coleção de S1 e 250 RU/s – para que você não estiver pagando Olá extra 150 tooyou disponíveis de RU/s.
 
-Se você tiver uma coleção S2, será migrado para uma coleção de partição única com 1 K RU/s. Você não verá nenhuma alteração no nível da taxa de transferência.
+Se você tiver uma coleção de S2, será migrado tooa partição única coleção com o 1 K RU/s. Você não verá nenhum nível de taxa de transferência de tooyour de alteração.
 
-Se tiver uma coleção S3, será migrado para uma coleção de partição única com 2.5 K RU/s. Você não verá nenhuma alteração no nível da taxa de transferência.
+Se você tiver uma coleção de S3, será migrado tooa partição única coleção com 2,5 K RU/s. Você não verá nenhum nível de taxa de transferência de tooyour de alteração.
 
-Em cada um desses casos, após a migração de sua coleção, você poderá personalizar o nível da taxa de transferência, aumentar ou reduzir conforme o necessário para fornecer um acesso de baixa latência para os usuários. Para alterar o nível de produtividade após a migração de sua coleção, basta abrir sua conta do Cosmos DB no portal do Azure, clicar em Escala, escolher sua coleção e, em seguida, ajustar o nível de produtividade, conforme mostrado na seguinte captura de tela:
+Em cada um desses casos, após a migração da sua coleção, você será ser capaz de toocustomize o nível de taxa de transferência ou dimensioná-lo para cima e para baixo como usuários de tooyour de baixa latência acesso tooprovide necessários. nível de taxa de transferência de saudação toochange depois de sua coleção foi migrado, simplesmente abra sua conta de banco de dados do Cosmos no hello portal do Azure, clique em escala, escolha sua coleção e, em seguida, ajustar o nível de taxa de transferência de hello, conforme mostrado no hello captura de tela a seguir:
 
-![Como dimensionar a taxa de transferência no portal do Azure](./media/performance-levels/portal-scale-throughput.png)
+![Como tooscale a taxa de transferência em Olá portal do Azure](./media/performance-levels/portal-scale-throughput.png)
 
 <a name="billing-change"></a>
 
-## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>Como minha cobrança mudará depois que eu migrar para as coleções de partição única?
+## <a name="how-will-my-billing-change-after-im-migrated-toohello-single-partition-collections"></a>Como minha cobrança será alterado depois que estou coleções com uma partição única toohello migrados?
 
-Supondo que você tem 10 coleções S1, 1 GB de armazenamento para cada uma, na região Leste dos EUA, e migra essas 10 coleções S1 para 10 coleções de partição única em 400 RU/s (o nível mínimo). Se você mantiver as 10 coleções de partição única por um mês inteiro, sua fatura será semelhante ao seguinte:
+Supondo que você tem 10 coleções de S1, 1 GB de armazenamento para cada região de US East Olá, e você migrar esses 10 S1 coleções too10 coleções com uma partição em 400 RU/s (nível mínimo de saudação). Se você mantiver as coleções de partição única 10 Olá por um mês inteiro, o sua fatura será semelhante ao seguinte:
 
-![Como o preço de S1 para 10 coleções se compara a 10 coleções usando o preço para uma coleção de partição única](./media/performance-levels/s1-vs-standard-pricing.png)
+![Como S1 preços para 10 coleções comparam too10 coleções usando preços para uma coleção de partição única](./media/performance-levels/s1-vs-standard-pricing.png)
 
 <a name="more-storage-needed"></a>
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>E se eu precisar de mais de 10 GB de armazenamento?
 
-Se você tiver uma coleção com um nível de desempenho S1, S2 ou S3 ou uma coleção de partição única, todas com 10 GB de armazenamento disponível, poderá usar a ferramenta de Migração de Dados do Cosmos DB para migrar seus dados para uma coleção particionada com um armazenamento praticamente ilimitado. Para obter informações sobre os benefícios de uma coleção particionada, consulte [Particionamento e escala no Azure Cosmos DB](documentdb-partition-data.md). Para obter informações sobre como migrar seu S1, S2, S3 ou coleção de partição única para uma coleção particionada, consulte [Migrando da partição única para coleções particionadas](documentdb-partition-data.md#migrating-from-single-partition). 
+Se você tem uma coleção com um nível de desempenho S1, S2 ou S3 ou tem uma coleção de partição única, que têm 10 GB de armazenamento disponível, você pode usar toomigrate de ferramenta de migração de dados de banco de dados do Cosmos Olá tooa seus dados particionados coleção com praticamente armazenamento ilimitado. Para obter informações sobre os benefícios de saudação de uma coleção particionada, consulte [particionamento e escala no banco de dados do Azure Cosmos](documentdb-partition-data.md). Para obter informações sobre como toomigrate seus S1, S2, S3 ou coleção de tooa particionado de partição única, consulte [migração de coleções de partição única toopartitioned](documentdb-partition-data.md#migrating-from-single-partition). 
 
 <a name="change-before"></a>
 
-## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>Posso mudar entre os níveis de desempenho S1, S2 e S3 antes de 1º de agosto de 2017?
+## <a name="can-i-change-between-hello-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>Alterar entre níveis de desempenho S1, S2 e S3 de saudação antes de 1 de agosto de 2017?
 
-Somente as contas existentes com os desempenhos S1, S2 e S3 conseguirão mudar e alterar as camadas do nível de desempenho no portal ou por meio da programação. Em 1º de agosto de 2017, os níveis de desempenho S1, S2 e S3 não estarão mais disponíveis. Se você mudar de S1, S3 ou S3 para uma coleção de partição único, não será possível retornar aos níveis de desempenho S1, S2 ou S3.
+Somente as contas existentes com desempenho S1, S2 e S3 serão capaz de toochange e alter diferentes níveis de desempenho por meio do portal hello ou programaticamente. Por 1 de agosto de 2017, Olá S1, S2, e os níveis de desempenho S3 deixarão de ficar disponíveis. Se você alterar a coleção de partição única tooa S1, S3 ou S3, você não pode retornar toohello níveis de desempenho S1, S2 ou S3.
 
 <a name="when-migrated"></a>
 
 ## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Como saberei quando minha coleção migrou?
 
-A migração ocorrerá em 31 de julho de 2017. Se você tiver uma coleção que usa os níveis de desempenho S1, S2 ou S3, a equipe do Cosmos DB o contatará por email antes da migração. Quando a migração for concluída, em 1º de agosto de 2017, o portal do Azure mostrará que sua coleção usa o preço Standard.
+migração de saudação ocorrerá em 31 de julho de 2017. Se você tiver uma coleção que usa Olá S1, S2 ou S3 níveis de desempenho, equipe de banco de dados do Cosmos Olá entrará em contato com você por email antes de migração de saudação ocorre. Depois que a migração de saudação é concluída em 1 de agosto de 2017, Olá portal do Azure mostrará que sua coleção usa os preços padrão.
 
-![Como confirmar se sua coleção migrou para a tipo de preço Standard](./media/performance-levels/portal-standard-pricing-applied.png)
+![Como tooconfirm sua coleção foi migrado toohello faixa de preços padrão](./media/performance-levels/portal-standard-pricing-applied.png)
 
 <a name="migrate-diy"></a>
 
-## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>Como eu migro dos níveis de desempenho S1, S2 e S3 para as coleções de partição única sozinho?
+## <a name="how-do-i-migrate-from-hello-s1-s2-s3-performance-levels-toosingle-partition-collections-on-my-own"></a>Como migrar do hello S1, S2, S3 desempenho níveis toosingle coleções com uma partição por conta própria?
 
-Você pode migrar dos níveis de desempenho S1, S2 e S3 para coleções de partição única usando o portal do Azure ou programaticamente. Você pode fazer isso sozinho antes de 1º de agosto para aproveitar as opções flexíveis da taxa de transferência disponíveis com as coleções de partição única ou migraremos suas coleções em 31 de julho de 2017.
+Você pode migrar de saudação S1, S2, e níveis de desempenho de S3 toosingle coleções de partição usando Olá portal do Azure ou programaticamente. Você pode fazer isso em seu próprio antes de 1 de agosto toobenefit das opções de taxa de transferência flexível Olá disponíveis com coleções com uma única partição, ou vai migrar suas coleções para você em 31 de julho de 2017.
 
-**Para migrar para coleções de partição única usando o portal do Azure**
+**toomigrate toosingle coleções com uma partição usando Olá portal do Azure**
 
-1. No [**portal do Azure**](https://portal.azure.com), clique em **Azure Cosmos DB** e, em seguida, selecione a conta do Cosmos DB a ser modificada. 
+1. Em Olá [ **portal do Azure**](https://portal.azure.com), clique em **o banco de dados do Azure Cosmos**, selecione Olá toomodify de conta de banco de dados do Cosmos. 
  
-    Se o **Azure Cosmos DB** não estiver na barra de atalhos, clique em >, role até **Bancos de dados**, selecione **Azure Cosmos DB** e, em seguida, selecione a conta do DocumentDB.  
+    Se **banco de dados do Azure Cosmos** não é Olá Jumpbar, clique em >, role muito**bancos de dados**, selecione **banco de dados do Azure Cosmos**e, em seguida, selecione a conta de documentos de saudação.  
 
-2. No menu de recursos, em **Contêineres**, clique em **Escala**, selecione a coleção a ser modificada na lista suspensa e, em seguida, clique em **Tipo de Preço**. As contas que usam a taxa de transferência predefinida têm um tipo de preço de S1, S2 ou S3.  Na folha **Escolha o tipo de preço**, clique em **Standard** para alterar a taxa de transferência definida pelo usuário e, em seguida, clique em **Selecionar** para salvar as alterações.
+2. No menu de recurso hello, em **contêineres**, clique em **escala**, selecione Olá coleção toomodify na lista suspensa de saudação e, em seguida, clique em **preço**. As contas que usam a taxa de transferência predefinida têm um tipo de preço de S1, S2 ou S3.  Em Olá **Escolher tipo de preços** folha, clique em **padrão** toochange definido toouser taxa de transferência e, em seguida, clique em **selecione** toosave sua alteração.
 
-    ![Captura de tela da folha Configurações, mostrando em que lugar alterar o valor da taxa de transferência](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Captura de tela da folha de configurações de saudação mostrando onde toochange Olá valor de taxa de transferência](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. De volta na folha **Escala**, o **Tipo de Preço** foi alterado para **Standard** e a caixa **Produtividade (RU/s)** é exibida com um valor padrão de 400. Defina a produtividade entre 400 e 10.000 [Unidades de Solicitação](request-units.md)/segundo (RUS/s). A **Fatura mensal estimada** na parte inferior da página é atualizada automaticamente para fornecer uma estimativa do custo mensal. 
+3. Em Olá **escala** folha, Olá **preço** é alterada muito**padrão** e hello **(RU/s) de taxa de transferência** caixa é exibida com um valor padrão de 400. Taxa de transferência do conjunto Olá entre 400 e 10.000 [unidades de solicitação ](request-units.md) /segundo (RU/s). Olá **fatura mensal estimado** final Olá Olá page atualiza automaticamente tooprovide uma estimativa de custo mensal de saudação. 
 
     >[!IMPORTANT] 
-    > Depois de salvar as alterações e ir para o tipo de preço Standard, você não poderá voltar para os níveis de desempenho S1, S2 ou S3.
+    > Depois de salvar suas alterações e mover toohello faixa de preços padrão, você não poderá reverter toohello níveis de desempenho S1, S2 ou S3.
 
-4. Clique em **Salvar** para salvar as alterações.
+4. Clique em **salvar** toosave suas alterações.
 
-    Se determinar que precisa de uma taxa de transferência maior (mais de 10.000 RU/s) ou mais armazenamento (mais de 10 GB), você poderá criar uma coleção particionada. Para migrar uma coleção de partição única para uma coleção particionada, consulte [Migrando da partição única para coleções particionadas](documentdb-partition-data.md#migrating-from-single-partition).
+    Se determinar que precisa de uma taxa de transferência maior (mais de 10.000 RU/s) ou mais armazenamento (mais de 10 GB), você poderá criar uma coleção particionada. toomigrate uma única partição tooa particionada coleção, consulte [migração de coleções de partição única toopartitioned](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
-    > Mudar de S1, S2 ou S3 para o Standard pode levar até 2 minutos.
+    > A alteração de S1, S2 ou S3 tooStandard pode levar too2 minutos.
     > 
     > 
 
-**Para migrar para coleções de partição única usando o .NET SDK**
+**Olá de toomigrate toosingle coleções com uma partição usando o SDK do .NET**
 
-Outra opção para alterar os níveis de desempenho de suas coleções é por meio de nossos SDKs. Esta seção aborda apenas a alteração do nível de desempenho da coleção usando nossa [API .NET do DocumentDB](documentdb-sdk-dotnet.md), mas o processo é semelhante para nossos outros SDKs.
+Outra opção para alterar os níveis de desempenho de suas coleções é por meio de nossos SDKs. Esta seção aborda apenas alterar o desempenho da coleção nível usando nosso [API .NET do DocumentDB](documentdb-sdk-dotnet.md), mas o processo de saudação é semelhante para nossos outros SDKs.
 
-Aqui está um trecho de código para mudar a taxa de transferência da coleção para 5.000 unidades de solicitação por segundo:
+Aqui está um trecho de código para alterar too5 de taxa de transferência de coleção hello, 000 unidades de solicitação por segundo:
     
 ```C#
-    //Fetch the resource to be updated
+    //Fetch hello resource toobe updated
     Offer offer = client.CreateOfferQuery()
                       .Where(r => r.ResourceLink == collection.SelfLink)    
                       .AsEnumerable()
                       .SingleOrDefault();
 
-    // Set the throughput to 5000 request units per second
+    // Set hello throughput too5000 request units per second
     offer = new OfferV2(offer, 5000);
 
-    //Now persist these changes to the database by replacing the original resource
+    //Now persist these changes toohello database by replacing hello original resource
     await client.ReplaceOfferAsync(offer);
 ```
 
-Visite o [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) para exibir exemplos adicionais e saber mais sobre os métodos oferecidos:
+Visite [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) exemplos adicionais de tooview e saber mais sobre os métodos de nossa oferta:
 
 * [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
 * [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
@@ -170,11 +170,11 @@ Visite o [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documen
 
 ## <a name="how-am-i-impacted-if-im-an-ea-customer"></a>Como serei afetado se eu for um cliente EA?
 
-Os clientes EA terão o preço protegido até o final do contrato atual.
+Os clientes EA será protegido até o final de saudação do seu contrato.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre os preços e como gerenciar dados com o Azure Cosmos DB, conheça estes recursos:
+toolearn mais informações sobre preços e gerenciamento de dados com o banco de dados do Azure Cosmos, explore esses recursos:
 
-1.  [Particionando dados no Cosmos DB](documentdb-partition-data.md). Compreenda a diferença entre contêineres de partição única e contêineres particionados, além de obter dicas de como implementar uma estratégia de particionamento para uma escala perfeita.
-2.  [Preços do Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Saiba mais sobre o custo de provisionar a taxa de transferência e consumir o armazenamento.
-3.  [Unidades de solicitação](request-units.md). Compreenda o consumo da taxa de transferência para os diferentes tipos de operação, por exemplo, Leitura, Gravação e Consulta.
+1.  [Particionando dados no Cosmos DB](documentdb-partition-data.md). Compreenda a diferença de saudação entre o contêiner de partição única e contêineres particionados, bem como dicas sobre como implementar um tooscale de estratégia de particionamento perfeitamente.
+2.  [Preços do Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Saiba mais sobre o custo de saudação de provisionamento de taxa de transferência e consumo de armazenamento.
+3.  [Unidades de solicitação](request-units.md). Compreenda o consumo de saudação de taxa de transferência para tipos diferentes de operação, consultas de leitura, gravação, por exemplo.

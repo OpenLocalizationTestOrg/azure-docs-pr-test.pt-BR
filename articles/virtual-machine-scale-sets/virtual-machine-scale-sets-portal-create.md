@@ -1,5 +1,5 @@
 ---
-title: "Criar um conjunto de dimensionamento de máquinas virtuais usando o Portal do Azure | Microsoft Docs"
+title: "aaaCreate um conjunto de escala de máquinas virtuais usando Olá portal do Azure | Microsoft Docs"
 description: Implantar conjuntos de escala usando o portal do Azure.
 keywords: "conjuntos de escala de máquina virtual"
 services: virtual-machine-scale-sets
@@ -17,57 +17,57 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7157a429829974b45dad29ac53fb5fb46c71f821
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 23c88f4b1ba99994a38f8886f60735da74e5c17e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais usando o portal do Azure
-Este tutorial mostra como é fácil criar um conjunto de escala de máquina virtual em poucos minutos usando o Portal do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+# <a name="how-toocreate-a-virtual-machine-scale-set-with-hello-azure-portal"></a>Como toocreate um conjunto de escala de máquinas virtuais com hello portal do Azure
+Este tutorial mostra como é fácil toocreate um conjunto de escala de máquinas virtuais em apenas alguns minutos, usando Olá portal do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="choose-the-vm-image-from-the-marketplace"></a>Escolher a imagem de VM no Marketplace
-No portal, você pode implantar facilmente um conjunto de dimensionamento com as imagens do CentOS, CoreOS, Debian, Open Suse, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu Server ou Windows Server.
+## <a name="choose-hello-vm-image-from-hello-marketplace"></a>Escolha a imagem VM de saudação do marketplace Olá
+No portal de saudação, você pode implantar facilmente uma escala com CentOS, CoreOS, Debian, abra Suse, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu Server ou imagens do Windows Server.
 
-Primeiro, navegue até o [Portal do Azure](https://portal.azure.com) no navegador da Web. Clique em `New`, pesquise `scale set` e selecione a entrada `Virtual machine scale set`:
+Navega pela primeira vez, toohello [portal do Azure](https://portal.azure.com) em um navegador da web. Clique em `New`, procure `scale set`e, em seguida, selecione Olá `Virtual machine scale set` entrada:
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
-## <a name="create-the-scale-set"></a>Criar o conjunto de dimensionamento
-Agora, você pode usar as configurações padrão e criar rapidamente o conjunto de dimensionamento.
+## <a name="create-hello-scale-set"></a>Criar conjunto de escala Olá
+Agora você pode usar as configurações padrão de saudação e rapidamente criar conjunto de escala de saudação.
 
-* Na folha `Basics`, insira um nome para o conjunto de escala. Esse nome se torna a base do FQDN do balanceador de carga na frente do conjunto de dimensionamento. Portanto, certifique-se de que o nome seja exclusivo em todo o Azure.
-* Selecione o tipo de OS desejado, insira o nome de usuário desejado e selecione o tipo de autenticação que prefere. Se você escolher uma senha, ela deverá ter pelo menos 12 caracteres e atender três dos quatro requisitos de complexidade a seguir: um caractere minúsculo, um caractere maiúsculo, um número e um caractere especial. Veja mais sobre os [requisitos de nome de usuário e senha](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). Se você escolher `SSH public key`, cole somente sua chave pública, NÃO sua chave privada:
+* Em Olá `Basics` folha, insira um nome para o conjunto de escala hello. Esse nome se torna Olá base do hello FQDN saudação do balanceador de carga na frente do conjunto de escala hello, portanto certifique-se de nome hello é exclusivo em todos os Azure.
+* Selecione o tipo de OS desejado, insira o nome de usuário desejado e selecione o tipo de autenticação que prefere. Se você escolher uma senha, ela deve ser no mínimo 12 caracteres e atender aos três das quatro seguintes requisitos de complexidade Olá: caractere minúscula, caractere um maiusculo, um número e um caractere especial. Veja mais sobre os [requisitos de nome de usuário e senha](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm). Se você escolher `SSH public key`, ser tooonly se colar na sua chave pública, não com sua chave privada:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
-* Escolha se você deseja limitar o conjunto de dimensionamento a um único grupo de posicionamento ou se ele deve abranger vários grupos de posicionamento. Permitir que o conjunto de dimensionamento abranja grupos de posicionamento permite conjuntos de dimensionamento com capacidade para mais de 100 VMs (até 1.000), com certas limitações. Para obter mais informações, veja [esta documentação](./virtual-machine-scale-sets-placement-groups.md).
+* Escolha se você seria como grupo de posicionamento único tooa de conjunto de escala de saudação toolimit ou se ele deve abranger vários grupos de posicionamento. Permitir que o conjunto de escala Olá toospan grupos de posicionamento permite escala define mais de 100 VMs de capacidade (até too1, 000) com certas limitações. Para obter mais informações, veja [esta documentação](./virtual-machine-scale-sets-placement-groups.md).
 * Digite o nome do grupo de recursos desejado e a localização e clique em `OK`.
-* Na folha `Virtual machine scale set service settings` : digite o rótulo de nome de domínio desejado (a base do FQDN para o balanceador de carga na frente do conjunto de escala). Este rótulo deve ser exclusivo em todo o Azure.
+* Em Olá `Virtual machine scale set service settings` folha: insira o rótulo de nome de domínio desejado (base de saudação de saudação FQDN Olá balanceador de carga na frente do conjunto de escala de saudação). Este rótulo deve ser exclusivo em todo o Azure.
 * Escolha a imagem de disco do sistema operacional desejada, a contagem de instâncias e o tamanho da máquina.
-* Escolha o tipo de disco desejado: gerenciado ou não. Para obter mais informações, veja [esta documentação](./virtual-machine-scale-sets-managed-disks.md). Essa opção não estará disponível se você optar por fazer com que o conjunto de dimensionamento abranja vários grupos de posicionamento, porque o disco gerenciado é um pré-requisito para isso.
+* Escolha o tipo de disco desejado: gerenciado ou não. Para obter mais informações, veja [esta documentação](./virtual-machine-scale-sets-managed-disks.md). Se você escolher o conjunto de escala Olá toohave se estender por vários grupos de posicionamento, essa opção não estará disponível porque o disco gerenciado é necessário para grupos de posicionamento de toospan de conjuntos de escala.
 * Habilitar ou desabilitar o dimensionamento automático e configurar, se habilitado:
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-* Na folha `Summary`, quando a validação for concluída, clique em `OK` para iniciar a implantação do conjunto de dimensionamento.
+* Em Olá `Summary` folha, quando a validação é feita, clique em `OK` conjunto de escala de saudação toostart de implantação.
 
 
-## <a name="connect-to-a-vm-in-the-scale-set"></a>Conectar-se a uma VM no conjunto de dimensionamento
-Se você optar por limitar seu conjunto de dimensionamento a um único grupo de posicionamento, o conjunto de dimensionamento será implantado com regras NAT configuradas para permitir que você se conecte ao conjunto de dimensionamento facilmente (caso contrário, para se conectar às máquinas virtuais no conjunto de dimensionamento, você provavelmente precisará criar uma jumpbox na mesma rede virtual do conjunto de dimensionamento). Para vê-las, navegue até a guia `Inbound NAT Rules` do balanceador de carga para o conjunto de dimensionamento:
+## <a name="connect-tooa-vm-in-hello-scale-set"></a>Conecte-se tooa VM no conjunto de escala Olá
+Se você escolheu toolimit sua escala definido tooa grupo de posicionamento único, conjunto de escala de saudação é implantado com NAT regras configuradas toolet toohello escala configurar facilmente se conectar (se não, tooconnect toohello VMs em escala Olá definido, você provavelmente precisa toocreate um jumpbox em Olá mesma rede virtual que o conjunto de escala Olá). toosee-los, navegar toohello `Inbound NAT Rules` guia saudação do balanceador de carga para o conjunto de escala hello:
 
 ![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
 
-Você pode se conectar a cada VM no conjunto de escala usando estas regras NAT. Por exemplo, para um conjunto de escala do Windows, se houver uma regra NAT na porta de entrada 50000, você poderá se conectar a essa máquina via RDP em `<load-balancer-ip-address>:50000`. Para um conjunto de escala do Linux, você se conectaria usando o comando `ssh -p 50000 <username>@<load-balancer-ip-address>`.
+Você pode conectar tooeach VM em escala Olá definido usando essas regras NAT. Por exemplo, para um conjunto de escala do Windows, se houver uma regra NAT na porta de entrada 50000, você pode conectar toothat máquina via RDP em `<load-balancer-ip-address>:50000`. Para um conjunto de escala do Linux, deveria conectar usando o comando Olá `ssh -p 50000 <username>@<load-balancer-ip-address>`.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para ver a documentação sobre como implantar conjuntos de escala da CLI, consulte [esta documentação](virtual-machine-scale-sets-cli-quick-create.md).
+Para documentação sobre como escala toodeploy define da saudação CLI, consulte [esta documentação](virtual-machine-scale-sets-cli-quick-create.md).
 
-Para ver a documentação sobre como implantar conjuntos de dimensionamento do PowerShell, veja [esta documentação](virtual-machine-scale-sets-windows-create.md).
+Para documentação sobre como dimensionar toodeploy define do PowerShell, consulte [esta documentação](virtual-machine-scale-sets-windows-create.md).
 
-Para ver a documentação sobre como implantar conjuntos de escala do Visual Studio, consulte [esta documentação](virtual-machine-scale-sets-vs-create.md).
+Para documentação sobre como dimensionar toodeploy define do Visual Studio, consulte [esta documentação](virtual-machine-scale-sets-vs-create.md).
 
-Para ver a documentação geral, confira a [página de visão geral da documentação para conjuntos de escala](virtual-machine-scale-sets-overview.md).
+Para obter a documentação geral, confira Olá [página de visão geral da documentação para conjuntos de escala](virtual-machine-scale-sets-overview.md).
 
-Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Para obter informações gerais, confira Olá [página principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

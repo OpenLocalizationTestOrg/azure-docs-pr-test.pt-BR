@@ -1,5 +1,5 @@
 ---
-title: "Usar Apache Storm com Power BI – HDInsight do Azure | Microsoft Docs"
+title: aaaUse Apache Storm com o Power BI - HDInsight do Azure | Microsoft Docs
 description: "Crie um relatório do Power BI usando dados de uma topologia C# em execução em um cluster do Apache Storm no HDInsight."
 services: hdinsight
 documentationcenter: 
@@ -16,22 +16,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/31/2017
 ms.author: larryfr
-ms.openlocfilehash: 36487c0c34e5a4bb955bbc15c8c96b9e838aeb44
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 194cd8220bd60475af1d64a110e4b23ef92e1bc8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-power-bi-to-visualize-data-from-an-apache-storm-topology"></a>Usar o Power BI para visualizar dados de uma topologia do Apache Storm
+# <a name="use-power-bi-toovisualize-data-from-an-apache-storm-topology"></a>Usar dados do Power BI toovisualize de uma topologia do Apache Storm
 
-O Power BI permite a exibição visual dos dados como relatórios. Este documento fornece um exemplo de como usar o Apache Storm no HDInsight para gerar dados para o Power BI.
+Power BI permite toovisually exibir dados de relatórios. Este documento fornece um exemplo de como toouse Apache Storm em HDInsight toogenerate dados para o Power BI.
 
 > [!NOTE]
-> As etapas neste documento dependem de um ambiente de desenvolvimento do Windows com Visual Studio. O projeto compilado pode ser enviado para um cluster do HDInsight baseados em Linux. Somente os clusters baseados em Linux criados depois de 28/10/2016 são compatíveis com as topologias do SCP.NET.
+> Olá etapas neste documento dependem de um ambiente de desenvolvimento do Windows com o Visual Studio. projeto compilado Olá pode ser enviado tooa cluster de HDInsight baseados em Linux. Somente os clusters baseados em Linux criados depois de 28/10/2016 são compatíveis com as topologias do SCP.NET.
 >
-> Para usar uma topologia do C# com um cluster baseado em Linux, atualize o pacote NuGet Microsoft.SCP.Net.SDK usado pelo seu projeto para a versão 0.10.0.6 ou superior. A versão do pacote também deve coincidir com a versão principal do Storm instalada no HDInsight. Por exemplo, o HDInsight versões 3.3 e 3.4 usam o Storm versão 0.10.x, enquanto o HDInsight 3.5 usa o Storm 1.0. x.
+> toouse uma topologia c# com um cluster baseado em Linux, saudação de atualização de pacote do Microsoft.SCP.Net.SDK NuGet usado pelo seu projeto tooversion 0.10.0.6 ou superior. versão de saudação do pacote de saudação também deve corresponder a versão principal de saudação do Storm instalado no HDInsight. Por exemplo, o HDInsight versões 3.3 e 3.4 usam o Storm versão 0.10.x, enquanto o HDInsight 3.5 usa o Storm 1.0. x.
 >
-> As topologias C# em clusters baseados em Linux devem usar o .NET 4.5 e o Mono para execução no cluster HDInsight. A maioria das coisas funciona. No entanto, você deve verificar o documento [Compatibilidade do Mono](http://www.mono-project.com/docs/about-mono/compatibility/) em busca de possíveis incompatibilidades.
+> C# topologias em clusters baseados em Linux devem usar o .NET 4.5 e use toorun Mono no cluster do HDInsight hello. A maioria das coisas funciona. No entanto, você deve verificar Olá [Mono compatibilidade](http://www.mono-project.com/docs/about-mono/compatibility/) documento para incompatibilidades.
 >
 > Para obter uma versão Java deste projeto, que funciona com HDInsight baseado em Windows ou Linux, confira [Processar eventos dos Hubs de Eventos do Azure com Storm no HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
@@ -41,73 +41,73 @@ O Power BI permite a exibição visual dos dados como relatórios. Este document
 * Um cluster HDInsight. Para obter mais informações, confira [Introdução ao Storm no HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md).
 
   > [!IMPORTANT]
-  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Visual Studio (uma das seguintes versões a seguir)
+* O Visual Studio (um dos Olá versões a seguir)
 
   * Visual Studio 2012 com [atualização 4](http://www.microsoft.com/download/details.aspx?id=39305)
   * Visual Studio 2013 com [atualização 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
   * Visual Studio 2017 (qualquer edição)
 
-* Ferramentas do HDInsight para o Visual Studio: consulte [Comece a usar as Ferramentas do HDInsight para o Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para obter informações sobre a instalação.
+* Olá ferramentas HDInsight para Visual Studio: consulte [começar a usar as ferramentas do HDInsight Olá para o Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para obter informações sobre informações de instalação.
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-Este exemplo contém uma topologia do Storm em C# que gera aleatoriamente dados de log do IIS (Serviços de Informações da Internet). Esses dados são gravados em um Banco de Dados SQL e, por meio dele, são usados para gerar relatórios no Power BI.
+Este exemplo contém uma topologia do Storm em C# que gera aleatoriamente dados de log do IIS (Serviços de Informações da Internet). Esses dados são gravados tooa banco de dados SQL e de lá é usado toogenerate relatórios no Power BI.
 
-Os arquivos a seguir implementam a funcionalidade principal desse exemplo:
+Olá arquivos implementam Olá funcionalidade principal deste exemplo a seguir:
 
-* **SqlAzureBolt.cs**: grava informações produzidas na topologia do Storm no Banco de Dados SQL.
-* **IISLogsTable.sql**: as instruções Transact-SQL usadas para gerar o banco de dados no qual os dados são armazenados.
+* **SqlAzureBolt.cs**: grava informações produzidas no hello Storm topologia tooSQL banco de dados.
+* **IISLogsTable.sql**: Olá Transact-SQL instruções usadas toogenerate Olá banco de dados que Olá dados são armazenados em.
 
 > [!WARNING]
-> Criar a tabela no Banco de Dados SQL antes de iniciar a topologia em seu cluster HDInsight.
+> Crie tabela de saudação no banco de dados SQL antes de iniciar a topologia de saudação no seu cluster HDInsight.
 
-## <a name="download-the-example"></a>Baixar o exemplo
+## <a name="download-hello-example"></a>Baixe o exemplo hello
 
-Baixe o [exemplo do Power BI do Storm em C# do HDInsight](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi). Para baixá-lo, use uma bifurcação/clone-o usando [git](http://git-scm.com/)ou use o link de **Download** link para baixar um .zip do arquivo.
+Baixar Olá [exemplo HDInsight c# Storm Power BI](https://github.com/Azure-Samples/hdinsight-dotnet-storm-powerbi). toodownload, uma bifurcação/clone-o usando [git](http://git-scm.com/), ou use Olá **baixar** toodownload de link do arquivo hello. zip.
 
 ## <a name="create-a-database"></a>Criar um banco de dados
 
-1. Use as etapas no documento [Tutorial do Banco de Dados SQL](../sql-database/sql-database-get-started.md) para criar um novo banco de dados.
+1. toocreate um banco de dados, use as etapas de Olá Olá [tutorial do banco de dados SQL](../sql-database/sql-database-get-started.md) documento.
 
-2. Conecte-se ao banco de dados seguindo as etapas no documento [Conectar-se ao Banco de Dados SQL com o Visual Studio](../sql-database/sql-database-connect-query.md).
+2. Conectar o banco de dados de toohello por Olá seguir as etapas em Olá [conectar tooa banco de dados SQL com o Visual Studio](../sql-database/sql-database-connect-query.md) documento.
 
-3. No Pesquisador de Objetos, clique com o botão direito do mouse no banco de dados e selecione **Nova Consulta**. Cole o conteúdo do arquivo **IISLogsTable.sql** incluído no projeto baixado na janela de consulta e use Ctrl + Shift + E para executar a consulta. Você deve receber uma mensagem de que os comandos foram concluídos com êxito.
+3. No Pesquisador de objetos, clique em banco de dados de saudação e selecione **nova consulta**. Cole o conteúdo Olá Olá **IISLogsTable.sql** arquivo incluído no hello baixou o projeto na janela de consulta hello e, em seguida, use Ctrl + Shift + a consulta de saudação tooexecute E. Você deve receber uma mensagem que Olá comandos foi concluídos com êxito.
 
-## <a name="configure-the-sample"></a>Configurar o exemplo
+## <a name="configure-hello-sample"></a>Configurar o exemplo hello
 
-1. No [Portal do Azure](https://portal.azure.com), selecione seu Banco de Dados SQL. Na seção **Fundamentos** da folha Banco de Dados SQL, selecione **Mostrar cadeias de conexão de banco de dados**. Na lista exibida, copie as informações de **ADO.NET (autenticação do SQL)** .
+1. De saudação [portal do Azure](https://portal.azure.com), selecione o banco de dados SQL. De saudação **Essentials** seção da folha de banco de dados SQL hello, selecione **Mostrar cadeias de conexão de banco de dados**. Na lista de saudação que aparece, copie Olá **ADO.NET (autenticação do SQL)** informações.
 
-2. Abra o exemplo no Visual Studio. No **Gerenciador de Soluções**, abra o arquivo **App.config** e localize a seguinte entrada:
+2. Abra o exemplo hello no Visual Studio. De **Solution Explorer**, abra Olá **App. config** de arquivo e depois descobrir Olá a seguinte entrada:
 
         <add key="SqlAzureConnectionString" value="##TOBEFILLED##" />
 
-    Substitua o valor **##TOBEFILLED##** valor pela cadeia de conexão de banco de dados copiada na etapa anterior. Substitua **{your\_username}** e **{your\_password}** pelo nome de usuário e pela senha do banco de dados.
+    Substituir saudação **TOBEFILLED # # # #** valor com a cadeia de conexão de banco de dados de saudação copiado na etapa anterior hello. Substituir **{sua\_nome de usuário}** e **{sua\_senha}** com hello nome de usuário e senha para o banco de dados de saudação.
 
-3. Salve e feche os arquivos.
+3. Salvar e fechar arquivos hello.
 
-## <a name="deploy-the-sample"></a>Implantar o exemplo
+## <a name="deploy-hello-sample"></a>Implantar o exemplo hello
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **StormToSQL** e selecione **Enviar para o Storm no HDInsight**. Selecione o cluster HDInsight no menu suspenso **Cluster Storm** .
+1. De **Solution Explorer**, Olá atalho **StormToSQL** do projeto e selecione **enviar tooStorm no HDInsight**. Cluster do HDInsight Olá Select de saudação **Cluster Storm** caixa de diálogo de lista suspensa.
 
    > [!NOTE]
-   > Pode levar alguns segundos para a lista suspensa **Cluster Storm** ser populada com os nomes de servidor.
+   > Pode levar alguns segundos para Olá **Cluster Storm** toopopulate suspensa com nomes de servidor.
    >
-   > Se solicitado, insira as credenciais de logon para sua assinatura do Azure. Se você tiver mais de uma assinatura, faça o logon naquela que contém seu Storm no cluster HDInsight.
+   > Se solicitado, insira as credenciais de logon de saudação para sua assinatura do Azure. Se você tiver mais de uma assinatura, faça logon toohello que contém seu Storm no cluster HDInsight.
 
-2. Depois que a topologia é enviada, o __Visualizador de Topologia__ é exibido. Para exibir essa topologia, selecione a entrada SqlAzureWriterTopology na lista.
+2. Quando a topologia de saudação tiver sido enviada, Olá __Visualizador de topologia__ é exibida. tooview essa topologia, a entrada de SqlAzureWriterTopology Olá selecione da lista de saudação.
 
-    ![As topologias, com a topologia selecionada](./media/hdinsight-storm-power-bi-topology/topologyview.png)
+    ![topologias de Hello, com a topologia de saudação selecionado](./media/hdinsight-storm-power-bi-topology/topologyview.png)
 
-    Você pode usar esta exibição para ver informações sobre a topologia ou clicar duas vezes em uma entrada (como SqlAzureBolt) para ver as informações específicas de um componente na topologia.
+    Você pode usar essas informações de toosee de exibição na topologia hello, ou clique duas vezes um componente de tooa específico entrada (como Olá SqlAzureBolt) toosee informações na topologia de saudação.
 
-3. Depois que a topologia estiver executado por alguns minutos, volte para a janela de consulta do SQL usada para criar o banco de dados. Substitua as instruções existentes pela seguinte consulta:
+3. Após a saudação topologia tem executado por alguns minutos, janela de consulta SQL toohello retorno usado o banco de dados do toocreate hello. Substitua instruções existentes Olá Olá consulta a seguir:
 
         select * from iislogs;
 
-    Use Ctrl + Shift + E para executar a consulta e deverá receber resultados semelhantes aos dados a seguir:
+    Use Ctrl + Shift + E tooexecute Olá de consulta e você deve receber resultados toohello semelhante seguintes dados:
 
         1    2016-05-27 17:57:14.797    255.255.255.255    /bar    GET    200
         2    2016-05-27 17:57:14.843    127.0.0.1    /spam/eggs    POST    500
@@ -116,56 +116,56 @@ Baixe o [exemplo do Power BI do Storm em C# do HDInsight](https://github.com/Azu
         5    2016-05-27 17:57:14.853    10.9.8.7    /bar    GET    200
         6    2016-05-27 17:57:14.857    192.168.1.1    /spam    DELETE    200
 
-    Esses dados foram gravados da topologia do Storm.
+    Esses dados foi escritos da topologia de profusão de saudação.
 
 ## <a name="create-a-report"></a>Criar um relatório
 
-1. Conecte-se ao [conector do Banco de Dados SQL do Azure](https://app.powerbi.com/getdata/bigdata/azure-sql-database-with-live-connect) para o Power BI. 
+1. Conecte-se toohello [conector do Azure SQL Database](https://app.powerbi.com/getdata/bigdata/azure-sql-database-with-live-connect) para o Power BI. 
 
 2. Dentro de **Bancos de Dados**, selecione **Obter**.
 
 3. Selecione **Banco de Dados SQL do Azure** e **Conectar**.
 
     > [!NOTE]
-    > Você poderá ser solicitado a baixar o Power BI Desktop para continuar. Nesse caso, siga estas etapas para se conectar:
+    > Talvez você seja solicitado toodownload Olá Power BI Desktop toocontinue. Nesse caso, use Olá tooconnect as etapas a seguir:
     >
     > 1. Abra o Power BI Desktop e selecione __Obter dados__.
     > 2 Selecione __Azure__ e, em seguida, __banco de dados SQL do Azure__.
 
-4. Insira as informações para se conectar ao seu Banco de Dados SQL do Azure. Você pode encontrar essas informações visitando o [Portal do Azure](https://portal.azure.com) e selecionando o Banco de Dados SQL.
+4. Digite hello informações tooconnect tooyour banco de dados do SQL Azure. Você pode encontrar essas informações visitando Olá [portal do Azure](https://portal.azure.com) e selecionando o banco de dados SQL.
 
    > [!NOTE]
-   > Você também pode definir o intervalo de atualização e filtros personalizados usando **Habilitar Opções Avançadas** na caixa de diálogo de conexão.
+   > Você também pode definir o intervalo de atualização de saudação e filtros personalizados usando **habilitar opções avançadas** de saudação caixa de diálogo de conexão.
 
-5. Depois de ter se conectado, você verá um novo conjunto de dados com o mesmo nome que o banco de dados ao qual está conectado. Selecione o conjunto de dados para começar a criar um relatório.
+5. Depois de conectado, você verá um novo conjunto de dados com hello que mesmo nome como o banco de dados de saudação você se conectou. Selecione Olá toobegin de conjunto de dados criando um relatório.
 
-6. Em **Campos**, expanda a entrada **IISLOGS**. Para criar um relatório que liste as derivações do URI, marque a caixa de seleção para **URISTEM**.
+6. De **campos**, expanda Olá **IISLOGS** entrada. toocreate origina-se um relatório que lista Olá URI, marque a caixa de seleção de saudação para **URISTEM**.
 
     ![Criando um relatório](./media/hdinsight-storm-power-bi-topology/createreport.png)
 
-7. Em seguida, arraste **METHOD** para o relatório. O relatório é atualizado para listar as derivações e o método HTTP correspondente usado para a solicitação HTTP.
+7. Em seguida, arraste **método** toohello relatório. Olá Olá de toolist de atualizações de relatório originário e método HTTP correspondente Olá usado para Olá solicitação HTTP.
 
-    ![adicionando os dados de método](./media/hdinsight-storm-power-bi-topology/uristemandmethod.png)
+    ![Adicionando dados de método hello](./media/hdinsight-storm-power-bi-topology/uristemandmethod.png)
 
-8. Na coluna **Visualizações**, selecione o ícone **Campos** e selecione a seta para baixo ao lado de **METHOD** na seção **Valores**. Para exibir uma contagem de quantas vezes um URI pode ser acessado, selecione **Contagem**.
+8. De saudação **visualizações** coluna, selecione Olá **campos** ícone e, em seguida, selecione Olá a seta para baixo próxima muito**método** em Olá **valores**seção. toodisplay uma contagem de quantas vezes um URI foi acessada, selecione **contagem**.
 
-    ![Mudando para uma contagem de métodos](./media/hdinsight-storm-power-bi-topology/count.png)
+    ![Alterar tooa contagem dos métodos](./media/hdinsight-storm-power-bi-topology/count.png)
 
-9. Em seguida, selecione o **Gráfico de colunas empilhadas** para alterar como as informações são exibidas.
+9. Em seguida, selecione Olá **gráfico de colunas empilhadas** toochange como Olá informações são exibidas.
 
-    ![Mudando para um gráfico empilhado](./media/hdinsight-storm-power-bi-topology/stackedcolumn.png)
+    ![Gráfico de empilhado tooa alteração](./media/hdinsight-storm-power-bi-topology/stackedcolumn.png)
 
-10. Para salvar o relatório, selecione **Salvar** e digite um nome para o relatório.
+10. relatório de saudação toosave, selecione **salvar** e digite um nome para o relatório de saudação.
 
-## <a name="stop-the-topology"></a>Parar a topologia
+## <a name="stop-hello-topology"></a>Parar a topologia de saudação
 
-A topologia continuará sendo executada até você interrompê-la ou excluir o Storm no cluster HDInsight. Para interromper a topologia, execute as seguintes etapas:
+topologia Olá continua toorun até você interrompê-lo ou excluir Olá Storm no cluster HDInsight. toostop Olá topologia, execute Olá etapas a seguir:
 
-1. No Visual Studio, volte ao visualizador de topologia e selecione a topologia.
+1. No Visual Studio, retorne toohello Visualizador de topologia e selecione a topologia de saudação.
 
-2. Selecione o botão **Eliminar** para interromper a topologia.
+2. Selecione Olá **Kill** topologia de saudação do botão toostop.
 
-    ![Botão Eliminar no resumo da topologia](./media/hdinsight-storm-power-bi-topology/killtopology.png)
+    ![Kill botão na topologia de saudação resumida](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
 ## <a name="delete-your-cluster"></a>Excluir o cluster
 
@@ -173,6 +173,6 @@ A topologia continuará sendo executada até você interrompê-la ou excluir o S
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu como enviar dados de uma topologia do Storm para o Banco de Dados SQL e exibir os dados usando o Power BI. Para obter informações sobre como trabalhar com outras tecnologias do Azure usando o Storm no HDInsight, consulte o seguinte documento:
+Neste documento, você aprendeu como toosend dados de uma topologia de Storm tooSQL banco de dados, em seguida, visualizar dados hello usando o Power BI. Para obter informações sobre como toowork com outras tecnologias do Azure usando Storm no HDInsight, consulte Olá documento a seguir:
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)

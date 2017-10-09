@@ -1,5 +1,5 @@
 ---
-title: "Tutorial do Serviço de Contêiner do Azure – preparar o aplicativo | Microsoft Docs"
+title: "tutorial de serviço de contêiner aaaAzure - preparar o aplicativo | Microsoft Docs"
 description: "Tutorial do Serviço de Contêiner do Azure – preparar o aplicativo"
 services: container-service
 documentationcenter: 
@@ -17,62 +17,62 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b537ecc9ff50358fb65b128bfe6eb894dd088cc4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-container-images-to-be-used-with-azure-container-service"></a>Criar imagens de contêiner a serem usadas com o Serviço de Contêiner do Azure
+# <a name="create-container-images-toobe-used-with-azure-container-service"></a>Criar contêiner imagens toobe usado com o serviço de contêiner do Azure
 
 Neste tutorial, parte um de sete, um aplicativo de vários contêineres é preparado para uso em Kubernetes. As etapas concluídas incluem:  
 
 > [!div class="checklist"]
 > * Clonando a fonte do aplicativo do GitHub  
-> * Criando uma imagem de contêiner a partir da origem de aplicativo
-> * Testando o aplicativo em um ambiente Docker local
+> * Criando uma imagem de contêiner de fonte de saudação do aplicativo
+> * Testando o aplicativo hello em um ambiente de Docker local
 
-Uma vez concluído, o seguinte aplicativo estará acessível em seu ambiente de desenvolvimento local.
+Depois de concluído, Olá aplicativo a seguir é acessível em seu ambiente de desenvolvimento local.
 
 ![Imagem do cluster Kubernetes no Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Nos tutoriais subsequentes, a imagem de contêiner é carregada em um Registro de Contêiner do Azure e, em seguida, é executada em um cluster Kubernetes hospedado no Azure.
+Em tutoriais subsequentes, imagem de contêiner de saudação é carregado tooan registro de contêiner do Azure e, em seguida, executar em um Azure hospedado Kubernetes cluster.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este tutorial assume uma compreensão básica dos conceitos fundamentais do Docker como contêineres, imagens de contêiner e comandos básicos do docker. Se necessário, consulte [Get started with Docker]( https://docs.docker.com/get-started/) (Introdução ao Docker) para conhecer os conceitos básicos de contêiner. 
 
-Para concluir este tutorial, você precisa de um ambiente de desenvolvimento do Docker. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+toocomplete neste tutorial, você precisa de um ambiente de desenvolvimento do Docker. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
 ## <a name="get-application-code"></a>Obter o código de aplicativo
 
-O aplicativo de exemplo usado neste tutorial é um aplicativo de votação básico. O aplicativo consiste de um componente Web de front-end e uma instância Redis de back-end. O componente Web é empacotado em uma imagem de contêiner personalizada. A instância Redis utiliza uma imagem não modificada do Hub Docker.  
+aplicativo de exemplo Hello usado neste tutorial é um aplicativo de votação básico. aplicativo Hello consiste em um componente web front-end e uma instância do Redis de back-end. componente de web Hello é empacotado em uma imagem de contêiner personalizado. instância do Redis Olá usa uma imagem sem modificações do Hub do Docker.  
 
-Use o git para baixar uma cópia do aplicativo em seu ambiente de desenvolvimento.
+Use git toodownload uma cópia do ambiente de desenvolvimento de tooyour de aplicativo hello.
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Dentro do diretório clonado está o código-fonte do aplicativo, um arquivo Docker Compose pré-criado e um arquivo de manifesto Kubernetes. Esses arquivos são usados para criar ativos em todo o conjunto de tutoriais. 
+Interna Olá clonado diretório é o código-fonte aplicativo hello, um Docker pré-criados compõem o arquivo e um arquivo de manifesto Kubernetes. Esses arquivos são ativos toocreate usados em todo o conjunto de tutorial hello. 
 
 ## <a name="create-container-images"></a>Criar imagens de contêiner
 
-O [Docker Compose](https://docs.docker.com/compose/) pode ser utilizado para automatizar a compilação de imagens de contêiner e a implantação de aplicativos de vários contêineres.
+[Composição de docker](https://docs.docker.com/compose/) pode ser usado tooautomate Olá compilação fora de imagens de contêiner e a implantação de saudação do contêiner de vários aplicativos.
 
-Execute o arquivo docker-compose.yml para criar a imagem de contêiner, baixe a imagem Redis e inicie o aplicativo.
+Executar a imagem de contêiner de Olá Olá docker compose.yml arquivo toocreate, download Olá Redis imagem e iniciar o aplicativo hello.
 
 ```bash
 docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
 ```
 
-Quando completado, use o comando [docker images](https://docs.docker.com/engine/reference/commandline/images/) para ver as imagens criadas.
+Quando concluído, use Olá [imagens do docker](https://docs.docker.com/engine/reference/commandline/images/) comando toosee imagens de saudação criada.
 
 ```bash
 docker images
 ```
 
-Observe que três imagens foram baixadas ou criadas. A imagem *azure-vote-front* contém o aplicativo. Foi derivado da imagem *nginx-flask*. A imagem Redis foi baixada do Hub do Docker.
+Observe que três imagens foram baixadas ou criadas. Olá *front do azure-voto* imagem contém o aplicativo hello. Ela foi derivada de saudação *nginx bulbo* imagem. imagem de Redis Olá foi baixada do Hub do Docker.
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -81,7 +81,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Execute o comando [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) para ver os contêineres em execução.
+Executar Olá [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) saudação do comando toosee contêineres em execução.
 
 ```bash
 docker ps
@@ -97,38 +97,38 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Testar o aplicativo localmente
 
-Navegue até http://localhost:8080 para ver o aplicativo em execução.
+Procure toohttp://localhost:8080 toosee Olá executando o aplicativo.
 
 ![Imagem do cluster Kubernetes no Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Agora que a funcionalidade do aplicativo foi validada, os contêineres em execução podem ser interrompidos e removidos. Não exclua as imagens de contêiner. A imagem *azure-vote-front* serão carregada em uma instância do Registro de Contêiner do Azure no próximo tutorial.
+Agora que a funcionalidade do aplicativo foi validada, Olá contêineres em execução pode ser interrompido e removido. Não exclua imagens de contêiner de saudação. Olá *front do azure-voto* imagem é instância de registro de contêiner do Azure carregados tooan tutorial Avançar hello.
 
-Execute o seguinte para interromper os contêineres em execução.
+Execute Olá Olá toostop contêineres em execução a seguir.
 
 ```bash
 docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
 ```
 
-Exclua os contêineres com o comando a seguir.
+Exclua os contêineres de saudação interrompido com hello comando a seguir.
 
 ```bash
 docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
 ```
 
-Ao concluir, você terá uma imagem de contêiner que contém o aplicativo Azure Vote.
+Ao concluir, você tem uma imagem de contêiner que contém o aplicativo do Azure voto hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, um aplicativo foi testado e imagens de contêiner foram criadas para o aplicativo. As etapas a seguir foram concluídas:
+Neste tutorial, um aplicativo foi testado e imagens de contêiner é criado para o aplicativo hello. Olá, as etapas a seguir foram concluída:
 
 > [!div class="checklist"]
-> * Clonando a fonte do aplicativo do GitHub  
+> * Fonte do aplicativo hello clonagem do GitHub  
 > * Criando uma imagem de contêiner a partir da origem do aplicativo
-> * Testando o aplicativo em um ambiente Docker local
+> * Aplicativo hello testado em um ambiente de Docker local
 
-Avance para o próximo tutorial para saber mais sobre como armazenar imagens de contêiner em um Registro de Contêiner do Azure.
+Avançar toohello toolearn próximo de tutorial sobre como armazenar imagens de contêiner em um registro de contêiner do Azure.
 
 > [!div class="nextstepaction"]
-> [Enviar imagens por push ao Registro de Contêiner do Azure](./container-service-tutorial-kubernetes-prepare-acr.md)
+> [Imagens de push tooAzure registro de contêiner](./container-service-tutorial-kubernetes-prepare-acr.md)

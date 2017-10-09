@@ -1,22 +1,22 @@
 ### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>Preparação para uma instalação por push em um servidor Linux
 
-1. Verifique se há conectividade de rede entre o computador Linux e o servidor de processo.
-2. Crie uma conta que o servidor de processo possa usar para acessar o computador. A conta deve ser de um usuário **raiz** no servidor Linux de origem. (Use essa conta somente para a instalação por push e atualizações.)
-3. Verifique se o arquivo /etc/hosts no servidor Linux de origem contém entradas que mapeiam o nome do host local para os endereços IP associados a todos os adaptadores de rede.
-4. Instale os pacotes openssh, openssh-server e openssl mais recentes no computador que você deseja replicar.
+1. Certifique-se de que há conectividade de rede entre o computador Linux hello e servidor de processo hello.
+2. Crie uma conta que nesse servidor de processo Olá usar tooaccess Olá computador. Olá conta deve ser um **raiz** usuário no servidor do hello origem Linux. (Usar essa conta somente para a instalação por push hello e para atualizações).
+3. Verifique o arquivo /etc/hosts Olá na fonte Olá Linux server tem entradas que mapeiam Olá nome do host local tooIP endereços associados a todos os adaptadores de rede.
+4. Instale pacotes de openssh, servidor openssh e openssl da mais recentes Olá no computador de saudação que você deseja tooreplicate.
 5. Verifique se o Secure Shell (SSH) está habilitado e em execução na porta 22.
-6. Habilite a autenticação de subsistema e senha SFTP no arquivo sshd_config:
+6. Habilite a autenticação de SFTP subsistema e a senha no arquivo de sshd_config hello:
   1.  Conecte-se como **raiz**.
-  2.  No arquivo /etc/ssh/sshd_config, localize a linha que começa com **PasswordAuthentication**.
-  3.  Remova a marca de comentário da linha e altere o valor para **yes**.
-  4.  Localize a linha que começa com **Subsystem** e remova a marca de comentário existente nessa linha.
+  2.  Em Olá arquivo/etc/ssh/arquivo sshd_config, localizar Olá linha que começa com **PasswordAuthentication**.
+  3.  Descomente a linha hello e altere o valor de saudação muito**Sim**.
+  4.  Linha de saudação de localização que começa com **subsistema** e remova os comentários de linha de saudação.
 
      ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
-  5. Reinicie o serviço **sshd**.
+  5. Reiniciar Olá **sshd** serviço.
 
-7. Adicione a conta criada em CSPSConfigtool.
-    1.  Conecte-se ao servidor de configuração.
-    2.  Abra **cspsconfigtool.exe**. (Ele está disponível como atalho na área de trabalho e na pasta %ProgramData%\home\svsystems\bin)
-    3.  Na guia **Gerenciar Contas**, clique em **Adicionar Conta**.
-    4.  Adicione a conta que você criou. 
-    5.  Insira as credenciais usadas quando você habilitar a replicação de um computador.
+7. Adicione conta Olá que você criou na CSPSConfigtool.
+    1.  Faça logon no servidor de configuração de tooyour.
+    2.  Abra **cspsconfigtool.exe**. (Está disponível como um atalho na área de trabalho hello e na pasta de %ProgramData%\home\svsystems\bin hello.)
+    3.  Em Olá **gerenciar contas** , clique em **adicionar conta**.
+    4.  Adicione a conta de saudação criada. 
+    5.  Insira credenciais Olá usadas quando você habilitar a replicação de um computador.

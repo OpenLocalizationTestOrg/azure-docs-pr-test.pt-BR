@@ -1,5 +1,5 @@
 ---
-title: "Amostra de Script de Azure CLI – Criar um Cache Redis Premium do Azure com o cluster | Microsoft Docs"
+title: aaaAzure exemplo de Script CLI - criar um Cache Redis do Premium do Azure com o cluster | Microsoft Docs
 description: "Amostra de Script de Azure CLI – Criar um Cache Redis de camada Premium do Azure com o cluster"
 services: redis-cache
 documentationcenter: 
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/14/2017
 ms.author: sdanie
-ms.openlocfilehash: 87d0fe4c3eaa8f7b75343a36a069ecdac8241d74
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ca34d40059b282cb2abc7e3e2b8771226029744c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-premium-azure-redis-cache-with-clustering"></a>Criar um Cache Redis Premium do Azure com cluster
 
-Nesse cenário, você aprenderá como criar um Cache Redis Premium do Azure de camada de 6 GB com o cluster habilitado e dois fragmentos.
+Nesse cenário, você aprenderá como toocreate uma camada de 6 GB Premium Cache Redis do Azure com o cluster habilitado e dois fragmentos.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/redis-cache/create-premium-cache-cluster/create-premium-cache-cluster.sh "Cache Redis do Azure")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/create-premium-cache-cluster/create-premium-cache-cluster.sh "Azure Redis Cache")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para criar um grupo de recursos e um Cache Redis de camada Premium com cluster habilitado. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa Olá toocreate comandos a seguir um grupo de recursos e um cache de redis da camada Premium com clustering habilitar. Cada comando na documentação específica do toocommand Olá tabela links.
 
 | Command | Observações |
 |---|---|
@@ -45,6 +45,6 @@ Esse script usa os seguintes comandos para criar um grupo de recursos e um Cache
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre Olá CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Exemplos adicionais de scripts da CLI do Cache Redis do Azure podem ser encontrados na [Documentação do Cache Redis do Azure](../cli-samples.md).
+Exemplos de script CLI do Azure Redis Cache adicionais podem ser encontrados no hello [documentação do Cache Redis do Azure](../cli-samples.md).

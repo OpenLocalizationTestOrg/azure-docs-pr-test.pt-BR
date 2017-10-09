@@ -1,5 +1,5 @@
 ---
-title: "Telemetria dos Serviços de Mídia do Azure | Microsoft Docs"
+title: "aaaAzure telemetria de serviços de mídia | Microsoft Docs"
 description: "Este artigo fornece uma visão geral da telemetria dos Serviços de Mídia do Azure."
 services: media-services
 documentationcenter: 
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 1b26d7925fe5bd39905d9f51d22433b1eea43af6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 659e1c947a77aad0e4acacb541d95714da4775ee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria dos Serviços de Mídia do Azure
 
-O AMS (Serviços de Mídia do Azure) permite que você acesse dados de telemetria/métricas de seus serviços. A versão atual do AMS permite a coleta de dados de telemetria para entidades **Channel**, **StreamingEndpoint** e **arquivamento** dinâmicas. 
+Serviços de mídia do Azure (AMS) permite que dados de telemetria/métricas tooaccess para seus serviços. versão atual de saudação do AMS permite coletar dados de telemetria de ao vivo **Channel**, **StreamingEndpoint**e em tempo real **arquivamento** entidades. 
 
-A telemetria é gravada em uma tabela de armazenamento em uma conta de Armazenamento do Azure especificada por você (normalmente, você usaria a conta de armazenamento associada à sua conta do AMS). 
+Telemetria escrita tooa tabela de armazenamento em uma conta de armazenamento do Azure que você especificar (normalmente, você poderia usar a conta de armazenamento Olá associada à sua conta AMS). 
 
-O sistema de telemetria não gerencia a retenção de dados. Você pode remover os dados de telemetria antigos excluindo as tabelas de armazenamento.
+sistema de telemetria Olá não gerenciar a retenção de dados. Você pode remover dados antigos de telemetria Olá excluindo tabelas de armazenamento de saudação.
 
-Este tópico discute como configurar e consumir a telemetria do AMS.
+Este tópico discute como tooconfigure e consumir telemetria Olá AMS.
 
 ## <a name="configuring-telemetry"></a>Configurar a telemetria
 
-Você pode configurar a telemetria com granularidade no nível de componente. Há dois níveis de detalhe, "Normal" e "Detalhado". No momento, os dois níveis retornam as mesmas informações. Recomendamos o uso do nível "Normal. 
+Você pode configurar a telemetria com granularidade no nível de componente. Há dois níveis de detalhe, "Normal" e "Detalhado". Atualmente, ambos os níveis de retornam Olá mesmas informações. É recomendável toouse "Normal. 
 
-Os tópicos a seguir mostram como habilitar a telemetria:
+Olá mostrar tópicos a seguir como tooenable telemetria:
 
 [Habilitar a telemetria com .NET](media-services-dotnet-telemetry.md) 
 
@@ -42,47 +42,47 @@ Os tópicos a seguir mostram como habilitar a telemetria:
 
 ## <a name="consuming-telemetry-information"></a>Consumindo informações de telemetria
 
-A telemetria é gravada em uma Tabela de Armazenamento do Azure na conta de armazenamento especificada por você durante a configuração da telemetria para a conta dos Serviços de Mídia. Esta seção descreve as tabelas de armazenamento para as métricas.
+Telemetria é gravada tooan tabela de armazenamento do Azure na conta de armazenamento Olá que você especificou quando configurou a telemetria para Olá conta do Media Services. Esta seção descreve as tabelas de armazenamento Olá para métricas de saudação.
 
-É possível consumir os dados de telemetria das seguintes maneiras:
+Você pode consumir dados de telemetria em uma saudação maneiras a seguir:
 
-- Leia os dados diretamente no Armazenamento de Tabelas do Azure (por exemplo, usando o SDK de Armazenamento). Para obter a descrição das tabelas de armazenamento de telemetria, confira **Consumindo informações de telemetria**[neste](https://msdn.microsoft.com/library/mt742089.aspx) tópico.
+- Ler dados diretamente do armazenamento de tabela do Azure (por exemplo, usando Olá SDK de armazenamento). Para descrição Olá das tabelas de armazenamento de telemetria, consulte Olá **consumindo informações de telemetria** na [isso](https://msdn.microsoft.com/library/mt742089.aspx) tópico.
 
-ou o
+Ou
 
-- Use o suporte no SDK para .NET dos Serviços de Mídia para leitura dos dados de armazenamento, conforme descrito [neste](media-services-dotnet-telemetry.md) tópico. 
+- Usar o suporte de Olá no SDK do Media Services .NET de saudação para ler dados de armazenamento, conforme descrito em [isso](media-services-dotnet-telemetry.md) tópico. 
 
 
-O esquema de telemetria descrito a seguir foi projetado para oferecer bom desempenho dentro dos limites de Armazenamento de Tabelas do Azure:
+esquema de telemetria Olá descrita abaixo é bom desempenho projetado toogive dentro dos limites de saudação do armazenamento de tabela do Azure:
 
-- Os dados são particionados por ID da conta e ID do serviço a fim de permitir que a telemetria de cada serviço seja consultada independentemente.
-- As partições contêm a data para dar um limite superior razoável ao tamanho da partição.
-- As chaves de linha estão em ordem de tempo inversa para permitir que os itens de telemetria mais recentes sejam consultados para um determinado serviço.
+- Os dados são particionados por conta de ID e a ID do serviço de telemetria tooallow de cada toobe serviço consultado independentemente.
+- Partições contêm Olá data toogive um limite superior razoável no tamanho da partição hello.
+- Chaves de linha são em tempo inversa ordem tooallow hello mais recente da telemetria itens toobe consultadas para um determinado serviço.
 
-Isso permite a eficiência de muitas consultas comuns:
+Isso deve permitir muitas toobe de consultas comuns da saudação eficiente:
 
 - Download paralelo e independente de dados para serviços separados.
 - Recuperação de todos os dados de um serviço específico em um intervalo de datas.
-- Recuperação dos dados mais recentes de um serviço.
+- Recuperando dados mais recentes de saudação para um serviço.
 
 ### <a name="telemetry-table-storage-output-schema"></a>Esquema de saída do armazenamento de tabelas de telemetria
 
-Os dados de telemetria são armazenados de forma agregada em uma tabela, "TelemetryMetrics20160321", em que "20160321" é a data de criação da tabela. O sistema de telemetria cria uma tabela separada para cada dia novo com base em 00:00 UTC. A tabela é usada para armazenar valores recorrentes, como taxa de bits de ingestão dentro de um determinado intervalo de tempo, bytes enviados etc. 
+Dados de telemetria são armazenados na agregação em uma tabela, "TelemetryMetrics20160321" onde "20160321" é a data da tabela Olá criado. O sistema de telemetria cria uma tabela separada para cada dia novo com base em 00:00 UTC. saudação de tabela é usada valores recorrentes toostore ingestão, como taxas de bits em uma determinada janela de tempo, bytes enviados, etc. 
 
 Propriedade|Valor|Exemplos/notas
 ---|---|---
-PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>A ID da conta está incluída na chave de partição para simplificar os fluxos de trabalho nos quais várias contas dos Serviços de Mídia gravam na mesma conta de armazenamento.
-RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>A chave de linha começa com o número de segundos para meia-noite a fim de permitir n consultas de estilo superior dentro de uma partição. Para saber mais, confira [este artigo](../cosmos-db/table-storage-design-guide.md#log-tail-pattern). 
-Timestamp|Data/hora|Carimbo de hora automática da tabela do Azure 2016-09-09T22:43:42.241Z
-Tipo|O tipo de entidade que fornece dados de telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Tipo de evento é apenas um valor de cadeia de caracteres.
-Nome|O nome do evento de telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
-ObservedTime|A hora na qual o evento de telemetria ocorreu (UTC)|2016-09-09T22:42:36.924Z<br/><br/>A hora observada é fornecida pela entidade que envia a telemetria (por exemplo, um canal). Pode haver problemas de sincronização de hora entre os componentes para que esse valor seja aproximado
+PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>Olá conta ID é incluída no hello partição chave toosimplify fluxos de trabalho em que várias contas de serviços de mídia estiver gravando toohello mesma conta de armazenamento.
+RowKey|{toomidnight segundos} _ {valor aleatório}|01688_00199<br/><br/>chave de linha de saudação começa com o número de saudação de consultas em segundos toomidnight tooallow estilo n superior dentro de uma partição. Para saber mais, confira [este artigo](../cosmos-db/table-storage-design-guide.md#log-tail-pattern). 
+Timestamp|Data/hora|Auto timestamp do hello tabela do Azure 2016-09-09T22:43:42.241Z
+Tipo|tipo de saudação da entidade de saudação fornecendo os dados de telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Tipo de evento é apenas um valor de cadeia de caracteres.
+Nome|nome de saudação do evento de telemetria Olá|ChannelHeartbeat/StreamingEndpointRequestLog
+ObservedTime|Olá Olá telemetria evento ocorreu (UTC)|2016-09-09T22:42:36.924Z<br/><br/>Olá observada é fornecido pelos telemetria Olá entidade envio hello (por exemplo, um canal). Pode haver problemas de sincronização de hora entre os componentes para que esse valor seja aproximado
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-Propriedades específicas da entidade|Conforme definido pelo evento|StreamName: stream1, Bitrate 10123, …<br/><br/>As propriedades restantes são definidas para o tipo de evento específico. O conteúdo da Tabela do Azure são pares de chave/valor.  (ou seja, linhas diferentes na tabela têm conjuntos diferentes de propriedades).
+Propriedades específicas da entidade|Conforme definido pelo evento Olá|StreamName: stream1, Bitrate 10123, …<br/><br/>propriedades restantes Olá são definidas para Olá recebe o tipo de evento. O conteúdo da Tabela do Azure são pares de chave/valor.  (isto é, linhas diferentes na tabela Olá tem diferentes conjuntos de propriedades).
 
 ### <a name="entity-specific-schema"></a>Esquema específico à entidade
 
-Há três tipos de entradas de dados telemétricos específicos à entidade, cada um deles enviado com a frequência a seguir:
+Há três tipos de entradas de dados de entidade específico telemetric que cada enviada por push com hello frequência a seguir:
 
 - Pontos de extremidade de streaming: cada 30 segundos
 - Canais dinâmicos: a cada minuto
@@ -99,10 +99,10 @@ Tipo|Tipo|StreamingEndpoint
 Nome|Nome|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID do Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
-HostName|Nome do host do ponto de extremidade|builddemoserver.origin.mediaservices.windows.net
+HostName|Nome do host do ponto de extremidade Olá|builddemoserver.origin.mediaservices.windows.net
 StatusCode|Status HTTP dos registros|200
 ResultCode|Detalhe do código do resultado|S_OK
-RequestCount|Solicitação total da agregação|3
+RequestCount|Solicitação total na agregação Olá|3
 BytesSent|Bytes agregados enviados|2987358
 ServerLatency|Latência média do servidor (incluindo armazenamento)|129
 E2ELatency|Latência média de ponta a ponta|250
@@ -113,24 +113,24 @@ Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Timestamp|Timestamp|Carimbo de hora automática da tabela do Azure 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Auto timestamp do hello tabela do Azure 2016-09-09T22:43:42.241Z
 Tipo|Tipo|Canal
 Nome|Nome|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID do Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Tipo de faixa de áudio/vídeo/texto|vídeo/áudio
-TrackName|Nome da faixa|vídeo/áudio_1
+TrackName|Nome da faixa de saudação|vídeo/áudio_1
 Bitrate|Controlar taxa de bits|785000
 CustomAttributes||   
 IncomingBitrate|Taxa de bits de entrada real|784548
-OverlapCount|Sobreposição na ingestão|0
+OverlapCount|Ingestão de sobreposição no Olá|0
 DiscontinuityCount|Descontinuidade para controle|0
 LastTimestamp|Carimbo de hora dos últimos dados ingeridos|1800488800
-NonincreasingCount|Contagem de fragmentos descartados devido a um carimbo de data e hora estático|2
+NonincreasingCount|Contagem de fragmentos descartados devido aumentando toonon timestamp|2
 UnalignedKeyFrames|Se recebemos fragmentos (em níveis de qualidade) quando os quadros-chave não estão alinhados |Verdadeiro
 UnalignedPresentationTime|Se recebemos fragmentos (em níveis/controle de qualidade) quando o tempo de apresentação não estiver alinhado|Verdadeiro
 UnexpectedBitrate|True, se a taxa de bits calculada/real para controle de áudio/vídeo for maior do que 40.000 bps, e IncomingBitrate == 0 OU IncomingBitrate e actualBitrate diferirem em 50% |Verdadeiro
-Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> são todos 0|Verdadeiro<br/><br/>Healthy é uma função composta que retorna falso quando qualquer uma das seguintes condições contiverem:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> são todos 0|Verdadeiro<br/><br/>Íntegra é uma função composta que retorna false quando qualquer Olá espera condições a seguir:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **Arquivamento dinâmico**
 
@@ -138,44 +138,44 @@ Propriedade|Valor|Exemplos/notas
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-Timestamp|Timestamp|Carimbo de hora automática da tabela do Azure 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Auto timestamp do hello tabela do Azure 2016-09-09T22:43:42.241Z
 Tipo|Tipo|Arquivo
 Nome|Nome|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID do Serviço|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|URL do programa|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
-TrackName|Nome da faixa|áudio_1
-TrackType|Tipo da faixa|Áudio/vídeo
+TrackName|Nome da faixa de saudação|áudio_1
+TrackType|Tipo de faixa de saudação|Áudio/vídeo
 CustomAttribute|Cadeia de caracteres hexadecimal que diferencia faixas diferentes com o mesmo nome e a taxa de bits (ângulo da câmeras múltiplas)|
 Bitrate|Controlar taxa de bits|785000
-Healthy|True, se FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False|True (esses dois valores não estão presentes na métrica, mas estão presentes no evento de origem)<br/><br/>Healthy é uma função composta que retorna falso quando qualquer uma das seguintes condições contiverem:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
+Healthy|True, se FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False|True (esses dois valores não estão presentes na métrica Olá mas estiverem presentes no evento de origem Olá)<br/><br/>Íntegra é uma função composta que retorna false quando qualquer Olá espera condições a seguir:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
 
 ## <a name="general-qa"></a>Perguntas e respostas gerais
 
-### <a name="how-to-consume-metrics-data"></a>Como consumir dados de métrica?
+### <a name="how-tooconsume-metrics-data"></a>Como os dados de métricas de tooconsume?
 
-Dados de métricas são armazenados como uma série de Tabelas do Azure na conta de armazenamento do cliente. Esses dados podem ser consumidos usando as seguintes ferramentas:
+Dados de métricas são armazenados como uma série de tabelas do Azure na conta de armazenamento do cliente hello. Esses dados podem ser consumidos usando Olá ferramentas a seguir:
 
 - SDK do AMS
-- Gerenciador de Armazenamento do Microsoft Azure (oferece suporte à exportação para o formato de valores separados por vírgulas e processada no Excel)
+- Microsoft Azure Storage Explorer (dá suporte ao formato de valores separados por toocomma de exportação e processada no Excel)
 - API REST
 
-### <a name="how-to-find-average-bandwidth-consumption"></a>Como localizar o consumo médio de largura de banda?
+### <a name="how-toofind-average-bandwidth-consumption"></a>Como toofind média de consumo de largura de banda?
 
-O consumo médio de largura de banda é a média de BytesSent um durante um período.
+Olá consumo de largura de banda média é a média de saudação de BytesSent em um intervalo de tempo.
 
-### <a name="how-to-define-streaming-unit-count"></a>Como definir a contagem de unidades de streaming?
+### <a name="how-toodefine-streaming-unit-count"></a>Como contagem de unidade de streaming toodefine?
 
-A contagem de unidades de streaming pode ser definida como a taxa de transferência de pico de pontos de extremidade de streaming do serviço dividido pela taxa de transferência de pico de um ponto de extremidade de streaming. A taxa de transferência de pico utilizável de um ponto de extremidade de streaming é 160 Mbps.
-Por exemplo, vamos supor que a taxa de transferência de pico do serviço de um cliente é de 40 MBps (o valor máximo de BytesSent durante um período). Em seguida, a contagem de unidades de streaming é igual a (40 MBps)*(8 bits/byte)/(160 Mbps) = 2 unidades de streaming.
+Olá, contagem de unidade de streaming pode ser definida como Olá taxa de transferência máxima de pontos de extremidade de streaming do serviço Olá dividido pela taxa de transferência de pico de saudação de um ponto de extremidade de streaming. Olá pico utilizável taxa de transferência de um ponto de extremidade de streaming é 160 Mbps.
+Por exemplo, suponha a taxa de transferência de pico de saudação do serviço do cliente é de 40 MBps (Olá valor máximo de BytesSent em um intervalo de tempo). Em seguida, Olá contagem de unidade de streaming é igual too(40 MBps) * (8 bits/byte) /(160 Mbps) = 2 unidades de streaming.
 
-### <a name="how-to-find-average-requestssecond"></a>Como localizar a média de solicitações por segundo?
+### <a name="how-toofind-average-requestssecond"></a>Como média toofind solicitações/segundo?
 
-Para localizar o número médio de solicitações por segundo, calcule o número médio de solicitações (RequestCount) durante um período.
+toofind Olá média de solicitações por segundo, computar número médio de saudação de solicitações (RequestCount) em um intervalo de tempo.
 
-### <a name="how-to-define-channel-health"></a>Como definir a integridade do canal?
+### <a name="how-toodefine-channel-health"></a>Como toodefine canal integridade?
 
-A integridade do canal pode ser definida como uma função booliana composta, que resulta em False quando qualquer uma das condições a seguir existirem:
+Integridade de canal pode ser definida como uma composição função booleana é false quando qualquer uma das seguintes condições de saudação mantém:
 
 - OverlapCount > 0
 - DiscontinuityCount > 0
@@ -185,21 +185,21 @@ A integridade do canal pode ser definida como uma função booliana composta, qu
 - UnexpectedBitrate == True
 
 
-### <a name="how-to-detect-discontinuities"></a>Como detectar descontinuidades?
+### <a name="how-toodetect-discontinuities"></a>Como toodetect descontinuidades?
 
-Para detectar descontinuidades, localize todas as entradas de dados do Canal nas quais DiscontinuityCount > 0. O carimbo de hora ObservedTime correspondente indica os horários nos quais ocorreram as descontinuidades.
+descontinuidades toodetect, localizar todas as entradas de dados de canal onde DiscontinuityCount > 0. Olá correspondente ObservedTime timestamp indica vezes Olá na qual ocorreram descontinuidades hello.
 
-### <a name="how-to-detect-timestamp-overlaps"></a>Como detectar sobreposições de carimbo de hora?
+### <a name="how-toodetect-timestamp-overlaps"></a>Como o carimbo de hora toodetect sobrepõe?
 
-Para detectar sobreposições de carimbo de hora, localize todas as entradas de dados de Canal onde OverlapCount > 0. O carimbo de hora ObservedTime correspondente indica os horários nos quais ocorreram as sobreposições de carimbo de hora.
+sobreposições de carimbo de hora toodetect, localizar todas as entradas de dados de canal onde OverlapCount > 0. Olá correspondente ObservedTime timestamp indica Olá vezes no qual Olá timestamp sobrepõe ocorreram.
 
-### <a name="how-to-find-streaming-request-failures-and-reasons"></a>Como encontrar falhas solicitação de streaming e seus motivos?
+### <a name="how-toofind-streaming-request-failures-and-reasons"></a>Como toofind streaming solicitar falhas e os motivos?
 
-Para encontrar falhas de solicitação de streaming e seus motivos, localize todas as entradas de dados de Ponto de extremidade de streaming nas quais ResultCode não é igual a S_OK. O campo StatusCode correspondente indica o motivo da falha de solicitação.
+falhas de solicitação streaming toofind e motivos, encontrar todas as entradas de dados de ponto de extremidade de Streaming onde ResultCode não é igual tooS_OK. campo correspondente de StatusCode Olá indica motivo Olá falha de solicitação de saudação.
 
-### <a name="how-to-consume-data-with-external-tools"></a>Como consumir dados com ferramentas externas?
+### <a name="how-tooconsume-data-with-external-tools"></a>Como os dados de tooconsume com ferramentas externas?
 
-Dados telemétricos podem ser processados e visualizados com as seguintes ferramentas:
+Dados telemetric podem ser processados e visualizados por hello ferramentas a seguir:
 
 - PowerBI
 - Application Insights
@@ -207,9 +207,9 @@ Dados telemétricos podem ser processados e visualizados com as seguintes ferram
 - Painel dinâmico do AMS
 - Portal do Azure (pendente versão)
 
-### <a name="how-to-manage-data-retention"></a>Como gerenciar a retenção de dados?
+### <a name="how-toomanage-data-retention"></a>Como a retenção de dados toomanage?
 
-O sistema de telemetria não oferece gerenciamento de retenção de dados ou exclusão automática de registros antigos. Portanto, você precisa gerenciar e excluir manualmente os registros antigos da tabela de armazenamento. Você pode consultar o SDK de armazenamento para isso.
+sistema de telemetria Olá não fornece gerenciamento de retenção de dados ou exclusão automática antigos registros. Portanto, você precisa toomanage e excluir registros antigos manualmente da tabela de armazenamento hello. Você pode consultar toostorage SDK como toodo-lo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,6 +1,6 @@
 ---
-title: "Serviços Microsoft em Segurança Cibernética | Microsoft Docs"
-description: "O artigo fornece uma introdução sobre os serviços Microsoft relacionados à segurança cibernética e como obter mais informações sobre esses serviços."
+title: "os serviços de segurança cibernética aaaMicrosoft | Microsoft Docs"
+description: "Olá artigo fornece uma introdução sobre toocybersecurity relacionado de serviços Microsoft e como tooobtain obter mais informações sobre esses serviços."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d29832f0ffa10020ab44ff69306971e55d393b97
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Serviços Microsoft em Segurança Cibernética
-Os Serviços Microsoft oferecem uma abordagem abrangente para a segurança, identidade e segurança cibernética. Os Serviços Microsoft oferecem uma matriz de serviços de segurança e identidade entre estratégia, planejamento, implementação e suporte contínuo que pode ajudar nossos clientes empresariais a implementar soluções de segurança integrais, alinhadas com seus objetivos estratégicos.
+Microsoft Services oferece uma abordagem abrangente toosecurity, identidade e segurança cibernética. Os Serviços Microsoft oferecem uma matriz de serviços de segurança e identidade entre estratégia, planejamento, implementação e suporte contínuo que pode ajudar nossos clientes empresariais a implementar soluções de segurança integrais, alinhadas com seus objetivos estratégicos.
 
-Com acesso direto às equipes de desenvolvimento de produto, podemos criar soluções que integram e aprimoram os mais recentes recursos de identidade e segurança de nossos produtos, para ajudar a proteger os negócios de nossos clientes e fomentar a inovação.
+Com as equipes de desenvolvimento tooproduct acesso direto, podemos criar soluções que se integram e aumentar a segurança mais recente do hello e protegem os recursos de identidade do toohelp nossos produtos comerciais e impulsionar a inovação de nossos clientes.
 
-Encarregado de ajudar a proteger e habilitar maiores organizações do mundo, nosso grupo diversificado de profissionais técnicos consiste de especialistas altamente treinados que oferecem grande valor em termos de experiência de identidade e segurança.
+Confiadas ajuda a proteger e permitir que as organizações de maior Olá mundo, nosso grupo diverso de profissionais técnicos consiste em especialistas altamente treinados que oferecem uma grande quantidade de segurança e a experiência de identidade.
 
 Saiba mais sobre os serviços fornecidos pelos Serviços Microsoft:
 

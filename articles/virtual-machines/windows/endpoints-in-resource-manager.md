@@ -1,6 +1,6 @@
 ---
-title: Entender os pontos de extremidades de VMs do Windows no Azure | Microsoft Docs
-description: "Entenda como os pontos de extremidade do modelo de implantação clássico são implementados no Resource Manager usando regras ACL e Grupos de Segurança de Rede"
+title: "pontos de extremidade aaaUnderstand para máquinas virtuais do Windows no Azure | Microsoft Docs"
+description: "Saiba como pontos de extremidade do modelo de implantação clássico Olá agora são implementados no Gerenciador de recursos usando as regras de ACL e grupos de segurança de rede"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 54adfd4cfaec086cec43ca851af9496bfb1049b2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 641dcee68684480376cc2fa994635af02c1cba07
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="classic-endpoints-for-windows-vms-with-azure-resource-manager"></a>Pontos de extremidade clássicos para VMs Windows com o Azure Resource Manager
 [!INCLUDE [virtual-machines-common-endpoints-in-resource-manager](../../../includes/virtual-machines-common-endpoints-in-resource-manager.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode ler informações mais detalhadas sobre as tecnologias abordadas aqui, juntamente com os guias de início rápido para usar grupos de segurança de rede, nos seguintes artigos:
+Você pode ler que informações mais detalhadas sobre tecnologias de saudação abordadas aqui, juntamente com os guias de início rápido para usar grupos de segurança de rede, em Olá artigos a seguir:
 
-* [Quick-start - Create a Network Security Group and ACL rules using the Azure portal (Início rápido: criar um grupo de segurança de rede e regras de ACL usando o portal do Azure)](nsg-quickstart-portal.md)  
-* [Início rápido - criar uma regra de grupo de segurança de rede e a ACL usando o Azure PowerShell](nsg-quickstart-powershell.md)  
+* [Início rápido - criar regras de ACL e o grupo de segurança de rede usando Olá portal do Azure](nsg-quickstart-portal.md)  
+* [Início rápido - criar regras de ACL e o grupo de segurança de rede usando hello Azure PowerShell](nsg-quickstart-powershell.md)  
 * [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)  
 * [O que é um NSG (grupo de segurança de rede)?](../../virtual-network/virtual-networks-nsg.md)  
 * [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../../load-balancer/load-balancer-arm.md) 

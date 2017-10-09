@@ -1,6 +1,6 @@
 ---
-title: "Guia de início rápido da Central de Segurança do Azure | Microsoft Docs"
-description: "Este artigo ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure, pois o orienta em relação aos componentes de monitoramento da segurança e gerenciamento de políticas, além de conduzi-lo às próximas etapas."
+title: "Guia de início aaaAzure rápida da Central de segurança | Microsoft Docs"
+description: "Este artigo ajuda você a se familiarizar rapidamente com a Central de segurança do Azure, guiando-o em componentes de gerenciamento Olá segurança monitoramento e a política e vinculação toonext etapas."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,109 +14,109 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.openlocfilehash: 392c814b7d3ff6b4f0f7850a51960576775e0307
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 23b2444ba1ba30d0a1bd1a1afbc4fd0abfd0827c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-security-center-quick-start-guide"></a>Guia de início rápido da Central de Segurança do Azure
-Este artigo ajuda você a se familiarizar rapidamente com a Central de Segurança do Azure, pois o orienta em relação aos componentes de monitoramento da segurança e gerenciamento de políticas da Central de Segurança.
+Este artigo ajuda você a começar rapidamente com a Central de segurança do Azure, guiando você pelas Olá segurança monitoramento e política de componentes de gerenciamento da Central de segurança.
 
 > [!NOTE]
-> A partir do início de junho de 2017, a Central de Segurança usará o Microsoft Monitoring Agent para coletar e armazenar dados. Veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md) para saber mais. As informações deste artigo representam a funcionalidade da Central de Segurança após a transição para o Microsoft Monitoring Agent.
+> A partir do início de junho de 2017, Central de segurança usará Olá Microsoft Monitoring Agent toocollect e armazenar dados. Consulte [migração da plataforma Azure Security Center](security-center-platform-migration.md) toolearn mais. informações Olá neste artigo representam a funcionalidade da Central de segurança após a transição toohello Microsoft Monitoring Agent.
 >
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para começar a usar a Central de Segurança, você deve ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
+tooget iniciado com a Central de segurança, você deve ter um tooMicrosoft de assinatura do Azure. Se você não tiver uma assinatura, pode se inscrever em uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-A camada gratuita da Central de Segurança é habilitada automaticamente com sua assinatura e fornece visibilidade sobre o estado de segurança de seus recursos do Azure. Ela fornece gerenciamento de política de segurança básica, recomendações de segurança e integração com produtos e serviços de segurança de parceiros do Azure.
+a camada gratuita Olá da Central de segurança é habilitada automaticamente com a sua assinatura e fornece visibilidade sobre o estado de segurança Olá seus recursos do Azure. Ela fornece gerenciamento de política de segurança básica, recomendações de segurança e integração com produtos e serviços de segurança de parceiros do Azure.
 
-Você acessar a Central de Segurança pelo [portal do Azure](https://azure.microsoft.com/features/azure-portal/). Para saber mais sobre o portal do Azure, confira a [documentação do portal](https://azure.microsoft.com/documentation/services/azure-portal/).
+Acessar a Central de segurança do hello [portal do Azure](https://azure.microsoft.com/features/azure-portal/). toolearn mais sobre Olá portal do Azure, consulte Olá [portal documentação](https://azure.microsoft.com/documentation/services/azure-portal/).
 
 ## <a name="permissions"></a>Permissões
-Na Central de Segurança, você vê apenas informações relacionadas a um recurso do Azure quando está atribuído a uma função de Proprietário, Colaborador ou Leitor para a assinatura ou grupo de recursos a que o recurso pertence. Confira [Permissões na Central de Segurança do Azure](security-center-permissions.md) para saber mais sobre as funções e as ações permitidas na Central de Segurança.
+Na Central de segurança, verá apenas informações relacionadas tooan recursos do Azure, quando foi atribuída a função de saudação do leitor, colaborador ou proprietário para Olá assinatura ou grupo de recursos que o recurso pertence. Consulte [permissões na Central de segurança do Azure](security-center-permissions.md) toolearn mais sobre as funções e ações permitidas na Central de segurança.
 
 ## <a name="data-collection"></a>Coleta de dados
-A Central de Segurança coleta dados de suas máquinas virtuais (VMs) para avaliar o estado de sua segurança, fornecer recomendações de segurança e alertar sobre ameaças. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as VMs em sua assinatura. A Central de Segurança do Azure provisiona o Microsoft Monitoring Agent em todas as VMs do Azure existentes com suporte e em quaisquer novas VMs criadas. Consulte [Habilitar coleta de dados](security-center-enable-data-collection.md) para saber mais sobre como a coleta de dados funciona.
+Central de segurança coleta dados de suas máquinas virtuais (VMs) tooassess seu estado de segurança, forneça recomendações de segurança e alertá-lo toothreats. Quando você acessa pela primeira vez a Central de Segurança, a coleta de dados é habilitada em todas as VMs em sua assinatura. Central de segurança provisiona Olá Microsoft Monitoring Agent em todas as existentes suporte para todos os novos que são criados e VMs do Azure. Consulte [habilitar coleta de dados](security-center-enable-data-collection.md) toolearn mais sobre como funciona a coleta de dados.
 
-A coleta de dados é recomendada. Se você estiver usando a Camada gratuita da Central de Segurança, você poderá desabilitar a coleta de dados de VMs desligando a coleta de dados na política de segurança. A coleta de dados é necessária para as assinaturas na camada Standard da Central de Segurança. Veja [Tipos de preço da Central de Segurança](security-center-pricing.md) para saber mais sobre os tipos de preço Gratuito e Standard.
+A coleta de dados é recomendada. Se você estiver usando a camada gratuita Olá da Central de segurança, você pode desativar a coleta de dados de máquinas virtuais ao desativar a coleta de dados na política de segurança de saudação. Coleta de dados é necessária para as assinaturas na camada de saudação padrão da Central de segurança. Consulte [Central de segurança preços](security-center-pricing.md) toolearn mais sobre Olá gratuito e camadas de preços padrão.
 
-As etapas a seguir descrevem como acessar e usar os componentes da Central de Segurança. Nestas etapas, mostramos como desativar a coleta de dados se você optar pelo cancelamento.
+Olá, as etapas a seguir descreve como tooaccess e use Olá componentes da Central de segurança. Essas etapas, mostramos como tooturn desativar a coleta de dados se você escolher tooopt-out.
 
 > [!NOTE]
-> Este artigo apresenta o serviço usando uma implantação de exemplo. Ele não é um guia passo a passo.
+> Este artigo apresenta serviço hello usando um exemplo de implantação. Ele não é um guia passo a passo.
 >
 >
 
 ## <a name="access-security-center"></a>Acessar a Central de Segurança
-No Portal, execute estas etapas para acessar a Central de Segurança:
+No portal de hello, siga essas etapas tooaccess Central de segurança:
 
-1. No menu **Microsoft Azure**, selecione **Central de Segurança**.
+1. Em Olá **Microsoft Azure** menu, selecione **Central de segurança**.
 
    ![Menu do Azure][1]
-2. Se você estiver acessando a Central de Segurança pela primeira vez, a folha **Bem-vindo** será aberta. Selecione **Iniciar a Central de Segurança** para abrir a folha **Central de Segurança** e habilitar a coleta de dados.
+2. Se você estiver acessando a Central de segurança para Olá primeira vez, Olá **bem-vindo** folha é aberta. Selecione **inicie a Central de segurança** tooopen Olá **Central de segurança** folha e tooenable coleta de dados.
    ![Tela de boas-vindas][10]
-3. Depois que você iniciar a Central de Segurança na folha Bem-vindo ou no menu do Microsoft Azure, a folha **Central de Segurança** será aberta. Para facilitar o acesso à folha **Central de segurança** no futuro, selecione opção **Fixar folha no painel** (canto superior direito).
-   ![Fixar a folha à opção de painel][2]
+3. Depois de você inicia a Central de segurança da folha de boas-vindas de saudação ou selecione Central de segurança no menu do Microsoft Azure Olá, Olá **Central de segurança** folha é aberta. Para facilitar o acesso toohello **Central de segurança** folha em Olá Olá futuras, selecione **Pin folha toodashboard** opção (superior direito).
+   ![Opção de toodashboard de folha de PIN][2]
 
 ## <a name="use-security-center"></a>Usar a Central de Segurança
 Você pode configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure. Vamos configurar uma política de segurança para sua assinatura:
 
-1. Na folha **Central de Segurança**, selecione o bloco **Política**.
-2. Na folha **Política de segurança – definir política por assinatura**, selecione uma assinatura.
-3. Na folha **Política de segurança**, a **Coleta de dados** é habilitada para coletar os registros automaticamente. A extensão de monitoramento é provisionada em todas as VMs atuais e novas na assinatura. (Na camada Gratuita da Central de Segurança, você pode optar por não usar a coleta de dados configurando **Coleta de dados** como **Desligada**. Definir a **Coleta de dados** como **Desligada** impede que a Central de Segurança forneça recomendações e alertas de segurança.)
-4. Na folha **Política de segurança**, selecione **Política de prevenção**. Isso abre a folha **Política de prevenção**.
-5. Na folha **Política de prevenção**, ative as recomendações que você deseja ver como parte de sua política de segurança. Exemplos:
+1. Em Olá **Central de segurança** folha, selecione Olá **política** lado a lado.
+2. Em Olá **política de segurança - Definir política por assinatura** folha, selecione uma assinatura.
+3. Em Olá **política de segurança** folha, **coleta de dados** é habilitado tooautomatically coleta logs. saudação de extensão de monitoramento é provisionada em todas as máquinas virtuais atuais e novas na assinatura de saudação. (Na camada gratuita de saudação da Central de segurança, você pode recusar a coleta de dados definindo **coleta de dados** muito**Off**. Configuração **coleta de dados** muito**Off** impede que a Central de segurança fornecendo alertas de segurança e as recomendações.)
+4. Em Olá **política de segurança** folha, selecione **política de prevenção de**. Isso abre o hello **política de prevenção de** folha.
+5. Em Olá **política de prevenção de** folha, ative as recomendações de saudação que você deseja toosee como parte de sua política de segurança. Exemplos:
 
-   * Definir as **Atualizações do sistema** como **Ligadas** verificará todas as VMs com suporte quanto às atualizações do SO ausentes.
-   * Definir **Vulnerabilidade do SO** como **Ligado** verificará as VMs com suporte para identificar as configurações do SO que poderiam tornar a VM mais vulnerável a ataques.
+   * Configuração **atualizações do sistema** muito**em** todas as verificações de suporte VMs faltam atualizações do sistema operacional.
+   * Configuração **vulnerabilidades do sistema operacional** muito**em** verificações todos têm o suporte de VMs tooidentify todas as configurações de sistema operacional que podem tornar Olá VM tooattack mais vulnerável.
 
 ### <a name="view-recommendations"></a>Exibir recomendações
-1. Volte para a folha **Central de Segurança** e selecione o bloco **Recomendações**. A Central de Segurança analisa periodicamente o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, cria recomendações na folha **Recomendações** .
+1. Retornar toohello **Central de segurança** folha e selecione Olá **recomendações** lado a lado. Central de segurança periodicamente analisa o estado de segurança Olá seus recursos do Azure. Quando a Central de segurança identifica possíveis vulnerabilidades de segurança, ele mostra as recomendações em Olá **recomendações** folha.
    ![Recomendações na Central de Segurança do Azure][5]
-2. Selecione uma recomendação na folha **Recomendação** para exibir mais informações e/ou tomar medidas para resolver o problema.
+2. Selecione uma recomendação sobre Olá **recomendações** tooview folha mais Olá de informações e/ou tootake de ação tooresolve emitir.
 
-### <a name="view-the-security-state-of-your-resources"></a>Exiba o estado de segurança de seus recursos
-1. Volte para a folha **Central de segurança** . A seção **Prevenção** do painel contém indicadores do estado da segurança para VMs, rede, dados e aplicativos.
-2. Selecione **Computação** para exibir mais informações. A folha **Computação** será aberta mostrando três guias:
+### <a name="view-hello-security-state-of-your-resources"></a>Olá estado de segurança de seus recursos de exibição
+1. Retornar toohello **Central de segurança** folha. Olá **prevenção** seção do painel de saudação contém indicadores de estado de segurança Olá para máquinas virtuais, redes, aplicativos e dados.
+2. Selecione **de computação** tooview obter mais informações. Olá **de computação** folha abre mostrando três guias:
 
   - **Visão geral** – contém recomendações de monitoramento e da VM.
   - **Máquinas virtuais** – lista todas as VMs e seu estado de segurança atual.
   - **Serviços de nuvem** - Lista as funções da Web e de trabalho monitoradas pela Central de Segurança.
 
-    ![O bloco de integridade de recursos na Central de Segurança do Azure][6]
+    ![bloco de integridade de recursos de saudação na Central de segurança do Azure][6]
 
-3. Na guia **Visão geral**, selecione uma recomendação em **RECOMENDAÇÕES DA MÁQUINA VIRTUAL** para exibir mais informações e/ou tomar medidas para configurar os controles necessários.
-4. Na guia **Máquinas virtuais**, selecione uma VM para exibir detalhes adicionais.
+3. Em Olá **visão geral** , selecione uma recomendação em **recomendações de máquinas virtuais** tooview mais informações e/ou realizar ação tooconfigure controles necessários.
+4. Em Olá **máquinas virtuais** , selecione uma VM tooview mais detalhes.
 
 ### <a name="view-security-alerts"></a>Exibir alertas de segurança
-1. Volte para a folha **Central de Segurança** e selecione o bloco **Alertas de segurança**. A folha **Alertas de segurança** exibe uma lista de alertas. A análise da Central de Segurança dos seus logs de segurança e da atividade da rede gera esses alertas. Os alertas das soluções de parceiro integradas estão incluídos.
+1. Retornar toohello **Central de segurança** folha e selecione Olá **alertas de segurança** lado a lado. Olá **alertas de segurança** folha é aberto e exibe uma lista de alertas. Olá análise da Central de segurança de seus logs de segurança e a atividade de rede gera esses alertas. Os alertas das soluções de parceiro integradas estão incluídos.
    ![Alertas na Central de Segurança do Azure][7]
 
    > [!NOTE]
-   > Os alertas de segurança só estarão disponíveis se a camada Standard da Central de Segurança estiver habilitada. Uma avaliação gratuita de 60 dias da camada Standard está disponível. Confira as [Próximas etapas](#next-steps) para obter informações sobre como obter a camada Standard.
+   > Alertas de segurança só estarão disponíveis se a camada padrão Olá da Central de segurança está habilitada. Uma avaliação gratuita de 60 dias da camada de saudação padrão está disponível. Consulte [próximas etapas](#next-steps) para obter informações sobre como tooget Olá padrão de camada.
    >
    >
-2. Selecione um alerta para exibir mais informações. Neste exemplo, vamos selecionar **Binário do sistema modificado descoberto**. Isso abre folhas que fornecem detalhes adicionais sobre o alerta.
+2. Selecione um alerta tooview obter informações adicionais. Neste exemplo, vamos selecionar **Binário do sistema modificado descoberto**. Isso abre blades que fornecem detalhes adicionais sobre o alerta de saudação.
    ![Detalhes de alerta de segurança na Central de Segurança do Azure][8]
 
-### <a name="view-the-health-of-your-partner-solutions"></a>Exiba a integridade de suas soluções de parceiros:
-1. Volte para a folha **Central de segurança** . O bloco **Soluções de parceiros** permite monitorar rapidamente o status da integridade de suas soluções de parceiros integradas em sua assinatura do Azure.
-2. Selecione o bloco **Soluções de parceiros** . Uma folha será aberta e exibirá uma lista de suas soluções de parceiros conectadas à Central de Segurança.
+### <a name="view-hello-health-of-your-partner-solutions"></a>Exibir integridade da saudação suas soluções de parceiros
+1. Retornar toohello **Central de segurança** folha. Olá **soluções de parceiros** lado a lado permite monitorar, em um relance, Olá status de integridade de suas soluções de parceiros integrados com sua assinatura do Azure.
+2. Selecione Olá **soluções de parceiros** lado a lado. Uma folha é aberto e exibe uma lista de suas soluções de parceiro conectado tooSecurity Center.
    ![Soluções de parceiros][9]
-3. Selecione uma solução de parceiro. Neste exemplo, vamos selecionar a solução **QualysVa1** .  Uma folha será aberta e mostrará o status da solução de parceiro e dos recursos associados a ela. Selecione **Console da solução** para abrir a experiência de gerenciamento do parceiro para essa solução.
+3. Selecione uma solução de parceiro. Neste exemplo, vamos selecionar Olá **QualysVa1** solução.  Uma folha é aberto e mostra o status da saudação de solução de parceiro de saudação e solução de saudação associados a recursos. Selecione **console de solução** experiência de gerenciamento de parceiros de saudação tooopen para esta solução.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você foi apresentado aos componentes de monitoramento de segurança e de gerenciamento de políticas da Central de Segurança. Agora que você está familiarizado com a Central de Segurança, tente as seguintes etapas:
+Este artigo introduzido toohello segurança monitoramento e política de componentes de gerenciamento da Central de segurança. Agora que você está familiarizado com a Central de segurança, tente Olá etapas a seguir:
 
-* Configure uma política de segurança para sua assinatura do Azure. Para saber mais, confira [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md).
-* Use as recomendações na Central de Segurança para ajudar a proteger os recursos do Azure. Para saber mais, confira [Gerenciando recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md).
-* Confira e gerencie os alertas de segurança atuais. Para saber mais, confira [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
+* Configure uma política de segurança para sua assinatura do Azure. mais, consulte toolearn [definindo políticas de segurança na Central de segurança do Azure](security-center-policies.md).
+* Use as recomendações de saudação na Central de segurança toohelp você proteger seus recursos do Azure. mais, consulte toolearn [Gerenciando recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).
+* Confira e gerencie os alertas de segurança atuais. mais, consulte toolearn [toosecurity está respondendo e gerenciamento de alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md).
 - [Segurança de dados da Central de Segurança do Azure](security-center-data-security.md) – saiba como os dados são gerenciados e protegidos na Central de Segurança do Azure.
-* Saiba mais sobre os [recursos avançados de detecção de ameaça](security-center-detection-capabilities.md) que vêm com a [camada Standard](security-center-pricing.md) da Central de Segurança. A camada Standard é oferecida gratuitamente nos 60 primeiros dias.
-* Se você tiver dúvidas sobre como usar a Central de Segurança, confira as [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md).
+* Saiba mais sobre Olá [advanced threat recursos de detecção de](security-center-detection-capabilities.md) que acompanham o hello [camada padrão](security-center-pricing.md) da Central de segurança. camada padrão Olá é oferecida gratuitamente para Olá primeiros 60 dias.
+* Se você tiver dúvidas sobre como usar a Central de segurança, consulte Olá [perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md).
 
 <!--Image references-->
 [1]: ./media/security-center-get-started/azure-menu.png

@@ -1,6 +1,6 @@
 ---
-title: "Passo a passos de ciência de dados do Azure Data Lake usando U-SQL | Microsoft Docs"
-description: "Exemplos que orientam o uso do U-SQL no Azure Data Lake para fazer análises de previsão."
+title: "aaaAzure orientações de ciência de dados Data Lake usando U-SQL | Microsoft Docs"
+description: "Exemplos que orientam a saudação usam U-SQL na análise preditiva do Azure Data Lake toodo."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: bradsev
-ms.openlocfilehash: 118fd5167e67b8259cde8b6e672be325a41a842d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cbee841ae9b207f48a1d80e18e02471d6c482ecd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Passo a passos de ciência de dados do Azure Data Lake usando U-SQL
 
-Essas orientações usam U-SQL com o Azure Data Lake para executar análises preditivas. Eles seguem as etapas descritas no Processo de Ciência de Dados de Equipe. Para obter uma visão geral do Processo de Ciência de Dados de Equipe, veja [Processo de Ciência de Dados](data-science-process-overview.md). Para obter uma introdução ao Azure Data Lake, veja [Visão geral do Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+Essas instruções usam U-SQL com análises de previsão do Azure Data Lake toodo. Eles sigam etapas de saudação descritas em Olá processo de ciência de dados de equipe. Para obter uma visão geral de saudação processo de ciência de dados de equipe, consulte [processo de ciência de dados](data-science-process-overview.md). Para uma introdução tooAzure Data Lake, consulte [visão geral do repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md).
 
-Os passo a passos adicionais de ciência de dados que executam o Processo de Ciência de Dados de Equipe são agrupados pela **plataforma** que eles usam: 
+Orientações de ciência de dados adicionais que execute Olá processo de ciência de dados do Team são agrupadas por Olá **plataforma** que eles usam: 
 
 [!INCLUDE [tdsp-walkthroughs-by-platform](../../includes/tdsp-walkthroughs-by-platform.md)]
 
 
 ## <a name="predict-taxi-tips-using-u-sql-with-azure-data-lake"></a>Prever gorjetas de táxi usando U-SQL com Azure Data Lake
 
-O passo a passo [Utilizar o Azure Data Lake para ciência de dados](machine-learning-data-science-process-data-lake-walkthrough.md) mostra como usar o Azure Data Lake para tarefas de exploração de dados e classificação binária em um exemplo do conjunto de dados de táxis de NYC para prever se uma corrida será paga ou não por um cliente. 
+Olá [uso do Azure Data Lake para ciência de dados](machine-learning-data-science-process-data-lake-walkthrough.md) passo a passo mostra como toouse Azure Data Lake toodo dados binários e exploração tarefas de classificação em uma amostra de saudação NYC táxi toopredict de conjunto de dados ou não uma dica é pago por um cliente. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para uma discussão sobre os principais componentes do Processo de Ciência de Dados de Equipe, veja [Visão geral do Processo de Ciência de Dados de Equipe](data-science-process-overview.md).
+Para obter uma discussão dos componentes-chave Olá que compõem a saudação processo de ciência de dados de equipe, consulte [visão geral do processo de ciência de dados de equipe](data-science-process-overview.md).
 
-Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipe que você pode usar para estruturar seus projetos de ciência de dados, veja [Ciclo de vida do Processo de Ciência de Dados de Equipe](data-science-process-lifecycle.md). O ciclo de vida descreve as etapas, do início ao fim, que os projetos normalmente seguem quando são executados. 
+Para obter uma discussão do ciclo de vida do processo de ciência de dados de equipe Olá que você pode usar toostructure seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipe](data-science-process-lifecycle.md). ciclo de vida de saudação descreve as etapas de hello, do início toofinish, que projetos normalmente seguem quando eles são executados. 

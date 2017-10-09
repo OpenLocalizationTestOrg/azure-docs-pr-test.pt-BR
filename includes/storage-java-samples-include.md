@@ -1,6 +1,6 @@
 ## <a name="java-sample-code-repositories"></a>Repositórios de código de exemplo Java
 
-Veja uma lista de todos os nossos repositórios de exemplo para a Biblioteca de cliente Java do Armazenamento do Azure.
+Aqui está uma lista de todos os nossos repositórios de exemplo para a biblioteca de cliente de Java do armazenamento do Azure hello.
 
 * [Guia de Introdução ao armazenamento - Gerenciar conta de armazenamento em Java](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
 * [Introdução ao Serviço Blob do Azure em Java](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)

@@ -1,6 +1,6 @@
 ---
-title: "Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu) no Azure | Microsoft Docs"
-description: "Configure e crie uma Máquina Virtual de Ciência de Dados para Linux (Ubuntu) no Azure para realizar a análise e o aprendizado de máquina."
+title: "Olá aaaProvision dados ciência da máquina Virtual para Linux (Ubuntu) no Azure | Microsoft Docs"
+description: "Configurar e criar uma dados ciência da máquina Virtual para Linux (Ubuntu) no Azure toodo análise e aprendizado de máquina."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: 148603618a7da05d250a6c4f789a212e98791e53
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 037c126c0a35d8065fc89c591089df73d2b91425
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
-A Máquina Virtual de Ciência de Dados para Linux é uma imagem de máquina virtual baseada no Ubuntu que facilita o aprendizado aprofundado no Azure. As ferramentas de aprendizado aprofundado incluem:
+# <a name="provision-hello-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar Olá máquina de Virtual de ciência de dados para Linux (Ubuntu)
+Olá máquina de Virtual de ciência de dados para Linux é um Ubuntu baseado em imagem de máquina virtual que torna mais fácil tooget Introdução ao aprendizado no Azure. As ferramentas de aprendizado aprofundado incluem:
 
   * [Caffe](http://caffe.berkeleyvision.org/): uma estrutura de aprendizado aprofundado criada para velocidade, expressividade e modularidade
   * [Caffe2](https://github.com/caffe2/caffe2): uma versão de plataforma cruzada do Caffe
@@ -33,12 +33,12 @@ A Máquina Virtual de Ciência de Dados para Linux é uma imagem de máquina vir
   * [TensorFlow](https://www.tensorflow.org/): uma biblioteca de código-fonte aberto para inteligência de máquina do Google
   * [Theano](http://deeplearning.net/software/theano/): uma biblioteca do Python para definir, otimizar e avaliar com eficiência expressões matemáticas que envolvem matrizes multidimensionais
   * [Tocha](http://torch.ch/): uma estrutura de computação científica com amplo suporte para algoritmos de aprendizado de máquina
-  * CUDA, cuDNN e o driver NVIDIA
+  * Driver NVIDIA hello, cuDNN e CUDA
   * Muitos exemplos de Notebooks Jupyter
 
-Todas as bibliotecas são as versões GPU, embora elas também sejam executadas na CPU.
+Todas as bibliotecas são versões GPU hello, embora também serão executados no hello da CPU.
 
-A Máquina Virtual de Ciência de Dados para Linux também contém ferramentas populares para atividades de desenvolvimento e ciência de dados, incluindo:
+Olá máquina de Virtual de ciência de dados para Linux também contém ferramentas populares de atividades de desenvolvimento e a ciência de dados, incluindo:
 
 * O Microsoft R Server Developer Edition com Microsoft R Open
 * Distribuição do Anaconda Python (versões 2.7 e 3.5), incluindo bibliotecas de análise de dados populares
@@ -61,45 +61,45 @@ Fazer a ciência de dados envolve a iteração em uma sequência de tarefas:
 
 1. Localizar, carregar e pré-processar dados
 2. Compilar e testar modelos
-3. Implantar os modelos para consumo em aplicativos inteligentes
+3. Implantando modelos de saudação para consumo de aplicativos inteligentes
 
-Cientistas de dados usam várias ferramentas para concluir essas tarefas. Pode ser muito demorado encontrar as versões apropriadas do software e depois baixar, compilar e instalar essas versões.
+Os cientistas de dados usam toocomplete de várias ferramentas essas tarefas. Pode ser versões apropriadas do hello toofind consome muito tempo do software hello e, em seguida, toodownload, compilar e instalar essas versões.
 
-A Máquina Virtual de Ciência de Dados para Linux pode aliviar essa carga substancialmente. Use-a para iniciar rapidamente seu projeto de análise. Ela permite que você trabalhe nas tarefas em várias linguagens, incluindo R, Python, SQL, Java e C++. O SDK do Azure incluído na VM permite que você compile seus aplicativos usando vários serviços em Linux para a plataforma de nuvem da Microsoft. Além disso, você tem acesso a outras linguagens como Ruby, Perl, PHP e node.js, também pré-instaladas.
+Olá máquina de Virtual de ciência de dados para Linux pode facilitar essa carga substancialmente. Usá-lo toojump iniciar seu projeto de análise. Ele permite toowork nas tarefas em vários idiomas, incluindo R, Python, SQL, Java e C++. Olá incluídos na VM de saudação do SDK do Azure permite que você toobuild seus aplicativos usando vários serviços no Linux para a plataforma de nuvem do Microsoft hello. Além disso, você tem acesso tooother idiomas como Ruby, Perl, PHP e Node. js também previamente instalados.
 
-Não há encargos de software para esta imagem da VM de ciência de dados. Você paga apenas pelas taxas de uso de hardware do Azure, que são avaliadas com base no tamanho da máquina virtual que você provisiona. Encontre mais detalhes sobre as taxas de computação na [página de listagem de VMs do Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Não há encargos de software para esta imagem da VM de ciência de dados. Você paga apenas hello Azure hardware taxas de uso que são avaliadas com base no tamanho de saudação da máquina virtual Olá provisionado. Mais detalhes sobre Olá computação taxas podem ser encontradas no hello [página de listagem de VM no hello Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-## <a name="other-versions-of-the-data-science-virtual-machine"></a>Outras versões da Máquina Virtual de Ciência de Dados
-A imagem do [CentOS](machine-learning-data-science-linux-dsvm-intro.md) também está disponível, com muitas das mesmas ferramentas que a imagem do Ubuntu. Uma imagem do [Windows](machine-learning-data-science-provision-vm.md) também está disponível.
+## <a name="other-versions-of-hello-data-science-virtual-machine"></a>Outras versões do hello máquina de Virtual de ciência de dados
+Um [CentOS](machine-learning-data-science-linux-dsvm-intro.md) imagem também está disponível, com muitos Olá mesmo ferramentas como Olá Ubuntu imagem. Uma imagem do [Windows](machine-learning-data-science-provision-vm.md) também está disponível.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de criar uma Máquina Virtual de Ciência de Dados para Linux, você deve ter uma assinatura do Azure. Para obter uma, confira [Obter avaliação gratuita do Azure](https://azure.microsoft.com/free/).
+Antes de criar uma Máquina Virtual de Ciência de Dados para Linux, você deve ter uma assinatura do Azure. tooobtain um, consulte [avaliação gratuita do Azure obter](https://azure.microsoft.com/free/).
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar sua Máquina Virtual de Ciência de Dados para Linux
-Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dados para Linux:
+Aqui estão Olá etapas toocreate uma instância do hello máquina de Virtual de ciência de dados para Linux:
 
-1. Navegue até a listagem de máquinas virtuais no [Portal do Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
-2. Clique em **Criar** (na parte inferior) para abrir o assistente. ![configure-data-science-vm](./media/machine-learning-data-science-dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-3. As seções a seguir fornecem as entradas para cada uma das etapas no assistente (enumeradas à direita da figura acima) que são usadas para criar a Máquina Virtual de Ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
+1. Navegue de máquina virtual de toohello no hello [portal do Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
+2. Clique em **criar** (na parte inferior da saudação) toobring Assistente hello.![ Configurar-data-ciência-vm](./media/machine-learning-data-science-dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+3. Olá seções a seguir fornece entradas Olá para cada uma das etapas Olá no Assistente de saudação (enumerados no hello direito da saudação anterior figura) usado toocreate Olá máquina de Virtual de ciência de dados do Microsoft. Aqui estão Olá entradas necessárias tooconfigure cada destas etapas:
    
    a. **Noções básicas**:
    
    * **Nome**: o nome do servidor de ciência de dados que você está criando.
    * **Nome de Usuário**: primeira ID de entrada da conta.
    * **Senha**: primeira senha da conta (você pode usar a chave pública SSH, em vez de senha).
-   * **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado. Você deve ter privilégios de criação de recurso nessa assinatura.
+   * **Assinatura**: se você tiver mais de uma assinatura, selecione Olá um no qual Olá máquina é toobe criadas e cobradas. Você deve ter privilégios de criação de recurso nessa assinatura.
    * **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente.
-   * **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
+   * **Local**: Olá selecione data center que é mais apropriado. Geralmente, é Olá data center que tem a maioria dos seus dados, ou é o local físico mais próximo do tooyour para acesso de rede mais rápido.
    
    b. **Tamanho**:
    
-   * Selecione um dos tipos de servidor que atenda aos seus requisitos funcionais e restrições de custo. Selecione **Exibir Tudo** para ver mais opções de tamanhos de VM. Selecione uma VM de classe NC para treinamento de GPU.
+   * Selecione um dos tipos de servidor de saudação que atenda aos seus requisitos funcionais e restrições de custo. Selecione **exibir tudo** toosee mais opções de tamanhos de VM. Selecione uma VM de classe NC para treinamento de GPU.
    
    c. **Configurações**:
    
    * **Tipo de disco**: escolha **Premium** se você preferir uma SSD (unidade de estado sólido). Caso contrário, escolha **Standard**. VMs de GPU exigem um disco padrão.
-   * **Conta de Armazenamento:** é possível criar uma nova conta de armazenamento do Azure em sua assinatura ou usar uma já existente no mesmo Local que foi escolhido na etapa **Noções básicas** do assistente.
-   * **Outros parâmetros**: na maioria dos casos, você simplesmente usa os valores padrão. Passe o ponteiro do mouse sobre o link informativo para obter ajuda sobre um campo específico, caso você queira considerar o uso de valores não padrão.
+   * **Conta de armazenamento**: você pode criar uma nova conta de armazenamento do Azure em sua assinatura, ou use uma existente no hello mesmo local que foi escolhido no hello **Noções básicas sobre** etapa do Assistente de saudação.
+   * **Outros parâmetros**: na maioria dos casos, você apenas usar valores padrão de saudação. valores não padrão de tooconsider, passe o mouse sobre o link de informação Olá para ajudam em campos específicos de saudação.
    
    d. **Resumo**:
    
@@ -107,143 +107,143 @@ Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dado
    
    e. **Comprar**:
    
-   * Para iniciar o provisionamento, clique em **Comprar**. Um link para os termos da transação é fornecido. A VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho** .
+   * toostart Olá provisionamento, clique em **comprar**. Um link será fornecido toohello termos de transação de saudação. Olá VM não tem quaisquer encargos adicionais além da computação Olá para tamanho do servidor de saudação escolhida na Olá **tamanho** etapa.
 
-O provisionamento deve levar cerca de 5 a 10 minutos. O status do provisionamento é exibido no Portal do Azure.
+saudação de provisionamento deve levar cerca de 5 a 10 minutos. status de saudação do provisionamento de saudação é exibido na Olá portal do Azure.
 
-## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Como acessar uma Máquina Virtual de Ciência de Dados para Linux
-Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta criada na seção **Noções básicas** da etapa 3 para a interface shell de texto. No Windows, você pode baixar uma ferramenta de cliente SSH como o [Putty](http://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go.
+## <a name="how-tooaccess-hello-data-science-virtual-machine-for-linux"></a>Como tooaccess Olá máquina de Virtual de ciência de dados para Linux
+Depois de Olá que VM é criada, você pode entrar tooit usando o SSH. Usar as credenciais de conta de saudação que você criou no hello **Noções básicas de** seção da etapa 3 para a interface de shell do texto de saudação. No Windows, você pode baixar uma ferramenta de cliente SSH como o [Putty](http://www.putty.org). Se você preferir uma área de trabalho gráfica (X Windows System), você pode usar X11 Putty de encaminhamento ou instalar Olá X2Go cliente.
 
 > [!NOTE]
-> O cliente X2Go apresentou desempenho significativamente melhor do que o encaminhamento X11 nos testes. Recomendamos o uso do cliente X2Go para uma interface gráfica de área de trabalho.
+> cliente Olá X2Go realizadas significativamente melhor do que X11 encaminhamento no teste. É recomendável usar o cliente de X2Go Olá para uma interface gráfica de área de trabalho.
 > 
 > 
 
 ## <a name="installing-and-configuring-x2go-client"></a>Instalando e configurando o cliente X2Go
-A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar conexões de cliente. Para se conectar à área de trabalho gráfica da VM Linux, faça o seguinte em seu cliente:
+Olá VM Linux já está provisionada com servidor X2Go e conexões de cliente tooaccept pronto. tooconnect toohello desktop gráfica da VM do Linux, Olá no seu cliente a seguir:
 
-1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
+1. Baixar e instalar o cliente Olá X2Go para sua plataforma de cliente de [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+2. Execute o cliente Olá X2Go e selecione **nova sessão**. Ele abrirá uma janela de configuração com várias guias. Digite hello parâmetros de configuração a seguir:
    * **Guia Sessão**:
-     * **Host**: o nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
-     * **Logon**: nome de usuário na VM Linux.
-     * **Porta SSH**: deixe-a em 22, o valor padrão.
-     * **Tipo de Sessão**: altere o valor para XFCE. No momento, a VM Linux dá suporte apenas à área de trabalho XFCE.
-   * **Guia Mídia**: você poderá desligar o suporte a som e impressão de cliente se não precisar usá-los.
-   * **Pastas compartilhadas**: caso você queira que os diretórios de seus computadores cliente sejam montados na VM Linux, adicione os diretórios de computador cliente que você deseja compartilhar com a VM nesta guia.
+     * **Host**: nome de host de saudação ou endereço IP do seu VM de ciência de dados do Linux.
+     * **Logon**: nome de usuário no hello VM do Linux.
+     * **Porta SSH**: deixar 22, valor padrão de saudação.
+     * **Tipo de sessão**: alteração Olá valor tooXFCE. No momento Olá VM Linux suporta apenas a área de trabalho XFCE.
+   * **Guia de mídia**: você pode desativar som suporte e se você não precisa toouse de impressão de cliente-los.
+   * **Pastas compartilhadas**: diretórios de suas máquinas cliente montadas em Olá VM do Linux, adicione diretórios da máquina cliente Olá que você deseja tooshare com hello VM nesta guia.
 
-Após o logon na VM usando o cliente SSH ou a área de trabalho gráfica XFCE por meio do cliente X2Go, você estará pronto para começar a usar as ferramentas instaladas e configuradas na VM. No XFCE, você pode ver atalhos do menu de aplicativos e ícones da área de trabalho para muitas das ferramentas.
+Depois de entrar no toohello VM usando o cliente do SSH hello ou área de trabalho gráfica por meio do cliente X2Go Olá XFCE, você está pronto toostart usando as ferramentas de saudação que são instaladas e configuradas no hello VM. Em XFCE, você pode ver os atalhos de aplicativos do menu e ícones da área de trabalho para muitas das ferramentas de saudação.
 
-## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Ferramentas Instaladas na Máquina Virtual de Ciência de Dados para Linux
+## <a name="tools-installed-on-hello-data-science-virtual-machine-for-linux"></a>Ferramentas instaladas na máquina de Virtual de ciência de dados de saudação para Linux
 ### <a name="deep-learning-libraries"></a>Bibliotecas de aprendizado aprofundado
 
 #### <a name="cntk"></a>CNTK
-O Microsoft Cognitive Toolkit - também conhecido como CNTK - é um kit de ferramentas de aprendizado aprofundado de código-fonte aberto. As associações do Python estão disponíveis nos ambientes raiz e py35 do Conda. Ele também tem uma ferramenta de linha de comando (cntk) que já está em PATH.
+Olá Microsoft cognitivas Toolki - também conhecido como CNTK - é um software livre, profundo de kit de ferramentas de aprendizado. Associações de Python estão disponíveis em ambientes de Conda raiz e py35 hello. Ele também tem uma ferramenta de linha de comando (cntk) que já está no caminho de saudação.
 
-Os blocos de anotações de amostra de Python estão disponíveis no JupyterHub. Para executar um exemplo básico na linha de comando, execute os seguintes comandos no shell:
+Os blocos de anotações de amostra de Python estão disponíveis no JupyterHub. toorun um exemplo básico na linha de comando hello, execute Olá comandos no shell Olá a seguir:
 
     cd /home/[USERNAME]/notebooks/CNTK/HelloWorld-LogisticRegression
     cntk configFile=lr_bs.cntk makeMode=false command=Train
 
-Para saber mais, confira a seção sobre CNTK do [GitHub](https://github.com/Microsoft/CNTK) e o [wiki de CNTK](https://github.com/Microsoft/CNTK/wiki).
+Para obter mais informações, consulte Olá seção CNTK [GitHub](https://github.com/Microsoft/CNTK)e hello [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
 
 #### <a name="caffe"></a>Caffe
-Caffe é uma estrutura de aprendizado aprofundado da Berkeley Vision and Learning Center. Ele está disponível em /opt/caffe. Exemplos podem ser encontrados em /opt/caffe/examples.
+Caffe é um profundo framework Olá Berkeley visão e o Centro de aprendizagem de aprendizado. Ele está disponível em /opt/caffe. Exemplos podem ser encontrados em /opt/caffe/examples.
 
 #### <a name="caffe2"></a>Caffe2
-Caffe2 é uma estrutura de aprendizado do Facebook que se baseia no Caffe. Ele está disponível no Python 2.7 no ambiente raiz do Conda. Para ativá-lo, execute o seguinte no shell:
+Caffe2 é uma estrutura de aprendizado do Facebook que se baseia no Caffe. Ele está disponível em Python 2.7 no ambiente do hello Conda raiz. tooactivate-lo, execute o seguinte de saudação do shell hello:
 
     source /anaconda/bin/activate root
 
 Alguns blocos de anotações de amostra também estão disponíveis no JupyterHub.
 
 #### <a name="h2o"></a>H2O
-H2O é uma plataforma de análise preditiva e aprendizado de máquina rápido, na memória e distribuído. Um pacote do Python é instalado nos ambientes raiz e py35 do Anaconda. Um pacote R também é instalado. Para iniciar o H2O na linha de comandon execute `java -jar /dsvm/tools/h2o/current/h2o.jar`; Existem várias [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que você pode configurar. A interface de usuário da Web do Flow pode ser acessada navegando para http://localhost:54321 para começar. Os blocos de anotações de amostra também estão disponíveis no JupyterHub.
+H2O é uma plataforma de análise preditiva e aprendizado de máquina rápido, na memória e distribuído. Um pacote do Python é instalado em ambos os ambientes de Anaconda Olá py35 e raiz. Um pacote R também é instalado. toostart H2O de saudação commandline executar `java -jar /dsvm/tools/h2o/current/h2o.jar`; existem em vários [opções de linha de comando](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) que você pode como tooconfigure. saudação de fluxo de interface do usuário da Web pode ser acessada por navegação tooget toohttp://localhost:54321 iniciado. Os blocos de anotações de amostra também estão disponíveis no JupyterHub.
 
 #### <a name="keras"></a>Keras
-Keras é uma API de rede neural de alto nível em Python que é capaz de ser executada em cima de Tensorflow ou Theano. Ela está disponível nos ambientes raiz e py35 do Python. 
+Keras é uma API de rede neural de alto nível em Python que é capaz de ser executada em cima de Tensorflow ou Theano. Ele está disponível em ambientes de saudação raiz e py35 Python. 
 
 #### <a name="mxnet"></a>MXNet
-MXNet é uma estrutura de aprendizado profunda criada para eficiência e flexibilidade. Ela tem associações R e Python incluídas no DSVM. Os blocos de anotações de amostra estão incluído no JupyterHub e o código de exemplo está disponível em /dsvm/samples/mxnet.
+MXNet é uma estrutura de aprendizado profunda criada para eficiência e flexibilidade. Ele tem associações de R e Python incluídas na Olá DSVM. Os blocos de anotações de amostra estão incluído no JupyterHub e o código de exemplo está disponível em /dsvm/samples/mxnet.
 
 #### <a name="nvidia-digits"></a>NVIDIA DIGITS
-O NVIDIA Deep Learning GPU Training System, conhecido como DIGITS, é um sistema para simplificar tarefas comuns de aprendizado aprofundado, como gerenciamento de dados, design e treinamento de redes neurais em sistemas GPU e monitoramento de desempenho em tempo real com visualização avançada. 
+Olá NVIDIA aprendizado GPU treinamento sistema profunda, conhecido como DÍGITOS, é um sistema toosimplify comuns aprendizado tarefas, como gerenciamento de dados, criando e redes neurais de treinamento em sistemas GPU e monitoramento do desempenho em tempo real com visualização avançada. 
 
-DIGITS está disponível como um serviço, chamado de dígitos. Inicie o serviço e navegue até http://localhost:5000 para começar.
+DIGITS está disponível como um serviço, chamado de dígitos. Iniciar serviço hello e procurar tooget toohttp://localhost:5000 iniciado.
 
-DIGITS também é instalado como um módulo do Python no ambiente raiz Conda.
+DÍGITOS também é instalado como um módulo de Python no ambiente do hello Conda raiz.
 
 #### <a name="tensorflow"></a>TensorFlow
-TensorFlow é a biblioteca de aprendizado aprofundado do Google. É uma biblioteca de software de código-fonte aberto para computação numérica usando gráficos de fluxo de dados. O TensorFlow está disponível no ambiente de py35 do Python e alguns blocos de anotações de amostra estão incluídos no JupyterHub.
+TensorFlow é a biblioteca de aprendizado aprofundado do Google. É uma biblioteca de software de código-fonte aberto para computação numérica usando gráficos de fluxo de dados. TensorFlow está disponível no ambiente de Python py35 hello e alguns blocos de anotações de exemplo estão incluídos no JupyterHub.
 
 #### <a name="theano"></a>Theano
-Theano é uma biblioteca do Python para computação numérica eficiente. Ela está disponível nos ambientes raiz e py35 do Python. 
+Theano é uma biblioteca do Python para computação numérica eficiente. Ele está disponível em ambientes de saudação raiz e py35 Python. 
 
 #### <a name="torch"></a>Torch
-Tocha é uma estrutura de computação científica com amplo suporte para algoritmos de aprendizado de máquina. Ela está disponível em /dsvm/tools/torch e a enésima sessão interativa e o gerenciador de pacotes luarocks estão disponíveis na linha de comando. Os exemplos estão disponíveis em /dsvm/samples/torch.
+Tocha é uma estrutura de computação científica com amplo suporte para algoritmos de aprendizado de máquina. Ele está disponível em /dsvm/tools/torch e sessão interativa do hello th e Gerenciador de pacote luarocks estão disponíveis na linha de comando de saudação. Os exemplos estão disponíveis em /dsvm/samples/torch.
 
-PyTorch também está disponível no ambiente raiz do Anaconda. Os exemplos estão em /dsvm/samples/pytorch.
+PyTorch também está disponível no ambiente de Anaconda Olá raiz. Os exemplos estão em /dsvm/samples/pytorch.
 
 ### <a name="microsoft-r-server"></a>Servidor R da Microsoft
-R é uma das linguagens mais populares para análise de dados e aprendizado de máquina. Se você quiser usar o R para sua análise, a VM terá o MRS (Microsoft R Server) com o MRO (Microsoft R Open) e a MKL (Math Kernel Library). A MKL otimiza as operações matemáticas frequentes em algoritmos analíticos. O MRO é 100% compatível com CRAN-R e qualquer uma das bibliotecas R publicadas em CRAN pode ser instalada no MRO. O MRS fornece dimensionamento e operacionalização de modelos R em serviços Web. Edite seus programas R em um dos editores padrão como RStudio, vi ou Emacs. Se você estiver usando o editor Emacs, observe que o ESS (Emacs Speaks Statistics) do pacote Emacs, que simplifica o trabalho com arquivos em R no editor Emacs, foi pré-instalado.
+R é uma das linguagens mais populares de saudação para análise de dados e aprendizado de máquina. Se você quiser toouse R para sua análise, Olá VM tem o Microsoft R Server (SRTA) com hello Microsoft R Open (MRO) e a biblioteca de Kernel de matemática (MKL). Olá MKL otimiza as operações matemáticas comuns em algoritmos analíticos. MRO é de 100% compatível com CRAN R e qualquer uma das bibliotecas de saudação R publicadas no CRAN pode ser instalado em Olá MRO. O MRS fornece dimensionamento e operacionalização de modelos R em serviços Web. Você pode editar seus programas de R em um dos editores de padrão de saudação, como RStudio, vi ou Emacs. Se você estiver usando o editor de Emacs Olá, observe que esse pacote de Emacs Olá ESS (Emacs fala estatísticas), que simplifica o trabalho com arquivos de R no editor de Emacs hello, foi pré-instalado.
 
-Para iniciar o console R, basta digitar **R** no shell. Isso leva você para um ambiente interativo. Para desenvolver seu programa R, você normalmente usa um editor como vi ou Emacs e, em seguida, executa os scripts no R. Com o RStudio, você tem um ambiente IDE gráfico completo para desenvolver o seu programa R.
+console toolaunch R, basta digitar **R** no shell de saudação. Isso leva ambiente interativo tooan. toodevelop seu programa de R, você normalmente usa um editor como Emacs ou vi e, em seguida, executar scripts de saudação no R. Com o RStudio, você tem um gráfico completo toodevelop de ambiente IDE seu programa de R.
 
-Também há um script de R para você instalar os [20 melhores pacotes do R](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) , caso queira. Esse script pode ser executado quando você estiver na interface interativa de R, na qual você pode entrar (conforme mencionado) digitando **R** no shell.  
+Também há um script R para você Olá tooinstall [pacotes R de 20 principais](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) se desejar. Esse script pode ser executado depois que estiverem na interface interativa Olá R, que pode ser inserido (conforme mencionado) digitando **R** no shell de saudação.  
 
 ### <a name="python"></a>Python
-Para o desenvolvimento com Python, as distribuições 2.7 e 3.5 do Anaconda Python foram instaladas. Essa distribuição contém o Python base com aproximadamente 300 dos mais populares pacotes de matemática, engenharia e análise de dados. Você pode usar os editores de texto padrão. Além disso, você pode usar o Spyder, um IDE do Python que é fornecido com distribuições do Anaconda Python. O Spyder precisa de uma área de trabalho gráfica ou de encaminhamento X11. Um atalho para o Spyder é fornecido na área de trabalho gráfica.
+Para o desenvolvimento com Python, as distribuições 2.7 e 3.5 do Anaconda Python foram instaladas. Essa distribuição contém Olá Python junto com cerca de 300 hello mais populares matemática, engenharia e dados de análise de pacotes de base. Você pode usar os editores de texto saudação padrão. Além disso, você pode usar o Spyder, um IDE do Python que é fornecido com distribuições do Anaconda Python. O Spyder precisa de uma área de trabalho gráfica ou de encaminhamento X11. Um atalho tooSpyder é fornecido na área de trabalho gráfica hello.
 
-Como temos ambos o Python 2.7 e o 3.5, você precisa ativar especificamente a versão desejada do Python (ambiente conda) com a qual você deseja trabalhar na sessão atual. O processo de ativação define a variável PATH para a versão desejada do Python.
+Como temos Python 2.7 e 3.5, você precisa toospecifically ativar versão do Python Olá desejado (conda ambiente) você deseja toowork em Olá a sessão atual. o processo de ativação Olá define a versão desejada de toohello variável do caminho de saudação do Python.
 
-Para ativar o ambiente de conda do Python 2.7, execute o seguinte no shell:
+ambiente de conda em Olá Python 2.7 tooactivate, execute o seguinte de saudação do shell hello:
 
     source /anaconda/bin/activate root
 
 O Python 2.7 está instalado em */anaconda/bin*.
 
-Para ativar o ambiente de conda do Python 3.5, execute o seguinte no shell:
+ambiente de conda em Olá 3.5 Python tooactivate, execute o seguinte de saudação do shell hello:
 
     source /anaconda/bin/activate py35
 
 
 O Python 3.5 está instalado em */anaconda/envs/py35/bin*.
 
-Para invocar a sessão interativa do Python, basta digitar **Python** no shell. Se estiver em uma interface gráfica ou tiver a configuração do encaminhamento X11, você poderá digitar o comando **pycharm** para iniciar o IDE do PyCharm Python.
+tooinvoke uma sessão interativa do Python, basta digitar **python** no shell de saudação. Se você estiver em uma interface gráfica ou ter X11 encaminhamento de conjunto de backup, você pode digitar **pycharm** toolaunch Olá PyCharm Python IDE.
 
-Para instalar bibliotecas Python adicionais, execute o comando ```conda``` ou ````pip```` sob sudo e forneça o caminho completo do Gerenciador de pacotes do Python (conda ou pip) para instalar no ambiente correto de Python. Por exemplo:
+bibliotecas adicionais de Python tooinstall, você precisa toorun ```conda``` ou ````pip```` em sudo de comando e forneça o caminho completo do Gerenciador de pacotes do Python hello (conda ou pip) tooinstall toohello Python ambiente correto. Por exemplo:
 
     sudo /anaconda/bin/pip install <package> #for Python 2.7 environment
     sudo /anaconda/envs/py35/bin/pip install <package> # for Python 3.5 environment
 
 
 ### <a name="jupyter-notebook"></a>Notebook Jupyter
-A distribuição do Anaconda também acompanha um notebook Jupyter, um ambiente de compartilhamento de código e de análise. O notebook Jupyter é acessado com o JupyterHub. Entre usando seu nome de usuário e senha locais do Linux.
+Olá distribuição Anaconda também vem com um bloco de anotações do Jupyter, um código de tooshare do ambiente e análise. anotações do Jupyter Olá é acessada por meio de JupyterHub. Entre usando seu nome de usuário e senha locais do Linux.
 
-O servidor do notebook Jupyter foi previamente configurado com os kernels do Python 2, do Python 3 e do R. Há um ícone de área de trabalho chamado "Bloco de anotações do Jupyter" para iniciar o navegador a fim de acessar o servidor do notebook. Se você estiver usando a VM por meio de cliente SSH ou X2Go, também poderá visitar [https://localhost:8000/](https://localhost:8000/) para acessar o servidor do notebook Jupyter.
+servidor de notebook Jupyter Olá pré-configurada com Python 2, 3 de Python e kernels R. Há um ícone de área de trabalho chamado "Anotações do Jupyter" toolaunch Olá navegador tooaccess Olá notebook server. Se você estiver usando Olá VM por meio do cliente SSH ou X2Go, você também pode visitar [https://localhost:8000 /](https://localhost:8000/) tooaccess Olá servidor de notebook Jupyter.
 
 > [!NOTE]
 > Continue se você obtiver quaisquer avisos de certificado.
 > 
 > 
 
-Você pode acessar o servidor de bloco de anotações do Jupyter por meio de qualquer host. Basta digitar *https://\<endereço IP ou nome DNS da VM\>:8000/*
+Você pode acessar o servidor de notebook Jupyter Olá de qualquer host. Basta digitar *https://\<endereço IP ou nome DNS da VM\>:8000/*
 
 > [!NOTE]
-> A porta 8000 é aberta no firewall por padrão quando a VM é provisionada.
+> Porta 8000 é aberta no firewall de saudação por padrão quando Olá VM é provisionada.
 > 
 > 
 
-Empacotamos exemplos de notebooks, um em Python em outro em R. Você pode ver o link para os exemplos na página inicial do bloco de anotações após a autenticação no notebook Jupyter usando a senha e o nome de usuário Linux locais. Você pode criar um novo notebook selecionando **Novo** e o kernel de linguagem apropriado. Caso não visualize o botão **Novo**, clique no ícone do **Jupyter** na parte esquerda superior para ir para a home page do servidor de notebook.
+Podemos empacotar blocos de anotações do exemplo – Python em um e outro em R. Você pode ver exemplos de toohello link Olá na home page do hello notebook após a autenticação de anotações do Jupyter toohello usando seu nome de usuário local do Linux e a senha. Você pode criar um novo bloco de anotações selecionando **novo**e, em seguida, kernel de idioma apropriado hello. Se você não vir Olá **novo** , clique em Olá **Jupyter** ícone Olá toogo esquerda superior toohello home page de servidor de notebook hello.
 
 ### <a name="apache-spark-standalone"></a>Apache Spark autônomo 
-Há uma instância autônoma do Apache Spark pré-instalada no DSVM Linux para ajudar você a desenvolver aplicativos Spark localmente, antes de testar e implantar em clusters maiores. Execute programas PySpark através do kernel de Jupyter. Ao abrir o Jupyter e clicar no botão "Novo", você verá uma lista de kernels disponíveis. O "Spark – Python" é o kernel PySpark que permitirá a criação de aplicativos Spark usando a linguagem Python. Também é possível usar um IDE Python como PyCharm ou Spyder para compilar seu programa em Spark. Como essa é uma instância autônoma, a pilha de Spark será executada dentro do programa de chamada cliente. Isso facilita e agiliza a solução de problemas em comparação com o desenvolvimento em um cluster Spark. 
+Uma instância autônoma do Apache Spark foi pré-instalado no hello toohelp Linux DSVM desenvolver aplicativos do Spark localmente primeiro antes de testar e implantar em clusters grandes. Você pode executar programas PySpark por meio do kernel do Jupyter hello. Quando você abrir Jupyter e botão de "Novo" Olá, você verá uma lista de kernels disponíveis. Olá "Spark – Python" é Olá PySpark kernel permitirá que você crie Spark aplicativos usando a linguagem Python. Você também pode usar um IDE Python como PyCharm ou Spyder toobuild você despertar programa. Como isso é uma instância autônoma, pilha de Spark Olá é executado dentro de saudação chamando o programa cliente. Isso torna mais rápido e mais fácil problemas de tootroubleshoot com toodeveloping em um cluster Spark. 
 
-Um exemplo de notebook PySpark é fornecido no Jupyter, e você pode encontrá-lo no diretório "SparkML" no diretório inicial do Jupyter ($HOME/notebooks/SparkML/pySpark). 
+Um bloco de anotações de PySpark de exemplo é fornecido no Jupyter que você pode encontrar no diretório de "SparkML" hello no diretório de base de saudação do Jupyter ($HOME/anotações/SparkML/pySpark). 
 
 Se você estiver programando em R para Spark, use o Microsoft R Server, SparkR ou sparklyr. 
 
-Antes de executar no contexto do Spark no Microsoft R Server, execute uma etapa de configuração única para habilitar uma instância local de HDFS Hadoop e Yarn de nó único. Por padrão, os serviços do Hadoop serão instalados, mas desabilitados no DSVM. Para habilitá-los, execute os seguintes comandos como raiz na primeira vez:
+Antes de executar no contexto do Spark no Microsoft R Server, é necessário toodo um um tempo instalação etapa tooenable um único nó local Hadoop HDFS e uma instância de Yarn. Por padrão, os serviços Hadoop são instalados mas desabilitados em Olá DSVM. Em ordem tooenable, é necessário toorun Olá seguir comandos como Olá raiz primeira vez:
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
     cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
@@ -253,108 +253,108 @@ Antes de executar no contexto do Spark no Microsoft R Server, execute uma etapa 
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Você pode interromper os serviços Hadoop relacionados quando não precisar mais deles executando ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` Um exemplo que demonstra como desenvolver e testar o MRS no contexto de Spark remoto (que é a instância de Spark autônoma no DSVM) é fornecido e disponibilizado no diretório `/dsvm/samples/MRS`. 
+Você pode parar Olá Hadoop serviços relacionados quando você não precisa deles, executando ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` um exemplo que demonstra como SRTA toodevelop e teste no contexto do Spark remoto (que é a instância do Spark Olá independente em Olá DSVM) é fornecido e está disponível em Olá `/dsvm/samples/MRS` directory. 
 
 ### <a name="ides-and-editors"></a>IDEs e editores
-Você tem a opção de vários editores de código. Isso inclui vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio e PyCharm são editores gráficos, e você precisa estar conectado a uma área de trabalho gráfica para usá-los. Há atalhos do menu do aplicativo e da área de trabalho para iniciar esses editores.
+Você tem a opção de vários editores de código. Isso inclui vi/VIM, Emacs, PyCharm, RStudio e IntelliJ. IntelliJ, RStudio e PyCharm são editores gráficos e você precisa toobe conectado tooa toouse gráficos de área de trabalho-los. Esses editores tem área de trabalho e aplicativo toolaunch de atalhos de menu-los.
 
-**VIM** e **Emacs** são editores baseados em texto. No Emacs, instalamos um pacote complementar chamado ESS (Emacs Speaks Statistics) que facilita o trabalho com R no editor Emacs. Mais informações podem ser encontradas em: [ESS](http://ess.r-project.org/).
+**VIM** e **Emacs** são editores baseados em texto. Em Emacs, podemos ter instalado um pacote complementar chamado Emacs fala estatísticas (ESS) que facilita o trabalho com R no editor de Emacs hello. Mais informações podem ser encontradas em: [ESS](http://ess.r-project.org/).
 
-**LaTex** é instalado por meio do pacote texlive, juntamente com um pacote complementar do Emacs chamado [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) , que simplifica a criação de seus documentos do LaTex no Emacs.  
+**Látex** é instalado por meio do pacote de texlive Olá junto com um complemento de Emacs [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) pacote, que simplifica a criação de seus documentos látex dentro de Emacs.  
 
 ### <a name="databases"></a>Bancos de dados
 
 #### <a name="graphical-sql-client"></a>Cliente gráfico do SQL
-**SQuirrel SQL**, um cliente gráfico do SQL, foi fornecido para conectar-se a bancos de dados diferentes (como o Microsoft SQL Server e MySQL) e executar consultas SQL. Você pode executá-lo de uma sessão de área de trabalho gráfica (usando o cliente X2Go, por exemplo). Para invocar o SQuirrel SQL, você pode iniciá-lo clicando no ícone na área de trabalho ou então executar o comando a seguir no shell.
+**Esquilo SQL**, um cliente SQL gráfico, foi fornecido tooconnect toodifferent bancos de dados (como Microsoft SQL Server e MySQL) e consultas SQL toorun. Você pode executar isso em uma sessão de área de trabalho gráfica (usando o cliente de X2Go hello, por exemplo). tooinvoke esquilo SQL, você pode iniciá-lo do ícone Olá na área de trabalho de saudação ou executar Olá comando a seguir no shell de saudação.
 
     /usr/local/squirrel-sql-3.7/squirrel-sql.sh
 
-Antes do primeiro uso, configure os drivers e aliases de banco de dados. Os JDBC drivers estão localizados em:
+Antes de saudação primeiro uso, configurar os drivers e os aliases de banco de dados. drivers JDBC Olá estão localizados em:
 
 */usr/share/java/jdbcdrivers*
 
 Para saber mais, confira [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
 #### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Ferramentas de linha de comando para acessar o Microsoft SQL Server
-O pacote de driver ODBC do SQL Server também vem com duas ferramentas de linha de comando:
+pacote de driver ODBC Olá para o SQL Server também vem com duas ferramentas de linha de comando:
 
-**bcp**: o utilitário em massa bcp copia dados entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. O utilitário bcp pode ser usado para importar grandes números de novas linhas para tabelas do SQL Server ou para exportar dados de tabelas para arquivos de dados. Para importar dados para uma tabela, você deve usar um arquivo de formato criado para essa tabela ou então entender a estrutura da tabela e os tipos de dados que são válidos para suas colunas.
+**BCP**: Olá bcp copia dados entre uma instância do Microsoft SQL Server e um arquivo de dados em um formato especificado pelo usuário. utilitário bcp de saudação pode ser usado tooimport grandes números de novas linhas em tabelas do SQL Server ou tooexport dados de tabelas para arquivos de dados. tooimport dados em uma tabela, você deve usar um arquivo de formato criado para aquela tabela ou entender a estrutura da tabela hello e tipos de saudação de dados que são válidos para suas colunas hello.
 
 Para saber mais, confira [Conectando-se com o bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**sqlcmd**: você pode inserir instruções de Transact-SQL com o utilitário sqlcmd, bem como procedimentos do sistema e arquivos de script no prompt de comando. Esse utilitário usa o ODBC para executar lotes do Transact-SQL.
+**Sqlcmd**: você pode digitar instruções Transact-SQL com o utilitário sqlcmd hello, bem como os procedimentos de sistema e arquivos no prompt de comando de saudação do script. Esse utilitário usa ODBC tooexecute Transact-SQL lotes.
 
 Para saber mais, confira [Conectando-se com o sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
 > [!NOTE]
-> Há algumas diferenças nesse utilitário entre as plataformas Linux e Windows. Consulte a documentação para obter detalhes.
+> Há algumas diferenças nesse utilitário entre as plataformas Linux e Windows. Consulte a documentação de saudação para obter detalhes.
 > 
 > 
 
 #### <a name="database-access-libraries"></a>Bibliotecas de acesso do banco de dados
-Há bibliotecas disponíveis em R e Python para acessar bancos de dados.
+Bibliotecas estão disponíveis em bancos de dados tooaccess R e Python.
 
-* No R, o pacote **RODBC** ou pacote **dplyr** permite que você consulte ou execute instruções SQL no servidor de banco de dados.
-* No Python, a biblioteca **pyodbc** fornece acesso ao banco de dados com o ODBC como a camada subjacente.  
+* Em R, Olá **RODBC** pacote ou **dplyr** pacote permite que você tooquery ou executar instruções SQL no servidor de banco de dados de saudação.
+* Em Python, Olá **pyodbc** biblioteca fornece acesso de banco de dados com ODBC como Olá camada subjacente.  
 
 ### <a name="azure-tools"></a>Ferramentas do Azure
-As ferramentas do Azure a seguir são instaladas na VM:
+Olá ferramentas do Azure a seguir é instalado no hello VM:
 
-* **Interface de linha de comando do Azure**: a CLI do Azure permite a você criar e gerenciar recursos do Azure por meio de comandos do shell. Para invocar as ferramentas do Azure, digite apenas **azure help**. Para saber mais, confira a [página de documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Gerenciador de Armazenamento do Microsoft Azure**: o Gerenciador de Armazenamento do Microsoft Azure é uma ferramenta gráfica usada para navegar pelos objetos armazenados na sua Conta de Armazenamento do Azure e carregar e baixar os dados nos blobs do Azure. Você pode acessar o Gerenciador de Armazenamento do ícone de atalho da área de trabalho. Você pode invocá-lo de um prompt do shell digitando **StorageExplorer**. Você precisa estar conectado em um cliente X2Go ou ter a configuração de encaminhamento X11.
-* **Bibliotecas do Azure**: veja a seguir algumas das bibliotecas pré-instaladas.
+* **Interface de linha de comando do Azure**: hello CLI do Azure permite que você toocreate e gerenciar recursos do Azure por meio de comandos de shell. tooinvoke Olá ferramentas do Azure, basta digitar **do azure ajuda**. Para obter mais informações, consulte Olá [página da documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Microsoft Azure Storage Explorer**: Microsoft Azure Storage Explorer é uma ferramenta gráfica que é usado toobrowse por meio de objetos de saudação que você tenha armazenado em sua conta de armazenamento do Azure e o download e tooupload tooand de dados de blobs do Azure. Você pode acessar o Gerenciador de armazenamento do ícone de atalho da área de trabalho de saudação. Você pode invocá-lo de um prompt do shell digitando **StorageExplorer**. Você precisa toobe entrou em um cliente X2Go, ou tiver X11 encaminhamento de conjunto de backup.
+* **Bibliotecas do Azure**: Olá seguir estão algumas bibliotecas pré-instalados hello.
   
-  * **Python**: as bibliotecas relacionadas ao Azure no Python que estão instaladas são **azure**, **azureml**, **pydocumentdb** e **pyodbc**. Com as três primeiras bibliotecas, você pode acessar os serviços de armazenamento do Azure, o Azure Machine Learning e o Azure Cosmos DB (um banco de dados NoSQL no Azure). A quarta biblioteca, pyodbc (juntamente com o Microsoft ODBC Driver for SQL Server), habilita, do Python, o acesso ao SQL Server, ao Banco de Dados SQL do Azure e ao SQL Data Warehouse do Azure pelo uso de uma interface do ODBC. Insira **pip list** para ver todas as bibliotecas listadas. Certifique-se de executar este comando nos ambientes do Python 2.7 e 3.5.
-  * **R**: as bibliotecas relacionadas ao Azure em R que estão instaladas são **AzureML** e **RODBC**.
-  * **Java**: a lista de bibliotecas Java do Azure pode ser encontrada no diretório **/dsvm/sdk/AzureSDKJava** na VM. As bibliotecas principais são as APIs de armazenamento e gerenciamento do Azure, o Azure Cosmos DB e os drivers JDBC para SQL Server.  
+  * **Python**: Olá das bibliotecas relacionadas ao Azure em Python instalados **azure**, **azureml**, **pydocumentdb**, e **pyodbc** . Com hello primeiro três bibliotecas, você pode acessar os serviços de armazenamento do Azure, aprendizado de máquina do Azure e banco de dados do Azure Cosmos (um banco de dados NoSQL no Azure). biblioteca de quarto Hello, pyodbc (junto com hello Microsoft ODBC driver para SQL Server), permite acesso tooSQL servidor, banco de dados do SQL Azure e o Azure SQL Data Warehouse do Python usando uma interface ODBC. Digite **lista pip** toosee todos Olá listados bibliotecas. Ser toorun-se de que esse comando em ambos os Olá Python 2.7 e 3.5 ambientes.
+  * **R**: Olá relacionadas ao Azure bibliotecas em R instalados estão **AzureML** e **RODBC**.
+  * **Java**: lista de saudação das bibliotecas de Java do Azure pode ser encontrada no diretório Olá **/dsvm/sdk/AzureSDKJava** em Olá VM. bibliotecas de chave Olá são Azure gerenciamento APIs, o banco de dados do Azure Cosmos e JDBC drivers de armazenamento e para o SQL Server.  
 
-Você pode acessar o [portal do Azure](https://portal.azure.com) do navegador Firefox previamente instalado. No portal do Azure, você pode criar, gerenciar e monitorar recursos do Azure.
+Você pode acessar Olá [portal do Azure](https://portal.azure.com) do navegador Firefox pré-instalados de saudação. Olá portal do Azure, você pode criar, gerenciar e monitorar recursos do Azure.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-O Azure Machine Learning é um serviço de nuvem totalmente gerenciado que habilita você a compilar, implantar e compartilhar soluções de análise preditiva. Você compila seus modelos e experimentos do Azure Machine Learning Studio. Ele pode ser acessado de um navegador da Web na máquina virtual de ciência de dados visitando [Microsoft Azure Machine Learning](https://studio.azureml.net).
+O aprendizado de máquina do Azure é um serviço de nuvem totalmente gerenciado que permite que você toobuild, implantar e compartilhar soluções de análise preditiva. Você compila seus modelos e experimentos do Azure Machine Learning Studio. Pode ser acessado de um navegador da web na máquina de virtual de ciência de dados Olá visitando [aprendizado de máquina do Microsoft Azure](https://studio.azureml.net).
 
-Depois de fazer logon no Azure Machine Learning Studio, você tem acesso a uma tela de experimentação em que você pode compilar um fluxo lógico para os algoritmos de aprendizado de máquina. Você também tem acesso a um Notebook do Jupyter hospedado no Azure Machine Learning e pode trabalhar perfeitamente com o Machine Learning Studio. Coloque em operação os modelos de aprendizado de máquina compilados encapsulando-os em uma interface de serviço Web. Isso habilita clientes escritos em qualquer linguagem a invocar as previsões dos modelos de aprendizado de máquina. Para saber mais, confira a [Documentação do Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+Depois que você entra no tooAzure estúdio de aprendizado de máquina, você tem acesso tooan experimentação tela onde você pode criar um fluxo lógico para algoritmos de aprendizado de máquina hello. Você também tem as anotações do Jupyter tooa acesso hospedadas no aprendizado de máquina do Azure e pode funcionar perfeitamente com experiências de saudação no estúdio de aprendizado de máquina. Colocar os modelos que você criou encapsulando-os em uma interface de serviço web de aprendizado de máquina hello. Isso permite que clientes escritos em qualquer previsões tooinvoke de idioma de modelos de aprendizado de máquina hello. Para obter mais informações, consulte Olá [documentação de aprendizado de máquina](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-Você pode também criar seus modelos em R ou Python na VM e, em seguida, implantá-los em produção no Azure Machine Learning. Instalamos bibliotecas em R (**AzureML**) e Python (**azureml**) para habilitar essa funcionalidade.
+Você pode também criar seus modelos em R ou Python no hello VM e, em seguida, implantá-lo em produção em aprendizado de máquina do Azure. Podemos instalou bibliotecas de R (**AzureML**) e Python (**azureml**) tooenable essa funcionalidade.
 
-Para saber mais sobre como implantar modelos em R e Python no Azure Machine Learning, confira a seção [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](machine-learning-data-science-vm-do-ten-things.md) (particularmente, a seção “Compilar os modelos usando R ou Python e operacionalizá-los usando o Azure Machine Learning”).
+Para obter informações sobre como toodeploy modelos em R e Python no aprendizado de máquina do Azure, consulte [dez coisas que você pode fazer na máquina Virtual de ciência de dados de saudação](machine-learning-data-science-vm-do-ten-things.md) (em particular, Olá seção "criar modelos usando o R ou Python e Operacionalizá-los usando o aprendizado de máquina do Azure").
 
 > [!NOTE]
-> Essas instruções foram escritas para a versão do Windows da VM de Ciência de Dados. Mas as informações fornecidas sobre a implantação de modelos para o Azure Machine Learning são aplicáveis à VM Linux.
+> Estas instruções foram desenvolvidas para a versão do Windows hello de saudação VM de ciência de dados. Mas informações Olá fornecidas sobre a implantação de modelos tooAzure aprendizado de máquina são aplicável toohello VM do Linux.
 > 
 > 
 
-### <a name="machine-learning-tools"></a>Ferramentas do Machine Learning
-A VM vem com algumas ferramentas e algoritmos de aprendizado de máquina que foram pré-compiladas e pré-instaladas localmente. Estão incluídos:
+### <a name="machine-learning-tools"></a>Ferramentas de Machine Learning
+Olá VM vem com alguns algoritmos que foram previamente compilados e previamente instalados localmente e ferramentas de aprendizado de máquina. Estão incluídos:
 
 * **Vowpal Wabbit**: um algoritmo de aprendizado rápido online.
 * **xgboost**: uma ferramenta que fornece algoritmos de árvore aumentados e otimizados.
 * **Rattle**: uma ferramenta gráfica baseada em R para facilitar a exploração de dados e a modelagem.
-* **Python**: o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando o comando `pip install` .
+* **Python**: o Anaconda Python é fornecido com os algoritmos de aprendizado de máquina com bibliotecas como Scikit-learn. Você pode instalar outras bibliotecas usando Olá `pip install` comando.
 * **LightGBM**: um gradiente rápido, distribuído e de alto desempenho aumentando a estrutura com base em algoritmos de árvore de decisão.
-* **R**: uma vasta biblioteca de funções de aprendizado de máquina está disponível para R. Algumas das bibliotecas pré-instaladas são lm, glm, randomForest e rpart. Outras bibliotecas podem ser instaladas, executando:
+* **R**: uma rica biblioteca de funções de aprendizado de máquina está disponível para R. Algumas das bibliotecas de saudação previamente instalados são lm, glm, randomForest, rpart. Outras bibliotecas podem ser instaladas, executando:
   
         install.packages(<lib name>)
 
-Veja algumas informações adicionais sobre as três primeiras ferramentas de aprendizado de máquina na lista.
+Eis algumas informações adicionais sobre Olá primeiro três ferramentas de aprendizado de máquina na lista de saudação.
 
 #### <a name="vowpal-wabbit"></a>Vowpal Wabbit
 Vowpal Wabbit é um sistema de aprendizado de máquina rápido que usa técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
 
-Para executar a ferramenta em um exemplo bastante básico, faça o seguinte:
+ferramenta de saudação toorun em um exemplo muito básico, Olá a seguir:
 
     cp -r /dsvm/tools/VowpalWabbit/demo vwdemo
     cd vwdemo
     vw house_dataset
 
-Há outras demonstrações maiores nesse diretório. Para saber mais sobre VW, confira [esta seção do GitHub](https://github.com/JohnLangford/vowpal_wabbit) e o [wiki do Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki).
+Há outras demonstrações maiores nesse diretório. Para obter mais informações sobre VW, consulte [essa seção do GitHub](https://github.com/JohnLangford/vowpal_wabbit)e hello [wiki Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
 #### <a name="xgboost"></a>XGBoost
-Essa é uma biblioteca que é projetada e otimizada para algoritmos aumentados (de árvore). O objetivo dessa biblioteca é estender os limites de computação de máquinas para os extremos necessários de modo a fornecer aumento de árvore de grande escala escalonável, portátil e preciso.
+Essa é uma biblioteca que é projetada e otimizada para algoritmos aumentados (de árvore). Olá objetivo essa biblioteca é toopush limites de computação Olá de extremos de toohello máquinas necessário tooprovide aumento da árvore de larga escala escalonável, portátil e precisas.
 
 Ele é fornecido como uma linha de comando, bem como uma biblioteca do R.
 
-Para usar esta biblioteca em R, você pode iniciar a sessão interativa do R (basta digitar **R** no shell) e carregar a biblioteca.
+toouse nessa biblioteca em R, você pode iniciar uma sessão interativa de R (apenas digitando **R** no shell de saudação) e o carregamento da biblioteca hello.
 
 Aqui está um exemplo simples, que você pode executar no prompt do R:
 
@@ -368,51 +368,51 @@ Aqui está um exemplo simples, que você pode executar no prompt do R:
                     eta = 1, nthread = 2, nround = 2, objective = "binary:logistic")
     pred <- predict(bst, test$data)
 
-Para executar a linha de comando do xgboost, aqui estão os comandos a executar no shell:
+linha de comando do toorun Olá xgboost, aqui estão Olá tooexecute de comandos do shell hello:
 
     cp -r /dsvm/tools/xgboost/demo/binary_classification/ xgboostdemo
     cd xgboostdemo
     xgboost mushroom.conf
 
 
-Um arquivo .model é gravado no diretório especificado. Mais informações sobre este exemplo de demonstração podem ser encontradas [no GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+Um arquivo. Model é gravado toohello diretório especificado. Mais informações sobre este exemplo de demonstração podem ser encontradas [no GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
 
-Para saber mais sobre o xgboost, confira a [página de documentação do xgboost](https://xgboost.readthedocs.org/en/latest/) e seu [repositório GitHub](https://github.com/dmlc/xgboost).
+Para obter mais informações sobre xgboost, consulte Olá [página de documentação xgboost](https://xgboost.readthedocs.org/en/latest/)e sua [repositório GitHub](https://github.com/dmlc/xgboost).
 
 #### <a name="rattle"></a>Rattle
-Rattle (the **R** **A**nalytical **T**ool **T**o **L**earn **E**asily – Ferramenta Analítica do R para Aprender com Facilidade) usa exploração e modelagem de dados com base em GUI. Ele apresenta resumos estatísticos e visuais dos dados, transforma os dados que podem ser modelados prontamente, compila modelos de dados supervisionados e sem supervisão, apresenta o desempenho dos modelos graficamente e calcula as pontuações de novos conjuntos de dados. Ele também gera código R, replicando as operações na interface do usuário que pode ser executado diretamente em R ou usado como ponto de partida para análise posterior.
+Rattle (Olá **R** **um**nalytical **T**ferramenta **T**o **L**ganhar **E** asily) usa modelagem e exploração de dados baseadas em GUI. Apresenta estatísticas e resumos visual dos dados, transformações que podem ser modelados prontamente, compilações supervisionados e supervisionados modelos de dados de saudação, apresenta Olá desempenho dos modelos graficamente e conjuntos de dados novo pontuações. Ela também gera o código de R, replicando as operações de saudação em Olá da interface do usuário que podem ser executadas diretamente em R ou usadas como um ponto de partida para análise posterior.
 
-Para executar o Rattle, você precisa estar em uma sessão de logon da área de trabalho gráfica. No terminal, digite ```R``` para entrar no ambiente R. No prompt do R, digite os seguintes comandos:
+toorun chocalho, você precisa toobe em uma gráfico da área de trabalho sessão de entrada. No terminal hello, digite ```R``` tooenter ambiente de saudação R. No prompt de saudação R, digite Olá comandos a seguir:
 
     library(rattle)
     rattle()
 
-Agora, uma interface gráfica é aberta com um conjunto de guias. Aqui estão as etapas de início rápido no Rattle necessárias para usar um conjunto de dados meteorológicos de exemplo e compilar um modelo. Em algumas das etapas abaixo, você é solicitado a instalar e carregar automaticamente alguns pacotes do R que ainda não estão no sistema.
+Agora, uma interface gráfica é aberta com um conjunto de guias. Aqui estão Olá início rápido etapas chocalho necessário toouse um conjunto de dados de tempo de exemplo e criar um modelo. Em algumas das etapas de saudação abaixo, você está tooautomatically solicitados a instalar e carregar alguns pacotes de R necessários que não ainda estão no sistema de saudação.
 
 > [!NOTE]
-> Se não tiver acesso para instalar o pacote no diretório do sistema (o padrão), você poderá ver uma solicitação na janela do console do R para instalar pacotes na sua biblioteca pessoal. Caso veja essas solicitações, responda *s* .
+> Se você não tiver o pacote de saudação do access tooinstall no diretório de sistema do hello (Olá padrão), você verá um prompt no seu console janela tooinstall pacotes tooyour pessoal biblioteca R. Caso veja essas solicitações, responda *s* .
 > 
 > 
 
 1. Clique em **Executar**.
-2. Uma caixa de diálogo é exibida perguntando se você deseja usar o conjunto de dados meteorológicos de exemplo. Clique em **Sim** para carregar o exemplo.
-3. Clique na guia **Modelo** .
-4. Clique em **Executar** para compilar uma árvore de decisão.
-5. Clique em **Desenhar** para exibir a árvore de decisão.
-6. Clique no botão de opção **Floresta** e clique em **Executar** para compilar uma floresta aleatória.
-7. Clique na guia **Avaliar** .
-8. Clique no botão de opção **Risco** e em **Executar** para exibir duas plotagens de desempenho de Risco (Cumulativo).
-9. Clique a guia **Log** para mostrar o código R gerado das operações anteriores.
-   (Devido a um bug na versão atual do Rattle, você precisa inserir um caractere *#* na frente de *Exportar este log...* no texto do log.)
-10. Clique no botão **Exportar** para salvar o script de R chamado *weather_script.R* na pasta base.
+2. Uma caixa de diálogo é exibido, perguntando se você deseja que o conjunto de dados de clima toouse Olá exemplo. Clique em **Sim** exemplo hello de tooload.
+3. Clique em Olá **modelo** guia.
+4. Clique em **Execute** toobuild uma árvore de decisão.
+5. Clique em **desenhar** toodisplay árvore de decisão de saudação.
+6. Clique em Olá **floresta** botão de opção e, em seguida, clique em **Execute** toobuild aleatória de floresta.
+7. Clique em Olá **avaliar** guia.
+8. Clique em Olá **risco** botão de opção e, em seguida, clique em **Execute** toodisplay dois gráficos de desempenho de risco (cumulativo).
+9. Clique em Olá **Log** saudação do guia tooshow gerar código de R para Olá operações precedentes.
+   (Devido a erro tooa na versão atual de saudação do chocalho, você precisa tooinsert um  *#*  caractere na frente do *exportar este log...*  no texto de saudação do log hello.)
+10. Clique em Olá **exportar** arquivo de script do botão toosave Olá R chamado *weather_script. R* pasta base toohello.
 
-Você pode sair do Rattle e do R. Agora você pode modificar o script do R gerado ou usá-la como ele é para executá-lo em qualquer momento, para repetir tudo o que foi feito na interface do usuário do Rattle. Essa é uma maneira fácil, especialmente para iniciantes em R, de fazer análise e aprendizado de máquina rapidamente em uma interface gráfica e, ao mesmo tempo, gerar código em R automaticamente para modificar e/ou aprender.
+Você pode sair chocalho e R. Agora você pode modificar o script de R Olá gerado ou usá-la como é toorun-lo a qualquer momento toorepeat tudo o que foi feito em Olá Rattle da interface do usuário. Especialmente para iniciantes em R, isso é uma maneira fácil tooquickly fazer análise e aprendizado em uma interface gráfica simple, ao gerar automaticamente o código em R toomodify de máquina e/ou saber mais.
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja como você pode continuar seu aprendizado e exploração:
 
-* O passo a passo [Ciência de dados na Máquina Virtual da Ciência de Dados para Linux](machine-learning-data-science-linux-dsvm-walkthrough.md) mostra como executar várias tarefas comuns de ciência de dados com a VM de Ciência de Dados Linux provisionada aqui. 
-* Explore as várias ferramentas de ciência de dados na VM de ciência de dados ao experimentar as ferramentas descritas neste artigo. Você também pode executar *dsvm-more-info* no shell contido na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
-* Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite.
+* Olá [ciência de dados em Olá máquina de Virtual de ciência de dados para Linux](machine-learning-data-science-linux-dsvm-walkthrough.md) passo a passo mostra como tooperform ciência de dados comum várias tarefas com hello VM de ciência de dados do Linux provisionado aqui. 
+* Explore Olá várias ferramentas de ciência de dados em Olá ciência de dados VM experimentando ferramentas Olá descritas neste artigo. Você também pode executar *informações de mais dsvm* no shell de saudação em máquina virtual de saudação para um Introdução e ponteiros toomore obter informações básicas sobre ferramentas Olá Olá VM instalado.  
+* Saiba como soluções analíticos de ponta a ponta de toobuild sistematicamente usando Olá [processo de ciência de dados de equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+* Visite Olá [Cortana análise galeria](http://gallery.cortanaanalytics.com) para análise de dados e aprendizado de máquina exemplos Olá que use Cortana Analytics Suite.
 

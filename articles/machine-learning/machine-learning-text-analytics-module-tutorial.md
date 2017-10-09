@@ -1,6 +1,6 @@
 ---
-title: "Criar modelos de análise de texto no Azure Machine Learning Studio | Microsoft Docs"
-description: "Como criar modelos de análise de texto no Azure Machine Learning Studio usando módulos de pré-processamento de texto, N-gramas ou hash de recursos"
+title: "modelos de análise de texto aaaCreate no estúdio de aprendizado de máquina do Azure | Microsoft Docs"
+description: "Como os modelos de análises de texto toocreate no estúdio de aprendizado de máquina do Azure usando módulos de pré-processamento de texto, N-grams ou hash de recurso"
 services: machine-learning
 documentationcenter: 
 author: rastala
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 342e81e2497d292ca730bea59e03182d316ffec3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e3799f37ba54bb2ec8815ecf5ed34e145ffb20e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Criar modelos de análise de texto no Azure Machine Learning Studio
-Você pode usar o Azure Machine Learning para criar e operacionalizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de classificação de documento ou análise de sentimento.
+Você pode usar toobuild de aprendizado de máquina do Azure e utilizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de classificação de documento ou análise de sentimento.
 
 Em um experimento de análise de texto, geralmente, você pode:
 
 1. Limpar e pré-processar o conjunto de dados de texto
 2. Extrair vetores de recurso numérico de um texto pré-processado
 3. Treinar o modelo de classificação ou regressão
-4. Pontuar e validar o modelo
-5. Implantar o modelo na produção
+4. Pontuação e validar o modelo de saudação
+5. Implantar Olá modelo tooproduction
 
-Neste tutorial, você aprenderá essas etapas conforme examinamos um modelo de análise de sentimento usando o conjunto de dados Amazon Book Reviews (consulte o artigo de pesquisa “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007). Esse conjunto de dados consiste em pontuações de crítica (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a pontuação da crítica: baixa (1-2) ou alta (4-5).
+Neste tutorial, você aprenderá essas etapas conforme examinamos um modelo de análise de sentimento usando o conjunto de dados Amazon Book Reviews (consulte o artigo de pesquisa “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007). Esse conjunto de dados consiste em pontuações de crítica (1-2 ou 4-5) e um texto de forma livre. Olá, meta é toopredict pontuação de revisão de saudação: baixo (1 - 2) ou alto (4-5).
 
 Você pode encontrar os experimentos abordados neste tutorial na Galeria do Cortana Intelligence:
 
@@ -40,49 +40,49 @@ Você pode encontrar os experimentos abordados neste tutorial na Galeria do Cort
 [Prever crítica literária – Experimento preditivo](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## <a name="step-1-clean-and-preprocess-text-dataset"></a>Etapa 1: Limpar e pré-processar o conjunto de dados de texto
-Começamos o experimento dividindo as pontuações de crítica em buckets categóricos altos e baixos para formular o problema como uma classificação de duas classes. Usamos os módulos [Editar Metadados](https://msdn.microsoft.com/library/azure/dn905986.aspx) e [Agrupar Valores Categóricos](https://msdn.microsoft.com/library/azure/dn906014.aspx).
+Começamos Olá experimento, dividindo pontuações de revisão de saudação em categórica buckets baixa e alta tooformulate Olá problema classificação de duas classes. Usamos os módulos [Editar Metadados](https://msdn.microsoft.com/library/azure/dn905986.aspx) e [Agrupar Valores Categóricos](https://msdn.microsoft.com/library/azure/dn906014.aspx).
 
 ![Criar rótulo](./media/machine-learning-text-analytics-module-tutorial/create-label.png)
 
-Em seguida, limpamos o texto usando o módulo [Pré-processar Texto](https://msdn.microsoft.com/library/azure/mt762915.aspx) . A limpeza reduz o ruído no conjunto de dados, ajuda a encontrar os recursos mais importantes e melhora a precisão do modelo final. Removemos palavras irrelevantes (stop words) – palavras comuns, como “o” ou “um” – bem como números, caracteres especiais, caracteres duplicados, endereços de email e URLs. Também convertemos o texto em minúsculas, fazemos a lematização das palavras e detectamos os limites de sentença, que são então indicados pelo símbolo “|||” no texto pré-processado.
+Em seguida, podemos limpar Olá texto usando [texto pré-processamento](https://msdn.microsoft.com/library/azure/mt762915.aspx) módulo. Olá limpeza reduz o ruído de Olá Olá conjunto de dados, ajudam você a encontrar hello mais importantes recursos e melhora Olá precisão do modelo final hello. Removemos palavras irrelevantes (stop words) – palavras comuns, como “o” ou “um” – bem como números, caracteres especiais, caracteres duplicados, endereços de email e URLs. Podemos também converter Olá texto toolowercase, lemmatize palavras hello e detectar os limites de oração, em seguida, são indicados por "| | |" símbolo pré-processado como texto.
 
 ![Pré-processar Texto](./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
 
-E se você quiser usar uma lista personalizada de palavras irrelevantes? Você pode passá-la como uma entrada opcional. Também é possível usar uma expressão regular personalizada da sintaxe em C# para substituir subcadeias de caracteres e remover palavras por parte da fala: substantivos, verbos ou adjetivos.
+Se quiser toouse uma lista de palavras irrelevantes personalizados? Você pode passá-la como uma entrada opcional. Você também pode usar personalizadas c# sintaxe expressão regular tooreplace subcadeias de caracteres e remover palavras por parte da fala: substantivos, verbos ou adjetivos.
 
-Após a conclusão do pré-processamento, dividimos os dados em conjuntos de treinamento e teste.
+Depois Olá pré-processamento for concluído, é dividir os dados de saudação em treinamento e conjuntos de testes.
 
 ## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Etapa 2: Extrair vetores de recurso numérico de um texto pré-processado
-Para criar um modelo para dados de texto, normalmente, você precisa converter o texto de forma livre em vetores de recurso numérico. Neste exemplo, usamos o módulo [Extrair Recursos de N-grama de Texto](https://msdn.microsoft.com/library/azure/mt762916.aspx) para transformar os dados de texto em um formato desse tipo. Este módulo usa uma coluna de palavras separadas por espaço em branco e calcula um dicionário de palavras ou N-gramas de palavras, que aparecem no conjunto de dados. Em seguida, ele conta quantas vezes cada palavra, ou N-gram, é exibida em cada registro e cria vetores de recurso das contagens. Neste tutorial, definimos o tamanho do N-grama como 2, para que nossos vetores de recurso incluam palavras individuais e combinações de duas palavras subsequentes.
+toobuild um modelo de dados de texto, você normalmente tem texto de forma livre tooconvert em vetores de recursos numéricos. Neste exemplo, usamos [recursos N-Gram extrair texto](https://msdn.microsoft.com/library/azure/mt762916.aspx) formato toosuch dados de texto do módulo tootransform hello. Este módulo usa uma coluna de palavras separadas por espaço em branco e calcula um dicionário de palavras ou N-gramas de palavras, que aparecem no conjunto de dados. Em seguida, ele conta quantas vezes cada palavra, ou N-gram, é exibida em cada registro e cria vetores de recurso das contagens. Neste tutorial, vamos definir too2 de tamanho de N-gram, para que nosso vetores de recursos incluem palavras individuais e combinações de duas palavras subsequentes.
 
 ![Extrair N-gramas](./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
 
-Aplicamos a pesagem TF*IDF (Frequência de Termo Frequência Inversa do Documento) a contagens de N-grama. Essa abordagem adiciona o peso de palavras que aparecem frequentemente em um único registro, mas que são raras em todo o conjunto de dados. Outras opções incluem o binário, TF e a pesagem de gráfico.
+Aplicamos TF * IDF (termo de frequência de frequência de documento inversa) ponderação tooN-gram contagens. Essa abordagem adiciona o peso de palavras que aparecem frequentemente em um único registro, mas são raros em Olá todo o conjunto de dados. Outras opções incluem o binário, TF e a pesagem de gráfico.
 
-Geralmente, esses recursos de texto têm alta dimensionalidade. Por exemplo, se seu corpus tiver 100.000 palavras exclusivas, seu espaço de recurso terá 100.000 dimensões ou mais, caso sejam usados N-gramas. O módulo Extrair Recursos de N-grama fornece um conjunto de opções para reduzir a dimensionalidade. Você pode optar por excluir palavras que são curtas ou longas, muito incomuns ou muito frequentes que têm um valor preditivo significativo. Neste tutorial, excluímos N-gramas que aparecem em menos de 5 registros ou em mais de 80% dos registros.
+Geralmente, esses recursos de texto têm alta dimensionalidade. Por exemplo, se seu corpus tiver 100.000 palavras exclusivas, seu espaço de recurso terá 100.000 dimensões ou mais, caso sejam usados N-gramas. módulo de recursos de N-Gram extrair Olá fornece um conjunto de dimensionalidade de saudação tooreduce opções. Você pode escolher palavras tooexclude toohave curto ou longo ou muito incomum ou muito frequente valor significativo de previsão. Neste tutorial, excluímos N-gramas que aparecem em menos de 5 registros ou em mais de 80% dos registros.
 
-Além disso, você pode usar a seleção de recursos para selecionar apenas os recursos que estão mais correlacionados ao seu destino de previsão. Usamos a seleção de recursos Qui Quadrado para selecionar 1.000 recursos. Você pode exibir o vocabulário de palavras selecionadas ou N-gramas clicando na saída correta do módulo Extrair N-gramas.
+Além disso, você pode usar o recurso seleção tooselect somente os recursos que são hello mais correlacionados com o destino de previsão. Podemos usar recursos de 1000 de tooselect de seleção de recurso qui-quadrada. Você pode exibir o vocabulário Olá de palavras selecionadas ou N-gramas clicando saída direita de saudação do módulo de extração N-gramas.
 
-Como uma abordagem alternativa ao uso de Extrair Recursos de N-grama, você pode usar o módulo Hash de Recursos. No entanto, observe que o [Hash de Recursos](https://msdn.microsoft.com/library/azure/dn906018.aspx) não traz funcionalidades de seleção de recursos internos nem a pesagem TF*IDF.
+Como uma abordagem alternativa toousing extrair N-Gram recursos, você pode usar o módulo de hash de recurso. No entanto, observe que o [Hash de Recursos](https://msdn.microsoft.com/library/azure/dn906018.aspx) não traz funcionalidades de seleção de recursos internos nem a pesagem TF*IDF.
 
 ## <a name="step-3-train-classification-or-regression-model"></a>Etapa 3: Treinar o modelo de classificação ou regressão
-Agora o texto foi transformado em colunas de recurso numérico. O conjunto de dados ainda contém colunas de cadeia de caracteres de estágios anteriores e, portanto, usamos Selecionar Colunas no Conjunto de Dados para excluí-las.
+Agora o texto de saudação foi transformado toonumeric colunas de recursos. saudação de conjunto de dados ainda contém colunas de cadeia de caracteres de estágios anteriores, para que possamos usar selecionar colunas no conjunto de dados tooexclude-los.
 
-Em seguida, usamos a [Regressão Logística de Duas Classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) para prever nosso destino: pontuação de crítica alta ou baixa. Neste ponto, o problema de análise de texto foi transformado em um problema de classificação regular. Você pode usar as ferramentas disponíveis no Azure Machine Learning para melhorar o modelo. Por exemplo, você pode experimentar com diferentes classificadores para descobrir quão precisos são os resultados fornecidos ou usar o ajuste de hiperparâmetro para melhorar a precisão.
+Em seguida, usamos [Regressão logística de duas classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) toopredict nossa meta: pontuação revisão alto ou baixo. Neste ponto, problema de análise do texto de saudação foi transformado em um problema de classificação regular. Você pode usar ferramentas de saudação disponíveis no modelo de saudação do tooimprove de aprendizado de máquina do Azure. Por exemplo, você pode experimentar diferentes classificadores toofind os resultados precisos como eles oferecem ou usam hyperparameter tooimprove precisão de saudação de ajuste.
 
 ![Treinar e pontuar](./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
 
-## <a name="step-4-score-and-validate-the-model"></a>Etapa 4: Pontuar e validar o modelo
-Como você validará o modelo treinado? Pontuamos o modelo em relação ao conjunto de dados de teste e avaliamos a precisão. No entanto, o modelo aprendeu o vocabulário de N-gramas e seus pesos do conjunto de dados de treinamento. Por isso, devemos usar esse vocabulário e os pesos ao extrair recursos dos dados de teste, em vez de criar o vocabulário novamente. Portanto, adicionamos o módulo Extrair Recursos de N-grama à ramificação de pontuação do experimento, conectamos o vocabulário de saída da ramificação de treinamento e definimos o modo de vocabulário como somente leitura. Também desabilitamos a filtragem de N-gramas por frequência, definindo o mínimo como 1 instância e o máximo como 100%, bem como desativamos a seleção de recursos.
+## <a name="step-4-score-and-validate-hello-model"></a>Etapa 4: Pontuação e validar o modelo de saudação
+Como você validará treinado Olá? Estamos pontuação-la no conjunto de dados de teste hello e avaliar a precisão de saudação. No entanto, modelo Olá aprendeu vocabulário Olá de N-grams e seus pesos de conjunto de dados de treinamento hello. Portanto, devemos usar esse vocabulário e os pesos ao extrair os recursos de dados de teste, como oposição vocabulário de saudação toocreating novamente. Portanto, podemos adicionar recursos de N-Gram extrair módulo toohello pontuação ramificação do experimento hello, conectar Olá saída vocabulário do branch de treinamento e definir modo de vocabulário Olá somente tooread. Também desabilitar Olá a filtragem de N-grams por frequência por instância de too1 mínimo Olá configuração e too100 máximo % e desativar a seleção de recurso de saudação.
 
-Depois que a coluna de texto nos dados de teste foi transformada em colunas de recurso numérico, excluímos as colunas de cadeia de caracteres de estágios anteriores como fizemos na ramificação de treinamento. Em seguida, usamos o módulo Pontuar Modelo para fazer previsões e o módulo Avaliar Modelo para avaliar a precisão.
+Depois de hello coluna de texto em teste de dados foram transformados toonumeric colunas de recursos, excluímos string hello como colunas de estágios anteriores na ramificação de treinamento. Em seguida, usamos previsões do modelo de pontuação módulo toomake e precisão do modelo avaliar módulo tooevaluate hello.
 
-## <a name="step-5-deploy-the-model-to-production"></a>Etapa 5: Implantar o modelo na produção
-O modelo está quase pronto para ser implantado na produção. Quando implantado como um serviço Web, ele usa a cadeia de caracteres de texto de forma livre como entrada e retorna uma previsão “alta” ou “baixa”. Ele usa o vocabulário de N-gram aprendido para transformar o texto em recursos e o modelo de regressão logística treinado para fazer uma previsão desses recursos. 
+## <a name="step-5-deploy-hello-model-tooproduction"></a>Etapa 5: Implantar Olá modelo tooproduction
+modelo de saudação é tooproduction toobe quase pronto implantado. Quando implantado como um serviço Web, ele usa a cadeia de caracteres de texto de forma livre como entrada e retorna uma previsão “alta” ou “baixa”. Ele usa Olá aprendida N-gram vocabulário tootransform Olá texto toofeatures e treinado toomake do modelo de regressão logística uma previsão de recursos. 
 
-Para configurar o experimento preditivo, primeiro salvamos o vocabulário de N-grama como conjunto de dados e o modelo de regressão logística treinado da ramificação de treinamento do experimento. Em seguida, salvamos o experimento usando “Salvar Como” para criar um gráfico de experimento para o experimento preditivo. Removemos o módulo Dividir Dados e a ramificação de treinamento do experimento. Em seguida, conectamos o vocabulário de N-grama salvo e o modelo anteriormente aos módulos Extrair Recursos de N-grama e Pontuar Modelo, respectivamente. Também removemos o módulo Avaliar Modelo.
+tooset a experiência de previsão Olá, podemos vocabulário de N-gram Olá salve primeiro como conjunto de dados e Olá treinou o modelo de regressão logística da ramificação de treinamento de saudação do experimento hello. Em seguida, podemos salvar experimento hello usando toocreate "Salvar como" um gráfico de teste para teste de previsão. Removemos o módulo Olá divisão e a ramificação de treinamento de saudação do experimento hello. Em seguida, conectamos Olá salvo anteriormente N-gram vocabulário e modelo tooExtract N-Gram recursos e módulos do modelo de pontuação, respectivamente. Também removemos o módulo de avaliar modelo hello.
 
-Inserimos o módulo Selecionar Colunas no Conjunto de Dados antes do módulo Pré-processar Texto para remover a coluna de rótulo e desmarcamos a opção “Acrescentar a coluna de pontuação ao conjunto de dados” em Pontuar Módulo. Dessa forma, o serviço Web não solicita o rótulo que está tentando prever e não retorna os recursos de entrada em resposta.
+Podemos selecionar colunas de inserção no módulo de conjunto de dados antes da coluna de rótulo do texto de pré-processamento módulo tooremove hello e desmarque a opção "Adicionar pontuação coluna toodataset" no módulo de pontuação. Dessa forma, Olá web não solicitação de serviço rótulo hello, ele está tentando toopredict e não repetirá recursos de entrada hello em resposta.
 
 ![Experimento preditivo](./media/machine-learning-text-analytics-module-tutorial/predictive-text.png)
 

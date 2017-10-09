@@ -1,6 +1,6 @@
 ---
-title: "Como funciona a replicação do VMware para o Azure no Azure Site Recovery? | Microsoft Docs"
-description: "Este artigo fornece uma visão geral dos componentes e da arquitetura usada ao replicar VMs VMware locais e servidores físicos para o Azure com o serviço Azure Site Recovery"
+title: "aaaHow funciona VMware replicação tooAzure no Azure Site Recovery? | Microsoft Docs"
+description: "Este artigo fornece uma visão geral dos componentes e arquitetura usada quando replicar local VMs VMware e servidores físicos tooAzure com hello serviço Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -16,74 +16,74 @@ ms.date: 05/29/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: vmware-walkthrough-architecture
-ms.openlocfilehash: 81f02c1277ae8a2c377ca0d6db67ec4211e9aa5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f0fb834f8b251640f97e4d0163b2b9e54de691e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-does-vmware-replication-to-azure-work-in-site-recovery"></a>Como funciona a replicação do VMware para o Azure no Site Recovery?
+# <a name="how-does-vmware-replication-tooazure-work-in-site-recovery"></a>Como funciona a VMware replicação tooAzure na recuperação de Site?
 
-Este artigo descreve os componentes e os processos envolvidos ao replicar máquinas virtuais VMware e servidores físicos Windows/Linux locais para o Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve os componentes de saudação e processos envolvidos ao replicar tooAzure máquinas virtuais e servidores físicos do Windows/Linux, VMware usando Olá local [do Azure Site Recovery](site-recovery-overview.md) serviço.
 
-Quando você replica servidores físicos locais no Azure, a replicação também usa os mesmos componentes e processos que a replicação de VM VMware no Azure, com estas diferenças:
+Quando você replica tooAzure de servidores locais físicos, a replicação usa também Olá mesmo componentes e processos como a replicação de VM do VMware, com essas diferenças:
 
-- Você pode usar um servidor físico para o servidor de configuração, em vez de uma VM do VMware.
-- Você precisará de uma infraestrutura do VMware local para failback. Você não pode realizar o failback para um computador físico.
+- Você pode usar um servidor físico para o servidor de configuração hello, em vez de uma VM do VMware.
+- Você precisará de uma infraestrutura do VMware local para failback. Não é possível reprovar máquina física tooa voltar.
 
-Publique eventuais comentários no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Lançar os comentários na parte inferior da saudação deste artigo, ou fazer perguntas no hello [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="architectural-components"></a>Componentes de arquitetura
 
-Há vários componentes envolvidos ao replicar máquinas virtuais VMware e servidores físicos para o Azure.
+Há vários componentes envolvidos ao replicar máquinas virtuais do VMware e servidores físicos tooAzure.
 
 **Componente** | **Localidade** | **Detalhes**
 --- | --- | ---
-**As tabelas** | No Azure, você precisa de uma conta do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Os dados replicados são armazenados na conta de armazenamento, e VMs do Azure são criadas com os dados replicados quando ocorre failover do site local. As VMs do Azure se conectam à rede virtual do Azure quando são criadas.
-**Servidor de configuração** | Um único servidor de gerenciamento (VM VMWare) local que executa todos os componentes locais necessários para a implantação, incluindo o servidor de configuração, o servidor de processos, o servidor de destino mestre | O componente de servidor de configuração coordena a comunicação entre o ambiente local e o Azure e gerencia a replicação de dados.
- **Servidor de processo**:  | Instalado por padrão no servidor de configuração. | Atua como um gateway de replicação. Recebe dados de replicação, otimiza-os com caching, compactação e criptografia e os envia para o Armazenamento do Azure.<br/><br/> O servidor de processo também manipula a instalação por push do Serviço de mobilidade em computadores protegidos e executa a descoberta automática de máquinas virtuais VMware.<br/><br/> À medida que a implantação cresce, você pode adicionar outros servidores de processo dedicados separados para lidar com o aumento do volume de tráfego de replicação.
- **Servidor de destino mestre** | Instalado por padrão no servidor de configuração local. | Lida com os dados de replicação durante o failback do Azure.<br/><br/> Se os volumes de tráfego de failback forem altos, você poderá implantar um servidor de destino mestre separado para failback.
-**Servidores VMware** | VMs VMware são hospedadas em servidores ESXi vSphere, e recomendamos que um servidor vCenter gerencie os hosts. | Adicione servidores VMware ao seu cofre dos Serviços de Recuperação.
-**Computadores replicados** | O serviço de Mobilidade será instalado em cada VM VMware que você deseja replicar. Ele pode ser instalado manualmente em cada computador ou com uma instalação por push do servidor de processo.
+**As tabelas** | No Azure, você precisa de uma conta do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Dados replicados são armazenados na conta de armazenamento hello e VMs do Azure são criadas com dados replicado de saudação quando ocorrer failover do seu site local. Olá VMs do Azure conectar toohello rede virtual do Azure quando eles são criados.
+**Servidor de configuração** | Um único servidor de gerenciamento (VMWare VM) que executa todos os componentes de local de saudação que são necessárias para a implantação de hello, incluindo o servidor de configuração de saudação, o servidor de processo, o servidor de destino mestre local | componente de servidor de configuração de saudação coordena as comunicações entre o local e o Azure e gerencia a replicação de dados.
+ **Servidor de processo**:  | Instalado por padrão no servidor de configuração de saudação. | Atua como um gateway de replicação. Recebe dados de replicação, otimizá-lo com o cache, a compactação e criptografia e envia tooAzure armazenamento.<br/><br/> servidor de processo Olá também lida com a instalação por push de máquinas de tooprotected de serviço de mobilidade hello e executa a descoberta automática de máquinas virtuais do VMware.<br/><br/> À medida que aumenta sua implantação, você pode adicionar mais processo dedicado separado servidores toohandle aumentar os volumes de tráfego de replicação.
+ **Servidor de destino mestre** | Instalado por padrão no servidor de configuração local hello. | Lida com os dados de replicação durante o failback do Azure.<br/><br/> Se os volumes de tráfego de failback forem altos, você poderá implantar um servidor de destino mestre separado para failback.
+**Servidores VMware** | Máquinas virtuais do VMware são hospedadas em servidores de ESXi do vSphere, e é recomendável um vCenter hosts de saudação do servidor toomanage. | Adicione o Cofre de serviços de recuperação de tooyour de servidores do VMware.
+**Computadores replicados** | Olá serviço de mobilidade será instalado em cada máquina virtual que você deseja tooreplicate VMware. Ele pode ser instalado manualmente em cada computador, ou com uma instalação por push saudação do servidor de processo.
 
-Saiba mais sobre os pré-requisitos de implantação e os requisitos para cada um desses componentes na [matriz de suporte](site-recovery-support-matrix-to-azure.md).
+Saiba mais sobre os pré-requisitos de implantação de saudação e requisitos para cada um desses componentes de saudação [matriz de suporte](site-recovery-support-matrix-to-azure.md).
 
-**Figura 1: VMware para componentes do Azure**
+**Figura 1: VMware tooAzure componentes**
 
 ![Componentes](./media/site-recovery-components/arch-enhanced.png)
 
 ## <a name="replication-process"></a>Processo de replicação
 
-1. Configure a implantação, incluindo os componentes do Azure e um cofre dos Serviços de Recuperação. No cofre, você especifica a origem da replicação e o destino, configura o servidor de configuração, adiciona servidores VMware, cria uma política de replicação, implanta o serviço de mobilidade, habilita a replicação e executa um teste de failover.
-2.  As máquinas iniciam a replicação de acordo com a política de replicação, e uma cópia inicial dos dados é replicada para o armazenamento do Azure.
-4. A replicação de alterações delta para o Azure começa após a replicação inicial terminar. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
-    - As máquinas que estão sendo replicadas se comunicam com o servidor de configuração na porta HTTPS 443 de entrada para o gerenciamento de replicação.
-    - As máquinas que estão sendo replicadas enviam dados de replicação para o servidor de processo na porta 9443 HTTPS de entrada (pode ser configurada).
-    - O servidor de configuração coordena o gerenciamento de replicação com o Azure pela porta HTTPS 443 de saída.
-    - O servidor de processo recebe dados de máquinas de origem, otimiza-os e criptografa-os e os envia para o armazenamento do Azure pela porta 443 de saída.
-    - Se você habilitar a consistência de várias VMS, as máquinas no grupo de replicação se comunicarão entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Isso é útil se os computadores estão executando a mesma carga de trabalho e precisam ser consistentes.
-5. O tráfego é replicado para pontos de extremidade públicos do armazenamento do Azure, pela Internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#public-peering) do Azure ExpressRoute. Não há suporte para a replicação do tráfego através de uma VPN de site a site de um site local para o Azure.
+1. Configurar implantação hello, incluindo componentes do Azure e um cofre de serviços de recuperação. No cofre Olá você especificar origem da replicação hello e destino, configurar o servidor de configuração Olá, adicionar servidores VMware, crie uma política de replicação, implantar o serviço de mobilidade Olá, habilitar a replicação e executar um failover de teste.
+2.  Máquinas iniciam a replicação de acordo com a política de replicação Olá, e uma cópia inicial dos dados de saudação é replicado tooAzure armazenamento.
+4. A replicação de tooAzure de alterações delta começa após a conclusão da replicação inicial de saudação. As alterações acompanhadas para uma máquina são mantidas em um arquivo .hrl.
+    - Replicadas máquinas se comunicar com servidor de configuração de saudação na porta HTTPS 443 entrada para o gerenciamento de replicação.
+    - Replicadas máquinas enviam servidor de processo de toohello de dados de replicação na porta HTTPS 9443 entrada (pode ser configurado).
+    - servidor de configuração de saudação orquestra o gerenciamento de replicação com o Azure através da porta HTTPS 443 de saída.
+    - servidor de processo Olá recebe dados de máquinas de origem, otimiza criptografa e envia tooAzure armazenamento pela porta 443 saída.
+    - Se você habilitar a consistência de várias VMs, em seguida, máquinas no grupo de replicação Olá comunicam entre si pela porta 20004. Várias VMS serão usadas se você agrupar vários computadores em grupos de replicação que compartilham pontos de recuperação consistentes com o aplicativo e com falhas ao realizar o failover. Isso é útil se estiver executando máquinas Olá a mesma carga de trabalho e precisam toobe consistente.
+5. O tráfego é replicado tooAzure armazenamento pontos de extremidade públicos, mais Olá da internet. Como alternativa, você pode usar o [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#public-peering) do Azure ExpressRoute. Replicação do tráfego por uma VPN site a site de um tooAzure de site local não tem suporte.
 
-**Figura 2: replicação do VMware para o Azure**
+**Figura 2: VMware tooAzure replicação**
 
 ![Avançado](./media/site-recovery-components/v2a-architecture-henry.png)
 
 ## <a name="failover-and-failback-process"></a>Processo de failover e failback
 
-1. Depois de verificar que o teste de failover está funcionando conforme o esperado, execute failovers não planejados para o Azure conforme o necessário. Não há suporte para failover planejado.
-2. Faça o failover de um único computador, ou crie [planos de recuperação](site-recovery-create-recovery-plans.md) para realizar o failover de várias VMs.
-3. Ao executar um failover, VMs de réplica são criadas no Azure. Você confirma um failover para começar a acessar a carga de trabalho por meio da VM do Azure de réplica.
-4. Quando o site primário local estiver disponível novamente, você poderá executar o failback. Você configura uma infraestrutura de failback, inicia a replicação da máquina do site secundário para o primário e executa um failover não planejado do site secundário. Depois que você confirmar esse failover, os dados estarão novamente no local e será necessário habilitar a replicação no Azure de novo. [Saiba mais](site-recovery-failback-azure-to-vmware.md)
+1. Depois de verificar que se o failover de teste está funcionando como esperado, você pode executar failovers não planejados tooAzure conforme necessário. Não há suporte para failover planejado.
+2. Você pode fazer o failover de um único computador ou criar [planos de recuperação](site-recovery-create-recovery-plans.md), toofail entre várias VMs.
+3. Ao executar um failover, VMs de réplica são criadas no Azure. Você pode confirmar uma failover toostart acessando Olá carga de trabalho da réplica Olá VM do Azure.
+4. Quando o site primário local estiver disponível novamente, você poderá executar o failback. Configurar uma infra-estrutura de failback, iniciar a replicação de máquina de saudação do hello site secundário toohello primário e executar um failover não planejado do site secundário hello. Após você confirmar esse failover, dados serão back local e você precisa tooenable replicação tooAzure novamente. [Saiba mais](site-recovery-failback-azure-to-vmware.md)
 
 Há alguns requisitos de failback:
 
 
-- **Servidor de processo temporário no Azure**: se você deseja fazer failback do Azure após o failover, precisa criar uma VM do Azure configurada como um servidor de processo para lidar com a replicação do Azure. Você pode excluir a VM após a conclusão do failback.
-- **Conexão de VPN**: em caso de failback, você precisará de uma conexão de VPN (ou Azure ExpressRoute) configurada da rede do Azure para o site local.
-- **Servidor de destino mestre separado local**: o servidor de destino mestre local lida com o failback. O servidor de destino mestre está instalado por padrão no servidor de gerenciamento, mas se você estiver fazendo failback de volumes de tráfego maiores, deverá configurar um servidor de destino mestre separado local com essa finalidade.
-- **Política de failback**: para replicar volta para seu site local, você precisa de uma política de failback. Isso é criado automaticamente quando você cria sua política de replicação.
-- **Infraestrutura VMware**: você deve fazer failback para uma VM VMware local. Isso significa que você precisa de uma infraestrutura VMware no local, mesmo se estiver replicando servidores físicos do local para o Azure.
+- **Servidor de processo temporário no Azure**: se você quiser toofail do Azure após o failover, você precisará tooset a uma VM do Azure configurado como um servidor de processo, a replicação toohandle do Azure. Você pode excluir a VM após a conclusão do failback.
+- **Conexão VPN**: para failback, você precisará de uma conexão VPN (ou rota expressa do Azure) configurar de saudação do Azure rede toohello no site local.
+- **O servidor de destino mestre local separado**: servidor de destino mestre local Olá manipula failback. o servidor de destino mestre Olá é instalado por padrão no servidor de gerenciamento hello, mas se você estiver falhando volta maiores volumes de tráfego de você deve configurar um servidor de destino mestre local separado para essa finalidade.
+- **Diretiva de failback**: tooyour back tooreplicate site local, você precisará de uma política de failback. Isso é criado automaticamente quando você cria sua política de replicação.
+- **O VMware infrastructure**: você deve realizar failback tooan de VM do VMware no local. Isso significa que você precisa de uma infra-estrutura de VMware no local, mesmo se você estiver replicando tooAzure de servidores físicos no local.
 
 **Figura 3: failback físico/de VMware**
 
@@ -92,4 +92,4 @@ Há alguns requisitos de failback:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine a [matriz de suporte](site-recovery-support-matrix-to-azure.md)
+Saudação de revisão [matriz de suporte](site-recovery-support-matrix-to-azure.md)

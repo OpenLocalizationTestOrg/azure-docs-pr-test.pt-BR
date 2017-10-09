@@ -1,0 +1,2 @@
+Este tutorial orienta você na criação de solução Olá Olá portal do Azure. Se você estiver interessado em criar essa solução de um modelo, escolha o modelo apropriado de saudação do [GitHub do Microsoft Azure modelos](http://github.com/Azure/azure-quickstart-templates). Olá [criar um grupo de disponibilidade com máquinas virtuais da réplica do SQL Server 2014](http://github.com/Azure/azure-quickstart-templates/tree/master/sqlvm-alwayson-cluster) modelo cria Olá mesma solução que este tutorial. 
+

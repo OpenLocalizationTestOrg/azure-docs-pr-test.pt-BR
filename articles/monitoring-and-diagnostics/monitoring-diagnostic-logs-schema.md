@@ -1,6 +1,6 @@
 ---
-title: "Serviços e esquemas com suporte para os logs de diagnóstico do Azure | Microsoft Docs"
-description: "Compreenda o esquema de serviços e eventos com suporte para Logs de Diagnóstico do Azure."
+title: "aaaAzure serviços de suporte de Logs de diagnóstico e esquemas | Microsoft Docs"
+description: "Entenda Olá com suporte a serviços e esquema de evento para Logs de diagnóstico do Azure."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.openlocfilehash: aa4fa6e0310b2725005dfa34e3225c89fb4282d6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a3cbf5267e1bd0dc257f4fb4f42c323644046a6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure
 
-Os [logs de diagnóstico de recursos do Azure](monitoring-overview-of-diagnostic-logs.md) são emitidos por seus recursos do Azure que descrevem a operação do recurso. Esses logs são específicos do tipo de recurso. Neste artigo, vamos descrever o conjunto de serviços com suporte e o esquema de evento para os eventos emitidos por cada serviço. Este artigo também inclui uma lista completa das categorias de log disponíveis por tipo de recurso.
+[Logs de diagnóstico do Azure resource](monitoring-overview-of-diagnostic-logs.md) são emitidos por seus recursos do Azure que descrevem a operação de saudação do recurso de logs. Esses logs são específicos do tipo de recurso. Neste artigo, descrevemos o conjunto de saudação do esquema com suporte de serviços e eventos de eventos emitidas por cada serviço. Este artigo também inclui uma lista completa das categorias de log disponíveis por tipo de recurso.
 
 ## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>Serviços e esquemas com suporte para os logs de diagnóstico de recurso
-O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e da categoria do log.   
+esquema Olá para logs de diagnóstico de recursos varia dependendo de categoria de recurso e o log de saudação.   
 
 | O Barramento de | Esquema e Documentos |
 | --- | --- |
@@ -52,12 +52,12 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
 |Tipo de recurso|Categoria|Nome de exibição da categoria|
 |---|---|---|
-|Microsoft.ApiManagement/service|GatewayLogs|Logs relacionados ao Gateway ApiManagement|
+|Microsoft.ApiManagement/service|GatewayLogs|Logs relacionados tooApiManagement Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Logs de trabalho|
 |Microsoft.Automation/automationAccounts|JobStreams|Transmissões de trabalho|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status do nó DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto de extremidade, como largura de banda, saída etc.|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém a métrica de saudação do ponto de extremidade hello, por exemplo, largura de banda de saída, etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Logs de Auditoria|
 |Microsoft.DataLakeAnalytics/accounts|Solicitações|Logs de solicitação|
@@ -89,6 +89,6 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre logs de diagnóstico](monitoring-overview-of-diagnostic-logs.md)
-* [Transmitir logs de diagnóstico de recurso os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Alterar as configurações de diagnóstico do recurso usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Logs de diagnóstico do recurso de fluxo muito**Hubs de eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Alterar configurações de diagnóstico de recursos usando Olá API de REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Analisar logs do Armazenamento do Azure com o Log Analytics](../log-analytics/log-analytics-azure-storage.md)

@@ -1,6 +1,6 @@
 ---
-title: "Edição facial com o Azure Media Analytics | Microsoft Docs"
-description: "Este tópico demonstra como editar rostos com o Azure Media Analytics."
+title: "as faces aaaRedact com análise de mídia do Azure | Microsoft Docs"
+description: "Este tópico demonstra como tooredact faces com análise de mídia do Azure."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;
-ms.openlocfilehash: 747f3ae1a7484515083c590942de3da22568cd39
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1f5688a8c6374151c526a9c702b904d8c3e46164
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics
 ## <a name="overview"></a>Visão geral
-**Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-redactor/)blog.
+**Redactor de mídia do Azure** é um [análise de mídia do Azure](media-services-analytics-overview.md) processador de mídia (MP) que oferece redação face escalonável na nuvem hello. Redação da face permite que você toomodify o vídeo em faces de tooblur de ordem de pessoas selecionadas. Talvez você queira serviço de redação de face toouse Olá em cenários de segurança e mídia públicos. Alguns minutos do que contém várias faces podem levar horas tooredact manualmente, mas com esta face de saudação do serviço redação processo requer apenas algumas etapas simples. Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-redactor/)blog.
 
-Este tópico fornece detalhes sobre o **Azure Media Redactor** e mostra como usá-lo com o SDK dos Serviços de Mídia para .NET.
+Este tópico fornece detalhes sobre **Redactor de mídia do Azure** e mostra como toouse com o SDK do Media Services para .NET.
 
-No momento, o MP do **Azure Media Redactor** está em versão de Visualização. Ele está disponível em todas as regiões públicas do Azure, bem como em data centers do Governo dos EUA e da China. Esta visualização está disponível gratuitamente no momento. 
+Olá **Redactor de mídia do Azure** MP está atualmente em visualização. Ele está disponível em todas as regiões públicas do Azure, bem como em data centers do Governo dos EUA e da China. Esta visualização está disponível gratuitamente no momento. 
 
 ## <a name="face-redaction-modes"></a>Modos de edição facial
-A edição facial trabalha detectando rostos em cada quadro de vídeo e controlando o objeto de rosto para frente e para trás no tempo, para que a mesma pessoa possa ser desfocada também de outros ângulos. O processo de edição automatizada é muito complexo e nem sempre produz 100% do resultado desejado. Portanto, o Media Analytics oferece duas maneiras de modificar o resultado final.
+Redação facial funciona Detectando as faces em cada quadro de vídeo e controle face Olá objeto ambos frente e para trás no tempo, para que hello mesma pessoa pode ser indefinida de outros ângulos também. Olá processo automatizado de redação é muito complexo e não produzir sempre 100% de saída desejada, por esse motivo, que análise de mídia oferece duas maneiras saída final de saudação toomodify.
 
-Além de um modo totalmente automatizado, há um fluxo de trabalho de duas etapas que permite a seleção de rostos e a desmarcação de rostos selecionados usando uma lista de IDs. Além disso, para fazer ajustes avulsos por quadro, o MP usa um arquivo de metadados no formato JSON. Esse fluxo de trabalho é dividido nos modos **Analisar** e **Editar**. Você pode combinar os dois modos em uma única passagem que executa ambas as tarefas em um mesmo trabalho. Esse modo é chamado **Combinado**.
+No modo totalmente automático de tooa de adição, há um fluxo de trabalho de dois passos que permite Olá seleção de/de-selection de faces encontradas por meio de uma lista de IDs. Além disso, toomake arbitrário por saudação ajustes de quadro MP usa um arquivo de metadados no formato JSON. Esse fluxo de trabalho é dividido nos modos **Analisar** e **Editar**. Você pode combinar dois modos de saudação em uma única passagem que executa ambas as tarefas em um trabalho; Esse modo é chamado **combinada**.
 
 ### <a name="combined-mode"></a>Modo Combinado
 Esse procedimento produzirá um mp4 editado automaticamente sem qualquer entrada manual.
@@ -49,14 +49,14 @@ Esse procedimento produzirá um mp4 editado automaticamente sem qualquer entrada
 [veja este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>Modo Analisar
-A etapa **Analisar** do fluxo de trabalho de duas etapas utiliza uma entrada de vídeo e produz um arquivo JSON com a localização dos rostos, e imagens jpg de cada rosto detectado.
+Olá **analisar** passagem de fluxo de trabalho de dois passos Olá utiliza uma entrada de vídeo e produz um arquivo JSON de locais de face e jpg imagens de cada detectado face.
 
 | Estágio | Nome do Arquivo | Observações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4 |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'analyze'}} |
-| Ativo de saída |foo_annotations.json |Dados de anotação da localização dos rostos no formato JSON. Isso pode ser editado pelo usuário para modificar as caixas delimitadoras de desfoque. Confira o exemplo abaixo. |
-| Ativo de saída |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Um jpg cortado de cada rosto detectado, em que o número indica o labelId do rosto |
+| Ativo de saída |foo_annotations.json |Dados de anotação da localização dos rostos no formato JSON. Isso pode ser editado por obscurecendo no saudação do toomodify de usuário Olá caixas delimitadoras. Confira o exemplo abaixo. |
+| Ativo de saída |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Jpg cortada de cada detectado face, onde o número de saudação indica labelId Olá da face Olá |
 
 #### <a name="output-example"></a>Exemplo de saída:
 
@@ -108,22 +108,22 @@ A etapa **Analisar** do fluxo de trabalho de duas etapas utiliza uma entrada de 
     … truncated
 
 ### <a name="redact-mode"></a>Modo de edição
-A segunda etapa do fluxo de trabalho tem um grande número de entradas que precisam ser combinadas em um único ativo.
+segundo de aprovação de fluxo de trabalho Olá Olá entra em um grande número de entradas que devem ser combinados em um único ativo.
 
-Isso inclui uma lista de IDs a serem desfocados, o vídeo original e o JSON de anotações. Esse modo usa as anotações para aplicar desfoque ao vídeo de entrada.
+Isso inclui uma lista de IDs tooblur vídeo original hello e anotações Olá JSON. Esse modo usa Olá anotações tooapply obscurecendo no vídeo de entrada hello.
 
-O resultado da etapa Analisar não inclui o vídeo original. O vídeo precisa ser carregado no ativo de entrada para a tarefa do modo Editar e selecionado como o arquivo primário.
+Hello saída da passagem de analisar Olá não incluir vídeo original hello. Olá vídeo precisa toobe carregado no ativo de entrada hello para tarefas de modo Redact hello e marcada como arquivo principal hello.
 
 | Estágio | Nome do Arquivo | Observações |
 | --- | --- | --- |
 | Ativo de entrada |foo.bar |Vídeo em formato WMV, MPV ou MP4. O mesmo vídeo da etapa 1. |
 | Ativo de entrada |foo_annotations.json |arquivo de metadados de anotações da fase 1, com modificações opcionais. |
-| Ativo de entrada |foo_IDList.txt (opcional) |Nova lista opcional separada por linhas de IDs de rostos para editar. Se deixado em branco, todas as faces são desfocadas. |
+| Ativo de entrada |foo_IDList.txt (opcional) |Nova linha opcional lista separada de face tooredact IDs. Se deixado em branco, todas as faces são desfocadas. |
 | Configuração de entrada |Predefinição de configuração de tarefa |{'version':'1.0', 'options': {'mode':'redact'}} |
 | Ativo de saída |foo_redacted.mp4 |Vídeo com desfoque aplicado com base nas anotações |
 
 #### <a name="example-output"></a>Saída de exemplo
-É a saída de uma IDList com uma ID selecionada.
+Esta é a saída de saudação de um IDList com uma ID de selecionada.
 
 [veja este vídeo](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
@@ -135,9 +135,9 @@ foo_IDList.txt de exemplo
 
 ## <a name="blur-types"></a>Tipos de desfoque
 
-No modo **Combinado** ou **Redação**, há cinco modos de desfoque diferentes à sua escolha por meio da configuração de entrada JSON: **Baixo**, **Med**, **Alto**, **Depurar** e **Preto**. Por padrão, **Med** é usado.
+Em Olá **combinada** ou **Redact** modo, há 5 modos de desfoque diferentes, você pode escolher por meio da configuração de entrada hello JSON: **baixo**, **Med**, **Alta**, **depurar**, e **preto**. Por padrão, **Med** é usado.
 
-Encontre exemplos dos tipos de desfoque abaixo.
+Você pode encontrar exemplos de saudação desfoque tipos abaixo.
 
 ### <a name="example-json"></a>Exemplo de JSON:
 
@@ -163,25 +163,25 @@ Encontre exemplos dos tipos de desfoque abaixo.
 
 ![Preto](./media/media-services-face-redaction/blur5.png)
 
-## <a name="elements-of-the-output-json-file"></a>Elementos do arquivo JSON de saída
+## <a name="elements-of-hello-output-json-file"></a>Elementos Olá JSON do arquivo de saída
 
-O MP de edição fornece detecção facial e acompanhamento de alta precisão local de até 64 rostos humanos em um quadro de vídeo. Faces frontais fornecem os melhores resultados, enquanto as faces laterais e faces pequenas (menores ou iguais a 24x24 pixels) têm resultados menos precisos.
+Olá MP de redação fornece controle que pode detectar o too64 as faces humana em um quadro de vídeo e detecção de local de face de alta precisão. Faces frontais fornecem Olá obter melhores resultados, enquanto as faces lado e faces pequenas (menor que ou igual a too24x24 pixels) são um desafio.
 
 [!INCLUDE [media-services-analytics-output-json](../../includes/media-services-analytics-output-json.md)]
 
 ## <a name="net-sample-code"></a>Código de exemplo do .NET
 
-O programa a seguir mostra como:
+a seguir Olá programa mostra como:
 
-1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
-2. Criar um trabalho com uma tarefa de edição facial baseada em um arquivo de configuração que contém a predefinição de JSON a seguir. 
+1. Criar um ativo e carregar um arquivo de mídia no ativo de saudação.
+2. Crie um trabalho com uma tarefa de redação de face com base em um arquivo de configuração que contém Olá predefinição json a seguir. 
    
         {'version':'1.0', 'options': {'mode':'combined'}}
-3. Baixe os arquivos JSON de saída. 
+3. Baixe os arquivos de saída do JSON hello. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
+Configurar seu ambiente de desenvolvimento e preencher o arquivo App. config de saudação com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exemplo
 
@@ -197,7 +197,7 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
     {
         class Program
         {
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -213,17 +213,17 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-            // Run the FaceRedaction job.
+            // Run hello FaceRedaction job.
             var asset = RunFaceRedactionJob(@"C:\supportFiles\FaceRedaction\SomeFootage.mp4",
                         @"C:\supportFiles\FaceRedaction\config.json");
 
-            // Download the job output asset.
+            // Download hello job output asset.
             DownloadAsset(asset, @"C:\supportFiles\FaceRedaction\Output");
         }
 
         static IAsset RunFaceRedactionJob(string inputMediaFilePath, string configurationFile)
         {
-            // Create an asset and upload the input media file to storage.
+            // Create an asset and upload hello input media file toostorage.
             IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
             "My Face Redaction Input Asset",
             AssetCreationOptions.None);
@@ -231,38 +231,38 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
             // Declare a new job.
             IJob job = _context.Jobs.Create("My Face Redaction Job");
 
-            // Get a reference to Azure Media Redactor.
+            // Get a reference tooAzure Media Redactor.
             string MediaProcessorName = "Azure Media Redactor";
 
             var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-            // Read configuration from the specified file.
+            // Read configuration from hello specified file.
             string configuration = File.ReadAllText(configurationFile);
 
-            // Create a task with the encoding details, using a string preset.
+            // Create a task with hello encoding details, using a string preset.
             ITask task = job.Tasks.AddNew("My Face Redaction Task",
             processor,
             configuration,
             TaskOptions.None);
 
-            // Specify the input asset.
+            // Specify hello input asset.
             task.InputAssets.Add(asset);
 
-            // Add an output asset to contain the results of the job.
+            // Add an output asset toocontain hello results of hello job.
             task.OutputAssets.AddNew("My Face Redaction Output Asset", AssetCreationOptions.None);
 
-            // Use the following event handler to check job progress.  
+            // Use hello following event handler toocheck job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-            // Launch the job.
+            // Launch hello job.
             job.Submit();
 
-            // Check job execution and wait for job to finish.
+            // Check job execution and wait for job toofinish.
             Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
             progressJobTask.Wait();
 
-            // If job state is Error, the event handling
+            // If job state is Error, hello event handling
             // method for job progress should log errors.  Here we check
             // for error state and exit if needed.
             if (job.State == JobState.Error)

@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 9/17/15-->
 
 
-#### <a name="to-get-the-storsimple-service-registration-key"></a>Para obter a chave de registro do serviço StorSimple
-1. Na página **Serviço StorSimple Manager** , clique no serviço que você criou. Isso o levará para a página de **Início Rápido** . (Você pode clicar no ícone de início rápido ![Ícone de Início Rápido do StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png) para acessar a página **Início Rápido** a qualquer momento.)
+#### <a name="tooget-hello-storsimple-service-registration-key"></a>chave de registro de serviço do tooget Olá StorSimple
+1. Em Olá **o serviço StorSimple Manager** , clique em serviço Olá que você criou. Isso o levará toohello **início rápido** página. (Você pode clicar em ícone de início rápido de saudação ![ícone de início rápido do StorSimple ](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png) tooaccess Olá **início rápido** página a qualquer momento.)
    
      ![Página de Início Rápido do StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_ServiceQuickStart-gov-include.png)
-2. Clique em **Obter a chave de registro do serviço**. Você também pode clicar em **Chave do Registro** na parte inferior da página. Você precisará aguardar alguns minutos enquanto a chave é recuperada. A caixa de diálogo **Chave de Registro do Serviço** é exibida.
+2. Clique em **Obter a chave de registro do serviço**. Você também pode clicar em **chave de registro** final Olá Olá página. Você terá toowait por alguns minutos enquanto Olá chave é recuperada. Olá **chave de registro de serviço** caixa de diálogo é exibida.
    
      ![Caixa de diálogo da Chave de Registro do serviço](./media/storsimple-get-service-registration-key-gov/HCS_ServiceRegistrationKey-gov-include.png)
-3. Localize a chave de registro.
-4. Clique no ícone de copiar  ![Ícone de Copiar do StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png) para copiar a chave e salvá-la para uso posterior.
-5. Clique no ícone de verificação ![Ícone de Verificação do StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png) para fechar essa caixa de diálogo e retornar para a página **Início Rápido** .
+3. Localize a chave de registro do serviço de saudação.
+4. Clique em ícone para copiar Olá ![Ícone de Copiar do StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png) toocopy Olá chave e salvá-lo para uso posterior.
+5. Clique o ícone de verificação Olá ![ícone de verificação de StorSimple](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png) tooclose essa caixa de diálogo e retorno toohello **início rápido** página.
 
 > [!NOTE]
-> A chave de registro de serviço é usada para registrar todos os dispositivos que precisam se registrar no serviço StorSimple Manager.
+> Olá, chave de registro de serviço é usado tooregister Olá a todos os dispositivos que necessitam de tooregister com seu serviço StorSimple Manager.
 > 
 > 
 

@@ -1,0 +1,5 @@
+## <a name="scenario"></a>Cenário
+Este documento orientará durante uma implantação que usa várias NICs em máquinas virtuais em um cenário específico. Nesse cenário, você tem uma carga de trabalho de IaaS em duas camadas hospedadas no Azure. Cada camada é implantada na sua própria sub-rede em uma rede virtual (VNet). camada de front-end de saudação é composta de vários servidores web, agrupados em um balanceador de carga definido para alta disponibilidade. camada de back-end de saudação é composta de vários servidores de banco de dados. Esses servidores de banco de dados serão implantados com duas NICs de cada um, uma para acesso de banco de dados, hello outros para gerenciamento. cenário de saudação também inclui grupos de segurança de rede (NSGs) toocontrol o tráfego é permitido tooeach sub-rede e NIC na implantação de saudação. Olá figura a seguir mostra a arquitetura básica Olá deste cenário.  
+
+![Cenário de MultiNIC](./media/virtual-network-deploy-multinic-scenario-include/Figure1.png)
+

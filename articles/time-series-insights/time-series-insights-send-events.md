@@ -1,6 +1,6 @@
 ---
-title: "Enviar eventos para um ambiente de Análise de Séries Temporais do Azure | Microsoft Docs"
-description: "Este tutorial aborda as etapas enviar eventos para seu ambiente de Análise de Séries Temporais por push"
+title: "ambiente de tempo série Insights aaaSend eventos tooAzure | Microsoft Docs"
+description: "Este tutorial apresenta o ambiente de informações da série de tempo de tooyour Olá etapas toopush eventos"
 keywords: 
 services: tsi
 documentationcenter: 
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dbccc23f61351a0033cd48c1a02fb3841b45d560
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envie eventos para um ambiente de Análise de Séries Temporais usando o hub de eventos
+# <a name="send-events-tooa-time-series-insights-environment-using-event-hub"></a>Enviar o ambiente de informações da série de tempo de tooa eventos usando o hub de eventos
 
-Este tutorial explica como criar e configurar o hub de eventos e executa um aplicativo de exemplo para enviar eventos. Se você tiver um hub de eventos existente com eventos no formato JSON, ignore este tutorial e exibir seu ambiente na [análise de séries temporais](https://insights.timeseries.azure.com).
+Este tutorial explica como toocreate configurar hub de eventos e executar um toopush do aplicativo de exemplo de eventos. Se você tiver um hub de eventos existente com eventos no formato JSON, ignore este tutorial e exibir seu ambiente na [análise de séries temporais](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Configurar um hub de eventos
-1. Para criar um hub de eventos, siga as instruções na [documentação](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) sobre Hub de Eventos.
+1. toocreate um hub de eventos, siga as instruções do Hub de eventos de saudação [documentação](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 2. Certifique-se de criar um grupo de consumidores que é usado exclusivamente pela sua origem de evento de Análise de Séries Temporais.
 
   > [!IMPORTANT]
-  > Verifique se esse grupo de consumidores não é usado por qualquer outro serviço (como um trabalho do Stream Analytics ou outro ambiente de Análise de Séries Temporais). Se o grupo de consumidores é usado por outros serviços, a operação de leitura é prejudicada para esse ambiente e outros serviços. Se você estiver usando "$Default" como o grupo de consumidores, isso pode levar à potencial reutilização por outros leitores.
+  > Verifique se esse grupo de consumidores não é usado por qualquer outro serviço (como um trabalho do Stream Analytics ou outro ambiente de Análise de Séries Temporais). Se o grupo de consumidores é usado por outros serviços, leia a operação é afetada negativamente para esse ambiente e Olá outros serviços. Se você estiver usando "$Default" como o grupo de consumidores hello, isso pode levar a reutilização de toopotential por outros leitores.
 
   ![Selecione o grupo de consumidores do hub de eventos](media/send-events/consumer-group.png)
 
-3. No hub de eventos, crie "MySendPolicy" que é usado para enviar eventos no exemplo csharp.
+3. No hub de eventos hello, crie "MySendPolicy" que é usado toosend eventos no exemplo do hello csharp.
 
   ![Selecione Políticas de acesso compartilhado e clique no botão Adicionar](media/send-events/shared-access-policy.png)  
 
   ![Adicione uma política de acesso compartilhado](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Criar origem de evento de Análise de Séries Temporais
-1. Se você ainda não criou a origem do evento, siga [estas instruções](time-series-insights-add-event-source.md) para criar uma origem de evento.
+1. Se você não criou uma fonte de evento, execute [estas instruções](time-series-insights-add-event-source.md) toocreate uma fonte de evento.
 
-2. Especifique "deviceTimestamp" como o nome da propriedade de carimbo de data/hora – esta propriedade é usada como o carimbo de data/hora real no exemplo csharp. O nome da propriedade de carimbo de data/hora diferencia maiúsculas de minúsculas e os valores precisam seguir o formato __aaaa-MM-ddTHH:mm:ss.FFFFFFFK__ quando enviado como JSON ao hub de eventos. Se a propriedade não existir no evento, o tempo de enfileiramento do hub de eventos será usado.
+2. Especifique "deviceTimestamp" como nome de propriedade de carimbo de hora hello – essa propriedade é usada como Olá carimbo de hora real no exemplo de csharp hello. nome da propriedade timestamp Olá diferencia maiusculas de minúsculas e os valores devem seguir o formato de saudação __AAAA-MM-ddTHH. FFFFFFFK__ quando enviado como o hub de tooevent JSON. Se a propriedade Olá não existe no evento Olá, em seguida, hello tempo de enfileiramento do hub de eventos é usado.
 
   ![Criar uma origem de eventos](media/send-events/event-source-1.png)
 
-## <a name="sample-code-to-push-events"></a>Código de exemplo para enviar eventos por push
-1. Vá para a política de hub de eventos "MySendPolicy" e copie a cadeia de conexão com a chave da política.
+## <a name="sample-code-toopush-events"></a>Eventos de toopush de código de exemplo
+1. Vá toohello política de hub de eventos "MySendPolicy" e copie a cadeia de caracteres de conexão de saudação com a chave de política hello.
 
   ![Copie a cadeia de conexão MySendPolicy](media/send-events/sample-code-connection-string.png)
 
-2. Execute o seguinte código para enviar 600 eventos a cada um dos três dispositivos. Atualize `eventHubConnectionString` com a sua cadeia de conexão.
+2. Execute Olá código a seguir que os eventos toosend 600 por cada um dos dispositivos Olá três. Atualize `eventHubConnectionString` com a sua cadeia de conexão.
 
 ```csharp
 using System;
@@ -113,7 +113,7 @@ namespace Microsoft.Rdx.DataGenerator
                 sw.Flush();
                 ms.Position = 0;
 
-                // Send JSON to event hub.
+                // Send JSON tooevent hub.
                 EventData eventData = new EventData(ms);
                 eventHubClient.Send(eventData);
             }
@@ -144,7 +144,7 @@ Um objeto JSON simples.
 ### <a name="sample-2"></a>Exemplo 2
 
 #### <a name="input"></a>Entrada
-Uma matriz JSON com dois objetos JSON. Cada objeto JSON será convertido em um evento.
+Uma matriz JSON com dois objetos JSON. Cada objeto JSON será convertido tooan eventos.
 ```json
 [
     {
@@ -185,7 +185,7 @@ Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON.
 
 ```
 #### <a name="output---2-events"></a>Saída - 2 eventos
-Observe que a propriedade "location" é copiada para cada evento.
+Observe que a propriedade hello "local" é copiada por tooeach de evento de saudação.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -196,7 +196,7 @@ Observe que a propriedade "location" é copiada para cada evento.
 
 #### <a name="input"></a>Entrada
 
-Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa entrada demonstra que as propriedades globais podem ser representadas pelo objeto JSON complexo.
+Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa entrada demonstra que propriedades globais Olá podem ser representadas pelo objeto JSON complexo de saudação.
 
 ```json
 {

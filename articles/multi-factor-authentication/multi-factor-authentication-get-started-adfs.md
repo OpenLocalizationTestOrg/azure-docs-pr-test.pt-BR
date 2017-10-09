@@ -1,6 +1,6 @@
 ---
-title: "Verificação em duas etapas e AD FS - Azure MFA | Microsoft Docs"
-description: "Esta é a página do Azure Multi-Factor Authentication que descreve como começar a usar o Azure MFA e o AD FS."
+title: "verificação de aaaTwo etapa e o AD FS - Azure MFA | Microsoft Docs"
+description: "Esta é hello Azure multi-Factor authentication página que descreve como tooget iniciada com o Azure MFA e AD FS."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/23/2017
 ms.author: kgremban
-ms.openlocfilehash: 28aede545c738137ff04257214e4a3f42792d85c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7c1c925039d3cb753ba60e286168e5869faeae4d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Introdução ao Azure Multi-Factor Authentication e aos Serviços de Federação do Active Directory
 <center>![Nuvem](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
@@ -28,22 +28,22 @@ Caso organização tenha federado seu Active Directory local com o Azure Active 
 * Proteger os recursos de nuvem usando o Azure Multi-Factor Authentication ou os Serviços de Federação do Active Directory
 * Proteger os recursos de nuvem e locais usando o Servidor Azure Multi-Factor Authentication
 
-A tabela a seguir resume a experiência de verificação entre a proteção dos recursos com a Autenticação Multifator do Azure e o AD FS
+Olá a tabela a seguir resume a experiência de verificação de saudação entre a captação de recursos com autenticação multifator do Azure e o AD FS
 
 | Experiência de verificação – Aplicativos baseados em navegador | Experiência de verificação – Aplicativos não baseados em navegador |
 |:--- |:--- |:--- |
-| Protegendo os recursos do AD do Azure usando o Azure Multi-Factor Authentication |<li>A primeira etapa de verificação é executada localmente usando o AD FS.</li> <li>A segunda etapa é um método baseado em telefone executado com a autenticação na nuvem.</li> |
-| Protegendo recursos do AD do Azure usando os Serviços de Federação do Active Directory |<li>A primeira etapa de verificação é executada localmente usando o AD FS.</li><li>A segunda etapa é realizada localmente, cumprindo a declaração.</li> |
+| Protegendo os recursos do AD do Azure usando o Azure Multi-Factor Authentication |<li>Olá a primeira etapa de verificação é realizada usando o AD FS no local.</li> <li>Olá segunda etapa é um método baseado em telefone realizado usando a autenticação de nuvem.</li> |
+| Protegendo recursos do AD do Azure usando os Serviços de Federação do Active Directory |<li>Olá a primeira etapa de verificação é realizada usando o AD FS no local.</li><li>Olá segunda etapa é realizado no local, cumprindo a declaração de saudação.</li> |
 
 Advertências sobre senhas de aplicativo para usuários federados:
 
 * Senhas de aplicativo são verificadas usando a autenticação na nuvem e, portanto, ignora as federações. A federação só é usada ativamente ao configurar a senha de aplicativo.
 * As configurações do Controle de Acesso do Cliente local não são consideradas pela Senha de aplicativo.
 * Você perde a capacidade de registro de autenticação local para senha de aplicativo.
-* A desabilitação/exclusão da conta pode levar até três horas para a sincronização do diretório, atrasando a desabilitação/exclusão da senha de aplicativo na identidade da nuvem.
+* Desabilitar/excluir a conta pode levar horas toothree para sincronização de diretórios, atrasando o desabilitar/excluir das senhas de aplicativo na identidade de nuvem hello.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações sobre como configurar a Autenticação Multifator do Azure ou o Servidor de Autenticação Multifator do Azure com o AD FS, consulte os artigos:
+Para obter informações sobre como configurar a autenticação multifator do Azure ou Olá servidor Azure multi-Factor Authentication com o AD FS, consulte Olá artigos a seguir:
 
 * [Proteger os recursos de nuvem usando o Azure Multi-Factor Authentication e o AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
 * [Proteger recursos de nuvem e locais usando o Servidor Azure Multi-Factor Authentication com o AD FS do Windows Server 2012 R2](multi-factor-authentication-get-started-adfs-w2k12.md)

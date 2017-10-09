@@ -1,7 +1,7 @@
 ---
 ms.assetid: 
-title: Chaves de conta de Armazenamento do Azure Key Vault
-description: "Chaves da conta de armazenamento fornecem uma integração contínua entre o Azure Key Vault e o acesso baseado em chave para a Conta de Armazenamento do Azure."
+title: aaaAzure chave de Cofre de chaves da conta de armazenamento
+description: "Chaves da conta de armazenamento fornecem uma integração obterá entre o Azure Key Vault e chave de acesso baseado em tooAzure conta de armazenamento."
 ms.topic: article
 services: key-vault
 ms.service: key-vault
@@ -9,23 +9,23 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 07/25/2017
-ms.openlocfilehash: 3148088c88236c64e089fd25c98eb8ac7cdcbfea
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: becdf97798a08164c48d3a7a14aea6ca54085c9a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de Armazenamento do Azure Key Vault
 
-Antes das Chaves de Conta de Armazenamento do Azure Key Vault, os desenvolvedores precisavam gerenciar suas próprias chaves de ASA (Conta de Armazenamento do Azure) e girá-las manualmente ou por meio de um automação externa. Agora, as Chave de Conta de Armazenamento do Key Vault são implementadas como [Segredos do Key Vault](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) para autenticação com uma conta de Armazenamento do Azure. 
+Antes de chaves de conta do armazenamento de Cofre de chave do Azure, os desenvolvedores tinham toomanage suas próprias chaves de conta de armazenamento do Azure (ASA) e girar manualmente ou por meio de um objeto de automação externo. Agora, as Chave de Conta de Armazenamento do Key Vault são implementadas como [Segredos do Key Vault](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) para autenticação com uma conta de Armazenamento do Azure. 
 
-O recurso de chave ASA gerencia a rotação secreta para você e elimina a necessidade de contato direto com uma chave ASA ao oferecer SAS (Assinaturas de Acesso Compartilhado) como um método. 
+recurso principal do Hello ASA gerencia rotação segreda para você e elimina a necessidade de saudação de seu contato direto com uma chave ASA oferecendo assinaturas de acesso compartilhado (SAS) como um método. 
 
 Para obter mais informações gerais sobre Contas de Armazenamento do Azure, consulte [Sobre contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
-O recurso de chaves da Conta de Armazenamento do Azure está inicialmente disponível por meio das interfaces REST, .NET/C# e PowerShell. Para obter mais informações, consulte [Referência do Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Olá recurso de chaves de conta de armazenamento do Azure é inicialmente disponível por meio de saudação REST, .NET / interfaces do c# e do PowerShell. Para obter mais informações, consulte [Referência do Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 
 ## <a name="storage-account-keys-behavior"></a>Comportamento de chaves da conta de armazenamento
@@ -36,11 +36,11 @@ O Key Vault executa várias funções de gerenciamento interno em seu nome quand
 
 1. O Azure Key Vault gerencia chaves de uma ASA (Conta de Armazenamento do Azure). 
     - Internamente, o Azure Key Vault pode listar (sincronizar) chaves com uma Conta de Armazenamento do Azure.  
-    - O Azure Key Vault gera novamente (gira) as chaves periodicamente. 
-    - Os valores de chave nunca são retornados em resposta ao chamador. 
+    - Gera novamente o Cofre de chaves do Azure (gira) Olá chaves periodicamente. 
+    - Valores de chave nunca são retornados na resposta toocaller. 
     - O Azure Key Vault gerencia chaves tanto de Contas de Armazenamento quanto de Contas de Armazenamento Clássicas. 
-2. O Azure Key Vault permite que você, o proprietário do cofre/objeto, crie definições de SAS (SAS de conta ou serviço). 
-    - O valor SAS, criado usando a definição de SAS, é retornado como um segredo por meio do caminho do URI REST. Para obter mais informações, consulte [Operações de conta de armazenamento do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
+2. Cofre de chaves do Azure permite que você, Olá cofre/objeto proprietário, toocreate definições de SAS (conta ou serviço SAS). 
+    - Olá valor SAS, criado usando a definição de SAS, é retornado como um segredo por meio do caminho do URI de REST de saudação. Para obter mais informações, consulte [Operações de conta de armazenamento do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
 
 ### <a name="naming-guidance"></a>Diretrizes de nomenclatura
 
@@ -52,11 +52,11 @@ Um nome de definição de SAS deve ter de 1 a 102 caracteres, contendo somente 0
 
 ### <a name="before-azure-key-vault-storage-keys"></a>Antes das chaves de armazenamento do Azure Key Vault 
 
-Os desenvolvedores costumavam precisar fazer o seguinte com uma chave de conta de armazenamento para obterem acesso ao armazenamento do Azure. 
+Os desenvolvedores usavam tooneed toodo Olá seguir práticas recomendadas com uma conta tooget chave acesso tooAzure de armazenamento. 
  
  ```
 //create storage account using connection string containing account name 
-// and the storage key 
+// and hello storage key 
 
 var storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -65,10 +65,10 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 ### <a name="after-azure-key-vault-storage-keys"></a>Depois das chaves de armazenamento do Azure Key Vault 
 
 ```
-//Please make sure to set storage permissions appropriately on your key vault
+//Please make sure tooset storage permissions appropriately on your key vault
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
 
-//Use PowerShell command to get Secret URI 
+//Use PowerShell command tooget Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  
 -AccountName msak01 -Name blobsas1 -Protocol HttpsOnly -ValidityPeriod ([System.Timespan]::FromDays(1)) -Permission Read,List
@@ -77,17 +77,17 @@ Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Contain
 
 var secret = await kv.GetSecretAsync("SecretUri");
 
-// Create new storage credentials using the SAS token. 
+// Create new storage credentials using hello SAS token. 
 
 var accountSasCredential = new StorageCredentials(secret.Value); 
 
-// Use credentials and the Blob storage endpoint to create a new Blob service client. 
+// Use credentials and hello Blob storage endpoint toocreate a new Blob service client. 
 
 var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null); 
 
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient(); 
  
-// If SAS token is about to expire then Get sasToken again from Key Vault and update it.
+// If SAS token is about tooexpire then Get sasToken again from Key Vault and update it.
 
 accountSasCredential.UpdateSASToken(sasToken);
 
@@ -95,47 +95,47 @@ accountSasCredential.UpdateSASToken(sasToken);
  
  ### <a name="developer-best-practices"></a>Melhores práticas do desenvolvedor 
 
-- Permita somente que o Key Vault gerencie suas chaves ASA. Não tentar gerenciá-las você mesmo, você interferirá nos processos do Key Vault. 
-- Não permita que chaves ASA sejam gerenciadas por mais de um objeto do Key Vault. 
-- Se precisar regenerar manualmente as chaves ASA, recomendamos que você as regenere por meio do Key Vault. 
+- Permita somente a suas chaves ASA toomanage de Cofre de chaves. Não tente toomanage-los por conta própria, você irá interferir com processos do cofre da chave. 
+- Não permita ASA chaves toobe gerenciado por mais de um objeto de Cofre de chaves. 
+- Se você precisar toomanually regenerar suas chaves ASA, recomendamos que você regenerá-los por meio do Cofre de chaves. 
 
 ## <a name="getting-started"></a>Introdução
 
 ### <a name="setup-for-role-based-access-control-rbac-permissions"></a>Configuração para permissões de RBAC (controle de acesso baseadas em função)
 
-O Key Vault precisa de permissões para *listar* e *regenerar* chaves para uma conta de armazenamento. Configure essas permissões usando as seguintes etapas:
+Cofre de chaves precisa de permissões muito*lista* e *regenerar* chaves para uma conta de armazenamento. Configure permissões utilizando Olá etapas a seguir:
 
 - Obter ObjectId do Key Vault: 
 
     `Get-AzureRmADServicePrincipal -SearchString "AzureKeyVault"`
 
-- Atribua a função de Operador de Chave de Armazenamento à Identidade do Azure Key Vault: 
+- Atribua função de operador de chave de armazenamento tooAzure identidade de Cofre de chave: 
 
     `New-AzureRmRoleAssignment -ObjectId <objectId of AzureKeyVault from previous command> -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope '<azure resource id of storage account>'`
 
     >[!NOTE]
-    > Para um tipo de conta clássico, defina o parâmetro de função como *"Função de Serviço do Operador de Chave de Conta de Armazenamento Clássica"*.
+    > Para um tipo de conta clássico, defina o parâmetro de função de saudação muito*"Clássico armazenamento chave operador serviço de função de conta"*.
 
 ### <a name="storage-account-onboarding"></a>Integração da conta de armazenamento 
 
-Exemplo: como um proprietário de objeto do Key Vault, você adiciona um objeto de conta de armazenamento ao seu Azure Key Vault para integrar uma conta de armazenamento.
+Exemplo: Como um proprietário de objeto de Cofre de chaves que você adicionar um armazenamento de conta objeto tooyour Azure Key Vault tooonboard uma conta de armazenamento.
 
-Durante a integração, o Key Vault precisa verificar se a identidade da conta de integração tem permissões para *listar* e *regenerar* chaves de armazenamento. Para verificar essas permissões, o Key Vault obtém um token OBO (em nome de) do serviço de autenticação com público definido para o Azure Resource Manager e faz uma chamada de chave de *lista* para o serviço de armazenamento do Azure. Se a chamada de *lista* falhar, a criação do objeto Key Vault falhará com o código de status HTTP *Forbidden*. As chaves listadas dessa maneira são armazenadas em cache com o seu armazenamento de entidade do cofre de chaves. 
+Durante a integração, o Cofre de chaves precisa tooverify se identidade Olá da conta de integração Olá também tem permissões*lista* e muito*regenerar* chaves de armazenamento. Em ordem tooverify essas permissões, o Cofre de chaves obtém um OBO (em nome de) token do serviço de autenticação hello, público definido tooAzure Gerenciador de recursos e torna um *lista* serviço de armazenamento do Azure toohello chamada de chave. Se hello *lista* chamada falhar, Olá Falha na criação do objeto com um código de status do HTTP para o Cofre de chaves *proibido*. chaves de saudação listadas dessa maneira são armazenados em cache com o armazenamento de entidade do Cofre de chaves. 
 
-O Key Vault deve verificar se a identidade tem permissões para *regenerar* antes de poder assumir a propriedade da regeneração das suas chaves. Para verificar se a identidade, via token OBO, bem como a identidade de primeira parte do Key Vault têm essas permissões:
+Cofre de chaves deve verificar se tem identidade Olá *regenerar* permissões antes que ele pode apropriar-se de regenerar as chaves. tooverify que Olá identidade, via token OBO, bem como Olá identidade de terceiros primeiro cofre de chaves com essas permissões:
 
-- O Key Vault lista permissões de RBAC no recurso de conta de armazenamento.
-- O Key Vault valida a resposta por meio correspondência de expressão regular de ações e não ações. 
+- Cofre de chaves lista permissões de RBAC no recurso de conta de armazenamento hello.
+- Cofre de chaves valida resposta Olá por meio de ações e ações de não correspondência da expressão regular. 
 
 Encontre alguns exemplos de suporte em [Key Vault – Amostras de Chaves de Conta de Armazenamento Gerenciado](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
 
-Se a identidade não tiver a permissão *regenerar* ou se a identidade da primeira parte do Key Vault não tiver a permissão *lista* ou *regenerar*, a solicitação de integração falhará, retornando um código de erro apropriado e uma mensagem. 
+Se não tiver a identidade de saudação *regenerar* permissões ou se a primeira identidade de terceiros do cofre da chave não tiver *lista* ou *regenerar* permissão, em seguida, Olá integração Falha na solicitação retornando um código de erro apropriado e uma mensagem. 
 
-O token OBO só funcionará quando você usar os aplicativos cliente nativos de primeira parte do PowerShell ou da CLI.
+token OBO Olá só funcionará quando você usa o primário, os aplicativos cliente nativos do PowerShell ou CLI.
 
 ## <a name="other-applications"></a>Outros aplicativos
 
-- Tokens SAS, construídos usando chaves de conta de armazenamento do Key Vault, fornecem acesso ainda mais controlado a uma conta de armazenamento do Azure. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
+- Tokens SAS, construídas usando chaves de conta de armazenamento de Cofre de chaves, fornecem mais acesso controlado tooan conta de armazenamento do Azure. Para obter mais informações, confira [Como usar assinaturas de acesso compartilhado](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1).
 
 ## <a name="see-also"></a>Consulte também
 

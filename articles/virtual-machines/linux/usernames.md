@@ -1,6 +1,6 @@
 ---
-title: "Selecionando nomes de usuário para Linux | Microsoft Docs"
-description: "Saiba como selecionar nomes de usuário para uma máquina virtual Linux no Azure."
+title: "aaaSelecting nomes de usuário para Linux | Microsoft Docs"
+description: "Saiba como nomes de usuário tooselect para uma máquina virtual do Linux no Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 1874d72e5f88816036667932371ff28704d186c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c65e2ac46f40bb8c9d74cccbaf248a070c0fa6cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="selecting-user-names-for-linux-on-azure"></a>Selecionando nomes de usuário para Linux no Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Ao provisionar uma máquina virtual do Linux no Azure, você deve especificar o nome de um usuário não raiz que possa usar posteriormente para fazer logon na VM. Você pode escolher o nome do novo usuário, ou se o provisionamento for por meio do portal clássico do Azure, você pode aceitar o nome padrão "azureuser".
+Quando você provisionar uma máquina virtual do Linux no Azure, você deve especificar nome de saudação de um usuário não raiz que você pode usar mais tarde toolog em Olá VM. Você pode escolher nome de saudação do novo usuário do hello, ou se provisionamento via Olá portal clássico do Azure você pode aceitar o padrão de saudação nome "azureuser".
 
-Na maioria dos casos, esse usuário não existe na imagem de base e é criado durante o processo de provisionamento. Se o usuário já existir na imagem de base da máquina virtual, o agente do Linux do Azure simplesmente configurará a senha e/ou chave SSH para o usuário com base nas informações especificadas ao criar a VM.
+Na maioria dos casos, esse usuário não existe na imagem base hello e será criado durante o processo de provisionamento de saudação. Se o usuário Olá existir na imagem de VM base hello, agente do Linux Azure Olá simplesmente configura senha hello e/ou uma chave SSH para que o usuário com base nas informações de saudação que você especificou ao criar hello VM.
 
-**Entretanto**, o Linux define um conjunto de nomes de usuário que não deve ser usado ao criar novos usuários. O processo de provisionamento irá **falhar** se você tentar provisionar uma máquina virtual Linux usando um usuário existente que esteja definido como um usuário com UID 0-99. Um exemplo típico é o usuário `root` , que tem o UID 0.
+**Entretanto**, o Linux define um conjunto de nomes de usuário que não deve ser usado ao criar novos usuários. Olá provisionamento processo será **falha** se você tentar tooprovision uma VM do Linux usando um usuário existente do sistema, que é definido como um usuário com UID 0-99. Um exemplo típico é hello `root` usuário, que tem o UID 0.
 
 * Consulte também: [Base padrão do Linux - Intervalos de ID de usuário](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-A seguir está uma lista de usuários do sistema internos e comuns para o CentOS e Ubuntu que você deve evitar usar ao provisionar uma máquina virtual do Linux no Azure. Essa lista é apenas um exemplo. Consulte a documentação de sua distribuição para garantir que o nome de usuário escolhido não entra em conflito com um usuário do sistema existente.
+a seguir Olá é uma lista de usuários comuns do sistema internas para CentOS e Ubuntu que você deve evitar usar ao provisionar uma máquina virtual do Linux no Azure. Essa lista é apenas um exemplo, consulte toohello documentação para sua distribuição tooensure esse nome de usuário Olá que você escolher não está em conflito com um usuário de sistema existente.
 
 ## <a name="centos"></a>CentOS
 * abrt

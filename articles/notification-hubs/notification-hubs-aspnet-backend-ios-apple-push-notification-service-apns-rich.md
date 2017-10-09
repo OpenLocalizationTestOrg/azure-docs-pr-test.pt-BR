@@ -1,6 +1,6 @@
 ---
-title: "Push Avançado dos Hubs de Notificação do Azure"
-description: "Saiba como enviar notificações por push avançado para um aplicativo iOS do Azure. Exemplos de códigos escritos em Objective-C e c#."
+title: "aaaAzure notificação Hubs Rich Push"
+description: "Saiba como rich toosend envio notificações tooan iOS aplicativo do Azure. Exemplos de códigos escritos em Objective-C e c#."
 documentationcenter: ios
 services: notification-hubs
 author: ysxu
@@ -14,15 +14,15 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 394efdc2dfaff0666bc23d8a448b0a00d414da99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5432d8bf47777371bea3521a0c0176ade75fbd9a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push Avançado dos Hubs de Notificação do Azure
 ## <a name="overview"></a>Visão geral
-Para atrair os usuários com conteúdo elaborado instantâneo, um aplicativo talvez queira enviar por push além do texto sem formatação. Essas notificações promovem interações do usuário e apresentam conteúdo, como urls, sons, imagens/cupons e muito mais. Esse tutorial se baseia no tópico [Notificar Usuários](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) e mostra como enviar notificações por push que incorporam cargas (por exemplo, imagem).
+Em ordem tooengage os usuários com conteúdo rich instantâneo, um aplicativo pode querer toopush além do texto sem formatação. Essas notificações promovem interações do usuário e apresentam conteúdo, como urls, sons, imagens/cupons e muito mais. Este tutorial baseia-se em Olá [notificar usuários](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tópico e mostra como toosend enviar notificações por push que incorporam cargas (por exemplo, a imagem).
 
 Este tutorial é compatível com iOS 7 e 8.
 
@@ -30,28 +30,28 @@ Este tutorial é compatível com iOS 7 e 8.
 
 Em um alto nível:
 
-1. O back-end do aplicativo:
-   * Armazena a carga avançada (nesse caso, imagem) no armazenamento de banco de dados/local do back-end
-   * Envia a ID dessa notificação avançadas para o dispositivo
-2. Aplicativo no dispositivo:
-   * Entra em contato com o back-end solicitando a carga avançada com a ID recebe
-   * Envia notificações de usuários no dispositivo quando a recuperação de dados estiver concluída e mostra a carga imediatamente quando os usuários toque para saber mais
+1. saudação de aplicativos back-end:
+   * Repositórios Olá carga avançada (nesse caso, a imagem) no armazenamento de banco de dados/local de back-end Olá
+   * Envia a ID do dispositivo toohello notificação avançada
+2. Aplicativo no dispositivo hello:
+   * Contatos Olá solicitando a carga avançados Olá com a ID de saudação recebe de back-end
+   * Envia notificações de usuários no dispositivo hello quando a recuperação de dados estiver concluída e mostra a carga de saudação imediatamente quando os usuários tocam em toolearn mais
 
 ## <a name="webapi-project"></a>Projeto WebAPI
-1. No Visual Studio, abra o projeto **AppBackend** que você criou no tutorial [Notificar Usuários](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
-2. Obter uma imagem para notificar usuários e colocá-la em uma pasta **img** no diretório do projeto.
-3. Clique em **Mostrar Todos os Arquivos** no Gerenciador de Soluções e clique com o botão direito na pasta para **Incluir no Projeto**.
-4. Com a imagem selecionada, altere sua Ação de Compilação na janela Propriedades para **Recurso Inserido**.
+1. No Visual Studio, abra Olá **AppBackend** projeto que você criou no hello [notificar usuários](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
+2. Obtenha uma imagem que você deseja toonotify aos usuários e colocá-la em um **img** pasta no diretório do projeto.
+3. Clique em **Mostrar todos os arquivos** em Olá Gerenciador de soluções e clique pasta Olá muito**incluir no projeto**.
+4. Com imagem Olá selecionada, altere sua ação de compilação na janela Propriedades muito**recurso inserido**.
    
     ![][IOS2]
-5. Em **Notifications.cs**, adicione o seguinte usando a instrução:
+5. Em **Notifications.cs**, adicione o seguinte Olá usando a instrução:
    
         using System.Reflection;
-6. Atualize a classe inteira de **Notificações** com o código a seguir. Certifique-se de substituir os espaços reservados por suas credenciais de hub de notificação e o nome do arquivo de imagem.
+6. Saudação de atualização inteira **notificações** classe com hello código a seguir. Ser tooreplace se espaços reservados de saudação com suas credenciais de hub de notificação e o nome do arquivo de imagem.
    
         public class Notification {
             public int Id { get; set; }
-            // Initial notification message to display to users
+            // Initial notification message toodisplay toousers
             public string Message { get; set; }
             // Type of rich payload (developer-defined)
             public string RichType { get; set; }
@@ -67,7 +67,7 @@ Em um alto nível:
             public NotificationHubClient Hub { get; set; }
    
             private Notifications() {
-                // Placeholders: replace with the connection string (with full access) for your notification hub and the hub name from the Azure Classics Portal
+                // Placeholders: replace with hello connection string (with full access) for your notification hub and hello hub name from hello Azure Classics Portal
                 Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
             }
    
@@ -93,10 +93,10 @@ Em um alto nível:
         }
    
    > [!NOTE]
-   > (opcional) Confira [Como inserir e acessar recursos usando o Visual C#](http://support.microsoft.com/kb/319292) para obter mais informações sobre como adicionar e obter recursos de projeto.
+   > (opcional) Consulte também[como tooembed e acessar recursos usando o Visual C#](http://support.microsoft.com/kb/319292) para obter mais informações sobre como tooadd e obter os recursos de projeto.
    > 
    > 
-7. Em **NotificationsController.cs**, redefina **NotificationsController** com os trechos a seguir. Isso envia uma id de notificação avançada silenciosa inicial ao dispositivo e permite a recuperação do cliente da imagem:
+7. Em **NotificationsController.cs**, redefinir **NotificationsController** com hello trechos de código a seguir. Isso envia um toodevice de id de notificação avançada silenciosa inicial e permite a recuperação do lado do cliente da imagem:
    
         // Return http response with image binary
         public HttpResponseMessage Get(int id) {
@@ -110,9 +110,9 @@ Em um alto nível:
             return result;
         }
    
-        // Create rich notification and send initial silent notification (containing id) to client
+        // Create rich notification and send initial silent notification (containing id) tooclient
         public async Task<HttpResponseMessage> Post() {
-            // Replace the placeholder with image file name
+            // Replace hello placeholder with image file name
             var richNotificationInTheBackend = Notifications.Instance.CreateNotification("Check this image out!", "img",  "{logo.png}");
    
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
@@ -120,41 +120,41 @@ Em um alto nível:
             // Silent notification with content available
             var aboutUser = "{\"aps\": {\"content-available\": 1, \"sound\":\"\"}, \"richId\": \"" + richNotificationInTheBackend.Id.ToString() + "\",  \"richMessage\": \"" + richNotificationInTheBackend.Message + "\", \"richType\": \"" + richNotificationInTheBackend.RichType + "\"}";
    
-            // Send notification to apns
+            // Send notification tooapns
             await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(aboutUser, usernameTag);
    
             return Request.CreateResponse(HttpStatusCode.OK);
         }
-8. Agora, reimplantaremos esse aplicativo em um Site do Azure para torná-lo acessível a partir de todos os dispositivos. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
-9. Selecione o Site do Azure como seu destino de publicação. Faça logon em sua conta do Azure e selecione um site novo ou existente, então anote a propriedade **URL de destino** na guia **Conexão**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end* . Clique em **Publicar**.
+8. Agora podemos reimplantar esta tooan aplicativo site do Azure em ordem toomake-lo acessível de todos os dispositivos. Clique duas vezes em Olá **AppBackend** do projeto e selecione **publicar**.
+9. Selecione o Site do Azure como seu destino de publicação. Faça logon com sua conta do Azure e selecione um site novo ou existente e anote Olá **URL de destino** propriedade Olá **Conexão** guia. Chamaremos toothis URL como o *ponto de extremidade de back-end* posteriormente neste tutorial. Clique em **Publicar**.
 
-## <a name="modify-the-ios-project"></a>Modificar o projeto iOS
-Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de notificação, deve alterar seu aplicativo iOS para lidar com essa id e recuperar a mensagem avançada do seu back-end.
+## <a name="modify-hello-ios-project"></a>Modificar o projeto do iOS Olá
+Agora que você tenha modificado o hello apenas do aplicativo back-end toosend *id* de uma notificação, você alterará o toohandle de aplicativo do iOS essa id e recuperar mensagem avançados de saudação do seu back-end.
 
-1. Abra o projeto do iOS e habilite notificações remotas indo para o destino do aplicativo principal na seção **Destinos** .
-2. Clique em **Recursos**, ative **Modos de Segundo Plano** e marque a caixa de seleção **Notificações Remotas**.
+1. Abra seu projeto de iOS e habilitar notificações remotas pelo destino de aplicativo principal de tooyour indo em Olá **destinos** seção.
+2. Clique em **recursos**, ativar **modos de segundo plano**e verifique Olá **remoto notificações** caixa de seleção.
    
     ![][IOS3]
-3. Acesse **Main.storyboard**e verifique se você possui um Controlador de Exibição (indicado como Controlador de Exibição Doméstico nesse tutorial) do tutorial [Notificar Usuário](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
-4. Adicione um **Controlador de Navegação** ao storyboard, mantenha a tecla Control pressionada e arraste para o Controlador de Exibição Doméstica para torná-lo a **visualização raiz** da navegação. Verifique se **É o Controlador de Exibição Inicial** no inspetor de atributos está selecionado somente para o Controlador de Navegação.
-5. Adicione um **Controlador de Exibição** ao storyboard e adicione uma **Visualização de Imagem**. Esta é a página que os usuários verão quando desejarem saber mais, clicando na notificação. O storyboard deve ter a seguinte aparência:
+3. Vá muito**Main.storyboard**e certifique-se de ter um controlador de exibição (mencionado tooas início View Controller neste tutorial) de [notificar o usuário](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
+4. Adicionar um **navegação controlador** tooyour de storyboard e arraste controle tooHome View Controller toomake-Olá **exibição de raiz** de navegação. Verifique se Olá **é inicial View Controller** em atributos Inspetor é selecionado para Olá somente no controlador de navegação.
+5. Adicionar um **View Controller** toostoryboard e adicione um **imagem**. Isso é página Olá os usuários verão quando desejarem toolearn mais clicando no notifiication Olá. O storyboard deve ter a seguinte aparência:
    
     ![][IOS4]
-6. Clique no **Controlador de Exibição Doméstica** no storyboard, verifique se tem **homeViewController** como sua **Classe Personalizada** e **ID do Storyboard** abaixo do Inspetor de identidade.
-7. Faça o mesmo para Controlador de Exibição de Imagem como **imageViewController**.
-8. Em seguida, crie uma nova classe de Controlador de Exibição denominada **imageViewController** para lidar com a IU que você acabou de criar.
-9. Em **imageViewController.h**, adicione os itens abaixo às declarações de interface do controlador. Certifique-se de manter Control pressionado e arrastar da exibição de imagem do storyboard para essas propriedades para vincular as duas:
+6. Clique em Olá **início View Controller** no storyboard e verifique se ele possui **homeViewController** como seu **classe personalizada** e **Storyboard ID**em Inspetor de identidade hello.
+7. Olá mesmo para o controlador de exibição de imagem como **imageViewController**.
+8. Em seguida, crie uma nova classe de controlador de exibição denominada **imageViewController** toohandle Olá interface de usuário que você acabou de criar.
+9. Em **imageViewController.h**, adicionar Olá declarações de interface do controlador toohello a seguir. Verifique se toocontrol e arraste da saudação storyboard imagem exibição toothese propriedades toolink Olá dois:
    
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;
-10. Em **imageViewController.m**, adicione o seguinte no fim de **viewDidload**:
+10. Em **imageViewController.m**, adicione o seguinte de saudação final Olá **viewDidload**:
     
-        // Display the UI Image in UI Image View
+        // Display hello UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
-11. Em **AppDelegate.m**, importe o controlador de imagem criado:
+11. Em **appdelegate. M**, controlador de imagem Olá importação criada:
     
         #import "imageViewController.h"
-12. Adicione uma seção de interface com a seguinte declaração:
+12. Adicione uma seção de interface com hello declaração a seguir:
     
         @interface AppDelegate ()
     
@@ -165,7 +165,7 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
         // Obtain content from backend with notification id
         - (void)retrieveRichImageWithId:(int)richId completion: (void(^)(NSError*)) completion;
     
-        // Redirect to Image View Controller after notification interaction
+        // Redirect tooImage View Controller after notification interaction
         - (void)redirectToImageViewWithImage: (UIImage *)img;
     
         @end
@@ -211,14 +211,14 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
 
         return YES;
 
-1. Substitua na seguinte implementação para **application:didRegisterForRemoteNotificationsWithDeviceToken** para considerar as alterações de IU do storyboard:
+1. SUBSTITUTE em Olá após a implementação para **aplicativo: didRegisterForRemoteNotificationsWithDeviceToken** tootake storyboard de saudação alterações de interface do usuário em conta:
    
-       // Access navigation controller which is at the root of window
+       // Access navigation controller which is at hello root of window
        UINavigationController *nc = (UINavigationController *)self.window.rootViewController;
        // Get home view controller from stack on navigation controller
        homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
        hvc.deviceToken = deviceToken;
-2. Em seguida, adicione os métodos a seguir a **AppDelegate.m** pare recuperar a imagem do ponto de extremidade e enviar uma notificação local quando a recuperação estiver completa. Não deixe de substituir o espaço reservado `{backend endpoint}` pelo seu ponto de extremidade do back-end:
+2. Em seguida, adicione Olá métodos a seguir muito**appdelegate. M** tooretrieve Olá imagem do ponto de extremidade e enviar uma notificação local quando a recuperação for concluída. Certifique-se de espaço reservado de saudação de toosubstitute `{backend endpoint}` com seu ponto de extremidade de back-end:
    
        NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
    
@@ -245,7 +245,7 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
    
                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
                if (!error && httpResponse.statusCode == 200) {
-                   // From NSData to UIImage
+                   // From NSData tooUIImage
                    self.imagePayload = [UIImage imageWithData:data];
    
                    completion(nil);
@@ -275,7 +275,7 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
                        // Send local notification
                        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
    
-                       // "5" is arbitrary here to give you enough time to quit out of the app and receive push notifications
+                       // "5" is arbitrary here toogive you enough time tooquit out of hello app and receive push notifications
                        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
                        localNotification.userInfo = self.userInfo;
                        localNotification.alertBody = [self.userInfo objectForKey:@"richMessage"];
@@ -295,17 +295,17 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
                    }
                }];
            }
-           // Add "else if" here to handle more types of rich content such as url, sound files, etc.
+           // Add "else if" here toohandle more types of rich content such as url, sound files, etc.
        }
-3. Trate a notificação local acima abrindo o controlador de exibição de imagem no **AppDelegate.m** com os seguintes métodos:
+3. Lidar com a notificação local Olá acima através da abertura de controlador de exibição de imagem Olá no **appdelegate. M** com hello métodos a seguir:
    
-       // Helper: redirect users to image view controller
+       // Helper: redirect users tooimage view controller
        - (void)redirectToImageViewWithImage: (UIImage *)img {
            UINavigationController *navigationController = (UINavigationController*) self.window.rootViewController;
            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                                     bundle: nil];
            imageViewController *imgViewController = [mainStoryboard instantiateViewControllerWithIdentifier: @"imageViewController"];
-           // Pass data/image to image view controller
+           // Pass data/image tooimage view controller
            imgViewController.imagePayload = img;
    
            // Redirect
@@ -333,7 +333,7 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
            {
                [self redirectToImageViewWithImage:self.imagePayload];
            }
-           // Add "else if" here to handle more buttons
+           // Add "else if" here toohandle more buttons
        }
    
        // Handle notification setting actions in iOS8
@@ -345,11 +345,11 @@ Agora que você modificou o back-end do aplicativo para enviar apenas a *id* de 
            completionHandler();
        }
 
-## <a name="run-the-application"></a>Executar o aplicativo
-1. No XCode, execute o aplicativo em um dispositivo iOS físico (as notificações por push não funcionarão no simulador).
-2. Na IU de aplicativo do iOS, insira um nome de usuário e senha do mesmo valor para a autenticação e clique em **Fazer Logon**.
-3. Clique em **Enviar por push** e você verá um alerta no aplicativo. Se você clicar em **Mais**, você será levado à imagem que optou por incluir no back-end do aplicativo.
-4. Você pode também clicar em **Enviar por push** e imediatamente pressionar o botão Início do seu dispositivo. Em alguns momentos, você receberá uma notificação por push. Se você tocar nela ou clicar em Mais, será levado para seu aplicativo e o conteúdo da imagem avançado.
+## <a name="run-hello-application"></a>Executar Olá aplicativo
+1. No XCode, execute o aplicativo hello em um dispositivo iOS físicos (push de notificações não funcionará no simulador Olá).
+2. No aplicativo do iOS Olá da interface do usuário, insira um nome de usuário e a senha da saudação mesmo valor para a autenticação e clique em **logon**.
+3. Clique em **Enviar por push** e você verá um alerta no aplicativo. Se você clicar em **mais**, será colocado toohello imagem escolhida tooinclude no seu back-end do aplicativo.
+4. Você também pode clicar em **enviar por push** e pressione o botão página inicial de saudação do seu dispositivo imediatamente. Em alguns momentos, você receberá uma notificação por push. Se você tocar nela ou clique em mais, você será levado tooyour conteúdo da imagem avançados do aplicativo e hello.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-1.png
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png

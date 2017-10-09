@@ -1,5 +1,5 @@
 ---
-title: Instalar o Visual Studio e o SSDT para o SQL Data Warehouse | Microsoft Docs
+title: aaaInstall Visual Studio e SSDT para SQL Data Warehouse | Microsoft Docs
 description: Instalar o Visual Studio e o SSDT (Ferramentas de Desenvolvimento do SQL Server) para o SQL Data Warehouse do Azure
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,16 +15,16 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 03/30/2017
 ms.author: anvang;barbkess
-ms.openlocfilehash: f7023b78c241a7bc8014276cd0bfa455165b42cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cf49c13d5cab598ed127f5702c04168b62ede0dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Instalar o Visual Studio e o SSDT para o SQL Data Warehouse
-Para desenvolver aplicativos para o SQL Data Warehouse, recomendamos o uso da versão mais recente do Visual Studio com a versão mais recente do SSDT (SQL Server Data Tools).  Também há suporte para o Visual Studio 2013 Atualização 5 com SSDT a fim de permitir a compatibilidade com versões anteriores.  
+toodevelop aplicativos para o SQL Data Warehouse, é recomendável usar a versão mais recente de saudação do Visual Studio com a versão mais recente de saudação do SQL Server Data Tools (SSDT).  Também há suporte para o Visual Studio 2013 Atualização 5 com SSDT a fim de permitir a compatibilidade com versões anteriores.  
 
-O uso do Visual Studio com SSDT permite o uso do Pesquisador de Objetos do SQL Server para explorar visualmente tabelas, exibições, procedimentos armazenados e muitos outros objetos em seu SQL Data Warehouse, além da execução de consultas.
+Usando o Visual Studio com o SSDT permitirá toouse Olá Pesquisador de objetos do SQL Server toovisually explorar as tabelas, exibições, procedimentos armazenados e muito mais objetos no SQL Data Warehouse, bem como executar consultas.
 
 > [!NOTE]
 > O SQL Data Warehouse ainda não dá suporte aos Projetos do Banco de Dados do Visual Studio.  Este recurso será adicionado em uma futura versão.
@@ -32,21 +32,21 @@ O uso do Visual Studio com SSDT permite o uso do Pesquisador de Objetos do SQL S
 > 
 
 ## <a name="step-1-install-visual-studio"></a>Etapa 1: instalar o Visual Studio
-Siga estes links para baixar e instalar o Visual Studio. Se você já tiver o Visual Studio 2013 ou posterior instalado, pule para a Etapa 2 e instale o SSDT.
+Siga essas toodownload links e instalar o Visual Studio. Se você já tiver o Visual Studio 2013 ou posterior instalado, você pode ignorar tooStep 2, instale o SSDT.
 
 1. [Baixar o Visual Studio][].
-2. Siga o guia [Instalação do Visual Studio][Installing Visual Studio] no MSDN e escolha as configurações padrão.
+2. Siga Olá [instalar o Visual Studio] [ Installing Visual Studio] guia no MSDN e escolha as configurações padrão de saudação.
 
 ## <a name="step-2-install-ssdt"></a>Etapa 2: Instalar o SSDT
-Para instalar o SSDT para o Visual Studio, simplesmente procure uma atualização do SSDT dentro do Visual Studio seguindo estas etapas.
+Basta marcar tooinstall SSDT para Visual Studio para uma atualização do SSDT de dentro do Visual Studio seguindo estas etapas.
 
 1. No Visual Studio, clique em **Ferramentas** / **Extensões e Atualizações…** / **Atualizações**
 2. Selecione **Atualizações do Produto**, em seguida, procure **Atualização do Microsoft SQL Server para as ferramentas do banco de dados**
 
-Se nenhuma atualização for encontrada, você já terá a versão mais recente instalada.  Para confirmar se o SSDT está instalado, clique em **Ajuda** / **Sobre o Microsoft Visual Studio** e procure o SQL Server Data Tools na lista.  A versão mais recente do SSDT é 14.0.60525.0.  Se a opção de instalação não estiver disponível no Visual Studio, uma alternativa é visitar a página de [Download do SSDT][SSDT Download] para baixar e instalar o SSDT manualmente.
+Se uma atualização não for encontrada, você deve ter versão mais recente do hello instalada.  tooconfirm SSDT está instalado, clique em **ajuda** / **sobre o Microsoft Visual Studio** e procure por ferramentas de dados do SQL Server na lista de saudação.  versão mais recente de saudação do SSDT é 14.0.60525.0.  Se Olá opção tooinstall não está disponível no Visual Studio, como alternativa você pode visitar Olá [de Download do SSDT] [ SSDT Download] página toodownload e instalar o SSDT manualmente.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você tem a versão mais recente do SSDT, está pronto para se [conectar][connect] ao seu SQL Data Warehouse.
+Agora que você tem a versão mais recente de saudação do SSDT, você está pronto muito[conectar] [ connect] tooyour SQL Data Warehouse.
 
 <!--Anchors-->
 

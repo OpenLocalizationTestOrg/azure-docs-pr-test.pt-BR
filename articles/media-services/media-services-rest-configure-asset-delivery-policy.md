@@ -1,6 +1,6 @@
 ---
-title: "Configuração de políticas de entrega de ativos usando API REST dos Serviços de Mídia | Microsoft Docs"
-description: "Este tópico mostra como configurar políticas de entrega de ativos diferentes usando a API REST dos Serviços de Mídia."
+title: "políticas de entrega de ativos aaaConfiguring usando a API de REST de serviços de mídia | Microsoft Docs"
+description: "Este tópico mostra como tooconfigure políticas de entrega de ativo diferentes usando a API de REST de serviços de mídia."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 7ffbde11b943961dd3a3b5edebd0cfd52429e845
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8203230d570935e17382c598820dbfe42f83f8d8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-asset-delivery-policies"></a>Configuração de políticas de entrega de ativos
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Se você planeja entregar dinamicamente ativos criptografados, uma das etapas do fluxo de trabalho de distribuição de conteúdo de Serviços de Mídia é configurar políticas de entrega de ativos. A política de entrega de ativos informa aos serviços de mídia como você deseja que o ativo seja entregue: em que protocolo de fluxo seu ativo deve ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja criptografar dinamicamente seu ativo ou não e como (criptografia de envelope ou comum).
+Se você planejar ativos toodeliver dinamicamente criptografado, uma saudação etapas no hello conteúdo de fluxo de trabalho de entrega está configurando políticas de entrega de ativos de serviços de mídia. política de entrega de ativos de saudação informa os serviços de mídia como você deseja para sua toobe ativo entregue: em qual protocolo de streaming deve seu ativo dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se você deseja toodynamically ou não criptografar seu ativo e como (envelope ou criptografia comum).
 
-Este tópico discute como e por que criar e configurar políticas de entrega de ativos.
+Este tópico discute por que e como toocreate e configurar políticas de entrega de ativos.
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
+>Quando sua conta AMS é criada um **padrão** ponto de extremidade de streaming é adicionada conta tooyour Olá **parado** estado. toostart streaming seu conteúdo e execute aproveitar o empacotamento dinâmico e criptografia dinâmica, Olá ponto de extremidade de streaming do qual você deseja toostream conteúdo tem toobe em Olá **executando** estado. 
 >
->Além disso, para poder usar o empacotamento dinâmico e a criptografia dinâmica, seu ativo deve conter um conjunto de arquivos MP4 de taxa de bits adaptável ou de Smooth Streaming de taxa de bits adaptável.
+>Além disso, o empacotamento dinâmico capaz de toouse toobe e criptografia dinâmica seu ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável.
 
-Você pode aplicar políticas diferentes para o mesmo ativo. Por exemplo, você poderia aplicar criptografia PlayReady para criptografia de Envelope AES e Smooth Streaming para MPEG DASH e HLS. Todos os protocolos que não são definidos em uma política de entrega (por exemplo, você adicionar uma única política que só especifica HLS como o protocolo) será bloqueado a partir do streaming. A exceção a isso é se você não tiver nenhuma política de entrega de ativos definida em todos. Em seguida, todos os protocolos poderão ser criptografados.
+Você pode aplicar políticas diferentes toohello mesmo ativo. Por exemplo, você pode aplicar PlayReady criptografia tooSmooth Streaming e Envelope AES criptografia tooMPEG DASH e HLS. Todos os protocolos que não estão definidos em uma política de entrega (por exemplo, você adiciona uma única política que só especifica HLS como protocolo de saudação) serão impedidos de streaming. Olá toothis de exceção é se você não tiver nenhuma política de entrega de ativo definida. Em seguida, todos os protocolos poderão ser em Olá clara.
 
-Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Por exemplo, para entregar o ativo criptografado com chave de criptografia de envelope de AES (Criptografia Avançada Padrão), defina o tipo de política como **DynamicEnvelopeEncryption**. Para remover a criptografia de armazenamento e transmitir o ativo não criptografado, defina o tipo de política como **NoDynamicEncryption**. Seguem exemplos que mostram como configurar esses tipos de política.
+Se você quiser toodeliver um ativo de armazenamento criptografado, você deve configurar a política de entrega do hello ativo. Antes do ativo pode ser transmitido, Olá streaming fluxos e criptografia de armazenamento de saudação do servidor remove o conteúdo usando Olá especificado a política de distribuição. Por exemplo, toodeliver seu ativo criptografado com chave de criptografia de envelope AES Advanced Encryption Standard (), defina o tipo de política de saudação muito**DynamicEnvelopeEncryption**. criptografia de armazenamento tooremove e ativo de saudação do fluxo em Olá claro, defina tipo de política de saudação muito**NoDynamicEncryption**. Exemplos que mostram como tooconfigure esses tipos de política execute.
 
-Dependendo de como você configura a política de entrega de ativos, poderá empacotar e criptografar dinamicamente, bem como transmitir os seguintes protocolos de streaming: Smooth Streaming, HLS, MPEG DASH e transmissões.
+Dependendo de como você configurar a política de distribuição do ativo Olá seria ser capaz de toodynamically pacote dinamicamente criptografar e Olá seguintes protocolos de transmissão de fluxo: Smooth Streaming, HLS, fluxos MPEG DASH.
 
-A lista a seguir mostra os formatos usados para transmitir Smooth, HLS e DASH.
+Olá seguinte lista mostra Olá formatos que você use toostream Smooth, HLS, traço.
 
 Smooth Streaming:
 
@@ -53,30 +53,30 @@ MPEG DASH
 {nome do ponto de extremidade de streaming - nome de conta dos serviços de mídia}.streaming.mediaservices.windows.net/{ID do localizador}/{nome do arquivo}.ism/Manifest(format=mpd-time-csf)
 
 
-Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).
+Para obter instruções sobre como toopublish um ativo e compilar uma URL de streaming, consulte [construir uma URL de streaming](media-services-deliver-streaming-content.md).
 
 ## <a name="considerations"></a>Considerações
-* Você não pode excluir um AssetDeliveryPolicy associado a um ativo enquanto um localizador OnDemand (streaming) existir para esse ativo. A recomendação é remover a política do ativo antes de excluir a política.
-* Não é possível criar um localizador de streaming em um ativo criptografado para armazenamento quando nenhuma política de entrega de ativo estiver definida.  Se o Ativo não estiver criptografado para armazenamento, o sistema permitirá que você crie um localizador e transmita o ativo sem uma política de entrega de ativos.
-* Você pode ter várias políticas de entrega de ativos associadas a um único ativo, mas pode especificar apenas uma maneira de lidar com um determinado AssetDeliveryProtocol.  Isso significa que se você tentar vincular duas políticas de entrega que especificam o protocolo AssetDeliveryProtocol.SmoothStreaming, o resultado será um erro pois o sistema não sabe qual delas você deseja aplicar quando um cliente fizer uma solicitação de Smooth Streaming.
-* Se você tiver um ativo com um localizador de streaming existente, não poderá vincular uma nova política ao ativo, desvincular uma política existente do ativo ou atualizar uma política de entrega associada ao ativo.  Primeiro, você precisa remover o localizador de streaming, ajustar as políticas e, em seguida, recriar o localizador de streaming.  Você pode usar o mesmo locatorId quando recriar o localizador de streaming, mas certifique-se de que isso não causará problemas para os clientes uma vez que o conteúdo pode ser armazenado em cache pelo CDN de origem ou downstream.
+* Você não pode excluir um AssetDeliveryPolicy associado a um ativo enquanto um localizador OnDemand (streaming) existir para esse ativo. recomendação de saudação é tooremove política de saudação do ativo de saudação antes de excluir a política de saudação.
+* Não é possível criar um localizador de streaming em um ativo criptografado para armazenamento quando nenhuma política de entrega de ativo estiver definida.  Se Olá ativo não criptografado de armazenamento, o sistema Olá permitem criar um ativo de localizador e o fluxo Olá Olá desmarque sem uma política de entrega de ativos.
+* Você pode ter várias políticas de entrega de ativo associadas a um único ativo, mas você só pode especificar uma maneira toohandle AssetDeliveryProtocol um determinado.  Que significa que se você tentar toolink duas políticas de entrega que especificar o protocolo de AssetDeliveryProtocol.SmoothStreaming de saudação resultará em um erro porque o sistema Olá não sabe qual deles você deseja tooapply quando um cliente faz uma solicitação de Smooth Streaming.
+* Se você tiver um ativo com um localizador de streaming existente, você não pode vincular um novo ativo toohello política, desvincular uma política existente de ativo de saudação ou atualizar uma política de distribuição associada a saudação ativo.  Primeiro ter localizador de transmissão tooremove hello, ajustar as diretivas de saudação e recrie o hello localizador de streaming.  Você pode usar o hello locatorId mesmo quando você recriar Olá streaming localizador, mas você deve garantir que não causar problemas para os clientes desde que o conteúdo pode ser armazenado em cache por origem hello ou um CDN de downstream.
 
 >[!NOTE]
 
 >Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
+## <a name="connect-toomedia-services"></a>Conectar os serviços de tooMedia
 
-Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como tooconnect toohello AMS API, consulte [Olá acesso API de serviços de mídia do Azure com a autenticação do AD do Azure](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
+>Após conectar-se toohttps://media.windows.net, você receberá um redirecionamento 301 que especifica outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes toohello novo URI.
 
 ## <a name="clear-asset-delivery-policy"></a>Política de entrega de ativos clara
 ### <a id="create_asset_delivery_policy"></a>Criar política de entrega de ativos
-A solicitação HTTP a seguir cria uma política de entrega de ativos que especifica a não aplicação de criptografia dinâmica e a entrega do fluxo em qualquer um dos seguintes protocolos: MPEG DASH, HLS e protocolos Smooth Streaming. 
+Olá, solicitação HTTP a seguir cria uma política de entrega de ativos que especifica toonot aplicar criptografia dinâmica e protocolos de fluxo de saudação toodeliver em qualquer Olá a seguir: protocolos MPEG DASH, HLS e Smooth Streaming. 
 
-Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .   
+Para obter informações sobre quais valores que você podem especificar ao criar um AssetDeliveryPolicy, consulte Olá [tipos usados ao definir AssetDeliveryPolicy](#types) seção.   
 
 Solicitação:
 
@@ -123,7 +123,7 @@ Resposta:
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
 ### <a id="link_asset_with_asset_delivery_policy"></a>Ativos de link com a política de entrega de ativos
-A seguinte solicitação HTTP vincula o ativo especificado na política de entrega de ativos.
+Olá Olá de links de solicitação HTTP a seguir especificado a política de distribuição do ativo toohello ativo para.
 
 Solicitação:
 
@@ -146,13 +146,13 @@ Resposta:
 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Política de entrega de ativos DynamicEnvelopeEncryption
-### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Cria chave de conteúdo do tipo EnvelopeEncryption e a vincula ao ativo
-Ao especificar a política de entrega DynamicEnvelopeEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo EnvelopeEncryption. Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
+### <a name="create-content-key-of-hello-envelopeencryption-type-and-link-it-toohello-asset"></a>Criar chave de conteúdo do tipo de EnvelopeEncryption hello e vinculá-lo ativo toohello
+Ao especificar a política de distribuição DynamicEnvelopeEncryption, é necessário toolink se toomake a chave de conteúdo ativo tooa de saudação tipo EnvelopeEncryption. Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
 
 ### <a id="get_delivery_url"></a>Obter URL de entrega
-Obter a URL de entrega para o método de entrega especificado da chave de conteúdo criado na etapa anterior. Um cliente usa a URL retornada para solicitar uma chave AES ou uma licença PlayReady a fim de reproduzir o conteúdo protegido.
+URL de envio de saudação Get para Olá especificado método de entrega da chave de conteúdo Olá criado na etapa anterior hello. Um cliente usa Olá retornado URL toorequest uma chave AES ou uma licença do PlayReady Olá de tooplayback ordem conteúdo protegido.
 
-Especifique o tipo da URL para obter no corpo da solicitação HTTP. Se você estiver protegendo o conteúdo com PlayReady, solicite uma URL de aquisição de licenças PlayReady dos Serviços de Mídia usando 1 para o keyDeliveryType: {"keyDeliveryType":1}. Se você estiver protegendo seu conteúdo com a criptografia de envelope, solicite uma URL de aquisição de chave especificando 2 para keyDeliveryType: {"keyDeliveryType":2}.
+Especifique o tipo de saudação de Olá URL tooget no corpo de saudação de solicitação HTTP de saudação. Se você estiver protegendo o conteúdo com PlayReady, solicite uma URL de aquisição de licença do PlayReady dos serviços de mídia, usando 1 para Olá keyDeliveryType: {"keyDeliveryType": 1}. Se você estiver protegendo o conteúdo com criptografia de envelope hello, solicite uma URL de aquisição de chaves especificando 2 para keyDeliveryType: {"keyDeliveryType": 2}.
 
 Solicitação:
 
@@ -188,9 +188,9 @@ Resposta:
 
 
 ### <a name="create-asset-delivery-policy"></a>Criar política de entrega de ativos
-A solicitação HTTP a seguir cria a **AssetDeliveryPolicy** que é configurada para aplicar a criptografia de envelope dinâmico (**DynamicEnvelopeEncryption**) para o protocolo **HLS** (neste exemplo, outros protocolos serão impedidos de realizar streaming). 
+Olá, solicitação HTTP a seguir cria Olá **AssetDeliveryPolicy** tooapply configurado que é a criptografia de envelope dinâmica (**DynamicEnvelopeEncryption**) toohello **HLS**protocolo (neste exemplo, outros protocolos serão impedidos de streaming). 
 
-Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .   
+Para obter informações sobre quais valores que você podem especificar ao criar um AssetDeliveryPolicy, consulte Olá [tipos usados ao definir AssetDeliveryPolicy](#types) seção.   
 
 Solicitação:
 
@@ -232,16 +232,16 @@ Resposta:
 Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_asset_delivery_policy)
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Política de entrega de ativos DynamicCommonEncryption
-### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>Cria chave de conteúdo do tipo CommonEncryption e a vincule ao ativo
-Ao especificar a política de entrega DynamicCommonEncryption, você precisa certificar-se de vincular seu ativo a uma chave de conteúdo do tipo CommonEncryption. Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
+### <a name="create-content-key-of-hello-commonencryption-type-and-link-it-toohello-asset"></a>Criar chave de conteúdo do tipo de CommonEncryption hello e vinculá-lo ativo toohello
+Ao especificar a política de distribuição DynamicCommonEncryption, é necessário toolink se toomake a chave de conteúdo ativo tooa de saudação tipo CommonEncryption. Para saber mais, confira: [Criando uma chave de conteúdo](media-services-rest-create-contentkey.md)).
 
 ### <a name="get-delivery-url"></a>Obter URL de entrega
-Obter a URL de entrega para o método de entrega PlayReady da chave de conteúdo criada na etapa anterior. Um cliente usa a URL retornada para solicitar uma licença do PlayReady a fim de reproduzir o conteúdo protegido. Para saber mais, confira [Obter a URL de entrega](#get_delivery_url)
+Obter URL de entrega de Olá Olá PlayReady método de entrega da chave de conteúdo Olá criado na etapa anterior hello. Um cliente usa Olá retornado toorequest URL protegida de uma licença do PlayReady Olá de tooplayback ordem conteúdo. Para saber mais, confira [Obter a URL de entrega](#get_delivery_url)
 
 ### <a name="create-asset-delivery-policy"></a>Criar política de entrega de ativos
-A solicitação HTTP a seguir cria o **AssetDeliveryPolicy** que é configurado para aplicar a criptografia comum dinâmica (**DynamicCommonEncryption**) para o protocolo **Smooth Streaming** (neste exemplo, outros protocolos serão impedidos de realizar streaming). 
+Olá, solicitação HTTP a seguir cria Olá **AssetDeliveryPolicy** que é configurado tooapply comuns criptografia dinâmica (**DynamicCommonEncryption**) toohello **Smooth Streaming**  protocolo (neste exemplo, outros protocolos serão impedidos de streaming). 
 
-Para obter informações sobre os valores que você pode especificar ao criar um AssetDeliveryPolicy, consulte a seção [Tipos usados ao definir AssetDeliveryPolicy](#types) .   
+Para obter informações sobre quais valores que você podem especificar ao criar um AssetDeliveryPolicy, consulte Olá [tipos usados ao definir AssetDeliveryPolicy](#types) seção.   
 
 Solicitação:
 
@@ -260,14 +260,14 @@ Solicitação:
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Se você deseja proteger o conteúdo usando Widevine DRM, atualize os valores de AssetDeliveryConfiguration para usar WidevineLicenseAcquisitionUrl (que tem o valor de 7) e especifique a URL de um serviço de fornecimento de licença. Você pode usar os seguintes parceiros do AMS para ajudá-lo a fornecer licenças Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) e [castLabs](http://castlabs.com/company/partners/azure/).
+Se você quiser tooprotect seu conteúdo usando Widevine DRM, atualizar Olá AssetDeliveryConfiguration valores toouse WidevineLicenseAcquisitionUrl (que tem o valor de saudação do 7) e especifique Olá URL de um serviço de entrega de licença. Você pode usar o hello AMS parceiros toohelp fornecer licenças Widevine a seguir: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 Por exemplo: 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
 > [!NOTE]
-> Ao criptografar com Widevine, você só seria capaz de fornecer usando um DASH. Certifique-se de especificar DASH (2) no protocolo de fornecimento de ativos.
+> Ao criptografar com Widevine, seria apenas toodeliver capaz de usar o traço. Verifique o protocolo de entrega do se toospecify DASH (2) Olá no ativo.
 > 
 > 
 
@@ -278,7 +278,7 @@ Confira [Ativos de link com a política de entrega de ativos](#link_asset_with_a
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 
-O enum a seguir descreve os valores que podem ser definidos para o protocolo de entrega de ativo.
+Hello enum seguinte descreve os valores que você pode definir para o protocolo de entrega de ativos de saudação.
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -313,7 +313,7 @@ O enum a seguir descreve os valores que podem ser definidos para o protocolo de 
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
 
-O enum a seguir descreve os valores que podem ser definidos para o tipo de política de entrega de ativo.  
+Hello enum seguir descreve os valores que você pode definir para o tipo de política de entrega de ativos de saudação.  
 
     public enum AssetDeliveryPolicyType
     {
@@ -323,12 +323,12 @@ O enum a seguir descreve os valores que podem ser definidos para o tipo de polí
         None,
 
         /// <summary>
-        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+        /// hello Asset should not be delivered via this AssetDeliveryProtocol. 
         /// </summary>
         Blocked, 
 
         /// <summary>
-        /// Do not apply dynamic encryption to the asset.
+        /// Do not apply dynamic encryption toohello asset.
         /// </summary>
         /// 
         NoDynamicEncryption,  
@@ -346,7 +346,7 @@ O enum a seguir descreve os valores que podem ser definidos para o tipo de polí
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
 
-O enum a seguir descreve os valores que você pode usar para configurar o método de entrega da chave de conteúdo para o cliente.
+Hello enum seguinte descreve os valores que você pode usar o método de entrega tooconfigure saudação do cliente de conteúdo toohello chave hello.
     
     public enum ContentKeyDeliveryType
     {
@@ -379,7 +379,7 @@ O enum a seguir descreve os valores que você pode usar para configurar o métod
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
 
-O enum a seguir descreve os valores que você pode definir para configurar as chaves usadas para obter uma configuração específica para uma política de entrega de ativo.
+Olá enum a seguir descreve os valores que você pode definir tooconfigure chaves usadas tooget configuração específica de uma política de entrega de ativos.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -399,22 +399,22 @@ O enum a seguir descreve os valores que você pode definir para configurar as ch
         EnvelopeBaseKeyAcquisitionUrl,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption in Base64 format.
+        /// hello initialization vector toouse for envelope encryption in Base64 format.
         /// </summary>
         EnvelopeEncryptionIVAsBase64,
 
         /// <summary>
-        /// The PlayReady License Acquisition Url to use for common encryption.
+        /// hello PlayReady License Acquisition Url toouse for common encryption.
         /// </summary>
         PlayReadyLicenseAcquisitionUrl,
 
         /// <summary>
-        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
+        /// hello PlayReady Custom Attributes tooadd toohello PlayReady Content Header
         /// </summary>
         PlayReadyCustomAttributes,
 
         /// <summary>
-        /// The initialization vector to use for envelope encryption.
+        /// hello initialization vector toouse for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
 

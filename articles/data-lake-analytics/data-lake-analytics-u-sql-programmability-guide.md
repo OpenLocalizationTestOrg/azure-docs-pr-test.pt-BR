@@ -1,6 +1,6 @@
 ---
-title: "Guia de programação do U-SQL para o Azure Data Lake | Microsoft Docs"
-description: "Saiba mais sobre o conjunto de serviços do Azure Data Lake que permite criar uma plataforma de big data baseada em nuvem."
+title: "Guia de programação aaaU-SQL para o Azure Data Lake | Microsoft Docs"
+description: "Saiba mais sobre o conjunto de saudação de serviços do Azure Data Lake que permitem que você toocreate uma plataforma de dados grande baseado em nuvem."
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: e4e298475d7be7d51c8bd55be498371ed6ce77a9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc8f126234c6106a0dc633ce85a1d9ab1e634e30
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação do U-SQL
 
-O U-SQL é uma linguagem de consulta projetada para o tipo big data de cargas de trabalho. Um dos recursos exclusivos do U-SQL é a combinação da linguagem declarativa semelhante ao SQL com a extensibilidade e a programação fornecidas por C#. Neste guia, nosso foco é a extensibilidade e a programação da linguagem U-SQL habilitadas por C#.
+O U-SQL é uma linguagem de consulta projetada para o tipo big data de cargas de trabalho. Um dos recursos exclusivos de saudação do U-SQL é a combinação de saudação de linguagem declarativa do tipo SQL Olá com extensibilidade hello e programação que é fornecida pelo c#. Neste guia, nos concentraremos nas extensibilidade hello e programação da linguagem de U-SQL Olá habilitado por c#.
 
 ## <a name="requirements"></a>Requisitos
 
@@ -29,7 +29,7 @@ Baixe e instale as [Ferramentas do Azure Data Lake para Visual Studio](https://w
 
 ## <a name="get-started-with-u-sql"></a>Introdução ao U-SQL  
 
-Examinaremos o script U-SQL a seguir:
+Vejamos Olá script U-SQL a seguir:
 
 ```
 @a  = 
@@ -53,7 +53,7 @@ Ele define um conjunto de linhas chamado @a e cria um conjunto de linhas chamado
 
 Uma expressão de U-SQL é uma expressão de C# combinada com operações lógicas U-SQL como `AND`, `OR` e `NOT`. Expressões U-SQL podem ser usadas com SELECT, EXTRACT, WHERE, HAVING, GROUP BY e DECLARE.
 
-Por exemplo, o script a seguir analisa uma cadeia de caracteres de um valor DateTime na cláusula SELECT.
+Por exemplo, Olá script a seguir analisa uma cadeia de um valor DateTime na cláusula SELECT hello.
 
 ```
 @results =
@@ -64,14 +64,14 @@ Por exemplo, o script a seguir analisa uma cadeia de caracteres de um valor Date
     FROM @a;    
 ```
 
-O script a seguir analisa uma cadeia de caracteres de um valor DateTime em uma instrução DECLARE.
+Olá script a seguir analisa uma cadeia de caracteres de um valor de data e hora em uma instrução DECLARE.
 
 ```
 DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
 ```
 
 ### <a name="use-c-expressions-for-data-type-conversions"></a>Usar expressões C# para conversões de tipo de dados
-O exemplo a seguir demonstra como você pode fazer uma conversão de dados de data e hora usando expressões C#. Nesse cenário específico, os dados de datetime da cadeia de caracteres são convertidos em datetime padrão com a notação de hora 00:00:00 meia-noite.
+saudação de exemplo a seguir demonstra como você pode fazer uma conversão de dados de data e hora usando expressões de c#. Neste cenário específico, dados de data e hora da cadeia de caracteres são convertida toostandard datetime com notação de hora 00:00:00 meia-noite.
 
 ```
 DECLARE @dt String = "2016-07-06 10:23:15";
@@ -81,17 +81,17 @@ DECLARE @dt String = "2016-07-06 10:23:15";
         Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
         dt AS olddt
     FROM @rs0;
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
 ### <a name="use-c-expressions-for-todays-date"></a>Usar expressões C# para a data de hoje
-Para efetuar pull da data de hoje, podemos usar a seguinte expressão C#:
+toopull a data de hoje, podemos usar Olá expressão c# a seguir:
 
 ```
 DateTime.Now.ToString("M/d/yyyy")
 ```
 
-Aqui está um exemplo de como usar essa expressão em um script:
+Aqui está um exemplo de como toouse essa expressão em um script:
 
 ```
 @rs1 =
@@ -110,40 +110,40 @@ Aqui está um exemplo de como usar essa expressão em um script:
 
 
 ## <a name="using-net-assemblies"></a>Usando assemblies .NET
-O modelo de extensibilidade do U-SQL depende em grande parte da capacidade de adicionar código personalizado. Atualmente, o U-SQL fornece maneiras fáceis de adicionar seu próprio código baseado em Microsoft .NET (em especial, C#). No entanto, você também pode adicionar código personalizado escrito em outras linguagens .NET, como VB.NET ou F#. 
+Modelo de extensibilidade do U-SQL se baseia no código personalizado do hello capacidade tooadd. Atualmente, U-SQL fornece maneiras fáceis tooadd sua própria Microsoft. Código de rede (em especial, c#). No entanto, você também pode adicionar código personalizado escrito em outras linguagens .NET, como VB.NET ou F#. 
 
 ### <a name="register-a-net-assembly"></a>Registrar um assembly .NET
 
-Use a instrução CREATE ASSEMBLY para colocar um assembly do .NET em um banco de dados U-SQL. Quando um assembly está em um banco de dados, scripts U-SQL podem usar esses assemblies usando a instrução REFERENCE ASSEMBLY. 
+Use tooplace de instrução de CREATE ASSEMBLY hello um assembly do .NET em um banco de dados de U-SQL. Quando um assembly é um banco de dados, scripts U-SQL podem usar esses assemblies usando a instrução de referência de ASSEMBLY hello. 
 
-O código a seguir mostra como registrar um assembly:
+Olá mostrado no código a seguir como tooregister um assembly:
 
 ```
 CREATE ASSEMBLY MyDB.[MyAssembly]
     FROM "/myassembly.dll";
 ```
 
-O código a seguir mostra como referenciar um assembly:
+Olá mostrado no código a seguir como tooreference um assembly:
 
 ```
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-Consulte as [instruções de registro do assembly](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/), que abrangem este tópico mais detalhadamente.
+Consulte Olá [instruções de registro do assembly](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) que abrange a este tópico mais detalhadamente.
 
 
 ### <a name="use-assembly-versioning"></a>Usar o controle de versão do assembly
-Atualmente, o U-SQL usa o .NET Framework versão 4.5. Portanto, faça com que seus próprios assemblies sejam compatíveis com essa versão do tempo de execução.
+Atualmente, U-SQL usa saudação do .NET Framework versão 4.5. Portanto, certifique-se de que seus próprios assemblies são compatíveis com essa versão do tempo de execução de saudação.
 
-Conforme mencionado anteriormente, o U-SQL executa código em um formato de 64 bits (x64). Portanto, faça com que seu código seja compilado para execução em x64. Caso contrário, você obterá o erro de formato incorreto mostrado anteriormente.
+Conforme mencionado anteriormente, o U-SQL executa código em um formato de 64 bits (x64). Portanto, certifique-se de que seu código seja compilado toorun em x64. Caso contrário, você obterá o erro de formato incorreto de saudação mostrado anteriormente.
 
-Cada arquivo de recurso e DLL de assembly carregado, como um tempo de execução diferente, um assembly nativo ou um arquivo config, pode ter no máximo 400 MB. O tamanho total dos recursos implantados, seja por meio de DEPLOY RESOURCE ou por meio de referências a assemblies e a seus arquivos adicionais, não pode exceder 3 GB.
+Cada arquivo de recurso e DLL de assembly carregado, como um tempo de execução diferente, um assembly nativo ou um arquivo config, pode ter no máximo 400 MB. tamanho total de saudação de recursos implantados, por meio do recurso de IMPLANTAR ou por meio de referências tooassemblies e seus arquivos adicionais, não pode exceder 3 GB.
 
-Por fim, observe que cada banco de dados U-SQL pode conter apenas uma versão de qualquer determinado assembly. Por exemplo, se você precisar da versão 7 e da versão 8 da biblioteca NewtonSoft Json.Net, será preciso registrá-las em dois bancos de dados diferentes. Além disso, cada script pode fazer referência apenas a uma versão da DLL de um determinado assembly. Nesse sentido, o U-SQL segue a semântica de controle de versão e gerenciamento do assembly de C#.
+Por fim, observe que cada banco de dados U-SQL pode conter apenas uma versão de qualquer determinado assembly. Por exemplo, se você precisar tanto versão 7 e 8 do hello NewtonSoft Json.Net biblioteca, você precisa tooregistê-los em dois bancos de dados diferentes. Além disso, cada script só pode fazer referência a versão de tooone de um determinado assembly DLL. Nesse sentido, U-SQL segue Olá c# assembly gerenciamento e controle de versão de semântica.
 
 
 ## <a name="use-user-defined-functions-udf"></a>Funções definidas pelo usuário: UDF
-As funções definidas pelo usuário ou UDF do U-SQL são rotinas de programação que aceitam parâmetros, executam uma ação (mo um cálculo complexo)e retornam o resultado dessa ação como um valor. O valor de retorno da UDF pode ser apenas um único escalar. A UDF do U-SQL pode ser chamado no script base U-SQL como qualquer outra função escalar C#.
+Funções definidas pelo usuário U-SQL ou UDF, estiver programando rotinas que aceitam parâmetros, executam uma ação (como um cálculo complexo) e retornam Olá resultado dessa ação como um valor. Olá retornar o valor de UDF só pode ser um único valor escalar. A UDF do U-SQL pode ser chamado no script base U-SQL como qualquer outra função escalar C#.
 
 Recomendamos que você inicialize as funções do U-SQL definidas pelo usuário como **públicas** e **estáticas**.
 
@@ -154,11 +154,11 @@ public static string MyFunction(string param1)
 }
 ```
 
-Primeiro, vamos ver um exemplo simples de como criar uma UDF.
+Primeiro vamos examinar Olá o exemplo simples de criação de um UDF.
 
-Nesse cenário de caso de uso, precisamos determinar o período fiscal, inclusive o trimestre fiscal e o mês fiscal do primeiro logon para o usuário específico. O primeiro mês fiscal do ano em nosso cenário é junho.
+Neste cenário de caso de uso, é preciso toodetermine Olá período fiscal, incluindo o trimestre fiscal hello e mês fiscal do hello entrar pela primeira vez para usuário específico hello. Olá primeiro mês fiscal do ano de saudação em nosso cenário é junho.
 
-Para calcular o período fiscal, introduzimos a seguinte função C#:
+período de toocalculate, apresentamos Olá função c# a seguir:
 
 ```
 public static string GetFiscalPeriod(DateTime dt)
@@ -195,11 +195,11 @@ public static string GetFiscalPeriod(DateTime dt)
 }
 ```
 
-Ela simplesmente calcula o mês e o trimestre fiscal e retorna um valor de cadeia de caracteres. No caso de junho, o primeiro mês do primeiro trimestre fiscal, usamos "Q1:P1". No caso de julho, usamos "Q1:P2" e assim por diante.
+Ela simplesmente calcula o mês e o trimestre fiscal e retorna um valor de cadeia de caracteres. Junho, Olá primeiro mês do hello primeiro trimestre fiscal, usamos "Q1:P1". No caso de julho, usamos "Q1:P2" e assim por diante.
 
-Essa é uma função C# regular que vamos usar em nosso projeto U-SQL.
+Essa é uma regular c# função que estamos toouse contínuo em nosso projeto U-SQL.
 
-Veja como é a seção code-behind nesse cenário:
+Aqui está a aparência da seção de código por trás de saudação neste cenário:
 
 ```
 using Microsoft.Analytics.Interfaces;
@@ -251,13 +251,13 @@ namespace USQL_Programmability
 }
 ```
 
-Agora, vamos chamar essa função do script base U-SQL. Para fazer isso, precisamos fornecer um nome totalmente qualificado para a função, incluindo o namespace, que nesse caso é NameSpace.Class.Function(parameter).
+Agora, vamos toocall essa função de script U-SQL de base de saudação. toodo isso, temos tooprovide um nome totalmente qualificado para a função hello, incluindo o namespace de saudação, que nesse caso é NameSpace.Class.Function(parameter).
 
 ```
 USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)
 ```
 
-Veja abaixo o script base U-SQL real:
+O seguinte é script base do hello real U-SQL:
 
 ```
 DECLARE @input_file string = @"\usql-programmability\input_file.tsv";
@@ -285,11 +285,11 @@ DECLARE @default_dt DateTime = Convert.ToDateTime("06/01/2016");
     GROUP BY user, des;
 
 OUTPUT @rs1 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```
 
-Veja abaixo o arquivo de saída da execução do script:
+O seguinte é um arquivo de saída Olá Olá da execução do script:
 
 ```
 0d8b9630-d5ca-11e5-8329-251efa3a2941,2016-02-11T07:04:17.2630000-08:00,2016-06-01T00:00:00.0000000,"Q3:8","User1",""
@@ -302,19 +302,19 @@ Veja abaixo o arquivo de saída da execução do script:
 Esse exemplo demonstra um uso simples de UDF embutida no U-SQL.
 
 ### <a name="keep-state-between-udf-invocations"></a>Manter o estado entre invocações da UDF
-Os objetos de programação C# do U-SQL podem ser mais sofisticados ao utilizar interatividade por meio de variáveis globais de code-behind. Vejamos o cenário de caso de uso comercial a seguir.
+Objetos de programação c# U-SQL podem ser mais sofisticados, utilizando a interatividade por meio de variáveis globais do hello por trás do código. Vamos examinar Olá seguindo o cenário de caso de uso de negócios.
 
-Em grandes organizações, os usuários podem alternar entre diversos aplicativos internos. Eles podem incluir o Microsoft Dynamics CRM, o PowerBI e assim por diante. O cliente pode querer aplicar uma análise de telemetria de como os usuários alternam entre diferentes aplicativos, quais são as tendências de uso e assim por diante. O objetivo da empresa é otimizar o uso de aplicativos. Ela também pode querer combinar diferentes aplicativos ou rotinas específicas de logon.
+Em grandes organizações, os usuários podem alternar entre diversos aplicativos internos. Eles podem incluir o Microsoft Dynamics CRM, o PowerBI e assim por diante. Os clientes talvez queira tooapply uma análise de telemetria de como os usuários alternam entre diferentes aplicativos, o uso de saudação mostra as tendências são e assim por diante. meta de Hello para empresas Olá é toooptimize o uso do aplicativo. Eles também seja toocombine diferentes aplicativos ou as rotinas de logon específicas.
 
-Para atingir essa meta, precisamos determinar as IDs de uma sessão e o tempo de latência desde a última sessão ocorrida.
+tooachieve essa meta, temos toodetermine IDs de sessão e o tempo de atraso entre hello última sessão que ocorreu.
 
-Precisamos encontrar um logon anterior e atribuí-lo a todas as sessões que estão sendo geradas para o mesmo aplicativo. Primeiro desafio: o script base U-SQL não nos permite aplicar cálculos sobre colunas já calculadas com a função LAG. Segundo desafio: temos que manter a sessão específica para todas as sessões no mesmo período.
+Precisamos toofind uma entrada anterior e, em seguida, atribuir esse sessões de entrada tooall que estão sendo gerado toohello mesmo aplicativo. Olá primeiro desafio é que script base U-SQL não permite nos cálculos de tooapply colunas já calculado com a função LAG. Olá segundo desafio é que temos de sessão específica do tookeep Olá para todas as sessões em Olá mesmo período de tempo.
 
-Para resolver esse problema, use uma variável global dentro da seção code-behind: `static public string globalSession;`.
+toosolve esse problema, usamos uma variável global dentro de uma seção de lógica: `static public string globalSession;`.
 
-Essa variável global é aplicada a todo o conjunto de linhas durante a execução do nosso script.
+Essa variável global é aplicado toohello todo conjunto de linhas durante a execução do nosso script.
 
-Veja abaixo a seção code-behind do nosso programa U-SQL:
+Aqui é Olá por trás do código da seção de nosso programa U-SQL:
 
 ```
 using Microsoft.Analytics.Interfaces;
@@ -352,9 +352,9 @@ namespace USQLApplication21
 }
 ```
 
-Este exemplo mostra a variável global `static public string globalSession;` usada dentro da função `getStampUserSession` sendo reinicializada sempre que o parâmetro Session é alterado.
+Este exemplo mostra Olá variável global `static public string globalSession;` usada dentro de saudação `getStampUserSession` função e Obtendo reinicializada cada sessão de parâmetro for alterado de saudação do tempo.
 
-O script base U-SQL é o seguinte:
+Olá U-SQL script base é o seguinte:
 
 ```
 DECLARE @in string = @"\UserSession\test1.tsv";
@@ -399,14 +399,14 @@ DECLARE @out3 string = @"\UserSession\Out3.csv";
     WHERE UserName != "UserName";
 
 OUTPUT @rs2
-    TO @out2
+    too@out2
     ORDER BY UserName, EventDateTime ASC
     USING Outputters.Csv();
 ```
 
-A função `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` é chamada aqui durante o segundo cálculo do conjunto de linhas da memória. Ele passa a coluna `UserSessionTimestamp` e retorna o valor até que `UserSessionTimestamp` seja alterado.
+Função `USQLApplication21.UserSession.getStampUserSession(UserSessionTimestamp)` é chamado aqui durante o cálculo de conjunto de linhas de memória segundo hello. Ele passa Olá `UserSessionTimestamp` Olá valor até que a coluna e retorna `UserSessionTimestamp` foi alterado.
 
-O arquivo de saída é o seguinte:
+arquivo de saída de saudação é da seguinte maneira:
 
 ```
 "2016-02-19T07:32:36.8420000-08:00","User1",,True,"72a0660e-22df-428e-b672-e0977007177f"
@@ -433,17 +433,17 @@ O arquivo de saída é o seguinte:
 "2016-02-19T01:20:31.4800000-08:00","User4","2016-02-18T14:37:27.6560000-08:00",False,"2136f4cf-7c7d-43c1-8ae2-08f4ad6a6e08"
 ```
 
-Esse exemplo demonstra um cenário de caso de uso mais complicado em que usamos uma variável global dentro da seção code-behind aplicada a todo um conjunto de linhas da memória.
+Este exemplo demonstra um cenário de caso de uso mais complicado que usamos uma variável global dentro de uma seção de lógica que é o conjunto de linhas do toohello aplicada memória inteira.
 
 ## <a name="use-user-defined-types-udt"></a>Tipos de CLR definidos pelo usuário: UDT
-Os tipos definidos pelo usuário, ou UDT, são outro recurso de programação do U-SQL. O UDT do U-SQL atua como um tipo definido pelo usuário regular de C#. C# é uma linguagem fortemente tipada que permite o uso de tipos definidos pelo usuário personalizados e internos.
+Os tipos definidos pelo usuário, ou UDT, são outro recurso de programação do U-SQL. O UDT do U-SQL atua como um tipo definido pelo usuário regular de C#. C# é uma linguagem fortemente tipada que permite o uso de saudação de tipos internos e personalizados definidos pelo usuário.
 
-O U-SQL não pode implicitamente serializar ou desserializar UDTs arbitrários quando o UDT é passado entre os vértices em conjuntos de linhas. Isso significa que o usuário precisa fornecer um formatador explícito usando a interface IFormatter. Isso fornece ao U-SQL métodos de serialização e desserialização para o UDT.
+U-SQL implicitamente não é possível serializar ou desserializar UDTs arbitrários quando Olá UDT é transmitido entre vértices em conjuntos de linhas. Isso significa que o usuário Olá tem tooprovide um formatador explícita usando Olá IFormatter interface. Isso fornece U-SQL com hello serializar e desserializar métodos para Olá UDT.
 
 > [!NOTE]
-> Extratores internos e outputters de U-SQL atualmente não podem serializar ou desserializar dados de UDT de ou para arquivos, mesmo com o conjunto do IFormatter. Assim, quando você está gravando dados UDT em um arquivo com a instrução OUTPUT ou lendo com um extrator, precisa passá-lo como uma cadeia de caracteres ou matriz de bytes. Em seguida, deve chamar o código de serialização e desserialização (ou seja, o método ToString () do UDT) explicitamente. Por outro lado, extratores definidos pelo usuário e outputters podem ler e gravar UDTs.
+> U-SQL Extratores internos e outputters atualmente não é possível serializar ou desserializar tooor de dados UDT de arquivos mesmo com hello IFormatter conjunto. Portanto, quando você está escrevendo o arquivo de tooa dados UDT com hello declaração de saída ou lê-lo com um extrator, você tem toopass-lo como uma cadeia de caracteres ou matriz de bytes. Em seguida, você chamar serialização hello e a desserialização de código (ou seja, o método ToString () de saudação do UDT) explicitamente. Extratores definidas pelo usuário e outputters em outros Olá mão, podem ler e gravar UDTs.
 
-Se tentarmos usam o UDT em EXTRATOR ou OUTPUTTER (fora do SELECT anterior), conforme mostrado aqui:
+Se tentarmos toouse UDT EXTRATOR ou OUTPUTTER (fora da seleção anterior), conforme mostrado aqui:
 
 ```
 @rs1 =
@@ -452,14 +452,14 @@ Se tentarmos usam o UDT em EXTRATOR ou OUTPUTTER (fora do SELECT anterior), conf
     FROM @rs0;
 
 OUTPUT @rs1 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```
 
-Recebemos o seguinte erro:
+Recebemos Olá erro a seguir:
 
 ```
-Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used to output column myfield of type
+Error   1   E_CSC_USER_INVALIDTYPEINOUTPUTTER: Outputters.Text was used toooutput column myfield of type
 MyNameSpace.Myfunction_Returning_UDT.
 
 Description:
@@ -468,14 +468,14 @@ Outputters.Text only supports built-in types.
 
 Resolution:
 
-Implement a custom outputter that knows how to serialize this type, or call a serialization method on the type in
-the preceding SELECT.   C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
+Implement a custom outputter that knows how tooserialize this type, or call a serialization method on hello type in
+hello preceding SELECT. C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\
 USQL-Programmability\Types.usql 52  1   USQL-Programmability
 ```
 
-Para trabalhar com UDT em outptutter, também temos que serializá-lo para cadeia de caracteres com o método ToString() ou criar um outputter personalizado.
+toowork com UDT no outputter, podemos ter tooserialize-toostring com hello método ToString () ou criar um outputter personalizado.
 
-Atualmente, os UDTs não podem ser usados em GROUP BY. Se o UDT for usado em GROUP BY, o seguinte erro será gerado:
+Atualmente, os UDTs não podem ser usados em GROUP BY. Se o UDT é usado em GROUP BY, Olá erro a seguir é gerada:
 
 ```
 Error   1   E_CSC_USER_INVALIDTYPEINCLAUSE: GROUP BY doesn't support type MyNameSpace.Myfunction_Returning_UDT
@@ -487,33 +487,33 @@ GROUP BY doesn't support UDT or Complex types.
 
 Resolution:
 
-Add a SELECT statement where you can project a scalar column that you want to use with GROUP BY.
+Add a SELECT statement where you can project a scalar column that you want toouse with GROUP BY.
 C:\Users\sergeypu\Documents\Visual Studio 2013\Projects\USQL-Programmability\USQL-Programmability\Types.usql
 62  5   USQL-Programmability
 ```
 
-Para definir um UDT, temos que:
+toodefine um UDT, temos:
 
-* Adicione os seguintes namespaces:
+* Adicione Olá namespaces a seguir:
 
 ```
 using Microsoft.Analytics.Interfaces
 using System.IO;
 ```
 
-* Adicione `Microsoft.Analytics.Interfaces`, que é necessário para as interfaces UDT. Além disso, `System.IO` pode ser necessário para definir a interface IFormatter.
+* Adicionar `Microsoft.Analytics.Interfaces`, que é necessário para as interfaces UDT de saudação. Além disso, `System.IO` pode ser a interface de IFormatter Olá toodefine necessários.
 
 * Defina o tipo definido usado com o atributo SqlUserDefinedType.
 
-**SqlUserDefinedType** é usado para marcar uma definição de tipo em um assembly como um UDT (tipo definido pelo usuário) no U-SQL. As propriedades no atributo refletem as características físicas do UDT. Essa classe não pode ser herdada.
+**SqlUserDefinedType** é toomark usada uma definição de tipo em um assembly como um tipo definido pelo usuário (UDT) em U-SQL. Propriedades de saudação no atributo Olá refletem características físicas de saudação do hello UDT. Essa classe não pode ser herdada.
 
 SqlUserDefinedType é um atributo necessário para a definição de UDT.
 
-O construtor da classe:  
+Construtor de saudação da classe hello:  
 
 * SqlUserDefinedTypeAttribute(type formatter)
 
-* Digite o parâmetro formatter: Required para definir um formatador UDT, mais especificamente, o tipo da interface `IFormatter` deve ser passado aqui.
+* Formatador do tipo: necessário parâmetro toodefine um formatador UDT — especificamente, o tipo de saudação da saudação `IFormatter` interface deve ser passada aqui.
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -521,7 +521,7 @@ public class MyType
 { … }
 ```
 
-* O UDT típico também requer a definição da interface IFormatter, conforme mostrado no exemplo abaixo:
+* UDT típico também requer a definição da interface de IFormatter hello, conforme mostrado no exemplo a seguir de saudação:
 
 ```
 public class MyTypeFormatter : IFormatter<MyType>
@@ -534,25 +534,25 @@ public class MyTypeFormatter : IFormatter<MyType>
 }
 ```
 
-A interface `IFormatter` serializa e desserializa um gráfico de objeto com o tipo raiz de \<typeparamref name="T">.
+Olá `IFormatter` interface serializa e desfaz a serialização de um gráfico de objeto com tipo de raiz de saudação do \<typeparamref name = "T" >.
 
-\<typeparam name="T">O tipo raiz para serialização e desserialização do gráfico de objeto.
+\<typeparam name = "T" > Olá tipo raiz para Olá objeto gráfico tooserialize e desserializar.
 
-* **Desserializar**: desserializa os dados no fluxo fornecido e reconstitui o gráfico de objetos.
+* **Desserializar**: desfaz a serialização de dados Olá fluxo Olá fornecido e reconstitui gráfico Olá de objetos.
 
-* **Serializar**: serializa um objeto ou gráfico de objetos com determinada raiz para o fluxo fornecido.
+* **Serializar**: serializa um objeto ou o gráfico de objetos, com hello recebe o fluxo de toohello fornecido de raiz.
 
-Instância `MyType`: a instância do tipo.  
-Gravador `IColumnWriter`/leitor `IColumnReader`: o fluxo da coluna subjacente.  
-Contexto `ISerializationContext`: enumeração que define um conjunto de sinalizadores que especifica o contexto de origem ou destino para o fluxo durante a serialização.
+`MyType`instância: instância de tipo hello.  
+`IColumnWriter`Gravador / `IColumnReader` leitor: Olá subjacente de fluxo de coluna.  
+`ISerializationContext`contexto: Enum que define um conjunto de sinalizadores que especifica o contexto de origem ou destino de saudação de fluxo Olá durante a serialização.
 
-* **Intermediário**: especifica que o contexto de origem ou de destino não é um armazenamento persistente.
+* **Intermediário**: Especifica o contexto Olá origem ou destino não é um armazenamento persistente.
 
-* **Persistência**: especifica que o contexto de origem ou de destino é um armazenamento persistente.
+* **Persistência**: Especifica o contexto Olá origem ou destino é um armazenamento persistente.
 
-Como um tipo C# regular, uma definição de UDT do U-SQL pode incluir substituições para operadores como +/==/!=. Ele também pode incluir métodos estáticos. Por exemplo, se formos usar esse UDT como um parâmetro para uma função agregada MIN do U-SQL, teremos que definir a substituição do operador <.
+Como um tipo C# regular, uma definição de UDT do U-SQL pode incluir substituições para operadores como +/==/!=. Ele também pode incluir métodos estáticos. Por exemplo, se formos toouse desse UDT como uma função de agregação MIN U-SQL de tooa do parâmetro, temos toodefine < substituição de operador.
 
-Anteriormente neste guia, demonstramos um exemplo da identificação do período fiscal na data específica no formato Qn:Pn (Q1:P10). O exemplo a seguir mostra como definir um tipo personalizado para os valores do período fiscal.
+Neste guia, demonstramos um exemplo de identificação do período fiscal de data de saudação específica no formato Olá Qn:Pn (Q1:P10). saudação de exemplo a seguir mostra como toodefine um tipo personalizado para os valores do período fiscais.
 
 Abaixo temos um exemplo de uma seção code-behind com interface IFormatter e UDT personalizado:
 
@@ -655,11 +655,11 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-O tipo definido inclui dois números: trimestre e mês. Os operadores ==/!=/>/< e o método estático ToString() são definidos aqui.
+tipo definido Hello inclui dois números: trimestre e mês. Os operadores ==/!=/>/< e o método estático ToString() são definidos aqui.
 
-Como mencionado anteriormente, o UDT pode ser usado nas expressões SELECT, mas não pode ser usado em OUTPUTTER/EXTRACTOR sem serialização personalizada. Ele precisa ser serializado como uma cadeia de caracteres com ToString() ou usado com um OUTPUTTER/EXTRACTOR personalizado.
+Como mencionado anteriormente, o UDT pode ser usado nas expressões SELECT, mas não pode ser usado em OUTPUTTER/EXTRACTOR sem serialização personalizada. Ele tem toobe serializado como uma cadeia de caracteres com ToString () ou usados com um OUTPUTTER/EXTRATOR personalizado.
 
-Agora, vamos falar sobre o uso do UDT. Na seção code-behind, alteramos a nossa função GetFiscalPeriod para o seguinte:
+Agora, vamos falar sobre o uso do UDT. Em uma seção de lógica, alteramos nossas seguinte de toohello GetFiscalPeriod função:
 
 ```
 public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
@@ -696,9 +696,9 @@ public static FiscalPeriod GetFiscalPeriodWithCustomType(DateTime dt)
 }
 ```
 
-Como você pode ver, ela retorna o valor do nosso tipo FiscalPeriod.
+Como você pode ver, ele retorna o valor de saudação do nosso tipo FiscalPeriod.
 
-Aqui, fornecemos um exemplo de como usá-lo ainda mais no script base U-SQL. Este exemplo demonstra as diferentes formas de invocação do UDT no script U-SQL.
+Aqui, fornecemos um exemplo de como a toouse-lo posteriormente no script base U-SQL. Este exemplo demonstra as diferentes formas de invocação do UDT no script U-SQL.
 
 ```
 DECLARE @input_file string = @"c:\work\cosmos\usql-programmability\input_file.tsv";
@@ -733,14 +733,14 @@ DECLARE @output_file string = @"c:\work\cosmos\usql-programmability\output_file.
            fiscalmonth,
            USQL_Programmability.CustomFunctions.GetFiscalPeriodWithCustomType(dt).ToString() AS fiscalperiod,
 
-       // This user-defined type was created in the prior SELECT.  Passing the UDT to this subsequent SELECT would have failed if the UDT was not annotated with an IFormatter.
+       // This user-defined type was created in hello prior SELECT.  Passing hello UDT toothis subsequent SELECT would have failed if hello UDT was not annotated with an IFormatter.
            fiscalperiod_adjusted.ToString() AS fiscalperiod_adjusted,
            user,
            des
     FROM @rs1;
 
 OUTPUT @rs2 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```
 
@@ -905,9 +905,9 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 ```
 
 ## <a name="use-user-defined-aggregates-udagg"></a>Use agregações definidas pelo usuário: UDAGG
-As agregações definidas pelo usuário são funções relacionadas à agregação que não são enviadas para uso imediato com o U-SQL. O exemplo pode ser uma agregação para executar um cálculo matemático personalizado, concatenações de cadeia de caracteres ou manipulações com cadeias de caracteres, etc.
+As agregações definidas pelo usuário são funções relacionadas à agregação que não são enviadas para uso imediato com o U-SQL. exemplo Hello pode ser uma agregação tooperform matemáticas personalizadas cálculos concatenações, manipulações de cadeias de caracteres e assim por diante.
 
-A definição de classe base da agregação definida pelo usuário é a seguinte:
+a definição de classe base de agregação definida pelo usuário Olá é o seguinte:
 
 ```c#
     [SqlUserDefinedAggregate]
@@ -921,12 +921,12 @@ A definição de classe base da agregação definida pelo usuário é a seguinte
     }
 ```
 
-**SqlUserDefinedAggregate** indica que o tipo deve ser registrado como uma agregação definida pelo usuário. Essa classe não pode ser herdada.
+**SqlUserDefinedAggregate** indica que o tipo de saudação deve ser registrado como uma agregação definida pelo usuário. Essa classe não pode ser herdada.
 
 O atributo SqlUserDefinedType é **opcional** para a definição de UDAGG.
 
 
-A classe base permite passar três parâmetros abstratos: dois como parâmetros de entrada e um como resultado. Os tipos de dados são variáveis e devem ser definidos durante a herança da classe.
+Olá classe base permite que você toopass três parâmetros de abstrata: dois como parâmetros de entrada e outra como resultado de saudação. tipos de dados de saudação são variáveis e devem ser definidos durante a herança de classe.
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -945,17 +945,17 @@ public class GuidAggregate : IAggregate<string, string, string>
 ```
 
 * **Init** é invocado uma vez para cada grupo durante o cálculo. Ele fornece uma rotina de inicialização para cada grupo de agregação.  
-* **Accumulate** é executado uma vez para cada valor. Ele fornece a funcionalidade principal para o algoritmo de agregação. Ele pode ser usado para agregar valores com vários tipos de dados que são definidos durante a herança da classe. Ele pode aceitar dois parâmetros de tipos de dados variáveis.
-* **Terminate** é executado uma vez por grupo de agregação no fim do processamento para gerar o resultado para cada grupo.
+* **Accumulate** é executado uma vez para cada valor. Ele fornece funcionalidade principal Olá para o algoritmo de agregação de saudação. Pode ser usado tooaggregate valores com vários tipos de dados que são definidos durante a herança de classe. Ele pode aceitar dois parâmetros de tipos de dados variáveis.
+* **Encerrar** é executada uma vez por grupo de agregação no final de saudação do processamento toooutput Olá resultado para cada grupo.
 
-Para declarar tipos de dados de entrada e saída corretos, use a seguinte definição de classe:
+entrada correta toodeclare e tipos de dados de saída, use a definição de classe hello como segue:
 
 ```
 public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
-* T1: primeiro parâmetro para accumulate
-* T2: primeiro parâmetro para accumulate
+* T1: Primeiro parâmetro tooaccumulate
+* T2: Primeiro parâmetro tooaccumulate
 * TResult: tipo de retorno de terminate
 
 Por exemplo:
@@ -971,9 +971,9 @@ public class GuidAggregate : IAggregate<string, string, string>
 ```
 
 ### <a name="use-udagg-in-u-sql"></a>Usar UDAGG no U-SQL
-Para usar a UDAGG, primeiramente defina-a no code-behind ou faça referência a ela na DLL de programação existente, conforme discutido anteriormente.
+primeiro, toouse UDAGG, defini-lo no code-behind ou fazer referência de programação existente de saudação DLL conforme discutido anteriormente.
 
-Em seguida, use a seguinte sintaxe:
+Em seguida, use Olá sintaxe a seguir:
 
 ```
 AGG<UDAGG_functionname>(param1,param2)
@@ -1029,30 +1029,30 @@ DECLARE @output_file string = @" \usql-programmability\output_file.tsv";
     FROM @rs0
     GROUP BY user;
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
-Nesse cenário de caso de uso, concatenamos os GUIDs de classe para usuários específicos.
+Neste cenário de caso de uso, podemos concatenar GUIDs de classe para usuários específicos hello.
 
 ## <a name="use-user-defined-objects-udo"></a>Usar objetos definidos pelo usuário: UDO
-O U-SQL permite definir objetos de programação personalizados que são chamados de objetos definidos pelo usuário ou UDO.
+U-SQL permite que objetos de programação personalizada toodefine, que são chamados objetos definidos pelo usuário ou do UDO.
 
-Veja a seguinte lista de UDO no U-SQL:
+a seguir Olá é uma lista de UDO em U-SQL:
 
 * Extratores definidos pelo usuário
     * Extrair linha por linha
-    * Usado para implementar extração de dados de arquivos estruturados personalizados
+    * Usado tooimplement extração de dados de arquivos estruturados personalizados
 
 * Outputters definidos pelo usuário
     * Gerar linha por linha
-    * Usado para gerar tipos de dados personalizados ou formatos de arquivo personalizado
+    * Usado toooutput tipos de dados personalizados ou formatos de arquivo personalizados
 
 * Processadores definidos pelo usuário
     * Usar uma linha e gerar uma linha
-    * Usado para reduzir o número de colunas ou produzir novas colunas com valores derivados de um conjunto de colunas existente
+    * Tooreduce usado Olá o número de colunas ou produzir novas colunas com valores que são derivados de um conjunto de coluna existente
 
 * Aplicadores definidos pelo usuário
-    * Usar uma linha e gerar 0 para n linhas
+    * Coloque uma linha e produzir 0 linhas toon
     * Usado com OUTER/CROSS APPLY
 
 * Combinadores definidos pelo usuário
@@ -1060,9 +1060,9 @@ Veja a seguinte lista de UDO no U-SQL:
 
 * Redutores definidos pelo usuário
     * Usar n linhas e gerar uma linha
-    * Usado para reduzir o número de linhas
+    * Usado tooreduce Olá número de linhas
 
-Geralmente, o UDO é chamado explicitamente no script U-SQL como parte das seguintes instruções U-SQL:
+UDO é geralmente chamado explicitamente no script U-SQL como parte da saudação instruções U-SQL a seguir:
 
 * EXTRACT
 * OUTPUT
@@ -1071,10 +1071,10 @@ Geralmente, o UDO é chamado explicitamente no script U-SQL como parte das segui
 * REDUCE
 
 > [!NOTE]  
-> UDOs são limitados para consumir 0,5 GB de memória.  Essa limitação de memória não se aplica a execuções locais.
+> UDO é limitados tooconsume 0,5 Gb memória.  Essa limitação de memória não se aplica a toolocal execuções.
 
 ## <a name="use-user-defined-extractors"></a>Usar extratores definidos pelo usuário
-O U-SQL permite importar dados externos usando uma instrução EXTRACT. Uma instrução EXTRACT pode usar extratores de UDO internos:  
+U-SQL permite que dados externos tooimport usando uma instrução de EXTRAÇÃO. Uma instrução EXTRACT pode usar extratores de UDO internos:  
 
 * *Extractors.Text()*: fornece extração dos arquivos de texto delimitados de diferentes codificações.
 
@@ -1082,13 +1082,13 @@ O U-SQL permite importar dados externos usando uma instrução EXTRACT. Uma inst
 
 * *Extractors.Tsv()*: fornece extração de arquivos TSV (valores separados por tabulação) de diferentes codificações.
 
-Pode ser útil desenvolver um extrator personalizado. Isso pode ser útil durante a importação de dados para executar uma das seguintes tarefas:
+Ele pode ser útil toodevelop um extrator personalizado. Isso pode ser útil durante a importação de dados se quisermos toodo qualquer uma das seguintes tarefas de saudação:
 
-* Modificar dados de entrada ao dividir colunas e modificar os valores individuais. A funcionalidade PROCESSOR é melhor para combinar colunas.
+* Modificar dados de entrada ao dividir colunas e modificar os valores individuais. Olá funcionalidade do processador é melhor para a combinação de colunas.
 * Analisar dados não estruturados, como páginas da Web e emails, ou semiestruturados, como XML/JSON.
 * Analisar dados na codificação sem suporte.
 
-Para definir o extrator definido pelo usuário, ou UDE, precisamos criar uma interface `IExtractor`. Todos os parâmetros de entrada para o extrator, como delimitadores de linha/coluna e codificação precisam ser definidos no construtor da classe. A interface `IExtractor` também deve conter uma definição para a substituição `IEnumerable<IRow>` da seguinte forma:
+toodefine extrator de definida pelo usuário, ou excluir, precisamos toocreate um `IExtractor` interface. Todas as entrada extrator de toohello parâmetros, como delimitadores de coluna/linha e a codificação, precisam toobe definida no construtor de saudação da classe de saudação. Olá `IExtractor` interface também deve conter uma definição para Olá `IEnumerable<IRow>` substituir da seguinte maneira:
 
 ```
 [SqlUserDefinedExtractor]
@@ -1102,20 +1102,20 @@ public class SampleExtractor : IExtractor
 }
 ```
 
-O atributo **SqlUserDefinedExtractor** indica que o tipo deve ser registrado como um extrator definido pelo usuário. Essa classe não pode ser herdada.
+Olá **SqlUserDefinedExtractor** atributo indica que tipo de saudação deve ser registrado como um extrator definido pelo usuário. Essa classe não pode ser herdada.
 
-SqlUserDefinedExtractor é um atributo opcional para a definição de UDE. Ele é usado para definir a propriedade AtomicFileProcessing do objeto UDE.
+SqlUserDefinedExtractor é um atributo opcional para a definição de UDE. Ele usado toodefine AtomicFileProcessing propriedade para o objeto de uir hello.
 
 * bool     AtomicFileProcessing   
 
 * **true** = indica que esse extrator exige arquivos de entrada atômicos (JSON, XML, ...)
 * **false** = indica que esse extrator pode lidar com arquivos divididos/distribuídos (CSV, SEQ, ...)
 
-Os principais objetos de programação do UDE são **input** e **output**. O objeto de entrada é usado para enumerar os dados de entrada como `IUnstructuredReader`. O objeto de saída é usado para definir os dados de saída como resultado da atividade extractor.
+os objetos de programação uir principais Olá são **entrada** e **saída**. objeto de entrada Hello está dados de entrada usado tooenumerate como `IUnstructuredReader`. saudação do objeto de saída é usada tooset dados de saída como resultado da atividade de extrator de saudação.
 
-Os dados de entrada são acessados por meio de `System.IO.Stream` e `System.IO.StreamReader`.
+dados de entrada Hello são acessados por meio de `System.IO.Stream` e `System.IO.StreamReader`.
 
-Para enumeração de colunas de entrada, primeiramente dividimos o fluxo de entrada usando um delimitador de linha.
+Para a enumeração de colunas de entrada do primeiro dividiremos fluxo de entrada hello usando um delimitador de linha.
 
 ```
 foreach (Stream current in input.Split(my_row_delimiter))
@@ -1136,17 +1136,17 @@ foreach (Stream current in input.Split(my_row_delimiter))
 }
 ```
 
-Para definir os dados de saída, usamos o método `output.Set`.
+dados de saída tooset, usamos Olá `output.Set` método.
 
-É importante entender que o extrator personalizado só gera colunas e valores que são definidos com a saída. Defina a chamada do método.
+É importante toounderstand que Olá extrator personalizado produz somente colunas e valores que são definidos com saída de hello. Defina a chamada do método.
 
 ```
 output.Set<string>(count, part);
 ```
 
-A saída real do extrator é disparada chamando `yield return output.AsReadOnly();`.
+saída do Hello extrator real é disparada pela chamada `yield return output.AsReadOnly();`.
 
-Vejamos o exemplo do extrator:
+O seguinte é um exemplo extrator de hello:
 
 ```
 [SqlUserDefinedExtractor(AtomicFileProcessing = true)]
@@ -1167,13 +1167,13 @@ public class FullDescriptionExtractor : IExtractor
     public override IEnumerable<IRow> Extract(IUnstructuredReader input, IUpdatableRow output)
     {
          string line;
-         //Read the input line by line
+         //Read hello input line by line
          foreach (Stream current in input.Split(_encoding.GetBytes("\r\n")))
          {
         using (System.IO.StreamReader streamReader = new StreamReader(current, this._encoding))
          {
              line = streamReader.ReadToEnd().Trim();
-             //Split the input by the column delimiter
+             //Split hello input by hello column delimiter
              string[] parts = line.Split(this._col_delim);
              int count = 0; // start with first column
              foreach (string part in parts)
@@ -1185,13 +1185,13 @@ public class FullDescriptionExtractor : IExtractor
              }
              else if (count == 2)
              {
-                 // for column “user”, convert to UPPER case
+                 // for column “user”, convert tooUPPER case
                  output.Set<string>(count, part.ToUpper());
 
              }
              else
              {
-                 // keep the rest of the columns as-is
+                 // keep hello rest of hello columns as-is
                  output.Set<string>(count, part);
              }
              count += 1;
@@ -1205,7 +1205,7 @@ public class FullDescriptionExtractor : IExtractor
 }
 ```
 
-Nesse cenário de caso de uso, o extrator regenera o GUID para a coluna "guid" e converte os valores da coluna "usuário" em letras maiúsculas. Os extratores personalizados podem produzir resultados mais complicados ao analisar dados de entrada e manipulá-los.
+Neste cenário de caso de uso, extrator de saudação regenera Olá GUID para a coluna "guid" e converte os valores de saudação do caso de tooupper de coluna de "usuário". Os extratores personalizados podem produzir resultados mais complicados ao analisar dados de entrada e manipulá-los.
 
 Script base U-SQL que usa um extrator personalizado:
 
@@ -1222,25 +1222,25 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
     FROM @input_file
         USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
-OUTPUT @rs0 TO @output_file USING Outputters.Text();
+OUTPUT @rs0 too@output_file USING Outputters.Text();
 ```
 
 ## <a name="use-user-defined-outputters"></a>Usar outputters definidos pelo usuário
-O outputter definido pelo usuário é outro UDO do U-SQL que permite estender uma funcionalidade interna do U-SQL. Assim como o extrator, há vários outputters internos.
+Outputter definida pelo usuário é outro UDO U-SQL que permite a você uma funcionalidade interna tooextend U-SQL. Extrator de toohello semelhante, há vários outputters internos.
 
-* *Outputters.Text()*: grava dados em arquivos de texto delimitados de codificações diferentes.
-* *Outputters.Csv()*: grava dados em arquivos CSV (valores separados por vírgula) de codificações diferentes.
-* *Outputters.Tsv()*: grava dados em arquivos TSV (valores separados por tabulação) de codificações diferentes.
+* *Outputters.Text()*: grava dados toodelimited arquivos de texto de codificações diferentes.
+* *Outputters.Csv()*: grava arquivos de (CSV) de diferentes codificações de valor toocomma separada dos dados.
+* *Outputters.Tsv()*: grava arquivos de (TSV) diferentes codificações de valor tootab separada dos dados.
 
-O outputter personalizado permite gravar dados em um formato definido personalizado. Isso pode ser útil para as seguintes tarefas:
+Outputter personalizada permite que você toowrite dados em um formato definido personalizado. Isso pode ser útil para Olá tarefas a seguir:
 
-* Gravando dados em arquivos semiestruturados ou não estruturados.
+* Gravando arquivos de dados estruturados toosemi ou não estruturados.
 * Gravar dados em codificações sem suporte.
 * Modificar dados de saída ou adicionar atributos personalizados.
 
-Para definir o outputter definido pelo usuário, precisamos criar a interface `IOutputter`.
+toodefine definido pelo usuário outputter, precisamos Olá toocreate `IOutputter` interface.
 
-A seguir temos a implementação da classe `IOutputter` base:
+A seguir é hello base `IOutputter` implementação da classe:
 
 ```
 public abstract class IOutputter : IUserDefinedOperator
@@ -1252,7 +1252,7 @@ public abstract class IOutputter : IUserDefinedOperator
 }
 ```
 
-Todos os parâmetros de entrada para o outputter, como delimitadores de linha/coluna, codificação e afins precisam ser definidos no construtor da classe. A interface `IOutputter` também deve conter uma definição para a substituição `void Output`. O atributo `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` pode ser definido opcionalmente para o processamento de arquivos atômico. Para saber mais, consulte os detalhes a seguir.
+Todas as entrada parâmetros toohello outputter, como delimitadores de coluna/linha, codificação e assim por diante, precisam toobe definida no construtor de saudação da classe de saudação. Olá `IOutputter` interface também deve conter uma definição para `void Output` substituir. atributo Olá `[SqlUserDefinedOutputter(AtomicFileProcessing = true)` opcionalmente pode ser definido para o processamento de arquivos atômicas. Para obter mais informações, consulte Olá detalhes a seguir.
 
 ```
 [SqlUserDefinedOutputter(AtomicFileProcessing = true)]
@@ -1276,24 +1276,24 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* `Output` é chamado para cada linha de entrada. Retorna o conjunto de linhas `IUnstructuredWriter output`.
-* A classe Constructor é usada para passar parâmetros ao outputter definido pelo usuário.
-* `Close` é usado para, opcionalmente, substituir e liberar estado caro ou determinar quando a última linha foi gravada.
+* `Output` é chamado para cada linha de entrada. Ele retorna Olá `IUnstructuredWriter output` conjunto de linhas.
+* Olá classe construtor é usado ao definido pelo usuário outputter de toohello de parâmetros toopass.
+* `Close`é usado toooptionally substituição do estado caro toorelease ou determinar quando a última linha de saudação foi gravada.
 
-O atributo **SqlUserDefinedOutputter** indica que o tipo deve ser registrado como um outputter definido pelo usuário. Essa classe não pode ser herdada.
+**SqlUserDefinedOutputter** atributo indica que o tipo de saudação deve ser registrado como um outputter definida pelo usuário. Essa classe não pode ser herdada.
 
-SqlUserDefinedOutputter é um atributo opcional para a definição de um outputter definido pelo usuário. Ele é usado para definir a propriedade AtomicFileProcessing.
+SqlUserDefinedOutputter é um atributo opcional para a definição de um outputter definido pelo usuário. Ele tenha usado a propriedade de AtomicFileProcessing Olá toodefine.
 
 * bool     AtomicFileProcessing   
 
 * **true** = indica que esse outputter exige arquivos de saída atômicos (JSON, XML, ...)
 * **false** = indica que esse outputter pode lidar com arquivos divididos/distribuídos (CSV, SEQ, ...)
 
-Os principais objetos de programação são **row** e **output**. O objeto **row** é usado para enumerar os dados de saída como interface `IRow`. **Saída** é usado para definir os dados de saída para o arquivo de destino.
+objetos de programação principal Olá são **linha** e **saída**. Olá **linha** objeto é usado tooenumerate dados de saída como `IRow` interface. **Saída** é usado tooset arquivo de destino de toohello de dados de saída.
 
-Os dados de saída são acessados por meio da interface `IRow`. Os dados de saída são passados em uma linha por vez.
+Olá dados de saída são acessados por meio de saudação `IRow` interface. Os dados de saída são passados em uma linha por vez.
 
-Os valores individuais são enumerados chamando o método Get da interface IRow:
+valores individuais de saudação são enumerados chamando Olá Get método da interface de IRow hello:
 
 ```
 row.Get<string>("column_name")
@@ -1307,11 +1307,11 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-Essa abordagem permite que criar um outputter flexível para qualquer esquema de metadados.
+Essa abordagem permite que você toobuild um outputter flexível para qualquer esquema de metadados.
 
-Os dados de saída são gravados em um arquivo usando `System.IO.StreamWriter`. O parâmetro de fluxo é definido como `output.BaseStrea` como parte do `IUnstructuredWriter output`.
+Olá dados de saída são gravados toofile usando `System.IO.StreamWriter`. parâmetro de fluxo de saudação está definido muito`output.BaseStrea` como parte do `IUnstructuredWriter output`.
 
-Observe que é importante liberar o buffer de dados para o arquivo depois de cada iteração de linha. Além disso, o objeto `StreamWriter` deve ser usado com o atributo Disposable habilitado (padrão) e a palavra-chave **using**:
+Observe que é importante tooflush Olá dados buffer toohello arquivo depois de cada iteração de linha. Além disso, Olá `StreamWriter` objeto deve ser usado com hello descartáveis atributo habilitado (padrão) e Olá **usando** palavra-chave:
 
 ```
 using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._encoding))
@@ -1320,10 +1320,10 @@ using (StreamWriter streamWriter = new StreamWriter(output.BaseStream, this._enc
 }
 ```
 
-Caso contrário, chame o método Flush() explicitamente depois de cada iteração. Vamos mostrar isso no exemplo a seguir.
+Caso contrário, chame o método Flush() explicitamente depois de cada iteração. Vamos mostrar isso em Olá exemplo a seguir.
 
 ### <a name="set-headers-and-footers-for-user-defined-outputter"></a>Definir cabeçalhos e rodapés para outputter definido pelo usuário
-Para definir um cabeçalho, use o fluxo de execução única de iteração.
+tooset um cabeçalho, use o fluxo de execução única iteração.
 
 ```
 public override void Output(IRow row, IUnstructuredWriter output)
@@ -1344,9 +1344,9 @@ if (isHeaderRow)
 }
 ```
 
-O código no primeiro bloco `if (isHeaderRow)` é executado apenas uma vez.
+Olá Olá código primeiro `if (isHeaderRow)` bloco é executado apenas uma vez.
 
-Para o rodapé, use a referência à instância do objeto `System.IO.Stream` (`output.BaseStream`). Escreva o rodapé no método Close () da interface `IOutputter`.  (Para saber mais, veja a seção a seguir.)
+Rodapé Olá, usar a instância de toohello de referência de saudação do `System.IO.Stream` objeto (`output.BaseStream`). Gravar rodapé Olá no hello método Close () do hello `IOutputter` interface.  (Para obter mais informações, consulte Olá exemplo a seguir).
 
 Veja um exemplo de um outputter definido pelo usuário:
 
@@ -1369,10 +1369,10 @@ public class HTMLOutputter : IOutputter
     this.encoding = ((encoding == null) ? Encoding.UTF8 : encoding);
     }
 
-    // The Close method is used to write the footer to the file. It's executed only once, after all rows
+    // hello Close method is used toowrite hello footer toohello file. It's executed only once, after all rows
     public override void Close().
     {
-    //Reference to IO.Stream object - g_writer
+    //Reference tooIO.Stream object - g_writer
     StreamWriter streamWriter = new StreamWriter(g_writer, this.encoding);
     streamWriter.Write("</table>");
     streamWriter.Flush();
@@ -1383,7 +1383,7 @@ public class HTMLOutputter : IOutputter
     {
     System.IO.StreamWriter streamWriter = new StreamWriter(output.BaseStream, this.encoding);
 
-    // Metadata schema initialization to enumerate column names
+    // Metadata schema initialization tooenumerate column names
     ISchema schema = row.Schema;
 
     // This is a data-independent header--HTML table definition
@@ -1419,7 +1419,7 @@ public class HTMLOutputter : IOutputter
         string val = "";
         try
         {
-        // Data type enumeration--required to match the distinct list of types from OUTPUT statement
+        // Data type enumeration--required toomatch hello distinct list of types from OUTPUT statement
         switch (col.Type.Name.ToString().ToLower())
         {
             case "string": val = row.Get<string>(col.Name).ToString(); break;
@@ -1439,13 +1439,13 @@ public class HTMLOutputter : IOutputter
     {
         isHeaderRow = false;
     }
-    // Reference to the instance of the IO.Stream object for footer generation
+    // Reference toohello instance of hello IO.Stream object for footer generation
     g_writer = output.BaseStream;
     streamWriter.Flush();
     }
 }
 
-// Define the factory classes
+// Define hello factory classes
 public static class Factory
 {
     public static HTMLOutputter HTMLOutputter(bool isHeader = false, Encoding encoding = null)
@@ -1471,23 +1471,23 @@ DECLARE @output_file string = @"\usql-programmability\output_file.html";
          USING new USQL_Programmability.FullDescriptionExtractor(Encoding.UTF8);
 
 OUTPUT @rs0 
-    TO @output_file 
+    too@output_file 
     USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
 Esse é um outputter HTML, que cria um arquivo HTML com dados da tabela.
 
 ### <a name="call-outputter-from-u-sql-base-script"></a>Chamando outputter do script base U-SQL
-Para chamar um outputter personalizado do script base U-SQL, a nova instância do objeto outputter deve ser criada.
+toocall um outputter personalizado do script U-SQL da base hello, nova instância de saudação do objeto de outputter Olá tem toobe criado.
 
 ```sql
-OUTPUT @rs0 TO @output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
+OUTPUT @rs0 too@output_file USING new USQL_Programmability.HTMLOutputter(isHeader: true);
 ```
 
-Para evitar a criação de uma instância do objeto no script base, podemos criar um wrapper de função, conforme mostrado em nosso exemplo anterior:
+tooavoid criando uma instância de saudação do objeto no script base, podemos criar um wrapper de função, conforme mostrado no exemplo anterior:
 
 ```c#
-        // Define the factory classes
+        // Define hello factory classes
         public static class Factory
         {
             public static HTMLOutputter HTMLOutputter(bool isHeader = false, Encoding encoding = null)
@@ -1497,20 +1497,20 @@ Para evitar a criação de uma instância do objeto no script base, podemos cria
         }
 ```
 
-Nesse caso, a chamada original se parece com esta:
+Nesse caso, chamada original Olá Olá seguinte aparência:
 
 ```
 OUTPUT @rs0 
-TO @output_file 
+too@output_file 
 USING USQL_Programmability.Factory.HTMLOutputter(isHeader: true);
 ```
 
 ## <a name="use-user-defined-processors"></a>Usar processadores definidos pelo usuário
-O processador definido pelo usuário, ou UDP, é um tipo de UDO do U-SQL que permite processar as linhas de entrada aplicando recursos de programação. O UDP permite combinar colunas, modificar valores e adicionar novas colunas, se necessário. Basicamente, ele ajuda a processar um conjunto de linhas para produzir elementos de dados necessários.
+Processador definida pelo usuário ou UDP, é um tipo de UDO U-SQL que permite que você tooprocess linhas de entrada hello aplicando recursos de programação. UDP permite toocombine colunas, modifique os valores e adicionar novas colunas, se necessário. Basicamente, ele ajuda a tooprocess elementos de dados de tooproduce necessário um conjunto de linhas.
 
-Para definir um UDP, precisamos criar uma interface `IProcessor` com o atributo `SqlUserDefinedProcessor`, que é opcional para o UDP.
+toodefine um UDP, precisamos toocreate um `IProcessor` interface com hello `SqlUserDefinedProcessor` atributo, que é opcional para UDP.
 
-Essa interface deve conter a definição para a substituição do conjunto de linhas de interface `IRow`, conforme mostrado no exemplo abaixo:
+Esta interface deve conter a definição de saudação para Olá `IRow` substituir o conjunto de linhas de interface, conforme mostrado no exemplo a seguir de saudação:
 
 ```
 [SqlUserDefinedProcessor]
@@ -1523,29 +1523,29 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-**SqlUserDefinedProcessor** indica que o tipo deve ser registrado como um processador definido pelo usuário. Essa classe não pode ser herdada.
+**SqlUserDefinedProcessor** indica que tipo de saudação deve ser registrado como um processador definida pelo usuário. Essa classe não pode ser herdada.
 
-O atributo SqlUserDefinedProcessor é **opcional** para a definição de UDP.
+Olá SqlUserDefinedProcessor atributo é **opcional** para definição de UDP.
 
-Os principais objetos de programação são **input** e **output**. O objeto Input é usado para enumerar dados de entrada e saída e para definir dados de saída como resultado da atividade do processador.
+objetos de programação principal Olá são **entrada** e **saída**. objeto de entrada Hello está tooenumerate usado colunas de entrada e saída e tooset dados de saída como resultado da atividade do processador hello.
 
-Para enumeração de colunas de entrada, usamos o método `input.Get`.
+Enumeração de colunas de entrada, usamos Olá `input.Get` método.
 
 ```
 string column_name = input.Get<string>("column_name");
 ```
 
-O parâmetro para o método `input.Get` é uma coluna passada como parte da cláusula `PRODUCE` da instrução `PROCESS` do script base U-SQL. Precisamos usar o tipo de dados correto aqui.
+Olá parâmetro `input.Get` método é uma coluna que é passada como parte da saudação `PRODUCE` cláusula da saudação `PROCESS` instrução do script base Olá U-SQL. Precisamos toouse aqui, o tipo de dados correto do hello.
 
-Para saída, use o método `output.Set`.
+Saída, use Olá `output.Set` método.
 
-É importante observar que o produtor personalizado gera apenas colunas e valores definidos com a chamada de método `output.Set`.
+É importante toonote que produtor personalizado gera apenas colunas e valores que são definidos com hello `output.Set` chamada de método.
 
 ```
 output.Set<string>("mycolumn", mycolumn);
 ```
 
-A saída real do processador é disparada chamando `return output.AsReadOnly();`.
+saída de processador real Hello é disparada pela chamada `return output.AsReadOnly();`.
 
 Veja abaixo um exemplo de processador:
 
@@ -1567,9 +1567,9 @@ public override IRow Process(IRow input, IUpdatableRow output)
 }
 ```
 
-Nesse cenário de caso de uso, o processador está gerando a nova coluna chamada "full_description" combinando as colunas existentes, nesse caso, "user" em letras maiúsculas e "des". Ele também regenera um GUID e retorna o original, bem como novos valores de GUID.
+Neste cenário de caso de uso, o processador hello está gerando uma nova coluna chamada "full_description" combinando Olá colunas existentes – nesse caso, "usuário" em letras maiusculas e "des". Ele também gera um GUID e retorna Olá originais e novos valores GUID.
 
-Como você pode ver no exemplo anterior, é possível chamar métodos C# durante a chamada de método `output.Set`.
+Como você pode ver do exemplo anterior hello, você pode chamar métodos c# durante `output.Set` chamada de método.
 
 Abaixo temos um exemplo de script base U-SQL que usa um processador personalizado:
 
@@ -1593,26 +1593,26 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
              new_guid Guid
      USING new USQL_Programmability.FullDescriptionProcessor();
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
 ## <a name="use-user-defined-appliers"></a>Usar aplicadores definidos pelo usuário
-O aplicador definido pelo usuário do U-SQL permite invocar uma função C# personalizada para cada linha retornada pela expressão de tabela externa de uma consulta. A entrada à direita é avaliada para cada linha a começar da entrada à esquerda e as linhas que são produzidas são combinadas para a saída final. A lista de colunas produzida pelo operador APPLY é a combinação do conjunto de colunas na entrada à esquerda e à direita.
+Um aplicador de U-SQL definida pelo usuário permite que você tooinvoke personalizado c# função para cada linha que é retornada pela expressão da tabela externa saudação de uma consulta. entrada de saudação à direita é avaliada para cada linha da entrada esquerda hello e linhas de saudação que são produzidas são combinadas para saída final hello. lista de saudação de colunas que são produzidas pelo operador APPLY de saudação são a combinação de saudação de conjunto de saudação de colunas da esquerda hello e hello entrada à direita.
 
-O aplicador definido pelo usuário está sendo invocado como parte da expressão SELECT do U-SQL.
+Aplicador definido pelo usuário está sendo invocado como parte da saudação USQL selecione expressão.
 
-A chamada característica ao aplicador definidor pelo usuário se parece com esta:
+Olá típica chamada toohello definida pelo usuário aplicador de alterações é semelhante Olá a seguir:
 
 ```
 SELECT …
 FROM …
-CROSS APPLYis used to pass parameters
+CROSS APPLYis used toopass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
 Para saber mais sobre como usar aplicadores na expressão SELECT., veja [U-SQL SELECT selecionando de CROSS APPLY e OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).
 
-A definição de classe base do aplicador definido pelo usuário é a seguinte:
+definição Hello, definido pelo usuário aplicador de alterações classe base é a seguinte:
 
 ```
 public abstract class IApplier : IUserDefinedOperator
@@ -1623,7 +1623,7 @@ public abstract IEnumerable<IRow> Apply(IRow input, IUpdatableRow output);
 }
 ```
 
-Para definir um aplicador definido pelo usuário, precisamos criar a interface `IApplier` com o atributo [`SqlUserDefinedApplier`], que é opcional para a definição de aplicador definido pelo usuário.
+toodefine um aplicador definida pelo usuário, precisamos Olá toocreate `IApplier` interface com hello [`SqlUserDefinedApplier`] atributo, que é opcional para uma definição de aplicador de alterações definido pelo usuário.
 
 ```
 [SqlUserDefinedApplier]
@@ -1641,23 +1641,23 @@ public class ParserApplier : IApplier
 }
 ```
 
-* Apply é chamado para cada linha da tabela outer. Ele retorna o conjunto de linhas de saída `IUpdatableRow`.
-* A classe Constructor é usada para passar parâmetros ao aplicador definido pelo usuário.
+* Aplicar é chamado para cada linha da tabela externa hello. Ele retorna Olá `IUpdatableRow` conjunto de linhas de saída.
+* classe de construtor Olá é toopass usados parâmetros toohello definida pelo usuário aplicador.
 
-**SqlUserDefinedApplier** indica que o tipo deve ser registrado como um aplicador definido pelo usuário. Essa classe não pode ser herdada.
+**SqlUserDefinedApplier** indica que o tipo de saudação deve ser registrado como um aplicador definido pelo usuário. Essa classe não pode ser herdada.
 
 O atributo **SqlUserDefinedApplier** é **opcional** para a definição do aplicador definido pelo usuário.
 
 
-Os principais objetos de programação são os seguintes:
+objetos de programação principal Olá são da seguinte maneira:
 
 ```
 public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 ```
 
-Os conjuntos de linhas de entrada são passados como entrada `IRow`. As linhas de saída são geradas como a interface de saída `IUpdatableRow`.
+Os conjuntos de linhas de entrada são passados como entrada `IRow`. Olá linhas de saída são geradas como `IUpdatableRow` interface de saída.
 
-Os nomes de coluna individuais podem ser determinados pela chamada do método de esquema `IRow`.
+Nomes de coluna individuais podem ser determinados por chamada hello `IRow` método de esquema.
 
 ```
 ISchema schema = row.Schema;
@@ -1665,35 +1665,35 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-Para obter os valores de dados reais do `IRow` de entrada, usamos o método Get() da interface `IRow`.
+valores de dados reais de saudação tooget de saudação entrada `IRow`, usamos o método Get () Olá `IRow` interface.
 
 ```
 mycolumn = row.Get<int>("mycolumn")
 ```
 
-Ou, então, usamos o nome de coluna de esquema:
+Ou podemos usar o nome da coluna de esquema hello:
 
 ```
 row.Get<int>(row.Schema[0].Name)
 ```
 
-Os valores de saída devem ser definidos com a saída `IUpdatableRow`:
+Olá valores de saída devem ser definidos com `IUpdatableRow` saída:
 
 ```
 output.Set<int>("mycolumn", mycolumn)
 ```
 
-É importante entender que o aplicador personalizado só produz colunas e valores definidos com a chamada ao método `output.Set`.
+É importante toounderstand que aplicadores personalizados saída somente colunas e valores que são definidos com `output.Set` chamada de método.
 
-A saída real é disparada chamando `yield return output.AsReadOnly();`.
+saída real Olá é disparada pela chamada `yield return output.AsReadOnly();`.
 
-Os parâmetros de aplicador definido pelo usuário podem ser passados para o construtor. O aplicador pode retornar um número variável de colunas que precisa ser definido durante a chamada ao aplicador no script base U-SQL.
+parâmetros aplicador de alterações da saudação definidos pelo usuário podem ser passados toohello construtor. Aplicador pode retornar um número variável de colunas que precisa toobe definida durante a chamada de saudação aplicador de alterações no Script U-SQL base.
 
 ```
 new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 ```
 
-Veja abaixo o exemplo do aplicador definido pelo usuário:
+Aqui está o exemplo de aplicador de alterações definido pelo usuário hello:
 
 ```
 [SqlUserDefinedApplier]
@@ -1751,7 +1751,7 @@ public override IEnumerable<IRow> Apply(IRow input, IUpdatableRow output)
 }
 ```
 
-Abaixo está o script base U-SQL para esse aplicador definido pelo usuário:
+O seguinte é script U-SQL base de saudação para este aplicador definido pelo usuário:
 
 ```
 DECLARE @input_file string = @"c:\usql-programmability\car_fleet.tsv";
@@ -1777,10 +1777,10 @@ DECLARE @output_file string = @"c:\usql-programmability\output_file.tsv";
     CROSS APPLY
     new USQL_Programmability.ParserApplier ("all") AS properties(make string, model string, year string, type string, millage int);
 
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+OUTPUT @rs1 too@output_file USING Outputters.Text();
 ```
 
-Nesse cenário de caso de uso, o aplicador definido pelo usuário atua como um analisador de valor delimitado por vírgula para as propriedades de frota de carros. As linhas do arquivo de entrada têm a seguinte aparência:
+Neste cenário de caso de uso, definido pelo usuário aplicador de alterações funciona como um analisador de valor separado por vírgulas para carro Olá frota propriedades. linhas do arquivo de entrada Hello aparência Olá a seguir:
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
@@ -1788,30 +1788,30 @@ Nesse cenário de caso de uso, o aplicador definido pelo usuário atua como um a
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 
-Trata-se de um típico arquivo TSV delimitado por tab com a coluna de propriedades contendo propriedades do carro, como fabricante e modelo. Essas propriedades precisam ser analisadas pelas colunas da tabela. O aplicador fornecido também permite gerar um número dinâmico de propriedades no conjunto de linhas de resultados, com base no parâmetro que é passado. Você pode gerar todas as propriedades ou somente um conjunto específico de propriedades.
+Trata-se de um típico arquivo TSV delimitado por tab com a coluna de propriedades contendo propriedades do carro, como fabricante e modelo. Essas propriedades devem ser analisado toohello colunas da tabela. aplicador de saudação que é fornecido também permite que você toogenerate dinâmica várias propriedades em Olá resultam de linhas, com base no parâmetro de saudação que é passado. Você pode gerar todas as propriedades ou somente um conjunto específico de propriedades.
 
     …USQL_Programmability.ParserApplier ("all")
     …USQL_Programmability.ParserApplier ("make")
     …USQL_Programmability.ParserApplier ("make&model")
 
-O aplicador definido pelo usuário pode ser chamado como uma nova instância do objeto do aplicador:
+aplicador de saudação definido pelo usuário pode ser chamado como uma nova instância do objeto aplicador de alterações:
 
 ```
 CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
-Ou com a invocação de um método de fábrica wrapper:
+Ou com a invocação de saudação de um método de fábrica de wrapper:
 
 ```c#
     CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
 ```
 
 ## <a name="use-user-defined-combiners"></a>Usar combinadores definidos pelo usuário
-O combinador definido pelo usuário, ou UDC, permite combinar linhas dos conjuntos de linhas esquerdo e direito, com base em lógica personalizada. O Combinador Definido pelo Usuário é usado com a expressão COMBINE.
+Combinação definida pelo usuário ou UDC, permite que você toocombine linhas conjuntos de linhas à esquerda e direita, com base em lógica personalizada. O Combinador Definido pelo Usuário é usado com a expressão COMBINE.
 
-Um combinador está sendo invocado com a expressão COMBINE, que fornece as informações necessárias sobre os conjuntos de linhas de entrada, as colunas de agrupamento, o esquema de resultado esperado e as informações adicionais.
+Uma combinação está sendo invocada com a expressão de COMBINAR Olá que fornece informações necessárias de saudação sobre ambos os conjuntos de linhas de entrada hello, Olá agrupamento de colunas, hello esperado esquema de resultados e informações adicionais.
 
-Para chamar um combinador em um script base U-SQL, usamos a seguinte sintaxe:
+toocall uma combinação de um script U-SQL base, usamos Olá sintaxe a seguir:
 
 ```
 Combine_Expression :=
@@ -1826,7 +1826,7 @@ Combine_Expression :=
 
 Para saber mais, veja [Expressão COMBINE (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
 
-Para definir um combinador definido pelo usuário, precisamos criar a interface `ICombiner` com o atributo [`SqlUserDefinedCombiner`], que é opcional para a definição do combinador definido pelo usuário.
+toodefine uma combinação definida pelo usuário, precisamos Olá toocreate `ICombiner` interface com hello [`SqlUserDefinedCombiner`] atributo, que é opcional para uma definição de combinação definida pelo usuário.
 
 Definição da classe `ICombiner` base:
 
@@ -1841,7 +1841,7 @@ public abstract IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-A implementação personalizada de uma interface `ICombiner` deve conter a definição para uma substituição Combine `IEnumerable<IRow>`.
+Olá implementação personalizada de um `ICombiner` interface deve conter a definição de saudação para um `IEnumerable<IRow>` combinar a substituição.
 
 ```
 [SqlUserDefinedCombiner]
@@ -1856,45 +1856,45 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-O atributo **SqlUserDefinedCombiner** indica que o tipo deve ser registrado como um combinador definido pelo usuário. Essa classe não pode ser herdada.
+Olá **SqlUserDefinedCombiner** atributo indica que o tipo de saudação deve ser registrado como uma combinação definida pelo usuário. Essa classe não pode ser herdada.
 
-**SqlUserDefinedCombiner** é usado para definir a propriedade do modo Combinador. É um atributo opcional para a definição do combinador definido pelo usuário.
+**SqlUserDefinedCombiner** é propriedade de modo de combinação de saudação toodefine usado. É um atributo opcional para a definição do combinador definido pelo usuário.
 
 Modo CombinerMode
 
-A enumeração CombinerMode pode usar os seguintes valores:
+Enumeração CombinerMode pode assumir Olá valores a seguir:
 
-* Completo (0) Cada linha de saída depende potencialmente de todas as linhas de entrada da esquerda e direita com o mesmo valor de chave.
+* Completo (0), que cada linha de saída depende de todas as linhas de entrada hello, da esquerda e direita com hello mesmo valor de chave.
 
-* Esquerda (1) Cada linha de saída depende de uma única linha de entrada da esquerda (e potencialmente de todas as linhas da direita com o mesmo valor de chave).
+* Esquerda (1) depende de cada linha de saída em uma única linha de entrada da esquerda da saudação (e potencialmente todas as linhas a partir de saudação à direita com hello mesmo valor de chave).
 
-* Direita (2) Cada linha de saída depende de uma única linha de entrada da direita (e potencialmente de todas as linhas da esquerda com o mesmo valor de chave).
+* Right (2) depende de cada linha de saída em uma única linha de entrada da saudação à direita (e potencialmente todas as linhas da esquerda Olá com hello que mesmo valor de chave).
 
-* Interno (3) Cada linha de saída depende de uma única linha de entrada da esquerda e direita com o mesmo valor.
+* Interno (3) depende de cada linha de saída em uma única entrada de linha da esquerda e direita com hello mesmo valor.
 
 Exemplo:    [`SqlUserDefinedCombiner(Mode=CombinerMode.Left)`]
 
 
-Os principais objetos de programação são:
+objetos de programação principal Olá são:
 
 ```c#
     public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
         IUpdatableRow output
 ```
 
-Os conjuntos de linhas de entrada são passados como tipo `IRowset` **esquerdo** e **direito** da interface. Ambos os conjuntos de linhas precisam ser enumerados para processamento. Você só pode enumerar cada interface uma vez e, portanto, temos que enumerá-las e armazená-las se necessário.
+Os conjuntos de linhas de entrada são passados como tipo `IRowset` **esquerdo** e **direito** da interface. Ambos os conjuntos de linhas precisam ser enumerados para processamento. Só é possível enumerar cada interface de uma vez, podemos ter tooenumerate e armazene em cache se necessário.
 
-Para fins de caching, podemos criar um tipo List\<T\> de estrutura de memória como resultado de uma execução da consulta LINQ, especificamente List<`IRow`>. O tipo de dados anônimo também pode ser usado durante a enumeração.
+Para fins de caching, podemos criar um tipo List\<T\> de estrutura de memória como resultado de uma execução da consulta LINQ, especificamente List<`IRow`>. tipo de dados anônimos Olá pode ser usado durante a enumeração também.
 
-Veja [Introdução a consultas LINQ (C#)](https://msdn.microsoft.com/library/bb397906.aspx) para obter mais informações sobre consultas LINQ e [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) para obter mais informações sobre a interface IEnumerable\<T\>.
+Consulte [Introdução tooLINQ consultas (c#)](https://msdn.microsoft.com/library/bb397906.aspx) para obter mais informações sobre consultas LINQ e [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) para obter mais informações sobre o IEnumerable\<T\> interface.
 
-Para obter os valores de dados reais do `IRowset` de entrada, usamos o método Get() da interface `IRow`.
+valores de dados reais de saudação tooget de saudação entrada `IRowset`, usamos o método Get () Olá `IRow` interface.
 
 ```
 mycolumn = row.Get<int>("mycolumn")
 ```
 
-Os nomes de coluna individuais podem ser determinados pela chamada do método de esquema `IRow`.
+Nomes de coluna individuais podem ser determinados por chamada hello `IRow` método de esquema.
 
 ```
 ISchema schema = row.Schema;
@@ -1902,13 +1902,13 @@ var col = schema[i];
 string val = row.Get<string>(col.Name)
 ```
 
-Ou usando o nome de coluna de esquema:
+Ou usando o nome da coluna de esquema hello:
 
 ```
 c# row.Get<int>(row.Schema[0].Name)
 ```
 
-A enumeração geral com o LINQ se parece com este exemplo:
+a enumeração geral Olá com LINQ semelhante ao seguinte hello:
 
 ```
 var myRowset =
@@ -1919,15 +1919,15 @@ var myRowset =
                           }).ToList();
 ```
 
-Depois de enumerar os dois conjuntos de linhas, vamos executar um loop por todas as linhas. Para cada linha no conjunto de linhas à esquerda, vamos localizar todas as linhas que satisfazem a condição de nosso combinador.
+Depois de enumerar os dois conjuntos de linhas, vamos tooloop por todas as linhas. Para cada linha no conjunto de linhas à esquerda Olá, vamos toofind todas as linhas que satisfazem a condição de saudação do nosso combinação.
 
-Os valores de saída devem ser definidos com a saída `IUpdatableRow`.
+Olá valores de saída devem ser definidos com `IUpdatableRow` saída.
 
 ```
 output.Set<int>("mycolumn", mycolumn)
 ```
 
-A saída real é disparada chamando `yield return output.AsReadOnly();`.
+saída real Olá é disparada pela chamada muito`yield return output.AsReadOnly();`.
 
 Veja abaixo um exemplo do combinador:
 
@@ -1983,9 +1983,9 @@ public override IEnumerable<IRow> Combine(IRowset left, IRowset right,
 }
 ```
 
-Nesse cenário de caso de uso, estamos criando um relatório de análise para o varejista. O objetivo é encontrar todos os produtos que custam mais de US$ 20,000 e são vendidos por meio de sites mais rapidamente do que pelo varejista comum durante determinado período.
+Neste cenário de caso de uso, estamos criando um relatório de análise de revendedor de saudação. meta de saudação é toofind todos os produtos que custam mais de US $20.000 e que vendem através do site de hello mais rapidamente do que através de revendedor de saudação normal em um determinado intervalo de tempo.
 
-Veja abaixo o script base U-SQL. Você pode comparar a lógica entre JOIN regular e um combinador:
+Aqui está o script U-SQL de base de saudação. Você pode comparar a lógica de saudação entre uma junção comum e uma combinação:
 
 ```sql
 DECLARE @LocalURI string = @"\usql-programmability\";
@@ -2076,18 +2076,18 @@ PRODUCE OrderDateKey int,
         Reseller_Sales_Amount decimal
 USING new USQL_Programmability.CombineSales();
 
-OUTPUT @rs1 TO @output_file1 USING Outputters.Tsv();
-OUTPUT @rs2 TO @output_file2 USING Outputters.Tsv();
+OUTPUT @rs1 too@output_file1 USING Outputters.Tsv();
+OUTPUT @rs2 too@output_file2 USING Outputters.Tsv();
 ```
 
-O combinador definido pelo usuário pode ser chamado como uma nova instância do objeto do aplicador:
+Uma combinação definida pelo usuário pode ser chamada como uma nova instância do objeto de saudação aplicador de alterações:
 
 ```
 USING new MyNameSpace.MyCombiner();
 ```
 
 
-Ou com a invocação de um método de fábrica wrapper:
+Ou com a invocação de saudação de um método de fábrica de wrapper:
 
 ```
 USING MyNameSpace.MyCombiner();
@@ -2095,13 +2095,13 @@ USING MyNameSpace.MyCombiner();
 
 ## <a name="use-user-defined-reducers"></a>Usar redutores definidos pelo usuário
 
-O U-SQL permite escrever redutores de conjunto de linhas personalizados em C# usando a estrutura de extensibilidade do operador definido pelo usuário e implementando uma interface IReducer.
+U-SQL permite que você toowrite reducers de conjunto de linhas personalizadas em c# usando a estrutura de extensibilidade do operador definido pelo usuário hello e implementando uma interface IReducer.
 
-O redutor definido pelo usuário, ou UDR, pode ser usado para eliminar linhas desnecessárias durante a extração (importação) de dados. Ele também pode ser usado para manipular e avaliar as linhas e colunas. Com base na lógica de programação, ele também pode definir quais linhas precisam ser extraídas.
+Redutor definido pelo usuário ou UDR, pode ser linhas desnecessárias tooeliminate usado durante a extração de dados (importação). Também pode ser usado toomanipulate e avaliar as linhas e colunas. Com base na lógica de programação, ele também pode definir quais linhas necessário toobe extraído.
 
-Para definir uma classe UDR, precisamos criar uma interface `IReducer` com um atributo `SqlUserDefinedReducer` opcional.
+toodefine uma classe UDR, precisamos toocreate um `IReducer` interface com um recurso opcional `SqlUserDefinedReducer` atributo.
 
-Essa interface de classe deve conter uma definição para substituição do conjunto de linhas da interface `IEnumerable`.
+Essa interface de classe deve conter uma definição para Olá `IEnumerable` substituir o conjunto de linhas de interface.
 
 ```
 [SqlUserDefinedReducer]
@@ -2116,15 +2116,15 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-O atributo **SqlUserDefinedReducer** indica que o tipo deve ser registrado como um redutor definido pelo usuário. Essa classe não pode ser herdada.
-**SqlUserDefinedReducer** é um atributo opcional para a definição do redutor definido pelo usuário. Ele é usado para definir a propriedade IsRecursive.
+Olá **SqlUserDefinedReducer** atributo indica que o tipo de saudação deve ser registrado como um redutor definido pelo usuário. Essa classe não pode ser herdada.
+**SqlUserDefinedReducer** é um atributo opcional para a definição do redutor definido pelo usuário. Ele usou toodefine IsRecursive propriedade.
 
 * bool     IsRecursive    
 * **true**  = indica se esse Redutor é idempotente
 
-Os principais objetos de programação são **input** e **output**. O objeto de entrada é usado para enumerar linhas de entrada. Output é usado para definir as linhas de saída como resultado da redução da atividade.
+objetos de programação principal Olá são **entrada** e **saída**. objeto de entrada Hello está tooenumerate usado linhas de entrada. A saída é usada tooset linhas de saída como resultado de reduzir a atividade.
 
-Para enumeração de linhas de entrada, usamos o método `Row.Get`.
+Enumeração de linhas de entrada, usamos Olá `Row.Get` método.
 
 ```
 foreach (IRow row in input.Rows)
@@ -2133,17 +2133,17 @@ foreach (IRow row in input.Rows)
 }
 ```
 
-O parâmetro para o método `Row.Get` é uma coluna passada como parte da classe `PRODUCE` da instrução `REDUCE` do script base U-SQL. Precisamos usar o tipo de dados correto aqui também.
+Olá parâmetro hello `Row.Get` método é uma coluna que é passada como parte da saudação `PRODUCE` classe de saudação `REDUCE` instrução do script base Olá U-SQL. Precisamos toouse Olá tipo de dados correto aqui também.
 
-Para saída, use o método `output.Set`.
+Saída, use Olá `output.Set` método.
 
-É importante entender que redutor personalizado apenas produz valores que são definidos com a chamada de método `output.Set`.
+É importante toounderstand que Redutor personalizado somente saídas os valores que são definidos com hello `output.Set` chamada de método.
 
 ```
 output.Set<string>("mycolumn", guid);
 ```
 
-A saída real do redutor é disparada chamando `yield return output.AsReadOnly();`.
+saída do Hello Redutor real é disparada pela chamada `yield return output.AsReadOnly();`.
 
 Abaixo temos um exemplo de redutor:
 
@@ -2181,7 +2181,7 @@ public class EmptyUserReducer : IReducer
 }
 ```
 
-Nesse cenário de caso de uso, o redutor está ignorando linhas com um nome de usuário vazio. Para cada linha no conjunto de linhas, ele lê cada coluna necessária e avalia o comprimento do nome do usuário. Ele só produz a linha real se o comprimento do valor de nome de usuário for maior que 0.
+Neste cenário de caso de uso, Redutor hello está ignorando linhas com um nome de usuário vazio. Para cada linha no conjunto de linhas, lê cada coluna necessária, em seguida, avalia o comprimento de Olá Olá do nome de usuário. Ele produz real da linha hello somente se o comprimento do valor de nome de usuário é maior que 0.
 
 Abaixo temos um script base U-SQL que usa um redutor personalizado:
 
@@ -2214,6 +2214,6 @@ DECLARE @output_file string = @"\usql-programmability\output_file.tsv";
     FROM @rs1;
 
 OUTPUT @rs2 
-    TO @output_file 
+    too@output_file 
     USING Outputters.Text();
 ```

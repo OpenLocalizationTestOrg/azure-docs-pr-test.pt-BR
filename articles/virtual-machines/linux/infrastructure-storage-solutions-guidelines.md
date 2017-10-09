@@ -1,6 +1,6 @@
 ---
-title: "Soluções de armazenamento das VMs do Linux no Azure | Microsoft Docs"
-description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de soluções de armazenamento em serviços de infraestrutura do Azure."
+title: "soluções aaaStorage para VMs do Linux no Azure | Microsoft Docs"
+description: "Saiba mais sobre Olá design e implementação diretrizes importantes para a implantação de soluções de armazenamento nos serviços de infraestrutura do Azure."
 documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c5089b9db945b0e0f4523e53bb44c178ffd0781
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d270c4786d7b55b18b011aa345063b6816a80876
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-infrastructure-guidelines-for-linux-vms"></a>Diretrizes de infraestrutura de armazenamento do Azure para VMs Linux
 
@@ -31,62 +31,62 @@ Este artigo destaca as noções básicas sobre as necessidades de armazenamento 
 ## <a name="implementation-guidelines-for-storage"></a>Diretrizes de implementação de armazenamento
 Decisões:
 
-* Você pretende usar o Azure Managed Disks ou discos não gerenciados?
-* Você precisa usar o armazenamento Standard ou Premium para sua carga de trabalho?
-* Você precisa de distribuição de disco para criar discos maiores que 4TB?
-* Você precisa da distribuição de discos para obter o desempenho de E/S ideal para sua carga de trabalho?
-* De que conjunto de contas de armazenamento você precisa para hospedar a infraestrutura ou a carga de trabalho de TI?
+* Você vai toouse Azure gerenciados discos ou discos não gerenciados?
+* Você precisa de armazenamento de toouse Standard ou Premium para sua carga de trabalho?
+* Você precisa de disco distribuição toocreate discos maiores que 4TB?
+* Você precisa de disco distribuição tooachieve i / o desempenho ideal para sua carga de trabalho?
+* O conjunto de contas de armazenamento você precisa toohost a infra-estrutura ou carga de trabalho TI?
 
 Tarefas:
 
-* Examinar as demandas de E/S dos aplicativos que serão implantados e planejar a quantidade e o tipo apropriados de contas de armazenamento.
-* Crie o conjunto de contas de armazenamento usando a sua convenção de nomenclatura. Você pode usar a CLI do Azure ou o portal.
+* Examine as demandas de e/s de aplicativos de saudação você está implantando e planeja o número apropriado de saudação e o tipo de contas de armazenamento.
+* Crie conjunto de saudação de contas de armazenamento usando a convenção de nomenclatura. Você pode usar o portal de CLI do Azure ou Olá Olá.
 
 ## <a name="storage"></a>Armazenamento
-O Armazenamento do Azure é uma parte fundamental de implantação e gerenciamento de aplicativos e VMs (máquinas virtuais). O Armazenamento do Azure fornece serviços para armazenar dados de arquivo, dados não estruturados e mensagens, além de fazer parte da infraestrutura que dá suporte às VMs.
+O Armazenamento do Azure é uma parte fundamental de implantação e gerenciamento de aplicativos e VMs (máquinas virtuais). Armazenamento do Azure fornece serviços para armazenar dados de arquivos, dados não estruturados e mensagens, e também faz parte da infraestrutura de saudação dando suporte a máquinas virtuais.
 
-O [Azure Managed Disks](../../storage/storage-managed-disks-overview.md) lida com o armazenamento para você nos bastidores. Com discos não gerenciados, você cria contas de armazenamento para armazenar os discos (arquivos VHD) para as VMs do Azure. Ao aumentar, é necessário verificar se você criou contas de armazenamento adicionais para não exceder o limite de IOPS de armazenamento com um dos discos. Com o Managed Disks lidando com o armazenamento, não há mais os limites de conta de armazenamento (como 20.000 IOPS/conta). Também não é mais necessário copiar as imagens personalizadas (arquivos VHD) em várias contas de armazenamento. Você pode gerenciá-las em um local central, uma conta de armazenamento por região do Azure, e usá-las para criar centenas de VMs em uma assinatura. Recomendamos o uso do Managed Disks para novas implantações.
+[Os discos do Azure gerenciados](../../storage/storage-managed-disks-overview.md) lida com armazenamento para você em segundo plano da saudação. Com discos não gerenciados, você cria contas de armazenamento toohold Olá discos (arquivos VHD) para as VMs do Azure. Na adição de hardware, você deve verificar se que criação de contas de armazenamento adicional para não exceder o limite de IOPS de saudação do armazenamento com qualquer um dos seus discos. Com discos gerenciados tratamento de armazenamento, você não está limitado pela Olá limites da conta de armazenamento (como 20.000 IOPS / conta). Você também não tem mais toocopy suas contas de armazenamento toomultiple imagens personalizadas (arquivos VHD). Você pode gerenciá-los em um local central – uma conta de armazenamento por região do Azure – e usá-los toocreate centenas de VMs em uma assinatura. Recomendamos o uso do Managed Disks para novas implantações.
 
 Há dois tipos de conta de armazenamento disponíveis para dar suporte às VMs:
 
-* Contas de armazenamento Standard fornece acesso ao armazenamento de blobs (usado para armazenar discos da VM do Azure), armazenamento de tabelas, armazenamento de filas e armazenamento de arquivos.
+* Forneça contas de armazenamento padrão você acessar o armazenamento de tooblob (usado para armazenar discos de VM do Azure), armazenamento, armazenamento de fila, de tabela e armazenamento de arquivos.
 * [Armazenamento Premium](../../storage/storage-premium-storage.md) dão suporte a discos de alto desempenho e baixa latência para cargas de trabalho de E/S intensiva, como cluster fragmentado do MongoDB. Um armazenamento premium dá suporte no momento somente a discos de VM do Azure.
 
-O Azure cria VMs com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. O disco do sistema operacional e os discos de dados são blobs de página do Azure, enquanto o disco temporário é armazenado localmente no nó em que a máquina reside. Tome cuidado ao projetar aplicativos para usar somente este disco temporário para dados não persistentes, pois a VM poderá ser migrada entre hosts durante um evento de manutenção. Todos os dados armazenados no disco temporário seriam perdidos.
+O Azure cria VMs com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. disco do sistema operacional Hello e discos de dados são blobs de página do Azure, enquanto o disco temporário Olá é armazenado localmente no nó Olá onde reside a máquina de saudação. Tome cuidado ao criar aplicativos tooonly usar esse disco temporário para dados não são persistentes como Olá VM pode ser migrada entre hosts durante um evento de manutenção. Todos os dados armazenados em disco temporário Olá seriam perdidos.
 
-Durabilidade e alta disponibilidade são fornecidas pelo ambiente de Armazenamento do Azure subjacente para garantir que seus dados permaneçam protegidos contra falhas de hardware ou de manutenção não planejadas. Ao projetar seu ambiente de Armazenamento do Azure, você pode optar por replicar o armazenamento da VM:
+Alta disponibilidade e durabilidade é fornecido pelo Olá subjacente tooensure de ambiente de armazenamento do Azure que seus dados permaneçam protegidos contra falhas de hardware ou de manutenção não planejadas. Ao projetar seu ambiente de armazenamento do Azure, você pode escolher tooreplicate armazenamento de máquina virtual:
 
 * localmente em um datacenter do Azure fornecido
 * entre os datacenters do Azure dentro de uma determinada região
 * entre os datacenters do Azure em regiões diferentes.
 
-Você pode ler [mais sobre as opções de replicação para alta disponibilidade](../../storage/storage-introduction.md#replication-for-durability-and-high-availability).
+Você pode ler [mais sobre opções de replicação Olá para alta disponibilidade](../../storage/storage-introduction.md#replication-for-durability-and-high-availability).
 
-Discos do sistema operacional e discos de dados possuem um tamanho máximo de 4TB. É possível usar o LVM (Gerenciador de Volume Lógico) para ultrapassar esse limite com o pool de discos de dados para apresentar volumes lógicos maiores que 1.023 GB à sua VM.
+Discos do sistema operacional e discos de dados possuem um tamanho máximo de 4TB. Você pode usar o Gerenciador de Volume lógico (LVM) toosurpass esse limite pelo pool de discos toopresent lógico volumes de dados maiores do que 1.023 GB tooyour VM juntos.
 
 Há alguns limites de escalabilidade ao projetar suas implantações do Armazenamento do Azure. Para obter mais informações, consulte [Assinatura do Microsoft Azure e limite de serviços, cotas e restrições](../../azure-subscription-service-limits.md#storage-limits). Consulte também [Metas de desempenho e escalabilidade do armazenamento do Azure](../../storage/storage-scalability-targets.md).
 
-Para armazenamento de aplicativos, é possível armazenar dados de objeto não estruturados, como documentos, imagens, backups, dados de configuração, logs etc. usando o armazenamento de blobs. Em vez de seu aplicativo gravar em um disco virtual anexado à VM, o aplicativo poderá gravar diretamente no armazenamento de blobs do Azure. O armazenamento de blobs também oferece a opção de [camadas de armazenamento quentes e frias](../../storage/storage-blob-storage-tiers.md) dependendo de suas necessidades de disponibilidade e restrições de custo.
+Para armazenamento de aplicativos, é possível armazenar dados de objeto não estruturados, como documentos, imagens, backups, dados de configuração, logs etc. usando o armazenamento de blobs. Em vez de seu aplicativo gravar tooa toohello de disco virtual anexado VMs, aplicativo hello pode gravar diretamente a tooAzure armazenamento de blob. Armazenamento de blob também oferece a opção de saudação do [hot e interessantes camadas de armazenamento](../../storage/storage-blob-storage-tiers.md) dependendo de suas necessidades de disponibilidade e restrições de custo.
 
 ## <a name="striped-disks"></a>Discos distribuídos
-Além de permitir que você crie discos com mais de 1023 GB, em muitos casos, o uso da distribuição para discos de dados pode melhorar o desempenho, permitindo que vários blobs façam o armazenamento de um único volume. Com a distribuição, a E/S necessária para gravar e ler dados de um único disco lógico continua em paralelo.
+Além de permitir que você toocreate discos maior do que 1.023 GB, em muitos casos, usar a distribuição para discos de dados melhora o desempenho, permitindo que vários blobs tooback armazenamento de saudação para um único volume. Com a distribuição, hello e/s necessária toowrite e dados de leitura de um único disco lógico continua em paralelo.
 
-O Azure impõe limites no número de discos de dados e na quantidade de largura de banda disponíveis, dependendo do tamanho da VM. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](sizes.md)
+O Azure impõe limites no número de saudação de discos de dados e a quantidade de largura de banda disponível, dependendo do tamanho da VM hello. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](sizes.md)
 
-Se você estiver usando a distribuição de disco para os discos de dados do Azure, considere as seguintes diretrizes:
+Se você estiver usando a distribuição de disco para discos de dados do Azure, considere Olá diretrizes a seguir:
 
-* Anexar o número máximo de discos de dados permitidos para o tamanho da VM.
+* Anexe discos de dados máximo de saudação permitidos para Olá tamanho da VM.
 * Use o LVM.
 * Evite usar opções de cache de disco de dados do Azure (política de cache = Nenhuma).
 
 Para obter mais informações, veja [Configuração de LVM em uma VM do Linux](configure-lvm.md).
 
 ## <a name="multiple-storage-accounts"></a>Várias contas de armazenamento
-Esta seção não se aplica ao [Azure Managed Disks](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), pois você não cria contas de armazenamento separadas. 
+Esta seção não se aplica muito[discos gerenciado do Azure](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), pois você não criar contas de armazenamento separada. 
 
-Durante a criação do ambiente do Armazenamento do Azure para discos não gerenciados, você poderá usar várias contas de armazenamento conforme o número de VMs implantadas aumentar. Essa abordagem ajuda a distribuir a E/S em toda a infraestrutura subjacente do Armazenamento do Azure, para manter o desempenho ideal para suas VMs e aplicativos. Ao projetar os aplicativos que serão implantados, considere os requisitos de E/S que cada VM terá e faça um balanceamento dessas VMs entre as contas do Armazenamento do Azure. Tente evitar agrupar todas as VMs que exigem E/S alta em apenas uma ou duas contas de armazenamento.
+Ao criar seu ambiente de armazenamento do Azure para discos não gerenciados, você pode usar várias contas de armazenamento como número de saudação de VMs implantar aumenta. Essa abordagem ajuda a distribuir o hello e/s em Olá subjacente armazenamento do Azure infraestrutura toomaintain um desempenho ideal para suas máquinas virtuais e aplicativos. Como projetar aplicativos Olá que você está implantando, considere os requisitos de e/s de saudação que cada VM tem e balancear essas VMs entre contas de armazenamento do Azure. Tente tooavoid agrupamento Olá alta e/s mais exigentes VMs em toojust uma ou duas contas de armazenamento.
 
-Para saber mais sobre as funcionalidades de E/S das diferentes opções do Armazenamento do Azure e de alguns limites máximos recomendáveis, veja [Metas de desempenho e escalabilidade do armazenamento do Azure](../../storage/storage-scalability-targets.md).
+Para obter mais informações sobre os recursos de e/s de saudação das diferentes opções de armazenamento do Azure hello e alguns recomendam máximos, consulte [destinos de escalabilidade e desempenho do armazenamento do Azure](../../storage/storage-scalability-targets.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]

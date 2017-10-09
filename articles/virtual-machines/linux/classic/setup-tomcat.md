@@ -1,6 +1,6 @@
 ---
-title: "Configurar Apache Tomcat em uma máquina virtual Linux | Microsoft Docs"
-description: "Saiba como configurar o Apache Tomcat7 usando Máquinas Virtuais do Azure que executam o Linux."
+title: "aaaSet o Apache Tomcat em uma máquina virtual Linux | Microsoft Docs"
+description: "Saiba como tooset o Apache Tomcat7 usando máquinas virtuais do Azure executando o Linux."
 services: virtual-machines-linux
 documentationcenter: 
 author: NingKuang
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b837a73e91fcb25d5459d993a0e93ceef1a1fc8b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurar o Tomcat7 em uma máquina virtual Linux com o Azure
-O Apache Tomcat (ou simplesmente Tomcat, também chamado anteriormente de Jacarta Tomcat) é um servidor Web de software livre e um contêiner de servlet desenvolvidos pela Apache Software Foundation (ASF). O Tomcat implementa o Java Servlet e especificações de JSP (JavaServer Pages) da Sun Microsystems. O Tomcat fornece um ambiente de servidor Web puramente Java HTTP no qual o código Java será executado. Na configuração mais simples, o Tomcat é executado em um único processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador para o Tomcat são processadas como um thread separado do processo do Tomcat.  
+Apache Tomcat (ou simplesmente Tomcat, também anteriormente denominado Tomcat Jacarta) é um servidor web de código-fonte aberto e o contêiner de servlet desenvolvido pela Olá Apache Software Foundation (ASF). Tomcat implementa hello Servlet Java e especificações de JavaServer Pages (JSP) Olá da Sun Microsystems. Tomcat fornece um ambiente de servidor de web HTTP de Java puro no qual toorun código Java. Configuração mais simples de hello, Tomcat é executado em um processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador tooTomcat é processada como um thread separado no processo de saudação do Tomcat.  
 
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda como usar o modelo de implantação clássico. Recomendamos que a maioria das novas implantações use o modelo do Resource Manager. Para usar um modelo do Resource Manager para implantar uma VM Ubuntu com Open JDK e Tomcat, veja [este artigo](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Azure Resource Manager e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda como toouse Olá modelo de implantação clássico. É recomendável que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação. toouse um modelo de Gerenciador de recursos toodeploy uma VM Ubuntu com Open JDK e o Tomcat, consulte [neste artigo](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
 
 Neste artigo, você instalará o Tomcat7 em uma imagem do Linux e a implantará no Azure.  
 
 Você aprenderá:  
 
-* Como criar uma máquina virtual no Azure.
-* Como preparar a máquina virtual para o Tomcat7.
-* Como instalar o Tomcat7.
+* Como toocreate uma máquina virtual no Azure.
+* Como tooprepare hello máquina virtual para Tomcat7.
+* Como tooinstall Tomcat7.
 
-Supomos que você já tem uma assinatura do Azure.  Se ainda não tiver uma, você poderá se inscrever para uma avaliação gratuita no [site do Azure](https://azure.microsoft.com/). Se você tiver uma assinatura do MSDN, confira [Preço especial do Microsoft Azure: benefícios do MSDN, MPN e BizSpark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para saber mais sobre o Azure, confira [o que é o Azure?](https://azure.microsoft.com/overview/what-is-azure/).
+Supomos que você já tem uma assinatura do Azure.  Se não, você pode se inscrever para uma avaliação gratuita em [Olá site do Azure](https://azure.microsoft.com/). Se você tiver uma assinatura do MSDN, confira [Preço especial do Microsoft Azure: benefícios do MSDN, MPN e BizSpark](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). toolearn mais sobre o Azure, consulte [o que é o Azure?](https://azure.microsoft.com/overview/what-is-azure/).
 
 Este artigo pressupõe que você tenha conhecimento prático básico do Tomcat e Linux.  
 
@@ -45,220 +45,220 @@ Nesta fase, você criará uma máquina virtual usando uma imagem do Linux no Azu
 ### <a name="step-1-generate-an-ssh-authentication-key"></a>Etapa 1: Gerar uma chave de autenticação SSH
 O SSH é uma ferramenta importante para os administradores do sistema. No entanto, não é recomendado configurar a segurança de acesso com base em uma senha determinada por humanos. Usuários mal-intencionados podem entrar em seu sistema usando um nome de usuário e uma senha fraca.
 
-A boa notícia é que há uma maneira de deixar o acesso remoto aberto e não precisar se preocupar com as senhas. O método consiste na autenticação com criptografia assimétrica. A chave privada do usuário é a que concede a autenticação. Você ainda pode bloquear a conta do usuário para não permitir a autenticação de senha.
+Olá boa notícia é que há uma maneira de acesso remoto tooleave abrir e não se preocupar com senhas. O método consiste na autenticação com criptografia assimétrica. Olá, chave privada do usuário é hello que concede a autenticação de saudação. Você pode até mesmo bloquear Olá conta de usuário toonot permitir a autenticação de senha.
 
-Outra vantagem desse método é que você não precisa de senhas diferentes para entrar em servidores diferentes. Você pode autenticar usando a chave privada pessoal em todos os servidores, fazendo com que você não precise se lembrar de várias senhas.
+Outra vantagem desse método é que você não precisa toosign senhas diferentes em servidores toodifferent. Você pode autenticar usando Olá pessoal chave privada em todos os servidores, que impede que você tenha tooremember várias senhas.
 
 
 
-Siga estas etapas para gerar a chave de autenticação SSH.
+Siga estas etapas toogenerate Olá SSH da chave de autenticação.
 
-1. Baixe e instale o PuTTYgen do seguinte local: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.htm](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Baixe e instale o PuTTYgen da saudação local a seguir: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2. Execute o Puttygen.exe.
-3. Clique em **Gerar** para gerar as chaves. No processo, você pode aumentar a aleatoriedade movendo o mouse sobre a área em branco na janela.  
-   ![Captura de tela do PuTTY Key Generator que mostra o novo botão para gerar chave][1]
-4. Após o processo de geração, Puttygen.exe mostrará sua nova chave pública.  
-   ![Captura de tela do PuTTY Key Generator que mostra a nova chave pública e o botão para salvar chave privada][2]
-5. Selecione e copie a chave pública e salve-a em um arquivo chamado publicKey.pem. Não clique em **Salvar chave pública**, porque o formato de arquivo da chave pública salva é diferente da chave pública que queremos.
+3. Clique em **gerar** toogenerate chaves de saudação. No processo de saudação, você pode aumentar aleatoriedade pela movimentação do mouse Olá sobre a área em branco Olá na janela de saudação.  
+   ![Captura de tela de gerador de chave puTTY que mostra Olá gerar novo botão de chave][1]
+4. Depois de saudação Gerar processo, Puttygen.exe mostrará sua nova chave pública.  
+   ![Captura de tela de gerador de chave puTTY que mostra a nova chave pública de saudação e hello Salvar botão da chave privada][2]
+5. Selecione e copie a chave pública hello e salvá-lo em um arquivo chamado publicKey.pem. Não clique **salva a chave pública**, pois Olá salvo o formato de arquivo da chave pública é diferente da chave pública de saudação que desejamos.
 6. Clique em **Salvar chave privada** e salve-a em um arquivo chamado privateKey.ppk.
 
-### <a name="step-2-create-the-image-in-the-azure-portal"></a>Etapa 2: Criar a imagem no Portal do Azure
-1. No [Portal](https://portal.azure.com/), clique em **Novo** na barra de tarefas para criar uma imagem. Em seguida, escolha a imagem do Linux conforme suas necessidades. O exemplo a seguir usa a imagem do Ubuntu 14.04.
-![Captura de tela do portal que mostra o botão Novo][3]
+### <a name="step-2-create-hello-image-in-hello-azure-portal"></a>Etapa 2: Criar a imagem de saudação em Olá portal do Azure
+1. Em Olá [portal](https://portal.azure.com/), clique em **novo** em Olá barra de tarefas toocreate uma imagem. Escolha Olá Linux imagem com base em suas necessidades. Olá, exemplo a seguir usa Olá Ubuntu 14.04 imagem.
+![Captura de tela de portal Olá que mostra o botão novo Olá][3]
 
-2. Para o **Nome do Host**, especifique o nome para a URL que você e os clientes da Internet usarão para acessar esta máquina virtual. Defina a última parte do nome DNS, por exemplo, tomcatdemo. O Azure gerará a URL como tomcatdemo.cloudapp.net.  
+2. Para **nome de Host**, especifique nome Olá Olá URL que você e os clientes da Internet usará tooaccess esta máquina virtual. Defina a última parte Olá de nome DNS hello, por exemplo, tomcatdemo. Azure gera Olá URL como tomcatdemo.cloudapp.net.  
 
-3. Para a **Chave de Autenticação SSH**, copie o valor da chave do arquivo publicKey.pem, que contém a chave pública gerada pelo PuTTYgen.  
-![Caixa da Chave de Autenticação SSH no portal][4]
+3. Para **chave de autenticação SSH**, copie o valor de chave de saudação do arquivo de publicKey.pem hello, que contém chave pública de saudação gerado pelo PuTTYgen.  
+![Caixa de chave de autenticação SSH no portal de saudação][4]
 
 4. Defina as outras configurações conforme necessário e, em seguida, clique em **Criar**.  
 
 ## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>Fase 2: Preparar sua máquina virtual para o Tomcat7
-Nesta fase, você configurará um ponto de extremidade para o tráfego do Tomcat e, em seguida, se conectará à nova máquina virtual.
+Nesta fase, você configurar um ponto de extremidade para o tráfego do Tomcat e, em seguida, conecte-se tooyour nova máquina de virtual.
 
-### <a name="step-1-open-the-http-port-to-allow-web-access"></a>Etapa 1: Abrir a porta HTTP para permitir o acesso via Web
-Os pontos de extremidade no Azure são compostos por um protocolo TCP ou UDP juntamente com uma porta pública e privada. A porta privada é aquela que o serviço está escutando na máquina virtual. A porta pública é aquela em que o serviço de nuvem do Azure escuta tráfego de entrada baseado na Internet.  
+### <a name="step-1-open-hello-http-port-tooallow-web-access"></a>Etapa 1: Abrir o acesso via web do hello HTTP porta tooallow
+Os pontos de extremidade no Azure são compostos por um protocolo TCP ou UDP juntamente com uma porta pública e privada. Olá privada porta é Olá que serviço Olá escutando tooon Olá VM. porta pública Olá é a porta Olá Olá serviço de nuvem do Azure escuta tooexternally para o tráfego de entrada, baseado na Internet.  
 
-A porta 8080 TCP é o número da porta padrão que o Tomcat escuta. Se esta porta for aberta com um Ponto de Extremidade do Azure, você e outros clientes da Internet poderão acessar páginas do Tomcat.  
+A porta TCP 8080 é o número da porta padrão Olá Tomcat usa toolisten. Se esta porta for aberta com um Ponto de Extremidade do Azure, você e outros clientes da Internet poderão acessar páginas do Tomcat.  
 
-1. No portal, clique em **Procurar** > **Máquinas Virtuais** e clique na máquina virtual que você criou.  
-   ![Captura de tela do diretório de máquinas virtuais][5]
-2. Para adicionar um ponto de extremidade à máquina virtual, clique na caixa **Pontos de extremidade** .
-   ![Captura de tela que mostra a caixa de Pontos de Extremidade][6]
+1. No portal de saudação, clique em **procurar** > **máquinas virtuais**e, em seguida, clique em máquina virtual Olá que você criou.  
+   ![Captura de tela de diretório do hello máquinas virtuais][5]
+2. tooadd uma máquina virtual de tooyour de ponto de extremidade, clique em Olá **pontos de extremidade** caixa.
+   ![Captura de tela que mostra a caixa de pontos de extremidade Olá][6]
 3. Clique em **Adicionar**.  
 
-   1. Digite um nome para o ponto de extremidade em **Ponto de Extremidade** e digite 80 em **Porta Pública**.  
+   1. Ponto de extremidade hello, insira um nome para o ponto de extremidade de saudação em **ponto de extremidade**e, em seguida, digite 80 na **porta pública**.  
 
-      Se você defini-la para 80, não será necessário incluir o número da porta na URL usada para acessar o Tomcat. Por exemplo, http://tomcatdemo.cloudapp.net.    
+      Se você definir too80, número da porta tooinclude Olá Olá URL que é usado tooaccess Tomcat não é necessário. Por exemplo, http://tomcatdemo.cloudapp.net.    
 
-      Se você defini-la para outro valor, tal como 81, será necessário adicionar o número da porta à URL para acessar o Tomcat. Por exemplo, http://tomcatdemo.cloudapp.net:81/.
-   2. Digite 8080 em **Porta Privada**. Por padrão, o Tomcat escuta a porta 8080 TCP. Se você alterou a porta de escuta padrão do Tomcat, deverá atualizar a **Porta Privada** para a mesma que a porta de escuta do Tomcat.  
+      Se você definir o valor de tooanother, como 81, será necessário tooadd Olá porta número toohello URL tooaccess Tomcat. Por exemplo, http://tomcatdemo.cloudapp.net:81/.
+   2. Digite 8080 em **Porta Privada**. Por padrão, o Tomcat escuta a porta 8080 TCP. Se você alterou a porta de escuta de padrão saudação do Tomcat, você deve atualizar **porta privada** toobe Olá mesmo Olá porta de escuta do Tomcat.  
       ![Captura de tela da interface do usuário que mostra o comando Adicionar, a Porta Pública e a Porta Privada][7]
-4. Clique em **OK** para adicionar o ponto de extremidade à máquina virtual.
+4. Clique em **Okey** tooadd Olá ponto de extremidade tooyour VM.
 
-### <a name="step-2-connect-to-the-image-you-created"></a>Etapa 2: Conectar-se à imagem criada
-Você pode escolher qualquer ferramenta SSH para se conectar à sua máquina virtual. Neste exemplo, usamos PuTTY.  
+### <a name="step-2-connect-toohello-image-you-created"></a>Etapa 2: Conectar-se a imagem toohello criada
+Você pode escolher qualquer máquina virtual do SSH ferramenta tooconnect tooyour. Neste exemplo, usamos PuTTY.  
 
-1. Obtenha o nome DNS da máquina virtual no portal.
+1. Obter nome DNS de saudação de sua máquina virtual no portal de saudação.
     1. Clique em **Procurar** > **Máquinas Virtuais**.
-    2. Selecione o nome da máquina virtual e clique em **Propriedades**.
-    3. No bloco **Propriedades**, examine a caixa **Nome de Domínio** para obter o nome DNS.  
+    2. Selecione Olá nome da máquina virtual e, em seguida, clique em **propriedades**.
+    3. Em Olá **propriedades** lado a lado, procure em Olá **nome de domínio** nome DNS do caixa tooget hello.  
 
-2. Obtenha o número da porta para conexões SSH na caixa **SSH**.  
-![Captura de tela que mostra o número da porta da conexão SSH][8]
+2. Obter o número da porta Olá para conexões SSH de saudação **SSH** caixa.  
+![Captura de tela que mostra o número da porta de conexão do hello SSH][8]
 
 3. Baixe [PuTTY](http://www.putty.org/).  
 
-4. Depois de baixar, clique no arquivo executável Putty.exe. Na configuração PuTTY, configure s opções básicas com o nome do host e o número da porta obtido nas propriedades da sua máquina virtual.   
-![Captura de tela que mostra as opções de nome e porta do host de configuração PuTTY][9]
+4. Após o download, clique em arquivo executável do hello Putty.exe. Configuração PuTTY, configurar opções básicas de saudação com o nome de host de saudação e porta número que é obtido das propriedades de saudação de sua máquina virtual.   
+![Captura de tela que mostra as opções de nome e a porta de host de configuração PuTTY Olá][9]
 
-5. No painel esquerdo, clique em **Conexão** > **SSH** > **Autenticar**e, em seguida, clique em **Procurar** para especificar o local do arquivo privateKey.ppk. O arquivo privateKey.ppk contém a chave privada que foi gerada pelo PuTTYgen anteriormente na seção “Fase 1: Criar uma imagem” deste artigo.  
-![Captura de tela que mostra a hierarquia do Diretório de conexão e o botão Procurar][10]
+5. No painel esquerdo do hello, clique em **Conexão** > **SSH** > **Auth**e, em seguida, clique em **procurar** toospecify local de saudação do arquivo de privateKey.ppk de saudação. arquivo de privateKey.ppk de Olá contém a chave privada de saudação que é gerado pelo PuTTYgen anteriormente hello "Fase 1: criar uma imagem" deste artigo.  
+![Captura de tela que mostra a hierarquia de diretórios de Conexão hello e o botão Procurar][10]
 
-6. Clique em **Abrir**. Você pode ser alertado por uma caixa de mensagem. Se você tiver configurado o nome DNS e o número da porta corretamente, clique em **Sim**.
-![Captura de tela que mostra a notificação][11]
+6. Clique em **Abrir**. Você pode ser alertado por uma caixa de mensagem. Se você tiver configurado o nome DNS hello e número da porta corretamente, clique em **Sim**.
+![Captura de tela que mostra a notificação de saudação][11]
 
-7. Será solicitado que você insira inserir seu nome de usuário.  
-![Captura de tela que mostra onde inserir o nome de usuário][12]
+7. Você está tooenter solicitado seu nome de usuário.  
+![Captura de tela que mostra onde username tooenter][12]
 
-8. Insira o nome de usuário que você usou para criar a máquina virtual na seção “Fase 1: Criar uma imagem” neste artigo. Você verá algo semelhante ao que se segue:  
-![Captura de tela que mostra a confirmação de autenticação][13]
+8. Insira nome de usuário de saudação que você usou toocreate Olá VM em hello "Fase 1: criar uma imagem" seção neste artigo. Você verá algo parecido com hello seguinte:  
+![Captura de tela que mostra a confirmação de autenticação Olá][13]
 
 ## <a name="phase-3-install-software"></a>Fase 3: Instalar o software
-Nesta fase, você pode instalar o Java Runtime Environment, Tomcat7 e demais componentes do Tomcat7.  
+Nesta fase, você pode instalar o Java runtime environment hello, Tomcat7 e outros componentes de Tomcat7.  
 
 ### <a name="java-runtime-environment"></a>Java runtime environment
-O tomcat é escrito em Java. Há dois tipos de JDKs (Kits de desenvolvimento Java), OpenJDK e Oracle JDK. Você pode escolher aquele que preferir.  
+O tomcat é escrito em Java. Há dois tipos de JDKs (Kits de desenvolvimento Java), OpenJDK e Oracle JDK. Você pode escolher Olá aquele que você deseja.  
 
 > [!NOTE]
-> Ambos os JDKs têm código quase idêntico para as classes na API do Java, porém o código para a máquina virtual é diferente. O OpenJDK tende a usar bibliotecas abertas, enquanto o Oracle JDK tende a usar bibliotecas fechadas. O Oracle JDK tem mais classes e alguns bugs corrigidos, sendo também mais estável que o OpenJDK.
+> Tanto JDKs tem quase Olá mesmo código para classes Olá Olá API Java, mas Olá código para a máquina virtual de saudação é diferente. OpenJDK tende a bibliotecas abertas toouse, enquanto tende a Oracle JDK toouse fechado aqueles. O Oracle JDK tem mais classes e alguns bugs corrigidos, sendo também mais estável que o OpenJDK.
 
 #### <a name="install-openjdk"></a>Instalar o OpenJDK  
 
-Use o seguinte comando para baixar o OpenJDK.   
+Use Olá toodownload comando OpenJDK a seguir.   
 
     sudo apt-get update  
     sudo apt-get install openjdk-7-jre  
 
 
-* Para criar um diretório para conter os arquivos JDK:  
+* toocreate toocontain um diretório Olá arquivos JDK:  
 
         sudo mkdir /usr/lib/jvm  
-* Para extrair os arquivos JDK para diretório /usr/lib/jvm/:  
+* arquivos JDK tooextract Olá no diretório usr/lib/jvm/hello:  
 
         sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
 
 #### <a name="install-oracle-jdk"></a>Instalar o Oracle JDK
 
 
-Use o seguinte comando para baixar o Oracle JDK do site do Oracle.  
+Use Olá toodownload comando Oracle JDK a seguir no site da Oracle de saudação.  
 
      wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
-* Para criar um diretório para conter os arquivos JDK:  
+* toocreate toocontain um diretório Olá arquivos JDK:  
 
         sudo mkdir /usr/lib/jvm  
-* Para extrair os arquivos JDK para diretório /usr/lib/jvm/:  
+* arquivos JDK tooextract Olá no diretório usr/lib/jvm/hello:  
 
         sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
-* Para definir o Oracle JDK como a máquina virtual Java padrão:  
+* tooset Oracle JDK como Olá a máquina virtual Java com padrão:  
 
         sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
 
         sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
 
 #### <a name="confirm-that-java-installation-is-successful"></a>Confirme se a instalação do Java foi bem-sucedida
-Você pode usar um comando semelhante ao seguinte para testar se o Java runtime environment está instalado corretamente:  
+Você pode usar um comando como Olá tootest a seguir se Olá Java runtime environment está instalado corretamente:  
 
     java -version  
 
-Se você instalou o OpenJDK, verá uma mensagem semelhante à seguinte: ![Mensagem de instalação bem-sucedida do OpenJDK][14]
+Se você instalou OpenJDK, você verá uma mensagem semelhante seguinte Olá: ![mensagem de instalação OpenJDK bem-sucedida][14]
 
-Se você instalou o Oracle JDK, verá uma mensagem semelhante à seguinte: ![Mensagem de instalação bem-sucedida do Oracle JDK][15]
+Se você instalou o JDK da Oracle, você verá uma mensagem semelhante seguinte Olá: ![mensagem de instalação do JDK bem-sucedida do Oracle][15]
 
 ### <a name="install-tomcat7"></a>Instalar o Tomcat7
-Use o seguinte comando para instalar o Tomcat7.  
+Use Olá comando tooinstall Tomcat7 a seguir.  
 
     sudo apt-get install tomcat7  
 
-Se você não estiver usando o Tomcat7, use a variação apropriada desse comando.  
+Se você não estiver usando Tomcat7, use a variação apropriada Olá desse comando.  
 
 #### <a name="confirm-that-tomcat7-installation-is-successful"></a>Confirme se a instalação do Tomcat7 foi bem-sucedida
-Para verificar se o Tomcat7 foi instalado com êxito, navegue para o nome DNS do seu servidor do Tomcat. Neste artigo, a URL de exemplo é http://tomcatexample.cloudapp.net/. Se você encontrar uma mensagem semelhante à seguinte, o Tomcat7 estará instalado corretamente.
+toocheck se Tomcat7 for instalado com êxito, procure o nome DNS do servidor do tooyour Tomcat. Neste artigo, URL de exemplo hello é http://tomcatexample.cloudapp.net/. Se você vir uma mensagem semelhante Olá seguinte, Tomcat7 está instalado corretamente.
 ![Mensagem de instalação bem-sucedida do Tomcat7][16]
 
 ### <a name="install-other-tomcat7-components"></a>Instalar outros componentes do Tomcat7
 Há outros componentes opcionais do Tomcat que você pode instalar.  
 
-Use o comando **sudo apt-cache search tomcat7** para ver todos os componentes disponíveis. Use os comandos a seguir para instalar alguns componentes úteis.  
+Saudação de uso **tomcat7 de pesquisa de cache apt sudo** toosee comando todos os componentes disponíveis hello. Use Olá tooinstall comandos a seguir alguns componentes úteis.  
 
     sudo apt-get install tomcat7-admin      #admin web applications
 
-    sudo apt-get install tomcat7-user         #tools to create user instances  
+    sudo apt-get install tomcat7-user         #tools toocreate user instances  
 
 ## <a name="phase-4-configure-tomcat7"></a>Fase 4: Configurar o Tomcat7
 Nesta fase, você administrará o Tomcat.
 
 ### <a name="start-and-stop-tomcat7"></a>Iniciar e parar o Tomcat7
-O servidor do Tomcat7 será iniciado automaticamente quando você o instala. Você também pode iniciá-lo com o seguinte comando:   
+servidor de Tomcat7 Olá é iniciado automaticamente quando você instalá-lo. Você também poderá iniciá-lo com hello comando a seguir:   
 
     sudo /etc/init.d/tomcat7 start
 
-Para interromper o Tomcat7:
+toostop Tomcat7:
 
     sudo /etc/init.d/tomcat7 stop
 
-Para exibir o status do Tomcat7:
+status de saudação do tooview do Tomcat7:
 
     sudo /etc/init.d/tomcat7 status
 
-Para reiniciar os serviços do Tomcat: 
+serviços do Tomcat toorestart: 
 
     sudo /etc/init.d/tomcat7 restart
 
 ### <a name="tomcat7-administration"></a>Administração do Tomcat7
-Você pode editar o arquivo de configuração de usuário do Tomcat para configurar as credenciais de administrador. Use o seguinte comando:  
+Você pode editar tooset de arquivo de configuração do hello Tomcat usuário se suas credenciais de administrador. Use Olá comando a seguir:  
 
     sudo vi  /etc/tomcat7/tomcat-users.xml   
 
 Aqui está um exemplo:  
-![Captura de tela que mostra a saída do comando sudo vi][17]  
+![Captura de tela que mostra a saída do comando Olá sudo vi][17]  
 
 > [!NOTE]
-> Crie uma senha forte para o nome de usuário do administrador.  
+> Crie uma senha forte para o nome de usuário de administrador hello.  
 
-Depois de editar esse arquivo, você deverá reiniciar os serviços do Tomcat7 com o comando a seguir para garantir que as alterações entrem em vigor:  
+Depois de editar esse arquivo, é necessário reiniciar os serviços de Tomcat7 com hello tooensure de comando que Olá alterações entrem em vigor a seguir:  
 
     sudo /etc/init.d/tomcat7 restart  
 
-Abra o navegador e digite **http://<your tomcat server DNS name>/manager/html** como a URL. Para o exemplo neste artigo, a URL é http://tomcatexample.cloudapp.net/manager/html.  
+Abra seu navegador e digite **http://<your tomcat server DNS name>manager/html** como Olá URL. Por exemplo hello neste artigo, URL Olá é http://tomcatexample.cloudapp.net/manager/html.  
 
-Após conectar, você deverá ver algo semelhante ao seguinte:   
-![Captura de tela do Tomcat Web Application Manager][18]
+Depois de se conectar, você verá algo semelhante seguinte de toohello:  
+![Captura de tela da saudação Gerenciador de aplicativos da Web Tomcat][18]
 
 ## <a name="common-issues"></a>Problemas comuns
-### <a name="cant-access-the-virtual-machine-with-tomcat-and-moodle-from-the-internet"></a>Não é possível acessar a máquina virtual com o Tomcat e o Moodle por meio da Internet
+### <a name="cant-access-hello-virtual-machine-with-tomcat-and-moodle-from-hello-internet"></a>Não é possível acessar a máquina virtual Olá Tomcat e o Moodle de saudação da Internet
 #### <a name="symptom"></a>Sintoma  
-  O Tomcat está sendo executado, mas você não consegue ver a página padrão do Tomcat com seu navegador.
+  Tomcat está sendo executado, mas você não conseguir ver a página de padrão do Tomcat Olá com seu navegador.
 #### <a name="possible-root-cause"></a>Possível causa raiz   
 
-  * A porta de escuta do Tomcat não é a mesma que a porta privada do ponto de extremidade da máquina virtual para o tráfego do Tomcat.  
+  * porta de escuta do Tomcat Olá não é Olá mesmo que a porta privada saudação do ponto de extremidade da sua máquina virtual para o tráfego do Tomcat.  
 
-     Verifique as configurações de ponto de extremidade da porta pública e da porta privada e certifique-se de que a porta privada seja a mesma que a porta de escuta do Tomcat. Consulte a seção “Fase 1: Criar uma imagem” deste artigo para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.  
+     Verifique a porta pública e privada configurações de ponto de extremidade de porta e verifique se a porta privada Olá é Olá mesmo Olá Tomcat a porta de escuta. Consulte a seção “Fase 1: Criar uma imagem” deste artigo para obter instruções sobre como configurar os pontos de extremidade para sua máquina virtual.  
 
-     Para determinar a porta de escuta do Tomcat, abra /etc/httpd/conf/httpd.conf (versão Red Hat) ou /etc/tomcat7/server.xml (versão Debian). Por padrão, a porta de escuta do Tomcat é 8080. Aqui está um exemplo:  
+     Olá toodetermine Tomcat porta de escuta, abra /etc/httpd/conf/httpd.conf (versão do Red Hat) ou /etc/tomcat7/server.xml (versão Debian). Por padrão, a saudação porta de escuta do Tomcat é 8080. Aqui está um exemplo:  
 
         <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
-     Se você estiver usando uma máquina virtual como Debian ou Ubuntu e desejar alterar a porta padrão do Tomcat Listen (por exemplo, 8081), você também deverá abrir a porta para o sistema operacional. Primeiro, abra o perfil:  
+     Se você estiver usando uma máquina virtual que Debian ou Ubuntu e você deseja toochange saudação padrão porta do Tomcat escutar (por exemplo, 8081), você também deve abrir a porta Olá para o sistema operacional de saudação. Primeiro, abra o perfil de saudação:  
 
         sudo vi /etc/default/tomcat7  
 
-     Remova a marca de comentário da última linha e altere “não” para “sim”.  
+     Em seguida, remova a última linha de saudação e altere "não" muito "Sim".  
 
         AUTHBIND=yes
-  2. O firewall desabilitou a porta de escuta do tomcat.
+  2. firewall Olá desabilitou Olá porta de escuta do Tomcat.
 
-     Você só pode ver a página padrão do Tomcat do host local. O problema é provavelmente se deve à porta, que o Tomcat escuta, estar bloqueada pelo firewall. Você pode usar a ferramenta w3m para procurar a página da Web. Os seguintes comandos instalar w3m e navegue até a página padrão do Tomcat:  
+     Você só pode ver a página do hello Tomcat padrão do host local hello. problema de saudação é mais provável que porta hello, que é atendida tooby Tomcat, seja bloqueada pelo firewall hello. Você pode usar a página da Web do hello w3m ferramenta toobrowse hello. Olá comandos a seguir instalar w3m e procurar toohello Tomcat padrão página:  
 
 
         sudo yum  install w3m w3m-img
@@ -267,48 +267,48 @@ Após conectar, você deverá ver algo semelhante ao seguinte:
         w3m http://localhost:8080  
 #### <a name="solution"></a>Solução
 
-  * Se a porta de escuta do Tomcat não for a mesma que a porta provada do ponto de extremidade para tráfego para a máquina virtual, você precisará alterar a porta privada para a mesma porta de escuta do Tomcat.   
-  2. Se o problema for causado pelo firewall/iptables, adicione as seguintes linhas a /etc/sysconfig/iptables. A segunda linha é necessária apenas para tráfego https:  
+  * Se Olá porta de escuta do Tomcat não está hello mesmo como a porta privada saudação do ponto de extremidade de saudação da máquina de virtual toohello tráfego, você precisará alterá porta privada Olá toobe Olá mesmo Olá porta de escuta do Tomcat.   
+  2. Se Olá problema é causado por um firewall/iptables, adicione Olá linhas muito/etc/sysconfig/iptables a seguir. segunda linha de saudação é necessário apenas para tráfego https:  
 
       -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 
       -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
      > [!IMPORTANT]
-     > Verifique se as linhas anteriores estão posicionadas acima de todas as linhas restringiriam o acesso globalmente, tal como a seguinte: -A INPUT -j REJECT --reject-with icmp-host-prohibited
+     > Certifique-se de linhas anteriores Olá são posicionadas acima todas as linhas que globalmente seriam restringir o acesso, como a seguir Olá: - A -j rejeitar – rejeitar com proibido de host de icmp de entrada
 
 
 
-Para recarregar o iptables, execute o seguinte comando:
+iptables tooreload hello, executar Olá comando a seguir:
 
     service iptables restart
 
 Isso foi testado no CentOS 6.3.
 
-### <a name="permission-denied-when-you-upload-project-files-to-varlibtomcat7webapps"></a>Permissão negada ao carregar os arquivos do projeto para /var/lib/tomcat7/webapps/
+### <a name="permission-denied-when-you-upload-project-files-toovarlibtomcat7webapps"></a>Permissão negada ao carregar projeto arquivos muito/var/lib/tomcat7/webapps /
 #### <a name="symptom"></a>Sintoma
-  Ao usar um cliente SFTP (por exemplo, o FileZilla) para se conectar à máquina virtual e navegar para /var/lib/tomcat7/webapps/ para publicar seu site, você receberá uma mensagem de erro semelhante à seguinte:  
+  Quando você usar uma máquina virtual do SFTP cliente (como FileZilla) tooconnect tooyour e navegue muito/var/lib/tomcat7/webapps/toopublish seu site, você obtém uma erro mensagem semelhante toohello a seguir:  
 
      status:    Listing directory /var/lib/tomcat7/webapps
      Command:    put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
      Error:    /var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
      Error:    File transfer failed
 #### <a name="possible-root-cause"></a>Possível causa raiz
-  Você não tem permissões para acessar a pasta /var/lib/tomcat7/webapps.  
+  Você não tem nenhuma pasta de /var/lib/tomcat7/webapps permissões tooaccess hello.  
 #### <a name="solution"></a>Solução  
-  É necessário obter permissão da conta raiz. Você pode alterar a propriedade da pasta raiz para o nome de usuário usado ao provisionar o computador. Aqui está um exemplo com o nome de conta azureuser:  
+  Você precisa de permissão de tooget da conta raiz de saudação. Você pode alterar a propriedade Olá dessa pasta de raiz toohello nome de usuário usado ao provisionar a máquina de saudação. Aqui está um exemplo com o nome da conta azureuser hello:  
 
      sudo chown azureuser -R /var/lib/tomcat7/webapps
 
-  Use a opção -R para aplicar as permissões para todos os arquivos dentro de um diretório também.  
+  Use permissões de Olá Olá -R opção tooapply para todos os arquivos dentro de um diretório também.  
 
-  Este comando também funciona para diretórios. A opção -R altera as permissões para todos os arquivos e diretórios dentro do diretório. Aqui está um exemplo:  
+  Este comando também funciona para diretórios. as alterações da opção -R Olá Olá permissões para todos os arquivos e diretórios dentro do diretório de saudação. Aqui está um exemplo:  
 
      sudo chown -R username:group directory  
 
-  Este comando altera a propriedade (tanto de usuário como de grupo) para todos os arquivos e diretórios dentro do diretório.  
+  Esse comando altera a propriedade (usuário e grupo) para todos os arquivos e pastas que estão dentro do diretório de saudação.  
 
-  O comando a seguir altera apenas a permissão do diretório da pasta. Os arquivos e pastas dentro do diretório não são alterados.  
+  Olá comando a seguir altera somente permissão de saudação do diretório da pasta hello. arquivos de saudação e pastas dentro do diretório de saudação não são alteradas.  
 
      sudo chown username:group directory
 

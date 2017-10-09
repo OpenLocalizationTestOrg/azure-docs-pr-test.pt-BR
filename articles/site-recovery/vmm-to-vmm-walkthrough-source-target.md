@@ -1,6 +1,6 @@
 ---
-title: "Configurar a origem e destino de replicação do Hyper-V para um site secundário com o Azure Site Recovery | Microsoft Docs"
-description: "Descreve como configurar a origem e o destino ao replicar VMs do Hyper-V para um site de VMM secundário com o Azure Site Recovery."
+title: "aaaSet a origem de saudação e de destino para o site secundário do Hyper-V replicação tooa com o Azure Site Recovery | Microsoft Docs"
+description: "Descreve como tooset até a fonte de saudação e de destino quando replicar máquinas virtuais do Hyper-V toosecondary VMM do site com o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,83 +14,83 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.openlocfilehash: 07135e9b5e619971a59cc22ec68a0a4e8bcaabe1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 451cb4413ca5c09777a7faf512b1c8ea43e695f7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-6-set-up-the-replication-source-and-target"></a>Etapa 6: Configurar a origem e o destino de replicação
+# <a name="step-6-set-up-hello-replication-source-and-target"></a>Etapa 6: Configurar o destino e origem da replicação Olá
 
 
-Depois de criar um cofre para os Serviços de Recuperação para replicação do Hyper-V em um site secundário do VMM com o [Azure Site Recovery](site-recovery-overview.md), use este artigo para configurar os locais de replicação de origem e de destino. 
+Depois de criar serviços de recuperação de um cofre para o Hyper-V replicação tooa VMM site secundário com [do Azure Site Recovery](site-recovery-overview.md), use este artigo tooset fonte hello e locais de replicação de destino. 
 
-Depois de ler este artigo, poste comentários na parte inferior ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-
+Depois de ler este artigo, postar os comentários na parte inferior do hello, ou em Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
 
-Instale o Provedor do Azure Site Recovery nos servidores VMM e descubra e registre os servidores no cofre.
+
+## <a name="set-up-hello-source-environment"></a>Configurar o ambiente de origem Olá
+
+Instale Olá provedor Azure Site Recovery em servidores do VMM e descobrir e registrar servidores no cofre de saudação.
 
 1. Clique em **Etapa 1: Preparar a Infraestrutura** > **Origem**.
 
     ![Configurar origem](./media/vmm-to-vmm-walkthrough-source-target/goals-source.png)
-2. Em **Preparar origem**, clique em **+ VMM** para adicionar um servidor VMM.
+2. Em **preparar fonte**, clique em **+ VMM** tooadd um servidor do VMM.
 
     ![Configurar origem](./media/vmm-to-vmm-walkthrough-source-target/set-source1.png)
-3. Em **Adicionar Servidor**, verifique se **Servidor System Center VMM** é exibido em **Tipo de servidor** e se o servidor VMM atende aos [pré-requisitos](#prerequisites).
-4. Baixe o arquivo de instalação do Provedor do Azure Site Recovery.
-5. Baixe a chave do registro. Você precisará dela quando executar a instalação. A chave é válida por cinco dias após ser gerada.
+3. Em **Adicionar servidor**, verifique se **servidor do System Center VMM** aparece na **tipo de servidor** e servidor do VMM Olá atende Olá [pré-requisitos](#prerequisites).
+4. Baixe o arquivo de instalação do provedor Azure Site Recovery hello.
+5. Baixe a chave de registro de saudação. Você precisará dela quando executar a instalação. chave de saudação é válida por cinco dias depois que ele é gerado.
 
     ![Configurar origem](./media/vmm-to-vmm-walkthrough-source-target/set-source3.png)
-6. Instale o Provedor do Azure Site Recovery no servidor do VMM de origem. Você não precisa instalar nada explicitamente nos servidores de host do Hyper-V.
+6. Instale Olá provedor Azure Site Recovery no servidor do VMM hello. Você não precisa tooexplicitly instalar nada nos servidores de host do Hyper-V.
 
 
-## <a name="install-the-azure-site-recovery-provider"></a>Instalar o Provedor de Recuperação do Site do Azure
+## <a name="install-hello-azure-site-recovery-provider"></a>Instalar Olá provedor Azure Site Recovery
 
-1. Execute o arquivo de configuração do Provedor em cada servidor VMM. Se o VMM é implantado em um cluster, faça o seguinte na primeira vez que você instala:
-    -  Instale o provedor em um nó ativo e conclua a instalação para registrar o servidor VMM no cofre.
-    - Em seguida, instale o Provedor nos outros nós. Nós de cluster devem todos executar a mesma versão do provedor.
-2. A instalação executa algumas verificações de pré-requisito e solicita permissão para interromper o serviço do VMM. O serviço VMM será reiniciado automaticamente quando a instalação for finalizada. Se estiver instalando em um cluster do VMM, será solicitado que você pare a função de Cluster.
-3. No **Microsoft Update**, você pode aceitar que as atualizações do Provedor sejam instaladas de acordo com a política do Microsoft Update.
-4. Em **Instalação**, aceite ou modifique o local de instalação padrão e clique em **Instalar**.
+1. Execute o arquivo de instalação do provedor de saudação em cada servidor do VMM. Se o VMM for implantado em um cluster, a seguir Olá Olá primeira vez que você instala:
+    -  Instalar o provedor de saudação em um nó ativo e concluir o servidor do VMM Olá instalação tooregister Olá no cofre hello.
+    - Em seguida, instale Olá provedor em Olá outros nós. Nós de cluster devem todos executados Olá mesma versão do provedor de saudação.
+2. A instalação executa algumas verificações de pré-requisitos e solicitações permissão toostop saudação do serviço do VMM. saudação de serviço do VMM será reiniciada automaticamente quando a instalação for concluída. Se você instalar em um cluster do VMM, você está função de Cluster Olá toostop solicitada.
+3. Em **Microsoft Update**, você pode aceitar toospecify que provedor serão instaladas de acordo com a política do Microsoft Update.
+4. Em **instalação**, aceite ou modifique o local de instalação padrão hello e clique em **instalar**.
 
     ![Local de instalação](./media/vmm-to-vmm-walkthrough-source-target/provider-location.png)
-5. Quando a instalação for concluída, clique em **Registrar** para registrar o servidor no cofre.
+5. Após a conclusão da instalação, clique em **registrar** tooregister servidor de saudação no cofre hello.
 
     ![Local de instalação](./media/vmm-to-vmm-walkthrough-source-target/provider-register.png)
-6. Em **Nome do cofre**, verifique o nome do cofre para o qual o servidor será registrado. Clique em *Próximo*.
+6. Em **nome do cofre**, verificar nome de saudação do cofre Olá quais saudação servidor será registrado. Clique em *Avançar*.
 
     ![Registros do servidor](./media/vmm-to-vmm-walkthrough-source-target/vaultcred.png)
-7. Em **Conexão com a Internet**, especifique como o provedor em execução no servidor VMM se conecta ao Azure.
+7. Em **Conexão de Internet**, especifique como o provedor de saudação em execução no servidor do VMM Olá se conecta tooAzure.
 
     ![Configurações da Internet](./media/vmm-to-vmm-walkthrough-source-target/proxydetails.png)
 
-   - Você pode especificar que o provedor deve se conectar diretamente à internet ou por meio de um proxy.
+   - Você pode especificar o provedor Olá deve se conectar diretamente toohello internet, ou por meio de um proxy.
    - Especifique as configurações de proxy, se necessário.
-   - Se você usar um proxy, uma conta RunAs do VMM (DRAProxyAccount) será criada automaticamente usando as credenciais de proxy especificadas. Configure o servidor proxy para que essa conta possa ser autenticada com êxito. As configurações de conta executar como podem ser modificadas no console do VMM > **configurações** > **segurança** > **contas executar como**. Reinicie o serviço VMM para atualizar as alterações.
-8. Em **Chave de Registro**, selecione a chave que você baixou no Azure Site Recovery e copiou para o servidor VMM.
-9. A configuração de criptografia é usada somente quando você estiver replicando VMs do Hyper-V em nuvens do VMM no Azure. Se estiver replicando para um site secundário, ela não é usada.
-10. Em **Nome do servidor**, especifique um nome amigável para identificar o servidor VMM no cofre. Em uma configuração de cluster, especifique o nome de função de cluster do VMM.
-11. Em **Sincronizar metadados de nuvem**, selecione se você deseja sincronizar os metadados para todas as nuvens no servidor VMM com o cofre. Esta ação só precisa acontecer uma vez em cada servidor. Se você não desejar sincronizar todas as nuvens, deixe essa configuração desmarcada e sincronize cada nuvem individualmente nas propriedades da nuvem no console do VMM.
-12. Clique em **Avançar** para concluir o processo. Após o registro, os metadados do servidor VMM é recuperado pela Recuperação de Site do Azure. O servidor é exibido na guia **Servidores VMM** da página **Servidores** no cofre.
+   - Se você usar um proxy, uma conta de RunAs VMM (DRAProxyAccount) é criada automaticamente Olá especificado, usando as credenciais do proxy. Configure o servidor de proxy de saudação para que essa conta possa autenticar com êxito. Olá configurações da conta executar como podem ser modificadas no console do VMM hello > **configurações** > **segurança** > **contas executar como**. Reinicie a alterações de tooupdate de serviço do VMM hello.
+8. Em **chave de registro**, selecione chave Olá que você baixou do Azure Site Recovery e copiou toohello o servidor do VMM.
+9. configuração de criptografia de saudação é usada apenas quando você estiver replicando máquinas virtuais do Hyper-V no tooAzure de nuvens do VMM. Se você estiver replicando o site secundário tooa não é usado.
+10. Em **nome do servidor**, especifique um servidor do VMM do nome amigável tooidentify Olá no cofre hello. Em uma configuração de cluster, especifique nome de função de cluster saudação do VMM.
+11. Em **sincronizar metadados de nuvem**, selecione se deseja toosynchronize metadados para todas as nuvens no servidor do VMM Olá cofre hello. Essa ação precisa apenas toohappen uma vez em cada servidor. Se você não quiser toosynchronize todas as nuvens, deixe essa configuração desmarcada e sincronizar cada nuvem individualmente nas propriedades de nuvem Olá no console do VMM hello.
+12. Clique em **próximo** toocomplete processo de saudação. Após o registro, os metadados do servidor do VMM Olá são recuperados pelo Azure Site Recovery. saudação do servidor é exibida em Olá **servidores VMM** guia Olá **servidores** página no cofre hello.
 
     ![Servidor](./media/vmm-to-vmm-walkthrough-source-target/provider13.png)
-13. Depois que o servidor estiver disponível no console de Recuperação de Site, em **Origem** > **Preparar origem** selecione o servidor VMM e selecione a nuvem na qual o host Hyper-V está localizado. Em seguida, clique em **OK**.
+13. Depois que o servidor hello está disponível no console de recuperação de Site Olá, em **fonte** > **preparar fonte** Selecionar servidor do VMM hello e nuvem Olá selecione em quais Olá Hyper-V host está localizado. Em seguida, clique em **OK**.
 
-Você também pode instalar o provedor usando a linha de comando:
+Você também pode instalar o provedor Olá Olá linha de comando:
 
 [!INCLUDE [site-recovery-rw-provider-command-line](../../includes/site-recovery-rw-provider-command-line.md)]
 
 
-## <a name="set-up-the-target-environment"></a>Configurar o ambiente de origem
+## <a name="set-up-hello-target-environment"></a>Configurar o ambiente de destino Olá
 
-Selecione o servidor VMM e a nuvem de destino:
+Selecione a nuvem e o servidor do VMM de destino hello:
 
-1. Clique em **Preparar infraestrutura** > **Destino** e selecione o servidor VMM de destino que você deseja usar.
-2. Nuvens no servidor sincronizadas com a Recuperação de Site serão exibidas. Selecione a nuvem de destino.
+1. Clique em **preparar infraestrutura** > **destino**e servidor do VMM de destino select Olá toouse desejado.
+2. Nuvens no servidor de saudação que são sincronizadas com a recuperação de Site serão exibidas. Selecione a nuvem de destino hello.
 
    ![Destino](./media/vmm-to-vmm-walkthrough-source-target/target-vmm.png)
 
@@ -98,4 +98,4 @@ Selecione o servidor VMM e a nuvem de destino:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Acesse a [Etapa 7: Configurar o mapeamento de rede](vmm-to-vmm-walkthrough-network-mapping.md).
+Vá muito[etapa 7: Configurar mapeamento de rede](vmm-to-vmm-walkthrough-network-mapping.md).

@@ -1,5 +1,5 @@
 ---
-title: "Como configurar saídas de dados para trabalhos do Stream Analytics | Microsoft Docs"
+title: "dados de tooconfigure aaaHow saídas para trabalhos do Stream Analytics | Microsoft Docs"
 description: "Configurar saídas para trabalhos do Stream Analytics | segmento do roteiro de aprendizagem."
 keywords: "dados de saída, movimentação de dados"
 documentationcenter: 
@@ -15,37 +15,37 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/26/2017
 ms.author: samacha
-ms.openlocfilehash: 1ffa517469da1a8d79917b9747abc97ca3bef463
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c5d89e9e9f9211d3e778580c071dd53d56aed9fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-data-outputs-for-stream-analytics-jobs"></a>Como configurar saídas de dados para trabalhos do Stream Analytics
+# <a name="how-tooconfigure-data-outputs-for-stream-analytics-jobs"></a>Como os dados tooconfigure saídas para trabalhos do Stream Analytics
 
-Os trabalhos do Stream Analytics do Azure podem ser conectados a uma ou mais saídas de dados, o que define uma conexão com um coletor de dados existente. Conforme o trabalho do Stream Analytics processa e transforma dados de entrada, um fluxo de eventos de saída de dados é gravado na saída do trabalho.
+Trabalhos do Stream Analytics do Azure podem ser conectado tooone ou mais saídas de dados, que definem um coletor de dados existente de conexão tooan. Como o trabalho do Stream Analytics processa e transforma os dados de entrada, um fluxo de dados de eventos de saída é gravado saída tooyour do trabalho.
 
-As saídas de dados do Stream Analytics podem ser usadas para dar origem a painéis ou alertas em tempo real, disparar fluxos de trabalho de movimentação de dados ou simplesmente arquivar dados para processamento em lote posteriormente. O Stream Analytics integra-se perfeitamente a vários serviços do Azure, que são documentados em detalhes aqui.
+Saídas de fluxo de dados de análise podem ser painéis em tempo real usado toosource ou alertas, gatilho fluxos de trabalho de movimentação de dados ou simplesmente arquivar dados para processamento em lote posteriormente. O Stream Analytics integra-se perfeitamente a vários serviços do Azure, que são documentados em detalhes aqui.
 
-Para adicionar uma saída ao trabalho do Stream Analytics:
+tooadd um trabalho de análise de fluxo de tooyour de saída:
 
-1. No [Portal do Azure](https://portal.azure.com), abra o seu trabalho e clique em **Saídas** e, em seguida, clique em **Adicionar** na folha Saídas exibida.
+1. Em Olá [portal do Azure](https://portal.azure.com), abra seu trabalho e clique em **saídas** e, em seguida, clique em **adicionar** na folha de saídas de saudação que aparece.
    
     ![Adicionar saídas](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)  
    
-2. Forneça um nome amigável para essa saída na caixa **Alias de saída** . Esse nome pode ser usado na consulta do seu trabalho posteriormente para fazer referência à saída.  
+2. Forneça um nome amigável para essa saída no hello **Alias de saída** caixa. Esse nome pode ser usado na consulta do trabalho posteriormente na saída de toohello toorefer.  
    
-    Preencha o restante das propriedades de conexão necessárias para se conectar à saída.  Esses campos variam de acordo com o tipo de saída e são definidos em detalhes aqui.  
+    Preencha o restante Olá Olá necessário conexão propriedades tooconnect tooyour saída.  Esses campos variam de acordo com o tipo de saída e são definidos em detalhes aqui.  
    
     ![Escolher o tipo de movimentação de dados](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)  
    
-3. Dependendo do tipo de saída, talvez seja necessário especificar como os dados são serializados ou formatados. As configurações específicas de serialização para cada tipo de saída estão documentadas aqui.
+3. Dependendo do tipo de saída de hello, talvez seja necessário toospecify como dados de saudação são serializados ou formatados. configurações de serialização específico Olá para cada tipo de saída são documentadas aqui.
    
-    Preencha o restante das propriedades de conexão necessárias para se conectar à fonte de dados. Esses campos variam de acordo com o tipo de entrada e de fonte e são definidos detalhadamente no artigo [Criar trabalho](stream-analytics-create-a-job.md).  
+    Preencha o restante de Olá Olá necessária conexão propriedades tooconnect tooyour da fonte de dados. Esses campos variam de acordo com o tipo de entrada e origem e são definidos em detalhes em Olá [artigo criar trabalho](stream-analytics-create-a-job.md).  
 
 > [!Note]
 >
-> Qualquer elemento de saída adicionado ao trabalho deve existir antes de o trabalho ser iniciado e de os eventos começarem a fluir. Por exemplo, se você usar o Armazenamento de Blobs como uma saída, o trabalho não criará uma conta de armazenamento automaticamente. Ele precisa ser criado pelo usuário antes de o trabalho ASA ser iniciado.
+> Qualquer trabalho de toohello adicionado do elemento de saída, deve existir antes Olá trabalho é iniciado e eventos que fluem de início. Por exemplo, se você usar o armazenamento de Blob como uma saída, o trabalho de saudação não criará uma conta de armazenamento automaticamente. Ele precisa toobe criado pelo usuário Olá antes Olá ASA trabalho é iniciado.
 > 
  
 
@@ -53,7 +53,7 @@ Para adicionar uma saída ao trabalho do Stream Analytics:
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
+* [Introdução tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)

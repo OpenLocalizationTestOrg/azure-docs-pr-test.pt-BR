@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de e para o Azure Data Lake Store | Microsoft Docs
-description: Saiba como copiar dados de e para o Data Lake Store usando o Azure Data Factory
+title: "aaaCopy tooand de dados do repositório Azure Data Lake | Microsoft Docs"
+description: "Saiba como toocopy tooand de dados do repositório Data Lake por meio do Azure Data Factory"
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 11629fbc83f0554e2097eb4322701654c0bc2028
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2e78f75f3821738332dacf70f6bf2c16f0136408
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiar dados de e para o Data Lake Store usando o Data Factory
-Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para mover dados de e para o Azure Data Lake Store. Ele se baseia no artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md), uma visão geral da movimentação de dados com a Atividade de Cópia.
+# <a name="copy-data-tooand-from-data-lake-store-by-using-data-factory"></a>Copiar dados tooand do repositório Data Lake usando a fábrica de dados
+Este artigo explica como toouse atividade de cópia no Azure Data Factory toomove dados tooand do repositório Azure Data Lake. Ele se baseia no hello [atividades de movimentação de dados](data-factory-data-movement-activities.md) do artigo, uma visão geral de movimentação de dados com a atividade de cópia.
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
-Você pode copiar dados **do Azure Data Lake Store** para os seguintes armazenamentos de dados:
+Você pode copiar dados **do repositório Azure Data Lake** toohello repositórios de dados a seguir:
 
 [!INCLUDE [data-factory-supported-sinks](../../includes/data-factory-supported-sinks.md)]
 
-Você pode copiar dados dos seguintes armazenamentos de dados para o **Azure Data Lake Store**:
+Você pode copiar dados de saudação armazenamentos de dados a seguir **tooAzure repositório Data Lake**:
 
 [!INCLUDE [data-factory-supported-sources](../../includes/data-factory-supported-sources.md)]
 
@@ -36,57 +36,57 @@ Você pode copiar dados dos seguintes armazenamentos de dados para o **Azure Dat
 > Crie uma conta do Data Lake Store antes de criar um pipeline com a Atividade de Cópia. Para obter mais informações, consulte [Introdução ao Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 
 ## <a name="supported-authentication-types"></a>Tipos de autenticação com suporte
-O conector do Data Lake Store dá suporte a esses tipos de autenticação:
+conector do repositório Data Lake Olá dá suporte a esses tipos de autenticação:
 * Autenticação de entidade de serviço
 * Autenticação de credencial do usuário (OAuth) 
 
-É recomendável que você use a autenticação de entidade de serviço, especialmente para uma cópia de dados agendada. O comportamento de expiração do token pode ocorrer com autenticação de credenciais do usuário. Para obter os detalhes de configuração, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties).
+É recomendável que você use a autenticação de entidade de serviço, especialmente para uma cópia de dados agendada. O comportamento de expiração do token pode ocorrer com autenticação de credenciais do usuário. Para obter detalhes de configuração, consulte Olá [vinculado propriedades do serviço](#linked-service-properties) seção.
 
 ## <a name="get-started"></a>Introdução
 Você pode criar um pipeline com uma atividade de cópia que mova dados bidirecionalmente em um Azure Data Lake Store usando diferentes ferramentas/APIs.
 
-A maneira mais fácil de criar um pipeline para copiar dados é usar o **Assistente de Cópia**. Para encontrar um tutorial sobre a criação de um pipeline usando o Assistente de Cópia, consulte [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
+toocreate de maneira mais fácil de saudação dados de toocopy um pipeline é Olá toouse **Assistente para cópia de**. Para obter um tutorial sobre como criar um pipeline usando o Assistente para cópia de saudação, consulte [Tutorial: criar um pipeline usando o Assistente para cópia de](data-factory-copy-data-wizard-tutorial.md).
 
-Você também pode usar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+Você também pode usar o hello ferramentas toocreate um pipeline a seguir: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo do Gerenciador de recursos do Azure** , **API .NET**, e **API REST**. Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para instruções passo a passo toocreate um pipeline com uma atividade de cópia.
 
-Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
+Se você usar ferramentas de saudação ou APIs, você pode executar Olá etapas toocreate um pipeline que move o armazenamento de dados do coletor tooa do repositório de dados de uma fonte de dados a seguir:
 
 1. Criar uma **data factory**. Um data factory pode conter um ou mais pipelines. 
-2. Criar **serviços vinculados** para vincular repositórios de dados de entrada e saída ao seu data factory. Por exemplo, se você está copiando dados de um Armazenamento de Blobs do Azure para um Azure Data Lake Store, crie dois serviços vinculados para vincular sua Conta de Armazenamento do Azure e o Azure Data Lake Store ao data factory. Para propriedades do serviço vinculado que são específicas do Azure Data Lake Store, consulte a seção de [propriedades do serviço vinculado](#linked-service-properties). 
-2. Criar **conjuntos de dados** para representar dados de entrada e saída para a operação de cópia. No exemplo mencionado na última etapa, você cria um conjunto de dados para especificar o contêiner de blobs e a pasta que contém os dados de entrada. Em seguida, você cria outro conjunto de dados para o caminho de pasta e arquivo no Data Lake Store que contém os dados copiados do Armazenamento de Blobs. Para propriedades do conjunto de dados que são específicas do Azure Data Lake Store, consulte a seção [propriedades do conjunto de dados](#dataset-properties).
-3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. No exemplo mencionado anteriormente, você usa BlobSource como fonte e AzureDataLakeStoreSink como coletor para a atividade de cópia. De modo similar, se você estiver copiando do Azure Data Lake Store para o Armazenamento de Blobs do Azure, use AzureDataLakeStoreSource e BlobSink na atividade de cópia. Para propriedades da atividade de cópia que são específicas do Azure Data Lake Store, consulte a seção de [propriedades da atividade de cópia](#copy-activity-properties). Para obter detalhes sobre como usar um armazenamento de dados como uma origem ou um coletor, clique no link na seção anterior para o seu armazenamento de dados.  
+2. Criar **serviços vinculados** toolink dados de entrada e saída repositórios tooyour dados fábrica. Por exemplo, se você estiver copiando dados de um armazenamento de BLOBs do Azure tooan repositório Azure Data Lake, você criar duas toolink de serviços vinculados sua conta de armazenamento do Azure e a fábrica de dados de tooyour de armazenamento do Azure Data Lake. Para propriedades de serviço vinculado que específico tooAzure repositório Data Lake, consulte [vinculado propriedades do serviço](#linked-service-properties) seção. 
+2. Criar **conjuntos de dados** toorepresent de entrada e saída de operação de cópia de dados para hello. O exemplo hello mencionado na última etapa do hello, você criará um contêiner de blob do conjunto de dados toospecify hello e a pasta que contém os dados de entrada hello. E, então, criar outro conjunto de dados toospecify Olá pasta e o caminho no armazenamento do Data Lake Olá que contém dados Olá copiados saudação do armazenamento de blob. Para propriedades de conjunto de dados que são específico tooAzure repositório Data Lake, consulte [propriedades de conjunto de dados](#dataset-properties) seção.
+3. Criar um **pipeline** com uma atividade de cópia que usa um conjunto de dados como uma entrada e um conjunto de dados como uma saída. Exemplo hello mencionado anteriormente, você usar BlobSource como uma origem e AzureDataLakeStoreSink como um coletor de atividade de cópia de saudação. Da mesma forma, se você está copiando do repositório Azure Data Lake tooAzure armazenamento de Blob, use AzureDataLakeStoreSource e BlobSink na atividade de cópia de saudação. Para propriedades de atividade de cópia que específico tooAzure repositório Data Lake, consulte [copiar as propriedades de atividade](#copy-activity-properties) seção. Para obter detalhes sobre como toouse um repositório de dados como uma origem ou um coletor, clique em Olá link na seção anterior de saudação para seu armazenamento de dados.  
 
-Ao usar o assistente, as definições de JSON para essas entidades do Data Factory (serviços vinculados, conjuntos de dados e o pipeline) são automaticamente criadas para você. Ao usar ferramentas/APIs (exceto a API .NET), você define essas entidades do Data Factory usando o formato JSON.  Para obter exemplos com definições de JSON das entidades do Data Factory usadas para copiar dados bidirecionalmente em um Azure Data Lake Store, confira a seção [Exemplos de JSON](#json-examples-for-copying-data-to-and-from-data-lake-store) neste artigo.
+Quando você usa o Assistente de saudação, definições de JSON para essas entidades da fábrica de dados (serviços vinculados, conjuntos de dados e pipeline de saudação) são criadas automaticamente para você. Quando você usa ferramentas/APIs (exceto API .NET), você define essas entidades da fábrica de dados usando o formato JSON de saudação.  Para obter exemplos com definições de JSON para entidades de fábrica de dados que são usados toocopy dados para/de um repositório Azure Data Lake, consulte [exemplos JSON](#json-examples-for-copying-data-to-and-from-data-lake-store) deste artigo.
 
-As seções que a seguir fornecem detalhes sobre as propriedades JSON que são usadas para definir entidades do Data Factory específicas ao Data Lake Store.
+Olá seções a seguir fornece detalhes sobre propriedades JSON que são usada toodefine Data Factory entidades específicas tooData Lake repositório.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
-Um serviço vinculado vincula um armazenamento de dados a um data factory. Crie um serviço vinculado do tipo **AzureDataLakeStore** para vincular os dados do Data Lake Store ao data factory. A tabela a seguir descreve elementos JSON específicos para serviços vinculados do Data Lake Store. Você pode escolher entre a entidade de serviço e a autenticação de credenciais de usuário.
+Um serviço vinculado vincula uma fábrica de dados de tooa de repositório de dados. Criar um serviço vinculado do tipo **AzureDataLakeStore** toolink sua fábrica de dados do repositório Data Lake dados tooyour. Olá, a tabela a seguir descreve os serviços de repositório de Lake tooData vinculado JSON elementos específicos. Você pode escolher entre a entidade de serviço e a autenticação de credenciais de usuário.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| **tipo** | A propriedade type deve ser definida como **AzureDataLakeStore**. | Sim |
-| **dataLakeStoreUri** | Informações sobre a conta do Azure Data Lake Store. Essas informações usam um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
-| **subscriptionId** | ID de assinatura do Azure à qual a conta do Data Lake Store pertence. | Obrigatório para coletor |
-| **resourceGroupName** | Nome do grupo de recursos do Azure ao qual a conta do Data Lake Store pertence. | Obrigatório para coletor |
+| **tipo** | propriedade do tipo Hello deve ser definida muito**AzureDataLakeStore**. | Sim |
+| **dataLakeStoreUri** | Informações sobre Olá conta do repositório Azure Data Lake. Essas informações tem um dos formatos a seguir de saudação: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
+| **subscriptionId** | Saudação de toowhich ID de assinatura do Azure conta do repositório Data Lake pertence. | Obrigatório para coletor |
+| **resourceGroupName** | Saudação de toowhich de nome do recurso do Azure grupo conta do repositório Data Lake pertence. | Obrigatório para coletor |
 
 ### <a name="service-principal-authentication-recommended"></a>Autenticação de entidade de serviço (recomendada)
-Para usar a autenticação de entidade de serviço, registre uma entidade de aplicativo no Azure AD (Azure Active Directory) e conceda a ela o acesso ao Data Lake Store. Para encontrar as etapas detalhadas, consulte [Autenticação de serviço a serviço](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anote os seguintes valores, que são usados para definir o serviço vinculado:
+autenticação principal do serviço toouse, registre uma entidade de aplicativo no Azure Active Directory (AD do Azure) e conceda ele Olá acessar tooData Lake repositório. Para encontrar as etapas detalhadas, consulte [Autenticação de serviço a serviço](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anote Olá valores, que você usar a seguir toodefine Olá vinculado de serviço:
 * ID do aplicativo
 * Chave do aplicativo 
 * ID do locatário
 
 > [!IMPORTANT]
-> Se estiver usando o Assistente de Cópia para criar pipelines de dados, lembre-se de conceder à entidade de serviço, pelo menos uma função de **Leitor** no controle de acesso (gerenciamento de identidade e acesso) para a conta do Data Lake Store. Além disso, conceda à entidade de serviço pelo menos a permissão de **Leitura + Execução** para sua raiz do Data Lake Store ("/") e seus filhos. Caso contrário, você poderá ver a mensagem "As credenciais fornecidas são inválidas".<br/><br/>
-Depois de criar ou atualizar uma entidade de serviço no Azure AD, poderá levar alguns minutos para que as alterações entrem em vigor. Verifique as configurações da ACL (lista de controle de acesso) do Data Lake Store e da entidade de serviço. Se você ainda vir a mensagem “As credenciais fornecidas são inválidas”, aguarde alguns instantes e tente novamente.
+> Se você estiver usando pipelines de dados de tooauthor Olá Assistente para cópia, certifique-se de que você conceda a entidade de serviço Olá pelo menos um **leitor** função no controle de acesso (gerenciamento de identidade e acesso) para a conta do repositório Data Lake hello. Além disso, conceder a entidade de serviço Olá pelo menos **leitura + Execute** raiz de repositório Data Lake de tooyour permissão ("/") e seus filhos. Caso contrário, você poderá ver a mensagem de saudação "hello credenciais fornecidas são inválidas."<br/><br/>
+Depois de criar ou atualizar uma entidade de serviço no AD do Azure, pode levar alguns minutos para Olá alterações tootake efeito. Verifique a entidade de serviço hello e configurações de ACL (lista) de controle de acesso de repositório Data Lake. Se você ainda vir a mensagem "hello credenciais fornecidas são inválidas", aguarde um pouco e tente novamente.
 
-Use a autenticação de entidade de serviço especificando as seguintes propriedades:
+Use autenticação principal do serviço especificando Olá propriedades a seguir:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Especifique a ID do cliente do aplicativo. | Sim |
-| **servicePrincipalKey** | Especifique a chave do aplicativo. | Sim |
-| **tenant** | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-las focalizando o mouse no canto superior direito do Portal do Azure. | Sim |
+| **servicePrincipalId** | Especifique a ID do cliente. do aplicativo hello | Sim |
+| **servicePrincipalKey** | Especifique a chave de aplicativo hello. | Sim |
+| **tenant** | Especifique as informações de locatário hello (ID de locatário ou de nome de domínio) em que o aplicativo reside. Você pode recuperá-la por focalização mouse Olá no canto superior direito Olá Olá portal do Azure. | Sim |
 
 **Exemplo: autenticação de entidade de serviço**
 ```json
@@ -107,12 +107,12 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 ```
 
 ### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
-Como alternativa, você pode usar a autenticação de credenciais do usuário para copiar de ou para o Data Lake Store especificando as seguintes propriedades:
+Como alternativa, você pode usar toocopy de autenticação de credenciais de usuário de ou repositório de Lake tooData especificando Olá propriedades a seguir:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| **authorization** | Clique no botão **Autorizar** no Editor do Data Factory e insira as suas credenciais, que atribuem a URL de autorização gerada automaticamente a essa propriedade. | Sim |
-| **sessionId** | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim |
+| **authorization** | Clique em Olá **autorizar** botão no hello Editor da fábrica de dados e insira suas credenciais que atribui a propriedade toothis de URL de autorização do hello gerado automaticamente. | Sim |
+| **sessionId** | ID de sessão do OAuth da sessão de autorização de OAuth hello. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa Olá Editor da fábrica de dados. | Sim |
 
 **Exemplo: autenticação de credenciais do usuário**
 ```json
@@ -132,21 +132,21 @@ Como alternativa, você pode usar a autenticação de credenciais do usuário pa
 ```
 
 #### <a name="token-expiration"></a>Expiração do token
-O código de autorização gerado usando o botão **Autorizar** expira após um determinado período. A mensagem a seguir significa que o token de autenticação expirou:
+Olá código de autorização que você gerar usando Olá **autorizar** botão expira após um determinado período de tempo. mensagem de saudação significa que esse token de autenticação de saudação expirou:
 
-Erro na operação de credencial: invalid_grant – AADSTS70002: Erro ao validar as credenciais. AADSTS70008: a concessão de acesso fornecida expirou ou foi revogada. ID do rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID de correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21-09-31Z.
+Erro na operação de credencial: invalid_grant – AADSTS70002: Erro ao validar as credenciais. AADSTS70008: Olá fornecido a concessão de acesso expirou ou foi revogado. ID do rastreamento: d18629e8-af88-43c5-88e3-d8419eb1fca1 ID de correlação: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Carimbo de data/hora: 2015-12-15 21-09-31Z.
 
-A tabela a seguir mostra os tempos de expiração de diferentes tipos de contas de usuário:
+Olá tabela a seguir mostra os tempos de expiração de saudação de diferentes tipos de contas de usuário:
 
 
 | Tipo de usuário | Expira após |
 |:--- |:--- |
 | Contas de usuário *não* gerenciadas pelo Azure Active Directory (por exemplo, @hotmail.com ou @live.com) |12 horas |
-| Contas de usuários gerenciadas pelo Azure Active Directory |14 dias após a última execução da fatia <br/><br/>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias |
+| Contas de usuários gerenciadas pelo Azure Active Directory |14 dias após a última fatia de saudação executar <br/><br/>90 dias, se uma fatia com base em serviços vinculados do OAuth for executada pelo menos uma vez a cada 14 dias |
 
-Se você alterar sua senha antes do momento de expiração do token, o token expirará imediatamente. Você verá a mensagem mencionada anteriormente nesta seção.
+Se você alterar sua senha antes de tempo de expiração do token de saudação, token Olá expira imediatamente. Você verá a mensagem de saudação mencionada anteriormente nesta seção.
 
-Você pode reautorizar a conta usando o botão **Autorizar** quando o token expirar para reimplantar o serviço vinculado. Você também pode gerar valores para as propriedades **sessionId** e **authorization** programaticamente usando o código a seguir:
+Você pode autorizar a conta hello usando Olá **autorizar** serviço vinculado do botão quando o token de saudação expira tooredeploy hello. Você também pode gerar valores para Olá **sessionId** e **autorização** Olá propriedades programaticamente, usando o seguinte código:
 
 
 ```csharp
@@ -173,26 +173,26 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-Para encontrar detalhes sobre as classes do Data Factory usadas no código, consulte os tópicos [Classe AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [Classe AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) e [Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Adicione uma referência à versão `2.9.10826.1824` de `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` para a classe `WindowsFormsWebAuthenticationDialog` usada no código.
+Para obter detalhes sobre classes de fábrica de dados Olá usados no código hello, consulte Olá [AzureDataLakeStoreLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService classe](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), e [ Classe AuthorizationSessionGetResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) tópicos. Adicionar uma referência tooversion `2.9.10826.1824` de `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll` para Olá `WindowsFormsWebAuthenticationDialog` classe usada no código de saudação.
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para especificar um conjunto de dados para representar os dados de entrada em um Data Lake Store, defina a propriedade **type** do conjunto de dados para **AzureDataLakeStore**. Defina a propriedade **linkedServiceName** do conjunto de dados para o nome do serviço vinculado do Data Lake Store. Para obter uma lista completa das seções e propriedades JSON disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções de um conjunto de dados no JSON, como **structure**, **availability** e **policy** são similares para todos os tipos de conjunto de dados (Banco de Dados SQL do Azure, Blob do Azure e tabela do Azure, por exemplo). A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização e o formato dos dados no armazenamento de dados. 
+toospecify um dados de entrada de toorepresent do conjunto de dados em um repositório Data Lake, definir Olá **tipo** propriedade de conjunto de dados de saudação muito**AzureDataLakeStore**. Saudação de conjunto **linkedServiceName** serviço vinculado de propriedade de nome de toohello Olá dataset de saudação repositório Data Lake. Para obter uma lista completa de seções JSON e as propriedades disponíveis para definir conjuntos de dados, consulte Olá [criando conjuntos de dados](data-factory-create-datasets.md) artigo. As seções de um conjunto de dados no JSON, como **structure**, **availability** e **policy** são similares para todos os tipos de conjunto de dados (Banco de Dados SQL do Azure, Blob do Azure e tabela do Azure, por exemplo). Olá **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações como o local e o formato de dados Olá no repositório de dados de saudação. 
 
-A seção **typeProperties** do conjunto de um conjunto de dados do tipo **AzureDataLakeStore** contém a seguinte propriedade:
+Olá **typeProperties** seção um conjunto de dados do tipo **AzureDataLakeStore** contém Olá propriedades a seguir:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| **folderPath** |Caminho para o contêiner e a pasta no Data Lake Store. |Sim |
-| **fileName** |O nome do arquivo no Azure Data Lake Store. A propriedade **fileName** é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Caso você especifique um **fileName**, a atividade (incluindo Cópia) funcionará no arquivo específico.<br/><br/>Quando **fileName** não for especificado, a Cópia incluirá todos os arquivos do **folderPath** para o conjunto de dados de entrada.<br/><br/>Quando **fileName** não for especificado para um conjunto de dados de saída e **preserveHierarchy** não for especificado em um coletor de atividade, o nome do arquivo gerado está no formato Data._Guid_.txt`. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
-| **partitionedBy** |A propriedade **partitionedBy** é opcional. Você pode usá-la para especificar um caminho de pasta dinâmico e o nome de arquivo para dados de série temporal. Por exemplo, **folderPath** pode ser parametrizado para cada hora dos dados. Para encontrar detalhes e exemplos, consulte [A propriedade partitionedBy](#using-partitionedby-property). |Não |
-| **format** | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob **format** para um desses valores. Para obter mais informações, consulte as seções [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format) e [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) no artigo [Formatos de arquivo aos quais o Azure Data Factory dá suporte](data-factory-supported-file-and-compression-formats.md). <br><br> Se você quiser copiar arquivos no estado em que se encontram entre repositórios com base em arquivo (cópia binária), ignore a seção `format` nas duas definições de conjunto de dados de entrada e de saída. |Não |
-| **compression** | Especifique o tipo e o nível de compactação para os dados. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis de suporte são **Ideal** e **Mais rápido**. Para saber mais, confira [Formatos de arquivo aos quais o Azure Data Factory dá suporte](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| **folderPath** |Contêiner de toohello do caminho e a pasta no repositório Data Lake. |Sim |
+| **fileName** |Nome do arquivo hello no repositório Azure Data Lake. Olá **fileName** propriedade é opcional e diferencia maiusculas de minúsculas. <br/><br/>Se você especificar **fileName**, atividade de saudação (incluindo cópia) funciona em arquivos específicos da saudação.<br/><br/>Quando **fileName** não for especificado, cópia inclui todos os arquivos em **folderPath** no conjunto de dados de entrada hello.<br/><br/>Quando **fileName** não for especificado para um conjunto de dados de saída e **preserveHierarchy** não for especificado no coletor de atividade, nome de saudação do arquivo hello gerado está no formato de saudação dados. _GUID_. txt '. Por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Não |
+| **partitionedBy** |Olá **partitionedBy** propriedade é opcional. Você pode usá-lo toospecify um caminho dinâmico e o nome do arquivo de dados da série temporal. Por exemplo, **folderPath** pode ser parametrizado para cada hora dos dados. Para obter detalhes e exemplos, consulte [Olá partitionedBy propriedade](#using-partitionedby-property). |Não |
+| **format** | Olá, tipos de formato a seguir têm suporte: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e  **ParquetFormat**. Saudação de conjunto **tipo** propriedade em **formato** tooone desses valores. Para obter mais informações, consulte Olá [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato ORC](data-factory-supported-file-and-compression-formats.md#orc-format), e [Parquet formato ](data-factory-supported-file-and-compression-formats.md#parquet-format) seções Olá [formatos de arquivo e compactação com suporte do Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo. <br><br> Se você deseja que os arquivos de toocopy "como-é" entre repositórios baseada em arquivo (cópia binário), ignore Olá `format` seção em ambas as definições de conjunto de dados de entrada e saída. |Não |
+| **compression** | Especifica tipo de saudação e nível de compactação de dados de saudação. Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**. Os níveis de suporte são **Ideal** e **Mais rápido**. Para saber mais, confira [Formatos de arquivo aos quais o Azure Data Factory dá suporte](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 
-### <a name="the-partitionedby-property"></a>A propriedade partitionedBy
-Você pode especificar propriedades **folderPath** e **fileName** dinâmicas para dados de série temporal com a propriedade **partitionedBy**, funções do Data Factory e variáveis do sistema. Para encontrar detalhes, consulte o artigo [Azure Data Factory – Funções e Variáveis do Sistema](data-factory-functions-variables.md).
+### <a name="hello-partitionedby-property"></a>propriedade de partitionedBy Olá
+Você pode especificar dinâmico **folderPath** e **fileName** propriedades de dados de série temporal com hello **partitionedBy** propriedade, funções da fábrica de dados e do sistema variáveis. Para obter detalhes, consulte Olá [do Azure Data Factory - funções e variáveis de sistema](data-factory-functions-variables.md) artigo.
 
 
-No exemplo a seguir, `{Slice}` é substituído pelo valor da variável do sistema do Data Factory `SliceStart` no formato especificado (`yyyyMMddHH`). O nome `SliceStart` se refere à hora de início da fatia. A propriedade `folderPath` é diferente para cada fatia, como em `wikidatagateway/wikisampledataout/2014100103` ou `wikidatagateway/wikisampledataout/2014100104`.
+Em Olá seguinte exemplo, `{Slice}` é substituído pelo valor de saudação da variável de sistema de fábrica de dados Olá `SliceStart` no formato de saudação especificado (`yyyyMMddHH`). nome da saudação `SliceStart` refere-se toohello a hora de início da fatia hello. Olá `folderPath` propriedade é diferente para cada fatia, como em `wikidatagateway/wikisampledataout/2014100103` ou `wikidatagateway/wikisampledataout/2014100104`.
 
 ```JSON
 "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
@@ -202,7 +202,7 @@ No exemplo a seguir, `{Slice}` é substituído pelo valor da variável do sistem
 ],
 ```
 
-No exemplo a seguir, o ano, o mês, o dia e a hora de `SliceStart` são extraídos em variáveis separadas usadas pelas propriedades `folderPath` e `fileName`:
+Em Olá seguindo o exemplo, ano hello, mês, dia e hora do `SliceStart` são extraídos em variáveis separadas que são usadas por Olá `folderPath` e `fileName` propriedades:
 ```JSON
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
@@ -214,47 +214,47 @@ No exemplo a seguir, o ano, o mês, o dia e a hora de `SliceStart` são extraíd
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-Para obter mais detalhes sobre conjuntos de dados de série temporal, agendamento e fatias, consulte os artigos [Conjuntos de dados no Azure Data Factory](data-factory-create-datasets.md) e [Agendamento e execução com o Data Factory](data-factory-scheduling-and-execution.md). 
+Para obter mais detalhes sobre conjuntos de dados de série temporal, agendamento e fatias, consulte Olá [conjuntos de dados no Azure Data Factory](data-factory-create-datasets.md) e [fábrica de dados de agendamento e execução](data-factory-scheduling-and-execution.md) artigos. 
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa de seções e propriedades disponíveis para a definição de atividades, consulte Olá [criar pipelines](data-factory-create-pipelines.md) artigo. As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
 
-As propriedades disponíveis na seção **typeProperties** de uma atividade variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
+Olá propriedades disponíveis no hello **typeProperties** seção de uma atividade variam de acordo com cada tipo de atividade. Para uma atividade de cópia, eles variam dependendo Olá tipos de fontes e coletores.
 
-**AzureDataLakeStoreSource** dá suporte à seguinte propriedade na seção **typeProperties**:
-
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
-| --- | --- | --- | --- |
-| **recursive** |Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. |True (valor padrão), False |Não |
-
-
-**AzureDataLakeStoreSink** dá suporte às seguintes propriedades na seção **typeProperties**:
+**AzureDataLakeStoreSource** dá suporte a saudação propriedade Olá a seguir **typeProperties** seção:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| **copyBehavior** |Especifica o comportamento da cópia. |<b>PreserveHierarchy</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy</b>: todos os arquivos da pasta de origem são criados no primeiro nível da pasta de destino. Os arquivos de destino são criados com nomes gerados automaticamente.<br/><br/><b>MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo ou do blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, o nome do arquivo será gerado automaticamente. |Não |
+| **recursive** |Indica se os dados saudação é lida recursivamente de subpastas de saudação ou somente de pasta especificado hello. |True (valor padrão), False |Não |
+
+
+**AzureDataLakeStoreSink** dá suporte a saudação seguintes propriedades em Olá **typeProperties** seção:
+
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| --- | --- | --- | --- |
+| **copyBehavior** |Especifica o comportamento de cópia de saudação. |<b>PreserveHierarchy</b>: preserva a hierarquia de arquivo hello na pasta de destino de saudação. caminho relativo do Hello arquivo toosource da pasta de origem é idêntico toohello o caminho relativo da pasta de tootarget do arquivo de destino.<br/><br/><b>FlattenHierarchy</b>: todos os arquivos da pasta de origem Olá são criados no primeiro nível saudação da pasta de destino de saudação. arquivos de destino de saudação são criados com nomes gerados automaticamente.<br/><br/><b>MergeFiles</b>: mescla todos os arquivos Olá pasta tooone do arquivo de origem. Se hello nome de arquivo ou blob for especificado, o nome do arquivo mesclado de Olá é nome especificado da saudação. Caso contrário, o nome do arquivo hello é gerado automaticamente. |Não |
 
 ### <a name="recursive-and-copybehavior-examples"></a>exemplos de recursive e copyBehavior
-Esta seção descreve o comportamento resultante da operação de cópia para diferentes combinações de valores recursive e copyBehavior.
+Esta seção descreve o comportamento resultante de saudação da operação de cópia de saudação para diferentes combinações de valores recursiva e copyBehavior.
 
 | recursiva | copyBehavior | Comportamento resultante |
 | --- | --- | --- |
-| verdadeiro |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:  <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a mesma estrutura da origem<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5. |
-| verdadeiro |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:  <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a Pasta1 de destino é criada com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo5 |
-| verdadeiro |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura:  <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a Pasta1 de destino é criada com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 + Arquivo3 + Arquivo4 + Arquivo5 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente |
-| false |preserveHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura:  <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
-| false |flattenHierarchy |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
-| false |mergeFiles |Para uma pasta de origem Pasta1 com a seguinte estrutura: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>a pasta de destino Pasta1 é criada com a seguinte estrutura<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente. Nome gerado automaticamente para o Arquivo1<br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
+| verdadeiro |preserveHierarchy |Para uma pasta de origem Pasta1 com hello estrutura a seguir: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>pasta de destino de Olá Pasta1 é criada com hello mesma estrutura como fonte de saudação<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5. |
+| verdadeiro |flattenHierarchy |Para uma pasta de origem Pasta1 com hello estrutura a seguir: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>destino de saudação Pasta1 é criado com hello estrutura a seguir: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo5 |
+| verdadeiro |mergeFiles |Para uma pasta de origem Pasta1 com hello estrutura a seguir: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>destino de saudação Pasta1 é criado com hello estrutura a seguir: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 + Arquivo3 + Arquivo4 + Arquivo5 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente |
+| false |preserveHierarchy |Para uma pasta de origem Pasta1 com hello estrutura a seguir: <br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>pasta de destino de saudação Pasta1 é criada com hello estrutura a seguir<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
+| false |flattenHierarchy |Para uma pasta de origem Pasta1 com hello estrutura a seguir:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>pasta de destino de saudação Pasta1 é criada com hello estrutura a seguir<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/><br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
+| false |mergeFiles |Para uma pasta de origem Pasta1 com hello estrutura a seguir:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5<br/><br/>pasta de destino de saudação Pasta1 é criada com hello estrutura a seguir<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente. Nome gerado automaticamente para o Arquivo1<br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de arquivo e de compactação com suporte
-Para obter detalhes, consulte o artigo [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md).
+Para obter detalhes, consulte Olá [compactação formatos de arquivo e no Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artigo.
 
-## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>Exemplos JSON para cópia de dados de e para o Data Lake Store
-Os exemplos a seguir fornecem as definições de JSON de exemplo. Você pode usar essas definições de exemplo para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de e para o Data Lake Store e o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados _diretamente_ de qualquer uma das fontes para qualquer um dos coletores com suporte. Para obter mais informações, consulte a seção "Fontes de dados e formatos com suporte" no artigo [Mover dados usando a Atividade de Cópia](data-factory-data-movement-activities.md).  
+## <a name="json-examples-for-copying-data-tooand-from-data-lake-store"></a>Exemplos JSON para copiar dados tooand do repositório Data Lake
+Olá exemplos a seguir fornece as definições de JSON de exemplo. Você pode usar essas definições de exemplo toocreate um pipeline usando Olá [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Olá exemplos mostram como toocopy tooand de dados do armazenamento de BLOBs do Azure e do repositório Data Lake. No entanto, os dados podem ser copiados _diretamente_ de qualquer um dos Olá fontes tooany de Coletores de saudação com suporte. Para obter mais informações, consulte seção hello "repositórios de dados com suporte e formatos" hello [mover dados usando a atividade de cópia](data-factory-data-movement-activities.md) artigo.  
 
-### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Exemplo: copiar dados do Armazenamento de Blobs do Azure para o Azure Data Lake Store
-O código de exemplo nessa seção mostra:
+### <a name="example-copy-data-from-azure-blob-storage-tooazure-data-lake-store"></a>Exemplo: Copiar dados de armazenamento de BLOBs do Azure tooAzure repositório Data Lake
+código de exemplo Hello nesta seção mostra:
 
 * Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 * Um serviço vinculado do tipo [AzureDataLakeStore](#linked-service-properties).
@@ -262,7 +262,7 @@ O código de exemplo nessa seção mostra:
 * Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureDataLakeStore](#dataset-properties).
 * Um [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) e [AzureDataLakeStoreSink](#copy-activity-properties).
 
-O exemplo mostra como os dados de série temporal do Armazenamento de Blobs do Azure são copiados para o Data Lake Store de hora em hora. 
+Olá exemplos mostram como série temporal dados do armazenamento de BLOBs do Azure são copiado tooData Lake repositório a cada hora. 
 
 **Serviço vinculado de armazenamento do Azure**
 
@@ -298,12 +298,12 @@ O exemplo mostra como os dados de série temporal do Armazenamento de Blobs do A
 ```
 
 > [!NOTE]
-> Para obter os detalhes de configuração, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties).
+> Para obter detalhes de configuração, consulte Olá [vinculado propriedades do serviço](#linked-service-properties) seção.
 >
 
 **Conjunto de dados de entrada de Blob do Azure**
 
-No exemplo a seguir, os dados são coletados de um novo blob de hora em hora (`"frequency": "Hour", "interval": 1`). O caminho de pasta e nome de arquivo para o blob são avaliados dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes do ano, mês e dia da hora de início. O nome de arquivo usa a parte de hora da hora de início. A configuração `"external": true` informa ao serviço Data Factory que a tabela é externa ao Data Factory e não é produzida por uma atividade no Data Factory.
+Em Olá exemplo a seguir, dados são determinados por um novo blob a cada hora (`"frequency": "Hour", "interval": 1`). Olá pasta caminho e nome de arquivo para blob Olá são avaliados dinamicamente com base na hora de início de saudação da fatia Olá que está sendo processada. caminho da pasta Olá usa Olá ano, mês e parte do dia da hora de início da saudação. nome do arquivo Hello usa hora Olá parte da saudação hora de início. Olá `"external": true` configuração informa o serviço de fábrica de dados de saudação tabela Olá toohello externo fábrica de dados e não é produzida por uma atividade na fábrica de dados hello.
 
 ```JSON
 {
@@ -366,7 +366,7 @@ No exemplo a seguir, os dados são coletados de um novo blob de hora em hora (`"
 
 **Conjunto de dados de saída do Azure Data Lake Store**
 
-O exemplo a seguir copia dados para o Data Lake Store. Os novos dados são copiados para o Data Lake Store de hora em hora.
+Olá exemplo copia dados tooData Lake repositório a seguir. Novos dados são copiados tooData Lake repositório a cada hora.
 
 ```JSON
 {
@@ -388,7 +388,7 @@ O exemplo a seguir copia dados para o Data Lake Store. Os novos dados são copia
 
 **Atividade de cópia em um pipeline com uma origem de blob e um coletor Data Lake Store**
 
-No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para usar os conjuntos de dados de entrada e saída. A atividade de cópia está programada para ser executado a cada hora. Na definição de JSON do pipeline, o tipo `source` é definido como `BlobSource` e o tipo `sink` é definido como `AzureDataLakeStoreSink`.
+Saudação de exemplo a seguir, pipeline Olá contém uma atividade de cópia que está configurada toouse Olá conjuntos de dados de entrada e saídos. atividade de cópia de saudação é toorun agendado a cada hora. Na definição JSON de pipeline hello, Olá `source` tipo está definido muito`BlobSource`e hello `sink` tipo está definido muito`AzureDataLakeStoreSink`.
 
 ```json
 {  
@@ -438,8 +438,8 @@ No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para
 }
 ```
 
-### <a name="example-copy-data-from-azure-data-lake-store-to-an-azure-blob"></a>Exemplo: copiar dados do Azure Data Lake Store para um Blob do Azure
-O código de exemplo nessa seção mostra:
+### <a name="example-copy-data-from-azure-data-lake-store-tooan-azure-blob"></a>Exemplo: Copiar dados do repositório Azure Data Lake tooan BLOBs do Azure
+código de exemplo Hello nesta seção mostra:
 
 * Um serviço vinculado do tipo [AzureDataLakeStore](#linked-service-properties).
 * Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
@@ -447,7 +447,7 @@ O código de exemplo nessa seção mostra:
 * Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 * Um [pipeline](data-factory-create-pipelines.md) com uma atividade de cópia que usa [AzureDataLakeStoreSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-O código copia dados da série temporal do Data Lake Store para um Blob do Azure de hora em hora. 
+código Olá copia dados de série temporal do repositório Data Lake tooan BLOBs do Azure a cada hora. 
 
 **Serviço vinculado do Azure Data Lake Store**
 
@@ -467,7 +467,7 @@ O código copia dados da série temporal do Data Lake Store para um Blob do Azur
 ```
 
 > [!NOTE]
-> Para obter os detalhes de configuração, consulte a seção [Propriedades do serviço vinculado](#linked-service-properties).
+> Para obter detalhes de configuração, consulte Olá [vinculado propriedades do serviço](#linked-service-properties) seção.
 >
 
 **Serviço vinculado de armazenamento do Azure**
@@ -485,7 +485,7 @@ O código copia dados da série temporal do Data Lake Store para um Blob do Azur
 ```
 **Conjunto de dados de entrada do Azure Data Lake**
 
-Nesse exemplo, configurar `"external"` e `true` informa ao serviço Data Factory que a tabela é externa ao Data Factory e não é produzida por uma atividade no Data Factory.
+Neste exemplo, definindo `"external"` muito`true` informa o serviço de fábrica de dados de saudação tabela Olá toohello externo fábrica de dados e não é produzida por uma atividade na fábrica de dados hello.
 
 ```json
 {
@@ -520,7 +520,7 @@ Nesse exemplo, configurar `"external"` e `true` informa ao serviço Data Factory
 ```
 **Conjunto de dados de saída do blob do Azure**
 
-No exemplo a seguir, os dados são gravados em um novo blob de hora em hora (`"frequency": "Hour", "interval": 1`). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
+Em Olá exemplo a seguir, os dados são gravados tooa novo blob a cada hora (`"frequency": "Hour", "interval": 1`). caminho da pasta Olá blob Olá é avaliado dinamicamente com base na hora de início de saudação da fatia Olá que está sendo processada. caminho da pasta Olá usa Olá ano, mês, dia e parte de horas da hora de início da saudação.
 
 ```JSON
 {
@@ -580,7 +580,7 @@ No exemplo a seguir, os dados são gravados em um novo blob de hora em hora (`"f
 
 **Uma atividade de cópia em um pipeline com uma origem do Azure Data Lake Store e um coletor de blob**
 
-No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para usar os conjuntos de dados de entrada e saída. A atividade de cópia está programada para ser executado a cada hora. Na definição de JSON do pipeline, o tipo `source` é definido como `AzureDataLakeStoreSource` e o tipo `sink` é definido como `BlobSink`.
+Saudação de exemplo a seguir, pipeline Olá contém uma atividade de cópia que está configurada toouse Olá conjuntos de dados de entrada e saídos. atividade de cópia de saudação é toorun agendado a cada hora. Na definição JSON de pipeline hello, Olá `source` tipo está definido muito`AzureDataLakeStoreSource`e hello `sink` tipo está definido muito`BlobSink`.
 
 ```json
 {  
@@ -628,7 +628,7 @@ No exemplo a seguir, o pipeline contém uma atividade de cópia configurada para
 }
 ```
 
-Na definição da atividade de cópia, você também pode mapear colunas do conjunto de dados de origem para colunas no conjunto de dados do coletor. Para obter detalhes, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapear colunas de conjunto de dados no Azure Data Factory).
+Na definição de atividade de cópia hello, você também pode mapear colunas de toocolumns de conjunto de dados de origem Olá no conjunto de dados de coletor de saudação. Para obter detalhes, confira [Mapear colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Desempenho e ajuste
-Para saber mais sobre os fatores que afetam o desempenho da Atividade de Cópia e como otimizá-lo, veja o artigo [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md).
+toolearn sobre fatores de saudação que afetam o desempenho de atividade de cópia e como toooptimize, consulte Olá [atividade de cópia guia de desempenho e ajuste](data-factory-copy-activity-performance.md) artigo.

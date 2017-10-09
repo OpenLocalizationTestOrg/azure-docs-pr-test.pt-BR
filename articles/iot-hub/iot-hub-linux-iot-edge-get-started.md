@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao Azure IoT Edge (Linux) |Microsoft Docs"
-description: "Como criar um gateway em um computador Linux e saber mais sobre os principais conceitos Edge IoT do Azure, tais como módulos e arquivos de configuração JSON."
+title: aaaGet iniciado com borda de IoT do Azure (Linux) | Microsoft Docs
+description: "Como toobuild um gateway em um Linux computador e saiba mais sobre conceitos principais no Azure IoT Edge como módulos e arquivos de configuração JSON."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/07/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b02d79fcd9cd2a2ef0041aac4e85528263c8d58a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 40aa9c8ddca6a974c361cbb0b453c7d0ddc71b8d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>Explorar a arquitetura do Edge IoT do Azure no Linux
 
@@ -27,16 +27,16 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [iot-hub-iot-edge-install-build-linux](../../includes/iot-hub-iot-edge-install-build-linux.md)]
 
-## <a name="how-to-run-the-sample"></a>Como executar a amostra
+## <a name="how-toorun-hello-sample"></a>Como toorun Olá exemplo
 
-O script **build.sh** gera sua saída na pasta **build** na cópia local do repositório **iot-edge**. Essa saída inclui os dois módulos do Edge IoT usados neste exemplo.
+Olá **build.sh** script gera a saída no hello **criar** pasta em sua cópia local da saudação **iot borda** repositório. Essa saída inclui módulos de borda IoT dois Olá usados neste exemplo.
 
-O script de build coloca **liblogger.so** na pasta **build/modules/logger/** e **libhello\_world.so** na pasta **build/modules/hello_world/**. Use esses caminhos para os valores de **caminho do módulo**, conforme mostrado no arquivo de configurações do JSON de exemplo a seguir.
+Olá locais de script de compilação **liblogger.so** em Olá **compilação/módulos/agente/** pasta e **libhello\_world.so** em hello **build / módulos/hello_world/** pasta. Usar estes caminhos para Olá **caminho do módulo** valores conforme Olá arquivo de configurações de JSON de exemplo a seguir.
 
-O processo hello\_world\_sample leva o caminho até um arquivo de configuração JSON como um argumento na linha de comando. O arquivo JSON de exemplo a seguir é fornecido no repositório SDK em **samples/hello\_world/src/hello\_world\_lin.json**. Este arquivo de configuração funciona da forma como está, a menos que você tenha modificado o script de build para colocar os módulos ou os executáveis de exemplo do IoT Edge em locais não padrão.
+Olá Olá\_world\_processo de exemplo usa o arquivo de configuração de JSON do hello caminho tooa um argumento de linha de comando. Olá seguinte arquivo JSON de exemplo é fornecido no repositório do SDK de saudação em **exemplos/Olá\_src/world/Olá\_world\_lin.json**. Isso funciona de arquivo de configuração como está a menos que você modifique Olá compilar módulos de saudação do script tooplace IoT borda ou amostra executáveis em locais não padrão.
 
 > [!NOTE]
-> Os caminhos do módulo são relativos ao diretório de trabalho atual de onde o executável hello\_world\_sample é iniciado, não ao diretório onde o executável está localizado. O arquivo de configuração do JSON de exemplo assume o padrão de gravar 'log.txt' no diretório de trabalho atual.
+> Olá, caminhos de módulo são toohello relativo atual diretório de trabalho de onde Olá Olá\_world\_exemplo executável é iniciado, não Olá diretório onde Olá executável está localizado. exemplo Hello JSON configuração arquivo padrões toowriting 'txt' no diretório de trabalho atual.
 
 ```json
 {
@@ -73,9 +73,9 @@ O processo hello\_world\_sample leva o caminho até um arquivo de configuração
 }
 ```
 
-1. Navegue até a pasta **build** na raiz da sua cópia local do repositório **iot-edge**.
+1. Navegue toohello **criar** pasta na raiz de saudação da sua cópia local da saudação **iot borda** repositório.
 
-1. Execute o comando a seguir:
+1. Execute Olá comando a seguir:
 
     ```sh
     ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json`

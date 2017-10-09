@@ -1,6 +1,6 @@
 ---
-title: Criar artefatos personalizados para sua VM do DevTest Labs | Microsoft Docs
-description: "Aprenda a criar seus próprios artefatos para uso com Laboratórios de Desenvolvimento/Teste"
+title: artefatos de aaaCreate personalizado para sua VM do DevTest Labs | Microsoft Docs
+description: "Saiba como tooauthor seus próprios artefatos para usam com o DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: tarcher
-ms.openlocfilehash: 2412033daa1d97860dd9f380178622b1ddc590c0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2bd603bc1241ca6b669a3a276a677729514f0df2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-vm"></a>Criar artefatos personalizados para suas VM dos Laboratórios de Desenvolvimento/Teste.
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
@@ -26,10 +26,10 @@ ms.lasthandoff: 08/29/2017
 > 
 
 ## <a name="overview"></a>Visão geral
-**Artefatos** são usados para implantar e configurar seu aplicativo após o provisionamento de uma VM. Um artefato é composto por um arquivo de definição de artefato e outros arquivos de script que são armazenados em uma pasta em um repositório git. Arquivos de definição de artefato são formados por JSON e expressões que você pode usar para especificar o que você deseja instalar em uma VM. Por exemplo, você pode definir o nome de um artefato, comando a ser executado e parâmetros disponibilizados quando o comando é executado. Você pode consultar por nome outros arquivos de script dentro do arquivo de definição de artefato.
+**Artefatos** são usado toodeploy e configurar seu aplicativo depois que uma VM é provisionada. Um artefato é composto por um arquivo de definição de artefato e outros arquivos de script que são armazenados em uma pasta em um repositório git. Arquivos de definição de artefato consistem em JSON e expressões que você pode usar toospecify que você deseja tooinstall em uma máquina virtual. Por exemplo, você pode definir o nome de saudação de um artefato, toorun de comando e parâmetros que são disponibilizados quando o comando hello está sendo executado. Você pode consultar os arquivos de script tooother no arquivo de definição de artefato Olá por nome.
 
 ## <a name="artifact-definition-file-format"></a>Formato do arquivo de definição de artefato
-O exemplo a seguir mostra as seções que compõem a estrutura básica de um arquivo de definição:
+Olá, exemplo a seguir mostra seções Olá que formam a estrutura básica de saudação de um arquivo de definição:
 
     {
       "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
@@ -51,18 +51,18 @@ O exemplo a seguir mostra as seções que compõem a estrutura básica de um arq
 
 | Nome do elemento | Obrigatório? | Descrição |
 | --- | --- | --- |
-| $schema |Não |Local do arquivo de esquema JSON que ajuda a testar a validade do arquivo de definição. |
-| título |Sim |Nome do artefato exibido no laboratório. |
-| Descrição |Sim |Descrição do artefato exibido no laboratório. |
-| iconUri |Não |URI do ícone exibido no laboratório. |
-| targetOsType |Sim |Sistema operacional da VM na qual o artefato está instalado. As opções com suporte são: Windows e Linux. |
+| $schema |Não |Local do arquivo de esquema do JSON Olá ajuda no teste de validade Olá Olá do arquivo de definição. |
+| título |Sim |Nome do artefato Olá exibido no laboratório de saudação. |
+| description |Sim |Descrição do artefato Olá exibido no laboratório de saudação. |
+| iconUri |Não |URI do ícone de saudação exibido no laboratório de saudação. |
+| targetOsType |Sim |Sistema operacional de saudação VM onde o artefato está instalado. As opções com suporte são: Windows e Linux. |
 | parameters |Não |Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda a personalizar o artefato. |
 | runCommand |Sim |Comando de instalação do artefato executado em uma VM. |
 
 ### <a name="artifact-parameters"></a>Parâmetros do artefato
-Na seção de parâmetros do arquivo de definição, especifique os valores que um usuário pode inserir ao instalar um artefato. Você pode consultar esses valores no comando de instalação do artefato.
+Na seção de parâmetros de saudação do arquivo de definição de saudação, você deve especificar quais valores um usuário pode inserir durante a instalação de um artefato. Você pode consultar os valores de toothese no comando de instalação de artefato de saudação.
 
-Você define parâmetros com a seguinte estrutura:
+Você pode definir parâmetros com hello estrutura a seguir:
 
     "parameters": {
         "<parameterName>": {
@@ -74,11 +74,11 @@ Você define parâmetros com a seguinte estrutura:
 
 | Nome do elemento | Obrigatório? | Descrição |
 | --- | --- | --- |
-| type |Sim |Tipo do valor do parâmetro. Veja a lista dos tipos permitidos: |
-| displayName |Sim |Nome do parâmetro exibido para um usuário no laboratório. | |
-| Descrição |Sim |Descrição do parâmetro exibido no laboratório. |
+| type |Sim |Tipo do valor do parâmetro. Consulte Olá seguindo a lista de tipos permitida de saudação: |
+| displayName |Sim |Nome do parâmetro de saudação que é exibido tooa usuário laboratório hello. | |
+| description |Sim |Descrição do parâmetro hello que é exibido no laboratório de saudação. |
 
-Os tipos permitidos são:
+Olá permitidos são de tipos:
 
 * string - qualquer cadeia de caracteres JSON válida
 * int - qualquer inteiro JSON válido
@@ -86,16 +86,16 @@ Os tipos permitidos são:
 * array - qualquer matriz JSON válida
 
 ## <a name="artifact-expressions-and-functions"></a>Expressões e funções de artefatos
-Você pode usar expressões e funções para construir o comando de instalação do artefato.
-As expressões são colocadas entre colchetes ([ e ]) e avaliadas quando o artefato é instalado. As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se precisar usar uma cadeia de caracteres literal que comece com um colchete [, você deverá usar dois colchetes [[.
-Normalmente, você usa expressões com funções para construir um valor. Assim como no JavaScript, as chamadas de função são formatadas como functionName(arg1,arg2,arg3).
+Você pode usar a expressão e comando de instalação de artefato de saudação do tooconstruct de funções.
+Expressões são colocadas entre colchetes ([e]) e são avaliadas quando o artefato de saudação é instalado. As expressões podem aparecer em qualquer lugar em um valor de cadeia de caracteres JSON e sempre retornam outro valor JSON. Se você precisa toouse uma cadeia de caracteres literal que começa com um colchete [, você deve usar dois colchetes [[.
+Normalmente, você deve usar expressões com funções tooconstruct um valor. Assim como no JavaScript, as chamadas de função são formatadas como functionName(arg1,arg2,arg3).
 
-A lista a seguir mostra funções comuns:
+Olá lista a seguir mostra as funções comuns:
 
-* Parameters(ParameterName): Retorna um valor de parâmetro fornecido quando o comando do artefato é executado.
+* Parameters(ParameterName) - retorna um valor de parâmetro que é fornecido quando o comando de artefato de saudação é executado.
 * concat(arg1,arg2,arg3, …..) -     Combina diversos valores da cadeia de caracteres. Essa função pode conter qualquer número de argumentos.
 
-O exemplo a seguir mostra como usar expressões e funções para construir um valor:
+Olá mostrado no exemplo a seguir como toouse expressões e funções tooconstruct um valor:
 
     runCommand": {
          "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
@@ -107,26 +107,26 @@ O exemplo a seguir mostra como usar expressões e funções para construir um va
 ## <a name="create-a-custom-artifact"></a>Criar um artefato personalizado
 Crie seu artefato personalizado executando estas etapas:
 
-1. Instalar um editor de JSON: você precisa de um editor de JSON para trabalhar com arquivos de definição de artefato. Recomendamos o uso do [Visual Studio Code](https://code.visualstudio.com/), que está disponível para Windows, Linux e OS X.
-2. Obter um exemplo de artifactfile.json: verifique os artefatos criados pela equipe dos Laboratórios de Desenvolvimento/Teste do Azure em nosso [repositório GitHub](https://github.com/Azure/azure-devtestlab) , no qual criamos uma vasta biblioteca de artefatos que ajudarão você a criar seus próprios artefatos. Baixe um arquivo de definição de artefato e faça as alterações nele para criar seus próprios artefatos.
-3. Usar o IntelliSense: aproveite o IntelliSense para ver os elementos válidos que podem ser usados para construir um arquivo de definição de artefato. Você também pode ver as opções diferentes de valores para um elemento. Por exemplo, o IntelliSense mostra a você as duas opções, Windows ou Linux, ao editar o elemento **targetOsType** .
-4. Armazenar o artefato em um [repositório git](devtest-lab-add-artifact-repo.md).
+1. Instalar um editor de JSON - é necessário um toowork do editor de JSON com arquivos de definição de artefato. Recomendamos o uso do [Visual Studio Code](https://code.visualstudio.com/), que está disponível para Windows, Linux e OS X.
+2. Get artifactfile.json um exemplo - Check-out artefatos Olá criadas pela equipe do Azure DevTest Labs em nosso [repositório GitHub](https://github.com/Azure/azure-devtestlab), em que você criou uma biblioteca avançada de artefatos de ajudarão-lo a criar seus próprios artefatos. Baixar um arquivo de definição de artefato e fazer alterações tooit toocreate seus próprios artefatos.
+3. Fazer uso do IntelliSense - aproveite IntelliSense toosee elementos válidos que podem ser usado tooconstruct um arquivo de definição de artefato. Você também pode ver Olá diferentes opções para valores de um elemento. Por exemplo, Mostrar IntelliSense Olá duas opções do Windows ou Linux ao editar Olá **targetOsType** elemento.
+4. Artefato de saudação do repositório em um [repositório git](devtest-lab-add-artifact-repo.md).
    
-   1. Crie um diretório separado para cada artefato, em que o nome do diretório é igual ao nome do artefato.
-   2. Armazene o arquivo de definição de artefato (artifactfile.json) no diretório que você criou.
-   3. Armazene os scripts referenciados pelo comando de instalação de artefato.
+   1. Crie um diretório separado para cada artefato onde nome do diretório Olá é Olá mesmo como o nome do artefato hello.
+   2. Armazenar o arquivo de definição de artefato de saudação (artifactfile.json) no diretório de saudação criado por você.
+   3. Comando de instalação de scripts de saudação de repositório que são referenciados de artefato de saudação.
       
       Veja um exemplo de como uma pasta de artefatos pode ser:
       
       ![Exemplo de repositório git de artefatos](./media/devtest-lab-artifact-author/git-repo.png)
-5. Adicione o repositório de artefatos ao laboratório: consulte o artigo [Adicionar um repositório Git para artefatos e modelos](devtest-lab-add-artifact-repo.md).
+5. Adicionar o laboratório de toohello de repositório de artefatos Olá - consulte o artigo toohello, [adicionar um repositório Git para modelos e artefatos](devtest-lab-add-artifact-repo.md).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Como diagnosticar falhas de artefato em DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Ingressar uma VM em um Domínio do AD existente usando um modelo do Resource Manager no Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Como falhas de artefato de toodiagnose em DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
+* [Ingressar em um domínio de AD usando um modelo do Gerenciador de recursos no Azure DevTest Labs de tooexisting VM](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [adicionar um repositório de artefatos Git a um laboratório](devtest-lab-add-artifact-repo.md).
+* Saiba como muito[adicionar um laboratório de tooa do repositório de artefato Git](devtest-lab-add-artifact-repo.md).
 

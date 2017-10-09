@@ -1,6 +1,6 @@
 ---
 title: 'Locais e provedores de conectividade: Azure ExpressRoute | Microsoft Docs'
-description: "Este artigo fornece uma visão geral detalhada dos locais onde os serviços são oferecidos e de como se conectar a regiões do Azure. Classificado por local."
+description: "Este artigo fornece uma visão geral detalhada dos locais em que são oferecidos serviços e como tooconnect tooAzure regiões. Classificado por local."
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/17/2017
 ms.author: kaanan
-ms.openlocfilehash: a10986ac0b36a3f2065f02533f9e321c755d4cc8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 838d52701d177aa7f13e845b7bde66d07b5efed6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -27,18 +27,18 @@ ms.lasthandoff: 08/29/2017
 > * [Provedores por local](expressroute-locations-providers.md)
 
 
-As tabelas neste artigo fornecem informações sobre provedores de conectividade do ExpressRoute, a cobertura geográfica do ExpressRoute, serviços em nuvem da Microsoft com suporte ao longo do ExpressRoute e SIs (Integradores de Serviço) do ExpressRoute.
+tabelas de saudação neste artigo fornecem informações sobre a rota expressa provedores de conectividade, cobertura geográfica de rota expressa, serviços de nuvem da Microsoft com suporte pela rota expressa e integradores de sistema de rota expressa (SIs).
 
 ## <a name="partners">
             </a>Provedores de conectividade do ExpressRoute
-Há suporte para o ExpressRoute em todos os locais e regiões do Azure. O mapa a seguir fornece uma lista de locais de ExpressRoute e regiões do Azure. Os locais de ExpressRoute são aqueles onde a Microsoft emparelha-se a vários provedores de serviços.
+Há suporte para o ExpressRoute em todos os locais e regiões do Azure. Olá mapa a seguir fornece uma lista de regiões do Azure e locais de rota expressa. Locais de rota expressa consulte toothose onde Microsoft correspondentes com vários provedores de serviço.
 
 ![Mapa de localização][0]
 
-Você terá acesso aos serviços do Azure em todas as regiões dentro de uma região geopolítica se estiver conectado a pelo menos um local de ExpressRoute dentro da região geopolítica. 
+Você terá acesso tooAzure serviços em todas as regiões dentro de uma região geopolíticas se conectado tooat menos um local de rota expressa na região geopolíticas hello. 
 
-### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Regiões do Azure para locais do ExpressRoute em uma região geopolítica
-A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRoute em uma região geopolítica.
+### <a name="azure-regions-tooexpressroute-locations-within-a-geopolitical-region"></a>Locais de tooExpressRoute regiões do Azure dentro de uma região geopolíticas
+Olá, a tabela a seguir fornece um mapa das regiões do Azure tooExpressRoute locais dentro de uma região geopolíticas.
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de ExpressRoute** |
 | --- | --- | --- |
@@ -52,7 +52,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **Coreia do Sul** |Coreia Central, Sul da Coreia |Busan, Seul |
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões e limites geopolíticos para nuvens nacionais
-A tabela a seguir fornece informações sobre regiões e limites geopolíticos para nuvens nacionais.
+tabela de saudação abaixo fornece informações sobre regiões e limites geopolíticos para nuvens nacionais.
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de ExpressRoute** |
 | --- | --- | --- |
@@ -60,11 +60,11 @@ A tabela a seguir fornece informações sobre regiões e limites geopolíticos p
 | **China** |Norte da China, Leste da China |Pequim, Xangai |
 | **Alemanha** |Alemanha Central, Alemanha Oriental |Berlim+, Frankfurt |
 
-Não há suporte para conectividade entre regiões geopolíticas no SKU de ExpressRoute padrão. Você precisará habilitar o complemento premium de ExpressRoute para dar suporte a conectividade global. Não há suporte a conectividade para ambientes de nuvem nacionais. Você pode trabalhar com seu provedor de conectividade se surgir necessidade de fazê-lo.
+Não há suporte para conectividade entre regiões geopolíticas padrão Olá ExpressRoute SKU. Você precisará tooenable Olá rota expressa premium complemento toosupport conectividade global. Não há suporte para ambientes de nuvem toonational de conectividade. Você pode trabalhar com seu provedor de conectividade se surgir necessidade de fazê-lo.
 
 ## <a name="locations"></a>Locais de provedor de conectividade
 
-A tabela a seguir mostra os locais de conectividade e os provedores de serviço para cada local. Se você quiser exibir provedores de serviços e os locais para os quais podem fornecer serviço, confira [Locais pelo provedor de serviços](expressroute-locations.md#locations). 
+Olá tabela a seguir mostra hello e locais de conectividade provedores de serviço para cada local. Se você quiser tooview provedores de serviços e locais de saudação para o qual eles podem fornecer o serviço, consulte [locais pelo provedor de serviços](expressroute-locations.md#locations). 
 
 
 ### <a name="production-azure"></a>Produção do Azure
@@ -122,7 +122,7 @@ A tabela a seguir mostra os locais de conectividade e os provedores de serviço 
 | **Pequim** |China Telecom |
 | **Xangai** |China Telecom |
 
-Para saber mais, consulte [ExpressRoute na China](http://www.windowsazure.cn/home/features/expressroute/)
+toolearn mais, consulte [rota expressa na China](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>Alemanha
 | **Localidade** | **Provedores de Serviço** |
@@ -133,7 +133,7 @@ Para saber mais, consulte [ExpressRoute na China](http://www.windowsazure.cn/hom
 ## <a name="c1partners"></a>Conectividade por meio de outros provedores do Exchange
 Se seu provedor de conectividade não estiver listado em seções anteriores, você ainda pode criar uma conexão.
 
-* Verifique com seu provedor de conectividade para ver se eles estão conectados a qualquer um dos Exchanges na tabela acima. Você pode verificar os links a seguir para obter mais informações sobre os serviços oferecidos por provedores do Exchange. Vários provedores de conectividade já estão conectados a Exchanges de Ethernet.
+* Verifique com seu toosee do provedor de conectividade se eles estiverem conectado tooany trocas de saudação na tabela de saudação acima. Você pode verificar o seguinte Olá links toogather obter mais informações sobre os serviços oferecidos pelos provedores do exchange. Vários provedores de conectividade já estão conectados tooEthernet trocas.
   * [Cologix](http://www.cologix.com/)
   * [Console](https://www.consoleconnect.com/partners/cloudsaas/)
   * [CoreSite](http://www.coresite.com/)
@@ -142,10 +142,10 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
   * [NextDC](http://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-* Faça com que seu provedor de conectividade estenda sua rede para o local de emparelhamento de sua escolha.
+* Ter seu provedor de conectividade para estender sua rede toohello local do emparelhamento escolha.
   * Certifique-se de que seu provedor de conectividade estenda sua conectividade de maneira altamente disponível para que não exista nenhum ponto de falha.
-* Solicite um circuito do ExpressRoute com o Exchange como o provedor de conectividade para conectar-se à Microsoft.
-  * Siga as etapas em [Criar um circuito do ExpressRoute](expressroute-howto-circuit-classic.md) para configurar a conectividade.
+* Solicite um circuito de rota expressa com o exchange hello como seu provedor de conectividade tooconnect tooMicrosoft.
+  * Siga as etapas [criar um circuito de rota expressa](expressroute-howto-circuit-classic.md) tooset a conectividade.
 
 ## <a name="c1partners"></a>Conectividade por meio de provedores de serviço adicionais
 | **Localidade** | **Exchange** | **Provedores de conectividade** |
@@ -170,7 +170,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 | **Washington, D.C.** |Equinix | Altice Business, Gtt Communications Inc, Epsilon, Lightower, Masergy, Windstream |
 
 ## <a name="expressroute-system-integrators"></a>Integradores de sistema de ExpressRoute
-Habilitar a conectividade privada para atender às suas necessidades pode ser desafiador, dependendo da escala de sua rede. Você pode trabalhar com qualquer dos integradores de sistema listados na tabela a seguir para ajudá-lo com integração ao ExpressRoute.
+Habilitar a conectividade privada toofit que suas necessidades podem ser um desafio, com base em escala de saudação da sua rede. Você pode trabalhar com qualquer Olá integradores de sistema listados na Olá tooassist tabela a seguir você com integração tooExpressRoute.
 
 | **Continent** | **Integradores do sistema** |
 | --- | --- |
@@ -180,7 +180,7 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 | **América do Norte** |Avanade Inc., Equinix Professional Services, FlexManage, Perficient, Presidio |
 | **América do Sul** |Avanade Inc. |
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).
+* Para obter mais informações sobre a rota expressa, consulte Olá [perguntas Frequentes do ExpressRoute](expressroute-faqs.md).
 * Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 
 <!--Image References-->

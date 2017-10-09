@@ -3,43 +3,43 @@
 
 ## <a name="c-program-example"></a>Exemplo de programa em C#
 
-As próximas seções deste artigo apresentam um programa C# que usa ADO.NET para enviar instruções Transact-SQL para o Banco de Dados SQL. O programa C# executa as seguintes ações:
+próximas seções Olá deste artigo apresentam um programa c# que usa ADO.NET toosend Transact-SQL instruções toohello banco de dados SQL. programa de saudação c# executa Olá ações a seguir:
 
-1. [Conecta-se ao nosso Banco de Dados SQL usando o ADO.NET](#cs_1_connect).
+1. [Conecta-se o banco de dados do SQL tooour usando o ADO.NET](#cs_1_connect).
 2. [Cria tabelas](#cs_2_createtables).
-3. [Preenche as tabelas com dados, emitindo instruções T-SQL INSERT](#cs_3_insert).
+3. [Preenche as tabelas de saudação com dados, emitindo instruções T-SQL INSERT](#cs_3_insert).
 4. [Atualiza os dados pelo uso de uma união](#cs_4_updatejoin).
 5. [Exclui os dados pelo uso de uma união](#cs_5_deletejoin).
 6. [Seleciona as linhas de dados pelo uso de uma união](#cs_6_selectrows).
-7. Fecha a conexão (que descarta todas as tabelas temporárias de tempdb).
+7. Fecha a conexão de saudação (que descarta todas as tabelas temporárias de tempdb).
 
-O programa em C# contém:
+programa Hello c# contém:
 
-- Código C# para se conectar ao banco de dados.
-- Métodos que retornam o código-fonte T-SQL.
-- Dois métodos que enviam o T-SQL para o banco de dados.
+- C# código tooconnect toohello banco de dados.
+- Métodos que retornam o código-fonte Olá T-SQL.
+- Dois métodos que enviam Olá banco de dados do T-SQL toohello.
 
-#### <a name="to-compile-and-run"></a>Para compilar e executar
+#### <a name="toocompile-and-run"></a>toocompile e execução
 
-Este programa C# é logicamente um arquivo .cs. Mas aqui o programa é dividido fisicamente em vários blocos de código, para facilitar a visualização e a compreensão de cada bloco. Para compilar e executar esse programa, faça o seguinte:
+Este programa C# é logicamente um arquivo .cs. Mas aqui programa hello fisicamente é dividido em vários blocos de código, toomake cada bloco toosee mais fácil e entender. toocompile e executar este programa, Olá a seguir:
 
 1. Crie um novo projeto em C# no Visual Studio.
-    - O tipo de projeto deve ser um *console* aplicativo de algo parecido com a seguinte hierarquia: **modelos** > **Visual C#** >  **Área de trabalho clássica do Windows** > **(.NET Framework) do aplicativo de Console**.
-3. No arquivo **Program.cs**, apague as linhas iniciais do código.
-3. Em Program.cs, copie e cole cada um dos blocos a seguir, na mesma sequência em que são apresentados aqui.
-4. Em Program.cs, edite os seguintes valores no método **principal**:
+    - tipo de projeto Olá deve ser um *console* aplicativo de algo como Olá hierarquia a seguir: **modelos** > **Visual C#** > **Área de trabalho clássica do Windows** > **(.NET Framework) do aplicativo de Console**.
+3. No arquivo hello **Program.cs**, apagar Olá starter pequenas linhas de código.
+3. Em Program.cs, copiar e colar Olá seguinte blocos, em Olá mesma sequência que são apresentados aqui.
+4. Em Program.cs, a seguir Olá editar valores hello **principal** método:
 
    - **cb.DataSource**
    - **cd.UserID**
    - **cb.Password**
    - **InitialCatalog**
 
-5. Verifique se o assembly **System.Data.dll** é referenciado. Para verificar, expanda o nó **Referências** no painel **Gerenciador de Soluções**.
-6. Para criar o programa no Visual Studio, clique no menu **Criar**.
-7. Para executar o programa do Visual Studio, clique no botão **Iniciar**. A saída do relatório é exibida em uma janela cmd.exe.
+5. Verifique se esse assembly hello **System.Data.dll** é referenciado. tooverify, expanda Olá **referências** nó Olá **Solution Explorer** painel.
+6. programa de saudação toobuild no Visual Studio, clique em Olá **criar** menu.
+7. programa de saudação toorun do Visual Studio, clique em Olá **iniciar** botão. saída de relatório de saudação é exibida em uma janela de cmd.exe.
 
 > [!NOTE]
-> Você tem a opção de editar a T-SQL para adicionar um líder  **#**  aos nomes de tabela, que cria como tabelas temporárias em **tempdb**. Isso pode ser útil para fins de demonstração, quando nenhum banco de dados de teste está disponível. As tabelas temporárias são excluídas automaticamente quando a conexão é fechada. Nenhuma REFERÊNCIA a chaves estrangeiras é imposta para tabelas temporárias.
+> Você tem a opção de saudação de edição Olá T-SQL tooadd um principal  **#**  toohello nomes de tabela, que cria tabelas temporárias como no **tempdb**. Isso pode ser útil para fins de demonstração, quando nenhum banco de dados de teste está disponível. Tabelas temporárias são excluídas automaticamente quando a conexão Olá fecha. Nenhuma REFERÊNCIA a chaves estrangeiras é imposta para tabelas temporárias.
 >
 
 <a name="cs_1_connect"/>
@@ -92,14 +92,14 @@ namespace csharp_db_test
          {
             Console.WriteLine(e.ToString());
          }
-         Console.WriteLine("View the report output here, then press any key to end the program...");
+         Console.WriteLine("View hello report output here, then press any key tooend hello program...");
          Console.ReadKey();
       }
 ```
 
 
 <a name="cs_2_createtables"/>
-### <a name="c-block-2-t-sql-to-create-tables"></a>Bloco C# 2: T-SQL para criar tabelas
+### <a name="c-block-2-t-sql-toocreate-tables"></a>Bloco c# 2: tabelas de toocreate T-SQL
 
 - [Anterior](#cs_1_connect) &nbsp; / &nbsp; [Avançar](#cs_3_insert)
 
@@ -133,15 +133,15 @@ CREATE TABLE tabEmployee
 
 #### <a name="entity-relationship-diagram-erd"></a>Diagrama de relação de entidade (ERD)
 
-As instruções CREATE TABLE precedentes envolvem a palavra-chave **REFERÊNCIAS** para criar uma relação *chave estrangeira* (FK) entre duas tabelas.  Se você estiver usando o tempdb, comente a palavra-chave `--REFERENCES` usando um par de traços à esquerda.
+instruções CREATE TABLE precedentes Hello envolvem Olá **referências** toocreate de palavra-chave um *chave estrangeira* relação (FK) entre duas tabelas.  Se você estiver usando o tempdb, comente Olá `--REFERENCES` palavra-chave usando um par de traços à esquerda.
 
-Em seguida, é um ERD que exibe a relação entre as duas tabelas. Os valores da coluna *filho* #tabEmployee.DepartmentCode são limitados aos valores presentes na coluna *pai* #tabDepartment.Department.
+Em seguida, é um ERD que exibe Olá relação entre duas tabelas de saudação. Olá valores hello #tabEmployee.DepartmentCode *filho* coluna são toohello limita os valores presentes na Olá #tabDepartment.Department *pai* coluna.
 
 ![ERD mostrando chave estrangeira](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 
 <a name="cs_3_insert"/>
-### <a name="c-block-3-t-sql-to-insert-data"></a>Bloco C# 3: T-SQL para inserir dados
+### <a name="c-block-3-t-sql-tooinsert-data"></a>C# bloco 3: dados de tooinsert T-SQL
 
 - [Anterior](#cs_2_createtables) &nbsp; / &nbsp; [Avançar](#cs_4_updatejoin)
 
@@ -150,7 +150,7 @@ Em seguida, é um ERD que exibe a relação entre as duas tabelas. Os valores da
       static string Build_3_Tsql_Inserts()
       {
          return @"
--- The company has these departments.
+-- hello company has these departments.
 INSERT INTO tabDepartment
    (DepartmentCode, DepartmentName)
       VALUES
@@ -158,7 +158,7 @@ INSERT INTO tabDepartment
    ('hres', 'Human Resources'),
    ('legl', 'Legal');
 
--- The company has these employees, each in one department.
+-- hello company has these employees, each in one department.
 INSERT INTO tabEmployee
    (EmployeeName, EmployeeLevel, DepartmentCode)
       VALUES
@@ -173,7 +173,7 @@ INSERT INTO tabEmployee
 
 
 <a name="cs_4_updatejoin"/>
-### <a name="c-block-4-t-sql-to-update-join"></a>Bloco C# 4: T-SQL para atualizar com união
+### <a name="c-block-4-t-sql-tooupdate-join"></a>C# bloco 4: junção tooupdate T-SQL
 
 - [Anterior](#cs_3_insert) &nbsp; / &nbsp; [Avançar](#cs_5_deletejoin)
 
@@ -201,7 +201,7 @@ UPDATE empl
 
 
 <a name="cs_5_deletejoin"/>
-### <a name="c-block-5-t-sql-to-delete-join"></a>Bloco C# 5: T-SQL para excluir com união
+### <a name="c-block-5-t-sql-toodelete-join"></a>Bloco c# 5: junção toodelete T-SQL
 
 - [Anterior](#cs_4_updatejoin) &nbsp; / &nbsp; [Avançar](#cs_6_selectrows)
 
@@ -214,7 +214,7 @@ DECLARE @DName2  nvarchar(128);
 SET @DName2 = @csharpParmDepartmentName;  --'Legal';
 
 
--- Right size the Legal department.
+-- Right size hello Legal department.
 DELETE empl
    FROM
       tabEmployee   as empl
@@ -223,7 +223,7 @@ DELETE empl
    WHERE
       dept.DepartmentName = @DName2
 
--- Disband the Legal department.
+-- Disband hello Legal department.
 DELETE tabDepartment
    WHERE DepartmentName = @DName2;
 ";
@@ -233,7 +233,7 @@ DELETE tabDepartment
 
 
 <a name="cs_6_selectrows"/>
-### <a name="c-block-6-t-sql-to-select-rows"></a>Bloco C# 6: T-SQL para selecionar linhas
+### <a name="c-block-6-t-sql-tooselect-rows"></a>Bloco c# 6: linhas de tooselect T-SQL
 
 - [Anterior](#cs_5_deletejoin) &nbsp; / &nbsp; [Avançar](#cs_6b_datareader)
 
@@ -242,7 +242,7 @@ DELETE tabDepartment
       static string Build_6_Tsql_SelectEmployees()
       {
          return @"
--- Look at all the final Employees.
+-- Look at all hello final Employees.
 SELECT
       empl.EmployeeGuid,
       empl.EmployeeName,
@@ -265,7 +265,7 @@ SELECT
 
 - [Anterior](#cs_6_selectrows) &nbsp; / &nbsp; [Avançar](#cs_7_executenonquery)
 
-Esse método foi projetado para executar a instrução T-SQL SELECT que é criada com o método **Build_6_Tsql_SelectEmployees**.
+Esse método é projetado toorun Olá T-SQL SELECT instrução que é criada pelo Olá **Build_6_Tsql_SelectEmployees** método.
 
 
 ```csharp
@@ -301,7 +301,7 @@ Esse método foi projetado para executar a instrução T-SQL SELECT que é criad
 
 - [Anterior](#cs_6b_datareader) &nbsp; / &nbsp; [Avançar](#cs_8_output)
 
-Esse método é chamado para operações que modificam o conteúdo das tabelas de dados sem retornar nenhuma linha de dados.
+Esse método é chamado para operações que modificar o conteúdo dos dados das tabelas Olá sem retornar nenhuma linha de dados.
 
 
 ```csharp
@@ -315,7 +315,7 @@ Esse método é chamado para operações que modificam o conteúdo das tabelas d
       {
          Console.WriteLine();
          Console.WriteLine("=================================");
-         Console.WriteLine("T-SQL to {0}...", tsqlPurpose);
+         Console.WriteLine("T-SQL too{0}...", tsqlPurpose);
 
          using (var command = new SqlCommand(tsqlSourceCode, connection))
          {
@@ -335,11 +335,11 @@ Esse método é chamado para operações que modificam o conteúdo das tabelas d
 
 
 <a name="cs_8_output"/>
-### <a name="c-block-8-actual-test-output-to-the-console"></a>Bloco C# 8: saída de teste real para o console
+### <a name="c-block-8-actual-test-output-toohello-console"></a>C# bloco 8: console de toohello de saída do teste real
 
 - [Anterior](#cs_7_executenonquery)
 
-Esta seção captura a saída que o programa enviou ao console. Somente os valores de guid variam entre as execuções de teste.
+Esta seção captura saída Olá Olá programa enviado toohello console. Somente os valores de guid Olá variam entre as execuções de teste.
 
 
 ```text

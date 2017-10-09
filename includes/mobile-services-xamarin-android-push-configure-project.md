@@ -1,14 +1,14 @@
 
-1. Na exibição Solução (ou **Gerenciador de Soluções** no Visual Studio), clique com o botão direito do mouse na pasta **Componentes**, clique em **Obter Mais Componentes...**, procure pelo componente **Cliente Google Cloud Messaging** e adicione-o ao projeto.
-2. Abra o arquivo de projeto ToDoActivity.cs e adicione a instrução using a seguir à classe:
+1. Em Olá solução exibir (ou **Solution Explorer** no Visual Studio), Olá do botão direito do mouse **componentes** pasta, clique em **obter mais componentes...** , pesquise Olá **cliente de mensagens de nuvem do Google** componente e adicioná-lo toohello projeto.
+2. Abrir o arquivo de projeto ToDoActivity.cs hello e adicione o seguinte hello usando instrução toohello classe:
    
         using Gcm.Client;
-3. Na classe **ToDoActivity** , adicione o seguinte código novo: 
+3. Em Olá **ToDoActivity** de classe, adicione Olá novo código a seguir: 
    
         // Create a new instance field for this activity.
         static ToDoActivity instance = new ToDoActivity();
    
-        // Return the current activity instance.
+        // Return hello current activity instance.
         public static ToDoActivity CurrentActivity
         {
             get
@@ -16,7 +16,7 @@
                 return instance;
             }
         }
-        // Return the Mobile Services client.
+        // Return hello Mobile Services client.
         public MobileServiceClient CurrentClient
         {
             get
@@ -25,17 +25,17 @@
             }
         }
    
-    Isso permite que você acesse a instância do cliente móvel do processo de serviço do manipulador por push.
-4. Adicione o código a seguir ao método **OnCreate**, após a criação do **MobileServiceClient**:
+    Isso permite que você tooaccess instância de cliente móvel de saudação do processo de serviço do manipulador de envio por push hello.
+4. Adicionar Olá toohello de código a seguir **OnCreate** método após Olá **MobileServiceClient** é criada:
    
-       // Set the current instance of TodoActivity.
+       // Set hello current instance of TodoActivity.
        instance = this;
    
-       // Make sure the GCM client is set up correctly.
+       // Make sure hello GCM client is set up correctly.
        GcmClient.CheckDevice(this);
        GcmClient.CheckManifest(this);
    
-       // Register the app for push notifications.
+       // Register hello app for push notifications.
        GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 Sua **ToDoActivity** agora está preparada para adicionar notificações por push.

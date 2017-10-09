@@ -1,6 +1,6 @@
 ---
-title: "Usar as propriedades do dispositivo gêmeo do Hub IoT do Azure (Node) | Microsoft Docs"
-description: "Como usar dispositivos gêmeos do Hub IoT do Azure para configurar dispositivos. Use os SDKs do IoT do Azure para Node.js para implementar um aplicativo de dispositivo simulado e um aplicativo de serviço que modifica a configuração de um dispositivo usando um dispositivo gêmeo."
+title: "Propriedades de duas aaaUse Azure IoT Hub dispositivo (nó) | Microsoft Docs"
+description: "Como twins dispositivo do Azure IoT Hub toouse tooconfigure dispositivos. Você pode usar hello Azure IoT SDKs para Node. js tooimplement um aplicativo de dispositivo simulado e um aplicativo de serviço que modifica uma configuração de dispositivo usando duas um dispositivo."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
-ms.openlocfilehash: 771106ce7b00a5231d9929e4b5ea34aefe693597
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7ebfe2dfa0876bf04fdbaceae55db76456523e8a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-desired-properties-to-configure-devices-node"></a>Usar as propriedades desejadas para configurar os dispositivos (Node)
+# <a name="use-desired-properties-tooconfigure-devices-node"></a>Use desejado propriedades tooconfigure dispositivos (nó)
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-No fim deste tutorial, você terá dois aplicativos de console do Node.js:
+No final de saudação deste tutorial, você terá dois aplicativos de console Node. js:
 
-* **SimulateDeviceConfiguration.js**, um aplicativo de dispositivo simulado que aguarda uma atualização da configuração desejada e reporta o status de um processo simulado de atualização de configuração.
-* **SetDesiredConfigurationAndQuery.js**, um aplicativo de back-end Node.js que define a configuração desejada em um dispositivo e consulta o processo de atualização de configuração.
+* **SimulateDeviceConfiguration.js**, um aplicativo de dispositivo simulado que aguarda uma atualização de configurações desejadas e relata o status de saudação de um processo de atualização de configuração simulada.
+* **SetDesiredConfigurationAndQuery.js**, um aplicativo de back-end node. js, que define a saudação da configuração em um dispositivo desejado e consultas Olá o processo de atualização de configuração.
 
 > [!NOTE]
-> O artigo [SDKs do IoT do Azure][lnk-hub-sdks] fornece informações sobre os SDKs do IoT do Azure que você pode usar para compilar dispositivos e aplicativos back-end.
+> artigo Olá [SDKs do Azure IoT] [ lnk-hub-sdks] fornece informações sobre Olá SDKs IoT do Azure que você pode usar toobuild aplicativos de dispositivo e de back-end.
 > 
 > 
 
-Para concluir este tutorial, você precisará do seguinte:
+toocomplete este tutorial, você precisa seguir hello:
 
 * Node.js versão 0.10.x ou posterior.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-Caso tenha seguido o tutorial [Introdução aos dispositivos gêmeos][lnk-twin-tutorial], você já terá um Hub IoT e uma identidade de dispositivo chamada **myDeviceId**; você poderá pular para a seção [Criar o aplicativo do dispositivo simulado][lnk-how-to-configure-createapp].
+Se você seguiu Olá [Introdução ao twins dispositivo] [ lnk-twin-tutorial] tutorial, você já tem um hub IoT e uma identidade de dispositivo chamado **myDeviceId**; e você poderá ignorar toohello [ Criar aplicativo de dispositivo simulado Olá] [ lnk-how-to-configure-createapp] seção.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-simulated-device-app"></a>Criar o aplicativo de dispositivo simulado
-Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao seu hub como **myDeviceId**, aguarda uma atualização de configuração desejada e, em seguida, reporta atualizações sobre o processo simulado de atualização de configuração.
+## <a name="create-hello-simulated-device-app"></a>Criar aplicativo de dispositivo simulado Olá
+Nesta seção, você cria um aplicativo de console Node. js que conecta o hub tooyour como **myDeviceId**, aguarda até que uma atualização de configurações desejadas e, em seguida, relatórios atualizações no processo de atualização de configuração Olá simulada.
 
-1. Crie uma nova pasta vazia denominada **simulatedeviceconfiguration**. Na pasta **simulatedeviceconfiguration**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+1. Crie uma nova pasta vazia denominada **simulatedeviceconfiguration**. Em Olá **simulatedeviceconfiguration** pasta, crie um novo arquivo Package. JSON usando Olá comando no prompt de comando a seguir. Aceite todos os padrões de saudação:
    
     ```
     npm init
     ```
-2. No prompt de comando, na pasta **simulatedeviceconfiguration**, execute o seguinte comando para instalar os pacotes **azure-iot-device** e **azure-iot-device-mqtt**:
+2. O prompt de comando no hello **simulatedeviceconfiguration** pasta, execute Olá Olá de tooinstall de comando a seguir **dispositivo de iot do azure**, e **azure iot dispositivo-mqtt**pacote:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Usando um editor de texto, crie um novo arquivo **SimulateDeviceConfiguration.js** na pasta **simulatedeviceconfiguration**.
-4. Adicione o seguinte código ao arquivo **SimulateDeviceConfiguration.js** e substitua o espaço reservado **{cadeia de conexão do dispositivo}** pela cadeia de conexão do dispositivo copiada quando você criou a identidade do dispositivo **myDeviceId**:
+3. Usando um editor de texto, crie um novo **SimulateDeviceConfiguration.js** arquivo hello **simulatedeviceconfiguration** pasta.
+4. Adicionar Olá toohello de código a seguir **SimulateDeviceConfiguration.js** de arquivo e substituir Olá **{string de conexão do dispositivo}** espaço reservado com a cadeia de conexão do dispositivo Olá copiadas quando você criado Olá **myDeviceId** identidade do dispositivo:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -92,15 +92,15 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
             }
         });
    
-    O objeto **Client** expõe todos os métodos necessários para você, do dispositivo, interagir com gêmeos de dispositivo. O código anterior, depois de inicializar o objeto **Client**, recupera o dispositivo gêmeo para **myDeviceId** e anexa um manipulador para a atualização em propriedades desejadas. O manipulador verifica que há uma solicitação de alteração de configuração real ao comparar as configIds, então invoca um método que inicia a alteração de configuração.
+    Olá **cliente** objeto expõe toointeract necessária do todos os métodos de saudação com twins de dispositivo do dispositivo hello. Olá código anterior, depois que ele inicializa Olá **cliente** objeto recupera Olá duas de dispositivo para **myDeviceId**e anexa um manipulador de atualização de saudação em propriedades desejadas. manipulador de saudação verifica que há é uma solicitação de alteração de configuração real comparando Olá configIds, em seguida, invoca um método que inicia a alteração de configuração de saudação.
    
-    Observe que, para simplificar, o código anterior usa um padrão embutido em código para a configuração inicial. Um aplicativo real provavelmente carregaria essa configuração de um armazenamento local.
+    Observe que, para bem Olá de simplicidade, código anterior Olá usa um padrão embutido para a configuração inicial de saudação. Um aplicativo real provavelmente carregaria essa configuração de um armazenamento local.
    
    > [!IMPORTANT]
-   > Eventos de alteração de propriedade desejada são sempre emitidos uma vez no ato da conexão com o dispositivo, não deixe de verificar se há uma alteração real nas propriedades desejadas antes de executar qualquer ação.
+   > Eventos de alteração de propriedade desejados sempre são emitidos uma vez na conexão do dispositivo, certifique-se de toocheck que há uma alteração real no hello propriedades desejadas antes de executar qualquer ação.
    > 
    > 
-5. Adicione os seguintes métodos antes da invocação de `client.open()`:
+5. Adicionar Olá seguintes métodos antes de saudação `client.open()` invocação:
    
         var initConfigChange = function(twin) {
             var currentTelemetryConfig = twin.properties.reported.telemetryConfig;
@@ -141,35 +141,35 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
             });
         };
    
-    O método **initConfigChange** atualiza as propriedades relatadas no objeto do dispositivo gêmeo local com a solicitação de atualização de configuração, define o status para **Pendente** e atualiza o dispositivo gêmeo no serviço. Depois de atualizar o dispositivo gêmeo com êxito, ele simula um processo de execução longa que termina com a execução de **completeConfigChange**. Esse método atualiza propriedades relatadas do dispositivo gêmeo local definindo o status como **Êxito** e removendo o objeto **pendingConfig**. Em seguida, ele atualiza o dispositivo gêmeo no serviço.
+    Olá **initConfigChange** método atualizações relatado propriedades no objeto de duas Olá dispositivo local com a solicitação de atualização de configuração hello e conjuntos de Olá status muito**pendente**, e em seguida, as atualizações Olá dispositivo duas no serviço de saudação. Depois de atualizar com êxito duas de dispositivo hello, ele simula um processo de execução demorada que termina em execução de saudação do **completeConfigChange**. Duas de dispositivo local este método atualizações saudação do relatado propriedades definindo o status de saudação muito**êxito** e removendo Olá **pendingConfig** objeto. Em seguida, atualiza as duas de dispositivo Olá no serviço de saudação.
    
-    Observe que, para economizar largura de banda, as propriedades reportadas são atualizadas especificando-se apenas as propriedades a serem modificadas (chamadas de **patch** no código acima), em vez de substituir o documento inteiro.
+    Observe que, a largura de banda toosave relatadas propriedades serão atualizadas, especificando somente o hello propriedades toobe modificado (denominado **patch** em Olá acima código), em vez de substituir todo o documento hello.
    
    > [!NOTE]
-   > Este tutorial não simula nenhum comportamento para atualizações de configuração simultâneas. Alguns processos de atualização de configuração podem ser capazes de acomodar as alterações de configuração de destino enquanto a atualização está em execução, outros podem colocá-las em fila e outros poderiam ainda rejeitá-las com uma condição de erro. Certifique-se de considerar o comportamento desejado para o seu processo de configuração específico e adicione a lógica apropriada antes de iniciar a alteração de configuração.
+   > Este tutorial não simula nenhum comportamento para atualizações de configuração simultâneas. Alguns processos de atualização de configuração podem ser capaz de tooaccommodate alterações de configuração de destino durante a execução de atualização hello, outros podem ter tooqueue e outros podem rejeitá-las com uma condição de erro. Verifique tooconsider se Olá o comportamento desejado para o processo de configuração específica e adicionar lógica apropriada Olá antes de iniciar a alteração de configuração de saudação.
    > 
    > 
-6. Execute o aplicativo do dispositivo:
+6. Execute o aplicativo de dispositivo hello:
    
         node SimulateDeviceConfiguration.js
    
-    Você deve ver a mensagem `retrieved device twin`. Mantenha o aplicativo em execução.
+    Você verá uma mensagem de saudação `retrieved device twin`. Lembre-Olá aplicativo em execução.
 
-## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
-Nesta seção, você criará um aplicativo de console do Node. js que atualiza as *propriedades desejadas* no dispositivo gêmeo associado à **myDeviceId** com um novo objeto de configuração de telemetria. Então, ele consulta os gêmeos de dispositivo armazenados no Hub IoT e mostra a diferença entre as configurações desejadas e as reportadas do dispositivo.
+## <a name="create-hello-service-app"></a>Criar aplicativo de serviço Olá
+Nesta seção, você criará um aplicativo de console Node. js que Olá atualizações *propriedades desejadas* em Olá dispositivo duas associada **myDeviceId** com um novo objeto de configuração de telemetria. Ele, em seguida, consulta twins de dispositivo Olá armazenadas no hub IoT de saudação e mostra diferença Olá entre hello desejado e relatado configurações de dispositivo de saudação.
 
-1. Crie uma nova pasta vazia denominada **setdesiredandqueryapp**. Na pasta **setdesiredandqueryapp**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+1. Crie uma nova pasta vazia denominada **setdesiredandqueryapp**. Em Olá **setdesiredandqueryapp** pasta, crie um novo arquivo Package. JSON usando Olá comando no prompt de comando a seguir. Aceite todos os padrões de saudação:
    
     ```
     npm init
     ```
-2. No prompt de comando, na pasta **setdesiredandqueryapp**, execute o seguinte comando para instalar o pacote **azure-iothub**:
+2. O prompt de comando no hello **setdesiredandqueryapp** pasta, execute Olá Olá de tooinstall de comando a seguir **hub IOT do azure** pacote:
    
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. Usando um editor de texto, crie um novo arquivo **SetDesiredAndQuery.js** na pasta **addtagsandqueryapp**.
-4. Adicione o seguinte código ao arquivo **SetDesiredAndQuery.js** e substitua o espaço reservado **{iot hub connection string}** pela cadeia de conexão do Hub IoT que você copiou quando criou seu hub:
+3. Usando um editor de texto, crie um novo **SetDesiredAndQuery.js** arquivo hello **addtagsandqueryapp** pasta.
+4. Adicionar Olá toohello de código a seguir **SetDesiredAndQuery.js** de arquivo e substituir Olá **{string de conexão de hub iot}** espaço reservado com hello cadeia de caracteres de conexão de IoT Hub copiadas quando você criar o hub :
    
         'use strict';
         var iothub = require('azure-iothub');
@@ -204,20 +204,20 @@ Nesta seção, você criará um aplicativo de console do Node. js que atualiza a
             }
         });
 
-    O objeto **Registry** expõe todos os métodos necessários para interagir com gêmeos de dispositivo do serviço. O código anterior, depois de inicializar o objeto **Registry**, recupera o dispositivo gêmeo para **myDeviceId** e atualiza as propriedades desejadas com um novo objeto de configuração de telemetria. Depois disso, ele chama o evento da função **queryTwins** em 10 segundos.
+    Olá **registro** objeto expõe toointeract necessária do todos os métodos de saudação com twins de dispositivo do serviço de saudação. Olá código anterior, depois que ele inicializa Olá **registro** objeto recupera Olá duas de dispositivo para **myDeviceId**e atualiza as propriedades desejadas com um novo objeto de configuração de telemetria. Depois disso, ele chama Olá **queryTwins** função evento 10 segundos.
 
     > [!IMPORTANT]
-    > Esse aplicativo consulta o Hub IoT a cada 10 segundos para fins ilustrativos. Use consultas para gerar relatórios voltados para o usuário em vários dispositivos, não para detectar alterações. Se sua solução exigir notificações em tempo real de eventos de dispositivo, use [notificações gêmeas][lnk-twin-notifications].
+    > Esse aplicativo consulta o Hub IoT a cada 10 segundos para fins ilustrativos. Use consultas toogenerate voltadas para o usuário relatórios em vários dispositivos e não toodetect alterações. Se sua solução exigir notificações em tempo real de eventos de dispositivo, use [notificações gêmeas][lnk-twin-notifications].
     > 
     >.
 
-1. Adicione o código a seguir logo antes da invocação de `registry.getDeviceTwin()` para implementar a função **queryTwins**:
+1. Adicionar Olá seguindo o direito de código antes de saudação `registry.getDeviceTwin()` saudação do invocação tooimplement **queryTwins** função:
    
         var queryTwins = function() {
             var query = registry.createQuery("SELECT * FROM devices WHERE deviceId = 'myDeviceId'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
-                    console.error('Failed to fetch the results: ' + err.message);
+                    console.error('Failed toofetch hello results: ' + err.message);
                 } else {
                     console.log();
                     results.forEach(function(twin) {
@@ -233,26 +233,26 @@ Nesta seção, você criará um aplicativo de console do Node. js que atualiza a
             });
         };
    
-    O código anterior consulta os dispositivos gêmeos armazenados no Hub IoT e imprime as configurações de telemetria desejadas e reportadas. Consulte a [Linguagem de consulta de Hub IoT][lnk-query] para saber como gerar relatórios em todos os seus dispositivos.
-2. Com **SimulateDeviceConfiguration.js** em execução, execute o aplicativo com:
+    consultas de código anteriores Olá Olá twins dispositivo armazenadas no hub IoT de saudação e imprime Olá desejado e relatado configurações de telemetria. Consulte toohello [linguagem de consulta de IoT Hub] [ lnk-query] toolearn como toogenerate rich relatórios em todos os seus dispositivos.
+2. Com **SimulateDeviceConfiguration.js** em execução, execute o aplicativo hello com:
    
         node SetDesiredAndQuery.js 5m
    
-    Você deve ver a configuração reportada mudar de **Êxito** para **Pendente** e para **Êxito** novamente com a nova frequência de envio ativo de cinco minutos em vez de 24 horas.
+    Você deve ver a configuração relatado Olá alterar de **êxito** muito**pendente** muito**êxito** novamente com um novo ativo de saudação enviar frequência de cinco minutos, em vez de 24 horas.
    
    > [!IMPORTANT]
-   > Há um atraso de até um minuto entre a operação de relatório de dispositivo e o resultado da consulta. Isso é para habilitar a infraestrutura de consulta a trabalhar em escala muito alta. Para recuperar os modos de exibição consistentes de um único dispositivo gêmeo, use o método **getDeviceTwin** na classe **Registry**.
+   > Há um atraso de backup tooa minutos entre a operação de relatório de dispositivo hello e resultado da consulta hello. Isso é tooenable Olá consulta infraestrutura toowork em escala muito alta. modos de exibição consistente de duas um único dispositivo tooretrieve usam Olá **getDeviceTwin** método hello **registro** classe.
    > 
    > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você definiu uma configuração desejada como *propriedades desejadas* de um aplicativo de back-end e escreveu um aplicativo de dispositivo simulado para detectar essa alteração e simular um processo de atualização de várias etapas, relatando seu status como *propriedades relatadas* ao dispositivo gêmeo.
+Neste tutorial, você definir uma configuração desejada como *propriedades desejadas* de um aplicativo de back-end e escreveu um toodetect de aplicativo do dispositivo simulado que são alterados e simular um processo de atualização de várias etapas relatar seu status como  *relatado propriedades* toohello duas de dispositivo.
 
-Veja os recursos a seguir para saber como:
+Saudação de uso toolearn de recursos a seguir como a:
 
-* Enviar telemetria de dispositivos com o tutorial [Introdução ao Hub IoT][lnk-iothub-getstarted].
-* Agendar ou executar operações em grandes conjuntos de dispositivos. Veja o tutorial [Schedule and broadcast jobs][lnk-schedule-jobs] (Agendar e transmitir trabalhos).
-* Controlar dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário), com o tutorial [Uso de métodos diretos][lnk-methods-tutorial].
+* Enviar telemetria de dispositivos com hello [começar com o IoT Hub] [ lnk-iothub-getstarted] tutorial,
+* agendar ou executar operações em grandes conjuntos de dispositivos Consulte Olá [agenda e trabalhos de difusão] [ lnk-schedule-jobs] tutorial.
+* controlar dispositivos interativamente (como ativar um ventilador de um aplicativo controlado pelo usuário), com hello [usar métodos diretos] [ lnk-methods-tutorial] tutorial.
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

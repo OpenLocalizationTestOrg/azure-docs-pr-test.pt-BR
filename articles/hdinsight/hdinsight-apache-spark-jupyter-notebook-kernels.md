@@ -1,6 +1,6 @@
 ---
-title: "Kernels para o bloco de anotações do Jupyter em clusters do Spark no Azure HDInsight | Microsoft Docs"
-description: "Saiba mais sobre os kernels PySpark, PySpark3 e Spark para o notebook do Jupyter disponíveis com clusters do Spark no Azure HDInsight."
+title: "clusters de aaaKernels para anotações do Jupyter no Spark no HDInsight do Azure | Microsoft Docs"
+description: "Saiba mais sobre os kernels PySpark, PySpark3 e Spark Olá para anotações do Jupyter com clusters Spark no HDInsight do Azure."
 keywords: "bloco de anotações do jupyter no spark, jupyter spark"
 services: hdinsight
 documentationcenter: 
@@ -17,21 +17,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: nitinme
-ms.openlocfilehash: 6cfd1c1e7b22f5460b78687c815d149e6c6deac9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 560c944fe850c5753ac9fa90550b804f0c47d14c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de anotações do Jupyter em clusters do Spark no Azure HDInsight 
 
-Os clusters do HDInsight Spark fornecem kernels que você pode usar com o bloco de anotações do Jupyter no Spark para testar seus aplicativos. Um kernel é um programa que é executado e que interpreta seu código. Os três kernels são:
+Os clusters de HDInsight Spark fornecem kernels que você pode usar anotações do Jupyter Olá no Spark para testar seus aplicativos. Um kernel é um programa que é executado e que interpreta seu código. três kernels Olá são:
 
 - **PySpark** - para aplicativos escritos em Python2
 - **PySpark3** - para aplicativos escritos em Python3
 - **Spark** - para aplicativos escritos em Scala
 
-Neste artigo, você aprenderá como usar esses kernels e os benefícios de usá-los.
+Neste artigo, você aprenderá como toouse esses kernels e os benefícios de saudação de usá-los.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,118 +39,118 @@ Neste artigo, você aprenderá como usar esses kernels e os benefícios de usá-
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>Criar um bloco de anotações do Jupyter no Spark HDInsight
 
-1. Do [portal do Azure](https://portal.azure.com/), abra o seu cluster.  Consulte [lista e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) para obter instruções. O cluster é aberto em uma nova folha de portal.
+1. De saudação [portal do Azure](https://portal.azure.com/), abra seu cluster.  Consulte [lista e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters) para obter instruções de saudação. cluster de saudação é aberto em uma nova folha de portal.
 
-2. Do **links rápidos** seção, clique em **Painéis do cluster** para abrir a folha **Painéis do cluster** folha.  Se você não vir **Links rápidos**, clique em **visão geral** no menu à esquerda na folha.
+2. De saudação **links rápidos** seção, clique em **Cluster painéis** tooopen Olá **painéis do Cluster** folha.  Se você não vir **Links rápidos**, clique em **visão geral** no menu esquerdo de saudação na folha de saudação.
 
     ![Bloco de anotações do Jupyter no Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Bloco de anotações do Jupyter no Spark") 
 
-3. Clique em **Notebook Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
+3. Clique em **Notebook Jupyter**. Se solicitado, insira as credenciais de administrador de saudação para cluster hello.
    
    > [!NOTE]
-   > Você também pode acessar o bloco de anotações do Jupyter de seu cluster do Spark abrindo o seguinte URL no navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
+   > Você também pode acessar anotações do Jupyter Olá no cluster do Spark por Olá abrir URL a seguir em seu navegador. Substituir **CLUSTERNAME** com nome de saudação do cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
    > 
 
-3. Clique em **novo**e, em seguida, clique em **Pyspark**, **PySpark3** ou **Spark** para criar um notebook. Use o kernel Spark para aplicativos em Scala, o kernel PySpark para aplicativos em Python2 e o kernel PySpark3 para aplicativos em Python3.
+3. Clique em **novo**e, em seguida, clique em **Pyspark**, **PySpark3**, ou **Spark** toocreate um bloco de anotações. Use kernel do Spark Olá para aplicativos Scala kernel PySpark para aplicativos Python2 e PySpark3 kernel para aplicativos de Python3.
    
     ![Kernels para bloco de anotações do Jupyter no Spark](./media/hdinsight-apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels para bloco de anotações do Jupyter no Spark") 
 
-4. Um notebook é aberto com o kernel selecionado.
+4. Abre um bloco de anotações com kernel Olá selecionado.
 
-## <a name="benefits-of-using-the-kernels"></a>Benefícios de usar os kernels
+## <a name="benefits-of-using-hello-kernels"></a>Benefícios do uso de kernels Olá
 
-Estes são alguns dos benefícios de usar os novos kernels com o bloco de anotações do Jupyter nos clusters do Spark HDInsight.
+Aqui estão algumas vantagens de usar kernels novo Olá com anotações do Jupyter em clusters de HDInsight Spark.
 
-- **Contextos de predefinição**. Com os kernels **PySpark**, **PySpark3** ou **Spark**, não é necessário definir os contextos Spark ou Hive explicitamente antes de começar a trabalhar com seus aplicativos. Eles estão disponíveis para você por padrão. Esses contextos são:
+- **Contextos de predefinição**. Com **PySpark**, **PySpark3**, ou hello **Spark** kernels, você não precisa tooset Olá Spark ou Hive contextos explicitamente antes de começar a trabalhar com seus aplicativos. Eles estão disponíveis para você por padrão. Esses contextos são:
    
    * **sc** - para o contexto do Spark
    * **sqlContext** : para o contexto Hive
 
-    Portanto, você não precisa executar instruções como as seguintes para definir os contextos:
+    Portanto, você não tem instruções toorun como Olá contextos de saudação tooset a seguir:
 
         sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
 
-    Em vez disso, pode usar os contextos predefinidos diretamente em seu aplicativo.
+    Em vez disso, você pode usar diretamente Olá predefinição contextos em seu aplicativo.
 
-- **A mágica da célula**. O kernel PySpark fornece algumas “mágicas” predefinidas, que são comandos especiais que podem ser chamados com `%%` (por exemplo, `%%MAGIC` <args>). O comando mágico deve ser a primeira palavra em uma célula do código e de permitir várias linhas de conteúdo. A palavra mágica deve ser a primeira palavra na célula. Adicionar algo antes da palavra mágica, até mesmo comentários, causa um erro.     Para saber mais sobre palavras mágicas, clique [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
+- **A mágica da célula**. Olá PySpark kernel fornece algumas predefinidas "magics", que são comandos especiais que podem ser chamados com `%%` (por exemplo, `%%MAGIC` <args>). comando magic Olá deve ser a primeira palavra hello em uma célula de código e permitir várias linhas de conteúdo. palavra mágica Olá deve ser a primeira palavra hello na célula de saudação. Adicionar qualquer coisa antes magic hello, até mesmo comentários, causa um erro.     Para saber mais sobre palavras mágicas, clique [aqui](http://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
-    A tabela a seguir lista as diferentes palavras mágicas disponíveis por meio dos kernels.
+    Olá tabela a seguir lista magics diferente da saudação disponíveis por meio de kernels hello.
 
    | Mágica | Exemplo | Descrição |
    | --- | --- | --- |
-   | ajuda |`%%help` |Gera uma tabela de todos os comandos mágicos disponíveis com exemplo e descrição |
-   | informações |`%%info` |Envia informações de sessão para o ponto de extremidade Livy atual |
-   | CONFIGURAR |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) será obrigatório se uma sessão já tiver sido criada, o que garante que a sessão será descartada e recriada. Veja o [Corpo da Solicitação POST /sessions da Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Os parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na linha seguinte, logo após a mágica, conforme mostrado na coluna de exemplo. |
-   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive no dqlContext. Se o parâmetro `-o` for passado, o resultado da consulta será persistido no contexto %%local do Python como um dataframe do [Pandas](http://pandas.pydata.org/) . |
-   | local |`%%local`<br>`a=1` |Todo o código nas linhas subsequentes é executado localmente. O código deve ser um código Python2 válido, independentemente do kernel que você está usando. Portanto, mesmo se você selecionou os kernels **PySpark3** ou **Spark** ao criar o notebook, se você usar a palavra mágica `%%local` em uma célula, essa célula só poderá ter um código Python2 válido... |
-   | logs |`%%logs` |Gera os logs da sessão atual do Livy. |
-   | excluir |`%%delete -f -s <session number>` |Exclui uma sessão específica do ponto de extremidade atual do Livy. Observe que você não pode excluir a sessão iniciada para o próprio kernel. |
-   | limpeza |`%%cleanup -f` |Exclui todas as sessões do ponto de extremidade atual do Livy, incluindo a sessão deste notebook. O sinalizador de força -f é obrigatório. |
+   | ajuda |`%%help` |Gera uma tabela de todos os magics de saudação disponíveis com o exemplo e uma descrição |
+   | informações |`%%info` |Informações de sessão de saídas para o ponto de extremidade de Livy atual Olá |
+   | CONFIGURAR |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros de saudação para criar uma sessão. Olá sinalizador force (-f) é obrigatório se uma sessão já foi criada, que garante que essa sessão Olá será descartada e recriada. Veja o [Corpo da Solicitação POST /sessions da Livy](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Parâmetros devem ser passados como uma cadeia de caracteres JSON e devem estar na próxima linha de saudação após magic Olá, conforme mostrado na coluna de exemplo hello. |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta de Hive em Olá sqlContext. Se hello `-o` parâmetro for passado, o resultado de saudação de consulta de saudação é mantido no Olá % % contexto Python local como um [Pandas](http://pandas.pydata.org/) dataframe. |
+   | local |`%%local`<br>`a=1` |Todo o código Olá linhas subsequentes é executado localmente. Código deve ser o código Python2 válido mesmo independentemente do kernel Olá que você está usando. Portanto, mesmo se você selecionou **PySpark3** ou **Spark** kernels durante a criação de notebook hello, se você usar o hello `%%local` magic em uma célula, essa célula só deve ter código Python2 válido. |
+   | logs |`%%logs` |Saídas hello logs para a sessão atual de Livy hello. |
+   | excluir |`%%delete -f -s <session number>` |Exclui uma sessão específica do ponto de extremidade de Livy atual hello. Observe que você não pode excluir a sessão Olá iniciado para o kernel Olá em si. |
+   | limpeza |`%%cleanup -f` |Exclui todas as sessões de Olá Olá atual Livy ponto de extremidade, incluindo sessão deste bloco de anotações. Olá force sinalizador -f é obrigatório. |
 
    > [!NOTE]
-   > Além das mágicas adicionados pelo kernel PySpark, você também pode usar as [mágicas internas do IPython](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), incluindo `%%sh`. Você pode usar a mágica `%%sh` para executar scripts e bloco de código no nó principal do cluster.
+   > Além disso toohello magics adicionado pelo kernel de PySpark hello, você também pode usar o hello [magics internos do IPython](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), incluindo `%%sh`. Você pode usar o hello `%%sh` magic toorun scripts e blocos de código em um nó de cluster principal hello.
    >
    >
-2. **Visualização automática**. O kernel **Pyspark** visualiza automaticamente a saída das consultas Hive e SQL. Escolha entre vários tipos diferentes de visualização, incluindo Tabela, Pizza, Linha, Área, Barra.
+2. **Visualização automática**. Olá **Pyspark** kernel automaticamente visualiza a saída de saudação de consultas de Hive e SQL. Escolha entre vários tipos diferentes de visualização, incluindo Tabela, Pizza, Linha, Área, Barra.
 
-## <a name="parameters-supported-with-the-sql-magic"></a>Parâmetros compatíveis com a mágica de %%sql
-A palavra mágica `%%sql` é compatível com diversos parâmetros que podem ser usados para controlar o tipo de saída que você recebe ao executar consultas. A tabela a seguir lista as saídas.
+## <a name="parameters-supported-with-hello-sql-magic"></a>Parâmetros de suporte com hello % % mágico do sql
+Olá `%%sql` magic dá suporte a parâmetros diferentes que você pode usar o tipo de saudação do toocontrol de saída que você recebe ao executar consultas. Olá a tabela a seguir lista a saída de hello.
 
 | Parâmetro | Exemplo | Descrição |
 | --- | --- | --- |
-| -o |`-o <VARIABLE NAME>` |Use esse parâmetro para manter o resultado da consulta, no contexto Python %%local, como um dataframe [Pandas](http://pandas.pydata.org/) . O nome da variável dataframe é o nome da variável que você especificar. |
-| -q |`-q` |Use esta opção para desativar visualizações da célula. Se não desejar visualizar o conteúdo de uma célula automaticamente, mas apenas capturá-la como um dataframe, use `-q -o <VARIABLE>`. Se desejar desativar as visualizações sem capturar os resultados (por exemplo, para executar uma consulta SQL, como uma instrução `CREATE TABLE`), use `-q` sem especificar um argumento `-o`. |
-| -m |`-m <METHOD>` |Onde **METHOD** é **take** ou **sample** (o padrão é **take**). Se o método for **take**, o kernel selecionará elementos da parte superior do conjunto de dados de resultados especificado por MAXROWS (descrito posteriormente nesta tabela). Se o método for **sample**, o kernel experimentará aleatoriamente os elementos do conjunto de dados segundo o parâmetro `-r`, descrito a seguir nesta tabela. |
-| -r |`-r <FRACTION>` |Aqui **FRACTION** é um número de ponto flutuante entre 0.0 e 1.0. Se o método de amostragem para a consulta SQL for `sample`, o kernel experimentará aleatoriamente a fração especificada dos elementos do conjunto de resultados. Por exemplo, se você executar uma consulta SQL com os argumentos `-m sample -r 0.01`, 1% das linhas resultantes serão amostradas aleatoriamente. |
-| -n |`-n <MAXROWS>` |**MAXROWS** é um valor inteiro. O kernel limita o número de linhas de saída para **MAXROWS**. Se **MAXROWS** for um número negativo como **-1**, o número de linhas no conjunto de resultados não será limitado. |
+| -o |`-o <VARIABLE NAME>` |Use esse resultado parâmetro toopersist Olá Olá consulta, em Olá % % contexto Python local, como um [Pandas](http://pandas.pydata.org/) dataframe. nome de saudação da variável de dataframe de saudação é o nome de variável de saudação que você especificar. |
+| -q |`-q` |Use este tooturn desativar visualizações de célula hello. Se você não quiser tooauto-visualizar o conteúdo de saudação de uma célula e deseja apenas toocapture-lo como um dataframe, em seguida, use `-q -o <VARIABLE>`. Se você quiser tooturn desativar visualizações sem capturando Olá resultados (por exemplo, para executar uma consulta SQL, como um `CREATE TABLE` instrução), use `-q` sem especificar um `-o` argumento. |
+| -m |`-m <METHOD>` |Onde **METHOD** é **take** ou **sample** (o padrão é **take**). Se o método hello é **levar**, kernel Olá escolhe elementos da parte superior de saudação do conjunto de resultados de saudação especificado pelo MAXROWS (descrito posteriormente nesta tabela). Se o método hello é **exemplo**, kernel Olá aleatoriamente exemplos de elementos de saudação do conjunto de dados de acordo com muito`-r` parâmetro, como descrito a seguir nesta tabela. |
+| -r |`-r <FRACTION>` |Aqui **FRACTION** é um número de ponto flutuante entre 0.0 e 1.0. Se o método do exemplo hello para consulta SQL Olá é `sample`, em seguida, o kernel Olá aleatoriamente amostras de fração de saudação especificado de elementos de saudação do hello conjunto de resultados para você. Por exemplo, se você executar uma consulta SQL com argumentos Olá `-m sample -r 0.01`, em seguida, % 1 Olá de linhas de resultado são amostrados aleatoriamente. |
+| -n |`-n <MAXROWS>` |**MAXROWS** é um valor inteiro. kernel Olá limita o número de saudação de linhas de saída muito**MAXROWS**. Se **MAXROWS** é um número negativo como **-1**, em seguida, Olá número de linhas no conjunto de resultados de saudação não é limitado. |
 
 **Exemplo:**
 
     %%sql -q -m sample -r 0.1 -n 500 -o query2
     SELECT * FROM hivesampletable
 
-A instrução acima faz o seguinte:
+instrução de saudação acima Olá a seguir:
 
 * Seleciona todos os registros de **hivesampletable**.
 * Como usamos - q, ele desativa a visualização automática.
-* Como usamos `-m sample -r 0.1 -n 500` , ele recolhe um exemplo de 10% das linhas na hivesampletable aleatoriamente e limita o tamanho do conjunto de resultados a 500 linhas.
-* Por fim, como usamos `-o query2` , ele também salva a saída em um dataframe chamado **query2**.
+* Porque usamos `-m sample -r 0.1 -n 500` -amostras de 10% das linhas Olá Olá hivesampletable aleatoriamente e Olá de limites de tamanho de linhas de too500 do conjunto de resultados de saudação.
+* Por fim, porque usamos `-o query2` saída Olá também salva em um dataframe chamado **consulta2**.
 
-## <a name="considerations-while-using-the-new-kernels"></a>Considerações ao usar os novos kernels
+## <a name="considerations-while-using-hello-new-kernels"></a>Considerações ao usar o hello kernels novo
 
-Seja qual for o kernel usado, deixar os notebooks em execução consumirá os recursos de cluster.  Com esses kernels, como os contextos são predefinidos, simplesmente sair dos notebooks não elimina o contexto e, portanto, os recursos do cluster continuam em uso. Uma prática recomendada é usar a opção **Fechar e Interromper** do menu **Arquivo** do notebook quando você terminar de usar o notebook, o que elimina o contexto e sai do notebook.     
+Seja qual for o kernel usar, deixar notebooks Olá com consome recursos de cluster de saudação.  Com esses kernels, porque os contextos de saudação são predefinidos, simplesmente sair notebooks Olá não kill contexto hello e, portanto, os recursos de cluster Olá continuam toobe em uso. Uma prática recomendada é Olá toouse **fechar e interromper** opção a partir do bloco de anotações Olá **arquivo** menu quando terminar de usar notebook hello, o que elimina o contexto de saudação e, em seguida, sai Olá notebook.     
 
 ## <a name="show-me-some-examples"></a>Mostre-me alguns exemplos
 
-Quando você abrir um notebook Jupyter, verá duas pastas disponíveis no nível raiz.
+Quando você abre um bloco de anotações do Jupyter, verá duas pastas disponíveis no nível raiz de saudação.
 
-* A pasta **PySpark** tem notebooks de amostra que usam o novo kernel do **Python**.
-* A pasta **Scala** tem notebooks de amostra que usam o novo kernel do **Spark**.
+* Olá **PySpark** pasta tiver blocos de anotações do exemplo hello que use novo **Python** kernel.
+* Olá **Scala** pasta tiver blocos de anotações do exemplo hello que use novo **Spark** kernel.
 
-Você pode abrir o notebook **00 - [READ ME FIRST] Spark Magic Kernel Features** na pasta **PySpark** ou **Spark** para saber mais sobre as diferentes mágicas disponíveis. Você também pode usar outros notebooks de exemplo disponíveis nas duas pastas para saber como obter diferentes cenários usando notebooks Jupyter com clusters Spark HDInsight.
+Você pode abrir Olá **00 - [LEIA-ME primeiro] recursos de Kernel do Spark Magic** notebook de saudação **PySpark** ou **Spark** toolearn pasta sobre magics diferente da saudação disponíveis. Você também pode usar Olá outros blocos de anotações do exemplo disponíveis em Olá duas pastas toolearn como tooachieve diferentes cenários de uso de anotações do Jupyter com clusters de HDInsight Spark.
 
-## <a name="where-are-the-notebooks-stored"></a>Onde os blocos de anotações são armazenados?
+## <a name="where-are-hello-notebooks-stored"></a>Onde estão armazenados os blocos de anotações Olá?
 
-Os notebooks Jupyter são salvos na conta de armazenamento associada ao cluster na pasta **/HdiNotebooks** .  Os notebooks, arquivos de texto e pastas que você cria no Jupyter podem ser acessados na conta de armazenamento.  Por exemplo, se você usar o Jupyter para criar uma pasta **myfolder** e um notebook **myfolder/mynotebook.ipynb**, poderá acessar esse notebook em `/HdiNotebooks/myfolder/mynotebook.ipynb` dentro da conta de armazenamento.  O inverso também é possível, ou seja, se você carregar um notebook diretamente em sua conta de armazenamento em `/HdiNotebooks/mynotebook1.ipynb`, ele também ficará visível no Jupyter.  Os logs são mantidos na conta de armazenamento mesmo após a exclusão do cluster.
+Blocos de anotações do Jupyter são salvos toohello conta de armazenamento associada Olá cluster em Olá **/HdiNotebooks** pasta.  Blocos de anotações, arquivos de texto e pastas que você criar no Jupyter são acessíveis Olá da conta de armazenamento.  Por exemplo, se você usar uma pasta de toocreate de Jupyter **minhapasta** e um bloco de anotações **myfolder/mynotebook.ipynb**, você pode acessar esse bloco no `/HdiNotebooks/myfolder/mynotebook.ipynb` na conta de armazenamento hello.  Olá inverso também é verdadeiro, ou seja, se você carregar um bloco de anotações diretamente a conta de armazenamento tooyour em `/HdiNotebooks/mynotebook1.ipynb`, notebook Olá também é visível do Jupyter.  Blocos de anotações permanecem na conta de armazenamento Olá mesmo após Olá cluster é excluído.
 
-A forma como os blocos de anotações são salvos na conta de armazenamento é compatível com HDFS. Portanto, se você se conectar por SSH ao cluster, poderá usar comandos de gerenciamento de arquivos, como mostra o trecho a seguir:
+modo de Olá anotações são salvas toohello conta de armazenamento é compatível com o HDFS. Portanto, se você SSH em cluster Olá que você pode usar comandos de gerenciamento de arquivos conforme Olá trecho de código a seguir:
 
-    hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
-    hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
-    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
+    hdfs dfs -ls /HdiNotebooks                               # List everything at hello root directory – everything in this directory is visible tooJupyter from hello home page
+    hdfs dfs –copyToLocal /HdiNotebooks                    # Download hello contents of hello HdiNotebooks folder
+    hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb toohello root folder so it’s visible from Jupyter
 
 
-Caso haja problemas para acessar a conta de armazenamento do cluster, os notebooks também são salvos no `/var/lib/jupyter`do nó principal.
+Caso haja problemas para acessar a conta de armazenamento Olá para cluster hello, notebooks Olá também são salvas em um nó principal do hello `/var/lib/jupyter`.
 
 ## <a name="supported-browser"></a>Navegador com suporte
 
 Os blocos de anotações do Jupyter em clusters do Spark HDInsight só têm suporte no Google Chrome.
 
 ## <a name="feedback"></a>Comentários
-Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode significar que as APIs podem mudar à medida que esses kernels amadurecem. Agradecemos o envio quaisquer comentários que você tenha ao usar esses novos kernels. Isso é muito útil na formação da versão final desses kernels. Você pode deixar seus comentários/feedback na seção **Comentários** no final deste artigo.
+kernels novo Olá estão em evolução estágio e serão amadurecer ao longo do tempo. Isso também pode significar que as APIs podem mudar à medida que esses kernels amadurecem. Agradecemos o envio quaisquer comentários que você tenha ao usar esses novos kernels. Isso é útil na versão final de saudação desses kernels de formatação. Você pode deixar seus comentários/comentários em Olá **comentários** seção Olá final deste artigo.
 
 ## <a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -158,7 +158,7 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark com o aprendizado de máquina: Use Spark nos resultados de inspeção de alimentos HDInsight toopredict](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -167,12 +167,12 @@ Os kernels novos estão evoluindo e amadurecerão com o tempo. Isso também pode
 * [Executar trabalhos remotamente em um cluster do Spark usando Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Use o Plug-in de Ferramentas do HDInsight para IntelliJ IDEA para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Usar o plug-in de Ferramentas do HDInsight para depurar aplicativos Spark remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Usar o plug-in de ferramentas de HDInsight para toocreate IntelliJ IDEIA e enviar Spark Scala aplicativos](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Usar o plug-in de ferramentas de HDInsight para aplicativos de Spark toodebug IntelliJ IDEIA remotamente](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Instalar o Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Instalar Jupyter em seu computador e conecte-se tooan cluster HDInsight Spark](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Gerenciar recursos
-* [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Gerenciar os recursos de cluster do hello Apache Spark no HDInsight do Azure](hdinsight-apache-spark-resource-manager.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)

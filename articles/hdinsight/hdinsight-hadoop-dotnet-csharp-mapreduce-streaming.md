@@ -1,6 +1,6 @@
 ---
-title: "Usar C# com MapReduce no Hadoop no HDInsight – Azure | Microsoft Docs"
-description: "Saiba como usar C# para criar soluções de MapReduce com Hadoop no Azure HDInsight."
+title: aaaUse c# com MapReduce no Hadoop no HDInsight - Azure | Microsoft Docs
+description: "Saiba como toouse c# toocreate MapReduce soluções com Hadoop no HDInsight do Azure."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,52 +16,52 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: adb454e56378a800c671614735aec78b6851aeb2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: dd8b684e74155bc1a37d4ab8d6f9033276ef5aa3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Use C# com streaming de MapReduce no Hadoop no HDInsight
 
-Saiba como usar C# para criar uma solução de MapReduce no HDInsight.
+Saiba como toouse c# toocreate uma solução de MapReduce no HDInsight.
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md).
+> Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md).
 
-Hadoop Streaming é um utilitário que permite que você execute trabalhos MapReduce usando um script ou executável. Neste exemplo, o .NET é usado para implementar o mapeador e Redutor de uma solução de contagem de palavras.
+Transmissão do Hadoop é um utilitário que permite que os trabalhos de MapReduce toorun usando um script ou executável. Neste exemplo, o .NET é usado tooimplement Olá mapeador e Redutor para uma solução de contagem de palavras.
 
 ## <a name="net-on-hdinsight"></a>.NET no HDInsight
 
-Clusters do __HDInsight baseado em Linux__ usam [Mono (https://mono-project.com)](https://mono-project.com) para executar aplicativos .NET. O Mono versão 4.2.1 está incluído no HDInsight versão 3.5. Para obter mais informações sobre a versão de Mono incluída com o HDInsight, consulte [Versão de componente do HDInsight](hdinsight-component-versioning.md). Para usar uma versão específica do Mono, consulte o documento [Instalar ou atualizar](hdinsight-hadoop-install-mono.md).
+__HDInsight baseados em Linux__ clusters use [Mono (https://mono-project.com)](https://mono-project.com) toorun aplicativos de .NET. O Mono versão 4.2.1 está incluído no HDInsight versão 3.5. Para obter mais informações sobre a versão de saudação do Mono incluído no HDInsight, consulte [versões de componente do HDInsight](hdinsight-component-versioning.md). toouse uma versão específica do Mono, consulte Olá [instalação ou atualização Mono](hdinsight-hadoop-install-mono.md) documento.
 
 Para obter mais informações sobre compatibilidade de Mono com versões do .NET Framework, consulte [Compatibilidade de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
 ## <a name="how-hadoop-streaming-works"></a>Como funciona o Hadoop Streaming
 
-O processo básico usado para streaming neste documento é o seguinte:
+Olá basic processo usado para streaming neste documento é o seguinte:
 
-1. O Hadoop passa dados para o mapeador (mapper.exe neste exemplo) no STDIN.
-2. O mapeador processa os dados e emite pares de chave/valor delimitados por tabulação para STDOUT.
-3. A saída é lida pelo Hadoop e, em seguida, passada para o redutor (reducer.exe neste exemplo) no STDIN.
-4. O redutor lê os pares de chave/valor delimitados por tabulação, processa os dados e, em seguida, emite o resultado como pares de chave/valor delimitados por tabulação no STDOUT.
-5. A saída é lido pelo Hadoop e gravada no diretório de saída.
+1. Hadoop passa STDIN mapeador de dados de toohello (mapper.exe neste exemplo).
+2. Mapeador de saudação processa dados hello e emite tooSTDOUT de pares chave/valor delimitado por tabulação.
+3. saída de Hello é lido pelo Hadoop e encaminhada toohello Redutor (reducer.exe neste exemplo) STDIN.
+4. Redutor Olá lê pares de chave/valor Olá delimitado por tabulação, processa dados hello e, em seguida, emite resultados hello como pares de chave/valor delimitado por tabulação em STDOUT.
+5. saída de Hello lidos por Hadoop e gravada toohello diretório de saída.
 
 Para obter mais informações sobre streaming, consulte [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Familiaridade com gravação e compilação de código em C# que se destina ao .NET Framework 4.5. As etapas neste tutorial usam o Visual Studio 2017.
+* Familiaridade com gravação e compilação de código em C# que se destina ao .NET Framework 4.5. Olá as etapas neste documento utilizarem 2017 do Visual Studio.
 
-* Uma forma de carregar arquivos .exe no cluster. As etapas neste documento usam o Data Lake Tools para Visual Studio para carregar os arquivos no armazenamento primário do cluster.
+* Uma maneira tooupload .exe arquivos toohello cluster. Olá etapas deste documento usam Olá Data Lake Tools para Visual Studio tooupload Olá arquivos tooprimary armazenamento Olá cluster.
 
 * Azure PowerShell ou um cliente SSH.
 
 * Um Hadoop no cluster do HDInsight. Para obter mais informações sobre como criar um cluster, consulte [Criar um cluster do HDInsight](hdinsight-provision-clusters.md).
 
-## <a name="create-the-mapper"></a>Criar o mapeador
+## <a name="create-hello-mapper"></a>Criar mapeador Olá
 
-No Visual Studio, crie um novo __aplicativo de console__ chamado __mapeador__. Use o seguinte código para o aplicativo:
+No Visual Studio, crie um novo __aplicativo de console__ chamado __mapeador__. Use Olá código para o aplicativo hello a seguir:
 
 ```csharp
 using System;
@@ -74,14 +74,14 @@ namespace mapper
         static void Main(string[] args)
         {
             string line;
-            //Hadoop passes data to the mapper on STDIN
+            //Hadoop passes data toohello mapper on STDIN
             while((line = Console.ReadLine()) != null)
             {
                 // We only want words, so strip out punctuation, numbers, etc.
                 var onlyText = Regex.Replace(line, @"\.|;|:|,|[0-9]|'", "");
                 // Split at whitespace.
                 var words = Regex.Matches(onlyText, @"[\w]+");
-                // Loop over the words
+                // Loop over hello words
                 foreach(var word in words)
                 {
                     //Emit tab-delimited key/value pairs.
@@ -94,11 +94,11 @@ namespace mapper
 }
 ```
 
-Depois de criar o aplicativo, compile-o para produzir o arquivo `/bin/Debug/mapper.exe` no diretório do projeto.
+Depois de criar o aplicativo hello, compile-Olá tooproduce `/bin/Debug/mapper.exe` arquivo no diretório de projeto hello.
 
-## <a name="create-the-reducer"></a>Criar o redutor
+## <a name="create-hello-reducer"></a>Criar Redutor Olá
 
-No Visual Studio, crie um novo __Aplicativo de console__ chamado __redutor__. Use o seguinte código para o aplicativo:
+No Visual Studio, crie um novo __Aplicativo de console__ chamado __redutor__. Use Olá código para o aplicativo hello a seguir:
 
 ```csharp
 using System;
@@ -119,19 +119,19 @@ namespace reducer
             {
                 // Data from Hadoop is tab-delimited key/value pairs
                 var sArr = line.Split('\t');
-                // Get the word
+                // Get hello word
                 string word = sArr[0];
-                // Get the count
+                // Get hello count
                 int count = Convert.ToInt32(sArr[1]);
 
-                //Do we already have a count for the word?
+                //Do we already have a count for hello word?
                 if(words.ContainsKey(word))
                 {
-                    //If so, increment the count
+                    //If so, increment hello count
                     words[word] += count;
                 } else
                 {
-                    //Add the key to the collection
+                    //Add hello key toohello collection
                     words.Add(word, count);
                 }
             }
@@ -147,9 +147,9 @@ namespace reducer
 }
 ```
 
-Depois de criar o aplicativo, compile-o para produzir o arquivo `/bin/Debug/reducer.exe` no diretório do projeto.
+Depois de criar o aplicativo hello, compile-Olá tooproduce `/bin/Debug/reducer.exe` arquivo no diretório de projeto hello.
 
-## <a name="upload-to-storage"></a>Carregar para o armazenamento
+## <a name="upload-toostorage"></a>Carregar toostorage
 
 1. No Visual Studio, abra **Gerenciador de Servidores**.
 
@@ -157,29 +157,29 @@ Depois de criar o aplicativo, compile-o para produzir o arquivo `/bin/Debug/redu
 
 3. Se solicitado, insira suas credenciais de assinatura do Azure e, em seguida, clique em **Entrar**.
 
-4. Expanda o cluster HDInsight no qual você deseja implantar esse aplicativo. Uma entrada com o texto __(Conta de armazenamento padrão)__ é listada.
+4. Expanda o cluster de HDInsight de saudação que você deseja toodeploy este aplicativo. Uma entrada com o texto de saudação __(conta de armazenamento padrão)__ está listado.
 
-    ![Gerenciador de Servidores mostrando a conta de armazenamento para o cluster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![Mostrando conta de armazenamento Olá para cluster de saudação do Gerenciador de servidores](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-    * Se essa entrada puder ser expandida, você estará usando uma __Conta de Armazenamento do Azure__ como armazenamento padrão do cluster. Para exibir os arquivos no armazenamento padrão para o cluster, expanda a entrada e clique duas vezes no __(Contêiner Padrão)__.
+    * Se essa entrada pode ser expandida, você está usando um __conta de armazenamento do Azure__ como armazenamento padrão para o cluster de saudação. arquivos de saudação tooview no armazenamento padrão da saudação para cluster hello, expanda a entrada hello e clique duas vezes Olá __(contêiner padrão)__.
 
-    * Se essa entrada não puder ser expandida, você estará usando __Azure Data Lake Store__ como o armazenamento padrão do cluster. Para exibir os arquivos no armazenamento padrão do cluster, clique duas vezes na entrada __(Conta de Armazenamento Padrão)__.
+    * Se essa entrada não pode ser expandida, você está usando __repositório Azure Data Lake__ como armazenamento de padrão de saudação para cluster hello. arquivos de saudação tooview no armazenamento padrão da saudação para cluster hello, clique duas vezes em Olá __(conta de armazenamento padrão)__ entrada.
 
-5. Para carregar os arquivos .exe, use um dos seguintes métodos:
+5. arquivos de .exe do tooupload Olá, use um dos métodos a seguir de saudação:
 
-    * Se estiver usando uma __Conta de Armazenamento do Azure__, clique no ícone de upload e, em seguida, navegue até a pasta **bin\debug** do projeto **mapeador**. Por fim, selecione o arquivo **mapper.exe** e clique em **Ok**.
+    * Se usar um __conta de armazenamento do Azure__, clique ícone de carregamento Olá e, em seguida, procure toohello **bin\debug** pasta Olá **mapeador** projeto. Por fim, selecione Olá **mapper.exe** de arquivo e clique em **Okey**.
 
         ![ícone de carregamento](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Se estiver usando o __Azure Data Lake Store__, clique com o botão direito do mouse em uma área vazia na listagem de arquivos e, em seguida, selecione __Carregar__. Por fim, selecione o arquivo **mapper.exe** e clique em **Abrir**.
+    * Se usar __repositório Azure Data Lake__, uma área vazia na listagem de arquivo hello e, em seguida, selecione __carregar__. Por fim, selecione Olá **mapper.exe** de arquivo e clique em **abrir**.
 
-    Após o __mapper.exe__ cser carregado, repita o processo de upload para o arquivo __reducer.exe__.
+    Uma vez Olá __mapper.exe__ carregamento for concluída, o processo de carregamento de repetição Olá para Olá __reducer.exe__ arquivo.
 
 ## <a name="run-a-job-using-an-ssh-session"></a>Executar um trabalho: usando uma sessão SSH
 
-1. Use o SSH para conectar ao cluster HDInsight. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Use SSH tooconnect toohello HDInsight cluster. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Use um dos seguintes comandos para iniciar o trabalho MapReduce:
+2. Use uma saudação trabalho MapReduce do comando toostart Olá a seguir:
 
     * Se estiver usando o __Data Lake Store__ como armazenamento padrão:
 
@@ -193,22 +193,22 @@ Depois de criar o aplicativo, compile-o para produzir o arquivo `/bin/Debug/redu
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files wasb:///mapper.exe,wasb:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
         ```
 
-    A lista a seguir descreve o que cada parâmetro faz:
+    Olá lista a seguir descreve o que faz cada parâmetro:
 
-    * `hadoop-streaming.jar`: o arquivo jar que contém a funcionalidade MapReduce de streaming.
-    * `-files`: adiciona os arquivos `mapper.exe` e `reducer.exe` a esse trabalho. O `adl:///` ou `wasb:///` antes de cada arquivo é o caminho para a raiz do armazenamento padrão do cluster.
-    * `-mapper`: especifica qual arquivo implementa o mapeador.
-    * `-reducer`: especifica qual arquivo implementa o redutor.
-    * `-input`: os dados de entrada.
-    * `-output`: o diretório de saída.
+    * `hadoop-streaming.jar`: arquivo jar Olá que contém Olá MapReduce funcionalidade de streaming.
+    * `-files`: Adiciona Olá `mapper.exe` e `reducer.exe` trabalho toothis de arquivos. Olá `adl:///` ou `wasb:///` antes de cada arquivo é toohello raiz do caminho do hello de armazenamento padrão para o cluster de saudação.
+    * `-mapper`: Especifica qual arquivo implementa mapeador de saudação.
+    * `-reducer`: Especifica qual arquivo implementa Redutor hello.
+    * `-input`: dados de entrada hello.
+    * `-output`: diretório de saída de hello.
 
-3. Após a conclusão do trabalho MapReduce, use o seguinte para exibir os resultados:
+3. Após a conclusão do trabalho de MapReduce hello, use Olá resultados de saudação tooview a seguir:
 
     ```bash
     hdfs dfs -text /example/wordcountout/part-00000
     ```
 
-    A seguinte lista é um exemplo dos dados retornados pelos comandos anteriores:
+    Olá, texto a seguir é um exemplo de dados de saudação retornados por este comando:
 
         you     1128
         young   38
@@ -222,11 +222,11 @@ Depois de criar o aplicativo, compile-o para produzir o arquivo `/bin/Debug/redu
 
 ## <a name="run-a-job-using-powershell"></a>Executar um trabalho: usando o PowerShell
 
-Use o seguinte script de PowerShell para executar um trabalho MapReduce e baixar os resultados.
+Usar Olá toorun de script do PowerShell um trabalho MapReduce a seguir e baixar os resultados de saudação.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Esse script solicita nome e senha da conta de logon do cluster, juntamente com o nome do cluster HDInsight. Após a conclusão do trabalho, o resultado será baixado no arquivo `output.txt` no diretório em que o script foi executado. O seguinte texto é um exemplo dos dados no arquivo `output.txt`:
+Esse script solicita nome de conta de logon de cluster hello e a senha, juntamente com o nome do cluster HDInsight hello. Após a conclusão do trabalho hello, saída de hello é baixado toohello `output.txt` arquivo no script de saudação do diretório Olá é executado de. Olá, texto a seguir é um exemplo de dados Olá Olá `output.txt` arquivo:
 
     you     1128
     young   38

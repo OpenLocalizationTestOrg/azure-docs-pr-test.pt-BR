@@ -1,6 +1,6 @@
 ---
-title: "Configurar modo de distribuição do Balanceador de Carga | Microsoft Docs"
-description: "Como configurar o modo de distribuição do balanceador de carga do Azure para dar suporte à afinidade de IP de origem"
+title: "modo de distribuição do balanceador de carga aaaConfigure | Microsoft Docs"
+description: "Como tooconfigure Azure carregar afinidade IP de origem do balanceador distribuição modo toosupport"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.openlocfilehash: 4cb000c8ee1bb2e267dc0813dab23a77a46080ce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e745240b733ffc07928d8ed0ae097785ad4f412e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-the-distribution-mode-for-load-balancer"></a>Configurar modo de distribuição para o balanceador de carga
+# <a name="configure-hello-distribution-mode-for-load-balancer"></a>Configurar o modo de distribuição Olá balanceador de carga
 
 ## <a name="hash-based-distribution-mode"></a>Modo de distribuição baseado em hash
 
-O algoritmo de distribuição padrão é um hash de 5 tuplas (IP de origem, porta de origem, IP de destino, porta de destino, tipo de protocolo) para mapear o tráfego até os servidores disponíveis. Ele fornece permanência somente dentro de uma sessão de transporte. Os pacotes na mesma sessão serão direcionados para a mesma instância do DIP (IP de Datacenter) atrás do ponto de extremidade com balanceamento de carga. Quando o cliente inicia uma nova sessão por meio do mesmo IP de origem, a porta de origem é alterada e faz com que o tráfego vá para um ponto de extremidade DIP diferente.
+algoritmo de distribuição de padrão de saudação é uma tupla 5 (fonte de IP, porta de origem, IP de destino, porta de destino, o tipo de protocolo) servidores de tooavailable toomap tráfego de hash. Ele fornece permanência somente dentro de uma sessão de transporte. Pacotes de saudação mesma sessão será direcionado toohello instância mesmo datacenter IP (DIP) por trás do ponto de extremidade de balanceamento de carga de saudação. Quando Olá cliente inicia uma nova sessão de Olá mesmo IP de origem, porta de origem Olá altera e faz com que o hello tráfego toogo tooa DIP ponto de extremidade diferente.
 
 ![balanceador de carga baseado em hash](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
@@ -31,37 +31,37 @@ Figura 1 – Distribuição das 5 tuplas
 
 ## <a name="source-ip-affinity-mode"></a>Modo de afinidade de IP de origem
 
-Temos outro modo de distribuição chamado Afinidade de IP de origem (também conhecido como afinidade de sessão ou afinidade de IP do cliente). O Azure Load Balancer pode ser configurado para usar 2 tuplas (IP de origem, IP de destino) ou 3 tuplas (IP de origem, IP de destino, Protocolo) para mapear o tráfego até os servidores disponíveis. Ao usar a afinidade de IP de origem, as conexões iniciadas no mesmo computador cliente vão para o mesmo ponto de extremidade DIP.
+Temos outro modo de distribuição chamado Afinidade de IP de origem (também conhecido como afinidade de sessão ou afinidade de IP do cliente). O balanceador de carga do Azure pode ser configurado toouse uma tupla de 2 (IP de origem, IP de destino) ou (protocolo IP de origem, IP de destino) de tupla de 3 toomap tráfego toohello os servidores disponíveis. Usando a afinidade de IP de origem, conexões iniciadas da saudação mesmo computador cliente vai toohello mesmo ponto de extremidade DIP.
 
-O diagrama a seguir ilustra uma configuração de 2 tuplas. Observe como a tupla 2 é executada por meio do balanceador de carga para a VM1 (máquina virtual 1) cujo backup é feito pela VM2 e pela VM3.
+Olá diagrama a seguir ilustra uma configuração de 2 tuplas. Observe como tupla de 2 Olá Olá carga balanceador toovirtual máquina 1 (VM1) que é feita backup da VM2 e VM3 executa.
 
 ![afinidade de sessão](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
 Figura 2 – Distribuição das 2 tuplas
 
-A afinidade de IP de origem resolve uma incompatibilidade entre o Azure Load Balancer e o Gateway RD (Área de Trabalho Remota). Agora é possível criar um farm de gateway de Área de Trabalho Remota em um único serviço de nuvem.
+Afinidade IP de origem resolve uma incompatibilidade entre o Gateway de área de trabalho remota (RD) e Olá balanceador de carga do Azure. Agora é possível criar um farm de gateway de Área de Trabalho Remota em um único serviço de nuvem.
 
-Outro cenário de caso de uso é o upload de mídia em que o upload de dados ocorre por meio de UDP, mas o plano de controle é obtido por meio de TCP:
+Outro cenário de caso de uso é o carregamento de mídia onde Olá carregamento de dados ocorre através de UDP, mas o plano de controle Olá é obtido por meio de TCP:
 
-* Primeiro, um cliente inicia uma sessão TCP com o endereço público do balanceamento de carga e é direcionado para um DIP específico; esse canal permanece ativo para monitorar a integridade da conexão
-* Uma nova sessão UDP no mesmo computador cliente é iniciada para o mesmo ponto de extremidade público de balanceamento de carga. A expectativa aqui é que essa conexão seja também direcionada para o mesmo ponto de extremidade DIP que a conexão TCP anterior, para que o carregamento da mídia possa ser executado em alta taxa de transferência enquanto mantém um canal de controle pelo TCP.
+* Um cliente inicia uma sessão TCP endereço público com balanceamento de carga de toohello primeiro, obtém tooa direcionado DIP específico, esse canal é integridade de conexão Olá esquerdo toomonitor active
+* Uma nova sessão UDP de saudação mesmo computador cliente é iniciado toohello ponto de extremidade público com balanceamento de carga de mesma, a expectativa de saudação aqui é que essa conexão também é direcionado toohello mesmo ponto de extremidade DIP como conexão de TCP anterior Olá para que o carregamento de mídia pode ser executado com alta taxa de transferência enquanto também mantém um canal de controle por meio de TCP.
 
 > [!NOTE]
-> Quando um conjunto de balanceamento de carga for alterado (removendo ou adicionando uma máquina virtual), a distribuição de solicitações de cliente será recalculada. Não é possível depender de novas conexões de clientes existentes que terminam no mesmo servidor. Além disso, o uso do modo de distribuição de afinidade do IP de origem pode causar uma distribuição desigual de tráfego. Clientes que executam proxies subjacentes podem ser vistos como um aplicativo cliente exclusivo.
+> Quando um conjunto de balanceamento de carga é alterado (remoção ou adição de uma máquina virtual), distribuição de saudação de solicitações de cliente é recalculada. Você não pode depender de novas conexões de clientes existentes que terminam em Olá mesmo servidor. Além disso, o uso do modo de distribuição de afinidade do IP de origem pode causar uma distribuição desigual de tráfego. Clientes que executam proxies subjacentes podem ser vistos como um aplicativo cliente exclusivo.
 
 ## <a name="configuring-source-ip-affinity-settings-for-load-balancer"></a>Definindo configurações de afinidade de IP de origem para o balanceador de carga
 
-Para máquinas virtuais, é possível usar o PowerShell para alterar as configurações de tempo limite:
+Para máquinas virtuais, você pode usar as configurações de tempo limite de toochange do PowerShell:
 
-Adicione um ponto de extremidade do Azure a uma máquina virtual e defina o modo de distribuição do balanceador de carga
+Adicionar uma máquina Virtual de tooa do ponto de extremidade do Azure e definir o modo de distribuição do balanceador de carga
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-O LoadBalancerDistribution poderá ser definido como sourceIP para balanceamento de carga de 2 tuplas (IP de origem, IP de destino), sourceIPProtocol para balanceamento de carga de 3 tuplas (IP de destino, IP de origem, protocolo) ou nenhum se você quiser o comportamento padrão de balanceamento de carga de 5 tuplas.
+LoadBalancerDistribution pode ser definido toosourceIP 2 tuplas (IP de origem, IP de destino) para balanceamento de carga, sourceIPProtocol para balanceamento de carga de tupla de 3 (protocolo IP de origem, IP de destino), ou nenhum se desejar que o comportamento padrão de saudação do balanceamento de carga de 5 tuplas.
 
-Use o seguinte para recuperar uma configuração de modo de distribuição do balanceador de carga do ponto de extremidade:
+Use Olá tooretrieve uma configuração de modo de distribuição do balanceador de carga do ponto de extremidade a seguir:
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -83,19 +83,19 @@ Use o seguinte para recuperar uma configuração de modo de distribuição do ba
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Se o elemento LoadBalancerDistribution não estiver presente, o balanceador de carga do Azure usará o algoritmo padrão de tupla 5.
+Se Olá LoadBalancerDistribution elemento não estiver presente balanceador de carga do Azure Olá usa o algoritmo de 5 tuplas saudação padrão.
 
-### <a name="set-the-distribution-mode-on-a-load-balanced-endpoint-set"></a>Defina o modo de distribuição em um conjunto de pontos de extremidade com balanceamento de carga
+### <a name="set-hello-distribution-mode-on-a-load-balanced-endpoint-set"></a>Definir o modo de distribuição de saudação em um conjunto de ponto de extremidade com balanceamento de carga
 
-Se os pontos de extremidade forem parte de um conjunto de pontos de extremidade de balanceamento de carga, o modo de distribuição deverá ser definido no conjunto de pontos de extremidade de balanceamento de carga:
+Se os pontos de extremidade são parte de um conjunto de ponto de extremidade com balanceamento de carga, o modo de distribuição Olá deve ser definido no conjunto de ponto de extremidade com balanceamento de carga hello:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### <a name="cloud-service-configuration-to-change-distribution-mode"></a>Configuração de serviço de nuvem para alterar o modo de distribuição
+### <a name="cloud-service-configuration-toochange-distribution-mode"></a>Modo de distribuição de toochange de configuração de serviço de nuvem
 
-É possível aproveitar o SDK do Azure para .NET 2.5 (a ser lançado em novembro) para atualizar seu serviço de nuvem. Configurações de ponto de extremidade para serviços de nuvem são feitas na. csdef. Para atualizar o modo de distribuição do balanceador de carga para uma implantação de serviços de nuvem, é necessária uma atualização da implantação.
+Você pode aproveitar hello Azure SDK para .NET 2.5 (toobe lançada em novembro) tooupdate seu serviço de nuvem. Configurações de ponto de extremidade para serviços de nuvem são feitas no. csdef de saudação. Em ordem tooupdate Olá carga balanceador modo de distribuição para uma implantação de serviços de nuvem, é necessária uma atualização de implantação.
 Aqui está um exemplo de alterações .csdef para configurações do ponto de extremidade:
 
 ```xml
@@ -118,9 +118,9 @@ Aqui está um exemplo de alterações .csdef para configurações do ponto de ex
 
 ## <a name="api-example"></a>Exemplo de API
 
-Você pode configurar a distribuição do balanceador de carga usando a API de gerenciamento de serviços. Certifique-se de adicionar o cabeçalho `x-ms-version` definido como a versão `2014-09-01` ou superior.
+Você pode configurar a distribuição de Balanceador de carga hello usando a API de gerenciamento do serviço de saudação. Verifique se Olá de tooadd `x-ms-version` cabeçalho é definido tooversion `2014-09-01` ou superior.
 
-### <a name="update-the-configuration-of-the-specified-load-balanced-set-in-a-deployment"></a>Atualize a configuração do conjunto de balanceamento de carga especificado em uma implantação
+### <a name="update-hello-configuration-of-hello-specified-load-balanced-set-in-a-deployment"></a>Atualizar o conjunto de configuração de saudação especificada com balanceamento de carga de saudação em uma implantação
 
 #### <a name="request-example"></a>Exemplo de solicitação
 
@@ -145,7 +145,7 @@ Você pode configurar a distribuição do balanceador de carga usando a API de g
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-O valor de LoadBalancerDistribution pode ser sourceIP para afinidade de 2 tuplas, sourceIPProtocol para afinidade de 3 tuplas ou nenhum (para nenhuma afinidade. por exemplo, 5 tuplas)
+valor de saudação do LoadBalancerDistribution pode ser sourceIP para afinidade de tupla de 2, sourceIPProtocol para afinidade de tupla de 3 ou none (nenhuma afinidade de. por exemplo, 5 tuplas)
 
 #### <a name="response"></a>Response
 

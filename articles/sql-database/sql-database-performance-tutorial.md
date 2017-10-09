@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de desempenho e otimizar seu banco de dados | Microsoft Docs
-description: "Aplicar recomendações de desempenho para o banco de dados SQL, bem como aprender a obter informações sobre o desempenho das consultas em execução no seu banco de dados"
+title: desempenho aaaTroubleshoot problemas e otimizar seu banco de dados | Microsoft Docs
+description: "Aplicar as recomendações de desempenho tooyour banco de dados SQL, bem como limpar como toogain insights sobre Olá desempenho das consultas de saudação em execução no banco de dados"
 metakeywords: azure sql database performance monitoring recommendation
 services: sql-database
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: janeng
-ms.openlocfilehash: f9ae96cdc80c347593f229cb2fce3f2d4d8e7caf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e948d30ac74eecf45420d5d77ef55e3c0b6f3f47
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-performance-issues-and-optimize-your-database"></a>Solucionar problemas de desempenho e otimizar seu banco de dados
 
@@ -29,50 +29,50 @@ ms.lasthandoff: 07/11/2017
 > * Localizar consultas com alta utilização de recursos
 > * Localizar consultas de longa execução
 
-> Você precisa de uma carga de trabalho contínua em um banco de dados com problemas de desempenho – por exemplo, para receber uma recomendação de índice ausente.
+> Você precisa de uma carga de trabalho contínua no banco de dados com problemas de desempenho – um tooreceive por exemplo uma recomendação de índice ausente.
 >
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="log-in-toohello-azure-portal"></a>Faça logon no toohello portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Faça logon no toohello [portal do Azure](https://portal.azure.com/).
 
 ## <a name="review-and-apply-a-recommendation"></a>Examinar e aplicar uma recomendação
 
-Siga estas etapas para aplicar uma recomendação do sistema ao banco de dados:
+Siga essas etapas tooapply uma recomendação do sistema de saudação do banco de dados:
 
-1. Clique no menu **Recomendações de desempenho** na folha do banco de dados.
+1. Clique em Olá **recomendações de desempenho** menu na folha do banco de dados de saudação.
 
     ![recomendação de desempenho](./media/sql-database-performance-tutorial/perf_recommendations.png)
 
-2. Na lista de recomendações, selecione uma recomendação ativa. Neste exemplo, Create Index.
+2. Na lista de saudação de recomendações, selecione uma recomendação de ativa. Neste exemplo, Create Index.
 
     ![selecionar recomendação](./media/sql-database-performance-tutorial/create_index.png)
 
-3. Aplique a recomendação clicando no botão **Aplicar**. Opcionalmente, examine os detalhes de recomendação e veja o script T-SQL a ser executado clicando no botão **Exibir Script**.
+3. Aplicar a recomendação de saudação clicando Olá **aplicar** botão. Opcionalmente, revise os detalhes de recomendação de saudação e consulte o script hello T-SQL muito a ser executado, basta clicar em **Exibir Script** botão.
 
     ![aplicar recomendação](./media/sql-database-performance-tutorial/apply.png)
 
-4. [Opcional] Habilite o ajuste automático para que as recomendações sejam aplicadas automaticamente.
+4. [Opcional] Habilite o ajuste automático para recomendações toobe aplicada automaticamente.
 
     ![auto ajuste](./media/sql-database-performance-tutorial/auto_tuning.png)
 
 ## <a name="revert-a-recommendation"></a>Reverter uma recomendação
 
-O Assistente do Banco de Dados monitora todas as recomendações implementadas. Se uma recomendação não melhorar a carga de trabalho, ela será automaticamente revertida. É possível reverter manualmente uma recomendação, mas isso não será necessário na maioria dos casos. Para reverter uma recomendação:
+Olá Database Advisor monitora cada recomendação implementada. Se uma recomendação não melhorar a carga de trabalho hello, ele será revertido automaticamente. É possível reverter manualmente uma recomendação, mas isso não será necessário na maioria dos casos. toorevert uma recomendação:
 
-1. Vá para o menu de recomendações de desempenho e selecione uma das recomendações aplicadas.
+1. Acesse o menu de recomendações de desempenho de toohello e selecione uma das recomendações de saudação aplicada.
 
     ![selecionar recomendação](./media/sql-database-performance-tutorial/select.png)
 
-2. Na exibição de detalhes, clique em **Reverter**.
+2. Na exibição de detalhes de saudação, clique em **Revert**.
 
     ![reverter recomendação](./media/sql-database-performance-tutorial/revert.png)
 
-## <a name="find-the-query-that-consumes-the-most-resources"></a>Localizar a consulta que consome mais recursos
+## <a name="find-hello-query-that-consumes-hello-most-resources"></a>Localizar a maioria dos recursos de consulta de saudação que consome Olá
 
-Siga estas etapas para localizar a consulta que consome mais recursos:
+Siga essas consultas de saudação etapas toofind consumindo Olá a maioria dos recursos:
 
-1. Clique no menu **Análise de Desempenho de Consultas** na folha do banco de dados.
+1. Clique em Olá **Query Performance Insight** menu na folha do banco de dados de saudação.
 
     ![informações de consulta](./media/sql-database-performance-tutorial/query_perf_insights.png)
 
@@ -80,25 +80,25 @@ Siga estas etapas para localizar a consulta que consome mais recursos:
 
     ![informações de consulta](./media/sql-database-performance-tutorial/select_resource_type.png)
 
-3. Selecione a primeira consulta na tabela.
+3. Primeira consulta na tabela Olá Olá Select.
 
     ![informações de consulta](./media/sql-database-performance-tutorial/select_query.png)
 
-4. Examine os detalhes da consulta.
+4. Examine os detalhes da consulta de saudação.
 
     ![informações de consulta](./media/sql-database-performance-tutorial/query_details.png)
 
-## <a name="find-the-longest-running-query"></a>Localizar a consulta mais longa em execução
+## <a name="find-hello-longest-running-query"></a>Localizar a consulta de execução mais longa Olá
 
-1. Vá para a Análise de Desempenho de Consultas e selecione a guia **Consultas de longa execução**.
+1. Vá tooQuery Performance Insight e selecione Olá **consultas de longa execução** guia.
 
     ![informações de consulta](./media/sql-database-performance-tutorial/long_running.png)
 
-3. Selecione a primeira consulta na tabela.
+3. Primeira consulta na tabela Olá Olá Select.
 
     ![informações de consulta](./media/sql-database-performance-tutorial/select_first_query.png)
 
-4. Examine os detalhes da consulta.
+4. Examine os detalhes da consulta de saudação.
 
     ![informações de consulta](./media/sql-database-performance-tutorial/review_query_details.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Compreender mensagens de dispositivo para a nuvem do Hub IoT do Azure | Microsoft Docs
-description: "Guia do desenvolvedor – como usar mensagens de dispositivo para a nuvem com o Hub IoT. Inclui informações sobre o envio de dados de telemetria e não telemetria e o uso do direcionamento para entregar mensagens."
+title: mensagens de dispositivo para a nuvem de Azure IoT Hub aaaUnderstand | Microsoft Docs
+description: "Guia do desenvolvedor - como toouse dispositivo para a nuvem com o IoT Hub de mensagens. Inclui informações sobre o envio de dados de telemetria e não telemtry e usando o roteamento de mensagens toodeliver."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -13,55 +13,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: d856e26084ee79386a2e8e0e527804bda86b477b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 07dc8a6be747365c7efbc528ab2762b0d9790758
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="send-device-to-cloud-messages-to-iot-hub"></a>Enviar mensagens de dispositivo para a nuvem para o Hub IoT
+# <a name="send-device-to-cloud-messages-tooiot-hub"></a>Enviar mensagens de dispositivo para nuvem tooIoT Hub
 
-Para enviar telemetria de série temporal e alertas de dispositivos ao back-end da solução, envie mensagens de dispositivo para a nuvem do dispositivo para o hub IoT. Para ver uma discussão sobre outras opções de dispositivo para a nuvem com suporte no Hub IoT, confira [Orientação sobre comunicações de dispositivo para a nuvem][lnk-d2c-guidance].
+Telemetria de série temporal toosend e alertas de seu dispositivos tooyour solução back-end, enviar mensagens de dispositivo para a nuvem de hub IoT de tooyour de dispositivo. Para ver uma discussão sobre outras opções de dispositivo para a nuvem com suporte no Hub IoT, confira [Orientação sobre comunicações de dispositivo para a nuvem][lnk-d2c-guidance].
 
-Você envia mensagens do dispositivo para a nuvem por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/messages/events**). As regras de roteamento roteiam as mensagens para um dos pontos de extremidade voltados para o serviço em seu Hub IoT. As regras de roteamento usam os cabeçalhos e o corpo das mensagens de dispositivo para a nuvem que fluem através de seu hub para determinar para onde roteá-las. Por padrão, as mensagens são roteadas para o ponto de extremidade voltado para o serviço interno (**mensagens/eventos**) compatíveis com [Hubs de Eventos][lnk-event-hubs]. Portanto, você pode usar os [SDKs e integração com Hubs de Evento][lnk-compatible-endpoint] Standard para receber mensagens de dispositivo para a nuvem no back-end da solução.
+Você envia mensagens do dispositivo para a nuvem por meio de um ponto de extremidade voltado para o dispositivo (**/devices/{deviceId}/messages/events**). Regras de roteamento e rotear o tooone mensagens de pontos de extremidade de serviço voltados Olá em seu hub IoT. Regras de roteamento usam cabeçalhos de saudação e corpo de mensagens de saudação do dispositivo para a nuvem que passam por seu hub toodetermine onde tooroute-los. Por padrão, as mensagens são roteadas toohello internos voltados para o serviço endpoint (**mensagens de eventos**), que é compatível com [Hubs de eventos][lnk-event-hubs]. Portanto, você pode usar o padrão [integração com Hubs de evento e SDKs] [ lnk-compatible-endpoint] tooreceive mensagens de dispositivo para nuvem em sua solução de back-end.
 
-O Hub IoT implementa mensagens de dispositivo para nuvem usando um padrão de sistema de mensagens de streaming. As mensagens do dispositivo para nuvem do Hub IoT são mais semelhantes a *eventos* de [Hubs de Eventos][lnk-event-hubs] do que a *mensagens* do [Barramento de Serviço][lnk-servicebus] na medida em que há um alto volume de eventos passando pelo serviço que pode ser lido por vários leitores.
+O Hub IoT implementa mensagens de dispositivo para nuvem usando um padrão de sistema de mensagens de streaming. Mensagens de dispositivo para a nuvem do IoT Hub são mais [Hubs de eventos] [ lnk-event-hubs] *eventos* que [Service Bus] [ lnk-servicebus] *mensagens* que há um grande volume de eventos que passam pelo serviço de saudação que pode ser lido por vários leitores.
 
-As mensagens de dispositivo para a nuvem com o Hub IoT têm as seguintes características:
+Mensagens com o IoT Hub dispositivo para nuvem tem Olá características a seguir:
 
-* As mensagens do dispositivo para a nuvem são duráveis e mantidas em um ponto de extremidade de **mensagens/eventos** padrão do Hub IoT por até sete dias.
-* As mensagens de dispositivo para a nuvem podem ter no máximo 256 KB e podem ser agrupadas em lotes para otimizar os envios. Os lotes podem ter no máximo 256 KB.
-* Como explicado na seção [Controlar o acesso ao Hub IoT][lnk-devguide-security], o Hub IoT habilita a autenticação e o controle de acesso por dispositivo.
-* O Hub IoT permite que você crie até 10 pontos de extremidade personalizados. As mensagens são entregues aos pontos de extremidade com base nas rotas configuradas em seu Hub IoT. Para saber mais, confira [Regras de direcionamento](#routing-rules).
+* Mensagens de dispositivo para nuvem são duráveis e mantidas no padrão de um hub IoT **mensagens de eventos** ponto de extremidade para o tooseven dias.
+* Mensagens de dispositivo para nuvem podem ter no máximo 256 KB e podem ser agrupadas em lotes toooptimize envia. Os lotes podem ter no máximo 256 KB.
+* Conforme explicado em Olá [tooIoT de acesso de controle Hub] [ lnk-devguide-security] seção, o IoT Hub habilita o controle de acesso e autenticação por dispositivo.
+* IoT Hub permite toocreate too10 pontos de extremidade personalizado. As mensagens são entregues toohello pontos de extremidade com base nas rotas configuradas em seu hub IoT. Para saber mais, confira [Regras de direcionamento](#routing-rules).
 * O Hub IoT habilita milhões de dispositivos conectados simultaneamente (confira [Cotas e limitação][lnk-quotas]).
 * O Hub IoT não permite o particionamento arbitrário. As mensagens do dispositivo para a nuvem são particionadas com base em sua **deviceId**de origem.
 
-Para saber mais sobre as diferenças entre os serviços de Hubs de Eventos e o Hub IoT, confira [Comparação do Hub IoT do Azure e Hubs de Eventos do Azure][lnk-comparison].
+Para obter mais informações sobre as diferenças de saudação entre Olá IoT Hub e os serviços de Hubs de eventos, consulte [comparação de IoT Hub do Azure e Hubs de eventos do Azure][lnk-comparison].
 
 ## <a name="send-non-telemetry-traffic"></a>Enviar tráfego sem telemetria
 
-Muitas vezes, além dos pontos de dados de telemetria, os dispositivos enviam mensagens e solicitações que exigem execução separada e manipulação no back-end de solução. Por exemplo, alertas críticos que devem disparar uma ação específica no back-end. Você pode escrever facilmente uma [regra de direcionamento][lnk-devguide-custom] para enviar esses tipos de mensagens a um ponto de extremidade dedicado ao respectivo processamento, com base em um cabeçalho da mensagem ou um valor no corpo da mensagem.
+Geralmente, os dispositivos além de pontos de dados de tootelemetry, enviam mensagens e solicitações que exigem tratamento no back-end de solução hello e execução separado. Por exemplo, alertas críticos que devem disparar uma ação específica em Olá back-end. Você pode escrever facilmente um [regra de roteamento] [ lnk-devguide-custom] toosend esses tipos de ponto de extremidade de mensagens tooan dedicado tootheir processamento com base em qualquer um cabeçalho de mensagem de saudação ou um valor no corpo da mensagem de saudação.
 
-Para obter mais informações sobre a melhor maneira de processar esse tipo de mensagem, consulte o [Tutorial: como processar mensagens do dispositivo para a nuvem do Hub IoT][lnk-d2c-tutorial].
+Para obter mais informações sobre Olá melhor maneira tooprocess nesse tipo de mensagem, consulte Olá [Tutorial: como tooprocess mensagens de dispositivo para a nuvem de IoT Hub] [ lnk-d2c-tutorial] tutorial.
 
 ## <a name="route-device-to-cloud-messages"></a>Encaminhar mensagens do dispositivo para a nuvem
 
-Você tem duas opções para direcionamento de mensagens de dispositivo para a nuvem para os aplicativos de back-end:
+Você tem duas opções para aplicativos de back-end do roteamento mensagens de dispositivo para nuvem tooyour:
 
-* Use o [ponto de extremidade compatível com o Hub de Eventos][lnk-compatible-endpoint] interno para habilitar os aplicativos de back-end para ler as mensagens de dispositivo para a nuvem recebidas pelo hub. Para saber mais sobre o ponto de extremidade compatível com o Hub de Eventos interno, confira [Ler mensagens de dispositivo para a nuvem do ponto de extremidade interno][lnk-devguide-builtin].
-* Use regras de direcionamento para enviar mensagens a pontos de extremidade personalizados no hub IoT. Os pontos de extremidade personalizados permitem que os aplicativos de back-end a ler mensagens de dispositivo para a nuvem usando Hubs de Eventos, filas do Barramento de Serviço ou tópicos do Barramento de Serviço. Para saber mais sobre pontos de extremidade personalizados e direcionamentos, confira [Usar pontos de extremidade personalizados e regras de direcionamento de mensagens de dispositivo para a nuvem][lnk-devguide-custom].
+* Usar Olá interno [ponto de extremidade compatível com o evento Hub] [ lnk-compatible-endpoint] tooenable aplicativos de back-end tooread Olá dispositivo para nuvem as mensagens recebidas pelo hub hello. toolearn sobre ponto de extremidade Olá de interno compatível Hub de eventos, consulte [ler mensagens de dispositivo para a nuvem de ponto de extremidade internos Olá][lnk-devguide-builtin].
+* Use o roteamento regras toosend mensagens toocustom pontos de extremidade em seu hub IoT. Pontos de extremidade personalizados permitem que as mensagens de dispositivo para nuvem tooread aplicativos de back-end usando Hubs de eventos, filas de barramento de serviço ou tópicos do barramento de serviço. toolearn sobre pontos de extremidade personalizados e roteamentos, consulte [usar pontos de extremidade personalizados e regras de roteamento para mensagens de dispositivo para nuvem][lnk-devguide-custom].
 
 ## <a name="anti-spoofing-properties"></a>Propriedades antifalsificação
 
-Para evitar a falsificação em mensagens do dispositivo para a nuvem, o Hub IoT carimba todas as mensagens com as seguintes propriedades:
+dispositivo tooavoid falsificação em mensagens de dispositivo para nuvem, o IoT Hub carimbos todas as mensagens com hello propriedades a seguir:
 
 * **ConnectionDeviceId**
 * **ConnectionDeviceGenerationId**
 * **ConnectionAuthMethod**
 
-As duas primeiras contêm a **deviceId** e a **generationId** do dispositivo de origem, conforme as [Propriedades de identidade do dispositivo][lnk-device-properties].
+Olá primeiro dois contêm Olá **deviceId** e **generationId** de saudação provenientes do dispositivo, como por [propriedades de identidade de dispositivo][lnk-device-properties].
 
-A propriedade **ConnectionAuthMethod** contém um objeto JSON serializado com as seguintes propriedades:
+Olá **ConnectionAuthMethod** propriedade contém um objeto JSON serializado, com hello propriedades a seguir:
 
 ```json
 {
@@ -73,9 +73,9 @@ A propriedade **ConnectionAuthMethod** contém um objeto JSON serializado com as
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre os SDKs que você pode usar para enviar mensagens de dispositivo para a nuvem, confira [SDKs do Azure IoT][lnk-sdks].
+Para obter informações sobre SDKs de saudação, você pode usar mensagens de dispositivo para nuvem toosend, consulte [SDKs do Azure IoT][lnk-sdks].
 
-Os tutoriais de [Introdução][lnk-get-started] mostram como enviar mensagens de dispositivo para a nuvem de dispositivos simulados e físicos. Para saber mais, confira o tutorial [Como processar as mensagens entre o dispositivo e a nuvem do Hub IoT usando rotas][lnk-d2c-tutorial].
+Olá [começar] [ lnk-get-started] tutoriais mostram como dispositivo para nuvem toosend mensagens de dispositivos simulados e físicos. Para obter mais detalhes, consulte Olá [mensagens de dispositivo para nuvem processo IoT Hub usando rotas] [ lnk-d2c-tutorial] tutorial.
 
 [lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
 [lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md

@@ -1,4 +1,4 @@
-A tabela a seguir lista as possíveis combinações de upload e captura de imagens de sistema operacional especializadas e generalizadas do Linux. As combinações que serão processadas sem erros são indicadas por um Y e aquelas que gerarão erros são indicadas por um N. As causas e resoluções para os diferentes erros que ocorrem são fornecidas abaixo da tabela.
+Olá, a tabela a seguir lista carregamento possíveis hello e combinações de captura do Linux generalizado e especializado imagens do sistema operacional. combinações de saudação que serão processado sem erros são indicados por um Y, e aqueles que gerará erros são indicadas por um N. Olá causas e resoluções para erros diferentes hello, em que você executará recebem tabela Olá abaixo.
 
 | SO | Upload espec. | Upload gen. | Captura espec. | Captura gen. |
 | --- | --- | --- | --- | --- |

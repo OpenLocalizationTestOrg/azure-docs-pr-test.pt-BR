@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d0cbf7883a8737bcb10e9dd251c9792a12993f77
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 7c00392d5185a2f067f2ee2717529dcbde1e71f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>Fazer backup de máquinas virtuais do Linux no Azure
 
-Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Ao restaurar de um ponto de recuperação, você pode restaurar a VM inteira ou apenas arquivos específicos. Este artigo explica como restaurar um único arquivo em uma VM do Linux que executa o nginx. Se você ainda não tem uma VM para usar, você pode criar uma usando o [Início rápido do Linux](quick-create-cli.md). Neste tutorial, você aprenderá a:
+Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Quando você restaurar de um ponto de recuperação, você poderá restaurar Olá VM inteira ou apenas determinados arquivos. Este artigo explica como toorestore um único arquivo tooa nginx de VM do Linux em execução. Se você ainda não tiver um toouse VM, você pode criar um usando Olá [Linux quickstart](quick-create-cli.md). Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Criar um backup de uma VM
@@ -35,43 +35,43 @@ Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup
 
 ## <a name="backup-overview"></a>Visão geral do backup
 
-Quando o serviço de Backup do Azure inicia um backup, ele dispara a extensão de backup para obter um instantâneo pontual. O serviço de Backup do Azure usa a extensão _VMSnapshotLinux_ no Linux. A extensão é instalada durante o primeiro backup de VM se a VM está em execução. Se a VM não estiver em execução, o serviço de Backup criará um instantâneo do armazenamento subjacente (já que nenhuma gravação de aplicativo ocorre enquanto a VM está parada).
+Quando Olá serviço Backup do Azure inicia um backup, ela aciona Olá extensão backup tootake um instantâneo point-in-time. saudação de serviço de Backup do Azure usa Olá _VMSnapshotLinux_ extensão no Linux. extensão de saudação é instalado durante o primeiro backup VM Olá se Olá VM está em execução. Se hello VM não está em execução, Olá serviço de Backup tira um instantâneo de saudação armazenamento subjacente (já que nenhum aplicativo grava ocorre durante a saudação que VM estiver parada).
 
-Por padrão, o Backup do Azure usa um backup consistente de sistema de arquivos para a VM do Linux, mas ele pode ser configurado para fazer um [backup consistente de aplicativos usando a estrutura de pré e pós-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Depois que o serviço de Backup do Azure gera o instantâneo, os dados são transferidos para o cofre. Para maximizar a eficiência, o serviço identifica e transfere apenas os blocos de dados que foram alterados desde o backup anterior.
+Por padrão, Backup do Azure usa um backup consistente de sistema de arquivos para a VM do Linux, mas pode ser configurado tootake [backup consistente de aplicativo usando o script de pré e pós-framework](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). Depois de saudação serviço Backup do Azure usa instantâneo hello, dados saudação são toohello transferidos cofre. toomaximize eficiência, o serviço de saudação identifica e transfere apenas os blocos de dados que foram alterados desde o backup anterior de saudação hello.
 
-Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado.
+Quando a transferência de dados de saudação for concluída, Olá é removido e um ponto de recuperação é criado.
 
 
 ## <a name="create-a-backup"></a>Criar um backup
-Crie um backup diário agendado simples em um Cofre de Serviços de Recuperação. 
+Crie um simple agendado diariamente backup tooa Cofre de serviços de recuperação. 
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda, selecione **Máquinas virtuais**. 
-3. Na lista, selecione uma VM da qual fazer backup.
-4. Na folha da VM, na seção **Configurações**, clique em **Backup**. A folha **Habilitar backup** é aberta.
-5. Em **Cofre de Serviços de Recuperação**, clique em **Criar novo** e forneça o nome para o novo cofre. Um novo cofre é criado no mesmo Grupo de Recursos e na mesma localização que a máquina virtual.
-6. Clique em **Política de backup**. Para este exemplo, mantenha os padrões e clique em **OK**.
-7. Na folha **Habilitar backup**, clique em **Habilitar Backup**. Isso cria um backup diário com base no agendamento padrão.
-10. Para criar um ponto de recuperação inicial, na folha **Backup**, clique em **Fazer backup agora**.
-11. Na folha **Fazer Backup Agora**, clique no ícone de calendário, use o controle de calendário para selecionar o último dia de retenção desse ponto de recuperação e clique em **Fazer Backup**.
-12. Na folha **Backup** de sua VM, você verá o número de pontos de recuperação completos.
+1. Entrar toohello [portal do Azure](https://portal.azure.com/).
+2. No menu Olá Olá esquerda, selecione **máquinas virtuais**. 
+3. Olá, selecione lista tooback uma VM para cima.
+4. Na folha VM hello, em Olá **configurações** seção, clique em **Backup**. Olá **habilitar backup** folha é aberta.
+5. Em **Cofre de serviços de recuperação**, clique em **criar novo** e fornecer nome hello novo cofre de saudação. Um novo cofre é criado no hello mesmo grupo de recursos e o local da máquina virtual de saudação.
+6. Clique em **Política de backup**. Neste exemplo, lembre-Olá padrões e clique em **Okey**.
+7. Em Olá **habilitar backup** folha, clique em **habilitar Backup**. Isso cria um backup diário com base no agendamento de padrão de saudação.
+10. toocreate um ponto de recuperação inicial, em Olá **Backup** folha clique **Backup agora**.
+11. Em Olá **Backup agora** folha, clique no ícone de calendário hello, use Olá calendário controle tooselect Olá último dia deste ponto de recuperação é mantido e clique em **Backup**.
+12. Em Olá **Backup** folha para sua VM, você verá Olá número de pontos de recuperação completa.
 
     ![Pontos de Recuperação](./media/tutorial-backup-vms/backup-complete.png)
 
-O primeiro backup leva aproximadamente 20 minutos. Prossiga para a próxima parte deste tutorial depois que o backup for concluído.
+primeiro backup de saudação leva cerca de 20 minutos. Depois que o backup for concluído, vá toohello próxima parte deste tutorial.
 
 ## <a name="restore-a-file"></a>Restaurar um arquivo
 
-Se você acidentalmente excluir ou fizer alterações em um arquivo, você poderá usar a recuperação de arquivo para recuperar o arquivo de seu cofre de backup. A Recuperação de Arquivo utiliza um script que é executado na VM para montar o ponto de recuperação como uma unidade local. Essas unidades permanecerão montadas por 12 horas para que você possa copiar arquivos do ponto de recuperação e restaurá-los para a VM.  
+Se você excluir ou fazer alterações tooa arquivo acidentalmente, você pode usar o arquivo de saudação do toorecover de recuperação de arquivos do seu Cofre de backup. Recuperação de arquivos usa um script que é executado em Olá VM, ponto de recuperação toomount hello como unidade local. Essas unidades permanecerá montadas por 12 horas para que você possa copiar arquivos de ponto de recuperação de saudação e restaurá-los toohello VM.  
 
-Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/html/index.nginx-debian.html. O endereço IP público de nossa VM neste exemplo é *13.69.75.209*. Encontre o endereço IP da sua vm usando:
+Neste exemplo, mostramos como toorecover Olá padrão nginx página da web /var/www/html/index.nginx-debian.html. endereço IP público de saudação do nosso VM neste exemplo é *13.69.75.209*. Você pode encontrar o endereço IP de saudação do vm usando:
 
  ```bash 
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
  
-1. No computador local, abra um navegador e digite o endereço IP público de sua VM para ver a página Web do nginx padrão.
+1. No computador local, abra um navegador e digite no endereço IP público de saudação VM toosee saudação padrão nginx da página da web.
 
     ![Página Web do nginx padrão](./media/tutorial-backup-vms/nginx-working.png)
 
@@ -86,78 +86,78 @@ Neste exemplo, mostramos como recuperar a página Web do nginx padrão /var/www/
     sudo rm /var/www/html/index.nginx-debian.html
     ```
     
-4. No computador local, atualize o navegador teclando em CTRL + F5 para ver se a página padrão do nginx foi removida.
+4. No computador local, atualize o navegador de saudação pressionando CTRL + F5 toosee que nginx página padrão não existe mais.
 
     ![Página Web do nginx padrão](./media/tutorial-backup-vms/nginx-broken.png)
     
-1. No computador local, entre no [Portal do Azure](https://portal.azure.com/).
-6. No menu à esquerda, selecione **Máquinas virtuais**. 
-7. Selecione a VM na lista.
-8. Na folha da VM, na seção **Configurações**, clique em **Backup**. A folha **Backup** é aberta. 
-9. No menu na parte superior da folha, selecione **Recuperação de Arquivo**. A folha **Recuperação de arquivo** será aberta.
-10. Em **Etapa 1: selecionar um ponto de recuperação**, selecione um ponto de recuperação do menu suspenso.
-11. Em **Etapa 2: baixar o script para procurar e recuperar arquivos**, clique no botão **Baixar Executável**. Salve o arquivo baixado em seu computador local.
-7. Clique em **Baixar script** para baixar o arquivo de script localmente.
-8. Abra um prompt Bash e digite o seguinte, substituindo *Linux_myVM_05-05-2017.sh* pelo caminho e o nome de arquivo do script que você baixou, *azureuser* pelo nome de usuário da VM e *13.69.75.209* pelo endereço IP público de sua VM.
+1. Em seu computador local, faça logon no toohello [portal do Azure](https://portal.azure.com/).
+6. No menu Olá Olá esquerda, selecione **máquinas virtuais**. 
+7. Olá, selecione lista Olá VM.
+8. Na folha VM hello, em Olá **configurações** seção, clique em **Backup**. Olá **Backup** folha é aberta. 
+9. No menu de saudação na parte superior de saudação da folha de saudação, selecione **recuperação de arquivo**. Olá **recuperação de arquivo** folha é aberta.
+10. Em **etapa 1: selecione o ponto de recuperação**, selecione um ponto de recuperação na lista suspensa hello.
+11. No **etapa 2: baixar o script toobrowse e recuperar arquivos**, clique em hello **executável baixar** botão. Salve o computador local do tooyour Olá arquivo baixado.
+7. Clique em **baixar script** arquivo de script de saudação toodownload localmente.
+8. Abra um Bash prompt e digite Olá a seguir, substituindo *Linux_myVM_05-05-2017.sh* com hello corrija o caminho e nome de arquivo para o script hello baixado, *azureuser* com nome de usuário Olá para Olá VM e *13.69.75.209* com endereço IP público de saudação para sua VM.
     
     ```bash
     scp Linux_myVM_05-05-2017.sh azureuser@13.69.75.209:
     ```
     
-9. No computador local, abra uma conexão SSH para a VM.
+9. No computador local, abra uma conexão de SSH toohello VM.
 
     ```bash
     ssh 13.69.75.209
     ```
     
-10. Em sua VM, adicione permissões de execução ao arquivo de script.
+10. Na sua VM, adicionar executar o arquivo de script de toohello de permissões.
 
     ```bash
     chmod +x Linux_myVM_05-05-2017.sh
     ```
     
-11. Em sua VM, execute o script para montar o ponto de recuperação como um sistema de arquivos.
+11. Na sua VM, execute o ponto de recuperação de saudação do hello script toomount como um sistema de arquivos.
 
     ```bash
     ./Linux_myVM_05-05-2017.sh
     ```
     
-12. A saída do script fornece o caminho para o ponto de montagem. A saída deve ser semelhante a esta:
+12. Olá saída de hello script fornece que Olá o caminho para o ponto de montagem de saudação. saída de Hello parece semelhante toothis:
 
     ```bash
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
                           
-    Connecting to recovery point using ISCSI service...
+    Connecting toorecovery point using ISCSI service...
     
     Connection succeeded!
     
-    Please wait while we attach volumes of the recovery point to this machine...
+    Please wait while we attach volumes of hello recovery point toothis machine...
                          
-    ************ Volumes of the recovery point and their mount paths on this machine ************
+    ************ Volumes of hello recovery point and their mount paths on this machine ************
 
     Sr.No.  |  Disk  |  Volume  |  MountPath 
 
     1)  | /dev/sdc  |  /dev/sdc1  |  /home/azureuser/myVM-20170505191055/Volume1
 
-    ************ Open File Explorer to browse for files. ************
+    ************ Open File Explorer toobrowse for files. ************
 
-    After recovery, to remove the disks and close the connection to the recovery point, please click 'Unmount Disks' in step 3 of the portal.
+    After recovery, tooremove hello disks and close hello connection toohello recovery point, please click 'Unmount Disks' in step 3 of hello portal.
 
-    Please enter 'q/Q' to exit...
+    Please enter 'q/Q' tooexit...
     ```
 
-12. Em sua VM, copie a página Web nginx padrão do ponto de montagem para o local onde você excluiu o arquivo.
+12. Na sua VM, copie a página da web do hello nginx padrão do hello montagem ponto back toowhere você excluir o arquivo hello.
 
     ```bash
     sudo cp ~/myVM-20170505191055/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
     
-17. No computador local, abra a guia do navegador em que você está conectado ao endereço IP da VM mostrando a página padrão do nginx. Pressione CTRL + F5 para atualizar a página do navegador. Agora você verá que a página padrão está funcionando novamente.
+17. No computador local, abra a guia do navegador de saudação em que você está conectado toohello endereço IP de saudação VM mostrando Olá nginx padrão a página. Pressione CTRL + F5 página do navegador Olá toorefresh. Agora, você verá que Olá página padrão está funcionando novamente.
 
     ![Página Web do nginx padrão](./media/tutorial-backup-vms/nginx-working.png)
 
-18. No computador local, volte para a guia do navegador para o Portal do Azure e, na **Etapa 3: desmontar discos após a recuperação**, clique no botão **Desmontar Discos**. Se você esquecer de fazer isso, a conexão para o ponto de montagem será fechada automaticamente após 12 horas. Após essas 12 horas, você precisa baixar um novo script para criar um novo ponto de montagem.
+18. No computador local, volte toohello guia do navegador para Olá portal do Azure e na **etapa 3: desmontar discos Olá após a recuperação** clique Olá **desmontar discos** botão. Se você esquecer toodo nesta etapa, ponto de montagem do hello conexão toohello é fechar automaticamente após 12 horas. Após as 12 horas, é necessário toodownload um novo toocreate de script um novo ponto de montagem.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -169,7 +169,7 @@ Neste tutorial, você aprendeu como:
 > * Agendar um backup diário
 > * Restaurar um arquivo de um backup
 
-Avance para o próximo tutorial para saber mais sobre o monitoramento de máquinas virtuais.
+Avançar toohello toolearn próximo de tutorial sobre o monitoramento de máquinas virtuais.
 
 > [!div class="nextstepaction"]
 > [Monitorar máquinas virtuais](tutorial-monitoring.md)

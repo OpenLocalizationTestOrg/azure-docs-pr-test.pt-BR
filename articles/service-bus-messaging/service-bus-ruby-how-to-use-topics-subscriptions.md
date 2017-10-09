@@ -1,6 +1,6 @@
 ---
-title: "Como usar os tópicos de Barramento de Serviço (Ruby) | Microsoft Docs"
-description: "Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure. Exemplos de código são escritos para aplicativos Ruby."
+title: "tópicos do barramento de serviço do aaaHow toouse (Ruby) | Microsoft Docs"
+description: "Saiba como toouse Service Bus tópicos e assinaturas no Azure. Exemplos de código são escritos para aplicativos Ruby."
 services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
@@ -14,17 +14,17 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 4a4c9949843b16ae6be2f516de4fd1e3f7415959
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 236d6495825e68e336c23e1b500d0764ee512e49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Ruby
+# <a name="how-toouse-service-bus-topics-and-subscriptions-with-ruby"></a>Como toouse Service Bus tópicos e assinaturas com Ruby
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo descreve como usar tópicos do Barramento de Serviço e assinaturas de aplicativos Ruby. Os cenários abordados incluem a **criação de tópicos e assinaturas, a criação de filtros de assinatura, o envio de mensagens** para um tópico, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**. Para obter mais informações sobre tópicos e assinaturas, consulte a seção [Próximas etapas](#next-steps).
+Este artigo descreve como toouse Service Bus tópicos e assinaturas de aplicativos Ruby. Olá cenários abordados incluem **criando tópicos e assinaturas, criando filtros de assinatura, enviando mensagens** tooa tópico **receber mensagens de uma assinatura**, e  **excluir tópicos e assinaturas**. Para obter mais informações sobre os tópicos e assinaturas, consulte Olá [próximas etapas](#next-steps) seção.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -33,7 +33,7 @@ Este artigo descreve como usar tópicos do Barramento de Serviço e assinaturas 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="create-a-topic"></a>Criar um tópico
-O objeto **Azure::ServiceBusService** permite que você trabalhe com tópicos. O código a seguir cria um objeto **Azure::ServiceBusService**. Para criar um tópico, use o método `create_topic()`. O exemplo a seguir cria um tópico ou imprime os erros, caso haja algum.
+Olá **Azure::ServiceBusService** objeto permite que você toowork com tópicos. Olá código a seguir cria um **Azure::ServiceBusService** objeto. toocreate um tópico, use Olá `create_topic()` método. saudação de exemplo a seguir cria um tópico ou imprime erros Olá se houver.
 
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
@@ -44,7 +44,7 @@ rescue
 end
 ```
 
-Você também pode informar um objeto **Azure::ServiceBus::Topic** com opções adicionais, que permitem a substituição de configurações padrão do tópico como a vida útil da mensagem ou o tamanho máximo da fila. O exemplo a seguir mostra a configuração do tamanho máximo da fila para 5 GB e a vida útil para 1 minuto:
+Você também pode passar um **Azure::ServiceBus::Topic** objeto com opções adicionais, que permitem que você toooverride configurações do tópico como tamanho de fila toolive ou máximo de tempo de mensagem. Olá exemplo a seguir mostra definindo o máximo da fila Olá too5 GB de tamanho e too1 toolive minutos de tempo:
 
 ```ruby
 topic = Azure::ServiceBus::Topic.new("test-topic")
@@ -55,27 +55,27 @@ topic = azure_service_bus_service.create_topic(topic)
 ```
 
 ## <a name="create-subscriptions"></a>Criar assinaturas
-As assinaturas do tópico também são criadas com o objeto **Azure::ServiceBusService**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
+Assinaturas de tópico também são criadas com hello **Azure::ServiceBusService** objeto. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de saudação de mensagens entregues a fila virtual toohello da assinatura.
 
-As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deve primeiro verificar se a assinatura já existe usando o método getSubscription.
+Assinaturas são persistentes e continuarão tooexist até a eles ou hello tópico eles estão associados são excluídos. Se seu aplicativo contiver lógica toocreate uma assinatura, deve primeiro verificar se a assinatura de saudação já existe usando o método de getSubscription hello.
 
-### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
-O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada "all-messages" e usa o filtro padrão **MatchAll**.
+### <a name="create-a-subscription-with-hello-default-matchall-filter"></a>Criar uma assinatura com o filtro saudação padrão (MatchAll)
+Olá **MatchAll** filtro é saudação padrão que será usado se nenhum filtro for especificado quando uma nova assinatura é criada. Olá quando **MatchAll** filtro é usado, o tópico de toohello publicado todas as mensagens são colocadas em fila virtual da assinatura hello. Olá, exemplo a seguir cria uma assinatura chamada "todas as mensagens" e usa Olá padrão **MatchAll** filtro.
 
 ```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "all-messages")
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Criar assinaturas com os filtros
-Você também pode definir filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica.
+Você também pode definir filtros que permitem que você toospecify quais mensagens enviadas tópico tooa deve ser exibidas dentro de uma assinatura específica.
 
-O tipo de filtro mais flexível com suporte pelas assinaturas é o **Azure::ServiceBus::SqlFilter**, que implementa um subconjunto de SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, examine a sintaxe [SqlFilter](service-bus-messaging-sql-filter.md).
+Olá, mais flexível tipo de filtro de assinaturas com suporte é Olá **Azure::ServiceBus::SqlFilter**, que implementa um subconjunto do SQL92. Filtros SQL operam nas propriedades de saudação das mensagens de saudação que são publicados toohello tópico. Para obter mais detalhes sobre expressões de saudação que podem ser usadas com um filtro SQL, examine Olá [SqlFilter](service-bus-messaging-sql-filter.md) sintaxe.
 
-É possível adicionar filtros a uma assinatura usando o método `create_rule()` do objeto **Azure::ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
+Você pode adicionar filtros tooa assinatura usando Olá `create_rule()` método hello **Azure::ServiceBusService** objeto. Esse método permite que você tooadd novos filtros tooan assinatura existente.
 
-Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, ou o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método `delete_rule()` do objeto **Azure::ServiceBusService**.
+Desde o saudação padrão filtro será aplicado automaticamente tooall novas assinaturas, você deve primeiro remover o filtro de padrão de saudação ou Olá **MatchAll** substituirá os outros filtros que você pode especificar. Você pode remover a regra padrão de saudação usando Olá `delete_rule()` método hello **Azure::ServiceBusService** objeto.
 
-O exemplo a seguir cria uma assinatura chamada "high-messages" com um **Azure::ServiceBus::SqlFilter** que seleciona apenas mensagens que têm uma propriedade `message_number` personalizada maior que 3:
+Olá, exemplo a seguir cria uma assinatura chamada "mensagens de alta" com um **Azure::ServiceBus::SqlFilter** que seleciona somente as mensagens que têm um personalizado `message_number` propriedade maior que 3:
 
 ```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "high-messages")
@@ -89,7 +89,7 @@ rule.filter = Azure::ServiceBus::SqlFilter.new({
 rule = azure_service_bus_service.create_rule(rule)
 ```
 
-Da mesma forma, o seguinte exemplo cria uma assinatura denominada `low-messages` com um **Azure::ServiceBus::SqlFilter** que seleciona apenas mensagens que têm uma propriedade `message_number` menor ou igual a 3:
+Da mesma forma, hello exemplo a seguir cria uma assinatura chamada `low-messages` com um **Azure::ServiceBus::SqlFilter** que seleciona somente as mensagens que têm um `message_number` propriedade menor ou igual too3:
 
 ```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "low-messages")
@@ -103,12 +103,12 @@ rule.filter = Azure::ServiceBus::SqlFilter.new({
 rule = azure_service_bus_service.create_rule(rule)
 ```
 
-Quando uma mensagem é agora enviada para `test-topic`, sempre será entregue aos destinatários inscritos na assinatura do tópico `all-messages` e entregue de forma seletiva aos destinatários inscritos nas assinaturas do tópico `high-messages` e `low-messages` (dependendo do conteúdo da mensagem).
+Quando uma mensagem agora é enviada muito`test-topic`, sempre será entregue tooreceivers inscrito toohello `all-messages` assinatura de tópico e tooreceivers seletivamente entregue inscrito toohello `high-messages` e `low-messages` (de assinaturas de tópico Dependendo de conteúdo da mensagem de saudação).
 
-## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
-Para enviar uma mensagem a um tópico do Barramento de Serviço, o aplicativo deve usar o método `send_topic_message()` do objeto **Azure::ServiceBusService**. As mensagens enviadas aos tópicos do Barramento de Serviço são instâncias dos objetos **Azure::ServiceBus::BrokeredMessage**. Os objetos **Azure::ServiceBus::BrokeredMessage** têm um conjunto de propriedades padrão (como `label` e `time_to_live`), um dicionário que é usado para manter propriedades personalizadas específicas ao aplicativo e um corpo de dados da cadeia de caracteres. Um aplicativo pode definir o corpo da mensagem transmitindo um valor da cadeia ao método `send_topic_message()` e todas as propriedades padrão exigidas serão preenchidas por valores padrão.
+## <a name="send-messages-tooa-topic"></a>Enviar tópico tooa de mensagens
+toosend um tópico de barramento de serviço do tooa de mensagem, o aplicativo deve usar Olá `send_topic_message()` método hello **Azure::ServiceBusService** objeto. As mensagens enviadas tooService tópicos do barramento são instâncias da saudação **Azure::ServiceBus::BrokeredMessage** objetos. **Azure::ServiceBus::BrokeredMessage** objetos têm um conjunto de propriedades padrão (como `label` e `time_to_live`), um dicionário de propriedades específicas do aplicativo personalizadas de toohold usado e um corpo de dados de cadeia de caracteres. Um aplicativo pode definir o corpo de saudação da mensagem de saudação passando um toohello de valor de cadeia de caracteres `send_topic_message()` método e qualquer necessário propriedades padrão serão preenchidas por valores padrão.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste para `test-topic`. Observe que o valor da propriedade personalizada `message_number` de cada mensagem varia de acordo com a iteração do loop (isso determina qual assinatura o recebe):
+Olá exemplo a seguir demonstra como teste toosend cinco mensagens muito`test-topic`. Observe que Olá `message_number` valor da propriedade personalizada de cada mensagem varia em iteração de saudação do loop de saudação (Isso determina qual assinatura recebe):
 
 ```ruby
 5.times do |i|
@@ -118,16 +118,16 @@ O exemplo a seguir demonstra como enviar cinco mensagens de teste para `test-top
 end
 ```
 
-Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em um tópico, mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB.
+Tópicos de barramento de serviço oferecem suporte a um tamanho máximo de 256 KB em hello [camada padrão](service-bus-premium-messaging.md) e 1 MB de saudação [camada Premium](service-bus-premium-messaging.md). cabeçalho de saudação, que inclui o padrão de saudação e propriedades de aplicativo personalizado, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de saudação de mensagens mantido em um tópico, mas há um limite de tamanho total Olá mensagens de saudação mantidos por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB.
 
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
-As mensagens são recebidas de uma assinatura usando o método `receive_subscription_message()` no objeto **Azure::ServiceBusService**. Por padrão, as mensagens são lidas (pico) e bloqueadas sem excluí-las da assinatura. Você pode ler e excluir a mensagem da assinatura definindo a opção `peek_lock` como **false**.
+As mensagens são recebidas de uma assinatura usando Olá `receive_subscription_message()` método hello **Azure::ServiceBusService** objeto. Por padrão, as mensagens são read(peak) e bloqueado sem excluí-la da assinatura de saudação. Você pode ler e excluir mensagem de saudação de assinatura Olá Olá configuração `peek_lock` opção muito**false**.
 
-O comportamento padrão faz com que a leitura e a exclusão se dividam em uma operação de dois estágios, o que também torna possível o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma segura para um processamento futuro), ele conclui o segundo estágio do processo de recebimento, chamando o método `delete_subscription_message()` e fornecendo a mensagem a ser excluída como um parâmetro. O método `delete_subscription_message()` marcará a mensagem como tendo sido consumida e a removerá da assinatura.
+comportamento padrão de saudação torna Olá ler e excluir uma operação de duas etapas, que também torna possível toosupport aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe uma solicitação, ele localiza Olá próxima mensagem toobe consumida, boqueia-tooprevent outros consumidores a recebam e retorna toohello aplicativo. Depois que o aplicativo hello termina de processar a mensagem de saudação (ou armazena com segurança para processamento futuro), ele conclui Olá segunda etapa de saudação processo de recebimento chamando `delete_subscription_message()` método e fornecendo toobe de mensagem de saudação excluído como um parâmetro. Olá `delete_subscription_message()` método será marcar a mensagem de saudação como sendo consumida e removê-lo da assinatura de saudação.
 
-Se o parâmetro `:peek_lock` estiver definido como **false**, a leitura e a exclusão da mensagem se tornam o modelo mais simples e funcionam melhor em cenários nos quais o aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+Se hello `:peek_lock` parâmetro está definido muito**false**, ler e excluir a mensagem de saudação torna-se o modelo mais simples de saudação e funciona melhor nos cenários em que um aplicativo pode tolerar não processar uma mensagem no evento de saudação de um Falha. toounderstand isso, considere um cenário em que problemas do consumidor Olá Olá receber a solicitação e falha antes de processá-lo. Porque o barramento de serviço será marcou a mensagem de saudação como sendo consumida, em seguida, quando o aplicativo hello reinicia e começa a consumir mensagens novamente, ele terá perdido mensagem de saudação foi consumido falha toohello anterior.
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo `receive_subscription_message()` padrão. O exemplo primeiro recebe e exclui uma mensagem da assinatura `low-messages` usando `:peek_lock` definido como **false**, então recebe outra mensagem do `high-messages` e exclui a mensagem usando `delete_subscription_message()`:
+Olá exemplo a seguir demonstra como as mensagens podem ser recebidas e processados usando `receive_subscription_message()`. exemplo Hello primeiro recebe e exclui uma mensagem de saudação `low-messages` assinatura usando `:peek_lock` definido muito**false**, em seguida, ele recebe outra mensagem de saudação `high-messages` e, em seguida, exclui hello usando `delete_subscription_message()`:
 
 ```ruby
 message = azure_service_bus_service.receive_subscription_message(
@@ -137,31 +137,31 @@ message = azure_service_bus_service.receive_subscription_message(
 azure_service_bus_service.delete_subscription_message(message)
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como tratar falhas do aplicativo e mensagens ilegíveis
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele chamará o método `unlock_subscription_message()` no objeto **Azure::ServiceBusService**. Isso fará com que o Barramento de Serviço desbloqueie a mensagem na assinatura e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro.
+## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Como o aplicativo de toohandle falha e mensagens ilegíveis
+Barramento de serviço fornece funcionalidade toohelp que normalmente recuperar de erros no seu aplicativo ou dificuldade para processar uma mensagem. Se um aplicativo receptor não puder tooprocess Olá mensagem por algum motivo, em seguida, pode chamar hello `unlock_subscription_message()` método hello **Azure::ServiceBusService** objeto. Isso faz com que saudação do barramento de serviço toounlock mensagem de assinatura do hello e torná-lo disponível toobe recebida novamente, ou por Olá mesmo aplicativo ou por outro aplicativo de consumo de consumo.
 
-Também há um tempo limite associado a uma mensagem bloqueada na assinatura, e se o aplicativo falhar em processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, se o aplicativo falhar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
+Também há um tempo limite associado a uma mensagem bloqueada em assinatura hello e se a mensagem de saudação tooprocess antes de falha de aplicativo hello Olá bloqueio tempo limite expirar (por exemplo, se o aplicativo hello falhar), e em seguida, desbloquear mensagem de saudação do barramento de serviço automaticamente e torná-lo disponível toobe recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `delete_subscription_message()` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. A lógica é geralmente obtida com a propriedade `message_id` da mensagem, que permanecerá constante nas tentativas da entrega.
+Em Olá evento Olá aplicativo falha após o processamento de mensagem de saudação, mas antes de saudação `delete_subscription_message()` método é chamado, mensagem de saudação será entregue novamente toohello aplicativo quando ele for reiniciado. Isso é geralmente chamado *, pelo menos, após processamento*; ou seja, cada mensagem será processada pelo menos uma vez, mas em certo Olá situações mesma mensagem pode ser entregue novamente. Se o cenário de saudação não puder tolerar o processamento duplicado, os desenvolvedores de aplicativos devem adicionar entrega de mensagens duplicadas lógica adicional tootheir aplicativos toohandle. Essa lógica geralmente é obtida usando Olá `message_id` propriedade da mensagem de saudação, que permanece constante entre tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [Portal do Azure][Azure portal] ou de forma programática. O exemplo a seguir demonstra como excluir o tópico denominado `test-topic`.
+Tópicos e assinaturas são persistentes e deve ser explicitamente excluídos por meio de saudação [portal do Azure] [ Azure portal] ou programaticamente. exemplo Hello abaixo demonstra como o tópico de saudação toodelete nomeados `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")
 ```
 
-A exclusão de um tópico também exclui todas as assinaturas registradas com o tópico. As assinaturas também podem ser excluídas de forma independente. O código a seguir demonstra como excluir uma assinatura chamada `high-messages` do tópico `test-topic`:
+Excluir um tópico também exclui qualquer assinatura que é registrada com o tópico de saudação. As assinaturas também podem ser excluídas de forma independente. Olá código a seguir demonstra como assinatura de saudação toodelete nomeados `high-messages` de saudação `test-topic` tópico:
 
 ```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
+Agora que você aprendeu as Noções básicas de saudação de tópicos do barramento de serviço, siga essas toolearn links mais.
 
 * Confira [Filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md).
 * Referência da API para [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter).
-* Visite o repositório [SDK do Azure para o Ruby](https://github.com/Azure/azure-sdk-for-ruby) no GitHub.
+* Visite Olá [SDK do Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby) repositório no GitHub.
 
 [Azure portal]: https://portal.azure.com

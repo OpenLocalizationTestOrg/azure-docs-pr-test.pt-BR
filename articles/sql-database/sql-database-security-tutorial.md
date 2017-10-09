@@ -1,6 +1,6 @@
 ---
-title: Proteger o banco de dados SQL do Azure | Microsoft Docs
-description: "Conheça técnicas e recursos para proteger o banco de dados SQL do Azure."
+title: aaaSecure seu banco de dados SQL do Azure | Microsoft Docs
+description: "Saiba mais sobre toosecure técnicas e recursos de seu banco de dados do SQL Azure."
 services: sql-database
 documentationcenter: 
 author: DRediske
@@ -16,22 +16,22 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/28/2017
 ms.author: daredis
-ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1450d633d6f65faf1b8a2dc0dc7dfe996fb0719d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger o Banco de Dados SQL do Azure
 
-O Banco de Dados SQL protege seus dados limitando o acesso ao banco de dados usando regras de firewall, mecanismos de autenticação que exigem que os usuários comprovem sua identidade e autorização para dados por meio de permissões e associações de função, bem como por meio de segurança em nível de linha e mascaramento de dados dinâmicos.
+Banco de dados SQL protege seus dados por meio da limitação tooyour banco de dados usando regras de firewall, exigindo usuários tooprove sua identidade e autorização toodata por meio de permissões e associações de função, bem como por meio de mecanismos de autenticação segurança em nível de linha e mascaramento de dados dinâmicos.
 
-Você pode melhorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a: 
+Você pode melhorar a proteção de saudação do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a: 
 
 > [!div class="checklist"]
-> * Configurar regras de firewall no nível do servidor para o seu servidor no Portal do Azure
+> * Configurar regras de firewall no nível de servidor para o servidor de saudação portal do Azure
 > * Configurar regras de firewall no nível do banco de dados para o seu banco de dados usando SSMS
-> * Conectar ao banco de dados usando uma cadeia de conexão segura
+> * Conecte-se o banco de dados de tooyour usando uma cadeia de caracteres de conexão segura
 > * Gerenciar o acesso de usuário
 > * Proteger seus dados com criptografia
 > * Habilitar a auditoria do Banco de Dados SQL
@@ -41,78 +41,78 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você precisa do seguinte:
+toocomplete este tutorial, verifique se você tem Olá a seguir:
 
-- A versão mais recente instalada do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
+- A versão mais recente instalada saudação do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - O Microsoft Excel instalado
-- Um servidor e banco de dados SQL do Azure - confira [Criar um banco de dados SQL do Azure no Portal do Azure](sql-database-get-started-portal.md), [Criar um único banco de dados SQL do Azure usando a CLI do Azure](sql-database-get-started-cli.md) e [Criar um único banco de dados SQL do Azure usando o PowerShell](sql-database-get-started-powershell.md). 
+- Criado um servidor do SQL Azure e o banco de dados - consulte [criar um banco de dados do SQL Azure no portal do Azure de saudação](sql-database-get-started-portal.md), [criar um único banco de dados SQL do Azure usando Olá CLI do Azure](sql-database-get-started-cli.md), e [criar um único SQL Azure banco de dados usando o PowerShell](sql-database-get-started-powershell.md). 
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="log-in-toohello-azure-portal"></a>Faça logon no toohello portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/).
+Faça logon no toohello [portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall de nível de servidor no portal do Azure
+## <a name="create-a-server-level-firewall-rule-in-hello-azure-portal"></a>Criar uma regra de firewall de nível de servidor no hello portal do Azure
 
-Os banco de dados SQL são protegidos por um firewall no Azure. Por padrão, todas as conexões com o servidor e os bancos de dados dentro do servidor são rejeitadas, exceto as conexões de outros serviços do Azure. Para saber mais, confira [Regras de firewall no nível do servidor e no nível do banco de dados do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
+Os banco de dados SQL são protegidos por um firewall no Azure. Por padrão, todas as conexões toohello server Olá bancos de dados e no servidor de saudação são rejeitados com exceção de conexões de outros serviços do Azure. Para saber mais, confira [Regras de firewall no nível do servidor e no nível do banco de dados do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
 
-A configuração mais segura é definir ‘Permitir acesso aos serviços do Azure’ como DESATIVADO. Se você precisar se conectar ao banco de dados em uma VM do Azure ou um serviço de nuvem, deverá criar um [IP Reservado](../virtual-network/virtual-networks-reserved-public-ip.md) e permitir somente o acesso ao endereço IP reservado por meio do firewall. 
+configuração mais segura de saudação é tooset 'Permitir acesso serviços tooAzure' tooOFF. Se você precisar tooconnect toohello banco de dados de um serviço de nuvem ou VM do Azure, você deve criar um [IP reservado](../virtual-network/virtual-networks-reserved-public-ip.md) e permitir acesso somente de saudação reservado IP endereço através do firewall do hello. 
 
-Siga estas etapas para criar uma [regra de firewall no nível do servidor de Banco de Dados SQL](sql-database-firewall-configure.md) para que o servidor permita conexões de um endereço IP específico. 
+Siga estas etapas toocreate um [regra de firewall de nível de servidor de banco de dados SQL](sql-database-firewall-configure.md) suas conexões de servidor tooallow de um endereço IP específico. 
 
 > [!NOTE]
-> Se você criou um exemplo de banco de dados no Azure usando um dos tutoriais ou guias de início rápido anteriores e estiver executando este tutorial em um computador com o mesmo endereço IP usado nos tutoriais, ignore esta etapa, pois você já criou uma regra de firewall no nível do servidor.
+> Se você tiver criado um banco de dados de exemplo no Azure usando um dos tutoriais anteriores hello ou guias de início rápido e são executar este tutorial em um computador com hello mesmo endereço IP que ele tinha quando você analisou os tutoriais, você pode ignorar esta etapa, você terá já criou uma regra de firewall de nível de servidor.
 >
 
-1. Clique em **Bancos de dados SQL** no menu esquerdo e clique no banco de dados para o qual você gostaria de configurar a regra de firewall na página **Bancos de dados SQL**. A página de visão geral de seu banco de dados é aberta, mostrando o nome totalmente qualificado do servidor (como **mynewserver-20170313.database.windows.net**) e fornece opções para configurações adicionais.
+1. Clique em **bancos de dados SQL** de saudação esquerdo menu e clique em Olá banco de dados você gostaria que regra de firewall de saudação tooconfigure para em Olá **bancos de dados SQL** página. Olá, página de visão geral para o banco de dados abre, mostrando a você Olá totalmente qualificado nome do servidor (como **mynewserver 20170313.database.windows.net**) e fornece opções de configuração adicional.
 
       ![regra de firewall do servidor](./media/sql-database-security-tutorial/server-firewall-rule.png) 
 
-2. Clique em **Definir o firewall do servidor** na barra de ferramentas, conforme mostrado na imagem anterior. A página **Configurações do firewall** do servidor de Banco de Dados SQL é aberta. 
+2. Clique em **definir o firewall do servidor** na barra de ferramentas Olá conforme mostrado na imagem anterior hello. Olá **configurações de Firewall** página para o servidor de banco de dados SQL Olá é aberta. 
 
-3. Clique em **Adicionar IP do cliente** na barra de ferramentas para adicionar o endereço IP público do computador conectado ao portal ou inserir a regra de firewall manualmente e, em seguida, clique em **Salvar**.
+3. Clique em **Adicionar IP do cliente** Olá barra de ferramentas tooadd Olá endereço IP público do portal de toohello conectado Olá computador com ou inserir a regra de firewall Olá manualmente e, em seguida, clique em **salvar**.
 
       ![definir regra de firewall do servidor](./media/sql-database-security-tutorial/server-firewall-rule-set.png) 
 
-4. Clique em **OK** e clique no **X** para fechar a página **Configurações do firewall**.
+4. Clique em **Okey** e, em seguida, clique em Olá **X** tooclose Olá **configurações de Firewall** página.
 
-Agora você pode se conectar a qualquer banco de dados do servidor com o endereço IP ou o intervalo de endereços IP especificado.
+Agora você pode conectar o banco de dados tooany no servidor de saudação com hello especificado um intervalo de endereços IP ou endereço IP.
 
 > [!NOTE]
-> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando conectar-se a partir de uma rede corporativa, o tráfego de saída pela porta 1433 poderá não ser permitido pelo firewall de sua rede. Se isto acontecer, você não conseguirá conectar seu servidor do Banco de Dados SQL do Azure, a menos que o departamento de TI abra a porta 1433.
+> O Banco de Dados SQL se comunica pela porta 1433. Se você estiver tentando tooconnect de dentro de uma rede corporativa, o tráfego de saída pela porta 1433 talvez não consigam pelo firewall da rede. Nesse caso, não será tooconnect capaz de servidor de banco de dados SQL de tooyour, a menos que o departamento de TI abre a porta 1433.
 >
 
 ## <a name="create-a-database-level-firewall-rule-using-ssms"></a>Criar uma regra de firewall no nível do banco de dados usando SSMS
 
-As regras de firewall no nível do banco de dados permitem a criação de configurações de firewall diferentes para bancos de dados diferentes dentro do mesmo servidor lógico, e a criação de regras de firewall portáteis, ou seja, elas seguem o banco de dados durante um [failover](sql-database-geo-replication-overview.md) em vez de serem armazenadas no SQL server. As regras de firewall no nível do banco de dados só podem ser configuradas usando instruções Transact-SQL e somente depois de ter configurado a primeira regra de firewall no nível do servidor. Para saber mais, confira [Regras de firewall no nível do servidor e no nível do banco de dados do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
+Regras de firewall de nível de banco de dados permitem que você toocreate as configurações de firewall diferentes para bancos de dados diferentes em Olá mesmo firewall de servidor e toocreate lógico as regras de portátil - que significa que sigam o banco de dados de saudação durante um [failover ](sql-database-geo-replication-overview.md) em vez de serem armazenados no SQL server de saudação. Regras de firewall de nível de banco de dados só podem ser configurado usando instruções Transact-SQL e somente depois que você configurou a primeira regra de firewall de nível de servidor de saudação. Para saber mais, confira [Regras de firewall no nível do servidor e no nível do banco de dados do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
 
-Siga estas etapas para criar uma regra de firewall específica ao banco de dados.
+Segue essas etapas toocreate uma regra de firewall de banco de dados específico.
 
-1. Conecte ao banco de dados, por exemplo, usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
+1. Conecte-se o banco de dados tooyour, por exemplo, usando [SQL Server Management Studio](./sql-database-connect-query-ssms.md).
 
-2. No Pesquisador de Objetos, clique com o botão direito do mouse no banco de dados ao qual você deseja adicionar uma regra de firewall e clique em **Nova Consulta**. Uma janela de consulta em branco conectada ao seu banco de dados é aberta.
+2. No Pesquisador de objetos, clique com botão direito no banco de dados de saudação desejado tooadd regra para de um firewall e clique em **nova consulta**. Uma janela de consulta em branco é aberto que é conectado tooyour banco de dados.
 
-3. Na janela de consulta, modifique o endereço IP para seu endereço IP público e, depois, execute a seguinte consulta:
+3. Na janela de consulta Olá, modifique Olá IP endereço tooyour endereço IP público e, em seguida, execute Olá consulta a seguir:
 
     ```sql
     EXECUTE sp_set_database_firewall_rule N'Example DB Rule','0.0.0.4','0.0.0.4';
     ```
 
-4. Na barra de ferramentas, clique em **Executar** para criar a regra de firewall.
+4. Na barra de ferramentas hello, clique em **Execute** toocreate regra de firewall de saudação.
 
-## <a name="view-how-to-connect-an-application-to-your-database-using-a-secure-connection-string"></a>Veja como conectar um aplicativo ao seu banco de dados usando uma cadeia de conexão segura
+## <a name="view-how-tooconnect-an-application-tooyour-database-using-a-secure-connection-string"></a>Exibir como tooconnect tooyour um aplicativo de banco de dados usando uma cadeia de caracteres de conexão segura
 
-Para garantir uma conexão segura e criptografada entre um aplicativo cliente e o banco de dados SQL, a cadeia de conexão deve ser configurada para:
+tooensure uma conexão segura e criptografada entre um aplicativo cliente e o banco de dados SQL, a cadeia de caracteres de conexão Olá tem toobe configurado para:
 
 - Solicitar uma conexão criptografada, e
-- Não confiar no certificado do servidor. 
+- certificado do servidor da saudação toonot confiável. 
 
-Isso estabelece uma conexão usando o protocolo TLS e reduz o risco de ataques man-in-the-middle. Você pode obter cadeias de conexão configuradas corretamente para seu Banco de Dados SQL para os drivers cliente com suporte no portal do Azure, conforme mostrado para o ADO.net nesta captura de tela.
+Isso estabelece uma conexão usando a segurança de camada de transporte (TLS) e reduz o risco de saudação de ataques man-in-the-middle. Você pode obter cadeias de caracteres de conexão configurada corretamente para seu banco de dados SQL para o cliente com suporte drivers de saudação portal do Azure conforme mostrado para ADO.net nesta captura de tela.
 
-1. Selecione **Bancos de dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de dados SQL**.
+1. Selecione **bancos de dados SQL** no menu esquerdo do hello e clique em seu banco de dados em Olá **bancos de dados SQL** página.
 
-2. Na página **Visão Geral** do banco de dados, clique em **Mostrar cadeias de conexão de banco de dados**.
+2. Em Olá **visão geral** para seu banco de dados, clique em **Mostrar cadeias de conexão de banco de dados**.
 
-3. Examine a cadeia de conexão completa do **ADO.NET**.
+3. Saudação de revisão completa **ADO.NET** cadeia de caracteres de conexão.
 
     ![Cadeia de conexão do ADO.NET](./media/sql-database-security-tutorial/adonet-connection-string.png)
 
@@ -120,130 +120,130 @@ Isso estabelece uma conexão usando o protocolo TLS e reduz o risco de ataques m
 
 Antes de criar os usuários, primeiro você deve escolher um dos dois tipos de autenticação com suporte no Banco de Dados SQL do Azure: 
 
-**Autenticação do SQL**, que usa o nome de usuário e a senha para logons e usuários que são válidos somente no contexto de um banco de dados específico em um servidor lógico. 
+**Autenticação do SQL**, que usa o nome de usuário e senha para logons e usuários que são válidos somente no contexto de um banco de dados específico dentro de um servidor lógico de hello. 
 
 **Autenticação do Azure Active Directory**, que usa identidades gerenciadas pelo Azure Active Directory. 
 
-Se você desejar usar o [Azure Active Directory](./sql-database-aad-authentication.md) para realizar a autenticação no Banco de Dados SQL, deverá haver um Azure Active Directory populado antes que você possa continuar.
+Se você quiser toouse [Active Directory do Azure](./sql-database-aad-authentication.md) tooauthenticate no banco de dados SQL, um Azure Active Directory preenchida deve existir antes de prosseguir.
 
-Siga estas etapas para criar um usuário usando a Autenticação do SQL:
+Siga estas etapas toocreate um usuário usando a autenticação do SQL:
 
-1. Conecte-se ao banco de dados, por exemplo, usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) com suas credenciais de administrador do servidor.
+1. Conecte-se o banco de dados tooyour, por exemplo, usando [SQL Server Management Studio](./sql-database-connect-query-ssms.md) usando suas credenciais de administrador do servidor.
 
-2. No Pesquisador de Objetos, clique com o botão direito do mouse no banco de dados ao qual você deseja adicionar um novo usuário e clique em **Nova Consulta**. Uma janela de consulta em branco conectada ao banco de dados selecionado é aberta.
+2. No Pesquisador de objetos, clique com botão direito no banco de dados de saudação desejado tooadd um novo usuário em e clique em **nova consulta**. Uma janela de consulta em branco é aberto que é conectado toohello banco de dados selecionado.
 
-3. Na janela de consulta, insira a seguinte consulta:
+3. Na janela de consulta hello, digite Olá consulta a seguir:
 
     ```sql
     CREATE USER ApplicationUser WITH PASSWORD = 'YourStrongPassword1';
     ```
 
-4. Na barra de ferramentas, clique em **Executar** para criar o usuário.
+4. Na barra de ferramentas hello, clique em **Execute** toocreate usuário de saudação.
 
-5. Por padrão, o usuário pode se conectar ao banco de dados, mas não tem permissões para ler nem gravar dados. Para conceder essas permissões ao usuário recém-criado, execute os dois comandos a seguir em uma nova janela de consulta
+5. Por padrão, o usuário de Olá pode se conectar a banco de dados toohello, mas não tem permissões tooread ou gravar dados. toogrant toohello essas permissões usuário recém-criado, execute Olá dois comandos em uma nova janela de consulta a seguir
 
     ```sql
     ALTER ROLE db_datareader ADD MEMBER ApplicationUser;
     ALTER ROLE db_datawriter ADD MEMBER ApplicationUser;
     ```
 
-É uma melhor prática criar essas contas não administrador no nível do banco de dados para se conectar ao banco de dados, a menos que você precise executar tarefas de administrador como criar novos usuários. Consulte o [tutorial do Azure Active Directory](./sql-database-aad-authentication-configure.md) para saber como realizar a autenticação usando o Azure Active Directory.
+É melhor toocreate prática essas contas não-administrador no hello tooyour de tooconnect de nível de banco de dados do banco de dados, a menos que você precisa tooexecute tarefas do administrador como a criação de novos usuários. Analise Olá [tutorial do Active Directory do Azure](./sql-database-aad-authentication-configure.md) sobre como tooauthenticate usando o Active Directory do Azure.
 
 
 ## <a name="protect-your-data-with-encryption"></a>Proteger seus dados com criptografia
 
-A TDE (Transparent Data Encryption) do Banco de Dados SQL do Azure criptografa seus dados em repouso automaticamente, sem a necessidade de alterações no aplicativo que acessa o banco de dados criptografado. Para bancos de dados recém-criados, a TDE estará ativada por padrão. Para habilitar a TDE para seu banco de dados ou verificar se a TDE está ativada, execute estas etapas:
+Criptografia de dados transparente de banco de dados SQL do Azure (TDE) criptografa automaticamente os dados em repouso, sem a necessidade de quaisquer alterações toohello aplicativo acessando Olá banco de dados criptografado. Para bancos de dados recém-criados, a TDE estará ativada por padrão. tooenable TDE para seu banco de dados ou tooverify TDE está ativada, siga estas etapas:
 
-1. Selecione **Bancos de dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de dados SQL**. 
+1. Selecione **bancos de dados SQL** no menu esquerdo do hello e clique em seu banco de dados em Olá **bancos de dados SQL** página. 
 
-2. Clique em **Transparent Data Encryption** para abrir a página de configuração da TDE.
+2. Clique em **criptografia transparente de dados** tooopen página de configuração de saudação para TDE.
 
     ![Transparent Data Encryption](./media/sql-database-security-tutorial/transparent-data-encryption-enabled.png)
 
-3. Se for necessário, defina **Criptografia de dados** como ATIVADO e clique em **Salvar**.
+3. Se necessário, defina **criptografia de dados** tooON e clique em **salvar**.
 
-O processo de criptografia é iniciado em segundo plano. Você pode monitorar o progresso ao se conectar ao banco de dados SQL usando o [SQL Server Management Studio](./sql-database-connect-query-ssms.md) ao consultar a coluna encryption_state da exibição `sys.dm_database_encryption_keys`.
+Inicia o processo de criptografia Olá no plano de fundo de saudação. Você pode monitorar o progresso de saudação pelo banco de dados usando conexão tooSQL [SQL Server Management Studio](./sql-database-connect-query-ssms.md) consultando a coluna encryption_state Olá Olá `sys.dm_database_encryption_keys` exibição.
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Habilitar a auditoria do Banco de Dados SQL, se for necessário
 
-A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta do Azure Storage. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar potenciais violações de segurança. Siga estas etapas para criar uma política de auditoria padrão para o banco de dados SQL:
+Auditoria de banco de dados SQL Azure rastreia eventos de banco de dados e grava o log de auditoria tooan em sua conta de armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar potenciais violações de segurança. Siga essas etapas toocreate uma política de auditoria padrão do banco de dados SQL:
 
-1. Selecione **Bancos de dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de dados SQL**. 
+1. Selecione **bancos de dados SQL** no menu esquerdo do hello e clique em seu banco de dados em Olá **bancos de dados SQL** página. 
 
-2. Na folha Configurações, selecione **Auditoria e Detecção de Ameaças**. Observe que a auditoria no nível do servidor está desabilitada e que há um link **Exibir configurações do servidor**, o qual permite a exibição ou modificação das configurações de auditoria do servidor neste contexto.
+2. Na folha de configurações hello, selecione **auditoria e detecção de ameaças**. Observe que a auditoria de nível de servidor é diabled e que haja um **exibir configurações de servidor** link que permite que você tooview ou modificar configurações de auditoria de servidor de saudação neste contexto.
 
     ![Folha Auditoria](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 
-3. Se você preferir habilitar um tipo (ou local?) de Auditoria diferente do especificado no nível do servidor, **ATIVE** a opção Auditoria e escolha o Tipo de Auditoria **Blob**. Se a auditoria de blob do servidor estiver habilitada, a auditoria de banco de dados configurada existirá lado a lado com a auditoria de blob do servidor.
+3. Se você preferir tooenable uma auditoria tipo (ou local?) diferente da saudação especificada no nível do servidor de saudação, ativar **ON** auditoria e escolha Olá **Blob** tipo de auditoria. Se o servidor Blob auditoria estiver habilitada, auditoria de banco de dados configurado Olá existirá lado a lado com a auditoria de Blob do servidor de saudação.
 
     ![Ativar a auditoria](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-4. Selecione **Detalhes de Armazenamento** para abrir a Folha de Armazenamento de Logs de Auditoria. Selecione a conta do Azure Storage em que os logs serão salvos e o período de retenção, após o qual os logs antigos serão excluídos, e clique em **OK** na parte inferior. 
+4. Selecione **detalhes armazenamento** tooopen Olá folha de armazenamento de Logs de auditoria. Conta de armazenamento do Azure hello selecione onde os logs serão salvas e período de retenção hello, após o qual Olá logs antigos serão excluídos, clique em **Okey** na parte inferior da saudação. 
 
    > [!TIP]
-   > Use a mesma conta de armazenamento para todos os bancos de dados auditados para aproveitar ao máximo os modelos de relatórios de auditoria.
+   > Use Olá a mesma conta de armazenamento para todos os Olá de tooget auditados bancos de dados máximo Olá auditoria modelos de relatórios.
    > 
 
 5. Clique em **Salvar**.
 
 > [!IMPORTANT]
-> Se desejar personalizar os eventos auditados, você pode fazer isso por meio do PowerShell ou API REST. Consulte a seção [Automação (PowerShell/API REST)](sql-database-auditing.md#subheading-7) para obter mais detalhes.
+> Se você quiser toocustomize eventos de saudação auditado, você pode fazer isso por meio do PowerShell ou REST API - consulte Olá [automação (PowerShell / API REST)](sql-database-auditing.md#subheading-7) seção para obter mais detalhes.
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>Habilitar a detecção de ameaças do Banco de Dados SQL
 
-A Detecção de Ameaças fornece uma nova camada de segurança, que permite que os clientes detectem e respondam às ameaças potenciais conforme elas ocorrem, fornecendo alertas de segurança nas atividades anormais. Os usuários podem explorar os eventos suspeitos usando a Auditoria do Banco de Dados SQL para determinar se eles resultam de uma tentativa de acesso, violação ou exploração dos dados no banco de dados. A Detecção de Ameaças torna simples tratar as possíveis ameaças no banco de dados sem a necessidade de ser um especialista em segurança ou gerenciar os sistemas de monitoramento de segurança avançados.
-Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais do banco de dados que indicam possíveis tentativas de injeção de SQL. A injeção de SQL é um dos problemas comuns de segurança do aplicativo da Web na Internet, usada para atacar os aplicativos controlados por dados. Os invasores aproveitam as vulnerabilidades do aplicativo para inserir instruções SQL mal-intencionadas nos campos de entrada do aplicativo, para violar ou modificar os dados no banco de dados.
+A detecção de ameaças fornece uma nova camada de segurança, que permite que os clientes toodetect e responde a ameaças de toopotential conforme elas ocorrem, fornecendo alertas de segurança em atividades anormais. Os usuários podem explorar eventos suspeitos hello, usando a auditoria de banco de dados do SQL toodetermine se eles são provenientes de um tooaccess tentativa, violação ou exploram dados no banco de dados de saudação. A detecção de ameaças torna simples tooaddress potenciais ameaças toohello banco de dados sem a necessidade de saudação toobe um especialista em segurança ou gerenciar os sistemas de monitoramento de segurança avançada.
+Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais do banco de dados que indicam possíveis tentativas de injeção de SQL. Injeção de SQL é um dos Olá Web aplicativo problemas de segurança comuns em Olá Internet, os aplicativos usados tooattack controladas por dados. Os invasores tirar proveito de aplicativo vulnerabilidades tooinject de instruções SQL mal-intencionadas nos campos de entrada do aplicativo, para serem violados ou modificar dados no banco de dados de saudação.
 
-1. Navegue para a folha de configuração do banco de dados SQL que você deseja monitorar. Na folha Configurações, selecione **Auditoria e Detecção de Ameaças**.
+1. Navegue toohello folha de configuração de saudação deseja toomonitor do banco de dados do SQL. Na folha de configurações hello, selecione **auditoria e detecção de ameaças**.
 
     ![Painel de navegação](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
-2. Na folha de configuração **Auditoria e Detecção de Ameaças**, **ATIVE** a auditoria, o que exibirá as configurações de detecção de ameaças.
+2. Em Olá **auditoria e detecção de ameaças** configuração folha ativar **ON** auditoria, que exibirá as configurações de detecção de ameaças hello.
 
 3. **ATIVE** a detecção de ameaças.
 
-4. Configure a lista de emails que receberão os alertas de segurança após a detecção das atividades anormais do banco de dados.
+4. Configure Olá lista de endereços de email que receberão alertas de segurança após a detecção de atividades anormais de banco de dados.
 
-5. Clique em **Salvar** na folha **Auditoria e detecção de ameaças** para salvar a auditoria nova ou atualizada e a política de detecção de ameaças.
+5. Clique em **salvar** em Olá **detecção de auditoria e ameaças** toosave folha Olá nova ou atualizada política de detecção de ameaças e auditoria.
 
     ![Painel de navegação](./media/sql-database-security-tutorial/td-turn-on-threat-detection.png)
 
-    Se forem detectadas atividades anormais de banco de dados, você receberá uma notificação por email na detecção das atividades anormais do banco de dados. O email fornecerá informações sobre o evento de segurança suspeito, incluindo a natureza das atividades anormais, nome do banco de dados, nome do servidor e a hora do evento. Além disso, ele fornecerá informações sobre as possíveis causas e ações recomendadas para investigar e atenuar a ameaça em potencial no banco de dados. As próximas etapas explicam o que deverá ser feito caso você receba um email desse tipo:
+    Se forem detectadas atividades anormais de banco de dados, você receberá uma notificação por email na detecção das atividades anormais do banco de dados. email Olá fornecerá informações sobre eventos de segurança suspeitos Olá incluindo natureza Olá de atividades anormais Olá, nome do banco de dados, a hora de evento de nome e hello do servidor. Além disso, ele fornecerá informações sobre possíveis causas e recomendado tooinvestigate ações e reduzir Olá potenciais ameaças toohello banco de dados de. exame de etapas Avançar Olá você através do qual toodo você deve receber um email:
 
     ![Email de detecção de ameaças](./media/sql-database-threat-detection-get-started/4_td_email.png)
 
-6. No email, clique no link **Log de Auditoria do SQL do Azure**, que iniciará o portal do Azure e mostrará os registros de auditoria relevantes do período do evento suspeito.
+6. No email de saudação, clique em Olá **o Log de auditoria do SQL Azure** link, o que iniciará Olá portal do Azure e exibir registros de auditoria relevantes Olá em torno de tempo de saudação do evento suspeitas Olá.
 
     ![Registros de auditoria](./media/sql-database-threat-detection-get-started/5_td_audit_records.png)
 
-7. Clique nos registros de auditoria para exibir mais detalhes sobre as atividades suspeitas do banco de dados, como a instrução SQL, motivo da falha e IP do cliente.
+7. Clique em tooview de registros de auditoria hello mais detalhes sobre atividades de banco de dados suspeito hello, como a instrução SQL, IP de cliente e o motivo da falha.
 
     ![Detalhes do registro](./media/sql-database-security-tutorial/6_td_audit_record_details.png)
 
-8. Na folha Registros de Auditoria, clique em **Abrir no Excel** para abrir um modelo pré-configurado do Excel para importar e executar uma análise mais profunda do log de auditoria na época do evento suspeito.
+8. Na folha de registros de auditoria de saudação, clique em **abrir no Excel** tooopen previamente configurada do excel tooimport de modelo e executar uma análise mais profunda do log de auditoria Olá em torno de tempo de saudação do evento suspeitas hello.
 
     > [!NOTE]
-    > No Excel 2010 ou posterior, o Power Query e a configuração **Combinação Rápida** são necessários.
+    > No Excel 2010 ou posterior, o Power Query e Olá **combinação rápida** configuração é necessária.
 
     ![Abrir registros no Excel](./media/sql-database-threat-detection-get-started/7_td_audit_records_open_excel.png)
 
-9. Para definir a configuração **Combinação Rápida**: na guia de faixa de opções **POWER QUERY**, selecione **Opções** para exibir a caixa de diálogo Opções. Selecione a seção Privacidade e escolha a segunda opção - 'Ignorar os Níveis de Privacidade e melhorar potencialmente o desempenho':
+9. Olá tooconfigure **combinação rápida** configuração - no hello **POWER QUERY** guia de faixa de opções, selecione **opções** toodisplay caixa de diálogo de opções de saudação. Selecione a seção de privacidade hello e escolha Olá segunda opção - 'Ignorar Olá níveis de privacidade e potencialmente melhorar o desempenho':
 
     ![Combinação Rápida do Excel](./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png)
 
-10. Para carregar os logs de auditoria do SQL, verifique se os parâmetros na guia de configurações estão definidos corretamente e, em seguida, selecione a faixa de opções 'Dados' e clique no botão 'Atualizar Tudo'.
+10. logs de auditoria do SQL tooload, verifique se Olá parâmetros na guia Configurações de saudação estão definidos corretamente e, em seguida, selecione a faixa de opções de 'Dados' hello e clique o botão 'Atualizar tudo' hello.
 
     ![Parâmetros do Excel](./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png)
 
-11. Os resultados aparecem na folha **Logs de Auditoria do SQL** , que permite executar uma análise mais profunda das atividades anormais detectadas e minimizar o impacto do evento de segurança em seu aplicativo.
+11. resultados de saudação aparecem na Olá **os Logs de auditoria do SQL** folha que permite que você toorun uma análise mais profunda de atividades anormais de saudação que foram detectadas e reduzir o impacto de saudação do evento de segurança de saudação em seu aplicativo.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Você pode melhorar a proteção do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a: 
+Você pode melhorar a proteção de saudação do banco de dados contra usuários mal-intencionados ou acesso não autorizado com apenas algumas etapas simples. Neste tutorial, você aprenderá a: 
 
 > [!div class="checklist"]
 > * Configurar regras de firewall para seu servidor e/ou banco de dados
-> * Conectar ao banco de dados usando uma cadeia de conexão segura
+> * Conecte-se o banco de dados de tooyour usando uma cadeia de caracteres de conexão segura
 > * Gerenciar o acesso de usuário
 > * Proteger seus dados com criptografia
 > * Habilitar a auditoria do Banco de Dados SQL

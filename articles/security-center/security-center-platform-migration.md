@@ -1,6 +1,6 @@
 ---
-title: "Migração de plataforma da Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento explica algumas alterações na maneira como os dados da Central de Segurança do Azure são coletados."
+title: "aaaAzure migração de plataforma do Centro de segurança | Microsoft Docs"
+description: "Este documento explica alguma forma de toohello alterações dados da Central de segurança do Azure é coletada."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 28cb8d85912a3f62941cf113da51070081b5eda2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migração de plataforma da Central de Segurança do Azure
 
-A partir do início de junho de 2017, a Central de Segurança do Azure vai implantar mudanças importantes na maneira como os dados de segurança são coletados e armazenados.  Essas alterações desbloqueiam novos recursos, como a capacidade de pesquisar dados de segurança facilmente, e se alinha melhor com outros serviços de gerenciamento e monitoramento do Azure.
+A partir do início de junho de 2017, Central de segurança do Azure distribui importante alterações toohello maneira segurança dados são coletados e armazenados.  Essas alterações desbloquear novos recursos como dados de segurança do hello capacidade tooeasily pesquisa e alinha melhor com outro gerenciamento do Azure e o monitoramento dos serviços.
 
 > [!NOTE]
-> A migração de plataforma não deve afetar os recursos de produção e você não precisa fazer nada.
+> migração de plataforma Olá não deve afetar os recursos de produção e nenhuma ação é necessária do seu lado.
 
 
 ## <a name="whats-happening-during-this-platform-migration"></a>O que acontece durante a migração de plataforma?
 
-Anteriormente, a Central de Segurança usava o agente de monitoramento do Azure para coletar dados de segurança de suas VMs. Isso inclui informações sobre as configurações de segurança, que são usadas para identificar vulnerabilidades, e eventos de segurança, que são usados para detectar ameaças. Esses dados eram armazenados em suas contas de armazenamento no Azure.
+Central de segurança usado anteriormente, dados de segurança de toocollect Olá agente de monitoramento do Azure de suas VMs. Isso inclui informações sobre as configurações de segurança, que são usados tooidentify vulnerabilidades, e eventos de segurança, que são usados toodetect ameaças. Esses dados eram armazenados em suas contas de armazenamento no Azure.
 
-De agora em diante, a Central de Segurança do Azure usa o Microsoft Monitoring Agent; ele é o mesmo agente usado pelos serviços Operations Management Suite e Log Analytics. Os dados coletados desse agente são armazenados no *análise de Log* [espaço de trabalho](../log-analytics/log-analytics-manage-access.md) do Log Analytics existente associado à sua assinatura do Azure ou a novos espaços de trabalho, levando em conta a localização geográfica da VM.
+No futuro, que Central de segurança usa Olá Microsoft Monitoring Agent – isso é Olá mesmo agente usado pelo serviço de análise de Log e Olá Operations Management Suite. Dados coletados deste agente são armazenados em qualquer existente *análise de Log* [espaço de trabalho](../log-analytics/log-analytics-manage-access.md) associado à sua assinatura do Azure ou um novo espaço, levando em conta localização geográfica de saudação do hello VM .
 
 ## <a name="agent"></a>Agente
 
-Como parte da transição, o Microsoft Monitoring Agent (para [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md)) é instalado em todas as VMs do Azure cujos dados estejam sendo coletados no momento.  Se a VM já possui o Microsoft Monitoring Agent instalado, a Central de Segurança otimiza o agente instalado atual.
+Como parte da transição hello, Olá Microsoft Monitoring Agent (para [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md)) é instalado em todas as máquinas virtuais do Azure do qual dados está sendo coletados no momento.  Se Olá atual aproveita o hello que VM já possui Olá Microsoft Monitoring Agent instalado, Central de segurança do agente foi instalado.
 
-Por um período de tempo (normalmente de alguns dias), os dois agentes serão executados lado a lado para garantir uma transição suave sem perda de dados. Isso permite que a Microsoft valide se o novo pipeline de dados está funcionando antes de interromper o uso do pipeline atual. Depois da verificação, o agente de monitoramento do Azure será removido das VMs. Você não precisa fazer nada. Um email avisará quando todos os clientes forem migrados.
+Para um período de tempo (normalmente de alguns dias), os dois agentes serão executado lado a lado tooensure uma transição suave sem qualquer perda de dados. Isso permitirá que a Microsoft toovalidate que Olá novo pipeline de dados está funcionando antes de interromper o uso de pipeline atual hello. Saudação de uma vez verificada, o agente de monitoramento do Azure será removido de suas VMs. Você não precisa fazer nada. Um email avisará quando todos os clientes forem migrados.
  
-Não é recomendável que você desinstale o agente de monitoramento do Azure manualmente durante a migração, já que isso pode resultar em lacunas nos dados de segurança. Confira [Suporte e atendimento ao cliente Microsoft](https://support.microsoft.com/contactus/) se precisar de assistência adicional. 
+Não é recomendável que você desinstalar manualmente Olá agente de monitoramento do Azure durante a migração de saudação como lacunas nos dados de segurança podem resultar. Confira [Suporte e atendimento ao cliente Microsoft](https://support.microsoft.com/contactus/) se precisar de assistência adicional. 
 
-O Microsoft Monitoring Agent para Windows exige o uso da porta TCP 443. Leia o [Guia de solução de problemas do Central de Segurança do Azure](security-center-troubleshooting-guide.md) para saber mais.
+Olá Microsoft Agent de monitoramento do Windows exige que usam a porta TCP 443, ler [guia de solução de problemas do Azure Security Center](security-center-troubleshooting-guide.md) para obter mais informações.
 
 
 > [!NOTE] 
-> Como o Microsoft Monitoring Agent pode ser usado por outro serviço de gerenciamento e monitoramento do Azure, o agente não será desinstalado automaticamente quando você desligar a coleta de dados na Central de Segurança. Você poderá desinstalar o agente manualmente, se necessário.
+> Como Olá Microsoft Monitoring Agent pode ser usado por outro gerenciamento do Azure e monitoramento de serviços, o agente de saudação não será desinstalado automaticamente quando você desativa a coleta de dados da Central de segurança. No entanto, você poderá desinstalar manualmente o agente de saudação se necessário.
 
 ## <a name="workspace"></a>Espaço de trabalho
 
-Conforme descrito anteriormente, os dados coletados do Microsoft Monitoring Agent (em nome da Central de Segurança do) são armazenados em um espaço de trabalho do Log Analytics existente associado à sua assinatura do Azure ou em um novo espaço, levando em conta a geolocalização da VM.
+Conforme descrito anteriormente, dados coletados do Microsoft Monitoring Agent (em nome da Central de segurança) são armazenados em uma análise Log existente de saudação espaço associado à sua assinatura do Azure ou um novo espaço, considerando Olá de conta localização geográfica do hello VM.
 
-No portal do Azure, você pode navegar para ver uma lista de espaços de trabalho do Log Analytics, incluindo aqueles criados pela Central de Segurança. Um grupo de recursos relacionados será criado para novos espaços de trabalho. Ambos seguem esta convenção de nomenclatura:
+Olá portal do Azure, você pode navegar toosee uma lista de seus espaços de trabalho de análise de Log, incluindo aqueles criados pela Central de segurança. Um grupo de recursos relacionados será criado para novos espaços de trabalho. Ambos seguem esta convenção de nomenclatura:
 
 - Espaço de trabalho: *DefaultWorkspace-[ID da assinatura]-[localização geográfica]*
 - Grupo de recursos: *DefaultResouceGroup-[localização geográfica]* 
  
-No caso de espaços de trabalho criados pela Central de Segurança, os dados serão retidos por 30 dias. No caso dos espaços de trabalho existentes, a retenção ocorre com base no tipo de preço do espaço de trabalho.
+No caso de espaços de trabalho criados pela Central de Segurança, os dados serão retidos por 30 dias. Para espaços de trabalho existentes, retenção baseia-se no espaço de trabalho de saudação de preço.
 
 > [!NOTE]
-> Os dados coletados anteriormente pela Central de Segurança permanecem nas suas contas de armazenamento. Quando a migração é concluída, você pode excluir essas contas de armazenamento.
+> Os dados coletados anteriormente pela Central de Segurança permanecem nas suas contas de armazenamento. Após a conclusão da migração hello, você pode excluir essas contas de armazenamento.
 
 ### <a name="oms-security-solution"></a>Solução de segurança do OMS 
 
@@ -69,12 +69,12 @@ Para clientes que não têm um solução de segurança do OMS instalada, A Micro
 
 ## <a name="other-updates"></a>Outras atualizações
 
-Em conjunto com a migração de plataforma, estamos implantando outras pequenas atualizações adicionais:
+Em conjunto com a migração de plataforma hello, desenvolvimento atualizações secundárias adicionais:
 
-- Suporte a versões adicionais do sistema operacional. Consulte a lista [aqui](security-center-faq.md#virtual-machines).
-- A lista de vulnerabilidades do sistema operacional será expandida. Consulte a lista [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
+- Suporte a versões adicionais do sistema operacional. Consulte a lista de saudação [aqui](security-center-faq.md#virtual-machines).
+- lista de saudação de vulnerabilidades do sistema operacional será expandida. Consulte a lista de saudação [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
 - O [preço](https://azure.microsoft.com/pricing/details/security-center/) será proporcional à hora (anteriormente, era diário), o que resulta em economia de custo para alguns clientes.
-- A coleta de dados será obrigatória e habilitada automaticamente para clientes no tipo de preço Standard.
+- Coleta de dados será necessária e habilitada automaticamente para clientes na faixa de preços padrão hello.
 - A Central de Segurança do Azure começará a descobrir soluções antimalware que não foram implantadas por meio de extensões do Azure. A descoberta do Symantec Endpoint Protection and Defender para Windows 2016 ficará disponível primeiro.
-- As políticas de prevenção e notificações só são configuráveis no nível da *Assinatura*, mas os preços ainda podem ser definidos no nível do *Grupo de Recursos*
+- Políticas de prevenção e notificações só são configuráveis no hello *assinatura* nível, mas os preços ainda podem ser definido como Olá *grupo de recursos* nível
 

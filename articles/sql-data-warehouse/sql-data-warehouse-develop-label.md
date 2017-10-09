@@ -1,6 +1,6 @@
 ---
-title: "Usar rótulos para consultas de instrumento no SQL Data Warehouse | Microsoft Docs"
-description: "Dicas para usar rótulos para consultas de instrumento no SQL Data Warehouse do Azure para desenvolvimento de soluções."
+title: "aaaUse rótulos tooinstrument consultas no Data Warehouse SQL | Microsoft Docs"
+description: "Dicas para usar rótulos tooinstrument consultas no Data Warehouse do Azure SQL para desenvolver soluções."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 9e75bbe528a427724a623305fbd45e2277e9d0af
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 82e7ea98e1417134227f1d7c529fdaf2f1df3853
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Usar rótulos para consultas de instrumento no SQL Data Warehouse
+# <a name="use-labels-tooinstrument-queries-in-sql-data-warehouse"></a>Usar consultas de tooinstrument de rótulos no SQL Data Warehouse
 O SQL Data Warehouse oferece suporte a um conceito chamado rótulos de consulta. Antes de entrar em qualquer profundidade, vamos examinar um exemplo:
 
 ```sql
@@ -31,11 +31,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Essa última linha marca a cadeia de caracteres ‘Meu Rótulo de Consulta’ à consulta. Isso é particularmente útil, pois o rótulo é capaz de executar consultas por meio de DMVs. Isso fornece um mecanismo para rastrear consultas de problemas e também para ajudar a identificar o andamento por meio de uma execução ETL.
+Essa última linha marcas de consulta de toohello em 'Meu consulta rótulo' hello cadeia de caracteres. Isso é particularmente útil como rótulo de saudação é capaz de consulta por meio de saudação DMVs. Isso fornece um tootrack mecanismo consultas de problema e também toohelp identificar andamento por meio de uma execução ETL.
 
-Uma boa convenção de nomenclatura ajuda muito aqui. Por exemplo, algo como ‘ PROJECT : PROCEDURE : STATEMENT : COMMENT’ ajudaria para identificar exclusivamente a consulta entre todos os códigos no controle de origem.
+Uma boa convenção de nomenclatura ajuda muito aqui. Por exemplo, algo como ' projeto: procedimento: instrução: comentário ' Ajuda toouniquely identificar consulta Olá entre todos os códigos de saudação no controle de origem.
 
-Para pesquisar por rótulo, você pode usar a consulta a seguir que usa os modos de exibição de gerenciamento dinâmico:
+exibições de gerenciamento dinâmico de Olá toosearch por rótulo, você pode usar o hello consulta que usa a seguir:
 
 ```sql
 SELECT  *
@@ -45,7 +45,7 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> É essencial encapsular colchetes ou aspas duplas em torno da palavra do rótulo ao consultar. Rótulo é uma palavra reservada e causará um erro se não for delimitada.
+> É essencial encapsule colchetes ou aspas duplas em torno do rótulo de palavra hello ao consultar. Rótulo é uma palavra reservada e causará um erro se não for delimitada.
 > 
 > 
 

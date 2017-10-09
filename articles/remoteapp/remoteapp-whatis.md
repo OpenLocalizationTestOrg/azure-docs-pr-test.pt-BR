@@ -1,6 +1,6 @@
 ---
-title: "O que é o RemoteApp do Azure? | Microsoft Docs"
-description: Aprenda a compartilhar aplicativos e recursos para qualquer dispositivo por meio do Azure RemoteApp.
+title: "aaaWhat é o Azure RemoteApp? | Microsoft Docs"
+description: Saiba como tooshare dispositivo tooany aplicativos e recursos por meio do Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -14,73 +14,73 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: d4befefcaa0cacdde9cce3d8ad93ae8c4cad47f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e13909f3a5698f58c7e4348f3ce53f43560f9b1d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-azure-remoteapp"></a>O que é o RemoteApp do Azure?
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-O RemoteApp do Azure oferece a funcionalidade do programa RemoteApp Microsoft local, o suporte pelos Serviços de área de trabalho remota, para o Azure. O RemoteApp do Azure o ajudará a fornecer acesso remoto seguro aos aplicativos de vários dispositivos de usuário diferentes. Basicamente, o Azure RemoteApp hospeda sessões não persistentes do Terminal Server na nuvem e você pode usá-las e compartilhá-las com seus usuários.
+O RemoteApp do Azure oferece funcionalidade de saudação do programa de Microsoft RemoteApp local hello, com o apoio de serviços de área de trabalho remota, tooAzure. O Azure RemoteApp o ajuda a fornecer acesso remoto seguro tooapplications de muitos dispositivos de usuário diferente. O Azure RemoteApp basicamente hospeda sessões do Terminal Server não persistente na nuvem hello e obter toouse-los e compartilhá-los com os usuários.
 
-Com o Azure RemoteApp, você pode compartilhar aplicativos e recursos com usuários em praticamente qualquer dispositivo. Hospedamos seus aplicativos na nuvem, o que significa que cuidamos do hardware e da escala para atender às demandas dos usuários. Tudo o que você precisa fazer é carregar os aplicativos que deseja compartilhar e fazer com que seus usuários usem esses aplicativos. [Os usuários mantêm seus próprios dispositivos](remoteapp-clients.md), enquanto você gerencia tudo por meio do portal do Azure. Você tem até a opção de usar suas credenciais corporativas, permitindo garantir a segurança de aplicativos e dados.
+Com o Azure RemoteApp, você pode compartilhar aplicativos e recursos com usuários em praticamente qualquer dispositivo. Vamos hospedar seus aplicativos em nuvem Olá, significando que cuidar de hardware hello e dimensionamento toomeet demandas de usuário. Toodo se carregar o aplicativo hello desejado tooshare e, em seguida, obter seu usuários toouse esses aplicativos. [Os usuários obtêm tookeep seus próprios dispositivos](remoteapp-clients.md), enquanto você gerencia tudo por meio de saudação portal do Azure. Você ainda tem opção de saudação de usando suas credenciais corporativas, permitindo que você a garantir a segurança de saudação de aplicativos e dados.
 
 Continue lendo para saber mais sobre o RemoteApp ou, se nós já convencemos você, [experimente-o agora](https://azure.microsoft.com/services/remoteapp/).
 
 Tem dúvidas sobre o Azure RemoteApp? Confira nossas [Perguntas frequentes](remoteapp-faq.md).
 
-O RemoteApp do Azure é parte do [Microsoft Virtual Desktop Infrastructure](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
+O Azure RemoteApp faz parte da saudação [Microsoft Virtual Desktop Infrastructure](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
 
-**Novo!** Quer saber mais sobre o RemoteApp do Azure? Ou você está pronto para validar o RemoteApp em escala? Participe do nosso webinar semanal [Pergunte aos especialistas](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
+**Novo!** Deseja toolearn mais sobre o Azure RemoteApp? Ou pronto toovalidate Azure RemoteApp em escala? Ingressar em nosso semanalmente [pedir a especialistas Olá webinar](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website).
 
 ## <a name="azure-remoteapp-collections"></a>Coleções do Azure RemoteApp
 Há dois tipos de coleções do [Azure RemoteApp](remoteapp-collections.md):
 
-* Uma **coleção na nuvem** é hospedada e armazena dados dos programas na nuvem. Os usuários podem acessar aplicativos ao efetuar logon com sua conta da Microsoft ou credenciais corporativas sincronizadas ou federadas com o Active Directory do Azure.
+* Um **coleção em nuvem** está hospedado no e armazena dados para os programas na nuvem hello. Os usuários podem acessar aplicativos ao efetuar logon com sua conta da Microsoft ou credenciais corporativas sincronizadas ou federadas com o Active Directory do Azure.
   
-    Escolha uma coleção de nuvem quando o aplicativo que você deseja compartilhar não requer uma conexão com nenhum recurso de rede privada da empresa (por exemplo, por meio de um dispositivo VPN). Se o aplicativo usa recursos na Internet, o OneDrive ou o Azure, uma coleção de nuvem funcionará para você. Além disso, ela é mais rápida de criar.
-* Uma **coleção híbrida** é hospedada e armazena os dados na nuvem do Azure, mas também permite aos usuários acessarem dados e recursos armazenados em sua rede local. Os usuários podem acessar aplicativos ao efetuar logon com suas credenciais corporativas sincronizadas ou federadas com o Active Directory do Azure.
+    Escolha uma coleção de nuvem quando o aplicativo hello deseja tooshare não precisar de um recurso de tooany de conexão da rede privada da empresa (por exemplo, por meio de um dispositivo VPN). Se o aplicativo hello usa recursos em Olá Internet, OneDrive, ou o Azure, uma coleção de nuvem irá funcionar para você. Também é toocreate mais rápida de saudação.
+* Um **coleção híbrida** está hospedado no e armazena dados em Olá nuvem do Azure, mas também permite que usuários acessem dados e recursos armazenados em sua rede local. Os usuários podem acessar aplicativos ao efetuar logon com suas credenciais corporativas sincronizadas ou federadas com o Active Directory do Azure.
   
-    Escolha uma coleção híbrida se você precisar de uma conexão com recursos na rede privada da empresa. Por exemplo, se o aplicativo precisa acessar um dos seguintes:
+    Escolha uma coleção híbrida, se você precisar de um tooresources de conexão de rede privada da sua empresa. Por exemplo, se hello aplicativo precisa acessar tooone seguinte hello:
   
   * Servidores de arquivos localizados em sua intranet
   * Quicken
   * Bancos de dados por trás de um firewall
     
-    Isso geralmente é mais útil para empresas de grande porte com muitos recursos em suas redes privadas que não podem ser movidos para a nuvem.
+    Isso geralmente é mais útil para empresas de grandes porte com muitos recursos em redes privadas que não podem ser movido toohello nuvem.
 
-As diferentes coleções têm opções diferentes, incluindo redes, por isso, descubra [qual coleção](remoteapp-collections.md) funciona melhor para você. 
+Hello diferentes coleções tem opções diferentes, incluindo redes, portanto descobrir [qual coleção](remoteapp-collections.md) funciona melhor para você. 
 
 ### <a name="updating-your-collection"></a>Atualizando sua coleção
-Uma das principais diferenças entre as coleções híbrida e na nuvem é como as atualizações de software são tratadas. Com uma coleção na nuvem que usa a imagem pré-instalada do Office 365 ProPlus ou Office 2013, você não precisa se preocupar sobre qualquer atualização. O serviço se mantém e distribui atualizações de forma contínua, tanto para aplicativos quanto o sistema operacional.
+Uma das principais diferenças entre coleções de nuvem e híbridos Olá Olá é como as atualizações de software são tratadas. Com uma coleção de nuvem que usa a imagem pré-instalada Olá Office 365 ProPlus ou Office 2013, você não tem tooworry sobre as atualizações. serviço Olá mantém em si e distribui atualizações em uma base contínua, os aplicativos de tooboth e sistema operacional de saudação.
 
-Para coleções híbridas, bem como coleções na nuvem que usam uma imagem de modelo personalizada, você é responsável por manter a imagem e os aplicativos. Para imagens de domínio, você pode controlar atualizações usando ferramentas como o Windows Update, a Diretiva de grupo ou o System Center.
+Para coleções de híbrida, bem como coleções de nuvem que usar uma imagem de modelo personalizado, você é responsável pela manutenção de aplicativos e a imagem de saudação. Para imagens de domínio, você pode controlar atualizações usando ferramentas como o Windows Update, a Diretiva de grupo ou o System Center.
 
-Depois de atualizar sua imagem de modelo personalizada, você carrega a nova imagem na nuvem do Azure e, em seguida, atualiza a coleção para usar a nova imagem. (Você pode fazer isso na página **Início Rápido** do Azure RemoteApp ou no Painel).
+Depois de atualizar a imagem de modelo personalizado, você carrega Olá de nova imagem toohello nuvem do Azure e atualize Olá coleção toouse Olá nova imagem. (Você pode fazer isso de saudação do Azure RemoteApp **início rápido** página ou Olá painel.)
 
 Veja [Atualizar sua coleção](remoteapp-update.md) para obter mais informações.
 
 ## <a name="supported-remoteapp-clients"></a>Clientes com suporte do RemoteApp
-O RemoteApp do Azure tem suporte em aplicativos cliente RemoteApp para Windows e Windows RT, bem como os aplicativos de área de trabalho remota Microsoft para Mac, iOS e Android. Os usuários podem usar esses aplicativos em seus dispositivos móveis para acessar os novos programas do Azure RemoteApp.
+Há suporte para o RemoteApp do Azure para Mac, iOS e Android em aplicativos de cliente de RemoteApp Olá para Windows e Windows RT, bem como aplicativos de área de trabalho remota Microsoft hello. Os usuários podem usar esses aplicativos no seu celular ou computação dispositivos tooaccess Olá novos programas RemoteApp do Azure.
 
-Veja [Acessando seus aplicativos no Azure RemoteApp](remoteapp-clients.md) para obter mais informações sobre os clientes.
+Consulte [acessar seus aplicativos no Azure RemoteApp](remoteapp-clients.md) para obter mais informações sobre clientes hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 Vá! Experimente! Estes artigos ajudam a começar com o Azure RemoteApp:
 
 * [Que tipo de coleção é necessária para o Azure RemoteApp?](remoteapp-collections.md)
 * [Criar uma imagem de RemoteApp do Azure](remoteapp-imageoptions.md)
-* [Como criar uma coleção na nuvem do Azure RemoteApp](remoteapp-create-cloud-deployment.md)
-* [Como criar uma coleção híbrida do Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
+* [Como toocreate uma coleção de nuvem do Azure RemoteApp](remoteapp-create-cloud-deployment.md)
+* [Como toocreate uma coleção híbrida do RemoteApp do Azure](remoteapp-create-hybrid-deployment.md)
 * [Como o licenciamento funciona no RemoteApp do Azure?](remoteapp-licensing.md)
 * [Práticas recomendadas para usar o RemoteApp do Azure](remoteapp-bestpractices.md)
 * [Perguntas frequentes sobre o RemoteApp do Azure](remoteapp-faq.md)
 
 ### <a name="help-us-help-you"></a>Ajude-nos a ajudar você
-Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** ou **Editar** para fazer alterações – elas serão enviadas para que as examinemos e depois de aprovadas, você verá as alterações e os aprimoramentos aqui.
+Você sabia que na adição toorating neste artigo e fazer comentários para baixo abaixo, você pode fazer alterações toohello artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** ou **editar** toomake alterações - aqueles virão toous para revisão e, em seguida, uma vez que saia neles, você verá suas alterações e aprimoramentos aqui.
 

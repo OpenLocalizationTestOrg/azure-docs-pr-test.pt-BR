@@ -1,5 +1,5 @@
 ---
-title: "Criação de conjuntos de dimensionamento de máquinas virtuais usando cmdlets do PowerShell | Microsoft Docs"
+title: "conjuntos de aaaCreating escala de máquinas virtuais usando cmdlets do PowerShell | Microsoft Docs"
 description: "Introdução à criação e ao gerenciamento dos seus primeiros Conjuntos de Escalas de Máquina Virtual do Azure usando cmdlets do Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: danielsollondon
-ms.openlocfilehash: a3a36028a75d6cb7eb36277f3e2b5ab833c96a96
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7979be367d04c904b60d78849c1b751a52cc8caf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a>Criando Conjuntos de Escala de Máquina Virtual usando cmdlets do PowerShell
-Este artigo apresenta um exemplo de como criar um VMSS (conjunto de dimensionamento de máquinas virtuais). Ele cria um conjunto de dimensionamento de três nós, com a rede e o armazenamento associados.
+Este artigo o orienta por meio de um exemplo de como toocreate uma escala de máquina Virtual configurada (VMSS). Ele cria um conjunto de dimensionamento de três nós, com a rede e o armazenamento associados.
 
 ## <a name="first-steps"></a>Primeiras Etapas
-Certifique-se de ter o módulo do Azure PowerShell mais recente instalado para assegurar que você tenha os cmdlets do PowerShell necessários para manter e criar conjuntos de dimensionamento.
-Vá para as ferramentas de linha de comando [aqui](http://aka.ms/webpi-azps) para os Módulos do Azure mais recentes disponíveis.
+Certifique-se de ter hello mais recente do Azure PowerShell module instalada, toomake se você tem os cmdlets do PowerShell Olá necessário toomaintain e criar conjuntos de escala.
+Acesse ferramentas de linha de comando toohello [aqui](http://aka.ms/webpi-azps) para hello mais recente disponível módulos do Azure.
 
-Para localizar commandlets relacionados ao VMSS, use a cadeia de caracteres de pesquisa \*VMSS\*. Por exemplo, _gcm *vmss*_
+toofind VMSS relacionados commandlets, use a cadeia de caracteres de pesquisa Olá \*VMSS\*. Por exemplo, _gcm *vmss*_
 
 ## <a name="creating-a-vmss"></a>Criando uma VMSS
 #### <a name="create-resource-group"></a>Criar grupo de recursos
@@ -50,12 +50,12 @@ $subnetName = 'websubnet'
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
 
-# In this case assume the new subnet is the only one
+# In this case assume hello new subnet is hello only one
 $subnetId = $vnet.Subnets[0].Id;
 ```
 
-#### <a name="create-public-ip-resource-to-allow-external-access"></a>Criar Recurso IP Público para Permitir o Acesso Externo
-Isso será associado ao balanceador de carga.
+#### <a name="create-public-ip-resource-tooallow-external-access"></a>Criar recurso IP público tooAllow acesso externo
+Isso será associado toohello balanceador de carga.
 
 ```
 $pubip = New-AzureRmPublicIpAddress -Force -Name ('pubip' + $rgname) -ResourceGroupName $rgname -Location $loc -AllocationMethod Dynamic -DomainNameLabel ('pubip' + $rgname);
@@ -71,24 +71,24 @@ $inboundNatPoolName = 'innatpool' + $rgname
 $lbruleName = 'lbrule' + $rgname
 $lbName = 'vmsslb' + $rgname
 
-# Bind Public IP to Load Balancer
+# Bind Public IP tooLoad Balancer
 $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicIpAddress $pubip
 ```
 
 #### <a name="configure-load-balancer"></a>Configurar o Balanceador de Carga
-Criar Configuração de Pool de Endereços de Back-end, isso será compartilhado pelas NICs das VMs no conjunto de dimensionamento.
+Criar a configuração de Pool de endereços de back-end, isso será compartilhado por NICs Olá Olá VMs no conjunto de escala de saudação.
 
 ```
 $backendAddressPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name $backendAddressPoolName
 ```
 
-Definir a Porta de Investigação com Balanceamento de Carga, altere as configurações conforme apropriado para seu aplicativo.
+Definir a porta de investigação com balanceamento de carga, alterar as configurações de saudação conforme apropriado para seu aplicativo.
 
 ```
 $probe = New-AzureRmLoadBalancerProbeConfig -Name $probeName -RequestPath healthcheck.aspx -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 ```
 
-Crie um pool de NAT de entrada para conectividade direta roteada (sem balanceamento de carga) para as VMs no conjunto de dimensionamento por meio do balanceador de carga. Isso é demonstrar o uso do RDP e pode não ser necessário em seu aplicativo.
+Criar um pool NAT de entrada para conectividade direta roteada (não com balanceamento de carga) toohello VMs em escala Olá definidas por meio do hello balanceador de carga. Isso é toodemonstrate usando o RDP e não pode ser necessário em seu aplicativo.
 
 ```
 $frontendpoolrangestart = 3360
@@ -98,7 +98,7 @@ $inboundNatPool = New-AzureRmLoadBalancerInboundNatPoolConfig -Name $inboundNatP
 $frontend.Id -Protocol Tcp -FrontendPortRangeStart $frontendpoolrangestart -FrontendPortRangeEnd $frontendpoolrangeend -BackendPort $backendvmport;
 ```
 
-Crie a Regra Balanceada de Carga, este exemplo mostra as solicitações da porta 80 de balanceamento de carga usando as configurações das etapas anteriores.
+Crie hello de carga balanceada regra, este exemplo mostra a carga balanceamento porta 80 das solicitações, usando as configurações de saudação de etapas anteriores.
 
 ```
 $protocol = 'Tcp'
@@ -119,14 +119,14 @@ $actualLb = New-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname -Lo
 -Probe $probe -LoadBalancingRule $lbrule -InboundNatPool $inboundNatPool -Verbose;
 ```
 
-Verifique as configurações de LB, verifique as configurações da porta com balanceamento de carga, observe que você não verá regras de NAT de Entrada até que as VMs no conjunto de dimensionamento sejam criadas.
+Verifique as configurações de balanceamento de carga, verifique a carga de configurações de porta equilibrada, observe que você não verá as regras de NAT de entrada até Olá VMs no conjunto de escala de saudação são criadas.
 
 ```
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### <a name="configure-and-create-the-scale-set"></a>Configurar e criar o conjunto de dimensionamento
-Observe que este exemplo de infraestrutura mostra como instalar a distribuição e o dimensionamento de tráfego da Web através do conjunto de dimensionamento, mas as imagens das VMs especificadas aqui não tem serviços Web instalados.
+##### <a name="configure-and-create-hello-scale-set"></a>Configurar e criar hello escala definida
+Observe que este exemplo de infraestrutura mostra como distribuir tooset backup e o tráfego de web escala em conjunto de escala hello, mas Olá imagens de máquinas virtuais especificadas aqui não têm serviços web instalados.
 
 ```
 # specify scale set Name
@@ -149,7 +149,7 @@ $exttype = 'BGInfo';
 $extver = '2.1';
 ```
 
-Associar NIC ao Balanceador de Carga e à Sub-rede
+Associar tooLoad NIC balanceador e subrede
 
 ```
 $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
@@ -179,7 +179,7 @@ Criar a configuração do conjunto de dimensionamento
 New-AzureRmVmss -ResourceGroupName $rgname -Name $vmssName -VirtualMachineScaleSet $vmss -Verbose;
 ```
 
-Agora você criou o conjunto de dimensionamento. Você pode testar a conexão com a VM individual usando o RDP neste exemplo:
+Agora você criou o conjunto de escala hello. Você pode testar conexão toohello VM individual usando o RDP neste exemplo:
 
 ```
 VM0 : pubipmynewrgwu.westus.cloudapp.azure.com:3360

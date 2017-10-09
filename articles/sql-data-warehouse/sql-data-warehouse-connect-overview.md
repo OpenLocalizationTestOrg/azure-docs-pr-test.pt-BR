@@ -1,6 +1,6 @@
 ---
-title: Conectar-se ao SQL Data Warehouse do Azure | Microsoft Docs
-description: "Como localizar o servidor de nome e a cadeia de conexão para o Azure SQL Data Warehouse"
+title: aaaConnect tooAzure SQL Data Warehouse | Microsoft Docs
+description: "Como cadeia de conexão e o nome do servidor de saudação toofind do seu SQL Data Warehouse tooAzure"
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -15,30 +15,30 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: 72c2b404e66611da421eca0dc30aa71e18c6d120
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f15e098026afb7c5efbbbfaf62b681e8cd7936bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-azure-sql-data-warehouse"></a>Conectar-se ao SQL Data Warehouse do Azure
-Este artigo ajuda você a conectar o SQL Data Warehouse pela primeira vez.
+# <a name="connect-tooazure-sql-data-warehouse"></a>Conecte-se tooAzure SQL Data Warehouse
+Este artigo ajuda você a obter tooSQL conectado do Data Warehouse Olá primeira vez.
 
 ## <a name="find-your-server-name"></a>Localizar o nome do servidor
-A primeira etapa para conectar o SQL Data Warehouse é saber como localizar o nome do servidor.  Por exemplo, o nome do servidor no exemplo a seguir é sample.database.windows.net. Para localizar o nome de servidor totalmente qualificado:
+Olá tooSQL de tooconnecting primeira etapa do Data Warehouse é saber como toofind o nome do servidor.  Por exemplo, o nome do servidor de saudação no exemplo a seguir de saudação é sample.database.windows.net. nome do servidor totalmente qualificado de Olá toofind:
 
-1. Acesse o [Portal do Azure][Azure portal].
+1. Vá toohello [portal do Azure][Azure portal].
 2. Clique em **Bancos de dados SQL** 
-3. Clique no banco de dados que você deseja conectar.
-4. Localize o nome completo do servidor.
+3. Clique no banco de dados de saudação desejado tooconnect para.
+4. Localize o nome completo do servidor de saudação.
    
     ![Nome completo do servidor][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivers suportados e cadeias de conexão
-SQL Data Warehouse do Azure dá suporte ao [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], e [JDBC][JDBC]. Clique em um dos drivers anteriores para localizar a versão mais recente e a documentação. Para gerar automaticamente a cadeia de conexão para o driver que você está usando no portal do Azure, você pode clicar em **Mostrar cadeias de conexão do banco de dados** no exemplo anterior.  A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
+SQL Data Warehouse do Azure dá suporte ao [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], e [JDBC][JDBC]. Clique em uma saudação anterior a versão mais recente dos drivers toofind hello e documentação. tooautomatically gerar a cadeia de caracteres de conexão de saudação para driver de saudação que você está usando do hello Azure portal, você pode clicar em Olá **Mostrar cadeias de conexão de banco de dados** de saudação anterior de exemplo.  A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
 
 > [!NOTE]
-> Considere definir o tempo limite de conexão para 300 segundos a fim de permitir que a conexão perdure em curtos períodos de indisponibilidade.
+> Considere definir o tempo limite do hello conexão too300 segundos tooallow toosurvive sua conexão curtos períodos de indisponibilidade.
 > 
 > 
 
@@ -54,7 +54,7 @@ Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows
 
 ### <a name="php-connection-string-example"></a>Exemplo de cadeia de conexão do PHP
 ```PHP
-Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
+Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting tooSQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
 ### <a name="jdbc-connection-string-example"></a>Exemplo de cadeia de conexão do JDBC
@@ -73,11 +73,11 @@ O SQL Data Warehouse padroniza algumas configurações durante a conexão e a cr
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para se conectar e consultar com o Visual Studio, confira [Consultar com o Visual Studio][Query with Visual Studio]. Para saber mais sobre as opções de autenticação, confira [Autenticação no SQL Data Warehouse do Azure][Authentication to Azure SQL Data Warehouse].
+tooconnect e consulta com o Visual Studio, consulte [consulta com o Visual Studio][Query with Visual Studio]. toolearn mais sobre opções de autenticação, consulte [tooAzure autenticação SQL Data Warehouse][Authentication tooAzure SQL Data Warehouse].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
+[Authentication tooAzure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx

@@ -1,6 +1,6 @@
 ---
-title: Analisar dados com o Azure Machine Learning | Microsoft Docs
-description: "Use o Azure Machine Learning para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure."
+title: "dados de aaaAnalyze com o aprendizado de máquina do Azure | Microsoft Docs"
+description: "Use um modelo com base nos dados armazenados no Azure SQL Data Warehouse de aprendizado de máquina previsão de toobuild de aprendizado de máquina do Azure."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 03/02/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 3197948e32fe5c95b111fe5495a0e5f85966a24b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 337a2cd77aaad4467683827c56e5015b262b2554
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -32,26 +32,26 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Este tutorial usa o Azure Machine Learning para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. Especificamente, isso compila uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
+Este tutorial usa um modelo com base nos dados armazenados no Azure SQL Data Warehouse de aprendizado de máquina previsão de toobuild de aprendizado de máquina do Azure. Especificamente, isso cria uma campanha de marketing para a Adventure Works, loja de bicicletas hello, por prever se um cliente é provavelmente toobuy uma bicicleta ou não.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar este tutorial, você precisará:
+toostep este tutorial, você precisa:
 
-* Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse][Create a SQL Data Warehouse] e opte por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][load sample data manually].
+* Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. tooprovision isso, consulte [criar um SQL Data Warehouse] [ Create a SQL Data Warehouse] e escolha dados de exemplo hello tooload. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][load sample data manually].
 
-## <a name="1-get-the-data"></a>1. Obter os dados
-Os dados estão na exibição dbo.vTargetMail no banco de dados AdventureWorksDW. Para ler esses dados:
+## <a name="1-get-hello-data"></a>1. Obter dados de saudação
+dados saudação estão no modo de dbo.vTargetMail de saudação no banco de dados do hello AdventureWorksDW. tooread esses dados:
 
 1. Entre no [Azure Machine Learning Studio][Azure Machine Learning studio] e clique em Meus Testes.
 2. Clique em **+NOVO** e selecione **Teste em Branco**.
 3. Insira um nome para o seu teste: Marketing Direcionado.
-4. Arraste o módulo **Leitor** do painel de módulos na tela.
-5. Especifique os detalhes do seu banco de dados do SQL Data Warehouse no painel Propriedades.
-6. Especifique a **consulta** do banco de dados para ler os dados de interesse.
+4. Saudação de arrastar **leitor** módulo no painel de módulos de saudação na tela hello.
+5. Especifique os detalhes de saudação do banco de dados SQL Data Warehouse no painel de propriedades de saudação.
+6. Especifique o banco de dados de saudação **consulta** tooread dados de saudação de interesse.
 
 ```sql
 SELECT [CustomerKey]
@@ -73,60 +73,60 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Execute o teste clicando em **Executar** na tela do teste.
-![Executar o teste][1]
+Executar o teste de saudação clicando **executar** em tela de experimento hello.
+![Executar teste Olá][1]
 
-Após o teste terminar de ser executado com êxito, clique na porta de saída na parte inferior do módulo Leitor e selecione **Visualizar** para ver os dados importados.
+Após a conclusão da experiência de saudação em execução com êxito, clique Olá a porta de saída na parte inferior de saudação do módulo do leitor de saudação e selecione **visualizar** toosee Olá importou dados.
 ![Exibir dados importados][3]
 
-## <a name="2-clean-the-data"></a>2. Limpar os dados
-Para limpar os dados, remova algumas colunas que não são relevantes para o modelo. Para fazer isso:
+## <a name="2-clean-hello-data"></a>2. Dados saudação normal
+dados de saudação tooclean, remova algumas colunas que não são relevantes para o modelo de saudação. toodo isso:
 
-1. Arraste o módulo **Colunas do Projeto** na tela.
-2. Clique em **Iniciar seletor de colunas** no painel Propriedades para especificar quais colunas você deseja remover.
+1. Saudação de arrastar **colunas do projeto** módulo na tela hello.
+2. Clique em **seletor de coluna iniciar** no toospecify de painel de propriedades Olá quais colunas você deseja toodrop.
    ![Colunas do Projeto][4]
 3. Exclua duas colunas: CustomerAlternateKey e GeographyKey.
    ![Remover colunas desnecessárias][5]
 
-## <a name="3-build-the-model"></a>3. Compilar o modelo
-Dividiremos os dados 80-20: 80% para treinar um modelo de aprendizado de máquina e 20% para testar o modelo. Usaremos os algoritmos de “Duas Classes” para esse problema de classificação binária.
+## <a name="3-build-hello-model"></a>3. Criar modelo Olá
+Podemos dividirá Olá dados 80-20: 80% tootrain um modelo de aprendizado de máquina e 20% tootest Olá modelo. Faremos usa algoritmos de "Duas classes" Olá para esse problema de classificação binária.
 
-1. Arraste o módulo **Divisão** na tela.
-2. Insira 0.8 para a Fração de linhas no primeiro conjunto de dados de saída no painel Propriedades.
+1. Saudação de arrastar **divisão** módulo na tela hello.
+2. Insira 0,8 da fração de linhas no primeiro conjunto de saída hello, no painel de propriedades de saudação.
    ![Dividir os dados em conjuntos de treinamento e teste][6]
-3. Arraste o módulo **Árvore de Decisão Aumentada de duas classes** na tela.
-4. Arraste o módulo **Modelo de Treinamento** na tela e especifique as entradas. Depois, clique em **Iniciar seletor de coluna** no painel de Propriedades.
+3. Saudação de arrastar **árvore de decisão ampliada de duas classes** módulo na tela hello.
+4. Saudação de arrastar **treinar modelo** módulo em Olá tela e especificar Olá entradas. Em seguida, clique em **seletor de coluna iniciar** no painel de propriedades de saudação.
    * Primeira entrada: algoritmo de ML.
-   * Segunda entrada: dados para treinar o algoritmo.
-     ![Conectar o módulo Treinar Modelo][7]
-5. Selecione a coluna **BikeBuyer** como a coluna a ser prevista.
-   ![Selecionar a Coluna a prever][8]
+   * Segundo de entrada: algoritmo de saudação tootrain dados em.
+     ![Conecte-se o módulo treinar modelo de saudação][7]
+5. Selecione Olá **BikeBuyer** coluna como Olá toopredict de coluna.
+   ![Selecione a coluna toopredict][8]
 
-## <a name="4-score-the-model"></a>4. Pontuar o modelo
-Agora, testaremos o desempenho do modelo nos dados de teste. Vamos comparar o algoritmo de nossa escolha com um algoritmo diferente para ver que tem um desempenho melhor.
+## <a name="4-score-hello-model"></a>4. Modelo de saudação de pontuação
+Agora, vamos testar como o modelo de saudação executa em dados de teste. Podemos comparará algoritmo Olá nossa escolha com toosee um algoritmo diferente que tem um desempenho melhor.
 
-1. Arraste o módulo **Modelo de Pontuação** na tela.
-    Primeira entrada: modelo treinado Segunda entrada: dados de teste ![Pontuar o modelo][9]
-2. Arraste o **Computador de Ponto de Bayes de Duas Classes** na tela de teste. Vamos comparar o desempenho desse algoritmo em comparação com a Árvore de Decisão Aumentada de Duas Classes.
-3. Copie e cole os módulos Modelo de Treinamento e Modelo de Pontuação na tela.
-4. Arraste o módulo **Avaliar Modelo** na tela para comparar os dois algoritmos.
-5. **Execute** o teste.
-   ![Executar o teste][10]
-6. Clique na porta de saída na parte inferior do módulo Avaliar Modelo e clique em Visualizar.
+1. Arraste **modelo de pontuação** módulo na tela hello.
+    Primeiro de entrada: treinado modelo segunda entrada: dados de teste ![modelo Olá de pontuação][9]
+2. Saudação de arrastar **máquina do ponto de Bayes de duas classes** na tela de experimento hello. Podemos comparará como esse algoritmo executa na comparação toohello árvore de decisão ampliada de duas classes.
+3. Copiar e colar Olá módulos treinar modelo e o modelo de classificação no hello tela.
+4. Saudação de arrastar **avaliar modelo** módulo em algoritmos de saudação dois Olá tela toocompare.
+5. **Executar** Olá experimento.
+   ![Executar teste Olá][10]
+6. Clique em Olá a porta de saída na parte inferior de Olá Olá avaliar do módulo do modelo e clique em Visualizar.
    ![Visualizar os resultados de avaliação][11]
 
-As métricas fornecidas são a curva ROC, o diagrama de comparação de precisão e recolhimento e a curva de comparação de precisão. Ao examinar essas métricas, podemos ver que o primeiro modelo teve um desempenho melhor do que o segundo. Para ver o que o primeiro modelo previu, clique na porta de saída do Modelo de Pontuação e clique em Visualizar.
+métricas de saudação fornecidas são curva de ROC hello, lembre-se de precisão de diagrama e levante curva. Observando essas métricas, podemos ver esse modelo primeiro Olá executado melhor do que Olá segundo. toolook em Olá que Olá primeiro modelo previsto, clique na porta de saída do hello modelo de classificação e clique em Visualizar.
 ![Visualizar os resultados da pontuação][12]
 
-Você verá duas ou mais colunas adicionadas ao seu conjunto de dados de teste.
+Você verá que mais duas colunas adicionadas tooyour conjunto de dados de teste.
 
-* Probabilidades Pontuadas: a probabilidade de que um cliente é um comprador de bicicleta.
-* Rótulos Pontuados: a classificação feita pelo modelo – comprador de bicicleta (1) ou não (0). Esse limite de probabilidade para a rotulagem é definido como 50% e pode ser ajustado.
+* Das probabilidades pontuadas: probabilidade de saudação que um cliente é um comprador de bicicletas.
+* Rótulos de pontuação: Olá classificação feita pelo modelo hello – comprador de bicicleta (1) ou não (0). Esse limite de probabilidade para rotular é definida too50% e pode ser ajustado.
 
-Ao comparar a coluna BikeBuyer (real) com os Rótulos Pontuados (previsão), é possível ver o desempenho do modelo. Como as próximas etapas, você pode usar esse modelo para fazer previsões para novos clientes e publicar esse modelo como um serviço Web ou gravar os resultados de volta no SQL Data Warehouse.
+Comparando coluna Olá comprador de bicicleta (real) com rótulos de pontuação de saudação (previsão), você pode ver como o modelo Olá executou. Próximas etapas, você pode usar previsões de toomake este modelo para novos clientes e publicar este modelo como um serviço web ou gravar resultados back tooSQL Data Warehouse.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a criação de modelos de aprendizado de máquina de previsão, consulte [Introdução ao Machine Learning no Azure][Introduction to Machine Learning on Azure].
+toolearn mais sobre como criar modelos de aprendizado de máquina previsão consulte muito[tooMachine introdução de aprendizagem no Azure][Introduction tooMachine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -145,6 +145,6 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 
 <!--Article references-->
 [Azure Machine Learning studio]:https://studio.azureml.net/
-[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[Introduction tooMachine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [load sample data manually]: sql-data-warehouse-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md

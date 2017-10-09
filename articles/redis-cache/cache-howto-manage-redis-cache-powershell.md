@@ -1,6 +1,6 @@
 ---
-title: Gerenciar o Cache Redis do Azure com o Azure PowerShell | Microsoft Docs
-description: Saiba como executar tarefas administrativas para o Cache Redis do Azure usando o PowerShell do Azure.
+title: aaaManage Cache Redis do Azure com o Azure PowerShell | Microsoft Docs
+description: Saiba como tooperform de tarefas administrativas para o Cache Redis do Azure usando o PowerShell do Azure.
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: sdanie
-ms.openlocfilehash: 0a5c95eab3fd01f611fc049e80c5c506857e0b81
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1d526ce65c4bc05345cd6c3ff370211ed562cab4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gerenciar o Cache Redis do Azure com o PowerShell do Azure
 > [!div class="op_single_selector"]
@@ -27,51 +27,51 @@ ms.lasthandoff: 08/03/2017
 > 
 > 
 
-Este tópico mostra como executar tarefas comuns, como criar, atualizar e dimensionar suas instâncias de Cache Redis do Azure, como regenerar chaves de acesso e  exibir informações sobre seus caches. Para obter uma lista completa de cmdlets do PowerShell do Cache Redis do Azure, confira [Cmdlets do Cache Redis do Azure](https://msdn.microsoft.com/library/azure/mt634513.aspx).
+Este tópico mostra como tooperform comuns tarefas como criar, atualizar e dimensione suas instâncias de Cache Redis do Azure, como chaves de acesso tooregenerate e como tooview informações sobre seus caches. Para obter uma lista completa de cmdlets do PowerShell do Cache Redis do Azure, confira [Cmdlets do Cache Redis do Azure](https://msdn.microsoft.com/library/azure/mt634513.aspx).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Para obter mais informações sobre o modelo de implantação clássico, consulte [Implantação do Azure Resource Manager versus clássica: Entenda os modelos de implantação e o estado de seus recursos](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics).
+Para obter mais informações sobre o modelo de implantação clássico hello, consulte [do Azure Resource Manager versus implantação clássica: entender os modelos de implantação e Olá estado de seus recursos](../azure-resource-manager/resource-manager-deployment-model.md#classic-deployment-characteristics).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Se você já instalou o Azure PowerShell, você deve ter o Azure PowerShell versão 1.0.0 ou posterior. Você pode verificar a versão do Azure PowerShell instalada com o comando este comando no prompt de comando do Azure PowerShell.
+Se você já instalou o Azure PowerShell, você deve ter o Azure PowerShell versão 1.0.0 ou posterior. Você pode verificar a versão de saudação do PowerShell do Azure que você instalou com este comando no prompt de comando do PowerShell do Azure hello.
 
     Get-Module azure | format-table version
 
 
-Primeiro, faça logon no Azure com este comando.
+Primeiro, você deve efetuar login tooAzure com este comando.
 
     Login-AzureRmAccount
 
-Especifique o endereço de email de sua conta do Azure e sua senha na caixa de diálogo de logon do Microsoft Azure.
+Especifique o endereço de email de saudação de sua conta do Azure e sua senha na caixa de diálogo Olá entrar no Microsoft Azure.
 
-Em seguida, se tiver várias assinaturas do Azure, você precisará definir sua assinatura do Azure. Para ver uma lista de suas assinaturas atuais, execute este comando.
+Em seguida, se você tiver várias assinaturas do Azure, será necessário tooset sua assinatura do Azure. toosee uma lista de suas assinaturas atuais, execute este comando.
 
     Get-AzureRmSubscription | sort SubscriptionName | Select SubscriptionName
 
-Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, o nome da assinatura é `ContosoSubscription`.
+assinatura toospecify Olá executar Olá comando a seguir. Olá exemplo a seguir, nome de assinatura Olá é `ContosoSubscription`.
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-Para poder usar o Windows PowerShell com o Gerenciador de Recursos do Azure, você precisa o seguinte:
+Antes de usar o Windows PowerShell com o Gerenciador de recursos do Azure, você precisa seguir hello:
 
-* Windows PowerShell, versão 3.0 ou 4.0. Para encontrar a versão do Windows PowerShell, digite:`$PSVersionTable` e verifique se o valor de `PSVersion` é 3.0 ou 4.0. Para instalar uma versão compatível, consulte [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, versão 3.0 ou 4.0. versão de saudação do toofind do Windows PowerShell, digite:`$PSVersionTable` e verifique se o valor de saudação do `PSVersion` é 3.0 ou 4.0. tooinstall uma versão compatível, consulte [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-Para obter ajuda detalhada sobre qualquer cmdlet que você vir neste tutorial, use o cmdlet Get-Help.
+tooget ajuda detalhada para qualquer cmdlet, que consulte neste tutorial, use Olá o cmdlet Get-Help.
 
     Get-Help <cmdlet-name> -Detailed
 
-Por exemplo, para obter ajuda para o cmdlet `New-AzureRmRedisCache` , digite:
+Por exemplo, tooget ajuda Olá `New-AzureRmRedisCache` cmdlet, digite:
 
     Get-Help New-AzureRmRedisCache -Detailed
 
-### <a name="how-to-connect-to-other-clouds"></a>Como se conectar a outras nuvens
-Por padrão, o ambiente do Azure é `AzureCloud`, que representa a instância de nuvem global do Azure. Para se conectar a uma instância diferente, use o comando `Add-AzureRmAccount` com a opção de linha de comando `-Environment` ou -`EnvironmentName` com o ambiente desejado ou o nome do ambiente.
+### <a name="how-tooconnect-tooother-clouds"></a>Como tooconnect tooother nuvens
+Por saudação padrão do Azure é ambiente `AzureCloud`, que representa Olá instância global em nuvem do Azure. tooconnect tooa instância diferente, use Olá `Add-AzureRmAccount` com hello `-Environment` ou -`EnvironmentName` opção de linha de comando com o ambiente desejado hello ou nome do ambiente.
 
-Para ver a lista de ambientes disponíveis, execute o cmdlet `Get-AzureRmEnvironment` .
+lista de saudação toosee ambientes disponíveis, execute Olá `Get-AzureRmEnvironment` cmdlet.
 
-### <a name="to-connect-to-the-azure-government-cloud"></a>Para se conectar à Nuvem do Azure Government
-Para se conectar à Nuvem do Azure Government, use um dos comandos a seguir.
+### <a name="tooconnect-toohello-azure-government-cloud"></a>tooconnect toohello nuvem do Azure Government
+tooconnect toohello nuvem do governo do Azure, use um dos Olá comandos a seguir.
 
     Add-AzureRMAccount -EnvironmentName AzureUSGovernment
 
@@ -79,15 +79,15 @@ ou o
 
     Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
-Para criar um cache na Nuvem do Azure Government, use um dos locais a seguir.
+toocreate um cache no hello Azure governamental nuvem, use um dos seguintes locais de saudação.
 
 * Gov. dos EUA – Virgínia
 * Gov. dos EUA – Iowa
 
-Para saber mais sobre a Nuvem do Azure Government, confira [Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/) e [Guia do Desenvolvedor do Microsoft Azure Governamental](../azure-government-developer-guide.md).
+Para obter mais informações sobre hello Azure governamental nuvem, consulte [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) e [guia do desenvolvedor do Microsoft Azure Government](../azure-government-developer-guide.md).
 
-### <a name="to-connect-to-the-azure-china-cloud"></a>Para se conectar à Nuvem do Azure na China
-Para se conectar à Nuvem do Azure na China, use um dos comandos a seguir.
+### <a name="tooconnect-toohello-azure-china-cloud"></a>tooconnect toohello nuvem do Azure na China
+tooconnect toohello nuvem do Azure na China, use um dos comandos a seguir de saudação.
 
     Add-AzureRMAccount -EnvironmentName AzureChinaCloud
 
@@ -95,15 +95,15 @@ ou o
 
     Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
-Para criar um cache na Nuvem do Azure na China, use um dos locais a seguir.
+toocreate um cache na nuvem do Azure na China, usar um dos seguintes locais de saudação do hello.
 
 * Leste da China
 * Norte da China
 
-Para obter mais informações sobre a Nuvem do Azure na China, confira [AzureChinaCloud para Azure operado pelo 21Vianet na China](http://www.windowsazure.cn/).
+Para obter mais informações sobre Olá nuvem do Azure na China, consulte [AzureChinaCloud para o Azure operado pela 21Vianet na China](http://www.windowsazure.cn/).
 
-### <a name="to-connect-to-microsoft-azure-germany"></a>Para se conectar ao Microsoft Azure Alemanha
-Para se conectar ao Microsoft Azure Alemanha, use um dos comandos a seguir.
+### <a name="tooconnect-toomicrosoft-azure-germany"></a>tooconnect tooMicrosoft Azure Alemanha
+tooconnect tooMicrosoft Azure Alemanha, use um dos comandos a seguir de saudação.
 
     Add-AzureRMAccount -EnvironmentName AzureGermanCloud
 
@@ -112,7 +112,7 @@ ou o
 
     Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
-Para criar um cache no Microsoft Azure Alemanha, use uma das localizações a seguir.
+toocreate um cache no Microsoft Azure Alemanha, use um dos seguintes locais de saudação.
 
 * Alemanha Central
 * Nordeste da Alemanha
@@ -120,51 +120,51 @@ Para criar um cache no Microsoft Azure Alemanha, use uma das localizações a se
 Para obter mais informações sobre o Microsoft Azure Alemanha, consulte [Microsoft Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/).
 
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Propriedades usadas para o PowerShell do Cache Redis do Azure
-A tabela a seguir contém as propriedades e as descrições dos parâmetros usados ao criar e gerenciar suas instâncias do Cache Redis do Azure usando o Azure PowerShell.
+Olá, a tabela a seguir contém as propriedades e descrições dos parâmetros usados ao criar e gerenciar suas instâncias de Cache Redis do Azure usando o PowerShell do Azure.
 
 | Parâmetro | Descrição | Padrão |
 | --- | --- | --- |
-| Name |Nome do cache | |
-| Local |Local do cache | |
-| ResourceGroupName |Nome do grupo de recursos no qual criar o cache | |
-| Tamanho |O tamanho do cache. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2.5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
-| ShardCount |O número de fragmentos para criar durante a criação de um cache premium com o cluster ativado. Os valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Especifica o SKU do cache. Os valores válidos são: Básico, Standard e Premium |Standard |
-| RedisConfiguration |Especifica as definições de configuração do Redis. Para obter detalhes sobre cada configuração, confira a seguinte tabela de [propriedades RedisConfiguration](#redisconfiguration-properties) . | |
-| EnableNonSslPort |Indica se a porta não SSL está habilitada. |Falso |
+| Nome |Nome do cache de saudação | |
+| Local |Local do cache de saudação | |
+| ResourceGroupName |Nome do grupo de recursos no qual cache de saudação toocreate | |
+| Tamanho |tamanho de saudação do cache de saudação. Os valores válidos são: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2.5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
+| ShardCount |número de saudação de fragmentos toocreate ao criar um cache premium com cluster habilitado. Os valores válidos são: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
+| SKU |Especifica a saudação SKU do cache de saudação. Os valores válidos são: Básico, Standard e Premium |Standard |
+| RedisConfiguration |Especifica as definições de configuração do Redis. Para obter detalhes sobre cada configuração, consulte o seguinte Olá [RedisConfiguration propriedades](#redisconfiguration-properties) tabela. | |
+| EnableNonSslPort |Indica se a porta do hello não SSL está habilitada. |Falso |
 | MaxMemoryPolicy |Esse parâmetro foi desaprovado - use RedisConfiguration em vez disso. | |
-| StaticIP |Ao hospedar o cache em uma VNET, especifica um endereço IP exclusivo na sub-rede do cache. Se ele não for fornecido, um será escolhido para você na sub-rede. | |
-| Sub-rede |Ao hospedar o cache em uma VNET, especifica o nome da sub-rede na qual implantar o cache. | |
-| VirtualNetwork |Ao hospedar o cache em uma VNET, especifica a ID do recurso da VNET na qual implantar o cache. | |
-| KeyType |Especifica qual chave de acesso regenerar durante a renovação das chaves de acesso. Os valores válidos são: Primary, Secondary | |
+| StaticIP |Ao hospedar o cache em uma rede virtual, especifica um endereço IP exclusivo na sub-rede Olá para o cache de saudação. Se não for fornecido, um é escolhido para você de sub-rede hello. | |
+| Sub-rede |Ao hospedar o cache em uma rede virtual, especifica o nome de saudação de sub-rede de saudação no cache de saudação que toodeploy. | |
+| VirtualNetwork |Quando hospedando o seu cache em uma rede virtual, especifica a ID de recurso de saudação do hello rede virtual no qual cache de saudação toodeploy. | |
+| KeyType |Especifica qual chave de acesso tooregenerate durante a renovação de chaves de acesso. Os valores válidos são: Primary, Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>propriedades RedisConfiguration
 | Propriedade | Descrição | Tipos de preço |
 | --- | --- | --- |
 | rdb-backup-enabled |Se [persistência de dados Redis](cache-how-to-premium-persistence.md) está habilitada |Somente Premium |
-| rdb-storage-connection-string |A cadeia de conexão da conta de armazenamento para [persistência de dados Redis](cache-how-to-premium-persistence.md) |Somente Premium |
-| rdb-backup-frequency |A frequência de backup da [persistência de dados Redis](cache-how-to-premium-persistence.md) |Somente Premium |
-| maxmemory-reserved |Configura a [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos fora do cache |Standard e Premium |
-| maxmemory-policy |Configura o [política de remoção](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para o cache |Todos os tipos de preço |
+| rdb-storage-connection-string |Olá conta de armazenamento de toohello de cadeia de caracteres de conexão para [Redis a persistência de dados](cache-how-to-premium-persistence.md) |Somente Premium |
+| rdb-backup-frequency |Olá frequência de backup [Redis a persistência de dados](cache-how-to-premium-persistence.md) |Somente Premium |
+| maxmemory-reserved |Configura Olá [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos não armazenados em cache |Standard e Premium |
+| maxmemory-policy |Configura Olá [política de remoção](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para o cache de saudação |Todos os tipos de preço |
 | notify-keyspace-events |Configura [notificações keyspace](cache-configure.md#keyspace-notifications-advanced-settings) |Standard e Premium |
 | hash-max-ziplist-entries |Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos |Standard e Premium |
 | hash-max-ziplist-value |Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos |Standard e Premium |
 | set-max-intset-entries |Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos |Standard e Premium |
 | zset-max-ziplist-entries |Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos |Standard e Premium |
 | zset-max-ziplist-value |Configura [otimização de memória](http://redis.io/topics/memory-optimization) para tipos de dados de agregação pequenos |Standard e Premium |
-| databases |Configura o número de bancos de dados. Essa propriedade pode ser configurada apenas na criação do cache. |Standard e Premium |
+| databases |Configura o número de saudação de bancos de dados. Essa propriedade pode ser configurada apenas na criação do cache. |Standard e Premium |
 
-## <a name="to-create-a-redis-cache"></a>Para criar uma Cache Redis
-As novas instâncias Cache Redis do Azure são criadas usando o cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) .
+## <a name="toocreate-a-redis-cache"></a>toocreate um Cache Redis
+Novas instâncias de Cache Redis do Azure são criadas usando Olá [AzureRmRedisCache novo](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet.
 
 > [!IMPORTANT]
-> Na primeira vez em que você cria um cache Redis em uma assinatura usando o portal do Azure, o portal registra o namespace `Microsoft.Cache` para a assinatura. Se você tentar criar o cache Redis primeiro em uma assinatura usando o PowerShell, deverá primeiro registrar esse namespace usando o comando a seguir; caso contrário, cmdlets como `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` falharão.
+> Olá primeira vez que você criar um cache Redis em uma assinatura usando Olá portal do Azure, portal Olá registra Olá `Microsoft.Cache` namespace para essa assinatura. Se você tentar toocreate Olá primeiro Redis cache em uma assinatura usando o PowerShell, você deve primeiro registrar esse namespace usando Olá comando; a seguir Caso contrário, cmdlets, como `New-AzureRmRedisCache` e `Get-AzureRmRedisCache` falhar.
 > 
 > `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 > 
 > 
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-AzureRmRedisCache`, execute o seguinte comando.
+toosee uma lista de parâmetros disponíveis e suas descrições para `New-AzureRmRedisCache`, execute hello seguinte comando.
 
     PS C:\> Get-Help New-AzureRmRedisCache -detailed
 
@@ -183,31 +183,31 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-Az
 
 
     DESCRIPTION
-        The New-AzureRmRedisCache cmdlet creates a new redis cache.
+        hello New-AzureRmRedisCache cmdlet creates a new redis cache.
 
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache to create.
+            Name of hello redis cache toocreate.
 
         -ResourceGroupName <String>
-            Name of resource group in which to create the redis cache.
+            Name of resource group in which toocreate hello redis cache.
 
         -Location <String>
-            Location in which to create the redis cache.
+            Location in which toocreate hello redis cache.
 
         -RedisVersion <String>
             RedisVersion is deprecated and will be removed in future release.
 
         -Size <String>
-            Size of the redis cache. The default value is 1GB or C1. Possible values are P1, P2, P3, P4, C0, C1, C2, C3,
+            Size of hello redis cache. hello default value is 1GB or C1. Possible values are P1, P2, P3, P4, C0, C1, C2, C3,
             C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB.
 
         -Sku <String>
-            Sku of redis cache. The default value is Standard. Possible values are Basic, Standard and Premium.
+            Sku of redis cache. hello default value is Standard. Possible values are Basic, Standard and Premium.
 
         -MaxMemoryPolicy <String>
-            The 'MaxMemoryPolicy' setting has been deprecated. Please use 'RedisConfiguration' setting to set
+            hello 'MaxMemoryPolicy' setting has been deprecated. Please use 'RedisConfiguration' setting tooset
             MaxMemoryPolicy. e.g. -RedisConfiguration @{"maxmemory-policy" = "allkeys-lru"}
 
         -RedisConfiguration <Hashtable>
@@ -216,14 +216,14 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-Az
             hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries, zset-max-ziplist-value, databases.
 
         -EnableNonSslPort <Boolean>
-            EnableNonSslPort is used by Azure Redis Cache. If no value is provided, the default value is false and the
+            EnableNonSslPort is used by Azure Redis Cache. If no value is provided, hello default value is false and the
             non-SSL port will be disabled. Possible values are true and false.
 
         -ShardCount <Integer>
-            The number of shards to create on a Premium Cluster Cache.
+            hello number of shards toocreate on a Premium Cluster Cache.
 
         -VirtualNetwork <String>
-            The exact ARM resource ID of the virtual network to deploy the redis cache in. Example format: /subscriptions/{
+            hello exact ARM resource ID of hello virtual network toodeploy hello redis cache in. Example format: /subscriptions/{
             subid}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicNetwork/VirtualNetworks/{vnetName}
 
         -Subnet <String>
@@ -233,38 +233,38 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-Az
             Required when deploying a redis cache inside an existing Azure Virtual Network.
 
         <CommonParameters>
-            This cmdlet supports the common parameters: Verbose, Debug,
+            This cmdlet supports hello common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-Para criar um cache com parâmetros padrão, execute o comando a seguir.
+toocreate um cache com os parâmetros padrão, execute Olá comando a seguir.
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 
-`ResourceGroupName`, `Name` e `Location` são parâmetros obrigatórios, mas os restantes são opcionais e têm valores padrão. Executar o comando anterior cria uma instância Cache Redis do Azure do SKU Standard com o nome especificado, local e grupo de recursos, que é tem 1 GB de tamanho com a porta não SSL desativada.
+`ResourceGroupName`, `Name`, e `Location` são parâmetros obrigatórios, mas o restante da saudação são opcional e têm valores padrão. Executar o comando anterior Olá cria uma instância de padrão SKU Azure Redis Cache com o nome especificado do hello, o local e o grupo de recursos, que é de 1 GB de tamanho com a porta não SSL de saudação desabilitado.
 
-Para criar um cache premium, especifique um tamanho de P1 (6 GB - 60 GB), P2 (13 GB - 130 GB), P3 (26 GB - 260 GB) ou P4 (53 GB - 530 GB). Para habilitar o clustering, especifique uma contagem de fragmentos usando o parâmetro `ShardCount` . O exemplo a seguir cria um cache premium P1 com 3 fragmentos. Um cache premium P1 tem 6 GB de tamanho e como especificamos três fragmentos, o tamanho total é de 18 GB (3 x 6 GB).
+toocreate um cache premium, especifique um tamanho de P1 (6 GB - 60 GB), P2 (13 GB - 130 GB), P3 (26 GB - 260 GB), ou P4 (53 GB - 530 GB). tooenable clustering, especifique uma contagem de fragmento usando Olá `ShardCount` parâmetro. Olá exemplo a seguir cria um cache premium de P1 com 3 fragmentos. Um cache premium de P1 é de 6 GB de tamanho, e como especificamos três fragmentos Olá tamanho total de 18 GB (3 x 6 GB).
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 
-Para especificar valores para o parâmetro `RedisConfiguration`, coloque os valores dentro de `{}` como pares de chave/valor como `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. O exemplo a seguir cria um cache padrão de 1 GB com as `allkeys-random` notificações maxmemory-policy e keyspace configuradas com `KEA`. Para obter mais informações, consulte [Notificações de keyspace (configurações avançadas)](cache-configure.md#keyspace-notifications-advanced-settings) e [Políticas de memória](cache-configure.md#memory-policies).
+valores de toospecify para hello `RedisConfiguration` parâmetro, coloque valores hello dentro `{}` como chave/valor como pares `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. Olá, exemplo a seguir cria um cache padrão de 1 GB com `allkeys-random` notificações keyspace e política maxmemory configuradas com `KEA`. Para obter mais informações, consulte [Notificações de keyspace (configurações avançadas)](cache-configure.md#keyspace-notifications-advanced-settings) e [Políticas de memória](cache-configure.md#memory-policies).
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 
 <a name="databases"></a>
 
-## <a name="to-configure-the-databases-setting-during-cache-creation"></a>Para configurar a definição dos bancos de dados durante a criação do cache
-A configuração `databases` pode ser definida somente durante a criação do cache. O exemplo a seguir cria um cache premium P3 (26 GB) com 48 bancos de dados usando o cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) .
+## <a name="tooconfigure-hello-databases-setting-during-cache-creation"></a>bancos de dados do hello tooconfigure configuração durante a criação do cache
+Olá `databases` configuração pode ser definida apenas durante a criação do cache. Olá, exemplo a seguir cria um premium P3 (26 GB) de cache com 48 bancos de dados usando Olá [AzureRmRedisCache novo](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet.
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Para obter informações sobre a propriedade `databases` , consulte [Configuração do servidor Cache Redis do Azure Padrão](cache-configure.md#default-redis-server-configuration). Para obter mais informações sobre como criar um cache usando o cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx), consulte a seção anterior [Para criar um Cache Redis](#to-create-a-redis-cache).
+Para obter mais informações sobre Olá `databases` propriedade, consulte [configuração do servidor padrão do Azure Redis Cache](cache-configure.md#default-redis-server-configuration). Para obter mais informações sobre como criar um cache usando Olá [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet, consulte Olá anterior [toocreate um Cache Redis](#to-create-a-redis-cache) seção.
 
-## <a name="to-update-a-redis-cache"></a>Para atualizar um cache Redis
-As instâncias Cache Redis do Azure são atualizadas usando o cmdlet [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) .
+## <a name="tooupdate-a-redis-cache"></a>tooupdate um cache Redis
+Instâncias de Cache Redis do Azure são atualizadas usando Olá [AzureRmRedisCache conjunto](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet.
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Set-AzureRmRedisCache`, execute o seguinte comando.
+toosee uma lista de parâmetros disponíveis e suas descrições para `Set-AzureRmRedisCache`, execute hello seguinte comando.
 
     PS C:\> Get-Help Set-AzureRmRedisCache -detailed
 
@@ -280,24 +280,24 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Set-Az
         <Integer>] [<CommonParameters>]
 
     DESCRIPTION
-        The Set-AzureRmRedisCache cmdlet sets redis cache parameters.
+        hello Set-AzureRmRedisCache cmdlet sets redis cache parameters.
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache to update.
+            Name of hello redis cache tooupdate.
 
         -ResourceGroupName <String>
-            Name of the resource group for the cache.
+            Name of hello resource group for hello cache.
 
         -Size <String>
-            Size of the redis cache. The default value is 1GB or C1. Possible values are P1, P2, P3, P4, C0, C1, C2, C3,
+            Size of hello redis cache. hello default value is 1GB or C1. Possible values are P1, P2, P3, P4, C0, C1, C2, C3,
             C4, C5, C6, 250MB, 1GB, 2.5GB, 6GB, 13GB, 26GB, 53GB.
 
         -Sku <String>
-            Sku of redis cache. The default value is Standard. Possible values are Basic, Standard and Premium.
+            Sku of redis cache. hello default value is Standard. Possible values are Basic, Standard and Premium.
 
         -MaxMemoryPolicy <String>
-            The 'MaxMemoryPolicy' setting has been deprecated. Please use 'RedisConfiguration' setting to set
+            hello 'MaxMemoryPolicy' setting has been deprecated. Please use 'RedisConfiguration' setting tooset
             MaxMemoryPolicy. e.g. -RedisConfiguration @{"maxmemory-policy" = "allkeys-lru"}
 
         -RedisConfiguration <Hashtable>
@@ -306,48 +306,48 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Set-Az
             hash-max-ziplist-value, set-max-intset-entries, zset-max-ziplist-entries, zset-max-ziplist-value.
 
         -EnableNonSslPort <Boolean>
-            EnableNonSslPort is used by Azure Redis Cache. The default value is null and no change will be made to the
+            EnableNonSslPort is used by Azure Redis Cache. hello default value is null and no change will be made toothe
             currently configured value. Possible values are true and false.
 
         -ShardCount <Integer>
-            The number of shards to create on a Premium Cluster Cache.
+            hello number of shards toocreate on a Premium Cluster Cache.
 
         <CommonParameters>
-            This cmdlet supports the common parameters: Verbose, Debug,
+            This cmdlet supports hello common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-O cmdlet `Set-AzureRmRedisCache` pode ser usado para atualizar propriedades como `Size`, `Sku`, `EnableNonSslPort` e os valores `RedisConfiguration`. 
+Olá `Set-AzureRmRedisCache` cmdlet pode ser usado tooupdate propriedades como `Size`, `Sku`, `EnableNonSslPort`e hello `RedisConfiguration` valores. 
 
-O comando a seguir atualiza a maxmemory-policy do Cache Redis chamada myCache.
+Olá seguinte comando atualizações Olá política máxmemória Olá Redis Cache nomeado myCache.
 
     Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
 <a name="scale"></a>
 
-## <a name="to-scale-a-redis-cache"></a>Para dimensionar um cache Redis
-`Set-AzureRmRedisCache` pode ser usado para dimensionar uma instância do cache Redis do Azure quando as propriedades `Size`, `Sku` ou `ShardCount` são modificadas. 
+## <a name="tooscale-a-redis-cache"></a>tooscale um cache Redis
+`Set-AzureRmRedisCache`pode ser usado tooscale uma instância de cache Redis do Azure ao hello `Size`, `Sku`, ou `ShardCount` propriedades são modificadas. 
 
 > [!NOTE]
-> Dimensionar um cache usando o PowerShell está sujeito aos mesmos limites e diretrizes de dimensionar um cache no portal do Azure. Você pode dimensionar para uma camada de preços diferente com as restrições a seguir.
+> Dimensionar um cache usando o PowerShell é o assunto toohello mesmos limites e diretrizes como dimensionar um cache de Olá portal do Azure. Você pode dimensionar tooa diferente preços com hello restrições a seguir.
 > 
-> * Você não pode dimensionar de uma camada de preços mais alta para uma camada de preços mais baixa.
-> * Você não pode dimensionar de um cache **Premium** para um cache **Standard** ou **Básico**.
-> * Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
-> * É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
-> * Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
-> * Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)** .
+> * Não é possível redimensionar de um maior preço camada tooa menor preço.
+> * Você não pode ser dimensionada de um **Premium** cache para baixo tooa **padrão** ou um **básica** cache.
+> * Você não pode ser dimensionada de um **padrão** cache para baixo tooa **básica** cache.
+> * Pode ser dimensionada de um **básica** cache tooa **padrão** cache, mas você não pode alterar o tamanho de saudação em Olá simultaneamente. Se você precisar de um tamanho diferente, você pode fazer um tamanho de toohello desejado escala operação subsequente.
+> * Você não pode ser dimensionada de um **básica** diretamente do cache tooa **Premium** cache. Deve ser dimensionada de **básica** muito**padrão** em uma operação de escala e de **padrão** muito**Premium** em uma escala subsequentes operação.
+> * Não é possível redimensionar de um tamanho maior para baixo toohello **C0 (250 MB)** tamanho.
 > 
-> Para saber mais, confira [Como dimensionar o Cache Redis do Azure](cache-how-to-scale.md).
+> Para obter mais informações, consulte [como tooScale Cache Redis do Azure](cache-how-to-scale.md).
 > 
 > 
 
-O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. Observe que esse comando funciona para um cache Básico ou Standard.
+Olá exemplo a seguir mostra como tooscale um cache nomeado `myCache` tooa 2,5 GB cache. Observe que esse comando funciona para um cache Básico ou Standard.
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-Depois do comando ser emitido, o status do cache é retornado (semelhante a chamar `Get-AzureRmRedisCache`). Observe que `ProvisioningState` é `Scaling`.
+Depois que esse comando for emitido, o status de saudação do cache de saudação é retornado (semelhante toocalling `Get-AzureRmRedisCache`). Observe que Olá `ProvisioningState` é `Scaling`.
 
     PS C:\> Set-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup -Size 2.5GB
 
@@ -376,14 +376,14 @@ Depois do comando ser emitido, o status do cache é retornado (semelhante a cham
     TenantSettings     : {}
     ShardCount         :
 
-Quando a operação de dimensionamento for concluída, o `ProvisioningState` será alterado para `Succeeded`. Se você precisar fazer uma operação de dimensionamento subsequente, como alterar de Básico para Standard, em seguida, alterar o tamanho, deverá aguardar até que a operação anterior seja concluída ou receberá um erro semelhante ao seguinte.
+Quando a operação de dimensionamento de saudação for concluída, Olá `ProvisioningState` muda muito`Succeeded`. Se você precisar toomake uma operação de dimensionamento subsequente, como a alteração de tooStandard básica e, em seguida, alterando o tamanho de saudação, você deve aguardar até que a operação anterior de saudação é concluída ou você receberá uma erro semelhante toohello a seguir.
 
-    Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
+    Set-AzureRmRedisCache : Conflict: hello resource '...' is not in a stable state, and is currently unable tooaccept hello update request.
 
-## <a name="to-get-information-about-a-redis-cache"></a>Para obter informações sobre um cache Redis
-Você pode recuperar informações sobre um cache usando o cmdlet [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx) .
+## <a name="tooget-information-about-a-redis-cache"></a>tooget informações sobre um cache Redis
+Você pode recuperar informações sobre um cache usando Olá [AzureRmRedisCache Get](https://msdn.microsoft.com/library/azure/mt634514.aspx) cmdlet.
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Get-AzureRmRedisCache`, execute o seguinte comando.
+toosee uma lista de parâmetros disponíveis e suas descrições para `Get-AzureRmRedisCache`, execute hello seguinte comando.
 
     PS C:\> Get-Help Get-AzureRmRedisCache -detailed
 
@@ -391,46 +391,46 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Get-Az
         Get-AzureRmRedisCache
 
     SYNOPSIS
-        Gets details about a single cache or all caches in the specified resource group or all caches in the current
+        Gets details about a single cache or all caches in hello specified resource group or all caches in hello current
         subscription.
 
     SYNTAX
         Get-AzureRmRedisCache [-Name <String>] [-ResourceGroupName <String>] [<CommonParameters>]
 
     DESCRIPTION
-        The Get-AzureRmRedisCache cmdlet gets the details about a cache or caches depending on input parameters. If both
+        hello Get-AzureRmRedisCache cmdlet gets hello details about a cache or caches depending on input parameters. If both
         ResourceGroupName and Name parameters are provided then Get-AzureRmRedisCache will return details about the
         specific cache name provided.
 
-        If only ResourceGroupName is provided than it will return details about all caches in the specified resource group.
+        If only ResourceGroupName is provided than it will return details about all caches in hello specified resource group.
 
-        If no parameters are given than it will return details about all caches the current subscription.
+        If no parameters are given than it will return details about all caches hello current subscription.
 
     PARAMETERS
         -Name <String>
-            The name of the cache. When this parameter is provided along with ResourceGroupName, Get-AzureRmRedisCache
-            returns the details for the cache.
+            hello name of hello cache. When this parameter is provided along with ResourceGroupName, Get-AzureRmRedisCache
+            returns hello details for hello cache.
 
         -ResourceGroupName <String>
-            The name of the resource group that contains the cache or caches. If ResourceGroupName is provided with Name
-            then Get-AzureRmRedisCache returns the details of the cache specified by Name. If only the ResourceGroup
-            parameter is provided, then details for all caches in the resource group are returned.
+            hello name of hello resource group that contains hello cache or caches. If ResourceGroupName is provided with Name
+            then Get-AzureRmRedisCache returns hello details of hello cache specified by Name. If only hello ResourceGroup
+            parameter is provided, then details for all caches in hello resource group are returned.
 
         <CommonParameters>
-            This cmdlet supports the common parameters: Verbose, Debug,
+            This cmdlet supports hello common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-Para retornar informações sobre todos os caches na assinatura atual, execute `Get-AzureRmRedisCache` sem parâmetros.
+tooreturn informações sobre todos os caches na assinatura atual do hello, execute `Get-AzureRmRedisCache` sem parâmetros.
 
     Get-AzureRmRedisCache
 
-Para retornar informações sobre todos os caches em um grupo de recursos específico, execute `Get-AzureRmRedisCache` com o parâmetro `ResourceGroupName`.
+tooreturn informações sobre todos os caches em um grupo de recursos específico, execute `Get-AzureRmRedisCache` com hello `ResourceGroupName` parâmetro.
 
     Get-AzureRmRedisCache -ResourceGroupName myGroup
 
-Para retornar informações sobre um cache específico, execute `Get-AzureRmRedisCache` com o parâmetro `Name` que contém o nome do cache e o parâmetro `ResourceGroupName` com o grupo de recursos que contém esse cache.
+tooreturn informações sobre um cache específico, execute `Get-AzureRmRedisCache` com hello `Name` parâmetro que contém o nome de saudação do cache hello e hello `ResourceGroupName` parâmetro com o grupo de recursos de saudação que contém esse cache.
 
     PS C:\> Get-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
 
@@ -456,10 +456,10 @@ Para retornar informações sobre um cache específico, execute `Get-AzureRmRedi
     TenantSettings     : {}
     ShardCount         :
 
-## <a name="to-retrieve-the-access-keys-for-a-redis-cache"></a>Para recuperar as chaves de acesso para um cache Redis
-Para recuperar as chaves de acesso para seu cache, você pode usar o cmdlet [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx) .
+## <a name="tooretrieve-hello-access-keys-for-a-redis-cache"></a>chaves de acesso de saudação tooretrieve para um cache Redis
+chaves de acesso tooretrieve Olá para seu cache, você pode usar o hello [AzureRmRedisCacheKey Get](https://msdn.microsoft.com/library/azure/mt634516.aspx) cmdlet.
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Get-AzureRmRedisCacheKey`, execute o seguinte comando.
+toosee uma lista de parâmetros disponíveis e suas descrições para `Get-AzureRmRedisCacheKey`, execute hello seguinte comando.
 
     PS C:\> Get-Help Get-AzureRmRedisCacheKey -detailed
 
@@ -467,39 +467,39 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Get-Az
         Get-AzureRmRedisCacheKey
 
     SYNOPSIS
-        Gets the accesskeys for the specified redis cache.
+        Gets hello accesskeys for hello specified redis cache.
 
 
     SYNTAX
         Get-AzureRmRedisCacheKey -Name <String> -ResourceGroupName <String> [<CommonParameters>]
 
     DESCRIPTION
-        The Get-AzureRmRedisCacheKey cmdlet gets the access keys for the specified cache.
+        hello Get-AzureRmRedisCacheKey cmdlet gets hello access keys for hello specified cache.
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache.
+            Name of hello redis cache.
 
         -ResourceGroupName <String>
-            Name of the resource group for the cache.
+            Name of hello resource group for hello cache.
 
         <CommonParameters>
-            This cmdlet supports the common parameters: Verbose, Debug,
+            This cmdlet supports hello common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-Para recuperar as chaves para seu cache, chame o cmdlet `Get-AzureRmRedisCacheKey` e passe no nome de seu cache o nome do grupo de recursos que contém o cache.
+Olá tooretrieve chaves para seu cache, chamada hello `Get-AzureRmRedisCacheKey` cmdlet e passar no nome de saudação do cache Olá nome saudação do grupo de recursos que contém o cache de saudação.
 
     PS C:\> Get-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup
 
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
 
-## <a name="to-regenerate-access-keys-for-your-redis-cache"></a>Para regenerar chaves de acesso para seu cache Redis
-Para recuperar as chaves de acesso para seu cache, você pode usar o cmdlet [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx) .
+## <a name="tooregenerate-access-keys-for-your-redis-cache"></a>tooregenerate chaves de acesso para seu cache Redis
+chaves de acesso tooregenerate Olá para seu cache, você pode usar o hello [AzureRmRedisCacheKey novo](https://msdn.microsoft.com/library/azure/mt634512.aspx) cmdlet.
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-AzureRmRedisCacheKey`, execute o seguinte comando.
+toosee uma lista de parâmetros disponíveis e suas descrições para `New-AzureRmRedisCacheKey`, execute hello seguinte comando.
 
     PS C:\> Get-Help New-AzureRmRedisCacheKey -detailed
 
@@ -507,49 +507,49 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `New-Az
         New-AzureRmRedisCacheKey
 
     SYNOPSIS
-        Regenerates the access key of a redis cache.
+        Regenerates hello access key of a redis cache.
 
     SYNTAX
         New-AzureRmRedisCacheKey -Name <String> -ResourceGroupName <String> -KeyType <String> [-Force] [<CommonParameters>]
 
     DESCRIPTION
-        The New-AzureRmRedisCacheKey cmdlet regenerate the access key of a redis cache.
+        hello New-AzureRmRedisCacheKey cmdlet regenerate hello access key of a redis cache.
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache.
+            Name of hello redis cache.
 
         -ResourceGroupName <String>
-            Name of the resource group for the cache.
+            Name of hello resource group for hello cache.
 
         -KeyType <String>
-            Specifies whether to regenerate the primary or secondary access key. Possible values are Primary or Secondary.
+            Specifies whether tooregenerate hello primary or secondary access key. Possible values are Primary or Secondary.
 
         -Force
-            When the Force parameter is provided, the specified access key is regenerated without any confirmation prompts.
+            When hello Force parameter is provided, hello specified access key is regenerated without any confirmation prompts.
 
         <CommonParameters>
-            This cmdlet supports the common parameters: Verbose, Debug,
+            This cmdlet supports hello common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-Para regenerar a chave primária ou secundária para seu cache, chame o cmdlet `New-AzureRmRedisCacheKey`, passe no nome o grupo de recursos e especifique `Primary` ou `Secondary` para o parâmetro `KeyType`. No exemplo a seguir, a chave de acesso secundária para um cache é regenerada.
+chave de primária ou secundária de saudação de tooregenerate para seu cache, chamada hello `New-AzureRmRedisCacheKey` cmdlet e passe Olá name, grupo de recursos e especifique o `Primary` ou `Secondary` para Olá `KeyType` parâmetro. Em Olá exemplo a seguir, chave de acesso secundária Olá para um cache for regenerado.
 
     PS C:\> New-AzureRmRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
 
     Confirm
-    Are you sure you want to regenerate Secondary key for redis cache 'myCache'?
+    Are you sure you want tooregenerate Secondary key for redis cache 'myCache'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
     PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
     SecondaryKey : c53hj3kh4jhHjPJk8l0jji785JgKH9865eifmekfnn6=
 
-## <a name="to-delete-a-redis-cache"></a>Para excluir um cache Redis
-Para excluir um cache Redis, use o cmdlet [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx) .
+## <a name="toodelete-a-redis-cache"></a>toodelete um cache Redis
+toodelete um cache Redis, use Olá [AzureRmRedisCache remover](https://msdn.microsoft.com/library/azure/mt634515.aspx) cmdlet.
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Remove-AzureRmRedisCache`, execute o seguinte comando.
+toosee uma lista de parâmetros disponíveis e suas descrições para `Remove-AzureRmRedisCache`, execute hello seguinte comando.
 
     PS C:\> Get-Help Remove-AzureRmRedisCache -detailed
 
@@ -563,46 +563,46 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Remove
         Remove-AzureRmRedisCache -Name <String> -ResourceGroupName <String> [-Force] [-PassThru] [<CommonParameters>
 
     DESCRIPTION
-        The Remove-AzureRmRedisCache cmdlet removes a redis cache if it exists.
+        hello Remove-AzureRmRedisCache cmdlet removes a redis cache if it exists.
 
     PARAMETERS
         -Name <String>
-            Name of the redis cache to remove.
+            Name of hello redis cache tooremove.
 
         -ResourceGroupName <String>
-            Name of the resource group of the cache to remove.
+            Name of hello resource group of hello cache tooremove.
 
         -Force
-            When the Force parameter is provided, the cache is removed without any confirmation prompts.
+            When hello Force parameter is provided, hello cache is removed without any confirmation prompts.
 
         -PassThru
-            By default Remove-AzureRmRedisCache removes the cache and does not return any value. If the PassThru par
-            is provided then Remove-AzureRmRedisCache returns a boolean value indicating the success of the operatio
+            By default Remove-AzureRmRedisCache removes hello cache and does not return any value. If hello PassThru par
+            is provided then Remove-AzureRmRedisCache returns a boolean value indicating hello success of hello operatio
 
         <CommonParameters>
-            This cmdlet supports the common parameters: Verbose, Debug,
+            This cmdlet supports hello common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-No exemplo a seguir, o cache denominado `myCache` é removido.
+Em Olá exemplo a seguir, Olá cache chamado `myCache` é removido.
 
     PS C:\> Remove-AzureRmRedisCache -Name myCache -ResourceGroupName myGroup
 
     Confirm
-    Are you sure you want to remove redis cache 'myCache'?
+    Are you sure you want tooremove redis cache 'myCache'?
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
-## <a name="to-import-a-redis-cache"></a>Para importar um cache Redis
-Você pode importar dados em uma instância de Cache Redis do Azure usando o cmdlet `Import-AzureRmRedisCache` .
+## <a name="tooimport-a-redis-cache"></a>tooimport um cache Redis
+Você pode importar dados em uma instância de Cache Redis do Azure usando Olá `Import-AzureRmRedisCache` cmdlet.
 
 > [!IMPORTANT]
 > A opção Importar/Exportar está disponível somente para caches do [tipo Premium](cache-premium-tier-intro.md) . Para saber mais sobre Importar/Exportar, confira [Importar e Exportar dados no Cache Redis do Azure](cache-how-to-import-export-data.md).
 > 
 > 
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Import-AzureRmRedisCache`, execute o seguinte comando.
+toosee uma lista de parâmetros disponíveis e suas descrições para `Import-AzureRmRedisCache`, execute hello seguinte comando.
 
     PS C:\> Get-Help Import-AzureRmRedisCache -detailed
 
@@ -610,7 +610,7 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Import
         Import-AzureRmRedisCache
 
     SYNOPSIS
-        Import data from blobs to Azure Redis Cache.
+        Import data from blobs tooAzure Redis Cache.
 
 
     SYNTAX
@@ -619,50 +619,50 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Import
 
 
     DESCRIPTION
-        The Import-AzureRmRedisCache cmdlet imports data from the specified blobs into Azure Redis Cache.
+        hello Import-AzureRmRedisCache cmdlet imports data from hello specified blobs into Azure Redis Cache.
 
 
     PARAMETERS
         -Name <String>
-            The name of the cache.
+            hello name of hello cache.
 
         -ResourceGroupName <String>
-            The name of the resource group that contains the cache.
+            hello name of hello resource group that contains hello cache.
 
         -Files <String[]>
-            SAS urls of blobs whose content should be imported into the cache.
+            SAS urls of blobs whose content should be imported into hello cache.
 
         -Format <String>
-            Format for the blob.  Currently "rdb" is the only supported, with other formats expected in the future.
+            Format for hello blob.  Currently "rdb" is hello only supported, with other formats expected in hello future.
 
         -Force
-            When the Force parameter is provided, import will be performed without any confirmation prompts.
+            When hello Force parameter is provided, import will be performed without any confirmation prompts.
 
         -PassThru
-            By default Import-AzureRmRedisCache imports data in cache and does not return any value. If the PassThru
-            parameter is provided then Import-AzureRmRedisCache returns a boolean value indicating the success of the
+            By default Import-AzureRmRedisCache imports data in cache and does not return any value. If hello PassThru
+            parameter is provided then Import-AzureRmRedisCache returns a boolean value indicating hello success of the
             operation.
 
         <CommonParameters>
-            This cmdlet supports the common parameters: Verbose, Debug,
+            This cmdlet supports hello common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-O comando a seguir importa dados do blob especificado pelo URI de SAS no Cache Redis do Azure.
+Olá comando a seguir importa dados de blob de saudação especificado pelo uri SAS Olá em Cache Redis do Azure.
 
     PS C:\>Import-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.windows.net/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 
-## <a name="to-export-a-redis-cache"></a>Para exportar um cache Redis
-Você pode exportar dados de uma instância de Cache Redis do Azure usando o cmdlet `Export-AzureRmRedisCache` .
+## <a name="tooexport-a-redis-cache"></a>tooexport um cache Redis
+Você pode exportar dados de uma instância de Cache Redis do Azure usando Olá `Export-AzureRmRedisCache` cmdlet.
 
 > [!IMPORTANT]
 > A opção Importar/Exportar está disponível somente para caches do [tipo Premium](cache-premium-tier-intro.md) . Para saber mais sobre Importar/Exportar, confira [Importar e Exportar dados no Cache Redis do Azure](cache-how-to-import-export-data.md).
 > 
 > 
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Export-AzureRmRedisCache`, execute o seguinte comando.
+toosee uma lista de parâmetros disponíveis e suas descrições para `Export-AzureRmRedisCache`, execute hello seguinte comando.
 
     PS C:\> Get-Help Export-AzureRmRedisCache -detailed
 
@@ -670,7 +670,7 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Export
         Export-AzureRmRedisCache
 
     SYNOPSIS
-        Exports data from Azure Redis Cache to a specified container.
+        Exports data from Azure Redis Cache tooa specified container.
 
 
     SYNTAX
@@ -679,51 +679,51 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Export
 
 
     DESCRIPTION
-        The Export-AzureRmRedisCache cmdlet exports data from Azure Redis Cache to a specified container.
+        hello Export-AzureRmRedisCache cmdlet exports data from Azure Redis Cache tooa specified container.
 
 
     PARAMETERS
         -Name <String>
-            The name of the cache.
+            hello name of hello cache.
 
         -ResourceGroupName <String>
-            The name of the resource group that contains the cache.
+            hello name of hello resource group that contains hello cache.
 
         -Prefix <String>
-            Prefix to use for blob names.
+            Prefix toouse for blob names.
 
         -Container <String>
             SAS url of container where data should be exported.
 
         -Format <String>
-            Format for the blob.  Currently "rdb" is the only supported, with other formats expected in the future.
+            Format for hello blob.  Currently "rdb" is hello only supported, with other formats expected in hello future.
 
         -PassThru
-            By default Export-AzureRmRedisCache does not return any value. If the PassThru parameter is provided
-            then Export-AzureRmRedisCache returns a boolean value indicating the success of the operation.
+            By default Export-AzureRmRedisCache does not return any value. If hello PassThru parameter is provided
+            then Export-AzureRmRedisCache returns a boolean value indicating hello success of hello operation.
 
         <CommonParameters>
-            This cmdlet supports the common parameters: Verbose, Debug,
+            This cmdlet supports hello common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-O comando a seguir exporta dados de uma instância de Cache Redis do Azure para o contêiner especificado pelo URI de SAS.
+Olá comando a seguir exporta dados de uma instância de Cache Redis do Azure no contêiner de saudação especificado pelo uri SAS hello.
 
         PS C:\>Export-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Prefix "blobprefix"
         -Container "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2015-04-05&sr=c&sig=HezZtBZ3DURmEGDduauE7
         pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 
-## <a name="to-reboot-a-redis-cache"></a>Para reinicializar um cache Redis
-Você pode reinicializar a instância de Cache Redis do Azure usando o cmdlet `Reset-AzureRmRedisCache` .
+## <a name="tooreboot-a-redis-cache"></a>tooreboot um cache Redis
+Você pode reinicializar a instância de Cache Redis do Azure usando Olá `Reset-AzureRmRedisCache` cmdlet.
 
 > [!IMPORTANT]
 > A reinicialização está disponível somente para caches do [tipo Premium](cache-premium-tier-intro.md) . Para saber mais sobre a reinicialização de seu cache, confira [Administração de cache - reinicializar](cache-administration.md#reboot).
 > 
 > 
 
-Para ver uma lista dos parâmetros disponíveis e suas descrições para `Reset-AzureRmRedisCache`, execute o seguinte comando.
+toosee uma lista de parâmetros disponíveis e suas descrições para `Reset-AzureRmRedisCache`, execute hello seguinte comando.
 
     PS C:\> Get-Help Reset-AzureRmRedisCache -detailed
 
@@ -740,49 +740,49 @@ Para ver uma lista dos parâmetros disponíveis e suas descrições para `Reset-
 
 
     DESCRIPTION
-        The Reset-AzureRmRedisCache cmdlet reboots the specified node(s) of an Azure Redis Cache instance.
+        hello Reset-AzureRmRedisCache cmdlet reboots hello specified node(s) of an Azure Redis Cache instance.
 
 
     PARAMETERS
         -Name <String>
-            The name of the cache.
+            hello name of hello cache.
 
         -ResourceGroupName <String>
-            The name of the resource group that contains the cache.
+            hello name of hello resource group that contains hello cache.
 
         -RebootType <String>
-            Which node to reboot. Possible values are "PrimaryNode", "SecondaryNode", "AllNodes".
+            Which node tooreboot. Possible values are "PrimaryNode", "SecondaryNode", "AllNodes".
 
         -ShardId <Integer>
-            Which shard to reboot when rebooting a premium cache with clustering enabled.
+            Which shard tooreboot when rebooting a premium cache with clustering enabled.
 
         -Force
-            When the Force parameter is provided, reset will be performed without any confirmation prompts.
+            When hello Force parameter is provided, reset will be performed without any confirmation prompts.
 
         -PassThru
-            By default Reset-AzureRmRedisCache does not return any value. If the PassThru parameter is provided
-            then Reset-AzureRmRedisCache returns a boolean value indicating the success of the operation.
+            By default Reset-AzureRmRedisCache does not return any value. If hello PassThru parameter is provided
+            then Reset-AzureRmRedisCache returns a boolean value indicating hello success of hello operation.
 
         <CommonParameters>
-            This cmdlet supports the common parameters: Verbose, Debug,
+            This cmdlet supports hello common parameters: Verbose, Debug,
             ErrorAction, ErrorVariable, WarningAction, WarningVariable,
             OutBuffer, PipelineVariable, and OutVariable. For more information, see
             about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-O comando a seguir reinicializa ambos os nós do cache especificado.
+comando a seguir Hello reinicializa ambos os nós de saudação especificado cache.
 
         PS C:\>Reset-AzureRmRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -RebootType "AllNodes"
         -Force
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como usar o Windows PowerShell com o Azure, consulte os seguintes recursos:
+toolearn mais sobre como usar o Windows PowerShell com o Azure, consulte Olá recursos a seguir:
 
 * [Documentação de cmdlet do Cache Redis do Azure no MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
-* [Cmdlets do Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394765): saiba usar os cmdlets no módulo do Azure Resource Manager.
-* [Usando Grupos de recursos para gerenciar seus recursos do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): saiba como criar e gerenciar grupos de recursos no portal do Azure.
+* [Cmdlets do Gerenciador de recursos do Azure](http://go.microsoft.com/fwlink/?LinkID=394765): Saiba mais sobre toouse Olá cmdlets no módulo do Azure Resource Manager hello.
+* [Usando o recurso de grupos de toomanage os recursos do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): Saiba como toocreate e gerenciar grupos de recursos da saudação portal do Azure.
 * [Blog do Azure](http://blogs.msdn.com/windowsazure): obtenha informações sobre os novos recursos no Azure.
 * [Blog do Windows PowerShell](http://blogs.msdn.com/powershell): obtenha informações sobre os novos recursos do Windows PowerShell.
-* [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obtenha dicas reais e truques da comunidade.do Windows PowerShell.
+* [Blog "Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): obter reais dicas e truques de saudação da comunidade do Windows PowerShell.
 

@@ -1,5 +1,5 @@
 ---
-title: "Exemplo de script do Azure PowerShell – Criar uma VM de um instantâneo | Microsoft Docs"
+title: "aaaAzure exemplo de Script do PowerShell - criar uma máquina virtual de um instantâneo | Microsoft Docs"
 description: "Exemplo de script do Azure PowerShell – Criar uma VM de um instantâneo"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 63d108bbfd0f58f8a40bf1c7c8649e3a1f7ed288
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 89c65171b55bff0582c4a26df0b0f29f556845fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Criar uma máquina virtual de um instantâneo com o PowerShell
 
@@ -32,11 +32,11 @@ Esse script cria uma máquina virtual de um instantâneo de um disco do sistema 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.ps1 "Criar VM por meio de um disco de sistema operacional gerenciado")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.ps1 "Create VM from managed os disk")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
-Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Execute Olá grupo de recursos do comando tooremove hello, a VM e relacionados com todos os recursos a seguir.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -44,15 +44,15 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os seguintes comandos para obter as propriedades de instantâneo, criar um disco gerenciado de um instantâneo e criar uma VM. Cada item em que a tabela contém links para a documentação específica do comando.
+Esse script usa Olá comandos tooget propriedades de instantâneo, crie um disco gerenciado de instantâneo e criar uma máquina virtual a seguir. Cada item na tabela de saudação vincula a documentação específica do toocommand.
 
 | Command | Observações |
 |---|---|
 | [Get-AzureRmSnapshot](/powershell/module/azurerm.compute/get-azurermsnapshot) | Obtém um instantâneo usando o nome do instantâneo. |
-| [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) | Cria uma configuração de disco. Essa configuração é usada com o processo de criação de disco. |
+| [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) | Cria uma configuração de disco. Essa configuração é usada com o processo de criação de disco de saudação. |
 | [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk) | Cria um disco gerenciado. |
-| [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Cria uma configuração de VM. Essa configuração inclui informações como nome da VM, sistema operacional e credenciais administrativas. A configuração é usada durante a criação da VM. |
-| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) | Anexa o disco gerenciado como disco do sistema operacional à máquina virtual |
+| [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Cria uma configuração de VM. Essa configuração inclui informações como nome da VM, sistema operacional e credenciais administrativas. Olá configuração será usada durante a criação da VM. |
+| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk) | Anexa um disco gerenciado hello como máquina virtual do sistema operacional em disco toohello |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Cria um endereço IP público. |
 | [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Cria um adaptador de rede. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Cria uma máquina virtual. |
@@ -60,6 +60,6 @@ Esse script usa os seguintes comandos para obter as propriedades de instantâneo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre o módulo do PowerShell do Azure hello, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
 
-Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Exemplos de script do PowerShell de máquinas virtuais adicionais podem ser encontrados no hello [documentação de VM do Windows Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

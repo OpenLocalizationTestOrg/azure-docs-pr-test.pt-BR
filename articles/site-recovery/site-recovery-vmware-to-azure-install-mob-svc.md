@@ -1,6 +1,6 @@
 ---
-title: "Instalar o Serviço de Mobilidade (VMware ou físico no Azure) | Microsoft Docs"
-description: "Saiba como instalar o agente do Serviço de Mobilidade para proteger os computadores locais."
+title: "aaaInstall serviço de mobilidade (VMware ou físico tooAzure) | Microsoft Docs"
+description: "Saiba como tooinstall Olá tooprotect do agente de serviço de mobilidade seus computadores locais."
 services: site-recovery
 documentationcenter: 
 author: AnoopVasudavan
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f7836e6b35d3838bae1eff927838ce4b245b9f56
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Instalar o Serviço de Mobilidade (VMware ou físico no Azure)
-O Serviço de Mobilidade do Azure Site Recovery captura gravações de dados em um computador e, em seguida, encaminha-os para o servidor em processo. Implante o Serviço de Mobilidade em cada computador (VM VMware ou servidor físico) que você deseja replicar para o Azure. É possível implantar o Serviço de Mobilidade nos servidores que você deseja proteger usando os seguintes métodos:
+# <a name="install-mobility-service-vmware-or-physical-tooazure"></a>Instalar serviço de mobilidade (VMware ou tooAzure físico)
+Serviço de mobilidade do Azure Site Recovery captura gravações de dados em um computador e, em seguida, encaminha toohello servidor de processo. Implante o serviço de mobilidade tooevery computador (VM VMware ou servidor físico) que você deseja tooreplicate tooAzure. Você pode implantar servidores do serviço de mobilidade toohello que você deseja tooprotect usando Olá métodos a seguir:
 
 
 * [Instalar o Serviço de Mobilidade usando as ferramentas de implantação de software, como o System Center Configuration Manager](site-recovery-install-mobility-service-using-sccm.md)
 * [Instalar o Serviço de Mobilidade usando a Automação do Azure e o DSC de Automação (Configuração de Estado Desejado)](site-recovery-automate-mobility-service-install.md)
-* [Instalar o Serviço de Mobilidade manualmente usando a GUI (interface gráfica do usuário)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
+* [Instalar serviço de mobilidade manualmente usando a interface gráfica do usuário de saudação (GUI)](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
 * [Instalar o Serviço de Mobilidade manualmente em um prompt de comando](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt)
 * [Instalar o Serviço de Mobilidade usando a instalação por push por meio do Azure Site Recovery](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 
 >[!IMPORTANT]
-> A partir da versão 9.7.0.0, em VMs (máquinas virtuais) Windows, o instalador do Serviço de Mobilidade também instala o último [agente de VM do Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent) disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
+> Começando com a versão 9.7.0.0, em máquinas de virtuais (VMs) do Windows hello serviço de mobilidade instalador também instala hello mais recente disponível [agente de VM do Azure](../virtual-machines/windows/extensions-features.md#azure-vm-agent). Quando um computador faz failover tooAzure, computador Olá atende aos pré-requisitos para usar qualquer extensão VM de instalação do agente de saudação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidade manualmente no servidor:
-1. Entre no servidor de configuração e, em seguida, abra uma janela de Prompt de Comando como administrador.
-2. Altere o diretório para a pasta bin e, em seguida, crie um arquivo de senha:
+1. Entre no servidor de configuração de tooyour e, em seguida, abra uma janela de Prompt de comando como administrador.
+2. Alterar pasta bin do hello diretório toohello e, em seguida, crie um arquivo de senha:
 
     ```
     cd %ProgramData%\ASR\home\svsystems\bin
     genpassphrase.exe -v > MobSvc.passphrase
     ```
-3. Armazene o arquivo de senha em uma localização segura. É possível usar o arquivo durante a instalação do Serviço de Mobilidade.
-4. Os instaladores do Serviço de Mobilidade para todos os sistemas operacionais com suporte estão na pasta %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository.
+3. Armazene o arquivo de senha de saudação em um local seguro. Use o arquivo hello durante a instalação do serviço de mobilidade de saudação.
+4. Instaladores de serviço de mobilidade para todos os sistemas operacionais com suporte estão na pasta de %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository de saudação.
 
 ### <a name="mobility-service-installer-to-operating-system-mapping"></a>Mapeamento do instalador para o sistema operacional do Serviço de Mobilidade
 
@@ -59,10 +59,10 @@ Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidad
 |Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (somente 64 bits)|
 
 
-## <a name="install-mobility-service-manually-by-using-the-gui"></a>Instalar o Serviço de Mobilidade manualmente usando a GUI
+## <a name="install-mobility-service-manually-by-using-hello-gui"></a>Instalar serviço de mobilidade manualmente usando a GUI do hello
 
 >[!IMPORTANT]
-> Se você estiver usando um **Servidor de Configuração** para replicar **máquinas virtuais do Azure IaaS** de uma Região/Assinatura do Azure para outra, **use o método de instalação baseado em Linha de comando**
+> Se você estiver usando um **servidor de configuração** tooreplicate **máquinas virtuais do Azure IaaS** de um tooanother região da assinatura do Azure, em seguida, **usar saudação de linha de comando de instalação com base**  método
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
@@ -76,7 +76,7 @@ Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidad
 
 
 ## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>Instalar o Serviço de Mobilidade usando a instalação por push por meio do Azure Site Recovery
-Para fazer uma instalação por push do Serviço de Mobilidade usando o Site Recovery, todos os computadores de destino devem atender aos pré-requisitos a seguir.
+toodo uma instalação por push do serviço de mobilidade usando recuperação de Site, todos os computadores de destino devem atender aos Olá pré-requisitos a seguir.
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -84,18 +84,18 @@ Para fazer uma instalação por push do Serviço de Mobilidade usando o Site Rec
 
 
 > [!NOTE]
-Depois de instalar o Serviço de Mobilidade, no portal do Azure, selecione o botão **Replicar** para começar a proteger essas VMs.
+Depois de instalar o serviço de mobilidade, em Olá portal do Azure, selecione Olá **replicar** toostart botão proteger essas VMs.
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>Desinstalar o Serviço de Mobilidade de um computador Windows Server
-Use um dos métodos a seguir para desinstalar o Serviço de Mobilidade em um computador Windows Server.
+Use um dos Olá métodos toouninstall serviço de mobilidade a seguir em um computador Windows Server.
 
-### <a name="uninstall-by-using-the-gui"></a>Desinstalar usando a GUI
+### <a name="uninstall-by-using-hello-gui"></a>Desinstalar usando a GUI do hello
 1. No Painel de Controle, selecione **Programas**.
 2. Selecione **Serviço de Mobilidade do Microsoft Azure Site Recovery/servidor de Destino Mestre** e, em seguida, **Desinstalar**.
 
 ### <a name="uninstall-at-a-command-prompt"></a>Desinstalar em um prompt de comando
 1. Abra uma janela de Prompt de comando como administrador.
-2. Para desinstalar o Serviço de Mobilidade, execute o seguinte comando:
+2. toouninstall serviço de mobilidade, executar Olá comando a seguir:
 
 ```
 MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
@@ -103,8 +103,8 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 
 ## <a name="uninstall-mobility-service-on-a-linux-computer"></a>Desinstalar o Serviço de Mobilidade de um computador Linux
 1. No servidor Linux, entre como um usuário **raiz**.
-2. Em um terminal, acesse /user/local/ASR.
-3. Para desinstalar o Serviço de Mobilidade, execute o seguinte comando:
+2. Em um terminal vá muito/usuário/local/ASR.
+3. toouninstall serviço de mobilidade, executar Olá comando a seguir:
 
 ```
 uninstall.sh -Y

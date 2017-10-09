@@ -1,6 +1,6 @@
 ---
-title: "Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente | Microsoft Docs"
-description: "Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente."
+title: aaaSupportability de Adicionar conjunto de disponibilidade existente tooan VMs do Azure | Microsoft Docs
+description: "Suporte de adição de VMs do Azure tooan conjunto de disponibilidade existente."
 services: virtual-machines-linux
 documentationcenter: 
 author: Deland-Han
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/15/2017
 ms.author: delhan
-ms.openlocfilehash: 3ce9b8a79108cb9e57df14bcb3354cc637193233
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: dc2bd86b916f1d1a0a0d4c9e870df829434c96b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Capacidade de suporte de adição de VMs do Azure a um conjunto de disponibilidade existente
+# <a name="supportability-of-adding-azure-vms-tooan-existing-availability-set"></a>Suporte de adição de VMs do Azure tooan conjunto de disponibilidade existente
 
-Ocasionalmente, você poderá encontrar limitações ao adicionar novas VMs (máquinas virtuais) a um conjunto de disponibilidade existente. O gráfico a seguir fornece detalhes sobre quais séries de VM podem ser combinadas no mesmo conjunto de disponibilidade.
+Ocasionalmente, você poderá encontrar limitações quando você adicionar novas máquinas virtuais (VMs) tooan conjunto de disponibilidade existente. Olá que série VM, você pode combinar em Olá mesmo conjunto de disponibilidade de detalhes de gráfico a seguir.
 
-Esta é a matriz de capacidade de suporte para combinação de diferentes tipos de VMs:
+Aqui está o hello suporte matriz toomix diferentes tipos de máquinas virtuais:
 
 Série e conjunto de disponibilidade|Segunda VM|O |Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
@@ -35,4 +35,4 @@ Série e conjunto de disponibilidade|Segunda VM|O |Av2|D|Dv2|Dv3|
 |Dv2||OK|OK|OK|OK|OK|
 |Dv3||OK|OK|OK|OK|OK|
 
-Todas as outras séries não podem estar no mesmo conjunto de disponibilidade porque exigem um hardware específico.
+Todas as outras séries não podem estar em Olá conjunto de disponibilidade mesmo porque eles exigem um hardware específico.

@@ -1,6 +1,6 @@
-Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway que você deseja usar. Quando você seleciona uma SKU de gateway mais alta, mais CPUs e largura de banda da rede são alocados para o gateway e, como resultado, o gateway pode dar suporte a uma taxa de transferência de rede mais alta para a rede virtual. 
+Quando você criar um gateway de rede virtual, é necessário que você deseja toouse SKU do gateway de saudação do toospecify. Quando você seleciona um SKU de gateway maior, mais CPUs e largura de banda de rede são alocados toohello gateway e como resultado, gateway Olá pode dar suporte a mais alta taxa de transferência toohello virtual rede. 
 
-Os gateways de rede virtual de ExpressRoute podem usar os seguintes SKUs: 
+Rota expressa gateways de rede virtual podem usar Olá SKUs a seguir: 
 
 * Standard
 * HighPerformance

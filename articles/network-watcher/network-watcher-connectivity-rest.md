@@ -1,6 +1,6 @@
 ---
-title: "Verificar a conectividade com o Observador de Rede do Azure – portal do Azure | Microsoft Docs"
-description: "Esta página explica como verificar a conectividade com o Observador de Rede usando o portal do Azure"
+title: aaaCheck conectividade com o observador de rede do Azure - portal do Azure | Microsoft Docs
+description: "Esta página explica como toocheck conectividade com o observador de rede no hello portal do Azure"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: gwallace
-ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8560011906fcce46d31556fc52cbfa671e8e653a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>Verificar a conectividade com o Observador de Rede do Azure usando o portal do Azure
+# <a name="check-connectivity-with-azure-network-watcher-using-hello-azure-portal"></a>Verifique a conectividade com o observador de rede do Azure usando Olá portal do Azure
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
@@ -27,41 +27,41 @@ ms.lasthandoff: 08/18/2017
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [API REST do Azure](network-watcher-connectivity-rest.md)
 
-Saiba como usar a conectividade para verificar se uma conexão TCP direta de uma máquina virtual para um determinado ponto de extremidade pode ser estabelecida.
+Saiba como toouse tooverify de conectividade se uma conexão TCP direto de tooa uma máquina virtual que recebe o ponto de extremidade pode ser estabelecida.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que você tenha os seguintes recursos:
+Este artigo pressupõe que você tenha Olá recursos a seguir:
 
-* Uma instância do Observador de Rede na região em que você deseja verificar a conectividade.
+* Uma instância do observador de rede na região Olá deseja toocheck conectividade.
 
-* Máquinas virtuais com as quais verificar a conectividade.
+* Conectividade de toocheck de máquinas virtuais com.
 
-O ARMclient é usado para chamar a API REST usando o PowerShell. O ARMClient é encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient).
+ARMclient é toocall usado Olá REST API usando o PowerShell. O ARMClient é encontrado no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient).
 
-Este cenário pressupõe que você seguiu as etapas em [Criação de um Observador de Rede](network-watcher-create.md) para criar um Observador de Rede.
+Este cenário pressupõe que você já seguiu etapas Olá [criar um observador de rede](network-watcher-create.md) toocreate um observador de rede.
 
 [!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
 
 > [!IMPORTANT]
-> A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão em uma VM do Windows, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a VM do Linux, visite [Extensão da máquina virtual do Agente do Observador de Rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
+> A verificação de conectividade requer uma extensão de máquina virtual `AzureNetworkWatcherExtension`. Para instalar a extensão de saudação em uma VM do Windows, visite [extensão de máquina virtual do agente do Inspetor de rede do Azure para Windows](../virtual-machines/windows/extensions-nwa.md) e para a visita de VM do Linux [extensão de máquina virtual do agente do Inspetor de rede do Azure para Linux](../virtual-machines/linux/extensions-nwa.md).
 
-## <a name="register-the-preview-capability"></a>Registrar o recurso de visualização
+## <a name="register-hello-preview-capability"></a>Registrar o recurso de visualização de saudação
 
-A verificação de conectividade está atualmente em visualização pública; para usar esse recurso, ele precisa ser registrado. Para fazer isso, execute a seguinte amostra do PowerShell:
+Verificação de conectividade está atualmente em visualização pública, toouse esse recurso que é necessário toobe registrado. toodo, Olá execução do PowerShell exemplo a seguir:
 
 ```powershell
 Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-Para verificar se o registro foi bem-sucedido, execute a seguinte amostra do Powershell:
+tooverify Olá o registro foi bem-sucedido, execute Olá Powershell de exemplo a seguir:
 
 ```powershell
 Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
 ```
 
-Se o recurso tiver sido registrado corretamente, a saída deverá corresponder ao seguinte:
+Se o recurso de saudação foi registrado corretamente, saída de hello deve corresponder a seguir hello:
 
 ```
 FeatureName                             ProviderName      RegistrationState
@@ -71,7 +71,7 @@ AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
 
 ## <a name="log-in-with-armclient"></a>Fazer logon com o ARMClient
 
-Faça logon no armclient com suas credenciais do Azure.
+Faça logon no tooarmclient com suas credenciais do Azure.
 
 ```PowerShell
 armclient login
@@ -79,12 +79,12 @@ armclient login
 
 ## <a name="retrieve-a-virtual-machine"></a>Recuperar uma máquina virtual
 
-Execute o script a seguir para retornar para uma máquina virtual. Essas informações são necessárias para a execução de conectividade. 
+Execute Olá tooreturn de script a seguir em uma máquina virtual. Essas informações são necessárias para a execução de conectividade. 
 
-O código a seguir precisa de valores para as variáveis a seguir:
+saudação de código a seguir precisa de valores para Olá variáveis a seguir:
 
-- **subscriptionId** - a Id da assinatura a ser usada.
-- **resourceGroupName** - o nome de um grupo de recursos que contém as máquinas virtuais.
+- **subscriptionId** -Olá toouse de ID de assinatura.
+- **resourceGroupName** - Olá nome de um grupo de recursos que contém máquinas virtuais.
 
 ```powershell
 $subscriptionId = '<subscription id>'
@@ -93,7 +93,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-Na saída a seguir, a ID da máquina virtual é usada no exemplo a seguir:
+Na saída a seguir hello, Olá ID da máquina virtual de saudação é usado em Olá exemplo a seguir:
 
 ```json
 ...
@@ -108,9 +108,9 @@ Na saída a seguir, a ID da máquina virtual é usada no exemplo a seguir:
 }
 ```
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Verificar a conectividade com uma máquina virtual
+## <a name="check-connectivity-tooa-virtual-machine"></a>Verifique a conectividade tooa virtual machine
 
-Este exemplo verifica a conectividade a uma máquina virtual de destino pela porta 80.
+Este exemplo verifica a máquina de virtual de destino conectividade tooa pela porta 80.
 
 ### <a name="example"></a>Exemplo
 
@@ -137,11 +137,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Uma vez que esta operação é de execução longa, o URI para o resultado é retornado no cabeçalho de resposta, como mostra a seguinte resposta:
+Desde que esta operação é longa em execução, Olá URI para o resultado de saudação é retornado no cabeçalho de resposta de saudação conforme Olá resposta a seguir:
 
 **Valores importantes**
 
-* **Local** - esta propriedade contém o URI do local para o qual os resultados são enviados após a conclusão da operação
+* **Local** -esta propriedade contém Olá URI onde Olá resultados são quando hello operação for concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -162,7 +162,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-A seguinte resposta é do exemplo anterior.  Nessa resposta, o `ConnectionStatus` está **Inacessível**. Você pode ver que todas as investigações enviadas falharam. Falha de conectividade na solução de virtualização devido a um `NetworkSecurityRule` configurado pelo usuário chamado **UserRule_Port80**, configurado para bloquear o tráfego de entrada na porta 80. Essas informações podem ser usadas para pesquisar problemas de conexão.
+saudação de resposta a seguir é do exemplo anterior de saudação.  Essa resposta, Olá `ConnectionStatus` é **inacessível**. Você pode ver que todos os Olá investigações enviadas com falha. conectividade Olá falha no dispositivo virtual Olá vencimento tooa configurada pelo usuário `NetworkSecurityRule` chamado **UserRule_Port80**, configurado tooblock o tráfego de entrada na porta 80. Essas informações podem ser usadas tooresearch problemas de conexão.
 
 ```json
 {
@@ -226,7 +226,7 @@ A seguinte resposta é do exemplo anterior.  Nessa resposta, o `ConnectionStatus
 
 ## <a name="validate-routing-issues"></a>Validar problemas de roteamento
 
-O exemplo verifica a conectividade entre uma máquina virtual e um ponto de extremidade remoto.
+exemplo Hello verifica a conectividade entre uma máquina virtual e um ponto de extremidade remoto.
 
 ### <a name="example"></a>Exemplo
 
@@ -253,11 +253,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Uma vez que esta operação é de execução longa, o URI para o resultado é retornado no cabeçalho de resposta, como mostra a seguinte resposta:
+Desde que esta operação é longa em execução, Olá URI para o resultado de saudação é retornado no cabeçalho de resposta de saudação conforme Olá resposta a seguir:
 
 **Valores importantes**
 
-* **Local** - esta propriedade contém o URI do local para o qual os resultados são enviados após a conclusão da operação
+* **Local** -esta propriedade contém Olá URI onde Olá resultados são quando hello operação for concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -278,7 +278,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-No exemplo a seguir, o `connectionStatus` é mostrado como **Inacessível**. Nos detalhes de `hops`, você pode ver em `issues` que o tráfego foi bloqueado devido a um `UserDefinedRoute`.
+Em Olá exemplo a seguir, Olá `connectionStatus` é mostrado como **inacessível**. Em Olá `hops` detalhes, você pode ver em `issues` que o tráfego de saudação foi bloqueado devido tooa `UserDefinedRoute`.
 
 ```json
 {
@@ -322,7 +322,7 @@ No exemplo a seguir, o `connectionStatus` é mostrado como **Inacessível**. Nos
 
 ## <a name="check-website-latency"></a>Verificar a latência de site
 
-O exemplo a seguir verifica a conectividade com um site.
+Olá exemplo verifica Olá conectividade tooa site a seguir.
 
 ### <a name="example"></a>Exemplo
 
@@ -349,11 +349,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Uma vez que esta operação é de execução longa, o URI para o resultado é retornado no cabeçalho de resposta, como mostra a seguinte resposta:
+Desde que esta operação é longa em execução, Olá URI para o resultado de saudação é retornado no cabeçalho de resposta de saudação conforme Olá resposta a seguir:
 
 **Valores importantes**
 
-* **Local** - esta propriedade contém o URI do local para o qual os resultados são enviados após a conclusão da operação
+* **Local** -esta propriedade contém Olá URI onde Olá resultados são quando hello operação for concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -374,7 +374,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-Na resposta a seguir, você pode ver o `connectionStatus` ser mostrado como **Acessível**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
+Olá resposta a seguir, você pode ver Olá `connectionStatus` mostra como **alcançável**. Quando uma conexão é bem-sucedida, os valores de latência são fornecidos.
 
 ```json
 {
@@ -407,9 +407,9 @@ Na resposta a seguir, você pode ver o `connectionStatus` ser mostrado como **Ac
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Verificar a conectividade a um ponto de extremidade de armazenamento
+## <a name="check-connectivity-tooa-storage-endpoint"></a>Verifique o ponto de extremidade de armazenamento de tooa conectividade
 
-O exemplo a seguir verifica a conectividade de uma máquina virtual com uma conta de armazenamento de blog.
+Olá exemplo a seguir verifica a saudação conectividade de uma conta de armazenamento de blog de tooa de máquina virtual.
 
 ### <a name="example"></a>Exemplo
 
@@ -436,11 +436,11 @@ $requestBody = @"
 $response = armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/connectivityCheck?api-version=2017-03-01" $requestBody
 ```
 
-Uma vez que esta operação é de execução longa, o URI para o resultado é retornado no cabeçalho de resposta, como mostra a seguinte resposta:
+Desde que esta operação é longa em execução, Olá URI para o resultado de saudação é retornado no cabeçalho de resposta de saudação conforme Olá resposta a seguir:
 
 **Valores importantes**
 
-* **Local** - esta propriedade contém o URI do local para o qual os resultados são enviados após a conclusão da operação
+* **Local** -esta propriedade contém Olá URI onde Olá resultados são quando hello operação for concluída
 
 ```
 HTTP/1.1 202 Accepted
@@ -461,7 +461,7 @@ null
 
 ### <a name="response"></a>Resposta
 
-O exemplo a seguir é a resposta da execução da chamada à API anterior. Uma vez que a verificação é bem-sucedida, a propriedade `connectionStatus` é mostrada como **Alcançável**.  São fornecidos os detalhes sobre o número de saltos necessários para alcançar o blob de armazenamento e a latência.
+Olá, exemplo a seguir é resposta de saudação em execução Olá anterior chamada de API. Como a seleção de saudação for bem-sucedida, Olá `connectionStatus` propriedade mostra como **alcançável**.  São fornecidos detalhes de Olá relativos ao número de saudação do blob de armazenamento saltos tooreach necessário hello e latência.
 
 ```json
 {
@@ -496,7 +496,7 @@ O exemplo a seguir é a resposta da execução da chamada à API anterior. Uma v
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como automatizar as capturas de pacotes com alertas da Máquina Virtual exibindo [Criar uma captura de pacotes disparada por alertas](network-watcher-alert-triggered-packet-capture.md)
+Saiba como o pacote tooautomate captura com alertas de máquina Virtual por meio da exibição [criar uma captura de pacote de disparo de alerta](network-watcher-alert-triggered-packet-capture.md)
 
 Localize se determinado tráfego é permitido dentro ou fora de sua VM visitando [Verificar o fluxo do IP](network-watcher-check-ip-flow-verify-portal.md)
 

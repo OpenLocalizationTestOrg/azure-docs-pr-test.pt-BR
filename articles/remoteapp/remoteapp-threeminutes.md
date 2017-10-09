@@ -1,6 +1,6 @@
 ---
-title: "Experimente o RemoteApp do Azure em seu dispositivo em três minutos ou menos | Microsoft Docs"
-description: "Faça um test drive da funcionalidade do RemoteApp do Azure sem instalar o serviço."
+title: aaaTry Azure RemoteApp em seu dispositivo em 3 minutos ou menos | Microsoft Docs
+description: "Testar a funcionalidade do Azure RemoteApp sem instalar o serviço de saudação."
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 3373e37b8efb1bd7d9b7e6c4fb8d3db468c1ad02
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d1ef9aab67c82e6c5f5024226f4a5e42e8c55a87
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="try-azure-remoteapp-on-your-device-in-3-minutes-or-less"></a>Experimente o RemoteApp do Azure em seu dispositivo em 3 minutos ou menos
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-Deseja ver o RemoteApp do Azure em seu dispositivo? Você pode acessar nossa implantação de demonstração por 10 minutos, desde que tenha uma conta da Microsoft. Temos o Office e alguns outros aplicativos disponíveis. Essa é uma ótima maneira de avaliar a experiência do usuário para o RemoteApp do Azure em menos de 3 minutos.
+Deseja toosee Azure RemoteApp em seu dispositivo? Você pode acessar nossa implantação de demonstração por 10 minutos, desde que tenha uma conta da Microsoft. Temos o Office e alguns outros aplicativos disponíveis. Isso é uma ótima maneira tootest unidade Olá experiência do usuário para o Azure RemoteApp em menos de 3 minutos.
 
 Interessado?
 
-1. Acesse [http://remoteapp.azure.com](http://remoteapp.azure.com).
-2. Clique em **Instalar Cliente** no canto superior direito.  
-3. O sistema automaticamente detecta o dispositivo e você é levado para o cliente para o seu dispositivo. Instale o cliente.
+1. Vá tootoo[http://remoteapp.azure.com](http://remoteapp.azure.com).
+2. Clique em **instalar cliente** no canto superior direito da saudação.  
+3. sistema de saudação automaticamente detecta o dispositivo e levará toohello cliente para seu dispositivo. Instale o cliente de saudação.
 4. Volte para [http://remoteapp.azure.com](http://remoteapp.azure.com) e entre com sua conta da Microsoft.
 
 Agora você pode acessar aplicativos em execução em tempo real no RemoteApp do Azure.
 
-Sua opinião é importante. No final de cada sessão, você verá uma caixa de diálogo para seus comentários. Se você tiver um minuto, conte-nos suas ideias e diga se gostaria que a Microsoft entrasse em contato com você para obter informações adicionais.
+Sua opinião é importante. No final da saudação de cada sessão, você verá uma caixa de diálogo para seus comentários. Se você tiver um minuto, conte-nos sua opinião e fale conosco se você gostaria que a Microsoft toocontact você para obter informações adicionais.
 
 > [!NOTE]
-> Como esse é um ambiente controlado para uso de demonstração, não habilitamos acesso externo à Internet por meio dos aplicativos de demonstração publicados. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.  
+> Como esse é um ambiente controlado para uso de demonstração, não habilitou externo da internet acesso de saudação publicado os aplicativos de demonstração. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.  
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de registros
-description: "Este tópico explica como registrar dispositivos em hubs de notificação para receber notificações por push."
+title: aaaRegistration gerenciamento
+description: "Este tópico explica como os dispositivos de tooregister com hubs de notificação na ordem tooreceive notificações de envio."
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
@@ -14,34 +14,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 76471a45c7a0da1614ceed82b73cdb3319979ff7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="registration-management"></a>Gerenciamento de registros
 ## <a name="overview"></a>Visão geral
-Este tópico explica como registrar dispositivos em hubs de notificação para receber notificações por push. O tópico descreve em alto nível os registros e apresenta os dois padrões principais para registro de dispositivos: registro diretamente do dispositivo para o hub de notificação e registro por meio de um back-end de aplicativo. 
+Este tópico explica como os dispositivos de tooregister com hubs de notificação na ordem tooreceive notificações de envio. tópico de saudação descreve os registros em um nível alto, em seguida, apresenta Olá dois padrões de principal para o registro de dispositivos: registro de dispositivo Olá diretamente o hub de notificação toohello e registro através de um back-end do aplicativo. 
 
 ## <a name="what-is-device-registration"></a>O que é o registro de dispositivos
 O registro de dispositivos com um Hub de Notificação é realizado usando um **Registro** ou uma **Instalação**.
 
 #### <a name="registrations"></a>Registros
-Um registro associa o identificador PNS (Serviço de Notificação de Plataforma) de um dispositivo com marcas e, possivelmente, um modelo. O identificador PNS pode ser um ChannelURI, um token do dispositivo ou uma ID de registro de GCM. As marcas são usadas para direcionar notificações para o conjunto correto de identificadores de dispositivos. Para saber mais, veja [Expressões de marca e de roteamento](notification-hubs-tags-segment-push-message.md). Os modelos são usados para implementar transformações por registro. Para saber mais, veja [Modelos](notification-hubs-templates-cross-platform-push-messages.md).
+Um registro associa Olá identificador de serviço de notificação de plataforma (PNS) para um dispositivo com marcas e, possivelmente, um modelo. Olá PNS identificador pode ser um ChannelURI, token do dispositivo ou id de registro do GCM. Marcas são usadas tooroute notificações toohello o conjunto correto de identificadores de dispositivo. Para saber mais, veja [Expressões de marca e de roteamento](notification-hubs-tags-segment-push-message.md). Os modelos são usados tooimplement por registro transformação. Para saber mais, veja [Modelos](notification-hubs-templates-cross-platform-push-messages.md).
 
 #### <a name="installations"></a>Instalações
-Uma instalação é um registro aprimorado que inclui um conjunto de propriedades relacionadas ao envio por push. Essa é a abordagem mais recente e adequada para registrar seus dispositivos. No entanto, não há suporte pelo SDK do .NET do lado do cliente ([SDK do Hub de Notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) até o momento.  Isso significa que, se você estiver registrando no próprio dispositivo cliente, precisará usar a abordagem da [API REST de Hubs de Notificação](https://msdn.microsoft.com/library/mt621153.aspx) para dar suporte às instalações. Se você estiver usando um serviço de back-end, deverá ser capaz de usar o [SDK do Hub de Notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Uma instalação é um registro aprimorado que inclui um conjunto de propriedades relacionadas ao envio por push. É Olá tooregistering abordagem melhor e mais recentes em seus dispositivos. No entanto, não há suporte pelo SDK do .NET do lado do cliente ([SDK do Hub de Notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) até o momento.  Isso significa que se você estiver registrando do próprio dispositivo de cliente hello, você teria Olá toouse [API de REST de Hubs de notificação](https://msdn.microsoft.com/library/mt621153.aspx) abordagem toosupport instalações. Se você estiver usando um serviço de back-end, você deve ser capaz de toouse [SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-A seguir, algumas vantagens importantes do uso de instalações:
+Olá seguem algumas instalações de toousing principais vantagens:
 
 * A criação ou atualização de uma instalação é totalmente idempotente. Portanto, você pode repetir sem as preocupações com registros duplicados.
-* O modelo de instalação facilita a realização de envios individuais por push - direcionando a um dispositivo específico. Uma marca de sistema **"$InstallationId: [installationId]"** é adicionada automaticamente com cada registro com base em instalação. Portanto, você pode chamar um envio para essa marca a fim de direcionar a um dispositivo específico sem precisar fazer qualquer codificação adicional.
-* O uso de instalações também permite que você faça atualizações parciais no registro. A atualização parcial de uma instalação é solicitada com um método PATCH usando o [padrão JSON-Patch](https://tools.ietf.org/html/rfc6902). Isso é particularmente útil quando você deseja atualizar marcas no registro. Não é necessário obter todo o registro e reenviar todas as marcas anteriores novamente.
+* modelo de instalação Olá torna fácil toodo individuais envios por push - direcionando o dispositivo específico. Uma marca de sistema **"$InstallationId: [installationId]"** é adicionada automaticamente com cada registro com base em instalação. Assim você pode chamar um tootarget de marca toothis enviar um dispositivo específico sem ter que toodo qualquer codificação adicional.
+* Usar instalações também permite que você toodo registro parcial atualizações. Olá atualização parcial de uma instalação é solicitada com um método de PATCH usando Olá [padrão JSON Patch](https://tools.ietf.org/html/rfc6902). Isso é particularmente útil quando você quiser tooupdate marcas no registro de saudação. Você não tem toopull para baixo de registro todo hello e reenviar a todas as marcas de saudação anterior novamente.
 
-Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa de propriedades de instalação, veja [Criar ou Sobrescrever uma Instalação com REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [Propriedades da Instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) para o .
+Uma instalação pode conter Olá Olá propriedades a seguir. Para obter uma lista completa de saudação instalação propriedades, consulte [criar ou substituir uma instalação com a API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) ou [propriedades de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) para hello.
 
-    // Example installation format to show some supported properties
+    // Example installation format tooshow some supported properties
     {
         installationId: "",
         expirationTime: "",
@@ -77,37 +77,37 @@ Uma instalação pode conter as seguintes propriedades. Para obter uma lista com
 
 
 
-É importante observar que, por padrão, os registros e as instalações não expiram mais.
+É importante toonote que instalações por padrão e os registros não expiram.
 
-Os registros e instalações devem conter um identificador PNS válido para cada dispositivo/canal. Como os identificadores PNS só podem ser obtidos em um aplicativo cliente no dispositivo, um padrão é registrar diretamente no dispositivo com o aplicativo cliente. Por outro lado, as considerações de segurança e a lógica de negócios relacionadas às marcas podem exigir o gerenciamento do registro do dispositivo no back-end do aplicativo. 
+Os registros e instalações devem conter um identificador PNS válido para cada dispositivo/canal. Como os identificadores PNS só podem ser obtidos em um aplicativo cliente no dispositivo hello, um padrão é tooregister diretamente no dispositivo com o aplicativo de cliente hello. Olá outro lado, as considerações de segurança e lógica de negócios relacionam tootags pode exigir o registro de dispositivos toomanage no back-end do aplicativo hello. 
 
 #### <a name="templates"></a>Modelos
-Se você quiser usar [Modelos](notification-hubs-templates-cross-platform-push-messages.md), a instalação do dispositivo também armazenará todos os modelos associados a esse dispositivo em um formato JSON (veja o exemplo acima). Os nomes de modelo ajudam a direcionar a modelos diferentes do mesmo dispositivo.
+Se você quiser toouse [modelos](notification-hubs-templates-cross-platform-push-messages.md), a instalação do dispositivo Olá também manter todos os modelos associados a esse dispositivo em JSON formatar (veja o exemplo acima). Olá nomes de modelo ajuda destino modelos diferentes para Olá mesmo dispositivo.
 
-Observe que cada nome de modelo é mapeado para um corpo de modelo e um conjunto opcional de marcas. Além disso, cada plataforma pode ter propriedades adicionais de modelo. Para a Windows Store (usando WNS) e o Windows Phone 8 (usando MPNS), um conjunto adicional de cabeçalhos pode fazer parte do modelo. No caso dos APNs, você pode definir uma propriedade de expiração para uma constante ou para uma expressão de modelo. Para obter uma lista completa de propriedades de instalação, confira o tópico [Criar ou substituir uma instalação com REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) .
+Observe que cada nome de modelo mapeia tooa corpo de modelo e um conjunto opcional de marcas. Além disso, cada plataforma pode ter propriedades adicionais de modelo. Para Windows Store (usando WNS) e Windows Phone 8 (usando MPNS), um conjunto adicional de cabeçalhos pode ser parte do modelo de saudação. No caso de saudação de APNs, você pode definir uma expressão de modelo constante ou tooa um tooeither de propriedade de expiração. Para obter uma lista completa de saudação instalação propriedades, consulte [criar ou substituir uma instalação com REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) tópico.
 
 #### <a name="secondary-tiles-for-windows-store-apps"></a>Blocos secundários para aplicativos da Windows Store
-Para aplicativos cliente da Windows Store, o envio de notificações para blocos secundários é igual ao envio delas ao bloco primário. Isso também tem suporte nas instalações. Observe que os blocos secundários têm um ChannelUri diferente, o qual o SDK no aplicativo cliente trata de forma transparente.
+Para aplicativos de cliente da Windows Store, notificações de enviadas é toosecondary blocos mesmo Olá como enviá-los toohello principal. Isso também tem suporte nas instalações. Observe que o secundários blocos têm um ChannelUri diferente, quais Olá SDK em seu aplicativo cliente trata transparente.
 
-O dicionário SecondaryTiles usa o mesmo TileId usado para criar o objeto SecondaryTiles em seu aplicativo da Windows Store.
-Assim como acontece com o ChannelUri primário, os ChannelUris de blocos secundários podem ser alterados a qualquer momento. Para manter as instalações no hub de notificação atualizadas, o dispositivo deve atualizá-las com os ChannelUris atuais dos blocos secundários.
+Olá SecondaryTiles dicionário usa Olá TileId mesmo que é usado toocreate Olá SecondaryTiles objeto em seu aplicativo da Windows Store.
+Como com hello primário ChannelUri, ChannelUris de blocos secundários pode alterar a qualquer momento. Em instalações de saudação ordem tookeep no hub de notificação Olá atualizado, dispositivo Olá deve atualizá-los com hello ChannelUris atual de blocos secundário hello.
 
-## <a name="registration-management-from-the-device"></a>Gerenciamento de registro do dispositivo
-Ao gerenciar o registro de dispositivos de aplicativos cliente, o back-end é responsável apenas pelo envio de notificações. Os aplicativos cliente mantêm os identificadores PNS atualizados e registram marcas. A figura a seguir ilustra esse padrão.
+## <a name="registration-management-from-hello-device"></a>Gerenciamento de registro de dispositivo Olá
+Ao gerenciar o registro de dispositivos de aplicativos cliente, Olá back-end só é responsável por enviar notificações. Aplicativos cliente manter os identificadores PNS backup toodate e registrar marcas. Olá a imagem a seguir ilustra esse padrão.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
-Primeiro, o dispositivo recupera o identificador PNS do PNS e registra diretamente com o hub de notificação. Após a conclusão do registro, o back-end do aplicativo pode enviar uma notificação visando esse registro. Para saber mais sobre como enviar notificações, veja [Expressões de marca e de roteamento](notification-hubs-tags-segment-push-message.md).
-Observe que, nesse caso, você usará apenas direitos de Escuta para acessar os hubs de notificação do dispositivo. Para saber mais, consulte [Segurança](notification-hubs-push-notification-security.md).
+dispositivo Olá primeiro recupera Olá PNS tratar da saudação PNS e registra com o hub de notificação Olá diretamente. Após o registro de saudação for bem-sucedida, o back-end de aplicativo hello pode enviar uma notificação direcionamento esse registro. Para obter mais informações sobre como toosend notificações, consulte [expressões de marca e roteamento](notification-hubs-tags-segment-push-message.md).
+Observe que, nesse caso, você usará escutar apenas direitos tooaccess seus hubs de notificação de dispositivo de saudação. Para saber mais, consulte [Segurança](notification-hubs-push-notification-security.md).
 
-O registro do dispositivo é o método mais simples, mas tem algumas desvantagens.
-A primeira desvantagem é que um aplicativo cliente só pode atualizar suas marcas quando está ativo. Por exemplo, se um usuário tiver dois dispositivos que registram marcas relacionadas a equipes esportivas, quando o primeiro dispositivo registrar-se para uma marca adicional (por exemplo, Seahawks), o segundo dispositivo não receberá notificações sobre o Seahawks até que o aplicativo no segundo dispositivo seja executado uma segunda vez. Normalmente, quando as marcas são afetadas por vários dispositivos, o gerenciamento das marcas do back-end é uma opção desejável.
-A segunda desvantagem do gerenciamento de registro do aplicativo cliente é que, como os aplicativos podem ser violados, a proteção do registro para marcas específicas exige um cuidado extra, conforme explicado na seção "Segurança no nível da marca".
+Registro de dispositivo de saudação é o método mais simples de hello, mas ele apresenta algumas desvantagens.
+desvantagem primeiro Olá é que um aplicativo cliente só pode atualizar suas marcas quando o aplicativo hello está ativo. Por exemplo, se um usuário tiver dois dispositivos que registram marcas toosport relacionados equipes, quando o primeiro dispositivo de saudação registra para uma marca adicional (por exemplo, Seahawks), Olá segundo dispositivo não receberá notificações Olá sobre Olá Seahawks até que o aplicativo hello Olá segundo dispositivo é executado uma segunda vez. Geralmente, quando marcas são afetadas por vários dispositivos, gerenciar marcas de saudação back-end é uma boa opção.
+desvantagem de segundo saudação do gerenciamento de registro de aplicativo cliente do hello é que, desde que os aplicativos podem ser quebrados, proteger registro Olá marcas toospecific requer muito cuidado, conforme explicado na seção hello "segurança de nível de marca".
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Exemplo de código para registrar com um hub de notificação de um dispositivo usando uma instalação
-Neste momento, isso tem suporte somente com o uso da [API REST dos Hubs de Notificação](https://msdn.microsoft.com/library/mt621153.aspx).
+#### <a name="example-code-tooregister-with-a-notification-hub-from-a-device-using-an-installation"></a>Tooregister de código de exemplo com um hub de notificação de um dispositivo usando uma instalação
+Neste momento, isso só é suportado usando Olá [API de REST de Hubs de notificação](https://msdn.microsoft.com/library/mt621153.aspx).
 
-Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools.ietf.org/html/rfc6902) para atualizar a instalação.
+Você também pode usar o método de PATCH hello usando Olá [padrão JSON Patch](https://tools.ietf.org/html/rfc6902) para atualizar a instalação de saudação.
 
     class DeviceInstallation
     {
@@ -128,7 +128,7 @@ Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools
         string hubResource = "installations/" + deviceInstallation.installationId + "?";
         string apiVersion = "api-version=2015-04";
 
-        // Determine the targetUri that we will sign
+        // Determine hello targetUri that we will sign
         string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
 
         //=== Generate SaS Security Token for Authorization header ===
@@ -186,17 +186,17 @@ Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools
 
 
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Exemplo de código para registrar com um hub de notificação de um dispositivo usando um registro
-Esses métodos criam ou atualizam um registro para o dispositivo no qual são chamados. Isso significa que, para atualizar o indicador ou as marcas, você deve substituir todo o registro. Lembre-se de que os registros são temporários e, portanto, você sempre deverá ter um armazenamento confiável com as marcas atuais exigidas por um dispositivo específico.
+#### <a name="example-code-tooregister-with-a-notification-hub-from-a-device-using-a-registration"></a>Tooregister de código de exemplo com um hub de notificação de um dispositivo usando um registro
+Esses métodos de criar ou atualizar um registro de dispositivo Olá no qual eles são chamados. Isso significa que, em ordem tooupdate Olá identificador ou hello marcas, você deve substituir o registro inteiro Olá. Lembre-se de que os registros são transitórios, para que você sempre deve ter um repositório confiável com marcas atuais de saudação que precisa de um dispositivo específico.
 
-    // Initialize the Notification Hub
+    // Initialize hello Notification Hub
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-    // The Device id from the PNS
+    // hello Device id from hello PNS
     var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-    // If you are registering from the client itself, then store this registration id in device
-    // storage. Then when the app starts, you can check if a registration id already exists or not before
+    // If you are registering from hello client itself, then store this registration id in device
+    // storage. Then when hello app starts, you can check if a registration id already exists or not before
     // creating.
     var settings = ApplicationData.Current.LocalSettings.Values;
 
@@ -240,21 +240,21 @@ Esses métodos criam ou atualizam um registro para o dispositivo no qual são ch
 
 
 ## <a name="registration-management-from-a-backend"></a>Gerenciamento de registros de um back-end
-O gerenciamento de registros do back-end exige a produção adicional de código. O aplicativo do dispositivo deve fornecer o indicador PNS atualizado para o back-end sempre que o aplicativo for iniciado (junto com marcas e modelos) e o back-end deve atualizar esse identificador no hub de notificação. A figura a seguir ilustra esse design.
+Gerenciar registros de back-end de saudação requer a criação de código adicional. Olá aplicativo de dispositivo Olá deve fornecer Olá back-end toohello do identificador do PNS atualizada sempre que o aplicativo hello iniciado (junto com marcas e modelos) e back-end de saudação deverá atualizar esse identificador no hub de notificação de saudação. Olá a imagem a seguir ilustra esse design.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
-As vantagens do gerenciamento de registros a partir do back-end incluem a capacidade de modificar marcas para os registros, mesmo quando o aplicativo correspondente no dispositivo estiver inativo, e a capacidade de autenticar o aplicativo cliente antes de adicionar uma marca a seu registro.
+as vantagens de saudação do gerenciamento de registros de back-end de saudação incluem hello capacidade toomodify marcas tooregistrations mesmo quando a saudação de aplicativo correspondente no dispositivo hello está inativo e o aplicativo de cliente de saudação do tooauthenticate antes de adicionar um registro de tooits de marca.
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Exemplo de código para registrar com um hub de notificação de um back-end usando uma instalação
-O dispositivo do cliente ainda obtém seu identificador PNS e as propriedades de instalação relevantes como fazia antes, e chama uma API personalizada no back-end que pode executar o registro e autorizar marcas etc. O back-end pode aproveitar o [SDK do Hub de Notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+#### <a name="example-code-tooregister-with-a-notification-hub-from-a-backend-using-an-installation"></a>Tooregister de código de exemplo com um hub de notificação de um back-end usando uma instalação
+dispositivo de cliente Olá ainda obtém seu identificador PNS e propriedades de instalação relevantes como antes e chama uma API personalizada no back-end Olá que pode realizar o registro de saudação e autorizar marcas back-end de saudação etc. pode aproveitar Olá [SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools.ietf.org/html/rfc6902) para atualizar a instalação.
+Você também pode usar o método de PATCH hello usando Olá [padrão JSON Patch](https://tools.ietf.org/html/rfc6902) para atualizar a instalação de saudação.
 
-    // Initialize the Notification Hub
+    // Initialize hello Notification Hub
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-    // Custom API on the backend
+    // Custom API on hello backend
     public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
     {
 
@@ -282,7 +282,7 @@ Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools
         }
 
 
-        // In the backend we can control if a user is allowed to add tags
+        // In hello backend we can control if a user is allowed tooadd tags
         //installation.Tags = new List<string>(deviceUpdate.Tags);
         //installation.Tags.Add("username:" + username);
 
@@ -292,12 +292,12 @@ Você também pode usar o método PATCH com o [padrão JSON-Patch](https://tools
     }
 
 
-#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Exemplo de código para registrar com um hub de notificação de um dispositivo usando uma ID de registro
+#### <a name="example-code-tooregister-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Tooregister de código de exemplo com um hub de notificação de um dispositivo usando uma id de registro
 No back-end do aplicativo, você pode executar operações básicas de CRUDS nos registros. Por exemplo:
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 
-    // create a registration description object of the correct type, e.g.
+    // create a registration description object of hello correct type, e.g.
     var reg = new WindowsRegistrationDescription(channelUri, tags);
 
     // Create
@@ -316,5 +316,5 @@ No back-end do aplicativo, você pode executar operações básicas de CRUDS nos
     await hub.DeleteRegistrationAsync(r);
 
 
-O back-end deve manipular a simultaneidade entre as atualizações do registro. O Barramento de Serviço oferece um controle de simultaneidade otimista para gerenciamento de registro. No nível HTTP, isso é implementado com o uso de ETag nas operações de gerenciamento de registro. Esse recurso é usado de forma transparente pelos SDKs da Microsoft, que lançam uma exceção se uma atualização for rejeitada por motivos de simultaneidade. O back-end é responsável por manipular essas exceções e tentar atualizar novamente, se isso for necessário.
+Olá back-end deve tratar de simultaneidade entre as atualizações de registro. O Barramento de Serviço oferece um controle de simultaneidade otimista para gerenciamento de registro. No nível de saudação HTTP, isso é implementado com o uso de saudação do ETag em operações de gerenciamento de registro. Esse recurso é usado de forma transparente pelos SDKs da Microsoft, que lançam uma exceção se uma atualização for rejeitada por motivos de simultaneidade. Olá backend do aplicativo é responsável por gerenciar essas exceções e tentar novamente a atualização de saudação se necessário.
 

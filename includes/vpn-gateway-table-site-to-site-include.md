@@ -3,7 +3,7 @@
 | **Gerenciador de Recursos** |[Artigo](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) |Sem suporte |[Artigo](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) | [Artigo](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md) |
 | **Clássico** |[Artigo**](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) |[Artigo*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |[Artigo+](../articles/vpn-gateway/vpn-gateway-multi-site.md) | Sem suporte |
 
-(*) indica que o portal clássico só pode dar suporte à criação de uma conexão VPN S2S.
+(*) indica o que portal clássico Olá só pode oferecer suporte a criação de uma conexão de VPN S2S.
 
 (**) indica que este método contém etapas que exigem o PowerShell.
 

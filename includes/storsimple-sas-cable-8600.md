@@ -1,7 +1,7 @@
 <!--author=alkohli last changed:02/22/16-->
 
-#### <a name="to-attach-the-sas-cables"></a>Para conectar os cabos do SAS
-1. Identifique os compartimentos principal e EBOD. Os dois compartimentos podem ser identificados pelos respectivos backplanes. Consulte a imagem abaixo para se orientar. 
+#### <a name="tooattach-hello-sas-cables"></a>cabos SAS Olá tooattach
+1. Identificar Olá primário Olá compartimentos e EBOD. compartimentos de saudação dois podem ser identificados observando seus respectivos painéis posteriores. Consulte Olá imagem para obter diretrizes a seguir. 
    
     ![Backplane dos compartimentos principal e EBOD](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
    
@@ -11,7 +11,7 @@
    |:--- |:--- |
    | 1 |Compartimento principal |
    | 2 |Compartimento EBOD |
-2. Localize os números de série nos compartimentos principal e EBOD. A etiqueta do número de série está fixada na orelha posterior de cada compartimento. Os números de série devem ser idênticos em ambos os compartimentos. [Contate o Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) imediatamente se os números de série não corresponderem. Consulte a ilustração a seguir para saber como localizar os números de série.
+2. Localize números de série de saudação em Olá primário Olá compartimentos e EBOD. Etiqueta de número de série de saudação é afixada toohello traseira de cada compartimento. Olá números de série devem ser idênticos em ambos os compartimentos. [Entre em contato com o Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) imediatamente se hello números de série não coincidem. Consulte Olá números de série de saudação de toolocate ilustração a seguir.
    
     ![Visão traseira do compartimento mostrando o local do número de série](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
@@ -19,12 +19,12 @@
    
    | Rótulo | Descrição |
    |:--- |:--- |
-   | 1 |Orelha do compartimento |
-3. Use os cabos SAS fornecidos para conectar o compartimento EBOD ao compartimento principal, conforme segue:
+   | 1 |Orelha do compartimento Olá |
+3. Use Olá fornecido Olá tooconnect de cabos SAS compartimento do EBOD compartimento toohello primário da seguinte maneira:
    
-   1. Identifique as quatro portas do SAS no compartimento principal e o compartimento EBOD. As portas SAS são rotuladas como EBOD no compartimento principal e correspondem à porta A compartimento EBOD, conforme mostrado na ilustração da fiação SAS, abaixo.
-   2. Use os cabos SAS fornecidos para conectar a porta EBOD à porta A.
-   3. A porta EBOD no controlador 0 deve ser conectada à porta A no controlador 0 do EBOD. A porta EBOD no controlador 1 deve ser conectada à porta A no controlador 1 do EBOD. Consulte a ilustração a seguir como guia. 
+   1. Identifique as quatro portas SAS Olá no compartimento principal hello e compartimento do EBOD hello. portas SAS Olá são rotuladas como EBOD no compartimento principal hello e correspondem A tooport no compartimento do EBOD hello, conforme mostrado na ilustração de cabos de SAS hello, abaixo.
+   2. Saudação de uso fornecido SAS cabos tooconnect Olá EBOD porta tooport A.
+   3. Olá porta EBOD no controlador 0 deve ser um de porta toohello conectado no controlador EBOD 0. Olá porta EBOD no controlador 1 deve ser um de porta toohello conectado no controlador EBOD 1. Consulte Olá ilustração para obter diretrizes a seguir. 
       
       ![Fiação da SAS para o dispositivo](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       

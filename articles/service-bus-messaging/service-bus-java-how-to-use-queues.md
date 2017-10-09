@@ -1,6 +1,6 @@
 ---
-title: "Como usar as filas do Barramento de Serviço do Azure com Java | Microsoft Docs"
-description: "Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java."
+title: "filas de aaaHow toouse barramento de serviço do Azure com Java | Microsoft Docs"
+description: "Saiba como filas de toouse barramento de serviço no Azure. Exemplos de códigos escritos em Java."
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -13,30 +13,30 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f68e941438134090c5eee53459e7667bda13ff3c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-bus-queues-with-java"></a>Como usar filas do Barramento de Serviço com Java
+# <a name="how-toouse-service-bus-queues-with-java"></a>Como toouse Service Bus filas com Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como usar as filas do Barramento de Serviço. As amostras são gravadas em Java e usam o [SDK do Azure para Java][Azure SDK for Java]. Os cenários cobertos incluem **criar filas**, **enviar e receber mensagens** e **excluir filas**.
+Este artigo descreve como as filas do barramento de serviço toouse. exemplos de saudação são escritos em Java e usam Olá [SDK do Azure para Java][Azure SDK for Java]. Olá cenários abordados incluem **Criando filas**, **enviando e recebendo mensagens**, e **excluindo filas**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
-Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] antes de compilar este exemplo. Se estiver usando o Eclipse, instale o [Kit de Ferramentas do Azure para Eclipse][Azure Toolkit for Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
+## <a name="configure-your-application-toouse-service-bus"></a>Configurar seu toouse barramento de serviço do aplicativo
+Verifique se você instalou Olá [SDK do Azure para Java] [ Azure SDK for Java] antes de compilar este exemplo. Se você estiver usando o Eclipse, você pode instalar Olá [Kit de ferramentas do Azure para Eclipse] [ Azure Toolkit for Eclipse] que inclui Olá SDK do Azure para Java. Você pode adicionar Olá **bibliotecas do Microsoft Azure para Java** tooyour projeto:
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Adicione as seguintes instruções `import` à parte superior do arquivo Java:
+Adicione o seguinte Olá `import` superior de toohello instruções saudação do arquivo de Java:
 
 ```java
-// Include the following imports to use Service Bus APIs
+// Include hello following imports toouse Service Bus APIs
 import com.microsoft.windowsazure.services.servicebus.*;
 import com.microsoft.windowsazure.services.servicebus.models.*;
 import com.microsoft.windowsazure.core.*;
@@ -44,9 +44,9 @@ import javax.xml.datatype.*;
 ```
 
 ## <a name="create-a-queue"></a>Criar uma fila
-Operações de gerenciamento para as filas do Barramento de Serviço podem ser realizadas pela classe **ServiceBusContract**. Um objeto **ServiceBusContract** é construído com uma configuração adequada que encapsula o token SAS com as permissões para gerenciá-lo, e a classe **ServiceBusContract** é o único ponto de comunicação com o Azure.
+Operações de gerenciamento para as filas do Barramento de Serviço podem ser realizadas pela classe **ServiceBusContract**. Um **ServiceBusContract** objeto for construído com uma configuração apropriada que encapsula o token SAS com toomanage de permissões e hello **ServiceBusContract** classe é um ponto único de saudação de comunicação com o Azure.
 
-A classe **ServiceBusService** fornece métodos para criar, enumerar e excluir filas. O exemplo abaixo mostra como um objeto **ServiceBusService** pode ser usado para criar uma fila chamada `TestQueue` com um namespace chamado `HowToSample`:
+Olá **ServiceBusService** classe fornece métodos toocreate, enumerar e excluir filas. Olá como o exemplo a seguir mostra um **ServiceBusService** objeto pode ser usado toocreate uma fila denominada `TestQueue`, com um namespace chamado `HowToSample`:
 
 ```java
 Configuration config =
@@ -71,7 +71,7 @@ catch (ServiceException e)
 }
 ```
 
-Existem métodos em `QueueInfo` que permitem que as propriedades da fila sejam ajustadas (por exemplo, para definir o valor da "vida útil" (TTL) padrão a ser aplicado às mensagens enviadas para a fila). O exemplo a seguir mostra como criar uma fila denominada `TestQueue` com um tamanho máximo de 5 GB:
+Há métodos no `QueueInfo` que permitem que propriedades de saudação fila toobe ajustadas (por exemplo: tooset saudação padrão time-to-live (TTL) valor toobe aplicada toomessages enviados toohello fila). Olá exemplo a seguir mostra como toocreate uma fila denominada `TestQueue` com um tamanho máximo de 5 GB:
 
 ````java
 long maxSizeInMegabytes = 5120;
@@ -80,10 +80,10 @@ queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateQueueResult result = service.createQueue(queueInfo);
 ````
 
-Observe que você pode usar o método `listQueues` em objetos **ServiceBusContract** para verificar se já existe uma fila com um nome especificado dentro de um namespace de serviço.
+Observe que você pode usar o hello `listQueues` método **ServiceBusContract** objetos toocheck se já existe uma fila com um nome especificado em um namespace de serviço.
 
-## <a name="send-messages-to-a-queue"></a>Enviar mensagens a uma fila
-Para enviar uma mensagem a uma fila do Barramento de Serviço, seu aplicativo obterá um objeto **ServiceBusContract**. O código abaixo demonstra como enviar uma mensagem à fila `TestQueue` que criamos acima no namespace `HowToSample`:
+## <a name="send-messages-tooa-queue"></a>Mensagens tooa fila de envio
+toosend uma fila de barramento de serviço tooa mensagens, o aplicativo obtém um **ServiceBusContract** objeto. Olá mostrado no código a seguir como toosend uma mensagem de saudação `TestQueue` fila criada anteriormente no hello `HowToSample` namespace:
 
 ```java
 try
@@ -99,33 +99,33 @@ catch (ServiceException e)
 }
 ```
 
-As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage] têm um conjunto de propriedades padrão (como [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) e [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do [BrokeredMessage][BrokeredMessage] e o serializador adequado será, então, usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
+As mensagens enviadas para e recebidas do barramento de serviço filas são instâncias da saudação [BrokeredMessage] [ BrokeredMessage] classe. [BrokeredMessage] [ BrokeredMessage] objetos têm um conjunto de propriedades padrão (como [rótulo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) e [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), um dicionário que é usado toohold personalizado propriedades específicas do aplicativo e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo de saudação da mensagem de saudação passando qualquer objeto serializável para construtor de saudação do hello [BrokeredMessage][BrokeredMessage], e o serializador adequado Olá será usado objeto de saudação tooserialize. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste para o objeto `TestQueue`**MessageSender** obtido no trecho de código anterior:
+Olá exemplo a seguir demonstra como teste toosend cinco mensagens toothe `TestQueue` **MessageSender** obtivemos no trecho de código anterior hello:
 
 ```java
 for (int i=0; i<5; i++)
 {
-     // Create message, passing a string message for the body.
+     // Create message, passing a string message for hello body.
      BrokeredMessage message = new BrokeredMessage("Test message " + i);
      // Set an additional app-specific property.
      message.setProperty("MyProperty", i);
-     // Send message to the queue
+     // Send message toohello queue
      service.sendQueueMessage("TestQueue", message);
 }
 ```
 
-As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB.
+Filas do barramento de serviço de suportam a um tamanho máximo de 256 KB em Olá [camada padrão](service-bus-premium-messaging.md) e 1 MB de saudação [camada Premium](service-bus-premium-messaging.md). cabeçalho de saudação, que inclui o padrão de saudação e propriedades de aplicativo personalizado, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de saudação da mantidas em uma fila de mensagens, mas há um limite no tamanho total de saudação da mantidas por uma fila de mensagens de saudação. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB.
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-A maneira mais fácil de receber mensagens de uma fila é usar um objeto **ServiceBusContract**. As mensagens recebidas podem funcionar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**.
+mensagens de tooreceive Olá principal forma de uma fila é toouse uma **ServiceBusContract** objeto. As mensagens recebidas podem funcionar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**.
 
-Ao usar o modo **ReceiveAndDelete**, o recebimento é uma operação única, isto é, quando o Barramento de Serviço recebe uma solicitação de leitura de uma mensagem em uma fila, ele marca a mensagem como sendo consumida e a retorna para o aplicativo. O modo **ReceiveAndDelete** (que é o modo padrão) é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la.
-Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+Ao usar o hello **ReceiveAndDelete** modo, recebe é uma operação de captura único - ou seja, quando o barramento de serviço recebe uma solicitação de leitura para uma mensagem em uma fila, ele marca a mensagem de saudação como sendo consumida e retorna-toohello aplicativo. **ReceiveAndDelete** modo (que é o modo padrão de saudação) é o modelo mais simples de saudação e funciona melhor nos cenários em que um aplicativo pode tolerar não processar uma mensagem em caso de saudação de uma falha. toounderstand isso, considere um cenário em que problemas do consumidor Olá Olá receber a solicitação e falha antes de processá-lo.
+Porque o barramento de serviço será marcou a mensagem de saudação como sendo consumida, em seguida, quando o aplicativo hello reinicia e começa a consumir mensagens novamente, ele terá perdido mensagem de saudação foi consumido falha toohello anterior.
 
-No modo **PeekLock**, o recebimento de uma mensagem se torna uma operação de dois estágios, o que possibilita o suporte aos aplicativos que não podem tolerar mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando **Delete** na mensagem recebida. Quando o Barramento de Serviço vê a chamada **Delete**, ele marca a mensagem como tendo sido consumida e a remove da fila.
+Em **PeekLock** , modo de recebimento torna-se uma operação de dois estágios, o que torna possível toosupport aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe uma solicitação, ele localiza Olá próxima mensagem toobe consumida, boqueia-tooprevent outros consumidores a recebam e retorna toohello aplicativo. Depois que o aplicativo hello termina de processar a mensagem de saudação (ou armazena com segurança para processamento futuro), ele conclui Olá segunda etapa de saudação processo de recebimento chamando **excluir** na mensagem recebida. Quando o Service Bus vê Olá **excluir** chamada, ele marca a mensagem de saudação como sendo consumida e removê-lo da fila de saudação.
 
-O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **PeekLock** (não o modo padrão). O exemplo abaixo executa um loop infinito e processa mensagens assim que elas chegam em nossa `TestQueue`:
+Olá exemplo a seguir demonstra como as mensagens podem ser recebidas e processados usando **PeekLock** modo (não o modo padrão de saudação). Olá exemplo a seguir faz um loop infinito e processa as mensagens que chegam em nosso `TestQueue`:
 
 ```java
 try
@@ -140,7 +140,7 @@ try
         if (message != null && message.getMessageId() != null)
         {
             System.out.println("MessageID: " + message.getMessageId());
-            // Display the queue message.
+            // Display hello queue message.
             System.out.print("From queue: ");
             byte[] b = new byte[200];
             String s = null;
@@ -163,8 +163,8 @@ try
         {
             System.out.println("Finishing up - no more messages.");
             break;
-            // Added to handle no more messages.
-            // Could instead wait for more messages to be added.
+            // Added toohandle no more messages.
+            // Could instead wait for more messages toobe added.
         }
     }
 }
@@ -180,17 +180,17 @@ catch (Exception e) {
 }
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como tratar falhas do aplicativo e mensagens ilegíveis
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não for capaz de processar a mensagem por algum motivo, ele chamará o método **unlockMessage** na mensagem recebida (em vez do método **deleteMessage**). Isso fará com que o Barramento de Serviço desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
+## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Como o aplicativo de toohandle falha e mensagens ilegíveis
+Barramento de serviço fornece funcionalidade toohelp que normalmente recuperar de erros no seu aplicativo ou dificuldade para processar uma mensagem. Se um aplicativo receptor não puder tooprocess Olá mensagem por algum motivo, em seguida, pode chamar hello **unlockMessage** método na mensagem recebida (em vez da saudação **deleteMessage** método). Isso faz com que hello de toounlock de barramento de serviço de mensagens na fila de saudação e torná-lo disponível toobe recebida novamente, ou por Olá mesmo aplicativo ou por outro aplicativo de consumo de consumo.
 
-Também há um tempo limite associado a uma mensagem bloqueada na fila e, se houver falha no processamento da mensagem pelo aplicativo da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
+Também há um tempo limite associado a uma mensagem bloqueada na fila, e se o aplicativo hello falha tooprocess Olá mensagem antes do tempo limite de bloqueio expira (por exemplo, se o aplicativo hello falhar), em seguida, o barramento de serviço desbloqueia a mensagem de saudação automaticamente e torna disponível toobe recebida novamente.
 
-Se houver falha do aplicativo após o processamento da mensagem, mas antes da solicitação **deleteMessage** ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é feito com o método **getMessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
+Em Olá evento Olá aplicativo falha após o processamento de mensagem de saudação, mas antes de saudação **deleteMessage** solicitação é emitida, mensagem de saudação será entregue novamente toohello aplicativo quando ele for reiniciado. Isso é geralmente chamado *, pelo menos, após processamento*; ou seja, cada mensagem é processada pelo menos uma vez, mas em certo Olá situações mesma mensagem pode ser entregue novamente. Se o cenário de saudação não puder tolerar o processamento duplicado, os desenvolvedores de aplicativos devem adicionar entrega de mensagens duplicadas lógica adicional tootheir aplicativos toohandle. Isso geralmente é obtido usando Olá **getMessageId** método de mensagem de saudação, que permanece constante entre tentativas de entrega.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][Queues, topics, and subscriptions] para saber mais.
+Agora que você aprendeu as Noções básicas de saudação de filas do barramento de serviço, consulte [filas, tópicos e assinaturas] [ Queues, topics, and subscriptions] para obter mais informações.
 
-Para obter mais informações, consulte o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
+Para obter mais informações, consulte Olá [Central de desenvolvedores de Java](https://azure.microsoft.com/develop/java/).
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx

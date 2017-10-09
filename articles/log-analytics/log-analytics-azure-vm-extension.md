@@ -1,6 +1,6 @@
 ---
-title: "Conectar máquinas virtuais do Azure ao Log Analytics | Microsoft Docs"
-description: "Para máquinas virtuais Windows e Linux em execução no Azure, a maneira recomendada de coletar métricas e logs é instalando a extensão de VM do Azure do Log Analytics. Você pode usar o portal do Azure ou o PowerShell para instalar a extensão da máquina virtual do Log Analytics em VMs do Azure."
+title: "máquinas virtuais do Azure de aaaConnect tooLog análise | Microsoft Docs"
+description: "Para Windows e Linux máquinas virtuais em execução no Azure, Olá recomendado maneira dos logs coletados e métricas é instalar a extensão de VM do Azure Log Analytics hello. Você pode usar o hello portal do Azure ou o PowerShell tooinstall Olá extensão de máquina virtual de análise de Log em VMs do Azure."
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -15,63 +15,63 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: richrund
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdae291b546fef4d7fdb8b067c8e4f4c9708d43f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ac96c242d03ed3a22ca96368e5a8cc53f9a993db
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-azure-virtual-machines-to-log-analytics-with-a-log-analytics-agent"></a>Conectar máquinas virtuais do Azure ao Log Analytics com um agente do Log Analytics
+# <a name="connect-azure-virtual-machines-toolog-analytics-with-a-log-analytics-agent"></a>Conectar-se a análise de tooLog de máquinas virtuais do Azure com um agente de análise de Log
 
-Para computadores Windows e Linux, o método recomendado para coletar métricas e logs é instalando o agente do Log Analytics.
+Para computadores Windows e Linux, Olá recomendado para coletar logs e métricas é instalar o agente de análise de Log de saudação.
 
-A maneira mais fácil de instalar o agente do Log Analytics em máquinas virtuais do Azure é por meio da Extensão de VM do Log Analytics.  Usar a extensão simplifica o processo de instalação e configura automaticamente o agente para enviar dados para o espaço de trabalho do Log Analytics que você especificar. O agente também será automaticamente atualizado, garantindo que você disponha dos recursos e correções mais recentes.
+Olá mais fácil maneira tooinstall Olá análise de Log agente em máquinas virtuais do Azure é por meio de Olá extensão de VM de análise de Log.  Usando a extensão de saudação simplifica o processo de instalação hello e configura automaticamente Olá agente toosend dados toohello análise de Log espaço de trabalho que você especificar. Agente de saudação também é atualizado automaticamente, garantindo que você tenha correções e recursos mais recentes de saudação.
 
-Para máquinas virtuais do Windows, você deve habilitar a extensão de máquina virtual *Microsoft Monitoring Agent*.
-Para máquinas virtuais do Linux, você deve habilitar a extensão de máquina virtual *Agente do OMS para Linux*.
+Para máquinas virtuais do Windows, habilitar Olá *Microsoft Monitoring Agent* extensão da máquina virtual.
+Para máquinas virtuais Linux, você habilita Olá *agente do OMS para Linux* extensão da máquina virtual.
 
-Saiba mais sobre [extensões de máquina virtual do Azure](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e o [agente Linux](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Saiba mais sobre [extensões de máquina virtual do Azure](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e hello [agente Linux](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Ao usar a coleta com base em agente para dados de log, você deve configurar [fontes de dados no Log Analytics](log-analytics-data-sources.md) para especificar os logs e métricas a coletar.
+Quando você usa a coleção com base em agente para dados de log, você deve configurar [fontes de dados de análise de Log](log-analytics-data-sources.md) toospecify Olá logs e métricas que você deseja toocollect.
 
 > [!IMPORTANT]
-> Se você configurar o Log Analytics para indexar dados de log usando o [diagnóstico do Azure](log-analytics-azure-storage.md) e se você configurar o agente para coletar os mesmos logs, eles serão coletados duas vezes. Você será cobrado por ambas as fontes de dados. Se tiver o agente instalado, você coletará dados de log usando apenas o agente – não configure o Log Analytics para coletar dados de log do Diagnóstico do Azure.
+> Se você configurar dados do log de análise de Log tooindex usando [diagnóstico do Azure](log-analytics-azure-storage.md), e configurar Olá Olá de toocollect agente mesmo logs, em seguida, Olá logs são coletados duas vezes. Você será cobrado por ambas as fontes de dados. Se você tiver Olá agente instalado, em seguida, coletar dados de log usando apenas o agente Olá - não configurar dados de log de toocollect de análise de Log de diagnóstico do Azure.
 >
 >
 
-Há três maneiras fáceis de habilitar a extensão da máquina virtual do Log Analytics:
+Há três maneiras de extensão da máquina virtual tooenable Olá análise de Log:
 
-* Usando o Portal do Azure
+* Usando Olá portal do Azure
 * Usando o Azure PowerShell
 * Usando um modelo do Azure Resource Manager
 
-## <a name="enable-the-vm-extension-in-the-azure-portal"></a>Habilitar a extensão de VM no Portal do Azure
-Você pode instalar o agente para o Log Analytics e conectar a máquina virtual do Azure na qual ele é executado usando o [Portal do Azure](https://portal.azure.com).
+## <a name="enable-hello-vm-extension-in-hello-azure-portal"></a>Habilitar a extensão VM Olá no hello portal do Azure
+Você pode instalar o agente de saudação para análise de Log e conecte-se Olá máquina virtual do Azure que é executado usando Olá [portal do Azure](https://portal.azure.com).
 
-### <a name="to-install-the-log-analytics-agent-and-connect-the-virtual-machine-to-a-log-analytics-workspace"></a>Para instalar o agente do Log Analytics e conectar a máquina virtual a um espaço de trabalho do Log Analytics
-1. Faça logon no [Portal do Azure](http://portal.azure.com).
-2. Selecione **Procurar** no lado esquerdo do portal e, em seguida, vá para **Log Analytics (OMS)** e selecione-o.
-3. Em sua lista de espaços de trabalho do Log Analytics, selecione aquele que você deseja utilizar com a VM do Azure.  
+### <a name="tooinstall-hello-log-analytics-agent-and-connect-hello-virtual-machine-tooa-log-analytics-workspace"></a>tooinstall Olá agente de análise de Log e conecte-se o espaço de trabalho da análise de Log tooa Olá máquina virtual
+1. O logon no hello [portal do Azure](http://portal.azure.com).
+2. Selecione **procurar** em Olá lado esquerdo da saudação portal e, em seguida, vá muito**Log Analytics (OMS)** e selecioná-lo.
+3. Na lista de espaços de trabalho de análise de Log, selecione Olá um que você deseja toouse com hello VM do Azure.  
    ![Espaços de trabalho do OMS](./media/log-analytics-azure-vm-extension/oms-connect-azure-01.png)
 4. Em **Gerenciamento do Log Analytics**, selecione **Máquinas virtuais**.  
    ![Máquinas virtuais](./media/log-analytics-azure-vm-extension/oms-connect-azure-02.png)
-5. Na lista de **Máquinas virtuais**, selecione a máquina virtual em que deseja instalar o agente. O **status de conexão do OMS** para a VM indicará que ela **Não está conectada**.  
+5. Na lista de saudação do **máquinas virtuais**, selecione Olá máquina virtual no qual você deseja que o agente de saudação tooinstall. Olá **status de conexão de OMS** para Olá VM indica que ele é **não conectado**.  
    ![VM não conectada](./media/log-analytics-azure-vm-extension/oms-connect-azure-03.png)
-6. Nos detalhes de sua máquina virtual, selecione **Conectar**. O agente é automaticamente instalado e configurado para o seu espaço de trabalho do Log Analytics. Esse processo leva alguns minutos, período durante o qual o status da conexão do OMS é *Conectando-se...*  
+6. Em detalhes Olá para sua máquina virtual, selecione **conectar**. Agente de saudação é automaticamente instalado e configurado para seu espaço de trabalho de análise de Log. Esse processo leva alguns minutos, durante esse período é Olá status de Conexão de OMS *conectando-se...*  
    ![Conectar a VM](./media/log-analytics-azure-vm-extension/oms-connect-azure-04.png)
-7. Quando o agente estiver instalado e conectado, o status da **Conexão do OMS** será atualizado para mostrar **Este espaço de trabalho**.  
+7. Depois de instalar e conectar-se o agente hello, Olá **conexão OMS** status será atualizado tooshow **este espaço de trabalho**.  
    ![Conectado](./media/log-analytics-azure-vm-extension/oms-connect-azure-05.png)
 
-## <a name="enable-the-vm-extension-using-powershell"></a>Habilitar a extensão de VM usando o PowerShell
-Ao configurar sua máquina virtual usando o PowerShell, você precisa fornecer o **workspaceId** e o **workspaceKey**. Os nomes de propriedade em sua configuração de json **diferenciam maiúsculas de minúsculas**.
+## <a name="enable-hello-vm-extension-using-powershell"></a>Habilitar a extensão VM hello usando o PowerShell
+Quando você configurar sua máquina virtual usando o PowerShell, você precisa Olá tooprovide **workspaceId** e **workspaceKey**. nomes de propriedade Olá em sua configuração de json são **diferencia maiusculas de minúsculas**.
 
-É possível encontrar a ID e a chave na página **Configurações** do portal do OMS, ou então usando o PowerShell como mostrado no exemplo acima.
+Você pode encontrar hello Id e chave na Olá **configurações** página do portal do OMS hello, ou usando o PowerShell conforme Olá anterior de exemplo.
 
 ![ID do Espaço de Trabalho e Chave Primária](./media/log-analytics-azure-vm-extension/oms-analyze-azure-sources.png)
 
 Há comandos diferentes para máquinas virtuais clássicas do Azure e máquinas virtuais do Resource Manager. Exemplos tanto de máquinas virtuais clássicas quanto do Resource Manager são fornecidos abaixo.
 
-Para máquinas virtuais clássicas, use o seguinte exemplo do PowerShell:
+Para máquinas virtuais clássicas, use Olá PowerShell de exemplo a seguir:
 
 ```PowerShell
 Add-AzureAccount
@@ -82,19 +82,19 @@ $hostedService = "enter hosted service here"
 
 $vm = Get-AzureVM –ServiceName $hostedService
 
-# For Windows VM uncomment the following line
+# For Windows VM uncomment hello following line
 # Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId': '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 
-# For Linux VM uncomment the following line
+# For Linux VM uncomment hello following line
 # Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'OmsAgentForLinux' -Version '1.*' -PublicConfiguration "{'workspaceId': '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
 ```
 
-Para VMs Linux do Gerenciador de Recursos que usam a CLI a seguir
+Para VMs do Linux Gerenciador de recursos usando Olá seguir CLI
 ```azurecli
 az vm extension set --resource-group myRGMonitor --vm-name myMonitorVM --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --version 1.3 --protected-settings ‘{"workspaceKey": "<workspace-key>"}’ --settings ‘{"workspaceId": "<workspace-id>"}’ 
 ```
 
-Para máquinas virtuais do Resource Manager, use o seguinte exemplo do PowerShell:
+Para máquinas virtuais do Gerenciador de recursos, use Olá PowerShell de exemplo a seguir:
 
 ```PowerShell
 Login-AzureRMAccount
@@ -108,7 +108,7 @@ $workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq $works
 
 if ($workspace.Name -ne $workspaceName)
 {
-    Write-Error "Unable to find OMS Workspace $workspaceName. Do you need to run Select-AzureRMSubscription?"
+    Write-Error "Unable toofind OMS Workspace $workspaceName. Do you need toorun Select-AzureRMSubscription?"
 }
 
 $workspaceId = $workspace.CustomerId
@@ -117,28 +117,28 @@ $workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGrou
 $vm = Get-AzureRmVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
-# For Windows VM uncomment the following line
+# For Windows VM uncomment hello following line
 # Set-AzureRmVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId': '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey'}"
 
-# For Linux VM uncomment the following line
+# For Linux VM uncomment hello following line
 # Set-AzureRmVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'OmsAgentForLinux' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'OmsAgentForLinux' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId': '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey'}"
 
 
 ```
 
 
-## <a name="deploy-the-vm-extension-using-a-template"></a>Implantar a extensão de VM usando um modelo
-Usando o Azure Resource Manager, você pode criar um modelo (no formato JSON) que define a implantação e a configuração do seu aplicativo. Esse modelo é conhecido como um modelo do Gerenciador de Recursos e fornece uma forma declarativa de definir a implantação. Usando um modelo, você pode implantar seu aplicativo em todo seu ciclo de vida repetidamente e com a confiança que seus recursos estão sendo implantados em um estado consistente.
+## <a name="deploy-hello-vm-extension-using-a-template"></a>Implantar a extensão VM hello usando um modelo
+Usando o Gerenciador de recursos do Azure, você pode criar um modelo que define a configuração do seu aplicativo e implantação hello (no formato JSON). Este modelo é conhecido como um modelo do Gerenciador de recursos e fornece uma implantação de toodefine de forma declarativa. Usando um modelo, várias vezes você pode implantar seu aplicativo do ciclo de vida do aplicativo hello e ter certeza de que seus recursos estejam sendo implantados em um estado consistente.
 
-Ao incluir o agente do Log Analytics como parte do seu modelo do Resource Manager, você pode assegurar que cada máquina virtual seja pré-configurada para gerar relatórios para seu espaço de trabalho do Log Analytics.
+Incluindo o agente de análise de Log hello como parte de seu modelo do Gerenciador de recursos, você pode garantir que cada máquina virtual é o espaço de trabalho de análise de Log de tooyour tooreport pré-configurado.
 
 Para obter mais informações sobre os modelos do Resource Manager, veja [Criação de Modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-A seguir está um exemplo de um modelo do Resource Manager que é usado para implantar uma máquina virtual que esteja executando o Windows com a extensão Microsoft Monitoring Agent instalada. Este é um modelo de máquina virtual típico, com as seguintes adições:
+A seguir está um exemplo de um modelo do Gerenciador de recursos que é usado para implantar uma máquina virtual que esteja executando o Windows com hello extensão Microsoft Monitoring Agent instalado. Este modelo é um modelo de máquina virtual típica com hello adições a seguir:
 
 * parâmetros workspaceId e workspaceName
 * Seção de extensão de recurso Microsoft.EnterpriseCloud.Monitoring
-* Saídas para pesquisar o workspaceId e o workspaceSharedKey
+* Saídas toolook workspaceId Olá e workspaceSharedKey
 
 ```json
 {
@@ -148,19 +148,19 @@ A seguir está um exemplo de um modelo do Resource Manager que é usado para imp
     "adminUsername": {
       "type": "string",
       "metadata": {
-        "description": "Username for the Virtual Machine."
+        "description": "Username for hello Virtual Machine."
       }
     },
     "adminPassword": {
       "type": "securestring",
       "metadata": {
-        "description": "Password for the Virtual Machine."
+        "description": "Password for hello Virtual Machine."
       }
     },
     "dnsLabelPrefix": {
        "type": "string",
        "metadata": {
-          "description": "DNS Label for the Public IP. Must be lowercase. It should match with the following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
+          "description": "DNS Label for hello Public IP. Must be lowercase. It should match with hello following regular expression: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$ or it will raise an error."
        }
     },
     "workspaceId": {
@@ -185,7 +185,7 @@ A seguir está um exemplo de um modelo do Resource Manager que é usado para imp
         "Windows-Server-Technical-Preview"
       ],
       "metadata": {
-        "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+        "description": "hello Windows version for hello VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
       }
     }
   },
@@ -365,60 +365,60 @@ A seguir está um exemplo de um modelo do Resource Manager que é usado para imp
 }
 ```
 
-Você pode implantar um modelo usando o comando do PowerShell a seguir:
+Você pode implantar um modelo usando Olá comando PowerShell a seguir:
 
 ```PowerShell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
 ```
 
-## <a name="troubleshooting-the-log-analytics-vm-extension"></a>Solução de problemas da extensão de VM de Log Analytics
+## <a name="troubleshooting-hello-log-analytics-vm-extension"></a>Extensão de VM de análise de Log de saudação de solução de problemas
 Normalmente, você recebe uma mensagem quando as coisas não funcionam no portal do Azure ou no Azure PowerShell.
 
-1. Faça logon no [Portal do Azure](http://portal.azure.com).
-2. Localize a VM e abra os detalhes da VM.
-3. Clique em **Extensões** para verificar se a extensão do OMS está habilitada ou não.
+1. O logon no hello [portal do Azure](http://portal.azure.com).
+2. Localize Olá VM e abra os detalhes VM.
+3. Clique em **extensões** toocheck se a extensão do OMS está habilitada ou não.
 
    ![Exibição da Extensão de VM](./media/log-analytics-azure-vm-extension/oms-vmview-extensions.png)
 
-4. Clique na extensão *MicrosoftMonitoringAgent*(Windows) ou *OmsAgentForLinux*(Linux) e exiba os detalhes. 
+4. Clique em Olá *MicrosoftMonitoringAgent*(Windows) ou *OmsAgentForLinux*(Linux) extensão e exibir os detalhes. 
 
    ![Detalhes da Extensão da VM](./media/log-analytics-azure-vm-extension/oms-vmview-extensiondetails.png)
 
 ### <a name="troubleshooting-windows-virtual-machines"></a>Solucionando problemas das Máquinas Virtuais do Windows
-Se a extensão do agente de VM *Microsoft Monitoring Agent* não está instalando ou reportando, você pode executar as etapas a seguir para solucionar o problema.
+Se hello *Microsoft Monitoring Agent* extensão do agente de VM não está instalando ou relatórios, você pode executar Olá problema de saudação do tootroubleshoot as etapas a seguir.
 
-1. Verifique se o agente de VM do Azure está instalado e funcionando corretamente usando as etapas em [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
-   * Você também pode examinar o arquivo de log do agente de VM `C:\WindowsAzure\logs\WaAppAgent.log`
-   * Se o log não existir, isso significará que o agente de VM não está instalado.
-     * [Instalar o Agente de VM do Azure em VMs clássicas](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-2. Confirme que a tarefa de pulsação da extensão do Microsoft Monitoring Agent está em execução usando as seguintes etapas:
-   * Fazer logon na máquina virtual
-   * Abrir o agendador de tarefas e localizar a tarefa `update_azureoperationalinsight_agent_heartbeat`
-   * Confirmar que a tarefa está habilitada e está executando a cada minuto
-   * Verificar o arquivo de log de pulsação em `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
-3. Examinar os arquivos de log de extensão de VM do Microsoft Monitoring Agent em `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
-4. Certificar-se de que a máquina virtual pode executar scripts do PowerShell
+1. Verifique se o hello Azure VM agent está instalado e as etapas de trabalho corretamente usando Olá [2965986 KB](https://support.microsoft.com/kb/2965986#mt1).
+   * Você também pode analisar o arquivo de log do agente VM Olá`C:\WindowsAzure\logs\WaAppAgent.log`
+   * Se o log de saudação não existir, o agente de VM Olá não está instalado.
+     * [Instalar hello Azure VM Agent nas VMs clássicas](../virtual-machines/windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+2. Confirme Olá Microsoft Monitoring Agent tarefa de pulsação de extensão está em execução usando Olá etapas a seguir:
+   * Faça logon na máquina virtual de toohello
+   * Abra o Agendador de tarefas e localize Olá `update_azureoperationalinsight_agent_heartbeat` tarefa
+   * Confirmar a tarefa hello está habilitada e está em execução a cada um minuto
+   * Verifique o arquivo de log do hello pulsação na`C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
+3. Arquivos de log de extensão Olá VM de agente de monitoramento da Microsoft em`C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
+4. Certifique-se a máquina virtual de saudação pode executar scripts do PowerShell
 5. Certificar-se de que as permissões em C:\Windows\temp não foram alteradas
-6. Exibir o status do Microsoft Monitoring Agent, digitando o seguinte comando em uma janela do PowerShell com privilégios elevados na máquina virtual `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
-7. Examinar os arquivos de log de instalação do Microsoft Monitoring Agent em `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
+6. Exibir o status Olá Olá Microsoft Monitoring Agent digitando Olá comando em uma janela elevada do PowerShell a seguir na máquina virtual de saudação`  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+7. Examine os arquivos de log de instalação Olá Microsoft Monitoring Agent em`C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 Para obter mais informações, consulte [Solucionando problemas em extensões do Windows](../virtual-machines/windows/extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="troubleshooting-linux-virtual-machines"></a>Solucionando Problemas em Máquinas Virtuais Linux
-Se a extensão do agente de VM *Agente do OMS para Linux* não estiver instalando ou reportando, você pode executar as etapas a seguir para solucionar o problema.
+Se hello *agente do OMS para Linux* extensão do agente de VM não está instalando ou relatórios, você pode executar Olá problema de saudação do tootroubleshoot as etapas a seguir.
 
-1. Se o status da extensão for *Desconhecido*, verifique se o agente de VM do Azure está instalado e funcionando corretamente, examinando o arquivo de log do agente de VM `/var/log/waagent.log`
-   * Se o log não existir, isso significará que o agente de VM não está instalado.
-   * [Instalar o Agente de VM do Azure em VMs Linux](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-2. Para outros status não íntegros, examine o Agente do OMS para arquivos de log de extensão de VMs do Linux em `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
-3. Se o status da extensão estiver íntegro mas os dados não estiverem sendo carregados, examine o Agente do OMS para arquivos de log do Linux em `/var/opt/microsoft/omsagent/log/omsagent.log`
+1. Se o status da extensão Olá é *desconhecido* Verifique se o agente de VM do Azure hello está instalado e funcionando corretamente, examinando o arquivo de log do agente VM Olá`/var/log/waagent.log`
+   * Se o log de saudação não existir, o agente de VM Olá não está instalado.
+   * [Instalar hello Azure VM Agent em VMs do Linux](../virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+2. Para outros status Íntegro, examine Olá agente do OMS para a extensão de VM do Linux arquivos de log `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e`/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
+3. Se o status da extensão hello está íntegro, mas dados não está sendo carregados examine Olá agente do OMS para Linux arquivos de log em`/var/opt/microsoft/omsagent/log/omsagent.log`
 
 ## <a name="next-steps"></a>Próximas etapas
-* Configurar [fontes de dados no Log Analytics](log-analytics-data-sources.md) para especificar os logs e as métricas a coletar.
-* [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md) para coletar dados de máquinas virtuais.
+* Configurar [fontes de dados de análise de Log](log-analytics-data-sources.md) toospecify Olá toocollect de logs e métricas.
+* toogather dados das máquinas virtuais [soluções de análise de Log adicionar da Galeria de soluções de saudação](log-analytics-add-solutions.md).
 * [Coletar dados usando o Diagnóstico do Azure](log-analytics-azure-storage.md) para outros recursos em execução no Azure.
 
-Para computadores que não estão no Azure, você pode instalar o agente do Log Analytics usando os métodos descritos nos seguintes artigos:
+Para computadores que não estão no Azure, você pode instalar o agente de análise de Log de saudação usando métodos Olá descritas Olá artigos a seguir:
 
-* [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agents.md)
-* [Conectar computadores Linux ao Log Analytics](log-analytics-linux-agents.md)
+* [Conecte-se tooLog de computadores Windows análise](log-analytics-windows-agents.md)
+* [Conecte-se tooLog de computadores Linux análise](log-analytics-linux-agents.md)

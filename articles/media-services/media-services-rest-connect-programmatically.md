@@ -1,6 +1,6 @@
 ---
-title: "Conectando a Conta dos Serviços de Mídia usando a API REST | Microsoft Docs"
-description: "Este tópico demonstra como conectar os Serviços de Mídia usando a API REST."
+title: "aaaConnecting tooMedia conta de serviços usando a API REST | Microsoft Docs"
+description: "Este tópico demonstra como usar do tooconnect tooMedia serviços REST API."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,52 +14,52 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 4feb0eb81823835e8e0b701463d85b27f5598019
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1d5064a3612dc96f5c5ad910d183d84fb70a3b6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connecting-to-media-services-account-using-media-services-rest-api"></a>Conectando-se a conta dos serviços de mídia usando a API REST dos serviços de mídia
+# <a name="connecting-toomedia-services-account-using-media-services-rest-api"></a>Conectando tooMedia conta de serviços usando a API de REST de serviços de mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-connect-programmatically.md)
 > * [REST](media-services-rest-connect-programmatically.md)
 > 
 > 
 
-Este tópico descreve como obter uma conexão programática com os Serviços de Mídia do Microsoft Azure quando você está programando com a API REST dos Serviços de Mídia.
+Este tópico descreve como tooobtain tooMicrosoft uma conexão programática Azure Media Services quando você está programando com hello API de REST de serviços de mídia.
 
-Duas coisas são necessárias ao acessar os Serviços de Mídia do Microsoft Azure: um token de acesso fornecido pelos ACSs (Serviços de Controle de Acesso) e o URI dos Serviços de Mídia em si. Você pode usar os meios que desejar ao criar essas solicitações desde que especifique os valores de cabeçalho corretos e passar o token de acesso corretamente ao chamar nos serviços de mídia.
+Duas coisas são necessárias ao acessar os serviços de mídia do Microsoft Azure: um token de acesso fornecido pelo Azure Access Control Services (ACS) e Olá URI do Media Services em si. Você pode usar os meios que desejar ao criar essas solicitações desde que você especifique valores de cabeçalho corretos hello e passa no token de acesso de saudação corretamente ao chamar nos serviços de mídia.
 
-As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST dos serviços de mídia para se conectar aos serviços de mídia:
+Olá, as etapas a seguir descreve o fluxo de trabalho de mais comuns do hello quando usar Olá API REST do Media Services tooconnect tooMedia serviços:
 
 1. Obtendo um token de acesso 
-2. Conectando o URI dos serviços de mídia 
+2. Conectando toohello URI do Media Services 
    
    > [!NOTE]
-   > Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
-   > Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
+   > Após conectar-se toohttps://media.windows.net, você receberá um redirecionamento 301 que especifica outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes toohello novo URI.
+   > Você também pode receber uma resposta HTTP/1.1 200 que contém Olá descrição de metadados ODATA API.
    > 
    > 
-3. Poste suas chamadas de API subsequentes para a nova URL. 
+3. POST suas chamadas API subsequentes toohello nova URL. 
    
-    Por exemplo, se depois de tentar se conectar, você tem o seguinte:
+    Por exemplo, se depois de tentar tooconnect, você obteve seguinte hello:
    
         HTTP/1.1 301 Moved Permanently
         Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
    
-    Você deve postar suas chamadas de API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
+    Você deve publicar seu subsequentes API chamadas toohttps://wamsbayclus001rest-hs.cloudapp.net/api/.
 
     >[!NOTE]
-    >Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+    >Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Você deve usar Olá Olá a mesma ID de política se você estiver usando sempre mesmo dias acesso permissões, por exemplo, as políticas para localizadores são tooremain desejado no local por um longo período (políticas de carregamento não). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
 
 ## <a name="access-control-address"></a>Endereço de controle de acesso
 O endereço de controle de acesso de serviços de mídia é https://wamsprodglobal001acs.accesscontrol.windows.net, exceto para a região norte da China, onde é https://wamsprodglobal001acs.accesscontrol.chinacloudapi.cn.
 
 ## <a name="getting-an-access-token"></a>Obtendo um token de acesso
-Para acessar os serviços de mídia diretamente por meio da API REST, recupere um token de acesso do ACS e use-o durante todas as solicitações HTTP feitas no serviço. Esse token é semelhante aos outros tokens fornecidos pelo ACS com base nas declarações de acesso fornecidas no cabeçalho de uma solicitação HTTP e usando o protocolo OAuth v2. Não é necessário qualquer outro pré-requisito antes de conectar-se diretamente aos serviços de mídia.
+tooaccess serviços de mídia diretamente por meio da API REST do hello, recuperar um token de acesso do ACS e usá-lo durante cada solicitação HTTP que fizer no serviço de saudação. Esse token é semelhante tokens tooother fornecidos pelo ACS, com base em declarações de acesso fornecidas no cabeçalho de saudação de uma solicitação HTTP e usar o protocolo de saudação OAuth v2. Não é necessário qualquer outro pré-requisito antes de conectar diretamente tooMedia serviços.
 
-O exemplo a seguir mostra o cabeçalho de solicitação HTTP e o corpo usado para recuperar um token.
+Olá exemplo a seguir mostra cabeçalho de solicitação HTTP hello e tooretrieve do corpo usado um token.
 
 **Cabeçalho**:
 
@@ -74,9 +74,9 @@ O exemplo a seguir mostra o cabeçalho de solicitação HTTP e o corpo usado par
 
 **Corpo**:
 
-Você precisa provar os valores de client_id e client_secret no corpo dessa solicitação. O client_id e client_secret correspondem a valores AccountName e AccountKey, respectivamente. Esses valores são fornecidos a você pelos serviços de mídia ao configurar sua conta. 
+Você precisa os valores tooprove client_id e o client_secret de saudação no corpo de saudação desta solicitação; client_id e o client_secret correspondem toohello AccountName e AccountKey valores, respectivamente. Esses valores são fornecidos tooyou pelos serviços de mídia quando você configurar sua conta. 
 
-Observe que a AccountKey da sua conta de Serviços de Mídia deve ter a codificação de URL (consulte [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1) ao ser usado como o valor de client_secret em sua solicitação de token de acesso.
+Observe que Olá AccountKey para sua conta de serviços de mídia deve ser codificados de URL (consulte [codificação por percentual](http://tools.ietf.org/html/rfc3986#section-2.1) quando usá-lo como o valor de client_secret Olá em sua solicitação de token de acesso.
 
     grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -86,7 +86,7 @@ Por exemplo:
     grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
 
-O exemplo a seguir mostra a resposta HTTP que contém o token de acesso no corpo da resposta.
+Hello exemplo a seguir mostra Olá HTTP resposta que contém o acesso de saudação token no corpo de resposta de saudação.
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache, no-store
@@ -108,18 +108,18 @@ O exemplo a seguir mostra a resposta HTTP que contém o token de acesso no corpo
 
 
 > [!NOTE]
-> É recomendável armazenar em cache os valores "access_token" e "expires_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
+> É recomendável toocache hello "access_token" e "expires_in" valores tooan armazenamento externo. dados do token Olá posteriormente foi recuperados do armazenamento hello e reutilizados em suas chamadas de API de REST de serviços de mídia. Isso é especialmente útil para cenários onde Olá token pode ser compartilhado com segurança entre vários processos ou computadores.
 > 
 > 
 
-Certifique-se de monitorar o valor "expires_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
+Certifique-se de valor de "expires_in" hello toomonitor de acesso de saudação token e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
 
-### <a name="connecting-to-the-media-services-uri"></a>Conectando o URI dos serviços de mídia
-O URI raiz para os serviços de mídia é https://media.windows.net/. Inicialmente, você deve se conectar a esse URI, e se obtiver um redirecionamento 301 em resposta, deverá fazer chamadas subsequentes para o novo URI. Além disso, não use nenhuma lógica de redirecionamento/acompanhamento automático nas solicitações. Verbos HTTP e corpos de solicitação não serão encaminhados para o novo URI.
+### <a name="connecting-toohello-media-services-uri"></a>Conectando toohello URI do Media Services
+Olá URI raiz para os serviços de mídia é https://media.windows.net/. Você deve conectar toothis URI e se você receber um redirecionamento 301 em resposta, você deve fazer chamadas subsequentes toohello novo URI. Além disso, não use nenhuma lógica de redirecionamento/acompanhamento automático nas solicitações. Verbos HTTP e corpos de solicitação não serão encaminhados toohello novo URI.
 
-Observe que o URI raiz para carregar e baixar arquivos de ativo é https://yourstorageaccount.blob.core.windows.net/ onde o nome da conta de armazenamento é o mesmo usado durante a configuração da conta de serviços de mídia.
+Observe que raiz Olá URI para carregar e baixar arquivos de ativo https://yourstorageaccount.blob.core.windows.net/ onde é o nome de conta de armazenamento Olá Olá um mesmo usada durante a configuração da conta de serviços de mídia.
 
-O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços de Mídia (https://media.windows.net/). A solicitação obtém um redirecionamento 301 em resposta. A solicitação subsequente está usando o novo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
+saudação de exemplo a seguir demonstra toohello a solicitação HTTP raiz de serviços de mídia URI (https://media.windows.net/). solicitação de saudação obtém um redirecionamento 301 em resposta. Olá solicitação subsequente é usando Olá novo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
 **Solicitação HTTP**:
 
@@ -143,11 +143,11 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços 
     Content-Length: 164
 
     <html><head><title>Object moved</title></head><body>
-    <h2>Object moved to <a href="https://wamsbayclus001rest-hs.cloudapp.net/api/">here</a>.</h2>
+    <h2>Object moved too<a href="https://wamsbayclus001rest-hs.cloudapp.net/api/">here</a>.</h2>
     </body></html>
 
 
-**Solicitação HTTP** (usando o novo URI):
+**Solicitação HTTP** (usando Olá novo URI):
 
     GET https://wamsbayclus001rest-hs.cloudapp.net/api/ HTTP/1.1
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f19258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421500579&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=ElVWXOnMVggFQl%2ft9vhdcv1qH1n%2fE8l3hRef4zPmrzg%3d
@@ -176,7 +176,7 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços 
 
 
 > [!NOTE]
-> Depois que obtiver o novo URI, este é o URI que deve ser usado para se comunicar com os serviços de mídia. 
+> Depois de obter Olá novo URI, que é hello URI que deve ser usado toocommunicate com serviços de mídia. 
 > 
 > 
 

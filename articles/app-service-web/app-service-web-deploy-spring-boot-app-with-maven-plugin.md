@@ -1,6 +1,6 @@
 ---
-title: Como usar o plug-in do Maven para Aplicativos Web do Azure para implantar um aplicativo Spring Boot no Azure
-description: Saiba como usar o plug-in do Maven para Aplicativos Web do Azure para implantar um aplicativo Spring Boot no Azure.
+title: "aaaHow toouse Olá Maven plug-in para aplicativos Web do Azure toodeploy um tooAzure do aplicativo de inicialização de Spring"
+description: "Saiba como toouse hello Maven plug-in para aplicativos Web do Azure toodeploy um tooAzure do aplicativo de inicialização de Spring."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
@@ -14,38 +14,38 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
-ms.openlocfilehash: dceb7edf788bd87b1de04aa435a12cd5853755b9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 376fe90fe20621e15d7c9856214937c78b66026a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-maven-plugin-for-azure-web-apps-to-deploy-a-spring-boot-app-to-azure"></a>Como usar o plug-in do Maven para Aplicativos Web do Azure para implantar um aplicativo Spring Boot no Azure
+# <a name="how-toouse-hello-maven-plugin-for-azure-web-apps-toodeploy-a-spring-boot-app-tooazure"></a>Como toouse hello Maven plug-in para aplicativos Web do Azure toodeploy um tooAzure do aplicativo de inicialização de Spring
 
-O [Plug-in do Maven para Aplicativos Web do Azure](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) para [Apache Maven](http://maven.apache.org/) fornece uma integração perfeita do Serviço de Aplicativo do Azure em projetos Maven, e simplifica o processo para os desenvolvedores implantarem aplicativos Web no Serviço de Aplicativo do Azure.
+Olá [Maven plug-in para aplicativos Web do Azure](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin) para [Apache Maven](http://maven.apache.org/) fornece integração perfeita de serviço de aplicativo do Azure em projetos Maven e simplifica o processo de saudação para desenvolvedores toodeploy web aplicativos tooAzure do serviço de aplicativo.
 
-Este artigo demonstra como usar o plug-in do Maven para Aplicativos Web do Azure a fim de implantar um exemplo de aplicativo Spring Boot para os Serviços de Aplicativos do Azure.
+Este artigo demonstra como usar Olá Maven plug-in para aplicativos Web do Azure toodeploy tooAzure de aplicativo de inicialização de Spring um exemplo serviços de aplicativos.
 
 > [!NOTE]
 >
-> O plug-in do Maven para Aplicativos Web do Azure está disponível no momento como uma versão prévia. Por enquanto, há suporte somente para a publicação FTP, embora existam planos para recursos adicionais futuros.
+> Olá Maven plug-in para aplicativos Web do Azure está disponível como uma visualização. Por enquanto, somente a publicação FTP tem suporte, embora recursos adicionais foram planejados para Olá futuras.
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas deste tutorial, você precisa ter os seguintes pré-requisitos:
+Em ordem toocomplete Olá etapas deste tutorial, você precisa toohave Olá pré-requisitos a seguir:
 
 * Uma assinatura do Azure; se ainda não tiver uma assinatura do Azure, você poderá ativar o [benefício de assinante do MSDN] ou inscrever-se para uma [conta gratuita do Azure].
-* A[CLI (interface de linha de comando) do Azure].
+* Olá [Azure Interface de linha de comando (CLI)].
 * Um JDK (Java Development Kit) versão 1.7 ou posterior atualizado.
 * A ferramenta de compilação [Maven] do Apache (Versão 3).
 * Um cliente [Git].
 
-## <a name="clone-the-sample-spring-boot-web-app"></a>Clonar o aplicativo Web Spring Boot de exemplo
+## <a name="clone-hello-sample-spring-boot-web-app"></a>Aplicativo web do clone Olá exemplo inicialização Spring
 
 Nesta seção, você clonará um aplicativo Spring Boot concluído e o testará localmente.
 
-1. Abra um prompt de comando ou janela de terminal e crie um diretório local para conter o aplicativo Spring Boot, e altere para esse diretório; por exemplo:
+1. Abra um prompt de comando ou a janela do terminal e criar um diretório local toohold seu aplicativo de inicialização de Spring e altere o diretório toothat; Por exemplo:
    ```shell
    md C:\SpringBoot
    cd C:\SpringBoot
@@ -56,52 +56,52 @@ Nesta seção, você clonará um aplicativo Spring Boot concluído e o testará 
    cd /users/robert/SpringBoot
    ```
 
-1. Clone o projeto de exemplo [Introdução ao Spring Boot] para o diretório que você criou. Por exemplo:
+1. Saudação de clone [Spring inicialização Introdução] projeto de exemplo no diretório Olá criado; por exemplo:
    ```shell
    git clone https://github.com/microsoft/gs-spring-boot
    ```
 
-1. Altere o diretório para o projeto concluído. Por exemplo:
+1. Alterar diretório toohello concluída projeto; Por exemplo:
    ```shell
    cd gs-spring-boot/complete
    ```
 
-1. Crie o arquivo JAR usando o Maven. Por exemplo:
+1. Criar arquivo JAR de saudação usando Maven; Por exemplo:
    ```shell
    mvn clean package
    ```
 
-1. Após a criação do aplicativo Web, inicie-o usando o Maven; por exemplo:
+1. Quando o aplicativo da web de saudação tiver sido criado, iniciar Olá web app usando Maven; Por exemplo:
    ```shell
    mvn spring-boot:run
    ```
 
-1. Teste o aplicativo Web navegando até ele localmente usando um navegador da Web. Por exemplo, use o comando a seguir, se você tiver o curl disponível:
+1. Testar o aplicativo da web de saudação navegando tooit localmente usando um navegador da web. Por exemplo, você pode usar o hello comando a seguir se você tiver ondulação disponível:
    ```shell
    curl http://localhost:8080
    ```
 
-1. Você verá a seguinte mensagem exibida: **Saudações do Spring Boot!**
+1. Você deve ver Olá mensagem exibida a seguir: **saudações de inicialização Spring!**
 
 ## <a name="create-an-azure-service-principal"></a>Criar uma entidade de serviço do Azure
 
-Nesta seção, você criará uma entidade de serviço do Azure que será usada pelo plug-in do Maven durante a implantação de seu aplicativo Web no Azure.
+Nesta seção, você criará um Azure entidade de serviço que Olá usos de plug-in Maven ao implantar o tooAzure de aplicativo web.
 
 1. Abra um prompt de comando.
 
-1. Entre em sua conta do Azure usando a CLI do Azure:
+1. Entre em sua conta do Azure usando Olá CLI do Azure:
    ```shell
    az login
    ```
-   Siga as instruções na tela para concluir o processo de entrada.
+   Siga Olá instruções toocomplete Olá processo de entrada.
 
 1. Crie uma entidade de serviço do Azure:
    ```shell
    az ad sp create-for-rbac --name "uuuuuuuu" --password "pppppppp"
    ```
-   Onde `uuuuuuuu` é o nome de usuário e `pppppppp` é a senha para a entidade de serviço.
+   Onde `uuuuuuuu` é o nome de usuário hello e `pppppppp` é a senha Olá Olá entidade de serviço.
 
-1. O Azure responde com um JSON parecido com o exemplo a seguir:
+1. Azure responde com JSON que é semelhante a saudação de exemplo a seguir:
    ```json
    {
       "appId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
@@ -114,20 +114,20 @@ Nesta seção, você criará uma entidade de serviço do Azure que será usada p
 
    > [!NOTE]
    >
-   > Você usará os valores dessa resposta em JSON ao configurar o plug-in do Maven para implantar seu aplicativo Web no Azure. `aaaaaaaa`, `uuuuuuuu`, `pppppppp` e `tttttttt` são valores de espaço reservado, usados neste exemplo para facilitar o mapeamento desses valores para seus respectivos elementos durante a configuração de seu arquivo `settings.xml` do Maven na próxima seção.
+   > Quando você configura Olá Maven plug-in toodeploy seu tooAzure de aplicativo web, você usará valores hello essa resposta JSON. Olá `aaaaaaaa`, `uuuuuuuu`, `pppppppp`, e `tttttttt` são valores de espaço reservado, que são usados em toomake Este exemplo-toomap mais fácil esses elementos de respectivos do tootheir valores quando você configura o Maven `settings.xml` arquivo hello lado seção.
    >
    >
 
-## <a name="configure-maven-to-use-your-azure-service-principal"></a>Configurar o Maven para usar a entidade de serviço do Azure
+## <a name="configure-maven-toouse-your-azure-service-principal"></a>Configurar Maven toouse a entidade de serviço do Azure
 
-Nesta seção, você usará os valores de sua entidade de serviço do Azure para configurar a autenticação usada pelo Maven durante a implantação de seu aplicativo Web no Azure.
+Nesta seção, você pode usar valores de saudação da autenticação de saudação de tooconfigure principal de serviço do Azure Maven usa ao implantar o tooAzure de aplicativo web.
 
-1. Abra seu arquivo `settings.xml` do Maven em um editor de texto; esse arquivo pode estar em um caminho como os exemplos a seguir:
+1. Abra o Maven `settings.xml` arquivo em um editor de texto; este arquivo pode estar em um caminho como Olá exemplos a seguir:
    * `/etc/maven/settings.xml`
    * `%ProgramFiles%\apache-maven\3.5.0\conf\settings.xml`
    * `$HOME/.m2/settings.xml`
 
-1. Adicione as configurações de sua entidade de serviço do Azure da seção anterior deste tutorial à coleção `<servers>` no arquivo *settings.xml*; por exemplo:
+1. Adicionar suas configurações de serviço do Azure principal da seção anterior Olá este tutorial toohello `<servers>` coleção em Olá *settings.xml* arquivo; por exemplo:
 
    ```xml
    <servers>
@@ -145,17 +145,17 @@ Nesta seção, você usará os valores de sua entidade de serviço do Azure para
    Em que:
    Elemento | Descrição
    ---|---|---
-   `<id>` | Especifica um nome exclusivo usado pelo Maven para analisar suas configurações de segurança durante a implantação de seu aplicativo Web no Azure.
-   `<client>` | Contém o valor `appId` de sua entidade de serviço.
-   `<tenant>` | Contém o valor `tenant` de sua entidade de serviço.
-   `<key>` | Contém o valor `password` de sua entidade de serviço.
-   `<environment>` | Define o ambiente de nuvem do Azure de destino, que é `AZURE` neste exemplo. (Uma lista completa dos ambientes está disponível na documentação [Plug-in do Maven para Aplicativos Web do Azure])
+   `<id>` | Especifica um nome exclusivo que Maven usa toolook suas configurações de segurança quando você implanta seu tooAzure de aplicativo web.
+   `<client>` | Contém Olá `appId` valor da sua entidade de serviço.
+   `<tenant>` | Contém Olá `tenant` valor da sua entidade de serviço.
+   `<key>` | Contém Olá `password` valor da sua entidade de serviço.
+   `<environment>` | Define o ambiente de nuvem do Azure de destino hello, que é `AZURE` neste exemplo. (Uma lista completa dos ambientes está disponível no hello [Maven plug-in para aplicativos Web do Azure] documentação)
 
-1. Salve e feche o arquivo *settings.xml*.
+1. Salve e feche o hello *settings.xml* arquivo.
 
-## <a name="optional-customize-your-pomxml-before-deploying-your-web-app-to-azure"></a>OPCIONAL: Personalizar seu pom.xml antes de implantar seu aplicativo Web no Azure
+## <a name="optional-customize-your-pomxml-before-deploying-your-web-app-tooazure"></a>OPCIONAL: Personalizar sua pom.xml antes de implantar seu tooAzure de aplicativo web
 
-Abra o arquivo `pom.xml` de seu aplicativo Spring Boot em um editor de texto e localize o elemento `<plugin>` para `azure-webapp-maven-plugin`. Esse elemento deverá se parecer com este exemplo:
+Olá abrir `pom.xml` de arquivo para o seu aplicativo de inicialização de Spring em um editor de texto e localize Olá `<plugin>` elemento para `azure-webapp-maven-plugin`. Esse elemento deve ser semelhante a saudação de exemplo a seguir:
 
    ```xml
    <plugin>
@@ -191,83 +191,83 @@ Abra o arquivo `pom.xml` de seu aplicativo Spring Boot em um editor de texto e l
    </plugin>
    ```
 
-Você pode modificar diversos valores do plug-in do Maven, e há uma descrição detalhada de cada um desses elementos disponível na documentação [Plug-in do Maven para Aplicativos Web do Azure]. Dito isso, vale a pena destacar diversos valores neste artigo:
+Há vários valores que você pode modificar para plug-in do hello Maven e uma descrição detalhada de cada um desses elementos está disponível no hello [Maven plug-in para aplicativos Web do Azure] documentação. Dito isso, vale a pena destacar diversos valores neste artigo:
 
 Elemento | Descrição
 ---|---|---
-`<version>` | Especifica a versão do [Plug-in do Maven para Aplicativos Web do Azure]. Você deve verificar a versão listada no [Repositório Central do Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) para garantir que esteja usando a versão mais recente.
-`<authentication>` | Especifica as informações de autenticação do Azure, que, neste exemplo, contêm um elemento `<serverId>` contendo `azure-auth`; o Maven usa esse valor para procurar os valores de entidade de serviço do Azure em seu arquivo *settings.xml* do Maven, que você definiu em uma seção anterior deste artigo.
-`<resourceGroup>` | Especifica o grupo de recursos de destino, que é `maven-plugin` neste exemplo. Esse grupo de recursos é criado durante a implantação, caso ainda não exista.
-`<appName>` | Especifica o nome de destino de seu aplicativo Web. Neste exemplo, o nome de destino é `maven-web-app-${maven.build.timestamp}`, no qual o sufixo `${maven.build.timestamp}` é acrescentado neste exemplo para evitar conflitos. (O carimbo de data/hora é opcional; você pode especificar qualquer cadeia de caracteres exclusiva para o nome do aplicativo).
-`<region>` | Especifica a região de destino, que neste exemplo é `westus`. (Uma lista completa está disponível na documentação [Plug-in do Maven para Aplicativos Web do Azure]).
-`<javaVersion>` | Especifica a versão de tempo de execução Java para seu aplicativo Web. (Uma lista completa está disponível na documentação [Plug-in do Maven para Aplicativos Web do Azure]).
+`<version>` | Especifica a versão de saudação do hello [Maven plug-in para aplicativos Web do Azure]. Você deve verificar a versão Olá listado no hello [repositório Central Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-webapp-maven-plugin%22) Olá tooensure que você está usando a versão mais recente.
+`<authentication>` | Especifica as informações de autenticação de saudação do Azure, que neste exemplo contém um `<serverId>` elemento que contém `azure-auth`; Maven usa toolook esse valor valores principal de serviço do Azure Olá em seu Maven *settings.xml* arquivo, que você definiu em uma seção anterior deste artigo.
+`<resourceGroup>` | Especifica o grupo de recursos de destino hello, que é `maven-plugin` neste exemplo. grupo de recursos de saudação é criado durante a implantação, se ele ainda não existir.
+`<appName>` | Especifica o nome do destino de saudação para seu aplicativo web. Neste exemplo, o nome de destino de saudação é `maven-web-app-${maven.build.timestamp}`, onde hello `${maven.build.timestamp}` sufixo é acrescentado em conflito de tooavoid neste exemplo. (Olá timestamp é opcional; você pode especificar qualquer cadeia de caracteres exclusiva para o nome do aplicativo hello.)
+`<region>` | Especifica a região de destino hello, que neste exemplo é `westus`. (Uma lista completa está em Olá [Maven plug-in para aplicativos Web do Azure] documentação.)
+`<javaVersion>` | Especifica a versão de tempo de execução do Java Olá para seu aplicativo web. (Uma lista completa está em Olá [Maven plug-in para aplicativos Web do Azure] documentação.)
 `<deploymentType>` | Especifica o tipo de implantação para seu aplicativo Web. Por enquanto, somente o `ftp` tem suporte, embora o suporte para outros tipos de implantação esteja em desenvolvimento.
-`<resources>` | Especifica os recursos e os destinos que o Maven usa durante a implantação de seu aplicativo Web no Azure. Neste exemplo, dois elementos `<resource>` especificam que o Maven implantará o arquivo JAR para seu aplicativo Web e o arquivo *Web.config* do projeto Spring Boot.
+`<resources>` | Especifica os recursos e os destinos que Maven usa ao implantar o tooAzure de aplicativo web. Neste exemplo, dois `<resource>` especificam que Maven implantará o arquivo JAR de saudação para seu aplicativo web e Olá *Web. config* arquivo de projeto de inicialização Spring hello.
 
-## <a name="build-and-deploy-your-web-app-to-azure"></a>Criar e implantar seu aplicativo Web do Azure
+## <a name="build-and-deploy-your-web-app-tooazure"></a>Criar e implantar seu tooAzure de aplicativo web
 
-Depois de definir todas as configurações nas seções anteriores deste artigo, você estará pronto para implantar seu aplicativo Web no Azure. Para fazer isso, execute as seguintes etapas:
+Depois de configurar todas as configurações de saudação em Olá anterior seções deste artigo, você está pronto toodeploy seu tooAzure de aplicativo web. Assim, o toodo use Olá etapas a seguir:
 
-1. Do prompt de comando ou janela de terminal que você estava usando antes, recompile o arquivo JAR usando o Maven, se você tiver feito alterações no arquivo *pom.xml*; por exemplo:
+1. No prompt de comando hello ou janela de terminal que você estava usando anteriormente, recriar o arquivo de JAR de hello usando Maven se você tiver feito qualquer toohello alterações *pom.xml* arquivo; por exemplo:
    ```shell
    mvn clean package
    ```
 
-1. Implante seu aplicativo Web no Azure usando o Maven; por exemplo:
+1. Implantar seu tooAzure de aplicativo web usando Maven; Por exemplo:
    ```shell
    mvn azure-webapp:deploy
    ```
 
-O Maven implantará seu aplicativo Web no Azure; se o aplicativo Web ainda não existir, ele será criado.
+Maven implantará seu tooAzure de aplicativo da web; Se o aplicativo da web de saudação ainda não existir, ele será criado.
 
-Após a implantação de sua Web, você poderá gerenciá-la usando o [portal do Azure].
+Quando sua web tiver sido implantada, você será capaz de toomanage usando Olá [portal do Azure].
 
 * Seu aplicativo Web será listado nos **Serviços de Aplicativos**:
 
    ![Aplicativo Web listado nos Serviços de Aplicativos do portal do Azure][AP01]
 
-* E a URL para seu aplicativo Web será listada na **Visão geral** de seu aplicativo Web:
+* E Olá URL para seu aplicativo web será listado no hello **visão geral** para seu aplicativo web:
 
-   ![Como determinar a URL de seu aplicativo Web][AP02]
+   ![Determinando Olá URL para seu aplicativo web][AP02]
 
 <!--
-##  OPTIONAL: Configure the embedded Tomcat server to run on a different port
+##  OPTIONAL: Configure hello embedded Tomcat server toorun on a different port
 
-The embedded Tomcat server in the sample Spring Boot application is configured to run on port 8080 by default. However, if you want to run the embedded Tomcat server to run on a different port, such as port 80 for local testing, you can configure the port by using the following steps.
+hello embedded Tomcat server in hello sample Spring Boot application is configured toorun on port 8080 by default. However, if you want toorun hello embedded Tomcat server toorun on a different port, such as port 80 for local testing, you can configure hello port by using hello following steps.
 
-1. Go to the *resources* directory (or create the directory if it does not exist); for example:
+1. Go toohello *resources* directory (or create hello directory if it does not exist); for example:
    ```shell
    cd src/main/resources
    ```
 
-1. Open the *application.yml* file in a text editor if it exists, or create a new YAML file if it does not exist.
+1. Open hello *application.yml* file in a text editor if it exists, or create a new YAML file if it does not exist.
 
-1. Modify the **server** setting so that the server runs on port 80; for example:
+1. Modify hello **server** setting so that hello server runs on port 80; for example:
    ```yaml
    server:
       port: 80
    ```
 
-1. Save and close the *application.yml* file.
+1. Save and close hello *application.yml* file.
 -->
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as diversas tecnologias discutidas neste artigo, veja os artigos a seguir:
+Para obter mais informações sobre Olá diversas tecnologias abordadas neste artigo, consulte Olá artigos a seguir:
 
-* [Plug-in do Maven para Aplicativos Web do Azure]
+* [Maven plug-in para aplicativos Web do Azure]
 
-* [Fazer logon no Azure desde a CLI do Azure](/azure/xplat-cli-connect)
+* [Faça logon no tooAzure de saudação CLI do Azure](/azure/xplat-cli-connect)
 
-* [Como usar o plug-in do Maven para Aplicativos Web do Azure para implantar um aplicativo Spring Boot em contêineres no Azure](app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md)
+* [Como toouse hello Maven plug-in para aplicativos Web do Azure toodeploy um tooAzure de aplicativo de inicialização de Spring em contêineres](app-service-web-deploy-containerized-spring-boot-app-with-maven-plugin.md)
 
-* [Criar uma entidade de serviço do Azure com a CLI do Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli)
+* [Criar uma entidade de serviço do Azure com a CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 * [Referência de configurações do Maven](https://maven.apache.org/settings.html)
 
 <!-- URL List -->
 
-[CLI (interface de linha de comando) do Azure]: /cli/azure/overview
+[Azure Interface de linha de comando (CLI)]: /cli/azure/overview
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
 [portal do Azure]: https://portal.azure.com/
 [conta gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/
@@ -277,9 +277,9 @@ Para saber mais sobre as diversas tecnologias discutidas neste artigo, veja os a
 [Maven]: http://maven.apache.org/
 [benefício de assinante do MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Introdução ao Spring Boot]: https://github.com/microsoft/gs-spring-boot
+[Spring inicialização Introdução]: https://github.com/microsoft/gs-spring-boot
 [Spring Framework]: https://spring.io/
-[Plug-in do Maven para Aplicativos Web do Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
+[Maven plug-in para aplicativos Web do Azure]: https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-webapp-maven-plugin
 
 <!-- IMG List -->
 

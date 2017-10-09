@@ -1,6 +1,6 @@
 ---
-title: "Como usar o Azure RemoteApp com as contas de usuário do Office 365 | Microsoft Docs"
-description: "Saiba como usar o Azure RemoteApp com minhas contas de usuário do Office 365"
+title: "aaaHow toouse Azure RemoteApp com contas de usuário do Office 365 | Microsoft Docs"
+description: "Saiba como toouse Azure RemoteApp com minhas contas de usuário do Office 365"
 services: remoteapp
 documentationcenter: 
 author: piotrci
@@ -13,41 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 1bc8949c236afd03415f961cf7a657d4d3926b07
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2dbed2a6838adf9bb0f7508eb7dcecb0a74a62f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-remoteapp-with-office-365-user-accounts"></a>Como usar o Azure RemoteApp com minhas contas de usuário do Office 365
+# <a name="how-toouse-azure-remoteapp-with-office-365-user-accounts"></a>Como toouse Azure RemoteApp com contas de usuário do Office 365
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-Se você tiver uma assinatura do Office 365, terá um Azure Active Directory que armazena os nomes de usuário e senhas usados para acessar os serviços do Office 365. Por exemplo, quando os usuários ativam o Office 365 ProPlus, eles se autenticam no Azure AD para verificar se há licenças. A maioria dos clientes gostaria de usar o mesmo diretório do Azure RemoteApp.
+Se você tiver uma assinatura do Office 365 têm um Azure Active Directory que armazena os nomes de usuário e senhas usadas tooaccess serviços do Office 365. Por exemplo, quando os usuários ativem o Office 365 ProPlus eles autenticam contra toocheck do AD do Azure para licenças. A maioria dos clientes seriam como toouse Olá mesmo diretório com o Azure RemoteApp.
 
-Se você estiver implantando o Azure RemoteApp, provavelmente estará usando uma assinatura do Azure que está associada a um Azure AD diferente. Para usar o diretório do Office 365, você precisará mover a assinatura do Azure para esse diretório.
+Se você estiver implantando o Azure RemoteApp, provavelmente estará usando uma assinatura do Azure que está associada a um Azure AD diferente. Em ordem toouse seu diretório do Office 365, você precisará Olá toomove assinatura do Azure no diretório.
 
-Para obter informações sobre como implantar os aplicativos de cliente do Office 365, consulte [Como usar sua assinatura do Office 365 com o Azure RemoteApp](remoteapp-officesubscription.md).
+Para obter informações sobre como os aplicativos cliente toodeploy Office 365, consulte [como toouse sua assinatura do Office 365 com o Azure RemoteApp](remoteapp-officesubscription.md).
 
 ## <a name="phase-1-register-your-free-office-365-azure-active-directory-subscription"></a>Fase 1: registrar sua assinatura gratuita do Azure Active Directory do Office 365
-Se você está usando o portal clássico do Azure, use as etapas em [Registrar sua assinatura gratuita do Azure Active Directory](https://technet.microsoft.com/library/dn832618.aspx) para obter acesso administrativo ao Azure AD por meio do Portal de Gerenciamento. Como resultado desse processo, você poderá fazer logon no portal do Azure e ver seu diretório lá – neste ponto, você não verá muito porque a assinatura completa do Azure usada com o Azure RemoteApp está em um diretório diferente.
+Se você estiver usando Olá portal clássico do Azure, use as etapas de saudação em [registrar sua assinatura gratuita do Active Directory do Azure](https://technet.microsoft.com/library/dn832618.aspx) tooget acesso administrativo tooyour AD do Azure por meio do Portal de gerenciamento de saudação. Como resultado de hello desse processo, você deve ser capaz de toolog em Olá portal do Azure e consulte seu diretório – neste momento você não verá mais porque hello assinatura completa do Azure que você está usando com o Azure RemoteApp está em um diretório diferente.
 
-Lembre-se do nome e da senha da conta de administrador que você criou nesta etapa – eles serão necessários na Fase 2.
+Lembre-se nome hello e a senha da conta de administrador Olá criados nesta etapa – será necessária na fase 2.
 
-Se você está usando o portal do Azure, confira [Como registrar e ativar Azure Active Directory gratuito usando o portal do Office 365](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
+Se você estiver usando Olá portal do Azure, confira [como tooregister e ativar um gratuita do Azure Active Directory usando o portal do Office 365](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
 
-## <a name="phase-2-change-the-azure-ad-associated-with-your-azure-subscription"></a>Fase 2: altere o Azure AD associado à sua assinatura do Azure.
-Iremos alterar sua assinatura do Azure do seu diretório atual para o diretório do Office 365, com o qual trabalhamos na Fase 1.
+## <a name="phase-2-change-hello-azure-ad-associated-with-your-azure-subscription"></a>Fase 2: Olá alteração AD do Azure associado à sua assinatura do Azure.
+Vamos toochange sua assinatura do Azure do seu diretório no diretório do Office 365 hello, trabalhamos na fase 1.
 
-Siga as instruções descritas em [Alterar o locatário do Active Directory do Azure no Azure RemoteApp](remoteapp-changetenant.md). Você deve prestar uma atenção especial nas etapas a seguir:
+Siga as instruções de saudação descritas em [locatário de Active Directory do Azure Olá alteração no Azure RemoteApp](remoteapp-changetenant.md). Preste atenção especial toohello etapas a seguir:
 
 * Etapa 1: se você implantou o Azure RemoteApp (ARA) nesta assinatura, verifique se removeu todas as contas de usuário do Azure AD de todas as coleções ARA primeiro, antes de tentar qualquer outra coisa. Como alternativa, você pode considerar a exclusão de todas as coleções existentes.
-* Etapa 2: Esta é uma etapa crítica. Você precisa usar uma conta da Microsoft (por exemplo, @outlook.com) como um Administrador de Serviços na assinatura; isso ocorre porque não podemos ter nenhuma conta de usuário do Azure AD existente anexada à assinatura – se tivermos, não conseguiremos movê-la para um Azure AD diferente.
-* Etapa 4: Ao adicionar um diretório existente, o sistema pedirá para você entrar com a conta de administrador desse diretório. Use a conta de administrador da Fase 1.
-* Etapa 5: altere o diretório-pai da assinatura para o diretório do Office 365. O resultado final deve ser que em Configurações -> Assinaturas sua assinatura lista o diretório do Office 365. 
-  ![Alterar o diretório-pai da assinatura](./media/remoteapp-o365user/settings.png)
+* Etapa 2: Esta é uma etapa crítica. Você precisa toouse uma conta da Microsoft (por exemplo, @outlook.com) como um administrador de serviço na assinatura Olá; isso ocorre porque não é possível temos as contas de usuário de saudação existente do AD do Azure anexado toohello assinatura – se isso for feito, nós não será capaz de toomove-tooa AD do Azure diferente.
+* Etapa &#4;: Ao adicionar um diretório existente, Olá sistema solicitará toosign com conta de administrador Olá para aquele diretório. Certifique-se de conta de administrador Olá toouse da fase 1.
+* Etapa &#5;: Alterar o diretório pai de saudação do diretório do hello assinatura tooyour Office 365. resultado final de saudação deve ser que em Configurações -> assinaturas sua assinatura lista directory Olá Office 365. 
+  ![Altere o diretório de pai de saudação de assinatura de saudação](./media/remoteapp-o365user/settings.png)
 
-Neste ponto, sua assinatura do Azure RemoteApp está associada ao Azure AD do Office 365. Você pode usar as contas de usuário existentes do Office 365 com o Azure RemoteApp!
+Neste momento, sua assinatura do Azure RemoteApp está associada com o Office 365 do Azure AD; Você pode usar contas de usuário do Office 365 existentes Olá com o Azure RemoteApp!
 

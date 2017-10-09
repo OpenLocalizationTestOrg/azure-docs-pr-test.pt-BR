@@ -1,6 +1,6 @@
 ---
-title: "Entender os métodos diretos do Hub IoT do Azure | Microsoft Docs"
-description: "Guia de desenvolvedor – use métodos diretos para invocar código em seus dispositivos de um aplicativo de serviço."
+title: "métodos de direcionar aaaUnderstand Azure IoT Hub | Microsoft Docs"
+description: "Guia do desenvolvedor - use métodos diretos tooinvoke código em seus dispositivos de um aplicativo de serviço."
 services: iot-hub
 documentationcenter: .net
 author: nberdy
@@ -15,50 +15,50 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77e788a32097edbcb1cd4faaa45f35812eabd94a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0d15d44a0c3e1d1cda1669c1ed011c2f932e3d92
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Entender e chamar métodos diretos do Hub IoT
 ## <a name="overview"></a>Visão geral
-O Hub IoT permite invocar métodos diretos em dispositivos da nuvem. Os métodos diretos representam uma interação entre solicitação e resposta com um dispositivo semelhante a uma chamada HTTP, na qual eles são bem-sucedidos ou falham imediatamente (depois que o tempo limite especificado pelo usuário é atingido). Isso é útil para cenários em que a ação imediata é diferente dependendo da capacidade de resposta do dispositivo, como enviar uma ativação por SMS para um dispositivo se o dispositivo está offline (com o SMS sendo mais caro do que uma chamada de método).
+IoT Hub oferece métodos diretos de tooinvoke de capacidade nos dispositivos da nuvem de saudação. Métodos diretos representam uma interação de solicitação-resposta com um tooan semelhante dispositivo HTTP chamadas em que elas foram bem-sucedidas ou falham imediatamente (após um tempo limite especificado pelo usuário). Isso é útil para cenários onde Olá ação imediata é diferente dependendo se o dispositivo de saudação foi capaz de toorespond, como o envio de um dispositivo do SMS wake-up tooa se um dispositivo estiver offline (sendo mais caro do que uma chamada de método SMS).
 
-Cada método de dispositivo tem como alvo um único dispositivo. Os [Trabalhos][lnk-devguide-jobs] são uma maneira de invocar métodos diretos em vários dispositivos e agendar invocação de método para dispositivos desconectados.
+Cada método de dispositivo tem como alvo um único dispositivo. [Trabalhos] [ lnk-devguide-jobs] fornecem uma maneira tooinvoke métodos diretos em vários dispositivos e agendar a invocação de método para dispositivos desconectados.
 
 Qualquer pessoa com permissões de **conectar serviço** no Hub IoT pode invocar um método em um dispositivo.
 
-### <a name="when-to-use"></a>Quando usar
-Os métodos diretos seguem um padrão de solicitação e resposta e se destinam a comunicações que exigem confirmação imediata de seus resultados, normalmente controle interativo do dispositivo, por exemplo, ligar uma ventoinha.
+### <a name="when-toouse"></a>Quando toouse
+Métodos diretos seguem um padrão de solicitação-resposta e destinam-se para as comunicações que exigem a confirmação imediata de seus resultados, controle geralmente interativo do dispositivo hello, por exemplo tooturn em um ventilador.
 
-Veja [Cloud-to-device communication guidance][lnk-c2d-guidance] (Diretrizes de comunicação da nuvem para o dispositivo) se estiver em dúvida entre o uso de propriedades desejadas, métodos diretos ou mensagens da nuvem para o dispositivo.
+Consulte também[orientação de comunicação de nuvem para dispositivo] [ lnk-c2d-guidance] em caso de dúvida, entre usando as propriedades desejadas, direcionar métodos ou mensagens de nuvem para dispositivo.
 
 ## <a name="method-lifecycle"></a>Ciclo de vida do método
-Os métodos diretos são implementados no dispositivo e podem precisar ou não de entradas no conteúdo do método para instanciar corretamente. Você invoca um método direto por meio de um URI voltado para serviços (`{iot hub}/twins/{device id}/methods/`). Um dispositivo recebe métodos diretos por meio de um tópico MQTT específico ao dispositivo (`$iothub/methods/POST/{method name}/`). Podemos dar suporte a métodos diretos em mais protocolos de rede do lado do dispositivo no futuro.
+Métodos diretos são implementados no dispositivo hello e podem exigir a zero ou mais entradas no toocorrectly de carga do método hello instanciar. Você invoca um método direto por meio de um URI voltado para serviços (`{iot hub}/twins/{device id}/methods/`). Um dispositivo recebe métodos diretos por meio de um tópico MQTT específico ao dispositivo (`$iothub/methods/POST/{method name}/`). Podemos pode oferecer suporte a métodos diretos em protocolos de rede de lado do dispositivo adicionais no futuro de saudação.
 
 > [!NOTE]
-> Quando você invoca um método direto em um dispositivo, os valores e nomes de propriedade só podem conter caracteres alfanuméricos imprimíveis US-ASCII, exceto pelo seguinte conjunto: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> Quando você invoca um método em um dispositivo, valores e nomes de propriedade só podem conter US-ASCII imprimível alfanumérico, exceto qualquer em Olá conjunto a seguir: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
 
-Os métodos diretos são síncronos e obtêm êxito ou falham após o tempo limite (padrão: 30 segundos, configurável para até 3.600 segundos). Os métodos diretos são úteis em cenários interativos em que você deseja que um dispositivo atue somente, e somente se, o dispositivo estiver online e recebendo comandos, como acender uma luz usando um telefone. Nesses cenários, você deseja ver uma falha ou êxito imediatamente, para que o serviço de nuvem possa atuar quanto ao resultado o mais rápido possível. O dispositivo pode retornar algum corpo de mensagem como resultado do método, mas não é obrigatório que o método faça isso. Não há nenhuma garantia quanto à ordenação ou semântica de simultaneidade nas chamadas de método.
+Direcionar métodos são síncronos e o êxito ou falha após o período de tempo limite da saudação (padrão: 30 segundos, definível pelo backup too3600 segundos). Métodos diretos são úteis em cenários interativos onde deseja que um dispositivo tooact se e somente se o dispositivo de hello está online e recebendo comandos, como ativar a luz de um telefone. Nesses cenários, você deseja toosee uma falha ou sucesso imediato para que serviço de nuvem Olá possa agir no resultado de saudação assim que possível. dispositivo Olá pode retornar alguns corpo da mensagem como resultado do método hello, mas ele não é necessário para Olá método toodo para. Não há nenhuma garantia quanto à ordenação ou semântica de simultaneidade nas chamadas de método.
 
-O método direto serve somente para HTTP do lado da nuvem, e somente MQTT do lado do dispositivo.
+Método direto são somente para HTTP do lado de nuvem hello e somente MQTT do lado do dispositivo de saudação.
 
-A carga das solicitações e respostas do método é um documento JSON de até 8 KB.
+carga de saudação para método solicitações e respostas é um documento JSON para cima too8KB.
 
 ## <a name="reference-topics"></a>Tópicos de referência:
-Os tópicos de referência a seguir fornecem a você mais informações sobre como usar os métodos diretos.
+Olá seguintes tópicos de referência fornecem mais informações sobre como usar métodos diretos.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Invocar um método direto de um aplicativo back-end
 ### <a name="method-invocation"></a>Invocação de método
 Invocações de método direto em um dispositivo são chamadas HTTP, que compreendem:
 
-* O *URI* específico para o dispositivo (`{iot hub}/twins/{device id}/methods/`)
-* A *método* POST
-* *Cabeçalhos* que contêm a autorização, ID da solicitação, tipo de conteúdo e codificação de conteúdo
-* Um *corpo* JSON transparente no seguinte formato:
+* Olá *URI* toohello específico de dispositivo (`{iot hub}/twins/{device id}/methods/`)
+* Olá POST *método*
+* *Cabeçalhos* que contêm autorização hello, ID, o tipo de conteúdo e a codificação do conteúdo de solicitação
+* JSON transparente *corpo* em Olá formato a seguir:
 
 ```
 {
@@ -71,14 +71,14 @@ Invocações de método direto em um dispositivo são chamadas HTTP, que compree
 }
 ```
 
-Tempo limite em segundos. Se o tempo limite não tiver sido definido, o padrão será 30 segundos.
+Tempo limite em segundos. Se o tempo limite não for definida, o padrão é too30 segundos.
 
 ### <a name="response"></a>Resposta
-O aplicativo de back-end recebe uma resposta que inclui:
+aplicativo de back-end Olá recebe uma resposta que consiste em:
 
-* *Código de status HTTP*, que é usado para erros provenientes do Hub IoT, incluindo um erro 404 para dispositivos que não estão conectados
-* *Cabeçalhos* que contêm a ETag, a ID de solicitação, tipo de conteúdo e codificação de conteúdo
-* Um *corpo* JSON no seguinte formato:
+* *Código de status HTTP*, que é usado para erros provenientes do hello IoT Hub, inclusive um erro 404 para dispositivos que não estão conectados
+* *Cabeçalhos* que contêm Olá ETag, ID, o tipo de conteúdo e a codificação do conteúdo de solicitação
+* JSON *corpo* em Olá formato a seguir:
 
 ```
 {
@@ -87,13 +87,13 @@ O aplicativo de back-end recebe uma resposta que inclui:
 }
 ```
 
-   `status` e `body` são fornecidos pelo dispositivo e usados para responder com o código de status e/ou descrição do dispositivo.
+   Ambos `status` e `body` são fornecidos pelo dispositivo hello e usado toorespond com código de status do dispositivo hello e/ou descrição.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Tratar um método direto em um dispositivo
 ### <a name="method-invocation"></a>Invocação de método
-Os dispositivos recebem solicitações de método direto sobre o tópico MQTT: `$iothub/methods/POST/{method name}/?$rid={request id}`
+Dispositivos recebem solicitações de método direto no tópico MQTT hello:`$iothub/methods/POST/{method name}/?$rid={request id}`
 
-O corpo que o dispositivo recebe está no seguinte formato:
+corpo da saudação qual dispositivo Olá recebe é em Olá formato a seguir:
 
 ```
 {
@@ -105,28 +105,28 @@ O corpo que o dispositivo recebe está no seguinte formato:
 As solicitações de método são QoS 0.
 
 ### <a name="response"></a>Resposta
-O dispositivo envia as respostas para `$iothub/methods/res/{status}/?$rid={request id}`, em que:
+dispositivo Olá envia respostas muito`$iothub/methods/res/{status}/?$rid={request id}`, onde:
 
-* A propriedade `status` é o status de execução fornecido pelo dispositivo da execução do método.
-* A propriedade `$rid` é a ID de solicitação de invocação do método recebida do Hub IoT.
+* Olá `status` propriedade é status fornecido pelo dispositivo de saudação de execução do método.
+* Olá `$rid` propriedade é Olá solicitação ID de invocação de método hello recebida do IoT Hub.
 
-O corpo é definido pelo dispositivo e pode ter qualquer status.
+corpo de saudação é definido pelo dispositivo hello e pode ser qualquer status.
 
 ## <a name="additional-reference-material"></a>Material de referência adicional
-Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:
+Outros tópicos de referência Olá guia do desenvolvedor de IoT Hub incluem:
 
-* [Pontos de extremidade do Hub IoT][lnk-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento.
-* [Limitação e cotas][lnk-quotas] descreve as cotas que se aplicam ao serviço Hub IoT e o comportamento de limitação esperado ao usar o serviço.
-* [SDKs de dispositivo e serviço IoT do Azure][lnk-sdks] lista os vários SDKs de linguagem que você pode usar no desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT.
-* [Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens][lnk-query] descreve a linguagem de consulta do Hub IoT que você pode usar para recuperar informações do Hub IoT sobre dispositivos gêmeos e trabalhos.
-* [Suporte ao MQTT do Hub IoT][lnk-devguide-mqtt] fornece mais informações sobre o suporte do Hub IoT para o protocolo MQTT.
+* [Pontos de extremidade de IoT Hub] [ lnk-endpoints] descreve Olá vários pontos de extremidade que expõe a cada hub IoT para operações de tempo de execução e gerenciamento.
+* [Limitação e cotas] [ lnk-quotas] descreve cotas Olá que se aplicam a toohello serviço de IoT Hub e Olá limitação tooexpect de comportamento quando você usar o serviço de saudação.
+* [SDKs do Azure de dispositivo e serviço IoT] [ lnk-sdks] listas Olá SDKs, você pode usar ao desenvolver aplicativos do dispositivo e o serviço que interagem com o IoT Hub de vários idiomas.
+* [Linguagem de consulta de IoT Hub para twins do dispositivo, trabalhos e roteamento de mensagens] [ lnk-query] descreve Olá linguagem de consulta de IoT Hub, você pode usar informações de tooretrieve de IoT Hub sobre seus trabalhos e twins do dispositivo.
+* [Suporte de IoT Hub MQTT] [ lnk-devguide-mqtt] fornece mais informações sobre o suporte de IoT Hub para o protocolo MQTT hello.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu a usar métodos diretos, pode ser interessante ler o seguinte tópico do Guia do Desenvolvedor do Hub IoT:
+Agora, você aprendeu como métodos de toouse direto, você pode estar interessado em Olá tópico de guia do desenvolvedor de IoT Hub a seguir:
 
 * [Agendar trabalhos em vários dispositivos][lnk-devguide-jobs]
 
-Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez se interesse pelo seguinte tutorial de Hub IoT:
+Se você quiser tootry alguns dos conceitos de saudação descritos neste artigo, você pode estar interessado em Olá seguindo o tutorial de IoT Hub:
 
 * [Usar métodos diretos][lnk-methods-tutorial]
 

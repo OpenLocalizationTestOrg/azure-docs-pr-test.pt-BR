@@ -1,9 +1,9 @@
 Este artigo supõe que
 
-1. A **VPN Site a Site** ou um **via expressa** já tiver sido estabelecida a conexão entre sua rede local e de rede Virtual do Azure.
-2. Sua conta de usuário tem permissões para criar uma nova máquina virtual na assinatura do Azure que as máquinas virtuais foram failover em.
-3. Sua assinatura tem um mínimo de 4 núcleos disponíveis para criar uma nova máquina virtual do servidor em processo.
-4. Você tem o **senha do servidor de configuração** disponíveis.
+1. Um **tooSite VPN de Site** ou um **rota expressa** já tiver sido estabelecida a conexão entre sua rede local e hello rede Virtual do Azure.
+2. Sua conta de usuário tem permissões toocreate uma nova máquina virtual Olá assinatura do Azure que máquinas virtuais de saudação foi failover no.
+3. Sua assinatura tem um mínimo de 4 toospin de núcleos disponíveis se uma nova máquina virtual do servidor em processo.
+4. Você tem Olá **senha do servidor de configuração** disponíveis.
 
 > [!TIP]
-> Certifique-se de que você seja capaz de conectar-se a porta 443 do servidor de configuração (em execução local) de rede Virtual do Azure que as máquinas virtuais foram failover em.
+> Certifique-se de que você é capaz de tooconnect porta 443 de saudação (executado no local) do servidor de configuração de saudação rede Virtual do Azure que máquinas virtuais de saudação foi failover em.

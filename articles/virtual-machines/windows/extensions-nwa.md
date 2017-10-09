@@ -1,6 +1,6 @@
 ---
-title: "Extensão da máquina virtual do Agente do Observador de Rede do Azure para Windows | Microsoft Docs"
-description: "Implante o Agente do Observador de Rede na máquina virtual Windows usando uma extensão da máquina virtual."
+title: "aaaAzure extensão de máquina virtual do agente do Inspetor de rede para Windows | Microsoft Docs"
+description: "Implante Olá agente do Inspetor de rede na máquina virtual do Windows usando uma extensão de máquina virtual."
 services: virtual-machines-windows
 documentationcenter: 
 author: dennisg
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: b8d6a998bc86337b286a3434f44f762cca9b7e68
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 21298706e462ff32c4d314f9a1ad127074ddf481
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Agente do Observador de Rede para Windows
 
 ## <a name="overview"></a>Visão geral
 
-[Observador de Rede do Azure](https://review.docs.microsoft.com/en-us/azure/network-watcher/) é um serviço de monitoramento de desempenho, diagnóstico e análise de rede que permite o monitoramento de redes do Azure. A extensão da máquina virtual do Agente do Observador de Rede é um requisito para alguns dos recursos do Observador de Rede em máquinas virtuais do Azure. Isso inclui capturar o tráfego de rede sob demanda e outras funcionalidades avançadas.
+[Observador de Rede do Azure](https://review.docs.microsoft.com/en-us/azure/network-watcher/) é um serviço de monitoramento de desempenho, diagnóstico e análise de rede que permite o monitoramento de redes do Azure. Olá extensão do agente do Inspetor de rede de máquina virtual é um requisito para alguns dos recursos de rede Inspetor Olá em máquinas virtuais do Azure. Isso inclui capturar o tráfego de rede sob demanda e outras funcionalidades avançadas.
 
-Este documento detalha as opções com suporte de plataformas e implantação para a extensão da máquina virtual do Agente do Observador de Rede para Windows.
+Saudação de detalhes neste documento suporte a plataformas e opções de implantação para Olá extensão do agente do Inspetor de rede de máquina virtual para Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão do Agente do Observador de Rede para Windows pode ser executada nas versões 2008 R2, 2012, 2012 R2 e 2016 do Windows Server. Observe que o Servidor Nano não é suportado neste momento.
+Olá extensão do agente do Inspetor de rede para Windows podem ser executado em Windows Server 2008 R2, 2012, 2012 R2 e 2016 libera. Observe que Olá Nano Server não é suportado no momento.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-Algumas das funcionalidades do Agente do Observador de Rede exigem que a máquina virtual de destino esteja conectada à Internet. Sem a capacidade de estabelecer conexões de saída, alguns dos recursos do Agente do Observador de Rede podem apresentar problemas ou se tornar indisponíveis. Para obter mais detalhes, confira a [documentação do Observador de Rede](../../network-watcher/network-watcher-monitoring-overview.md).
+Alguns Olá funcionalidade de agente do Inspetor de rede requer que a máquina virtual Olá destino ser toohello conectado à Internet. Sem conexões de saída Olá capacidade tooestablish alguns dos recursos de agente do Inspetor de rede Olá podem mau funcionamento ou se tornar indisponível. Para obter mais detalhes, consulte Olá [documentação do observador de rede](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON a seguir mostra o esquema para a extensão do Agente do Observador de Rede. A extensão não requer nem oferece suporte a nenhuma configuração fornecida pelo usuário no momento e se baseia em sua configuração padrão.
+Olá JSON a seguir mostra esquema Olá Olá extensão do agente do Inspetor de rede. extensão de saudação não requer nem dá suporte a todas as configurações fornecidas pelo usuário no momento e se baseia em sua configuração padrão.
 
 ```json
 {
@@ -73,11 +73,11 @@ O JSON a seguir mostra o esquema para a extensão do Agente do Observador de Red
 
 ## <a name="template-deployment"></a>Implantação de modelo
 
-Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a extensão do Agente do Observador de Rede durante uma implantação do modelo do Azure Resource Manager.
+Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. esquema JSON Olá detalhada na seção anterior Olá pode ser usada em uma saudação de toorun de modelo do Azure Resource Manager extensão do agente do Inspetor de rede durante uma implantação de modelo do Gerenciador de recursos do Azure.
 
 ## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-O comando `Set-AzureRmVMExtension` pode ser usado para implantar a extensão da máquina virtual do Agente do Observador de Rede em uma máquina virtual existente.
+Olá `Set-AzureRmVMExtension` comando pode ser usado toodeploy Olá agente do Inspetor de rede virtual machine extensão tooan máquina virtual existente.
 
 ```powershell
 Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
@@ -93,13 +93,13 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup1" `
 
 ### <a name="troubleshooting"></a>Solucionar problemas
 
-Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o módulo do Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o módulo do Azure PowerShell.
+Dados sobre o estado de saudação de implantações de extensão podem ser recuperados da saudação portal do Azure e usando o módulo do PowerShell do Azure hello. estado da implantação Olá toosee de extensões para uma determinada VM, Olá execução usando o comando a seguir Olá módulo PowerShell do Azure.
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
-A saída de execução da extensão é registrada nos arquivos localizados no seguinte diretório:
+Execução de extensão é conectado toofiles encontrado no hello após o diretório de saída:
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentWindows\
@@ -107,4 +107,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentW
 
 ### <a name="support"></a>Suporte
 
-Caso precise de mais ajuda em qualquer ponto deste artigo, veja a documentação Guia de Usuário do Observador de Rede ou contate os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
+Se você precisar de mais ajuda a qualquer momento neste artigo, você pode consulte a documentação do guia do usuário de Inspetor de rede toohello ou entre em contato com o hello Azure especialistas em Olá [fóruns MSDN Azure e o estouro de pilha](https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá toohello [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione obter suporte. Para obter informações sobre como usar o suporte do Azure, leia Olá [perguntas frequentes sobre o suporte da Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).

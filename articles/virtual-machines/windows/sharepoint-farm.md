@@ -1,6 +1,6 @@
 ---
-title: Criar farms de servidores do SharePoint no Azure | Microsoft Docs
-description: Crie rapidamente um novo farm do SharePoint 2013 ou SharePoint 2016 no Azure usando o Marketplace no portal do Azure.
+title: aaaCreate farms de servidores do SharePoint no Azure | Microsoft Docs
+description: "Crie rapidamente um novo farm do SharePoint 2013 ou SharePoint 2016 no Azure usando Olá marketplace portal do Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: JoeDavies-MSFT
@@ -16,71 +16,71 @@ ms.topic: article
 ms.date: 09/30/2016
 ms.author: josephd
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00648ee35962b22fb7eeceaa6d9df7305c801abf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d71c7177d9b99cf377bab767342508007285b452
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-sharepoint-server-farms-using-the-azure-portal-marketplace"></a>Criar farms de servidores do SharePoint usando o Marketplace no portal do Azure
+# <a name="create-sharepoint-server-farms-using-hello-azure-portal-marketplace"></a>Criar farms de servidores do SharePoint usando Olá marketplace portal do Azure
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="sharepoint-2013-farms"></a>Farms do SharePoint 2013
-Com o Marketplace do portal do Microsoft Azure, você pode criar rapidamente farms pré-configurados do SharePoint Server 2013. Isso pode economizar muito tempo quando você precisar de um farm do SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento/teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
+Com a saudação Microsoft Azure portal do marketplace, você pode criar rapidamente farms do SharePoint Server 2013 pré-configurado. Isso pode economizar muito tempo quando você precisar de um farm do SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento/teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
 > [!NOTE]
-> O item **Farm do SharePoint Server** no Azure Marketplace do portal do Azure foi removido. Ele foi substituído pelos itens **Farm de não HA do SharePoint 2013** e **Farm HA do SharePoint 2013**.
+> Olá **Farm do SharePoint Server** item hello Azure Marketplace de saudação portal do Azure foi removido. Ela foi substituída por hello **Farm do SharePoint 2013 não - HA** e **Farm do SharePoint 2013 HA** itens.
 >
 >
 
-O farm do SharePoint básico consiste em três máquinas virtuais nesta configuração.
+farm do SharePoint básico de saudação consiste em três máquinas virtuais nesta configuração.
 
 ![sharepointfarm](./media/sharepoint-farm/Non-HAFarm.png)
 
 É possível usar esta configuração de farm para uma configuração simplificada para o desenvolvimento do aplicativo SharePoint na sua primeira avaliação do SharePoint 2013.
 
-Para criar o farm básico (três servidores) do SharePoint:
+toocreate Olá básica () do SharePoint farm de três servidores:
 
 1. Clique [aqui](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/).
 2. Clique em **Implantar**.
-3. No painel **Farm de não HA do SharePoint 2013**, clique em **Criar**.
-4. Especifique as configurações nas etapas do painel **Criar farm não HA do SharePoint 2013** e clique em **Criar**.
+3. Em Olá **Farm do SharePoint 2013 não - HA** painel, clique em **criar**.
+4. Especificar as configurações em etapas Olá Olá **criar Farm do SharePoint 2013 não - HA** painel e clique **criar**.
 
-O farm do SharePoint de alta disponibilidade consiste em nove máquinas virtuais nesta configuração.
+farm do SharePoint de alta disponibilidade Olá consiste em nove máquinas virtuais nesta configuração.
 
 ![sharepointfarm](./media/sharepoint-farm/HAFarm.png)
 
-É possível usar essa configuração de farm para testar cargas de clientes maiores, alta disponibilidade do site externo do SharePoint e Grupos de Disponibilidade AlwaysOn do SQL Server para um farm do SharePoint. Também é possível usar esta configuração para a implementação do aplicativo SharePoint em um ambiente de alta disponibilidade.
+Você pode usar este farm configuração tootest cargas mais elevadas de cliente, a alta disponibilidade do site do SharePoint externo de saudação e grupos de disponibilidade do AlwaysOn do SQL Server para um farm do SharePoint. Também é possível usar esta configuração para a implementação do aplicativo SharePoint em um ambiente de alta disponibilidade.
 
-Para criar o farm de alta disponibilidade (nove servidores) do SharePoint:
+farm de toocreate Olá alta disponibilidade (servidor de nove) do SharePoint:
 
 1. Clique [aqui](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/).
 2. Clique em **Implantar**.
-3. No painel **Farm de HA do SharePoint 2013**, clique em **Criar**.
-4. Especifique as configurações nas sete etapas do painel **Criar Farm de HA do SharePoint 2013** e, então, clique em **Criar**.
+3. Em Olá **Farm do SharePoint 2013 HA** painel, clique em **criar**.
+4. Especificar as configurações em etapas Olá sete Olá **criar Farm do SharePoint 2013 HA** painel e clique **criar**.
 
 > [!NOTE]
-> Não é possível criar o **Farm de não HA do SharePoint 2013** ou o **Farm de HA do SharePoint 2013** com uma Avaliação Gratuita do Azure.
+> Não é possível criar hello **Farm do SharePoint 2013 não - HA** ou **Farm do SharePoint 2013 HA** com uma avaliação gratuita do Azure.
 >
 >
 
-O portal do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de ExpressRoute para a rede da sua organização.
+Olá portal do Azure cria ambos esses farms de servidores em uma rede virtual somente em nuvem com uma presença da web para a Internet. Não há nenhum site a site VPN ou rota expressa conexão back tooyour rede da organização.
 
 > [!NOTE]
-> Quando você cria farms básicos ou de alta disponibilidade do SharePoint usando o portal do Azure, não é possível especificar um grupo de recursos existente. Para contornar essa limitação, crie esses farms com o Azure PowerShell. Para obter mais informações, consulte [Criar farms de desenvolvimento/teste do SharePoint 2013 com o Azure PowerShell](https://technet.microsoft.com/library/mt743093.aspx#powershell).
+> Quando você cria Olá básica ou farms do SharePoint de alta disponibilidade usando Olá portal do Azure, você não pode especificar um grupo de recursos existente. toowork com essa limitação, crie esses farms de servidores com o Azure PowerShell. Para obter mais informações, consulte [Criar farms de desenvolvimento/teste do SharePoint 2013 com o Azure PowerShell](https://technet.microsoft.com/library/mt743093.aspx#powershell).
 >
 >
 
 ## <a name="sharepoint-2016-farms"></a>Farms do SharePoint 2016
-Confira [este artigo](https://technet.microsoft.com/library/mt723354.aspx) para obter instruções sobre como criar o seguinte farm de servidor único do SharePoint Server 2016.
+Consulte [neste artigo](https://technet.microsoft.com/library/mt723354.aspx) para Olá Olá de toobuild de instruções a seguir de servidor único do SharePoint Server 2016 do farm.
 
 ![sharepointfarm](./media/sharepoint-farm/SP2016Farm.png)
 
-## <a name="managing-the-sharepoint-farms"></a>Gerenciando os farms do SharePoint
-É possível administrar os servidores desses farms por meio de conexões da Área de Trabalho Remota. Para saber mais, veja [Fazer logon na máquina virtual](quick-create-portal.md#connect-to-virtual-machine).
+## <a name="managing-hello-sharepoint-farms"></a>Gerenciando farms do SharePoint Olá
+Você pode administrar servidores Olá esses farms através de conexões de área de trabalho remota. Para obter mais informações, consulte [fazer logon na máquina virtual de toohello](quick-create-portal.md#connect-to-virtual-machine).
 
-No site Administração central do SharePoint, é possível configurar o My sites, os aplicativos SharePoint e outra funcionalidade. Para saber mais, confira [Configurar o SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
+No site do SharePoint de Administração Central hello, você pode configurar meus sites, aplicativos do SharePoint e outras funcionalidades. Para saber mais, confira [Configurar o SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Descubra as [configurações do SharePoint](https://technet.microsoft.com/library/dn635309.aspx) adicionais nos serviços de infraestrutura do Azure.

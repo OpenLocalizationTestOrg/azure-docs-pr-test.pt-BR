@@ -1,6 +1,6 @@
 ---
-title: "Monitoramento de segurança na Central de Segurança do Azure | Microsoft Docs"
-description: "Este artigo o ajuda a se familiarizar com o monitoramento de recursos na Central de segurança do Azure."
+title: "monitoramento de aaaSecurity na Central de segurança do Azure | Microsoft Docs"
+description: "Este artigo ajuda tooget iniciado com o monitoramento de recursos na Central de segurança do Azure."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: yurid
-ms.openlocfilehash: 93fff129afb04e3a1896d275551f585f45658d6d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 43c2a8864d5fe27ba44b0d7bc979db970305ec17
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitoramento de integridade de segurança na Central de segurança do Azure
-Este artigo o ajuda a usar os recursos de monitoramento na Central de segurança do Azure para monitorar a conformidade com as políticas.
+Este artigo ajuda você a usar o hello recursos de monitoramento em conformidade de toomonitor Central de segurança do Azure com as políticas.
 
 ## <a name="what-is-security-health-monitoring"></a>O que é o monitoramento de integridade de segurança?
-Costumamos pensar em monitoramento como assistir e esperar até que um evento ocorra para poder reagir à situação. Monitoramento de segurança refere-se a ter uma estratégia proativa que audita seus recursos para identificar sistemas que não atendem aos padrões organizacionais ou práticas recomendadas.
+Geralmente, consideramos de monitoramento como detectar e aguardando um evento toooccur para que nós possam reagir toohello situação. Monitoramento de segurança refere-se toohaving uma estratégia proativa que auditorias de seus sistemas de tooidentify de recursos que não atendem aos padrões organizacionais ou práticas recomendadas.
 
 ## <a name="monitoring-security-health"></a>Monitoramento de integridade da segurança
-Depois de habilitar as [políticas de segurança](security-center-policies.md) para os recursos de uma assinatura, a Central de Segurança analisa a segurança de seus recursos para identificar as possíveis vulnerabilidades. Informações sobre a configuração de rede estão disponíveis imediatamente. Pode levar uma hora ou mais para que informações sobre a configuração de máquina virtual, como segurança de atualização de status e configuração do sistema operacional, se tornem disponíveis. Você pode exibir o estado de segurança de seus recursos e quaisquer problemas na seção **Prevenção**. Você também pode exibir uma lista desses problemas no bloco **Recomendações** .
+Depois de habilitar [políticas de segurança](security-center-policies.md) para recursos de uma assinatura, Central de segurança analisa a segurança do hello de seus recursos tooidentify as vulnerabilidades potenciais. Informações sobre a configuração de rede estão disponíveis imediatamente. Pode levar uma hora ou mais para obter informações sobre a configuração de máquina virtual, como segurança de atualização de status e configuração do sistema operacional, toobecome disponível. Você pode exibir o estado de segurança Olá seus recursos e os problemas no hello **prevenção** seção. Você também pode exibir uma lista desses problemas em Olá **recomendações** lado a lado.
 
-Para obter mais informações sobre como aplicar recomendações, leia [Implementar as recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).
+Para obter mais informações sobre como tooapply recomendações, ler [implementar recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md).
 
-Na seção **Prevenção**, você pode monitorar o estado de segurança dos seus recursos. No exemplo a seguir, você pode ver que no bloco de cada recurso (Computação, Rede, Armazenamento e dados, e Aplicativo) há o número total de problemas que foram identificados.
+Em Olá **prevenção** seção, você pode monitorar o estado de segurança de saudação de seus recursos. Saudação de exemplo a seguir, você pode ver que no bloco de cada recurso (computação, rede, armazenamento e dados e aplicativos) tem o número total de saudação de problemas que foram identificados.
 
 ![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
 
 ### <a name="monitor-compute"></a>Monitorar a computação
-Quando você clica no bloco **Computação**, a folha **Computação** que abre mostra três guias:
+Quando você clica em **de computação** lado a lado, hello **de computação** folha abre mostra três guias:
 
 - **Visão geral**: recomendações de monitoramento e da máquina virtual.
 - **Máquinas Virtuais**: lista todas as máquinas virtuais e seu estado de segurança atual.
@@ -45,86 +45,86 @@ Quando você clica no bloco **Computação**, a folha **Computação** que abre 
 
 ![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
 
-Há várias seções em cada guia e, em cada seção, você pode selecionar uma opção individual para ver mais detalhes sobre as etapas recomendadas e resolver esse problema específico. 
+Em cada guia, você pode ter várias seções, e em cada seção, você pode selecionar uma opção individual toosee mais detalhes sobre Olá recomendado etapas tooaddress esse problema. 
 
 #### <a name="monitoring-recommendations"></a>Recomendações de monitoramento
-Esta seção mostra o número total de máquinas virtuais que foram inicializadas para coleta de dados e seu status atual. Depois que todas as máquinas virtuais tiverem inicializado a coleta de dados, estarão prontas para receber as políticas de segurança da Central de Segurança. Quando você clica nessa entrada, a folha **O agente de VM está faltando ou não está respondendo** é aberta. 
+Esta seção mostra o número total de saudação de máquinas virtuais que foram inicializadas para coleta de dados e seu status atuais. Depois que todas as máquinas virtuais têm a coleta de dados inicializada, ele ficará pronto tooreceive as políticas de segurança central de segurança. Quando você clica nesta entrada, Olá **agente da VM está ausente ou não respondendo** folha é aberta. 
 
 ![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
 
 #### <a name="virtual-machine-recommendations"></a>Recomendações de máquina virtual
-Esta seção tem um conjunto de [recomendações para cada máquina virtual](security-center-virtual-machine-recommendations.md) que a Central de Segurança do Azure monitora. A primeira coluna lista a recomendação. A segunda coluna mostra o número total de máquinas virtuais que são afetadas por essa recomendação. A terceira coluna mostra a severidade do problema, conforme ilustrado na captura de tela a seguir.
+Esta seção tem um conjunto de [recomendações para cada máquina virtual](security-center-virtual-machine-recommendations.md) que a Central de Segurança do Azure monitora. Olá primeira coluna listas recomendação hello. Olá segunda coluna mostra o número total de saudação de máquinas virtuais que são afetados por essa recomendação. Olá terceira coluna mostra gravidade de saudação do problema Olá conforme ilustrado na Olá captura de tela a seguir.
 
 ![Recomendações de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
 
 > [!NOTE]
-> Somente as máquinas virtuais que têm pelo menos um ponto de extremidade público são mostradas na folha **Integridade de Rede** na lista **Topologia de rede**.
+> Somente as máquinas virtuais que têm pelo menos um ponto de extremidade público são mostradas no hello **rede integridade** folha em hello **topologia de rede** lista.
 >
 >
 
-Cada recomendação tem um conjunto de ações que podem ser executadas depois que você clica nela. Por exemplo, se você clicar em **Atualizações de sistema ausentes**, a folha **Atualizações de sistema ausentes** será aberta. Ele lista as máquinas virtuais que estão sem patches e a gravidade da atualização ausente, conforme mostrado na captura de tela a seguir.
+Cada recomendação tem um conjunto de ações que podem ser executadas depois que você clica nela. Por exemplo, se você clicar em **atualizações de sistema ausentes**, Olá **atualizações de sistema ausentes** folha é aberta. Ele lista as máquinas virtuais de saudação ausentes patches e Olá gravidade da atualização ausente Olá, conforme mostrado na seguinte Olá captura de tela.
 
 ![Atualizações de sistema ausentes para máquinas virtuais](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
 
-A folha **Atualizações de sistema ausentes** mostra uma tabela com as seguintes informações:
+Olá **atualizações de sistema ausentes** folha mostra uma tabela com hello informações a seguir:
 
-* **MÁQUINA VIRTUAL**: o nome da máquina virtual com atualizações ausentes.
-* **ATUALIZAÇÕES DO SISTEMA**: o número de atualizações do sistema que estão ausentes.
-* **HORA DA ÚLTIMA VERIFICAÇÃO**: a hora em que a Central de Segurança verificou pela última vez a máquina virtual para detectar atualizações.
-* **ESTADO**: o estado atual da recomendação:
-  * **Aberta**: a recomendação ainda não foi resolvida.
-  * **Em Andamento**: a recomendação está sendo aplicada atualmente aos recursos, e não é necessário que você realize nenhuma ação.
-  * **Resolvido**: a recomendação já foi concluída. (Quando o problema foi resolvido, a entrada será esmaecida).
-* **GRAVIDADE**: descreve a gravidade dessa recomendação específica:
+* **MÁQUINA VIRTUAL**: nome de saudação da máquina virtual Olá que não há atualizações.
+* **ATUALIZAÇÕES do sistema**: Olá o número de atualizações do sistema que estão faltando.
+* **HORA da última verificação**: tempo de saudação que a Central de segurança verificado pela última vez máquina virtual de saudação para atualizações.
+* **ESTADO**: Olá o estado atual da recomendação hello:
+  * **Abra**: recomendação Olá ainda não foram resolvida.
+  * **Em andamento**: recomendação hello está sendo aplicada toothose recursos, e nenhuma ação é necessária por você.
+  * **Resolvido**: recomendação Olá já foi concluída. (Quando Olá problema foi resolvido, entrada hello está esmaecida).
+* **SEVERIDADE**: descreve severidade Olá essa recomendação específica:
   * **Alta**: existe uma vulnerabilidade em um recurso significativo (aplicativo, máquina virtual ou grupo de segurança de rede) e ela requer atenção.
-  * **Média**: são necessárias etapas adicionais ou não críticas para concluir um processo ou eliminar a vulnerabilidade.
-  * **Baixa**: uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
+  * **Médio**: etapas adicionais ou não críticos são toocomplete necessário um processo ou eliminar a vulnerabilidade.
+  * **Baixa**: uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, as recomendações baixas não estiverem presentes, mas você pode filtrar em recomendações baixas se você quiser tooview-las.)
 
-Para exibir os detalhes de recomendação, clique no nome da máquina virtual. Uma nova folha para a máquina virtual é aberta com a lista de atualizações, conforme mostrado na captura de tela a seguir.
+detalhes da recomendação tooview Olá, clique o nome de saudação da máquina virtual de saudação. Uma nova folha para a máquina virtual abre com lista de saudação de atualizações, como mostrado na Olá captura de tela a seguir.
 
 ![Atualizações de sistema ausentes para uma máquina virtual específica](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
 
 > [!NOTE]
-> As recomendações de segurança são as mesmas na folha de **Recomendações**. Confira o artigo [Implementar recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) para obter mais informações sobre como resolver as recomendações. Isso é aplicável não apenas a máquinas virtuais, mas também a todos os recursos que estão disponíveis no bloco **Integridade de Recursos**.
+> Olá recomendações de segurança aqui são Olá mesmo da saudação **recomendações** folha. Consulte Olá [implementar recomendações de segurança na Central de segurança do Azure](security-center-recommendations.md) artigo para obter mais informações sobre como tooresolve recomendações. Isso é aplicável não apenas para máquinas virtuais mas também para todos os recursos que estão disponíveis no hello **integridade de recursos** lado a lado.
 >
 >
 
 #### <a name="virtual-machines-section"></a>Seção Máquinas virtuais
-A seção de máquinas virtuais fornece uma visão geral de todas as máquinas virtuais e recomendações. Cada coluna representa um conjunto de recomendações, conforme mostrado na seguinte captura de tela:
+seção de máquinas virtuais Olá oferece uma visão geral de todas as máquinas virtuais e recomendações. Cada coluna representa um conjunto de recomendações, conforme mostrado no hello captura de tela a seguir:
 
 ![Visão geral de todas as máquinas virtuais e recomendações](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
 
-O ícone que aparece em cada recomendação o ajuda a identificar rapidamente as máquinas virtuais que precisam de atenção e o tipo de recomendação.
+ícone de saudação que aparece em cada recomendação ajuda tooquickly você identificar as máquinas de virtuais Olá que precisam de atenção e Olá tipo de recomendação.
 
-No exemplo anterior, uma máquina virtual tem uma recomendação crítica relacionada à proteção de ponto de extremidade. Para obter mais informações sobre a máquina virtual, clique nela. Será aberta uma nova folha que representa essa máquina virtual, conforme mostrado na captura de tela a seguir.
+No exemplo anterior de saudação, uma máquina virtual tem uma recomendação crítica relacionados à proteção de ponto de extremidade. tooget obter mais informações sobre a máquina virtual de saudação, clique nele. Uma nova folha que abre representa essa máquina virtual conforme Olá captura de tela a seguir.
 
 ![Detalhes de segurança de máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig8-ga.png)
 
-Esta folha tem os detalhes de segurança para a máquina virtual. Na parte inferior dessa folha, você pode ver a ação recomendada e a gravidade de cada problema.
+Esta folha tem Olá segurança detalhes de saudação máquina virtual. Na parte inferior do hello desta folha, você pode ver Olá recomendado ação e severidade saudação de cada problema.
 
 #### <a name="cloud-services-section"></a>Seção Serviços de nuvem
-Para os serviços de nuvem, uma recomendação é criada quando a versão do sistema operacional está desatualizada, conforme mostra a captura de tela a seguir:
+Para serviços de nuvem, uma recomendação é criada quando a versão do sistema operacional hello está desatualizada conforme Olá captura de tela a seguir:
 
 ![Status de integridade de serviços de nuvem](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-Em um cenário no qual você há uma recomendação (que não é o caso do exemplo anterior), você precisa seguir as etapas na recomendação para atualizar a versão do sistema operacional. Quando uma atualização estiver disponível, você terá um alerta (vermelho ou laranja - depende da gravidade do problema). Ao clicar nesse alerta vermelho nas linhas WebRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS) ou WorkerRole1 (executa o Windows Server com seu aplicativo Web automaticamente implantado no IIS), uma nova folha será aberta com mais detalhes sobre essa recomendação, conforme mostrado na seguinte captura de tela:
+Em um cenário onde você tem a recomendação (que não é o caso de Olá para o exemplo anterior Olá), você precisa toofollow etapas de saudação na versão do sistema operacional Olá recomendação tooupdate hello. Quando uma atualização está disponível, você terá um alerta (vermelho ou laranja - depende da gravidade de saudação do problema Olá). Quando você clica nesse alerta nas linhas de saudação WebRole1 (executa o Windows Server com sua tooIIS de aplicativo implantado automaticamente da web) ou WorkerRole1 (executa o Windows Server com sua tooIIS de aplicativo implantado automaticamente da web), uma nova folha é aberta com mais detalhes sobre isso recomendação, conforme mostrado no hello captura de tela a seguir:
 
 ![Detalhes do serviço de nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Para ver uma explicação mais detalhada sobre essa recomendação, clique em **Atualizar versão do sistema operacional** na coluna **DESCRIÇÃO**. A folha **Atualizar versão do sistema operacional (visualização)** é aberta com mais detalhes.
+toosee uma explicação mais detalhada sobre esta recomendação, clique em **versão do sistema operacional de atualização** em Olá **descrição** coluna. Olá **versão do SO de atualização (visualização)** folha abre com mais detalhes.
 
 ![Recomendações dos serviços de nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Monitorar redes virtuais
-Quando você clica no bloco **Rede** a folha **Rede** é aberta com mais detalhes, conforme mostrado na seguinte captura de tela:
+Quando você clica em **rede** lado a lado, hello **rede** folha abre com mais detalhes conforme Olá captura de tela a seguir:
 
 ![Blog da rede](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### <a name="networking-recommendations"></a>Recomendações de rede
-Assim como as informações de integridade de recursos de máquinas virtuais, essa folha fornece uma lista resumida dos problemas na parte superior da folha e uma lista de redes monitoradas na parte inferior.
+Como hello informações de integridade de recursos da máquina virtual, esta folha fornece uma lista resumida dos problemas na parte superior de saudação da folha de saudação e uma lista de redes monitorados na parte inferior da saudação.
 
-A seção de divisão de status de rede lista os problemas de segurança potenciais e oferece [recomendações](security-center-network-recommendations.md). Os possíveis problemas podem incluir:
+lista os problemas potenciais de segurança de saudação seção de divisão de status do sistema de rede e oferece [recomendações](security-center-network-recommendations.md). Os possíveis problemas podem incluir:
 
 * Firewall da Próxima Geração (NGFW) não instalado
 * Grupos de segurança da rede em sub-redes não habilitadas
@@ -132,27 +132,27 @@ A seção de divisão de status de rede lista os problemas de segurança potenci
 * Restringir o acesso externo por meio do ponto de extremidade externo público
 * Pontos de extremidade voltados para a Internet íntegra
 
-Quando você clica em uma recomendação, uma nova folha é aberta com mais detalhes sobre a recomendação, conforme mostrado no exemplo a seguir.
+Quando você clica em uma recomendação, abre uma nova folha com mais detalhes sobre a recomendação de saudação conforme mostrado no exemplo a seguir de saudação.
 
-![Detalhes de uma recomendação na folha Rede](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+![Detalhes de uma recomendação na folha de rede Olá](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-Neste exemplo, a folha **Configurar grupos de segurança de rede ausentes para sub-redes** tem uma lista de sub-redes e máquinas virtuais que estão sem proteção do grupo de segurança de rede. Se você clicar na sub-rede à qual deseja aplicar o grupo de segurança de rede, outra folha será aberta.
+Neste exemplo, Olá **configurar ausente rede grupos de segurança para sub-redes** folha tem uma lista de sub-redes e proteção do grupo de segurança de rede de máquinas virtuais que estão ausentes. Se você clicar em Olá sub-rede toowhich você deseja que o grupo de segurança de rede tooapply hello, abre outra folha.
 
-Na folha **Escolher grupo de segurança da rede**, você pode selecionar o grupo de segurança da rede mais apropriado para a sub-rede ou pode criar um novo grupo de segurança da rede.
+Em Olá **o grupo de segurança de rede escolha** folha, você pode selecionar hello mais apropriado grupo de segurança para a sub-rede hello, ou você pode criar um novo grupo de segurança de rede.
 
 #### <a name="internet-facing-endpoints-section"></a>Seção dos pontos de extremidade voltados para a Internet
-Na seção **Pontos de extremidade voltados para a Internet**, você pode ver as máquinas virtuais configuradas no momento com um ponto de extremidade voltado para a Internet e seu status atual.
+Em Olá **para pontos de extremidade de Internet** seção, você pode ver máquinas virtuais Olá atualmente configurados com um voltada para o ponto de extremidade e seu status atual da Internet.
 
 ![Máquinas virtuais configuradas para o ponto de extremidade e o status da Internet](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
 
-Esta tabela tem o nome de ponto de extremidade que representa a máquina virtual, o endereço IP público da Internet e o status de severidade atual do grupo de segurança de rede e o NGFW. A tabela é classificada por severidade:
+Esta tabela tem o nome de ponto de extremidade de saudação que representa Olá máquina virtual, hello Internet voltada para o endereço IP, e Olá atual status de gravidade do grupo de segurança de rede hello e Olá NGFW. Olá tabela é classificada por severidade:
 
 * Vermelho (no topo): alta prioridade e deve ser endereçado imediatamente
 * Laranja: prioridade média e deve ser endereçado assim que possível
 * Verde (último): estado íntegro
 
 #### <a name="networking-topology-section"></a>Seção de Topologia da rede
-A seção **Topologia de rede** tem uma exibição hierárquica dos recursos, como mostrado na seguinte captura de tela:
+Olá **topologia de rede** seção tem uma exibição hierárquica de recursos hello, conforme mostrado na Olá captura de tela a seguir:
 
 ![Exibição hierárquica de recursos na seção de topologia de rede](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
@@ -162,55 +162,55 @@ Essa tabela é classificada (máquinas virtuais e sub-redes) por severidade:
 * Laranja: prioridade média e deve ser endereçado assim que possível
 * Verde (último): estado íntegro
 
-Nessa exibição da topologia, o primeiro nível tem as [redes virtuai](../virtual-network/virtual-networks-overview.md), [gateways da rede virtual](/vpn-gateway/vpn-gateway-site-to-site-create.md) e [rede virtual (clássica)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). O segundo nível tem sub-redes, e o terceiro nível tem as máquinas virtuais que pertencem a essas sub-redes. A coluna da direita tem o status atual do grupo de segurança da rede para esses recursos, como mostrado neste exemplo:
+Neste modo de exibição de topologia, o primeiro nível de saudação tem [redes virtuais](../virtual-network/virtual-networks-overview.md), [gateways de rede virtual](/vpn-gateway/vpn-gateway-site-to-site-create.md), e [redes virtuais (clássico)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). segundo nível de saudação tiver sub-redes e terceiro nível de saudação tem máquinas virtuais Olá que pertencem a toothose sub-redes. coluna da direita Olá tem o status atual de saudação do grupo de segurança de rede Olá para esses recursos, conforme mostrado no exemplo a seguir de saudação:
 
-![O status do grupo de segurança de rede na seção de Topologia de rede](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
+![Status do grupo de segurança de rede Olá na seção de topologia de rede](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
-A parte inferior da folha tem as recomendações para essa máquina virtual, que é semelhante ao que foi descrito anteriormente. Você pode clicar em uma recomendação para obter mais informações ou aplicar a configuração ou controle de segurança necessário.
+a parte inferior desta folha Hello apresenta recomendações de saudação para esta máquina virtual, que é semelhante toowhat descrito anteriormente. Você pode clicar uma toolearn recomendação mais ou aplicar Olá necessário controle de segurança ou configuração.
 
 ### <a name="monitor-storage--data"></a>Monitorar Armazenamento e dados
 
-Quando você clica em **Armazenamento e dados** na seção **Prevenção** a folha **Recursos de Dados** é aberta com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
+Quando você clica em **armazenamento & dados** em hello **prevenção** seção, hello **dados recursos** folha abre com recomendações para armazenamento e SQL. Ele também tem [recomendações](security-center-sql-service-recommendations.md) para estado de integridade geral de saudação do banco de dados de saudação. Para saber mais sobre criptografia de armazenamento, leia [Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
 
 ![Recursos de dados](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
-Em **Recomendações de SQL**, você pode clicar em qualquer recomendação e obter mais detalhes sobre uma ação adicional para resolver um problema. O exemplo a seguir mostra a expansão da recomendação **Auditoria e Detecção de ameaças do banco de dados em bancos de dados SQL**.
+Em **SQL recomendações**, você pode clicar em qualquer recomendação e obter mais detalhes sobre tooresolve de ação mais um problema. Olá, exemplo a seguir mostra expansão de saudação do hello **detecção de ameaças e a auditoria de banco de dados em bancos de dados SQL** recomendação.
 
 ![Detalhes sobre uma recomendação de SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-A folha **Habilitar Auditoria e Detecção de ameaças nos bancos de dados SQL** contém as seguintes informações:
+Olá **detecção de ameaça e habilitar a auditoria em bancos de dados SQL** folha tem Olá informações a seguir:
 
 * Uma lista de bancos de dados SQL
-* O servidor no qual eles estão localizados
-* Informações indicando se essa configuração foi herdada do servidor ou se é exclusiva do banco de dados
-* O estado atual
-* A gravidade do problema
+* servidor de saudação em que se encontram
+* Obter informações sobre como se essa configuração foi herdada do servidor de saudação ou se é exclusivo no banco de dados
+* estado atual da saudação
+* severidade de saudação do problema Olá
 
-Quando você clicar no banco de dados para lidar com essa recomendação, a folha **Auditoria e Detecção de Ameaças** será aberta, conforme mostrado na tela a seguir.
+Quando você clica em Olá tooaddress de banco de dados nesta recomendação, Olá **detecção de auditoria e ameaças** folha abre conforme Olá tela a seguir.
 
 ![Folha de Auditoria e Detecção de Ameaça](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
-Para habilitar a auditoria, selecione **ATIVADO** na opção **Auditoria**.
+auditoria tooenable, selecione **ON** em Olá **auditoria** opção.
 
 ### <a name="monitor-applications"></a>Monitorar aplicativos
 
-Se sua carga de trabalho do Azure tiver aplicativos localizados em [máquinas virtuais (criadas por meio do Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) com portas Web expostas (portas TCP 80 e 443), a Central de Segurança poderá monitorá-los para identificar os problemas de segurança em potencial e as etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a folha **Aplicativos** será aberta com uma série de recomendações na seção **Recomendações do Aplicativo**. Ele também mostra a divisão de aplicativo por IP virtual/host, conforme mostrado na captura de tela a seguir.
+Se sua carga de trabalho do Azure tem aplicativos localizados em [máquinas virtuais (criadas por meio do Gerenciador de recursos do Azure)](../azure-resource-manager/resource-manager-deployment-model.md) com web exposto (portas TCP 80 e 443), a Central de segurança pode monitorar os problemas potenciais de segurança tooidentify e recomendável etapas de correção. Quando você clica em Olá **aplicativos** lado a lado, hello **aplicativos** folha é aberta com uma série de recomendações Olá **recomendações de aplicativo** seção. Ele também mostra análise do aplicativo hello por IP virtuais/host conforme Olá captura de tela a seguir.
 
 ![Integridade da segurança de aplicativos](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 
-Como fez com as outras recomendações, você pode clicar em uma delas para ver mais detalhes sobre o problema e como corrigi-lo. O exemplo mostrado na figura a seguir é um aplicativo que foi identificado como aplicativo Web não seguro. Quando você selecionar o aplicativo que foi considerado não seguro, outra folha será aberta com a seguinte opção disponível:
+Assim como você com hello outras recomendações, você pode clicar em uma recomendação toosee mais detalhes sobre o problema de saudação e como tooremediate. exemplo Hello mostrado na figura a seguir de saudação é um aplicativo que foi identificado como um aplicativo web não segura. Quando você seleciona o aplicativo hello que foi considerado não seguro, outra folha abre com hello opção disponível a seguir:
 
 ![Detalhes sobre um aplicativo que não é seguro](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-Esta folha terá uma lista de todas as recomendações para este aplicativo. Quando você clica na recomendação **Adicionar um firewall de aplicativo Web**, a folha **Adicionar um Firewall de Aplicativo Web** é aberta com opções para instalar um WAF (firewall de aplicativo Web) de um parceiro, conforme mostrado na captura de tela a seguir.
+Esta folha terá uma lista de todas as recomendações para este aplicativo. Quando você clica em Olá **adicionar um firewall do aplicativo web** recomendação, Olá **adicionar um Firewall do aplicativo Web** folha abre com as opções para você tooinstall um firewall do aplicativo web (WAF) de um parceiro como Olá mostrado na captura de tela a seguir.
 
 ![Caixa de diálogo Adicionar Firewall de Aplicativo Web](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
 ## <a name="see-also"></a>Consulte também
-Neste artigo, você aprendeu como usar os recursos de monitoramento na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
+Neste artigo, você aprendeu como toouse monitoramento de recursos na Central de segurança do Azure. toolearn mais sobre o Centro de segurança do Azure, consulte o seguinte hello:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md): saiba como configurar políticas de segurança na Central de Segurança do Azure.
-* [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
-* [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md): encontre as perguntas frequentes sobre como usar o serviço.
+* [Definir políticas de segurança na Central de segurança do Azure](security-center-policies.md): Saiba como tooconfigure as configurações de segurança na Central de segurança do Azure.
+* [Gerenciando e respondendo toosecurity alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md): Saiba como alertas de toosecurity toomanage e responder.
+* [Soluções de parceiro com a Central de segurança do Azure de monitoramento](security-center-partner-solutions.md): Saiba como toomonitor Olá status de integridade de suas soluções de parceiro.
+* [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md): perguntas frequentes sobre como usar o serviço de saudação de localizar.
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre conformidade e segurança do Azure.

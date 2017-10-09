@@ -1,6 +1,6 @@
 ---
-title: "Relatórios de acesso e uso para o MFA do Azure | Microsoft Docs"
-description: "Descreve como usar o recurso de relatórios do Azure Multi-Factor Authentication."
+title: "relatórios de uso e aaaAccess para o Azure MFA | Microsoft Docs"
+description: "Descreve como toouse Olá recurso de autenticação multifator do Azure - relatórios."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
-ms.openlocfilehash: f76e726c6a67de4b0472c0e97f9e72c31c14c4f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ae7ccceca4968d7ec7cf0cb1cf9e041d9997c840
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios no Azure Multi-Factor Authentication
-O Azure Multi-Factor Authentication fornece vários relatórios que podem ser usados por você e sua organização. Esses relatórios podem ser acessados por meio do Portal de Gerenciamento da Autenticação Multifator. Veja a seguir uma lista dos relatórios disponíveis:
+O Azure Multi-Factor Authentication fornece vários relatórios que podem ser usados por você e sua organização. Esses relatórios podem ser acessados por meio de saudação Portal de gerenciamento do multi-Factor Authentication. a seguir Olá é uma lista de relatórios disponíveis hello:
 
 | Relatório | Descrição |
 |:--- |:--- |
-| Uso |Os relatórios de uso exibem informações sobre o uso geral, resumo do usuário e detalhes do usuário. |
-| Status do servidor |Este relatório exibe o status dos servidores da autenticação multifator associada à sua conta. |
-| Histórico de usuário bloqueado |Esses relatórios mostram o histórico de solicitações para bloquear ou desbloquear usuários. |
-| Histórico de usuário desviado |Mostra o histórico de solicitações para desviar da autenticação multifator para o número de telefone de um usuário. |
-| Alerta de fraude |Mostra um histórico dos alertas de fraude apresentados durante o intervalo de datas especificado. |
-| Em fila |Lista os relatórios em fila para processamento e seu status. Um link para baixar ou exibir o relatório é fornecido quando o relatório é concluído. |
+| Uso |uso de saudação relatórios exibem informações sobre o uso geral, resumo do usuário e detalhes do usuário. |
+| Status do servidor |Este relatório exibe o status de saudação de servidores de autenticação multifator associado à sua conta. |
+| Histórico de usuário bloqueado |Esses relatórios mostram Olá histórico de solicitações tooblock ou desbloquear usuários. |
+| Histórico de usuário desviado |Mostra o histórico de saudação de solicitações toobypass multi-Factor Authentication para o número de telefone do usuário. |
+| Alerta de fraude |Mostra um histórico de alertas de fraude enviados durante o intervalo de datas de saudação especificado. |
+| Em fila |Lista os relatórios em fila para processamento e seu status. Um relatório de saudação de toodownload ou modo de exibição do link é fornecido quando Olá relatório estiver completo. |
 
 ## <a name="view-reports"></a>Exibir relatórios
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Selecione Active Directory à esquerda.
+1. Entrar toohello [portal clássico do Azure](https://manage.windowsazure.com).
+2. Olá esquerda, selecione Active Directory.
 3. Siga uma destas duas opções, dependendo de se você usa Provedores de Autenticação:
-   * **Opção 1**: clique na guia Provedores de Multi-Factor Authentication. Selecione seu provedor de MFA e clique no botão **Gerenciar** na parte inferior.
-   * **Opção 2**: selecione seu diretório e acesse a guia **Configurar**. Na seção da autenticação multifator, escolha **Gerenciar configurações de serviço**. Na parte inferior da página Configurações do Serviço de MFA, clique em Ir para o link para portal.
-4. No Portal de Gerenciamento da Autenticação Multifator do Azure, selecione o tipo de relatório desejado na seção **Exibir um Relatório** no painel de navegação esquerdo.
+   * **Opção 1**: clique Olá guia de provedores de autenticação multifator. Selecione seu provedor MFA e clique em hello **gerenciar** botão na parte inferior da saudação.
+   * **Opção 2**: selecione o diretório e vá toohello **configurar** guia. Na seção de autenticação multifator hello, selecione **gerenciar configurações de serviço**. Na parte inferior de saudação da página de configurações do serviço de MFA de saudação, clique em Olá Go toohello portal link.
+4. Na Olá Portal de gerenciamento do Azure multi-Factor Authentication, selecione o tipo de saudação do relatório que você deseja da saudação **exibir um relatório** seção Olá barra de navegação esquerda.
 
 <center>![Nuvem](./media/multi-factor-authentication-manage-reports/report.png)</center>
 

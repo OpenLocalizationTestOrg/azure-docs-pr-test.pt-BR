@@ -1,6 +1,6 @@
 ---
-title: "Competições da Galeria do Cortana Intelligence | Microsoft Docs"
-description: "Descubra competições na Cortana Intelligence Gallery."
+title: "competições da Galeria de inteligência de aaaCortana | Microsoft Docs"
+description: "Descobrir competições em Olá Cortana Intelligence Galeria."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 25ec625c1f32fd1477685196ea21ad6f582bc7ce
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4631ac21b672b77141023d14e57a1d6523220624
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Descobrir competições na Cortana Intelligence Gallery
+# <a name="discover-competitions-in-hello-cortana-intelligence-gallery"></a>Descobrir competições em Olá Cortana Intelligence Galeria
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Competições do Cortana Intelligence
-**[Competições](https://gallery.cortanaintelligence.com/competitions)** oferecem uma oportunidade empolgante de concorrer com a comunidade de cientistas de dados para resolver problemas complexos usando o Cortana Intelligence Suite.
+**[Competições](https://gallery.cortanaintelligence.com/competitions)**  fornecem uma toocompete oportunidade interessantes à comunidade de saudação do toosolve de cientistas de dados complexos problemas usando o pacote de inteligência do Cortana.
 
-Para respostas a perguntas frequentes sobre as Competições, consulte [Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence](machine-learning-competition-faq.md).
+Para respostas toofrequently perguntas sobre competições, consulte [perguntas Frequentes do Microsoft Cortana Intelligence competições](machine-learning-competition-faq.md).
 
 ## <a name="discover"></a>Descobrir
-  Para navegar pelas competições na Galeria, abra a [Galeria](http://gallery.cortanaintelligence.com), aponte o mouse para **Mais** na parte superior da home page da Galeria e escolha **Competições**.
+  toobrowse para competições em Olá galeria, abra Olá [galeria](http://gallery.cortanaintelligence.com), aponte o mouse muito**mais** na parte superior de saudação do hello Galeria da home page e selecione **competições**.
 
-![Escolher competições na home page da Galeria](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
+![Selecione competições da saudação Galeria página inicial](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
 
- A página **[Competições](https://gallery.cortanaintelligence.com/competitions)** exibe uma lista das competições mais populares.
-Clique em **Ver todos** para exibir todos as competições.
-Nessa página, você pode procurar todas as competições na Galeria. Você também pode pesquisar selecionando critérios de filtragem à esquerda da página e inserindo termos de pesquisa na parte superior.
+ O  **[competições](https://gallery.cortanaintelligence.com/competitions)**  página exibe uma lista de competições mais populares hello.
+Clique em **ver todos os** tooview competições todos.
+Nessa página, você pode procurar todas as competições em Olá Galeria. Você também pode pesquisar selecionando critérios de filtro esquerda Olá da página de saudação e inserir termos de pesquisa no hello superior.
 
- Clique em qualquer competição para abrir a página de detalhes da competição e ler mais informações sobre ela. Nessa página, você pode dar sua opinião, fazer comentários ou fazer perguntas na seção de opiniões. É possível até mesmo compartilhá-la com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou Twitter. Você também pode enviar um link por email para a competição de modo a convidar outros usuários para exibir a página.
+ Clique em qualquer tooopen competição página de detalhes da concorrência e ler mais informações. Nessa página você pode comentar, fornecer comentários ou fazer perguntas por meio da seção de comentários de saudação. Você ainda pode compartilhá-lo com seus amigos ou colegas usando Olá compartilham recursos do LinkedIn ou Twitter. Você também pode email tooinvite de concorrência de toothe um link página de saudação de tooview outros usuários.
 
 ![Compartilhar este item com amigos](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Adicionar seus próprios comentários](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="enter-a-competition"></a>Participar de uma competição
-Se a competição estiver aberta, o status na página de detalhes será **Ativa**. Para entrar na competição, clique em **Entrar na Competição**, e você receberá instruções sobre os recursos necessários e as etapas que você precisa realizar.
+Se competição Olá estiver aberta, o status de saudação na página de detalhes de saudação é **Active**. concorrência de saudação tooenter, clique em **competição insira** e será oferecida a você as instruções em recursos de saudação necessárias e Olá etapas precisam tootake.
 
 ![A concorrência está ativa](media/machine-learning-gallery-competitions/open-competition.png)
 
-Se a competição tiver sido concluída, uma lista com os vencedores será exibida.
+Se tiver sido concluída competição Olá, é mostrada uma lista de vencedores.
 
-**[LEVE-ME À GALERIA >>](http://gallery.cortanaintelligence.com)**
+**[LEVAR ME toohello GALERIA >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

@@ -1,24 +1,24 @@
 
 * **Back-end .NET (C#)**:      
   
-  1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**, pesquise por `Microsoft.Azure.NotificationHubs` e clique em **Instalar**. Isso instala a biblioteca de Hubs de Notificação para enviar notificações do seu back-end.
-  2. No projeto Visual Studio do back-end, abra **Controladores** > **TodoItemController.cs**. Na parte superior do arquivo, adicione a seguinte instrução `using` :
+  1. No Visual Studio, clique com botão direito Olá servidor e clique em **gerenciar pacotes NuGet**, procure `Microsoft.Azure.NotificationHubs`, em seguida, clique em **instalar**. Isso instala a biblioteca de Hubs de notificação hello para enviar notificações de seu back-end.
+  2. No projeto do Visual Studio de saudação do back-end, abra **controladores** > **TodoItemController.cs**. Na parte superior de saudação do arquivo hello, adicione o seguinte de saudação `using` instrução:
      
           using Microsoft.Azure.Mobile.Server.Config;
           using Microsoft.Azure.NotificationHubs;
 
-    3. Substitua o método `PostTodoItem` pelo seguinte código:  
+    3. Substituir saudação `PostTodoItem` método com hello código a seguir:  
 
             public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
             {
                 TodoItem current = await InsertAsync(item);
-                // Get the settings for the server project.
+                // Get hello settings for hello server project.
                 HttpConfiguration config = this.Configuration;
 
                 MobileAppSettingsDictionary settings = 
                     this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-                // Get the Notification Hubs credentials for the Mobile App.
+                // Get hello Notification Hubs credentials for hello Mobile App.
                 string notificationHubName = settings.NotificationHubName;
                 string notificationHubConnection = settings
                     .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
@@ -32,27 +32,27 @@
 
                 try
                 {
-                    // Send the push notification and log the results.
+                    // Send hello push notification and log hello results.
                     var result = await hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
 
-                    // Write the success result to the logs.
+                    // Write hello success result toohello logs.
                     config.Services.GetTraceWriter().Info(result.State.ToString());
                 }
                 catch (System.Exception ex)
                 {
-                    // Write the failure result to the logs.
+                    // Write hello failure result toohello logs.
                     config.Services.GetTraceWriter()
                         .Error(ex.Message, null, "Push.SendAsync Error");
                 }
                 return CreatedAtRoute("Tables", new { id = current.Id }, current);
             }
 
-    4. Republicar o projeto de servidor.
+    4. Republicar o projeto do servidor de saudação.
 
 * **Back-end node.js** : 
   
-  1. Se você ainda não fez isso, [baixe o projeto de início rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
-  2. Substitua o script da tabela todoitem.js pelo seguinte código:
+  1. Se você ainda não fez isso, [baixar o projeto de início rápido de saudação](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou use outro Olá [editor online no portal do Azure de saudação](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
+  2. Substitua script de tabela todoitem.js Olá Olá código a seguir:
 
             var azureMobileApps = require('azure-mobile-apps'),
                 promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -62,17 +62,17 @@
 
             // When adding record, send a push notification via APNS
             table.insert(function (context) {
-                // For details of the Notification Hubs JavaScript SDK, 
+                // For details of hello Notification Hubs JavaScript SDK, 
                 // see http://aka.ms/nodejshubs
                 logger.info('Running TodoItem.insert');
 
-                // Create a payload that contains the new item Text.
+                // Create a payload that contains hello new item Text.
                 var payload = "{\"aps\":{\"alert\":\"" + context.item.text + "\"}}";
 
-                // Execute the insert; Push as a post-execute action when results are returned as a Promise.
+                // Execute hello insert; Push as a post-execute action when results are returned as a Promise.
                 return context.execute()
                     .then(function (results) {
-                        // Only do the push if configured
+                        // Only do hello push if configured
                         if (context.push) {
                             context.push.apns.send(null, payload, function (error) {
                                 if (error) {
@@ -91,4 +91,4 @@
 
             module.exports = table;
 
-    2. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
+    2. Ao editar o arquivo hello no computador local, republicar o projeto do servidor de saudação.

@@ -1,6 +1,6 @@
 ---
-title: "Como usar os tópicos do Barramento de Serviço do Azure com o Python | Microsoft Docs"
-description: "Saiba como usar tópicos do Barramento de Serviço do Azure e assinaturas do Python."
+title: "tópicos de barramento de serviço do Azure toouse aaaHow com Python | Microsoft Docs"
+description: "Saiba como toouse Azure Service Bus tópicos e assinaturas do Python."
 services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
@@ -14,31 +14,31 @@ ms.devlang: python
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 15269f9728e9dc45e6436e53b1859f76d4a7a0c9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1171cbe8061bb3d73e2ce92ecc0cf45afae37054
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Python
+# <a name="how-toouse-service-bus-topics-and-subscriptions-with-python"></a>Como toouse Service Bus tópicos e assinaturas com Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo descreve como usar tópicos e assinaturas do Barramento de Serviço. Os exemplos são escritos em Python e usam o [pacote SDK para Azure Python][Azure Python package]. Os cenários abordados incluem a **criação de tópicos e assinaturas**, a **criação de filtros de assinatura**, o **envio de mensagens para um tópico**, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**. Para saber mais sobre tópicos e assinaturas, confira a seção [Próximas etapas](#next-steps).
+Este artigo descreve como toouse Service Bus tópicos e assinaturas. exemplos de saudação são escritos em Python e usar Olá [pacote do Azure SDK de Python][Azure Python package]. Olá cenários abordados incluem **criando tópicos e assinaturas**, **Criando filtros de assinatura**, **tópico tooa de mensagens de envio**, **receber mensagens de uma assinatura**, e **excluir tópicos e assinaturas**. Para obter mais informações sobre tópicos e assinaturas, consulte Olá [próximas etapas](#next-steps) seção.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 > [!NOTE] 
-> Se você precisar instalar o Python ou o [pacote do Azure Python][Azure Python package], confira o [Guia de instalação do Python](../python-how-to-install.md).
+> Se você precisar tooinstall Python ou Olá [pacote do Azure Python][Azure Python package], consulte Olá [guia de instalação do Python](../python-how-to-install.md).
 
 ## <a name="create-a-topic"></a>Criar um tópico
-O objeto **ServiceBusService** permite que você trabalhe com tópicos. Adicione o seguinte próximo à parte superior de qualquer arquivo do Python no qual você deseja acessar o Barramento de Serviço de forma programática:
+Olá **ServiceBusService** objeto permite que você toowork com tópicos. Adicione a seguinte Olá superior de saudação de qualquer arquivo Python no qual você deseja acesso tooprogrammatically barramento de serviço:
 
 ```python
 from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-O código a seguir cria um objeto **ServiceBusService**. Substitua `mynamespace`, `sharedaccesskeyname` e `sharedaccesskey` pelo namespace real e pelo nome e valor da chave de SAS (Assinatura de Acesso Compartilhado).
+Olá código a seguir cria um **ServiceBusService** objeto. Substitua `mynamespace`, `sharedaccesskeyname` e `sharedaccesskey` pelo namespace real e pelo nome e valor da chave de SAS (Assinatura de Acesso Compartilhado).
 
 ```python
 bus_service = ServiceBusService(
@@ -47,13 +47,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-Você pode obter os valores de nome e valor da chave da SAS no [Portal do Azure][Azure portal].
+Você pode obter valores de saudação para o nome da chave SAS hello e valor de Olá [portal do Azure][Azure portal].
 
 ```python
 bus_service.create_topic('mytopic')
 ```
 
-O método `create_topic` também dá suporte a opções adicionais, que permitem substituir configurações padrão do tópico, como a vida útil da mensagem ou o tamanho máximo do tópico. O seguinte exemplo define o tamanho máximo do tópico como 5 GB e o valor de TTL (vida útil) como um minuto:
+Olá `create_topic` método também oferece suporte a opções adicionais, que permitem que você toooverride configurações do tópico como tamanho de tópico toolive ou máximo de tempo de mensagem. Olá exemplo a seguir define Olá máximo do tópico tamanho too5 GB e um valor de (vida útil TTL) toolive tempo de 1 minuto:
 
 ```python
 topic_options = Topic()
@@ -64,33 +64,33 @@ bus_service.create_topic('mytopic', topic_options)
 ```
 
 ## <a name="create-subscriptions"></a>Criar assinaturas
-As assinaturas de tópicos também são criadas com o objeto **ServiceBusService**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
+Assinaturas tootopics também são criados com hello **ServiceBusService** objeto. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de saudação de mensagens entregues a fila virtual toohello da assinatura.
 
 > [!NOTE]
-> As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão inscritas sejam excluídos.
+> Assinaturas são persistentes e continuarão tooexist até a eles ou hello toowhich tópico se inscreveu, serão excluídas.
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
-O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada `AllMessages` e usa o filtro padrão **MatchAll**.
+### <a name="create-a-subscription-with-hello-default-matchall-filter"></a>Criar uma assinatura com o filtro saudação padrão (MatchAll)
+Olá **MatchAll** filtro é saudação padrão que será usado se nenhum filtro for especificado quando uma nova assinatura é criada. Olá quando **MatchAll** filtro é usado, o tópico de toohello publicado todas as mensagens são colocadas em fila virtual da assinatura hello. Olá, exemplo a seguir cria uma assinatura chamada `AllMessages` e usa Olá padrão **MatchAll** filtro.
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Criar assinaturas com os filtros
-Você também pode definir filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico.
+Você também pode definir filtros que permitem que você toospecify quais mensagens enviadas tópico tooa deve ser exibidas em uma assinatura de tópico específico.
 
-O tipo de filtro mais flexível compatível com as assinaturas é um **SqlFilter**, que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para saber mais sobre as expressões que podem ser usadas com um filtro SQL, confira a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Hello mais flexível o tipo de filtro de assinaturas com suporte é um **SqlFilter**, que implementa um subconjunto do SQL92. Filtros SQL operam nas propriedades de saudação das mensagens de saudação que são publicados toohello tópico. Para obter mais informações sobre expressões de saudação que pode ser usado com um filtro SQL, consulte Olá [Sqlfilter] [ SqlFilter.SqlExpression] sintaxe.
 
-É possível adicionar filtros a uma assinatura usando o método **create\_rule** do objeto **ServiceBusService**. Este método permite que você adicione novos filtros a uma assinatura existente.
+Você pode adicionar filtros tooa assinatura usando Olá **criar\_regra** método hello **ServiceBusService** objeto. Esse método permite que você tooadd novos filtros tooan assinatura existente.
 
 > [!NOTE]
-> Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, senão o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método `delete_rule` do objeto **ServiceBusService**.
+> Porque o saudação padrão filtro será aplicado automaticamente tooall novas assinaturas, você deve primeiro remover o filtro de padrão de saudação ou hello **MatchAll** substituirá os outros filtros que você pode especificar. Você pode remover a regra padrão de saudação usando Olá `delete_rule` método hello **ServiceBusService** objeto.
 > 
 > 
 
-O exemplo a seguir cria uma assinatura denominada `HighMessages` com um **SqlFilter** que seleciona apenas as mensagens que tenham uma propriedade personalizada `messagenumber` maior que 3:
+Olá, exemplo a seguir cria uma assinatura chamada `HighMessages` com um **SqlFilter** que seleciona somente as mensagens que têm um personalizado `messagenumber` propriedade maior que 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -103,7 +103,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-Da mesma forma, o seguinte exemplo cria uma assinatura denominada `LowMessages` com um **SqlFilter** que seleciona apenas mensagens que têm uma propriedade `messagenumber` menor ou igual a 3:
+Da mesma forma, hello exemplo a seguir cria uma assinatura chamada `LowMessages` com um **SqlFilter** que seleciona somente as mensagens que têm um `messagenumber` propriedade menor ou igual too3:
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -116,12 +116,12 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Agora, quando uma mensagem for enviada para `mytopic`, ela sempre será fornecida aos destinatários inscritos na assinatura do tópico **AllMessages** e será fornecida de forma seletiva para os destinatários inscritos nas assinaturas dos tópicos **HighMessages** e **LowMessages** (dependendo do conteúdo da mensagem).
+Agora, quando uma mensagem é enviada muito`mytopic` toohello tooreceivers inscrito sempre é fornecida **AllMessages** assinatura de tópico e tooreceivers seletivamente entregue inscrito toohello **HighMessages**  e **LowMessages** assinaturas de tópico (dependendo do conteúdo da mensagem de saudação).
 
-## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
-Para enviar uma mensagem a um tópico do Barramento de Serviço, seu aplicativo deve usar o método `send_topic_message` do objeto **ServiceBusService**.
+## <a name="send-messages-tooa-topic"></a>Enviar tópico tooa de mensagens
+toosend um tópico de barramento de serviço do tooa de mensagem, o aplicativo deve usar Olá `send_topic_message` método hello **ServiceBusService** objeto.
 
-O exemplo a seguir demonstra como enviar cinco mensagens de teste para `mytopic`. Observe que o valor da propriedade `messagenumber` de cada mensagem varia de acordo com a iteração do loop (isso determina quais assinaturas a receberão):
+Olá exemplo a seguir demonstra como teste toosend cinco mensagens muito`mytopic`. Observe que Olá `messagenumber` varia de acordo com valor de propriedade de cada mensagem na iteração de saudação do loop de saudação (Isso determina quais assinaturas recebem-lo):
 
 ```python
 for i in range(5):
@@ -129,21 +129,21 @@ for i in range(5):
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em um tópico, mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Para saber mais sobre cotas, confira [Service Bus quotas][Service Bus quotas] (Cotas do Barramento de Serviço).
+Tópicos de barramento de serviço oferecem suporte a um tamanho máximo de 256 KB em hello [camada padrão](service-bus-premium-messaging.md) e 1 MB de saudação [camada Premium](service-bus-premium-messaging.md). cabeçalho de saudação, que inclui o padrão de saudação e propriedades de aplicativo personalizado, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de saudação de mensagens mantido em um tópico, mas há um limite de tamanho total Olá mensagens de saudação mantidos por um tópico. O tamanho do tópico é definido no momento da criação, com um limite máximo de 5 GB. Para saber mais sobre cotas, confira [Service Bus quotas][Service Bus quotas] (Cotas do Barramento de Serviço).
 
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
-As mensagens são recebidas de uma assinatura usando o método `receive_subscription_message` no objeto **ServiceBusService**:
+As mensagens são recebidas de uma assinatura usando Olá `receive_subscription_message` método hello **ServiceBusService** objeto:
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
-As mensagens são excluídas da assinatura conforme são lidas quando o parâmetro `peek_lock` é definido como **False**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila ao definir o parâmetro `peek_lock` como **True**.
+As mensagens serão excluídas da assinatura Olá conforme elas são de leitura quando Olá parâmetro `peek_lock` está definido muito**False**. Você pode ler (pico) e bloquear a mensagem de saudação sem excluí-la da fila de saudação pelo parâmetro de saudação configuração `peek_lock` muito**True**.
 
-O comportamento da leitura e da exclusão da mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo possa tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+Olá comportamento de leitura e excluindo mensagem de saudação como parte da saudação de operação de recebimento é o modelo mais simples de saudação e funciona melhor nos cenários em que um aplicativo pode tolerar não processando uma mensagem em caso de saudação de falha. toounderstand isso, considere um cenário em que problemas do consumidor Olá Olá receber a solicitação e falha antes de processá-lo. Porque o barramento de serviço será marcou a mensagem de saudação como sendo consumida, em seguida, quando o aplicativo hello reinicia e começa a consumir mensagens novamente, ele terá perdido mensagem de saudação foi consumido falha toohello anterior.
 
-Se o parâmetro `peek_lock` estiver definido como **True**, o processo de recebimento se torna uma operação de duas etapas, o que torna possível o suporte a aplicativos que não toleram mensagens ausentes. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para o processamento futuro), ele conclui a segunda etapa do processo de recebimento chamando o método `delete` no objeto **Message**. O método `delete` marcará a mensagem como sendo consumida e a removerá da assinatura.
+Se hello `peek_lock` parâmetro está definido muito**True**, Olá recebimento torna-se uma operação de dois estágios, o que torna possível toosupport aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe uma solicitação, ele localiza Olá próxima mensagem toobe consumida, boqueia-tooprevent outros consumidores a recebam e retorna toohello aplicativo. Depois que o aplicativo hello termina de processar a mensagem de saudação (ou armazena com segurança para processamento futuro), ele conclui Olá segunda etapa de saudação processo de recebimento chamando `delete` método hello **mensagem** objeto. Olá `delete` método marca a mensagem de saudação como sendo consumida e remove da assinatura de saudação.
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -152,28 +152,28 @@ print(msg.body)
 msg.delete()
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como tratar falhas do aplicativo e mensagens ilegíveis
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não conseguir processar a mensagem por algum motivo, ele chamará o método `unlock` no objeto **Message**. Isso fará com que o Barramento de Serviço desbloqueie a mensagem na assinatura e disponibilize-a para ser recebida novamente, pelo mesmo aplicativo de consumo ou por outro.
+## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Como o aplicativo de toohandle falha e mensagens ilegíveis
+Barramento de serviço fornece funcionalidade toohelp que normalmente recuperar de erros no seu aplicativo ou dificuldade para processar uma mensagem. Se um aplicativo receptor não puder tooprocess Olá mensagem por algum motivo, em seguida, pode chamar hello `unlock` método hello **mensagem** objeto. Isso causar a mensagem de saudação do barramento de serviço toounlock de assinatura do hello e torná-lo disponível toobe recebida novamente, o hello pelo mesmo aplicativo ou por outro aplicativo de consumo de consumo.
 
-Também há um tempo limite associado a uma mensagem bloqueada na assinatura e, se houver falha no processamento da mensagem pelo aplicativo antes da expiração do tempo limite de bloqueio (por exemplo, se o aplicativo travar), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
+Também há um tempo limite associado a uma mensagem bloqueada em assinatura hello e se a mensagem de saudação tooprocess antes de falha de aplicativo hello Olá bloqueio tempo limite expirar (por exemplo, se o aplicativo hello falhar), e a mensagem de saudação desbloqueia o barramento de serviço automaticamente e o torna disponível toobe recebida novamente.
 
-Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `delete` seja chamado, a mensagem será fornecida novamente ao aplicativo quando ele for reiniciado. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
+Em Olá evento Olá aplicativo falha após o processamento de mensagem de saudação, mas antes de saudação `delete` método é chamado, mensagem de saudação será entregue novamente toohello aplicativo quando ele for reiniciado. Isso é geralmente chamado *, pelo menos, após processamento*, ou seja, cada mensagem será processada pelo menos uma vez, mas em certo Olá situações mesma mensagem pode ser entregue novamente. Se o cenário de saudação não puder tolerar o processamento duplicado, os desenvolvedores de aplicativos devem adicionar entrega de mensagens duplicadas lógica adicional tootheir aplicativos toohandle. Isso geralmente é obtido usando Olá **MessageId** propriedade da mensagem de saudação, que permanece constante entre tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [Portal do Azure][Azure portal] ou de forma programática. O seguinte exemplo mostra como excluir o tópico chamado `mytopic`:
+Tópicos e assinaturas são persistentes e deve ser explicitamente excluídos por meio de saudação [portal do Azure] [ Azure portal] ou programaticamente. Olá exemplo a seguir mostra como o tópico de saudação toodelete chamado `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
 ```
 
-A exclusão de um tópico também exclui todas as assinaturas registradas com o tópico. As assinaturas também podem ser excluídas de forma independente. O seguinte código mostra como excluir uma assinatura chamada `HighMessages` do tópico `mytopic`:
+Excluir um tópico também exclui qualquer assinatura que é registrada com o tópico de saudação. As assinaturas também podem ser excluídas de forma independente. Olá código a seguir mostra como toodelete uma assinatura chamada `HighMessages` de saudação `mytopic` tópico:
 
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, acesse estes links para saber mais.
+Agora que você aprendeu as Noções básicas de saudação de tópicos do barramento de serviço, siga essas toolearn links mais.
 
 * Confira [Filas, tópicos e assinaturas][Queues, topics, and subscriptions].
 * Referência para [SqlFilter.SqlExpression][SqlFilter.SqlExpression].

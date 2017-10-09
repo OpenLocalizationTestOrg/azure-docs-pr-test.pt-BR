@@ -1,5 +1,5 @@
 ---
-title: "Verificar as configurações do Gerenciador de Tráfego do Azure | Microsoft Docs"
+title: "configurações do Azure Traffic Manager aaaVerify | Microsoft Docs"
 description: "Este artigo ajudará você a verificar as configurações do Gerenciador de Tráfego"
 services: traffic-manager
 documentationcenter: 
@@ -14,60 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c670be6cf55e140c7ab63d5d526de08e14774d2a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="verify-traffic-manager-settings"></a>Verificar as configurações do Gerenciador de Tráfego
 
-Para testar as configurações do Gerenciador de Tráfego, você precisa ter vários clientes, em diversos locais a partir dos quais você pode executar os testes. Em seguida, coloque os pontos de extremidade no perfil do Gerenciador de Tráfego, um de cada vez.
+tootest as configurações do Gerenciador de tráfego, você precisa toohave vários clientes, em vários locais, do qual você pode executar os testes. Em seguida, colocar pontos de extremidade de saudação em seu perfil do Traffic Manager um de cada vez.
 
-* Defina o valor TTL DNS como baixo, de forma que as alterações sejam propagadas rapidamente (30 segundos, por exemplo).
-* Conheça os endereços IP dos sites e serviços de nuvem do Azure no perfil que você está testando.
-* Use ferramentas que permitam resolver um nome DNS para um endereço IP e exibir esse endereço.
+* Baixo Olá valor de TTL do DNS para que as alterações se propagam rapidamente (por exemplo, 30 segundos).
+* Conheça Olá endereços IP dos seus serviços de nuvem do Azure e sites no perfil de saudação que você está testando.
+* Use as ferramentas que permitem resolver um endereço IP de tooan de nome DNS e exibem esse endereço.
 
-Você está verificando se os nomes DNS são resolvidos na forma de endereços IP dos pontos de extremidade em seu perfil. Os nomes devem ser resolvidos de maneira consistente com o método de roteamento de tráfego definido no perfil do Gerenciador de Tráfego. Você pode usar ferramentas como **nslookup** ou **dig** para resolver nomes DNS.
+Você está verificando toosee nomes DNS Olá resolver endereços tooIP de pontos de extremidade de saudação em seu perfil. nomes de saudação devem resolver de maneira consistente com o método de roteamento de tráfego do hello definido no perfil do Gerenciador de tráfego de saudação. Você pode usar ferramentas hello como **nslookup** ou **se aprofundar** tooresolve nomes DNS.
 
-Os exemplos a seguir o ajudarão a testar seu perfil do Gerenciador de Tráfego.
+Olá exemplos a seguir ajudarão a testar seu perfil do Gerenciador de tráfego.
 
 ### <a name="check-traffic-manager-profile-using-nslookup-and-ipconfig-in-windows"></a>Verifique o perfil do Gerenciador de Tráfego usando nslookup e ipconfig no Windows
 
 1. Abra um prompt de comando ou do Windows PowerShell como administrador.
-2. Digite `ipconfig /flushdns` para liberar o cache do resolvedor DNS.
-3. Digite `nslookup <your Traffic Manager domain name>`. Por exemplo, o comando a seguir verifica o nome do domínio com o prefixo *myapp.contoso*
+2. Tipo `ipconfig /flushdns` tooflush Olá cache do resolvedor de DNS.
+3. Digite `nslookup <your Traffic Manager domain name>`. Por exemplo, Olá Olá de verificações de nome de domínio com prefixo de saudação do comando a seguir *myapp.contoso*
 
         nslookup myapp.contoso.trafficmanager.net
 
-    Um resultado típico mostra as seguintes informações:
+    Um resultado típico mostra Olá informações a seguir:
 
-    + O nome DNS e o endereço IP do servidor DNS que está sendo acessado para resolver o nome de domínio do Gerenciador de Tráfego.
-    + O nome de domínio do Gerenciador de Tráfego digitado na linha de comando após "nslookup" e o endereço IP para o qual o domínio do Gerenciador de Tráfego é resolvido. O segundo endereço IP é o importante para a verificação. Ele deve corresponder a um endereço VIP (IP virtual) público de um dos serviços de nuvem ou sites no perfil do Gerenciador de Tráfego que você está testando.
+    + Olá nome DNS e endereço IP do hello DNS server que está sendo acessado tooresolve esse nome de domínio do Traffic Manager.
+    + nome de domínio do Traffic Manager Olá que você digitou na linha de comando Olá após "nslookup" e o domínio do hello IP endereço toowhich saudação do Traffic Manager resolve. Olá segundo endereço IP é Olá toocheck de um importante. Ele deve corresponder a um endereço IP (VIP) virtual público para um dos serviços de nuvem hello ou sites no hello perfil do Traffic Manager que você está testando.
 
-## <a name="how-to-test-the-failover-traffic-routing-method"></a>Como testar o método de roteamento de tráfego de failover
-
-1. Deixe todos os pontos de extremidade ativados.
-2. Usando um único cliente, solicite a resolução de DNS para o nome de domínio da empresa usando nslookup ou um utilitário semelhante.
-3. Verifique se o endereço IP resolvido corresponde ao ponto de extremidade primário.
-4. Desativar seu ponto de extremidade primário ou remover o arquivo de monitoramento, para que o Gerenciador de Tráfego pense que o aplicativo está desativado.
-5. Aguarde o TTL (período de vida útil) do DNS do perfil do Gerenciador de Tráfego, mais um tempo adicional de dois minutos. Por exemplo, se a TTL do DNS for de 300 segundos (cinco minutos), você deverá aguardar por sete minutos.
-6. Libere o cache de seu cliente DNS e solicite a resolução do DNS usando nslookup. No Windows, você pode liberar o cache DNS com o comando ipconfig /flushdns.
-7. Verifique se o endereço IP resolvido corresponde ao seu ponto de extremidade secundário.
-8. Repita o processo, desativando um ponto de extremidade por vez. Verifique se o DNS retorna o endereço IP do próximo ponto de extremidade na lista. Quando todos os pontos de extremidade estiverem desativados, você deverá obter o endereço IP do ponto de extremidade primário novamente.
-
-## <a name="how-to-test-the-weighted-traffic-routing-method"></a>Como testar o método de roteamento de tráfego ponderado
+## <a name="how-tootest-hello-failover-traffic-routing-method"></a>Como o método de roteamento de tráfego tootest Olá failover
 
 1. Deixe todos os pontos de extremidade ativados.
 2. Usando um único cliente, solicite a resolução de DNS para o nome de domínio da empresa usando nslookup ou um utilitário semelhante.
-3. Verifique se o endereço IP resolvido corresponde a um dos seus pontos de extremidade.
+3. Certifique-se de que Olá resolvido endereço IP corresponde o ponto de extremidade primário hello.
+4. Desativar o ponto de extremidade primário ou remova Olá monitoramento de arquivo para que o Traffic Manager pense que Olá aplicativo está inativo.
+5. Aguarde Olá DNS Time-to-Live (TTL) do perfil do Traffic Manager hello mais mais dois minutos. Por exemplo, se a TTL do DNS for de 300 segundos (cinco minutos), você deverá aguardar por sete minutos.
+6. Libere o cache de seu cliente DNS e solicite a resolução do DNS usando nslookup. No Windows, você pode liberar o cache DNS com o comando Olá ipconfig /flushdns.
+7. Certifique-se de que Olá resolver o endereço IP corresponde a seu ponto de extremidade secundário.
+8. Repita o processo de hello, interrompa a cada ponto de extremidade por sua vez. Verifique se que Olá DNS retorna o endereço IP de saudação do próximo ponto de extremidade de saudação na lista de saudação. Quando todos os pontos de extremidade estiverem desativados, você deverá obter o endereço IP de saudação do ponto de extremidade primário Olá novamente.
+
+## <a name="how-tootest-hello-weighted-traffic-routing-method"></a>Como tootest Olá ponderada método de roteamento de tráfego
+
+1. Deixe todos os pontos de extremidade ativados.
+2. Usando um único cliente, solicite a resolução de DNS para o nome de domínio da empresa usando nslookup ou um utilitário semelhante.
+3. Certifique-se de que Olá resolver o endereço IP corresponde a um dos seus pontos de extremidade.
 4. Libere o cache do cliente DNS e repita as etapas 2 e 3 para cada ponto de extremidade. Você deverá ver diferentes endereços IP retornados para cada um de seus pontos de extremidade.
 
-## <a name="how-to-test-the-performance-traffic-routing-method"></a>Como testar o método de roteamento de tráfego de desempenho
+## <a name="how-tootest-hello-performance-traffic-routing-method"></a>Como método de roteamento de tráfego de desempenho de saudação tootest
 
-Para testar efetivamente um método de roteamento de tráfego de desempenho, você deve ter clientes localizados em diferentes partes do mundo. Você pode criar clientes em diferentes regiões do Azure que podem ser usados para testar seus serviços. Se você tiver uma rede global, você pode, remotamente, se conectar a clientes em outras partes do mundo e executar seus testes.
+tooeffectively teste um método de roteamento de tráfego de desempenho, você deve ter clientes localizados em diferentes partes do Olá, mundo. Você pode criar clientes em diferentes regiões do Azure que podem ser usado tootest seus serviços. Se você tiver uma rede global, você pode entrar tooclients em outras partes do Olá, mundo e executar os testes a partir daí remotamente.
 
-Como alternativa, há serviços gratuitos e disponíveis de dig e pesquisa de DNS baseados na Web. Algumas dessas ferramentas possibilitam que você verifique a resolução de nome DNS a partir de vários locais no mundo. Pesquise "Pesquisa de DNS" para obter exemplos. Serviços de terceiros, como Gomez ou Keynote, podem ser usados para confirmar que os perfis estão distribuindo o tráfego conforme o esperado.
+Como alternativa, há serviços gratuitos e disponíveis de dig e pesquisa de DNS baseados na Web. Algumas dessas ferramentas permitem Olá capacidade toocheck nomes DNS de vários locais ao redor Olá, mundo. Pesquise "Pesquisa de DNS" para obter exemplos. Serviços de terceiros como, Gomez ou Keynote podem ser usado tooconfirm que os perfis estão distribuindo tráfego conforme o esperado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

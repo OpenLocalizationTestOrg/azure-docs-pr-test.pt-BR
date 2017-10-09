@@ -1,6 +1,6 @@
 ---
-title: "Visão geral do Agente de VM do Azure Linux | Microsoft Docs"
-description: "Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure."
+title: "aaaAzure visão geral de agente de VM do Linux | Microsoft Docs"
+description: "Saiba como tooinstall e configurar o agente do Linux (waagent) toomanage interação da sua máquina virtual com o controlador de malha do Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4e08c84d9205f4db7aae6fd1568ec1f15fba395c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
+# <a name="understanding-and-using-hello-azure-linux-agent"></a>Entendendo e usando Olá agente Linux do Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="introduction"></a>Introdução
-O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux e FreeBSD e a interação de VM com o Controlador de malha do Azure. Ele fornece a seguinte funcionalidade para implantações IaaS do Linux e FreeBSD:
+Olá Microsoft Azure Linux Agent (waagent) gerencia Linux e FreeBSD provisionamento e interação de VM com hello controlador de malha do Azure. Ele fornece Olá funcionalidade para implantações do Linux e FreeBSD IaaS a seguir:
 
 > [!NOTE]
-> Consulte o arquivo [LEIA-ME](https://github.com/Azure/WALinuxAgent/blob/master/README.md) do agente Linux do Azure para obter mais detalhes.
+> Consulte hello Azure Linux agent [Leiame](https://github.com/Azure/WALinuxAgent/blob/master/README.md) para obter detalhes adicionais.
 > 
 > 
 
@@ -38,43 +38,43 @@ O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux 
   * Criação de uma conta de usuário
   * Configurando os tipos de autenticação do SSH
   * Implantação de chaves públicas do SSH e pares de chaves
-  * Configuração do nome de host
-  * Publicando o nome do host para a plataforma de DNS
-  * Relatório de impressão digital da chave host SSH para a plataforma
+  * Nome de host da saudação de configuração
+  * Publicação Olá nome toohello plataforma de host DNS
+  * SSH host impressão digital da chave toohello plataforma de relatórios
   * Gerenciamento de recursos de disco
-  * Formatação e montagem do disco do recurso
+  * Formatação e montar o disco de recurso Olá
   * Configurando o espaço de permuta
 * **Rede**
   
-  * Gerencia as rotas para melhorar a compatibilidade com os servidores DHCP de plataforma
-  * Garante a estabilidade do nome da interface de rede
+  * Gerencia rotas tooimprove compatibilidade com servidores DHCP de plataforma
+  * Garante a estabilidade de saudação do nome de interface de rede Olá
 * **Kernel**
   
   * Configura NUMA virtual (desabilitar para kernel < 2.6.37)
   * Consome entropia de Hyper-V para /dev/random
-  * Configura os tempos limite de SCSI para o dispositivo raiz (o qual poderia ser remoto)
+  * Configura o tempo limite de SCSI para dispositivo de raiz da saudação (que poderia ser remoto)
 * **Diagnostics**
   
-  * Redirecionamento de console de porta serial
+  * Redirecionamento de console toohello porta serial
 * **Implantações SCVMM**
   
-  * Detecta e inicializa o agente VMM para Linux quando executado em um ambiente de System Center Virtual Machine Manager 2012 R2
+  * Detecta e inicializa o agente do VMM Olá para Linux, quando executado em um ambiente do System Center Virtual Machine Manager 2012 R2
 * **Extensão de VM**
   
-  * Injete o componente criado pela Microsoft e seus Parceiros na VM do Linux (IaaS) para habilitar o software e a automação da configuração
+  * Inserir componente criada pela Microsoft e de parceiros para a automação de software e configuração de VM do Linux (IaaS) tooenable
   * Implementação de referência de extensão de VM em [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicação
-O fluxo de informações da plataforma para o agente ocorre por meio de dois canais:
+fluxo de informações de saudação do agente de toohello plataforma Olá ocorre por meio de dois canais:
 
-* Um DVD anexado ao tempo de inicialização para as implementações de IaaS. Este DVD inclui um arquivo de configuração compatível com OVF que inclui todas as informações de configuração que não seja os pares de chaves SSH real.
-* Um ponto de extremidade TCP expondo uma API REST usada para obter a implantação e a configuração de topologia.
+* Um DVD anexado ao tempo de inicialização para as implementações de IaaS. DVD inclui um arquivo de configuração compatível com OVF que inclui todas as informações de provisionamento diferente Olá real pares de chaves SSH.
+* Um ponto de extremidade TCP expor uma API REST usado tooobtain implantação e configuração de topologia.
 
 ## <a name="requirements"></a>Requisitos
-Os sistemas a seguir foram testados e funcionam com o agente Linux do Azure:
+Hello sistemas a seguir foram testados e que são conhecidos toowork com hello agente Linux do Azure:
 
 > [!NOTE]
-> Essa lista pode ser diferente da lista oficial de sistemas com suporte na plataforma Microsoft Azure, conforme descrito aqui: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> Essa lista pode ser diferente da lista oficial de saudação de sistemas em Olá plataforma Microsoft Azure, conforme descrito aqui: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -91,7 +91,7 @@ Outros sistemas com suporte:
 
 * FreeBSD 10+ (Agente Linux do Azure v2.0.10+)
 
-O agente do Linux depende de alguns pacotes de sistema para funcionar corretamente:
+agente do Linux Olá depende de alguns pacotes de sistema na ordem toofunction corretamente:
 
 * Python 2.6+
 * OpenSSL 1.0+
@@ -103,9 +103,9 @@ O agente do Linux depende de alguns pacotes de sistema para funcionar corretamen
 * Suporte a kernel para montar sistemas de arquivos UDF.
 
 ## <a name="installation"></a>Instalação
-Instalação usando um RPM ou um pacote DEB do repositório de pacotes da distribuição é o método preferencial para instalar e atualizar o Azure do Agente Linux do Azure. Todos os [provedores de distribuição aprovados](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) integram o pacote do agente Linux do Azure em suas imagens e repositórios.
+Instalação usando um RPM ou um pacote de DEB do repositório de pacotes de distribuição é o método preferido de saudação instalando e atualizando Olá agente Linux do Azure. Saudação de todos os [aprovados provedores distribuição](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) integrar o pacote de saudação do agente Linux do Azure em suas imagens e repositórios.
 
-Consulte a documentação do [repositório do agente Linux do Azure no GitHub](https://github.com/Azure/WALinuxAgent) para ver opções de instalação avançada, como instalação da origem ou em locais personalizados ou prefixos.
+Consulte a documentação do toohello em Olá [repositório de agente Linux do Azure no GitHub](https://github.com/Azure/WALinuxAgent) para opções de instalação avançada, como instalação de locais de origem ou toocustom ou prefixos.
 
 ## <a name="command-line-options"></a>Opções de linha de comando
 ### <a name="flags"></a>Sinalizadores
@@ -113,28 +113,28 @@ Consulte a documentação do [repositório do agente Linux do Azure no GitHub](h
 * forçar: Ignorar confirmação interativa para alguns comandos
 
 ### <a name="commands"></a>Comandos
-* Ajuda: lista os comandos com suporte e sinalizadores.
-* deprovision: tentativa de limpar o sistema e torná-lo adequado para reprovisionamento. Esta operação excluiu o seguinte:
+* Ajuda: lista de sinalizadores e comandos de saudação com suporte.
+* desprovisionamento: tentativa de sistema de saudação tooclean e torná-lo adequado para provisionamento novamente. Esta operação excluídos seguinte hello:
   
-  * Todas as chaves de host SSH (se Provisioning.RegenerateSshHostKeyPair for 'y' no arquivo de configuração)
+  * Todas as chaves de host do SSH (se Provisioning.RegenerateSshHostKeyPair for 'y' no arquivo de configuração de saudação)
   * Configuração de servidor de nomes em /etc/resolv.conf
-  * Senha raiz do /etc/shadow (se Provisioning.DeleteRootPassword for 'y' no arquivo de configuração)
+  * Senha de raiz de /etc/shadow (se Provisioning.DeleteRootPassword for 'y' no arquivo de configuração de saudação)
   * Concessões de cliente DHCP em cache
-  * Reinicia o nome de host para localdomain.localdomain
+  * Redefine toolocalhost.localdomain de nome de host
 
 > [!WARNING]
-> O desprovisionamento não garante que a imagem estará livre de todas as informações confidenciais e adequada para redistribuição.
+> Desprovisionamento não garante que essa imagem Olá é limpo de todas as informações confidenciais e adequada para redistribuição.
 > 
 > 
 
-* deprovision + user: executa tudo em - deprovision (acima) e também exclui a última conta de usuário provisionado (obtida em /var/lib/waagent) e dados associados. Este parâmetro é quando a desconfiguração de uma imagem que foi anteriormente provisionamento no Azure para podem ser capturada e usada novamente.
-* versão: exibe a versão do waagent
-* serialconsole: configura GRUB para marcar ttyS0 (a primeira porta serial) como o console de inicialização. Isso garante que os logs de inicialização do kernel são enviados para a porta serial e disponibilizados para depuração.
-* daemon: executar waagent como um daemon para gerenciar a interação com a plataforma. Esse argumento é especificado para waagent no script de inicialização de waagent.
+* desprovisionamento + user: executa tudo sob - desprovisionamento (acima) e também exclui a conta de usuário provisionado última hello (obtida /var/lib/waagent) e dados associados. Este parâmetro é quando a desconfiguração de uma imagem que foi anteriormente provisionamento no Azure para podem ser capturada e usada novamente.
+* versão: exibe a versão de saudação do waagent
+* serialconsole: configura GRUB toomark ttyS0 (Olá a primeira porta serial) como o console de inicialização de saudação. Isso garante que os logs de inicialização do kernel são enviadas de porta serial toothe e disponibilizados para depuração.
+* o daemon: executar waagent como uma interação de toomanage daemon com a plataforma de saudação. Esse argumento é toowaagent especificado no script de inicialização de waagent hello.
 * Iniciar: executar waagent como um processo em segundo plano
 
 ## <a name="configuration"></a>Configuração
-Um arquivo de configuração (/ etc/waagent.conf) controla as ações de waagent. Uma amostra do arquivo de configuração é mostrada abaixo:
+Um arquivo de configuração (/ etc/waagent.conf) controles Olá ações de waagent. Uma amostra do arquivo de configuração é mostrada abaixo:
 
     Provisioning.Enabled=y
     Provisioning.DeleteRootPassword=n
@@ -158,16 +158,16 @@ Um arquivo de configuração (/ etc/waagent.conf) controla as ações de waagent
     HttpProxy.Host=None
     HttpProxy.Port=None
 
-Várias opções de configuração são descritas em detalhes abaixo. Há três tipos opções de configuração: Booliano, String ou Integer. As opções de configuração booliana podem ser especificadas como "y" ou "n". A palavra-chave especial "Nenhum" pode ser usado para entradas de configuração de tipo algum sequência conforme detalhado abaixo.
+Olá que várias opções de configuração são descritas em detalhes abaixo. Há três tipos opções de configuração: Booliano, String ou Integer. Opções de configuração booliano Olá podem ser especificadas como "y" ou "n". Olá palavra-chave especial "None" pode ser usado para entradas de configuração de tipo alguma cadeia de caracteres conforme detalhado abaixo.
 
 **Provisioning.Enabled:**  
 Tipo: booliano  
 Padrão: y
 
-Isso permite que o usuário habilite ou desabilite a funcionalidade de provisionamento no agente. Os valores válidos são "y" ou "n". Se o provisionamento for desabilitado, as chaves SSH de host e usuário da imagem serão preservadas e qualquer configuração especificada na API de provisionamento do Azure será ignorada.
+Isso permite Olá usuário tooenable ou desabilitar Olá funcionalidade no agente de saudação de provisionamento. Os valores válidos são "y" ou "n". Se o provisionamento é desabilitado, as chaves de host e o usuário SSH na imagem de saudação são preservadas e todas as configurações especificadas no hello API de provisionamento do Azure será ignorada.
 
 > [!NOTE]
-> O parâmetro `Provisioning.Enabled` segue o padrão "n" do Ubuntu Cloud Images, que usa cloud-init para provisionamento.
+> Olá `Provisioning.Enabled` muito "n" no Ubuntu imagens de nuvem que usam init de nuvem para o provisionamento de padrões de parâmetro.
 > 
 > 
 
@@ -175,27 +175,27 @@ Isso permite que o usuário habilite ou desabilite a funcionalidade de provision
 Tipo: booliano  
 Padrão: n
 
-Se definido, a senha raiz no arquivo sombra é apagado durante o processo de provisionamento.
+Se o conjunto de senha de raiz Olá no arquivo hello/etc/sombra é apagado durante Olá o processo de provisionamento.
 
 **Provisioning.RegenerateSshHostKeyPair:**  
 Tipo: booliano  
 Padrão: y
 
-Se o conjunto de todos os SSH host pares de chaves (ecdsa, dsa e rsa) será excluído durante o processo de provisionamento de /etc/ssh /. E um único par de chave novo é gerado.
+Se o conjunto, todos os SSH host pares de chave (ecdsa, dsa e rsa) é excluído durante a saudação processo de /etc/hosts ssh/de provisionamento. E um único par de chave novo é gerado.
 
-O tipo de criptografia para o novo par de chaves é configurável pela entrada do Provisioning.SshHostKeyPairType. Observe que algumas distribuições novamente criará pares de chaves SSH para todos os tipos de criptografia está faltando quando é reiniciado o daemon do SSH (por exemplo, após uma reinicialização).
+tipo de criptografia Olá para o par de chaves novo Olá é configurável por Olá Provisioning.SshHostKeyPairType entrada. Observe que algumas distribuições recriará pares de chaves de SSH para quaisquer tipos de criptografia ausente quando o daemon do SSH Olá é reiniciado (por exemplo, após uma reinicialização).
 
 **Provisioning.SshHostKeyPairType:**  
 Tipo: String  
 Padrão: rsa
 
-Isso pode ser definido como um tipo de algoritmo de criptografia com suporte pelo daemon SSH na máquina virtual. Os valores geralmente aceitos são "rsa", "dsa" e "ecdsa". Observe que "putty.exe" no Windows não oferece suporte a "ecdsa". Portanto, se você pretende usar putty.exe no Windows para conectar-se a uma implantação do Linux, use "rsa" ou "dsa".
+Isso pode ser definido tooan tipo de algoritmo de criptografia que é compatível com o daemon do SSH Olá na máquina virtual de saudação. valores Hello normalmente existe suportada são "rsa", "dsa" e "ecdsa". Observe que "putty.exe" no Windows não oferece suporte a "ecdsa". Portanto, se você pretende toouse putty.exe em Windows tooconnect tooa implantação do Linux, use "rsa" ou "dsa".
 
 **Provisioning.MonitorHostName:**  
 Tipo: booliano  
 Padrão: y
 
-Se definido, waagent monitorará máquina virtual Linux para alterações de nome do host (conforme retornado pelo comando "hostname") e atualizar automaticamente a configuração de rede da imagem para refletir a alteração. Para enviar a alteração do nome para os servidores DNS, a rede será reiniciado na máquina virtual. Isso resultará em resumo perda de conectividade com a Internet.
+Se definido, waagent irá monitorar Olá máquina de virtual do Linux para que as alterações de nome de host (como retornado pelo comando de "nome do host" hello) e atualizar automaticamente a configuração de rede Olá na alteração de Olá Olá imagem tooreflect. No nome da ordem toopush Olá alterar toohello os servidores DNS, rede será reiniciada na máquina virtual de saudação. Isso resultará em resumo perda de conectividade com a Internet.
 
 **Provisioning.DecodeCustomData**  
 Tipo: booliano  
@@ -229,80 +229,80 @@ Comprimento de sal aleatório usado ao gerar o hash de senha.
 Tipo: booliano  
 Padrão: y
 
-Se definido, o disco de recursos fornecido pela plataforma será formatado e montado por waagent se o tipo de sistema de arquivos solicitado pelo usuário em "ResourceDisk.Filesystem" for algo diferente de "ntfs". Uma única partição do tipo Linux (83) será disponibilizada no disco. Observe que essa partição não será formatada se ele pode ser montado com êxito.
+Se definido, disco de recurso Olá fornecido pela plataforma Olá será formatado e montado pelo waagent se o tipo de sistema de arquivos de saudação solicitado pelo usuário "ResourceDisk.Filesystem" hello é algo diferente de "ntfs". Uma única partição do tipo Linux (83) estará disponível em disco hello. Observe que essa partição não será formatada se ele pode ser montado com êxito.
 
 **ResourceDisk.Filesystem:**  
 Tipo: String  
 Padrão: ext4
 
-Especifica o tipo de sistema de arquivos para o disco do recurso. Valores aceitos variam de acordo com a distribuição do Linux. Se a sequência for X, em seguida, mkfs.X deve estar presente na imagem do Linux. Imagens de 11 SLES geralmente devem utilizar 'ext3'. FreeBSD imagens devem usar 'ufs2' aqui.
+Isso especifica o tipo de sistema de arquivos de Olá do disco de recurso de saudação. Valores aceitos variam de acordo com a distribuição do Linux. Se X, em seguida, mkfs cadeia de caracteres de saudação. X deve estar presente na imagem do Linux hello. Imagens de 11 SLES geralmente devem utilizar 'ext3'. FreeBSD imagens devem usar 'ufs2' aqui.
 
 **ResourceDisk.MountPoint:**  
 Tipo: String  
 Padrão: recurso /dev/emcpowera1 
 
-Especifica o caminho em que o disco do recurso é montado. Observe que o disco de recurso é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada.
+Isso especifica o caminho de saudação em que o disco de recurso hello está montado. Observe que esse disco de recurso Olá é um *temporário* disco e pode ser esvaziada quando Olá VM for desprovisionada.
 
 **ResourceDisk.MountOptions**  
 Tipo: String  
 Padrão: nenhum
 
-Especifica opções de montagem de disco a serem passadas ao comando de montagem -o. Trata-se de uma lista de valores separados por vírgulas, por exemplo, 'nodev, nosuid'. Consulte montagem(8) para obter detalhes.
+Especifica opções de montagem disco toobe passado toohello mount -o comando. Trata-se de uma lista de valores separados por vírgulas, por exemplo, 'nodev, nosuid'. Consulte montagem(8) para obter detalhes.
 
 **ResourceDisk.EnableSwap:**  
 Tipo: booliano  
 Padrão: n
 
-Se definir um arquivo de permuta (/ arquivo de permuta) é criado no disco recursos e adicionado ao espaço de troca de sistema.
+Se definido, um arquivo de permuta (/ arquivo de permuta) é criado no disco de recurso hello e adicionado toohello espaço de permuta de sistema.
 
 **ResourceDisk.SwapSizeMB:**  
 Tipo: inteiro  
 Padrão: 0
 
-Especifica o tamanho máximo do arquivo de permuta em megabytes.
+tamanho de Olá Olá do arquivo de permuta em megabytes.
 
 **Logs.Verbose:**  
 Tipo: booliano  
 Padrão: n
 
-Se definido, a verbosidade do log é aumentado. Waagent faz /var/log/waagent.log e aproveita a funcionalidade de logrotate do sistema para girar os logs.
+Se definido, a verbosidade do log é aumentado. Waagent registros too/var/log/waagent.log e aproveita Olá sistema logrotate funcionalidade toorotate logs.
 
 **OS.EnableRDMA**  
 Tipo: booliano  
 Padrão: n
 
-Se definido, o agente tentará instalar e, em seguida, carregar um driver de kernel RDMA que corresponde à versão do firmware do hardware subjacente.
+Se definido, agente Olá irá tentar tooinstall e, em seguida, carregar um driver de kernel RDMA que corresponde à versão de saudação do firmware Olá Olá hardware subjacente.
 
 **OS.RootDeviceScsiTimeout:**  
 Tipo: inteiro  
 Padrão: 300
 
-Isso configura o tempo limite de SCSI em segundos nos drives de disco e os dados de SO. Se não for definido, o sistema de padrões são usados.
+Isso configura o tempo limite de SCSI Olá em segundos em unidades de disco e dados Olá sistema operacional. Se não for definido, o sistema Olá padrões são usados.
 
 **OS.OpensslPath:**  
 Tipo: String  
 Padrão: nenhum
 
-Isso pode ser usado para especificar um caminho alternativo para o openssl binário a ser usado para operações de criptografia.
+Isso pode ser usado toospecify um caminho alternativo para Olá openssl binário toouse para operações criptográficas.
 
 **HttpProxy.Host, HttpProxy.Port**  
 Tipo: String  
 Padrão: nenhum
 
-Se definido, o agente usará este servidor proxy para acessar a internet. 
+Se definido, Olá agente usará esse proxy server tooaccess Olá da internet. 
 
 ## <a name="ubuntu-cloud-images"></a>Imagens de nuvem do Ubuntu
-Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) para executar muitas tarefas de configuração que de outra forma seriam gerenciadas pelo Agente Linux do Azure.  Observe as seguintes diferenças:
+Observe que utilizam o Ubuntu nuvem imagens [init nuvem](https://launchpad.net/ubuntu/+source/cloud-init) tooperform Olá de várias tarefas de configuração, caso contrário, deve ser gerenciadas pelo agente Linux do Azure.  Observação Olá diferenças a seguir:
 
-* **Provisioning.Enabled** segue o padrão "n" nas Imagens de Nuvem do Ubuntu que usam cloud-init para executar tarefas de provisionamento.
-* Os seguintes parâmetros de configuração não têm efeito nas Imagens de Nuvem do Ubuntu que usam cloud-init para gerenciar o disco de recurso e o espaço de troca:
+* **Provisioning.Enabled** padrões muito "n" no Ubuntu imagens de nuvem que usam tooperform nuvem init tarefas de provisionamento.
+* Olá, parâmetros de configuração a seguir não têm nenhum efeito no Ubuntu imagens de nuvem que usam init nuvem toomanage Olá recurso disco e troca de espaço:
   
   * **ResourceDisk.Format**
   * **ResourceDisk.Filesystem**
   * **ResourceDisk.MountPoint**
   * **ResourceDisk.EnableSwap**
   * **ResourceDisk.SwapSizeMB**
-* Consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e o espaço de troca nas Imagens de Nuvem do Ubuntu durante o provisionamento:
+* Consulte Olá após o ponto de montagem do disco de recurso do recursos tooconfigure hello e trocar o espaço no Ubuntu nuvem imagens durante o provisionamento:
   
   * [Wiki do Ubuntu: configurar partições de troca](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injetando dados personalizados em uma Máquina Virtual do Azure](../windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 9e5eed35334f1b95441b8181c8e90645be78b389
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 31d0aa67b6ca58b75b432ae94f93ebcf6d730380
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos premium gerenciados e não gerenciados
 
@@ -28,67 +28,67 @@ Este artigo responde a algumas perguntas frequentes sobre o Azure Managed Disks 
 
 **O que é o Azure Managed Disks?**
 
-Managed Disks é um recurso que simplifica o gerenciamento de disco para VMs IaaS do Azure manipulando o gerenciamento de conta de armazenamento para você. Para saber mais, veja [Visão geral dos Managed Disks](storage-managed-disks-overview.md).
+Managed Disks é um recurso que simplifica o gerenciamento de disco para VMs IaaS do Azure manipulando o gerenciamento de conta de armazenamento para você. Para obter mais informações, consulte Olá [visão geral de discos gerenciados](storage-managed-disks-overview.md).
 
 **Se eu criar um disco gerenciado standard com base em um VHD existente que tem 80 GB, quanto isso custará?**
 
-Um disco gerenciado standard criado com base em um VHD de 80 GB é tratado como o próximo tamanho de disco standard disponível, um disco S10. Você será cobrado de acordo com o preço do disco S10. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/storage).
+Um disco gerenciado padrão criado a partir de um VHD de 80 GB é tratado como Olá próximo padrão tamanho de disco disponível, que é um disco S10. Você será cobrado de acordo toohello S10 disco preços. Para obter mais informações, consulte Olá [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
 **Existem custos de transação de discos gerenciados standard?**
 
-Sim. Você é cobrado por cada transação. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/storage).
+Sim. Você é cobrado por cada transação. Para obter mais informações, consulte Olá [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
-**Para um disco gerenciado standard, eu serei cobrado pelo tamanho real dos dados no disco ou pela capacidade provisionada do disco?**
+**Para um disco gerenciado standard, serei ser cobrado para tamanho real de Olá Olá dados hello ou para capacidade de saudação provisionada de disco Olá?**
 
-Você é cobrado com base na capacidade provisionada do disco. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/storage).
+Você será cobrado com base na capacidade de saudação provisionada de disco de saudação. Para obter mais informações, consulte Olá [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
 **O preço dos discos premium gerenciados é diferente do preço dos discos não gerenciados?**
 
-O preço dos discos premium gerenciados é o mesmo que os discos premium não gerenciados.
+saudação de preços de discos premium gerenciado é Olá igual a discos premium não gerenciado.
 
-**Posso alterar o tipo de conta de armazenamento (Standard ou Premium) de meus discos gerenciados?**
+**Alterar Olá armazenamento tipo de conta (Standard ou Premium) de meus discos gerenciados?**
 
-Sim. Você pode alterar o tipo de conta de armazenamento de seus discos gerenciados usando o portal do Azure, PowerShell ou a CLI do Azure.
+Sim. Você pode alterar o tipo de conta de armazenamento Olá discos gerenciados usando Olá portal do Azure, PowerShell ou Olá CLI do Azure.
 
-**É possível copiar ou exportar um disco gerenciado para uma conta de armazenamento privado?**
+**Há uma maneira que eu possa copiar ou exportar uma conta de armazenamento particular de tooa de disco gerenciado?**
 
-Sim. Você pode exportar seus discos gerenciados usando o portal do Azure, PowerShell ou a CLI do Azure.
+Sim. Você pode exportar os discos gerenciados usando Olá portal do Azure, PowerShell ou Olá CLI do Azure.
 
-**Posso usar um arquivo VHD em uma conta de armazenamento do Azure para criar um disco gerenciado com uma assinatura diferente?**
+**Pode usar um arquivo VHD em uma conta de armazenamento do Azure toocreate um disco gerenciado com uma assinatura diferente?**
 
 Não.
 
-**Posso usar um arquivo VHD em uma conta de armazenamento do Azure para criar um disco gerenciado em uma região diferente?**
+**Pode usar um arquivo VHD em uma conta de armazenamento do Azure toocreate um disco gerenciado em uma região diferente?**
 
 Não.
 
 **Existem limitações de escala para clientes que usam discos gerenciados?**
 
-O Managed Disks elimina os limites associados a contas de armazenamento. No entanto, o número de discos gerenciados por assinatura é limitado a 2.000 por padrão. Você pode chamar o suporte para aumentar esse número.
+Discos gerenciados elimina os limites de saudação associados às contas de armazenamento. No entanto, o número de saudação de discos gerenciados por assinatura é limitado too2, 000 por padrão. Você pode chamar o suporte tooincrease esse número.
 
 **Posso fazer um instantâneo incremental de um disco gerenciado?**
 
-Não. O recurso de instantâneo atual faz uma cópia completa de um disco gerenciado. No entanto, estamos planejando oferecer suporte a instantâneos incrementais no futuro.
+Não. recurso de instantâneo atual Olá cria uma cópia completa de um disco gerenciado. No entanto, nós estamos planejando toosupport de instantâneos incrementais em Olá futuras.
 
 **As VMs em um conjunto de disponibilidade podem consistir de uma combinação de discos gerenciados e não gerenciados?**
 
-Não. As VMs em um conjunto de disponibilidade devem usar todos os discos gerenciados ou não gerenciados. Ao criar um conjunto de disponibilidade, você pode escolher qual tipo de discos que deseja usar.
+Não. Olá VMs em um conjunto de disponibilidade deve usar discos todas gerenciados ou todos os discos não gerenciados. Quando você cria um conjunto de disponibilidade, você pode escolher qual tipo de disco desejado toouse.
 
-**O Managed Disks é a opção padrão no portal do Azure?**
+**É a opção de padrão de saudação de discos gerenciados no hello portal do Azure?**
 
-Atualmente não, mas ele se tornará o padrão no futuro.
+Não no momento, mas ela ficará padrão Olá Olá futuras.
 
 **É possível criar um disco gerenciado vazio?**
 
-Sim. Você pode criar um disco vazio. Um disco gerenciado pode ser criado independentemente de uma VM, por exemplo, sem anexá-lo a uma VM.
+Sim. Você pode criar um disco vazio. Um disco gerenciado pode ser criado independentemente de uma VM, por exemplo, sem anexá-lo tooa VM.
 
-**O que é a contagem de domínios de falha com suporte para um conjunto de disponibilidade que usa o Managed Disks?**
+**O que é a contagem de domínios de falha de saudação com suporte para um conjunto de disponibilidade que usa discos gerenciados?**
 
-Dependendo da região em que o conjunto de disponibilidade que usa o Managed Disks está localizado, a contagem de domínios de falha com suporte é 2 ou 3.
+Dependendo da região de saudação onde o conjunto de disponibilidade de saudação que usa discos gerenciado está localizado, a contagem de domínios de falha de saudação com suporte é 2 ou 3.
 
-**Como é conta de armazenamento standard para a configuração de diagnóstico?**
+**Como é a conta de armazenamento padrão de saudação para configurar um diagnóstico?**
 
-Você configura uma conta de armazenamento privado para diagnóstico da VM. No futuro, planejamos alternar o diagnóstico para o Managed Disks.
+Você configura uma conta de armazenamento privado para diagnóstico da VM. Em Olá futuro, planejamos diagnóstico tooswitch tooManaged discos também.
 
 **O tipo de suporte ao Controle de Acesso Baseado em Função está disponível para o Managed Disks?**
 
@@ -98,20 +98,20 @@ O Managed Disks oferece suporte a três funções principais padrão:
 * Colaborador: pode gerenciar tudo, exceto o acesso
 * Leitor: pode ver tudo, mas não pode fazer alterações
 
-**É possível copiar ou exportar um disco gerenciado para uma conta de armazenamento privado?**
+**Há uma maneira que eu possa copiar ou exportar uma conta de armazenamento particular de tooa de disco gerenciado?**
 
-Você pode obter um URI de assinatura de acesso compartilhado somente leitura para o disco gerenciado e usá-la para copiar o conteúdo para uma conta de armazenamento privado ou armazenamento local.
+Você pode obter uma assinatura de acesso compartilhado somente leitura URI para Olá gerenciado em disco e usá-lo toocopy Olá conteúdo tooa privada local ou conta de armazenamento.
 
 **Posso criar uma cópia do meu disco gerenciado?**
 
-Os clientes podem tirar um instantâneo de seus discos gerenciados e, em seguida, usar o instantâneo para criar outro disco gerenciado.
+Os clientes podem tirar um instantâneo dos seus discos gerenciados e usar Olá instantâneo toocreate outro disco gerenciado.
 
 **Ainda há suporte para discos não gerenciados?**
 
-Sim. Há suporte para discos gerenciados e não gerenciados. Recomendamos que você use discos gerenciados para novas cargas de trabalho e migre suas cargas de trabalho atuais para discos gerenciados.
+Sim. Há suporte para discos gerenciados e não gerenciados. É recomendável que você use discos gerenciados para novas cargas de trabalho e migra seus discos de toomanaged cargas de trabalho atual.
 
 
-**Se eu criar um disco de 128 GB e aumentar o tamanho para 130 GB, serei cobrado pelo próximo tamanho de disco (512 GB)?**
+**Se eu criar um disco de 128 GB e, em seguida, aumentar Olá tamanho too130 GB, serei ser cobrado para tamanho de disco seguinte hello (512 GB)?**
 
 Sim.
 
@@ -123,11 +123,11 @@ O Azure Managed Disks atualmente dá suporte apenas a discos gerenciados de arma
 
 Não. Não há suporte para esse recurso no momento. 
 
-**Posso alterar a propriedade de nome do computador quando um disco do sistema operacional especializado (não criado usando a ferramenta de Preparação do Sistema ou generalizado) é usado para provisionar uma máquina virtual?**
+**Alterar propriedade de nome de computador hello quando um especializada (não criada usando a ferramenta de preparação do sistema hello ou generalizado) operacional do disco do sistema é usado tooprovision uma máquina virtual?**
 
-Não. Não é possível atualizar a propriedade de nome do computador. A nova VM a herda do pai, que foi usado para criar o disco do sistema operacional. 
+Não. Você não pode atualizar a propriedade de nome de computador hello. Olá nova VM herda-lo do hello pai VM, que era o disco do sistema operacional Olá toocreate usado. 
 
-**Onde posso encontrar modelos do Azure Resource Manager de exemplo para criar VMs com discos gerenciados?**
+**Onde encontrar o exemplo do Azure Resource Manager modelos toocreate VMs com discos gerenciados?**
 * [Lista de modelos que usam o Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
@@ -137,9 +137,9 @@ Não. Não é possível atualizar a propriedade de nome do computador. A nova VM
 
 Sim.
 
-**Quem gerencia as chaves de criptografia?**
+**Quem gerencia as chaves de criptografia Olá?**
 
-A Microsoft gerencia as chaves de criptografia.
+A Microsoft gerencia chaves de criptografia de saudação.
 
 **Posso desabilitar a Criptografia do Serviço de Armazenamento para meus discos gerenciados?**
 
@@ -147,30 +147,30 @@ Não.
 
 **A Criptografia do Serviço de Armazenamento só está disponível em regiões específicas?**
 
-Não. Ele está disponível em todas as regiões em que os discos gerenciados estão disponíveis. O Managed Disks está disponível em todas as regiões públicas e na Alemanha.
+Não. Ele está disponível em todas as regiões de saudação em discos gerenciado está disponível. O Managed Disks está disponível em todas as regiões públicas e na Alemanha.
 
 **Como posso descobrir se o disco gerenciado está criptografado?**
 
-Você pode descobrir a data em que um disco gerenciado foi criado no portal do Azure, na CLI do Azure e no PowerShell. Se a data é posterior a 9 de junho de 2017, o disco está criptografado. 
+Você pode descobrir a hora de saudação quando um disco gerenciado foi criado de saudação portal do Azure, Olá CLI do Azure e do PowerShell. Se houver tempo Olá após 9 de junho de 2017, o disco está criptografado. 
 
 **Como faço para criptografar meus discos existentes que foram criados antes de 10 de junho de 2017?**
 
-A partir de 10 de junho de 2017, os novos dados gravados em discos gerenciados existentes serão criptografados automaticamente. Nós também estamos planejando criptografar os dados existentes e a criptografia ocorrerá assincronamente em segundo plano. Se você precisar criptografar os dados existentes agora, crie uma cópia do disco. Os novos discos serão criptografados.
+A partir de 10 de junho de 2017, novos dados gravados discos tooexisting gerenciado são criptografados automaticamente. Nós também estamos planejando tooencrypt os dados existentes e criptografia Olá acontecerá assincronamente no plano de fundo de saudação. Se você precisar criptografar os dados existentes agora, crie uma cópia do disco. Os novos discos serão criptografados.
 
-* [Copiar discos gerenciados usando a CLI do Azure](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
+* [Copiar discos gerenciados usando Olá CLI do Azure](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
 * [Copiar discos gerenciados usando o PowerShell](https://docs.microsoft.com/en-us/azure/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription?toc=%2fcli%2fmodule%2ftoc.json)
 
 **Os instantâneos gerenciados e as imagens são criptografados?**
 
 Sim. Todos os instantâneos e imagens criados após 9 de junho de 2017 são criptografados automaticamente. 
 
-**Posso converter máquinas virtuais com discos não gerenciados que estão localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
+**Pode converter máquinas virtuais com discos não gerenciados que estão localizados em contas de armazenamento ou foram discos toomanaged previamente criptografado?**
 
 Sim
 
 **Um VHD exportado de um disco gerenciado ou instantâneo também será criptografado?**
 
-Não. Mas se você exportar um VHD para uma conta de armazenamento criptografada de um disco gerenciado ou instantâneo criptografado, ele estará criptografado. 
+Não. Mas se você exportar um VHD tooan criptografado conta de armazenamento de um disco gerenciado criptografado ou instantâneo e, em seguida, ele é criptografado. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Discos Premium: gerenciados e não gerenciados
 
@@ -178,43 +178,43 @@ Não. Mas se você exportar um VHD para uma conta de armazenamento criptografada
 
 Sim.
 
-**É possível anexar discos de dados standard e premium a uma série de tamanho que não oferece suporte a armazenamento Premium, como as séries D, Dv2, G ou F?**
+**É possível anexar premium e standard discos tooa tamanho séries de dados não dá suporte a armazenamento Premium, como a série D, Dv2, G ou F?**
 
-Não. Você só pode anexar discos de dados standard às VMs que não usam uma série de tamanho que dá suporte ao Armazenamento Premium.
+Não. Você pode anexar apenas tooVMs de discos padrão para dados que não usam uma série de tamanho que dá suporte ao armazenamento Premium.
 
 **Se criar um disco de dados premium com base em um VHD existente que tinha 80 GB, quanto isso custará?**
 
-Um disco de dados premium criado com base em um VHD de 80 GB é tratado como o próximo tamanho de disco premium disponível, um disco P10. Você será cobrado de acordo com o preço do disco P10.
+Um disco de dados premium criado a partir de um VHD de 80 GB é tratado como o tamanho de disco disponíveis para o próximo premium Olá, é um disco P10. Você será cobrado de acordo toohello P10 disco preços.
 
-**Existem custos de transação para usar o Armazenamento Premium?**
+**Há transações custos toouse armazenamento Premium?**
 
-Há um custo fixo para cada tamanho de disco, que vem provisionado com limites específicos de IOPS e taxa de transferência. Os outros custos são largura de banda de saída e recurso de instantâneos, caso aplicável. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/storage).
+Há um custo fixo para cada tamanho de disco, que vem provisionado com limites específicos de IOPS e taxa de transferência. Olá outros custos são largura de banda de saída e a capacidade de instantâneo, se aplicável. Para obter mais informações, consulte Olá [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
-**Quais são os limites de IOPS e taxa de transferência que posso obter do cache de disco?**
+**Quais são os limites de saudação de IOPS e taxa de transferência que posso obter do cache de disco Olá?**
 
-Os limites combinados para cache e SSD local para um item da série DS são 4.000 IOPS por núcleo e 33 MB por segundo por núcleo. A série GS oferece 5.000 IOPS por núcleo e 50 MB por segundo por núcleo.
+Olá combinado de limites para cache e SSD local para uma série DS são 4.000 IOPS por núcleo e 33 MB por segundo por núcleo. Olá série GS oferece a 5.000 IOPS por núcleo e 50 MB por segundo por núcleo.
 
-**O SSD local tem suporte para uma VM do Managed Disks?**
+**É hello que SSD local tem suporte para uma VM de discos gerenciados?**
 
-O SSD local é um armazenamento temporário fornecido com uma VM do Managed Disks. Não há custo adicional para esse armazenamento temporário. Recomendamos que você não use esse SSD local para armazenar os dados do aplicativo porque ele não é mantido no Armazenamento de Blobs do Azure.
+Olá SSD local é o armazenamento temporário que acompanha uma VM de discos gerenciados. Não há custo adicional para esse armazenamento temporário. É recomendável que você não use esse toostore SSD local os dados do aplicativo porque ele não é mantido no armazenamento de BLOBs do Azure.
 
-**Existem repercussões pelo uso de TRIM em discos premium?**
+**São existe qualquer repercussões para Olá usar de TRIM em discos premium?**
 
-Não há nenhuma desvantagem em usar CORTE nos Discos do Azure Premium ou Standard.
+Não há nenhum uso de toohello desvantagem de TRIM em discos do Azure em uma premium ou discos padrão.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Novos tamanhos de disco: gerenciados e não gerenciados
 
-**Qual é o maior tamanho de disco com suporte para o sistema operacional e os discos de dados?**
+**Qual é Olá maior tamanho de disco com suporte para o sistema operacional e discos de dados?**
 
-O tipo de partição a que o Azure dá suporte para um disco do sistema operacional é o MBR (registro mestre de inicialização). O formato do MBR dá suporte a tamanho de disco de até 2 TB. O maior tamanho a que o Azure dá suporte para um disco do sistema operacional é 2 TB. O Azure dá suporte a até 4 TB em discos de dados. 
+tipo de partição de Hello Azure oferece suporte para um disco do sistema operacional é Olá mestre de inicialização MBR (registro). formato MBR Olá dá suporte a um tamanho de disco até too2 TB. Olá maior tamanho que o Azure oferece suporte para um disco do sistema operacional é de 2 TB. O Azure suporta até too4 TB para discos de dados. 
 
-**Qual é o maior tamanho de blob de página com suporte?**
+**O que é Olá maior blob tamanho de página com suporte?**
 
-O maior tamanho de blob de página a que o Azure dá suporte é 8 TB (8.191 GB). Não há suporte para blobs de página maiores que 4 TB (4.095 GB) anexados a uma VM como dados ou discos do sistema operacional.
+Olá página blob maior que o Azure suporta é 8 TB (8.191 GB). Não há suporte para blobs de página maiores que 4 TB (4.095 GB) anexado tooa VM como dados ou discos do sistema operacional.
 
-**Preciso usar uma nova versão das ferramentas do Azure para criar, anexar, redimensionar e carregar discos maiores que 1 TB?**
+**É necessário toouse uma nova versão de ferramentas do Azure toocreate, anexar, redimensionar e carregar discos maiores que 1 TB?**
 
-Você não precisa atualizar as ferramentas existentes do Azure para criar, anexar ou redimensionar discos maiores que 1 TB. Para carregar o arquivo VHD local diretamente no Azure como um blob de página ou disco não gerenciado, você precisará usar os conjuntos de ferramentas mais recentes:
+Você não precisa tooupgrade seu toocreate de ferramentas do Azure existente, anexar ou redimensionar discos maiores que 1 TB. tooupload seu VHD arquivo local diretamente tooAzure como um blob de página ou disco não gerenciado, é necessário conjuntos de ferramentas toouse hello mais recentes:
 
 |Ferramentas do Azure      | Versões com suporte                                |
 |-----------------|---------------------------------------------------|
@@ -222,23 +222,23 @@ Você não precisa atualizar as ferramentas existentes do Azure para criar, anex
 |CLI do Azure v1     | Número de versão 0.10.13: versão de maio de 2017 ou posterior|
 |AzCopy           | Número de versão 6.1.0: versão de junho de 2017 ou posterior|
 
-O suporte à CLI do Azure v2 e ao Gerenciador de Armazenamento do Azure estará disponível em breve. 
+suporte a saudação v2 CLI do Azure e o Azure Storage Explorer estará disponível em breve. 
 
 **Os tamanhos de disco P4 e P6 têm suporte para discos não gerenciados ou blobs de página?**
 
 Não. Os tamanhos de disco P4 (32 GB) e P6 (64 GB) têm suporte somente para discos gerenciados. O suporte a discos não gerenciados e blobs de página será lançado em breve.
 
-**Se o meu disco gerenciado premium existente com menos de 64 GB foi criado antes da habilitação da pequeno disco (por volta de 15 de junho de 2017), como ele é cobrado?**
+**Se o meu premium existente gerenciado disco menor do que 64 GB foi criado antes da habilitação do disco pequeno hello (em torno de 15 de junho de 2017), como ele é cobrado?**
 
-Os discos pequenos premium com menos de 64 GB continuam a ser cobrados de acordo com o tipo de preços P10. 
+Discos premium pequeno existentes com menos de 64 GB continuar preço de acordo toohello P10 toobe cobrado. 
 
-**Como alternar a camada de disco dos discos premium pequenos com menos de 64 GB de P10 para P4 ou P6?**
+**Como alternar da camada de disco Olá de discos premium pequeno menor do que 64 GB de tooP4 P10 ou P6?**
 
-Você pode tirar um instantâneo dos discos pequenos e criar um disco para alternar automaticamente o tipo de preço para P4 ou P6 com base no tamanho provisionado. 
+Você pode tirar um instantâneo dos discos pequenos e, em seguida, crie uma saudação de comutador do disco tooautomatically tooP4 da camada de preços ou P6 com base no tamanho de saudação provisionado. 
 
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se dúvida não foi respondida aqui?
 
-Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta. Você pode postar uma pergunta no final deste artigo nos comentários. Para se comunicar com a equipe do Armazenamento do Azure e outros membros da comunidade sobre este artigo, use o [Fórum do Armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata) no MSDN.
+Se sua pergunta não estiver listada aqui, fale conosco e nós ajudaremos a encontrar uma resposta. Você pode postar uma pergunta no final deste artigo Olá nos comentários de saudação. tooengage com a equipe de armazenamento do Azure hello e outros membros da comunidade sobre neste artigo, use Olá MSDN [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 
-Para solicitar recursos, envie suas solicitações e ideias para o [Fórum de comentários do Armazenamento do Azure](https://feedback.azure.com/forums/217298-storage).
+recursos toorequest, enviar sua solicitações e ideias toohello [Fórum de comentários do armazenamento do Azure](https://feedback.azure.com/forums/217298-storage).

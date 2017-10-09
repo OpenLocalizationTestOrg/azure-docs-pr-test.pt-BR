@@ -1,6 +1,6 @@
 ---
-title: "Solução de problemas: criar e conectar-se a um Espaço de Trabalho do Machine Learning | Microsoft Docs"
-description: "Soluções para problemas comuns na criação e conexão a um espaço de trabalho de Azure Machine Learning"
+title: "Solução de problemas: Criar e conectar-se o espaço de trabalho de aprendizado de máquina tooa | Microsoft Docs"
+description: "Soluções para problemas comuns na criação e conectar-se o espaço de trabalho de aprendizado de máquina do Azure tooan"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 398ac3d9c9d32a1ab10413ce0d7ce8d448890409
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 965a0025e85ba4e22c2b037edfa923e7f7599069
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Machine Learning
+# <a name="troubleshooting-guide-create-and-connect-tooan-machine-learning-workspace"></a>Guia de solução de problemas: criar e conectar-se o espaço de trabalho de aprendizado de máquina tooan
 Este guia fornece soluções para alguns desafios encontrados com frequência quando você configura espaços de trabalho do Azure Machine Learning.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="workspace-owner"></a>Proprietário do espaço de trabalho
-Para abrir um espaço de trabalho no Machine Learning Studio, você deve estar conectado à Conta da Microsoft usada para criar o espaço de trabalho, ou receber um convite do proprietário para ingressar no espaço de trabalho. No portal do Azure você pode gerenciar o espaço de trabalho, que inclui a capacidade de alterar o proprietário e configurar o acesso.
+tooopen um espaço de trabalho no estúdio de aprendizado de máquina, você deve ser conectado toohello Account da Microsoft que você usou o espaço de trabalho do toocreate hello, ou será necessário tooreceive um convite de espaço de trabalho da saudação toojoin Olá proprietário. Olá portal do Azure, você pode gerenciar espaço de trabalho de saudação, que inclui Olá capacidade tooconfigure acesso.
 
 Para obter mais informações sobre como gerenciar um espaço de trabalho, consulte [Gerenciar um espaço de trabalho do Azure Machine Learning].
 
@@ -34,36 +34,36 @@ Para obter mais informações sobre como gerenciar um espaço de trabalho, consu
             [Gerenciar um espaço de trabalho do Azure Machine Learning]: machine-learning-manage-workspace.md
 
 ## <a name="allowed-regions"></a>Regiões permitidas
-No momento, o Machine Learning está disponível em um número limitado de regiões. Se sua assinatura não incluir uma dessas regiões, talvez você receba a mensagem de erro "Você não tem assinaturas nas regiões permitidas".
+No momento, o Machine Learning está disponível em um número limitado de regiões. Se sua assinatura não tem uma dessas regiões, você poderá ver a mensagem de erro hello, "Você não tem assinaturas em Olá permitido regiões."
 
-Para solicitar a adição de uma região à sua assinatura, crie uma nova solicitação de suporte da Microsoft no portal do Azure, escolha o tipo de problema **Cobrança** e siga os prompts para enviar sua solicitação.
+toorequest uma região de ser adicionado tooyour assinatura, crie uma nova solicitação de suporte da Microsoft da saudação portal do Azure, escolha **cobrança** como o tipo de problema hello e siga Olá solicita toosubmit sua solicitação.
 
 ## <a name="storage-account"></a>Conta de armazenamento
-O serviço de Machine Learning precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente, ou pode criar uma nova conta de armazenamento ao criar o novo espaço de trabalho de Machine Learning (se você tiver cota para criar uma nova conta de armazenamento).
+Olá service de aprendizado de máquina precisa de um toostore dados da conta de armazenamento. Você pode usar uma conta de armazenamento existente, ou você pode criar uma nova conta de armazenamento ao criar o espaço de trabalho de aprendizado de máquina de novo hello (se você tiver cota toocreate uma nova conta de armazenamento).
 
-Criado o novo espaço de trabalho do Machine Learning, você pode entrar no Machine Learning Studio com a conta da Microsoft usada para criar o espaço de trabalho. Se você encontrar a mensagem de erro "Espaço de Trabalho Não Encontrado" (semelhante à captura de tela a seguir), use as etapas a seguir para excluir os cookies do navegador.
+Após a criação do espaço de trabalho de aprendizado de máquina de novo Olá, entrar tooMachine estúdio de aprendizado usando a conta da Microsoft hello usado o espaço de trabalho do toocreate hello. Se você receber a mensagem de erro de hello, "Espaço de trabalho não encontrado" (semelhante toohello captura de tela a seguir), use Olá toodelete as etapas a seguir os cookies do seu navegador.
 
 ![Espaço de trabalho não encontrado][screen3]
 
-**Para excluir cookies do navegador**
+**cookies do navegador toodelete**
 
-1. Se você usa o Internet Explorer, clique no botão **Ferramentas** no canto superior direito e selecione **Opções da Internet**.  
+1. Se você usar o Internet Explorer, clique em Olá **ferramentas** botão no canto superior direito de saudação e selecione **opções da Internet**.  
 
 ![Opções da Internet][screen4]
 
-2. Na guia **Geral**, clique em **Excluir…**
+2. Em Olá **geral** , clique em **excluir...**
 
 ![Guia Geral][screen5]
 
-3. Na caixa de diálogo **Excluir Histórico de Navegação**, selecione **Cookies e dados de sites** e clique em **Excluir**.
+3. Em Olá **Excluir histórico de navegação** caixa de diálogo caixa, certifique-se de **Cookies e dados de site** está selecionado e clique em **excluir**.
 
 ![Excluir cookies][screen6]
 
-Depois que os cookies forem excluídos, reinicie o navegador e vá para a página [Microsoft Azure Machine Learning](https://studio.azureml.net) . Quando forem solicitados nome de usuário e senha, insira os dados da mesma conta da Microsoft usada para criar o espaço de trabalho.
+Após Olá cookies são excluídos, reinicie o navegador hello e vá toohello [aprendizado de máquina do Microsoft Azure](https://studio.azureml.net) página. Quando você for solicitado, insira um nome de usuário e senha, Olá mesma conta da Microsoft usado o espaço de trabalho do toocreate hello.
 
 ## <a name="comments"></a>Comentários
 
-Nosso objetivo é tornar a experiência do Machine Learning o mais simples possível. Poste comentários e problemas no [Fórum do Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para nos ajudar a atendê-lo melhor.
+Nosso objetivo é toomake Olá experiência de aprendizado de máquina uniforme possível. Poste quaisquer problemas e comentários no hello [Fórum de aprendizado de máquina do Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) toohelp nos servi-lo melhor.
 
 [screen1]:media/machine-learning-troubleshooting-creating-ml-workspace/screen1.png
 [screen2]:media/machine-learning-troubleshooting-creating-ml-workspace/screen2.png

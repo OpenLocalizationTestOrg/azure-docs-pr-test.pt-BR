@@ -1,6 +1,6 @@
 ---
-title: "Criar clusters Hadoop usando a linha de comando – Azure HDInsight | Microsoft Docs"
-description: Saiba como criar clusters do HDInsight usando a CLI do Azure 1.0 de plataforma cruzada.
+title: "clusters de Hadoop aaaCreate usando a linha de comando - Olá HDInsight do Azure | Microsoft Docs"
+description: "Saiba como clusters de HDInsight toocreate usando Olá 1.0 de CLI do Azure de plataforma cruzada."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,20 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/26/2017
 ms.author: larryfr
-ms.openlocfilehash: 8f2fcb46789d000cd66164508f1159338dcae5f9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5295b01054b8c23df0e3b75a3e0e8c933ac48b3c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar os clusters do HDInsight usando a CLI do Azure
+# <a name="create-hdinsight-clusters-using-hello-azure-cli"></a>Criar clusters HDInsight usando Olá CLI do Azure
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-As etapas deste documento são um passo a passo para a criação de um cluster HDInsight 3.5 usando a CLI do Azure 1.0.
+Olá etapas para este passo a passo documento criando um cluster HDInsight 3.5 usando Olá 1.0 da CLI do Azure.
 
 > [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux é Olá sistema operacional somente de usado no HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -38,90 +38,90 @@ As etapas deste documento são um passo a passo para a criação de um cluster H
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **CLI do Azure**. As etapas neste documento foram testadas pela última vez com a versão 0.10.14 da CLI do Azure.
+* **CLI do Azure**. etapas Olá neste documento foram testadas última CLI do Azure versão 0.10.14.
 
     > [!IMPORTANT]
-    > As etapas neste documento não funcionam com a CLI do Azure 2.0. A CLI do Azure 2.0 não dá suporte à criação de um cluster HDInsight.
+    > Olá etapas neste documento não funcionam com o Azure CLI 2.0. A CLI do Azure 2.0 não dá suporte à criação de um cluster HDInsight.
 
-## <a name="log-in-to-your-azure-subscription"></a>Entre na sua assinatura do Azure
+## <a name="log-in-tooyour-azure-subscription"></a>Faça logon no tooyour assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md) e conecte à sua assinatura usando o método de **logon** .
+Execute as etapas de saudação documentadas em [conectar tooan assinatura do Azure do hello Azure Interface de linha de comando (CLI do Azure)](../xplat-cli-connect.md) e conecte-se a assinatura de tooyour usando Olá **login** método.
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
-As etapas a seguir devem ser executadas de uma linha de comando, como o PowerShell ou o Bash.
+Olá, as etapas a seguir deve ser executada em uma linha de comando, como o PowerShell ou Bash.
 
-1. Use o seguinte comando para fazer logon em sua assinatura do Azure:
+1. Use Olá comando tooauthenticate tooyour assinatura do Azure a seguir:
 
         azure login
 
-    Você receberá uma solicitação para fornecer seu nome e senha. Se você tiver várias assinaturas do Azure, use `azure account set <subscriptionname>` para definir a assinatura que será usada pelos comandos da CLI do Azure.
+    Você está tooprovide solicitado seu nome e senha. Se você tiver várias assinaturas do Azure, use `azure account set <subscriptionname>` uso de comandos de assinatura Olá tooset Olá CLI do Azure.
 
-2. Alterne para modo Gerenciador de Recursos do Azure usando o seguinte comando:
+2. Alternar o modo de Gerenciador de recursos de tooAzure usando Olá comando a seguir:
 
         azure config mode arm
 
-3. Crie um grupos de recursos. Esse grupo de recursos contém o cluster HDInsight e a conta de armazenamento associada.
+3. Crie um grupos de recursos. Este grupo de recursos contém o cluster do HDInsight hello e conta de armazenamento associada.
 
         azure group create groupname location
 
-    * Substitua `groupname` por um nome exclusivo para o grupo.
+    * Substituir `groupname` com um nome exclusivo para o grupo de saudação.
 
-    * Substitua `location` pela região geográfica na qual você deseja criar um grupo.
+    * Substituir `location` com região Olá que deseja toocreate grupo de saudação.
 
-       Para obter uma lista de locais válidos, use o comando `azure location list` e, então, utilize um dos locais da coluna `Name`.
+       Para obter uma lista de locais válidos, use Olá `azure location list` de comando e, em seguida, use um dos locais de saudação do hello `Name` coluna.
 
-4. Criar uma conta de armazenamento. Essa conta de armazenamento é usada como o armazenamento padrão do cluster HDInsight.
+4. Criar uma conta de armazenamento. Esta conta de armazenamento é usada como o armazenamento padrão da saudação para cluster de HDInsight hello.
 
         azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
 
-    * Substitua `groupname` pelo nome do grupo criado na etapa anterior.
+    * Substituir `groupname` com nome Olá Olá grupo criado na etapa anterior hello.
 
-    * Substitua `location` pelo mesmo local usado na etapa anterior.
+    * Substituir `location` com hello mesmo local usado na etapa anterior hello.
 
-    * Substitua `storagename` por um nome exclusivo para a conta de armazenamento.
+    * Substituir `storagename` com um nome exclusivo para a conta de armazenamento hello.
 
         > [!NOTE]
-        > Para saber mais sobre os parâmetros usados nesse comando, use `azure storage account create -h` para exibir a ajuda deste comando.
+        > Para obter mais informações sobre parâmetros de saudação usado neste comando, use `azure storage account create -h` tooview ajuda para este comando.
 
-5. Recupere a chave usada para acessar a conta de armazenamento.
+5. Recupere a conta de armazenamento de Olá Olá chave tooaccess usado.
 
         azure storage account keys list -g groupname storagename
 
-    * Substitua `groupname` pelo nome do grupo de recursos.
-    * Substitua `storagename` pelo nome da conta de armazenamento.
+    * Substituir `groupname` com o nome do grupo de recursos de saudação.
+    * Substituir `storagename` com nome Olá Olá da conta de armazenamento.
 
-     Nos dados retornados, salve o valor `key` para `key1`.
+     Em dados de saudação que são retornados, salvar Olá `key` valor para `key1`.
 
 6. Crie um cluster HDInsight.
 
         azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 3 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    * Substitua `groupname` pelo nome do grupo de recursos.
+    * Substituir `groupname` com o nome do grupo de recursos de saudação.
 
-    * Substitua `Hadoop` pelo tipo de cluster que você deseja criar. Por exemplo, `Hadoop`, `HBase`, `Kafka`, `Spark` ou `Storm`.
+    * Substituir `Hadoop` com o tipo de cluster Olá que você deseja toocreate. Por exemplo, `Hadoop`, `HBase`, `Kafka`, `Spark` ou `Storm`.
 
      > [!IMPORTANT]
-     > Clusters HDInsight são fornecidos em uma variedade de tipos que correspondem à carga de trabalho ou à tecnologia para a qual o cluster está ajustado. Não há nenhum método com suporte para criar um cluster que combina vários tipos, como o Storm e HBase em um cluster.
+     > HDInsight clusters são fornecidos em vários tipos, que correspondem a carga de trabalho toohello ou tecnologia que Olá cluster é ajustada para. Não há nenhum método com suporte toocreate um cluster que combina vários tipos, como Storm e HBase em um cluster.
 
-    * Substitua `location` pelo mesmo local usado nas etapas anteriores.
+    * Substituir `location` com hello mesmo local usado nas etapas anteriores.
 
-    * Substitua `storagename` pelo nome da conta de armazenamento.
+    * Substituir `storagename` com o nome de conta de armazenamento hello.
 
-    * Substitua `storagekey` pela chave obtida na etapa anterior.
+    * Substituir `storagekey` com chave Olá obtido na etapa anterior hello.
 
-    * Como parâmetro `--defaultStorageContainer` , use o mesmo nome que você está usando para o cluster.
+    * Para Olá `--defaultStorageContainer` parâmetro, use Olá mesmo nome que você está usando para o cluster de saudação.
 
-    * Substitua `admin` e `httppassword` pelo nome e pela senha que você deseja usar quando acessar o cluster por meio de HTTPS.
+    * Substituir `admin` e `httppassword` com hello nome e senha você deseja toouse ao acessar o cluster Olá através de HTTPS.
 
-    * Substitua `sshuser` e `sshuserpassword` pelo nome de usuário e senha que você deseja usar quando acessar o cluster usando SSH
+    * Substituir `sshuser` e `sshuserpassword` com hello nome de usuário e senha você deseja toouse ao acessar o cluster hello usando SSH
 
     > [!IMPORTANT]
-    > Este exemplo cria um cluster com duas anotações de trabalho. Você também pode alterar o número de nós de trabalho após a criação do cluster realizando operações de colocação em escala. Se você planeja usar mais de 32 nós de trabalho, será necessário selecionar um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM. Você pode definir o tamanho do nó principal usando o parâmetro `--headNodeSize` durante a criação do cluster.
+    > Este exemplo cria um cluster com duas anotações de trabalho. Você também pode alterar o número de saudação de nós de trabalho após a criação do cluster realizando operações de dimensionamento. Se você planeja usar mais de 32 nós de trabalho, será necessário selecionar um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM. Você pode definir o tamanho de nó principal do hello usando Olá `--headNodeSize` parâmetro durante a criação do cluster.
     >
     > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-    Pode levar vários minutos para que o processo de criação de cluster seja concluído. Geralmente, cerca de 15 minutos.
+    Ele pode levar vários minutos para Olá toofinish de processo de criação de cluster. Geralmente, cerca de 15 minutos.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -129,7 +129,7 @@ Se você tiver problemas com a criação de clusters HDInsight, confira os [requ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou com êxito um cluster HDInsight usando a CLI do Azure, use o seguinte para aprender a trabalhar com o seu cluster:
+Agora que você criou com êxito um cluster HDInsight usando Olá CLI do Azure, use Olá toolearn a seguir como toowork com o cluster:
 
 ### <a name="hadoop-clusters"></a>Clusters do Hadoop
 

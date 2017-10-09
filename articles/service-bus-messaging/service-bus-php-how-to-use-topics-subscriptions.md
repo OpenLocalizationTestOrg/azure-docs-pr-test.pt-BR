@@ -1,6 +1,6 @@
 ---
-title: "Como usar os tópicos de Barramento de Serviço com PHP | Microsoft Docs"
-description: "Saiba como usar tópicos do Barramento de Serviço com PHP no Azure."
+title: "tópicos do barramento de serviço do toouse aaaHow com PHP | Microsoft Docs"
+description: "Saiba como toouse tópicos de barramento de serviço com o PHP no Azure."
 services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
@@ -14,43 +14,43 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
-ms.openlocfilehash: afa9efcb6335786198021ec81dd087287c39bda9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0ca8625fa3edc5854c0d6c1c2f6adab6a2d42f91
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como usar tópicos e assinaturas do Barramento de Serviço com PHP
+# <a name="how-toouse-service-bus-topics-and-subscriptions-with-php"></a>Como toouse Service Bus tópicos e assinaturas com PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este artigo mostra como usar os tópicos e as assinaturas do Barramento de Serviço. As amostras são escritas em PHP e usam o [SDK do Azure para PHP](../php-download-sdk.md). Os cenários abordados incluem a **criação de tópicos e assinaturas**, a **criação de filtros de assinatura**, o **envio de mensagens para um tópico**, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**.
+Este artigo mostra como toouse Service Bus tópicos e assinaturas. exemplos de saudação são escritos em PHP e usar Olá [Azure SDK para PHP](../php-download-sdk.md). Olá cenários abordados incluem **criando tópicos e assinaturas**, **Criando filtros de assinatura**, **tópico tooa de mensagens de envio**, **receber mensagens de uma assinatura**, e **excluir tópicos e assinaturas**.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-a-php-application"></a>Criar um aplicativo PHP
-O único requisito para a criação de um aplicativo PHP que acessa o serviço Blob do Azure é a referência de classes no [SDK do Azure para PHP](../php-download-sdk.md) em seu código. Você pode usar quaisquer ferramentas de desenvolvimento para criar seu aplicativo, ou o Bloco de Notas.
+Olá somente requisito para criar um aplicativo PHP que acessa o serviço de Blob do Azure Olá é tooreference classes Olá [Azure SDK para PHP](../php-download-sdk.md) de dentro de seu código. Você pode usar qualquer toocreate de ferramentas de desenvolvimento de seu aplicativo, ou o bloco de notas.
 
 > [!NOTE]
-> A instalação do PHP também deve ter a [extensão OpenSSL](http://php.net/openssl) instalada e habilitada.
+> A instalação do PHP também deverá ter Olá [OpenSSL extensão](http://php.net/openssl) instalado e habilitado.
 > 
 > 
 
-Este artigo descreve como usar os recursos de serviços que podem ser chamados em um aplicativo PHP localmente ou no código em execução em uma função web, uma função de trabalho ou um site do Azure.
+Este artigo descreve como toouse serviço recursos que podem ser chamados dentro de um aplicativo PHP localmente ou no código em execução dentro de uma função web do Azure, uma função de trabalho ou um site.
 
-## <a name="get-the-azure-client-libraries"></a>Obter as bibliotecas de cliente do Azure
+## <a name="get-hello-azure-client-libraries"></a>Obter Olá bibliotecas de cliente do Azure
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
-Para usar as APIs do barramento de serviço:
+## <a name="configure-your-application-toouse-service-bus"></a>Configurar seu toouse barramento de serviço do aplicativo
+Olá toouse APIs do barramento de serviço:
 
-1. Faça referência ao arquivo do carregador automático usando a instrução [require_once][require-once].
+1. Arquivo de carregador automático de saudação de referência usando Olá [require_once] [ require-once] instrução.
 2. Fazer referência a qualquer classe que você possa usar.
 
-O exemplo a seguir mostra como incluir o arquivo de carregador automático e fazer referência à classe **ServicesBuilder**.
+Olá exemplo a seguir mostra como tooinclude Olá Olá de referência e o arquivo do carregador automático **ServiceBusService** classe.
 
 > [!NOTE]
-> Este exemplo (e outros exemplos neste artigo) pressupõe que você instalou as Bibliotecas de Cliente PHP para Azure por meio do Compositor. Se você instalou as bibliotecas manualmente ou como um pacote PEAR, será necessário fazer referência ao arquivo de carregador automático **WindowsAzure.php**.
+> Este exemplo (e outros exemplos neste artigo) supõe que você instalou Olá PHP bibliotecas de cliente para o Azure por meio do criador. Se você instalou bibliotecas Olá manualmente ou como um pacote de PERA, você deve fazer referência a saudação **WindowsAzure.php** arquivo do carregador automático.
 > 
 > 
 
@@ -59,25 +59,25 @@ require_once 'vendor\autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-Nos seguintes exemplos, a instrução `require_once` será mostrada sempre, mas somente as classes necessárias para executar o exemplo serão referenciadas.
+Nos exemplos a seguir de hello, Olá `require_once` instrução sempre será mostrada, mas apenas Olá classes necessárias para tooexecute do exemplo hello são referenciadas.
 
 ## <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do Barramento de Serviço
-Para criar uma instância do cliente do Barramento de Serviço, você deve ter primeiro uma cadeia de conexão válida neste formato:
+tooinstantiate um cliente de barramento de serviço, você deve primeiro ter uma cadeia de caracteres de conexão válida neste formato:
 
 ```
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
-Em que `Endpoint` geralmente está no formato `https://[yourNamespace].servicebus.windows.net`.
+Onde `Endpoint` normalmente é do formato de saudação `https://[yourNamespace].servicebus.windows.net`.
 
-Para criar um cliente de serviço do Azure, é necessário usar a classe `ServicesBuilder`. Você pode:
+toocreate qualquer cliente de serviço do Azure, você deve usar o hello `ServicesBuilder` classe. Você pode:
 
-* Passar a cadeia de conexão diretamente para ele.
-* Usar **CloudConfigurationManager (CCM)** para verificar várias fontes externas da cadeia de conexão:
+* Passar conexão Olá tooit cadeia de caracteres diretamente.
+* Use Olá **CloudConfigurationManager (CCM)** toocheck externo de várias fontes de cadeia de caracteres de conexão hello:
   * Por padrão, ele vem com suporte para uma origem externa: variáveis de ambiente
-  * Você pode adicionar novas origens estendendo a classe `ConnectionStringSource`.
+  * Você pode adicionar novas fontes estendendo Olá `ConnectionStringSource` classe.
 
-Para os exemplos descritos aqui, a cadeia de conexão é passada diretamente.
+Para obter exemplos de saudação descritos aqui, cadeia de caracteres de conexão de saudação é passada diretamente.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -90,9 +90,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 ```
 
 ## <a name="create-a-topic"></a>Criar um tópico
-Você pode executar operações de gerenciamento de tópicos do Barramento de Serviço por meio da classe `ServiceBusRestProxy` . Um objeto `ServiceBusRestProxy` é construído com o método de fábrica `ServicesBuilder::createServiceBusService` com uma cadeia de conexão apropriada que encapsula as permissões de token para gerenciá-lo.
+Você pode executar operações de gerenciamento para os tópicos do barramento de serviço por meio de saudação `ServiceBusRestProxy` classe. Um `ServiceBusRestProxy` objeto for construído por meio de saudação `ServicesBuilder::createServiceBusService` método de fábrica com uma cadeia de caracteres de conexão apropriado que encapsula Olá permissões token toomanage-lo.
 
-O exemplo a seguir mostra como instanciar um `ServiceBusRestProxy` e chamar um `ServiceBusRestProxy->createTopic` para criar um tópico denominado `mytopic` dentro de um namespace `MySBNamespace`:
+Olá mostrado no exemplo a seguir como tooinstantiate uma `ServiceBusRestProxy` e chame `ServiceBusRestProxy->createTopic` toocreate um tópico chamado `mytopic` dentro de um `MySBNamespace` namespace:
 
 ```php
 require_once 'vendor/autoload.php';
@@ -120,15 +120,15 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Você pode usar o método `listTopics` em objetos `ServiceBusRestProxy` para verificar se já existe um tópico com um nome especificado em um namespace de serviço.
+> Você pode usar o hello `listTopics` método `ServiceBusRestProxy` objetos toocheck se um tópico com um nome especificado já existe em um namespace de serviço.
 > 
 > 
 
 ## <a name="create-a-subscription"></a>Criar uma assinatura
-As assinaturas do tópico também são criadas com o método `ServiceBusRestProxy->createSubscription`. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens passadas para a fila virtual da assinatura.
+Assinaturas de tópico também são criadas com hello `ServiceBusRestProxy->createSubscription` método. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de saudação de mensagens passado a fila virtual toohello da assinatura.
 
-### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
-O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada 'mysubscription' e usa o filtro padrão **MatchAll**.
+### <a name="create-a-subscription-with-hello-default-matchall-filter"></a>Criar uma assinatura com o filtro saudação padrão (MatchAll)
+Olá **MatchAll** filtro é saudação padrão que será usado se nenhum filtro for especificado quando uma nova assinatura é criada. Olá quando **MatchAll** filtro é usado, o tópico de toohello publicado todas as mensagens são colocadas em fila virtual da assinatura hello. Olá, exemplo a seguir cria uma assinatura chamada 'mysubscription' e usa Olá padrão **MatchAll** filtro.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -156,14 +156,14 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Criar assinaturas com os filtros
-Você também pode configurar filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico. O tipo de filtro mais flexível compatível com as assinaturas é o [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter), que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para saber mais sobre SqlFilters, consulte [Propriedade SqlFilter.SqlExpression][sqlfilter].
+Você também pode definir os filtros que permitem que você toospecify quais mensagens enviadas tópico tooa deve aparecer dentro de uma assinatura de tópico específico. Olá, mais flexível tipo de filtro de assinaturas com suporte é Olá [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter), que implementa um subconjunto do SQL92. Filtros SQL operam nas propriedades de saudação das mensagens de saudação que são publicados toohello tópico. Para saber mais sobre SqlFilters, consulte [Propriedade SqlFilter.SqlExpression][sqlfilter].
 
 > [!NOTE]
-> Cada regra uma assinatura processa as mensagens de entrada independentemente, adicionando suas mensagens de resultado à assinatura. Além disso, cada nova assinatura tem um objeto **Regra** padrão com um filtro que adiciona todas as mensagens do tópico à assinatura. Para receber apenas as mensagens correspondentes ao filtro, você deve remover a regra padrão. Você pode remover a regra padrão usando o método `ServiceBusRestProxy->deleteRule`.
+> Cada regra em uma assinatura processa mensagens de entrada de forma independente, adicionando sua assinatura de toohello de mensagens de resultados. Além disso, cada nova assinatura tem um padrão **regra** objeto com um filtro que adiciona todas as mensagens de saudação tópico toohello assinatura. tooreceive somente as mensagens que correspondem o filtro, você deve remover a regra padrão de saudação. Você pode remover a regra padrão de saudação usando Olá `ServiceBusRestProxy->deleteRule` método.
 > 
 > 
 
-O exemplo a seguir cria uma assinatura denominada `HighMessages` com um **SqlFilter** que seleciona apenas as mensagens que tenham uma propriedade personalizada `MessageNumber` maior que 3. Confira [Enviar mensagens para um tópico](#send-messages-to-a-topic) para saber mais sobre como adicionar propriedades a mensagens.
+Olá, exemplo a seguir cria uma assinatura chamada `HighMessages` com um **SqlFilter** que seleciona somente as mensagens que têm um personalizado `MessageNumber` propriedade maior que 3. Consulte [tópico de tooa enviar mensagens](#send-messages-to-a-topic) para obter informações sobre como adicionar propriedades personalizadas toomessages.
 
 ```php
 $subscriptionInfo = new SubscriptionInfo("HighMessages");
@@ -176,9 +176,9 @@ $ruleInfo->withSqlFilter("MessageNumber > 3");
 $ruleResult = $serviceBusRestProxy->createRule("mytopic", "HighMessages", $ruleInfo);
 ```
 
-Observe que este código requer o uso de um namespace adicional: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
+Observe que esse código requer o uso de saudação de um namespace adicional: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
 
-Da mesma forma, o seguinte exemplo cria uma assinatura denominada `LowMessages` com um `SqlFilter` que seleciona apenas mensagens que têm uma propriedade `MessageNumber` menor ou igual a 3.
+Da mesma forma, hello exemplo a seguir cria uma assinatura chamada `LowMessages` com um `SqlFilter` que seleciona somente as mensagens que têm um `MessageNumber` propriedade menor ou igual too3.
 
 ```php
 $subscriptionInfo = new SubscriptionInfo("LowMessages");
@@ -191,10 +191,10 @@ $ruleInfo->withSqlFilter("MessageNumber <= 3");
 $ruleResult = $serviceBusRestProxy->createRule("mytopic", "LowMessages", $ruleInfo);
 ```
 
-Agora, quando uma mensagem é enviada ao tópico `mytopic`, ela sempre será entregue aos destinatários inscritos na assinatura `mysubscription` e entregue de forma seletiva aos destinatários inscritos nas assinaturas do `HighMessages` e `LowMessages` (dependendo do conteúdo da mensagem).
+Agora, quando uma mensagem é enviada toohello `mytopic` tópico, ele é sempre entregue tooreceivers inscrito toohello `mysubscription` assinatura e tooreceivers seletivamente entregue inscrito toohello `HighMessages` e `LowMessages` (assinaturas Dependendo de conteúdo da mensagem de saudação).
 
-## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
-Para enviar uma mensagem para um tópico do Barramento de Serviço, seu aplicativo chamará o método `ServiceBusRestProxy->sendTopicMessage`. O código abaixo demonstra como enviar uma mensagem ao tópico `mytopic` que criamos acima no namespace de serviço `MySBNamespace`.
+## <a name="send-messages-tooa-topic"></a>Enviar tópico tooa de mensagens
+toosend um tópico de barramento de serviço do tooa de mensagem, o aplicativo chama Olá `ServiceBusRestProxy->sendTopicMessage` método. Olá o seguinte código mostra como toosend toohello uma mensagem `mytopic` tópico previamente criado dentro de `MySBNamespace` namespace de serviço.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -224,7 +224,7 @@ catch(ServiceException $e){
 }
 ```
 
-As mensagens enviadas aos tópicos do Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage] têm um conjunto de propriedades e métodos padrão, além de propriedades que podem ser usadas para manter as propriedades personalizadas específicas do aplicativo. O exemplo a seguir mostra como enviar cinco mensagens de teste para o tópico `mytopic` criado anteriormente. O método `setProperty` é usado para adicionar uma propriedade personalizada (`MessageNumber`) a cada mensagem. Observe como o valor da propriedade `MessageNumber` varia em cada mensagem (ele pode ser usado para determinar quais assinaturas o receberão, conforme mostrado na seção [Criar uma assinatura](#create-a-subscription)):
+As mensagens enviadas tooService tópicos do barramento são instâncias da saudação [BrokeredMessage] [ BrokeredMessage] classe. [BrokeredMessage] [ BrokeredMessage] objetos têm um conjunto de métodos e propriedades padrão, bem como propriedades que podem ser usados toohold propriedades personalizadas da específicas do aplicativo. Olá exemplo a seguir mostra como as mensagens de teste de toosend 5 toohello `mytopic` tópico criado anteriormente. Olá `setProperty` método é usado tooadd uma propriedade personalizada (`MessageNumber`) tooeach mensagem. Observe que Olá `MessageNumber` varia de acordo com o valor da propriedade em cada mensagem (você pode usar este toodetermine valor quais assinaturas recebem-lo, conforme mostrado no hello [criar uma assinatura](#create-a-subscription) seção):
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -240,16 +240,16 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-Os tópicos do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em um tópico, mas há uma capacidade do tamanho total das mensagens mantidas por um tópico. Este limite superior do tamanho do tópico é 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][Service Bus quotas].
+Tópicos de barramento de serviço oferecem suporte a um tamanho máximo de 256 KB em hello [camada padrão](service-bus-premium-messaging.md) e 1 MB de saudação [camada Premium](service-bus-premium-messaging.md). cabeçalho de saudação, que inclui o padrão de saudação e propriedades de aplicativo personalizado, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de saudação de mensagens mantido em um tópico, mas há um limite de tamanho total Olá mensagens de saudação mantidos por um tópico. Este limite superior do tamanho do tópico é 5 GB. Para saber mais sobre cotas, consulte [Cotas do Barramento de Serviço][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
-A maneira mais fácil de receber mensagens de uma assinatura é usar um método `ServiceBusRestProxy->receiveSubscriptionMessage`. As mensagens podem ser recebidas de dois modos diferentes: [*ReceiveAndDelete* e *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** é o padrão.
+Olá melhor maneira tooreceive as mensagens de uma assinatura é toouse um `ServiceBusRestProxy->receiveSubscriptionMessage` método. As mensagens podem ser recebidas de dois modos diferentes: [*ReceiveAndDelete* e *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** é saudação padrão.
 
-Quando o modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) for usado, o recebimento será uma operação única, ou seja, quando o Barramento de Serviço receber uma solicitação de leitura de uma mensagem em uma assinatura, ele marcará a mensagem como sendo consumida e a retornará ao aplicativo. O modo [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isso, considere um cenário no qual o consumidor emite a solicitação de recebimento e então falha antes de processá-la. Como o Barramento de Serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
+Ao usar o hello [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) , modo de recebimento é uma operação única etapa; ou seja, quando o barramento de serviço recebe uma solicitação de leitura para uma mensagem em uma assinatura, ele marca a mensagem de saudação como sendo consumida e retorna-toohello aplicativo. [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * modo é o modelo mais simples de saudação e funciona melhor nos cenários em que um aplicativo pode tolerar não processando uma mensagem em caso de saudação de falha. toounderstand isso, considere um cenário em que problemas do consumidor Olá Olá receber a solicitação e falha antes de processá-lo. Porque o barramento de serviço será marcou a mensagem de saudação como sendo consumida, em seguida, quando o aplicativo hello reinicia e começa a consumir mensagens novamente, ele terá perdido mensagem de saudação foi consumido falha toohello anterior.
 
-No modo [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) padrão, o recebimento de uma mensagem se torna uma operação de dois estágios, o que possibilita o suporte a aplicativos que não podem tolerar ausência de mensagens. Quando o Barramento de Serviço recebe uma solicitação, ele encontra a próxima mensagem a ser consumida, a bloqueia para evitar que outros clientes a recebam e a retorna para o aplicativo. Depois que o aplicativo conclui o processamento da mensagem (ou a armazena de forma segura para processamento futuro), ele conclui a segunda etapa do processo de recebimento encaminhando a mensagem recebida para `ServiceBusRestProxy->deleteMessage`. Quando o Barramento de Serviço vê a chamada `deleteMessage`, ele marca a mensagem como tendo sido consumida e a remove da fila.
+No padrão de saudação [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) modo, recebendo uma mensagem se torna uma operação de dois estágios, o que torna possível toosupport aplicativos que não podem tolerar mensagens ausentes. Quando o barramento de serviço recebe uma solicitação, ele localiza Olá próxima mensagem toobe consumida, boqueia-tooprevent outros consumidores a recebam e retorna toohello aplicativo. Depois que o aplicativo hello termina de processar a mensagem de saudação (ou armazena com segurança para processamento futuro), ele conclui Olá segunda etapa de saudação receber o processo, passando a mensagem de saudação recebida muito`ServiceBusRestProxy->deleteMessage`. Quando o Service Bus vê Olá `deleteMessage` chamada, ele marca a mensagem de saudação como sendo consumida e removê-lo da fila de saudação.
 
-O exemplo a seguir mostra como receber e processar uma mensagem usando o modo [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) (o modo padrão). 
+Olá mostrado no exemplo a seguir como tooreceive e processar uma mensagem usando [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) (modo de padrão de saudação). 
 
 ```php
 require_once 'vendor/autoload.php';
@@ -262,7 +262,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
 try    {
-    // Set receive mode to PeekLock (default is ReceiveAndDelete)
+    // Set receive mode tooPeekLock (default is ReceiveAndDelete)
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
 
@@ -291,16 +291,16 @@ catch(ServiceException $e){
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como: tratar falhas do aplicativo e mensagens ilegíveis
-O Barramento de Serviço proporciona funcionalidade para ajudá-lo a se recuperar normalmente dos erros no seu aplicativo ou das dificuldades no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele poderá chamar o método `unlockMessage` na mensagem recebida (em vez do método `deleteMessage`). Isso fará com que o Service Bus desbloqueie a mensagem na fila e disponibilize-a para que ela possa ser recebida novamente pelo mesmo aplicativo de consumo ou por outro.
+Barramento de serviço fornece funcionalidade toohelp que normalmente recuperar de erros no seu aplicativo ou dificuldade para processar uma mensagem. Se um aplicativo receptor não puder tooprocess Olá mensagem por algum motivo, em seguida, pode chamar hello `unlockMessage` método na mensagem recebida (em vez da saudação `deleteMessage` método). Isso causar a mensagem de saudação do barramento de serviço toounlock em fila hello e torná-lo disponível toobe recebida novamente, o hello pelo mesmo aplicativo ou por outro aplicativo de consumo de consumo.
 
-Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não conseguir processar a mensagem antes da expiração do tempo limite do bloqueio (por exemplo, em caso de falha do aplicativo), o Barramento de Serviço desbloqueará a mensagem automaticamente e a disponibilizará para ser recebida novamente.
+Também há um tempo limite associado a uma mensagem bloqueada em fila hello e se a mensagem de saudação tooprocess antes de falha de aplicativo hello Olá bloqueio tempo limite expirar (por exemplo, se o aplicativo hello falhar), e em seguida, desbloquear mensagem de saudação do barramento de serviço automaticamente e torná-lo disponível toobe recebida novamente.
 
-Se houver falha do aplicativo após o processamento da mensagem, mas antes que a solicitação `deleteMessage` seja gerada, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de *Processamento de pelo menos uma vez*, ou seja, cada mensagem será processada pelo menos uma vez, mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra aos aplicativos para tratar a entrega de mensagem duplicada. Isso geralmente é realizado usando o método `getMessageId` da mensagem, que permanecerá constante nas tentativas da entrega.
+Em Olá evento Olá aplicativo falha após o processamento de mensagem de saudação, mas antes de saudação `deleteMessage` solicitação é emitida, mensagem de saudação será entregue novamente toohello aplicativo quando ele for reiniciado. Isso é geralmente chamado *pelo menos uma vez* processamento; ou seja, cada mensagem é processada pelo menos uma vez, mas em certo Olá situações mesma mensagem pode ser entregue novamente. Se o cenário de saudação não puder tolerar o processamento duplicado, os desenvolvedores de aplicativos devem adicionar entrega de mensagens duplicadas lógica adicional tooapplications toohandle. Isso geralmente é obtido usando Olá `getMessageId` método de mensagem de saudação, que permanece constante entre tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-Para excluir um tópico ou uma assinatura, use os métodos `ServiceBusRestProxy->deleteTopic` ou `ServiceBusRestProxy->deleteSubscripton`, respectivamente. Observe que a exclusão de um tópico também exclui todas as assinaturas registradas com o tópico.
+toodelete um tópico ou uma assinatura, use Olá `ServiceBusRestProxy->deleteTopic` ou hello `ServiceBusRestProxy->deleteSubscripton` métodos, respectivamente. Observe que a exclusão de um tópico também exclui quaisquer assinaturas que são registradas com o tópico de saudação.
 
-O exemplo a seguir mostra como excluir um tópico denominado `mytopic` e suas assinaturas registradas.
+Olá exemplo a seguir mostra como toodelete um tópico chamado `mytopic` e suas assinaturas registradas.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -326,14 +326,14 @@ catch(ServiceException $e){
 }
 ```
 
-Ao usar o método `deleteSubscription`, você poderá excluir uma assinatura de forma independente:
+Usando Olá `deleteSubscription` método, você pode excluir uma assinatura de forma independente:
 
 ```php
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][Queues, topics, and subscriptions] para saber mais.
+Agora que você aprendeu as Noções básicas de saudação de filas do barramento de serviço, consulte [filas, tópicos e assinaturas] [ Queues, topics, and subscriptions] para obter mais informações.
 
 [BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

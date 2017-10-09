@@ -1,6 +1,6 @@
 ---
-title: Usar o Armazenamento de Arquivos do Azure com o Linux | Microsoft Docs
-description: Saiba como montar um Compartilhamento de Arquivos do Azure com SMB no Linux.
+title: aaaUse armazenamento de arquivo do Azure com Linux | Microsoft Docs
+description: Saiba como toomount um arquivo Azure compartilhar no SMB no Linux.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
-ms.openlocfilehash: d8987082c559a374b8d19fd69e20cf5e81cb25ef
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: eeaa24b7f9e646724c5d86ae1e80dfdadaff34fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-file-storage-with-linux"></a>Usar o Armazenamento de Arquivos do Azure com o Linux
-O [Armazenamento de arquivos do Azure](../storage-dotnet-how-to-use-files.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Compartilhamentos de Arquivos do Azure podem ser montados em distribuições do Linux usando o [pacote cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) do [projeto Samba](https://www.samba.org/). Este artigo mostra duas maneiras de montar um Compartilhamento de Arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
+[Armazenamento de arquivo do Azure](../storage-dotnet-how-to-use-files.md) é o sistema de arquivos de nuvem da Microsoft toouse fácil. Compartilhamentos de arquivos do Azure podem ser montados em distribuições do Linux usando Olá [pacote Utilitários cifs](https://wiki.samba.org/index.php/LinuxCIFS_utils) de saudação [projeto Samba](https://www.samba.org/). Este artigo mostra toomount de duas maneiras de um compartilhamento de arquivos do Azure: sob demanda com hello `mount` de comando e de inicialização, criando uma entrada em `/etc/fstab`.
 
 > [!NOTE]  
-> Para montar um Compartilhamento de Arquivos do Azure fora da região do Azure no qual ele está hospedado, como local ou em uma região diferente do Azure, o sistema operacional deve dar suporte à funcionalidade de criptografia do SMB 3.0. O recurso de criptografia do SMB 3.0 para Linux foi introduzido no kernel 4.11. Este recurso permite a montagem do Compartilhamento de Arquivos do Azure do local ou de uma região diferente do Azure. No momento da publicação deste artigo, essa funcionalidade foi retrocompatibilizada para o Ubuntu 16.04 e superior.
+> Ordem toomount um compartilhamento de arquivos do Azure fora Olá região do Azure que está hospedado, como no local ou em uma região diferente do Azure, Olá SO deve oferecer suporte a funcionalidade de criptografia de saudação do SMB 3.0. O recurso de criptografia do SMB 3.0 para Linux foi introduzido no kernel 4.11. Este recurso permite a montagem do Compartilhamento de Arquivos do Azure do local ou de uma região diferente do Azure. Em tempo de saudação da publicação, essa funcionalidade foi backported tooUbuntu de 16.04 e acima.
 
 
-## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Pré-requisitos para montar um Compartilhamento de Arquivos do Azure com o Linux e o pacote cifs-utils
-* **Escolha uma distribuição do Linux que pode ter o pacote cifs-utils instalado**: a Microsoft recomenda as seguintes distribuições do Linux na Galeria de imagens do Azure:
+## <a name="prerequisities-for-mounting-an-azure-file-share-with-linux-and-hello-cifs-utils-package"></a>Pré-requisitos para montar um compartilhamento de arquivos do Azure com Linux e hello pacote de utilitários de cifs
+* **Escolher uma distribuição de Linux que pode ter o pacote de utilitários cifs Olá instalado**: a Microsoft recomenda Olá distribuições do Linux na Galeria de imagens do Azure Olá a seguir:
 
     * Ubuntu Server 14.04+
     * RHEL 7+
@@ -37,82 +37,82 @@ O [Armazenamento de arquivos do Azure](../storage-dotnet-how-to-use-files.md) é
     * openSUSE 13.2+
     * SUSE Linux Enterprise Server 12
 
-* <a id="install-cifs-utils"></a>**O pacote cifs-utils é instalado**: o cifs-utils pode ser instalado usando o gerenciador de pacotes na distribuição do Linux escolhida. 
+* <a id="install-cifs-utils"></a>**Olá cifs utilitários pacote é instalado**: Olá cifs-utilitários podem ser instalados usando o Gerenciador de pacotes de saudação na distribuição de Linux Olá de sua escolha. 
 
-    Em distribuições **Ubuntu** e **Debian**, use o gerenciador de pacotes do `apt-get`:
+    Em **Ubuntu** e **com base em Debian** distribuições, use Olá `apt-get` Gerenciador de pacotes:
 
     ```
     sudo apt-get update
     sudo apt-get install cifs-utils
     ```
 
-    No **RHEL** e **CentOS**, use o gerenciador de pacotes do `yum`:
+    Em **RHEL** e **CentOS**, use Olá `yum` Gerenciador de pacotes:
 
     ```
     sudo yum install samba-client samba-common cifs-utils
     ```
 
-    No **openSUSE**, use o gerenciador de pacotes do `zypper`:
+    Em **openSUSE**, use Olá `zypper` Gerenciador de pacotes:
 
     ```
     sudo zypper install samba*
     ```
 
-    Em outras distribuições, use o gerenciador de pacotes apropriado ou [compile do código-fonte](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
+    Em outras distribuições, usar o Gerenciador de pacote apropriado hello ou [de compilação do código-fonte](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
 
-* **Decida as permissões de diretório/arquivo do compartilhamento montado**: nos exemplos abaixo, usamos 0777 para conceder as permissões de leitura, gravação e execução para todos os usuários. Você pode substituí-las por outras [permissões chmod](https://en.wikipedia.org/wiki/Chmod) se desejar. 
+* **Decidir sobre as permissões de diretório/arquivo hello do compartilhamento montado Olá**: exemplos de saudação abaixo, usamos 0777, toogive ler, gravar e executar permissões tooall os usuários. Você pode substituí-las por outras [permissões chmod](https://en.wikipedia.org/wiki/Chmod) se desejar. 
 
-* **Nome da conta de armazenamento**: para montar um compartilhamento de arquivos do Azure, você precisará do nome da conta de armazenamento.
+* **Nome da conta de armazenamento**: toomount de compartilhamento de um arquivo do Azure, será necessário Olá o nome da conta de armazenamento hello.
 
-* **Chave de conta de armazenamento**: para montar um compartilhamento de arquivos do Azure, você precisará da chave de armazenamento primária (ou secundária). Atualmente, as chaves SAS não têm suporte para montagem.
+* **Chave de conta de armazenamento**: toomount de compartilhamento de um arquivo do Azure, será necessário Olá o chave de armazenamento primária (ou secundário). Atualmente, as chaves SAS não têm suporte para montagem.
 
-* **Verifique se a porta 445 está aberta**: o SMB se comunica pela porta TCP 445, por isso confira se o firewall não está bloqueando as portas TCP 445 do computador cliente.
+* **Certifique-se de que a porta 445 está aberta**: SMB se comunica pela porta TCP 445 - verificar toosee se o firewall não está bloqueando o TCP portas 445 do computador cliente.
 
-## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montar o Compartilhamento de Arquivos do Azure sob demanda com `mount`
-1. **[Instale o pacote cifs-utils para sua distribuição Linux](#install-cifs-utils)**.
+## <a name="mount-hello-azure-file-share-on-demand-with-mount"></a>Montar Olá sob demanda com compartilhamento de arquivos do Azure`mount`
+1. **[Instalar o pacote de utilitários cifs Olá para a sua distribuição Linux](#install-cifs-utils)**.
 
-2. **Crie uma pasta para o ponto de montagem**: isso pode ser feito em qualquer lugar no sistema de arquivos.
+2. **Crie uma pasta para o ponto de montagem Olá**: isso pode ser feito em qualquer lugar no sistema de arquivo hello.
 
     ```
     mkdir mymountpoint
     ```
 
-3. **Use o comando de montagem para montar o Compartilhamento de Arquivos do Azure**: lembre-se de substituir `<storage-account-name>`, `<share-name>` e `<storage-account-key>` pelas informações apropriadas.
+3. **Compartilhamento de arquivo do Azure Use Olá montagem comando toomount Olá**: Lembre-se de tooreplace `<storage-account-name>`, `<share-name>`, e `<storage-account-key>` com informações apropriadas hello.
 
     ```
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
-> Quando tiver terminado de usar o Compartilhamento de Arquivos do Azure, você pode usar `sudo umount ./mymountpoint` para desmontar o compartilhamento.
+> Quando você terminar de usar Olá compartilhamento de arquivos do Azure, você pode usar `sudo umount ./mymountpoint` toounmount compartilhamento de saudação.
 
-## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Criar um ponto de montagem persistente para o Compartilhamento de Arquivos do Azure com `/etc/fstab`
-1. **[Instale o pacote cifs-utils para sua distribuição Linux](#install-cifs-utils)**.
+## <a name="create-a-persistent-mount-point-for-hello-azure-file-share-with-etcfstab"></a>Criar um ponto de montagem persistente para o compartilhamento de arquivos do Azure Olá`/etc/fstab`
+1. **[Instalar o pacote de utilitários cifs Olá para a sua distribuição Linux](#install-cifs-utils)**.
 
-2. **Crie uma pasta para o ponto de montagem**: isso pode ser feito em qualquer lugar no sistema de arquivos, mas você precisa observar o caminho absoluto da pasta. O exemplo a seguir cria uma pasta na raiz.
+2. **Crie uma pasta para o ponto de montagem Olá**: isso pode ser feito em qualquer lugar no sistema de arquivos hello, mas você precisa toonote Olá absoluto caminho da pasta de saudação. saudação de exemplo a seguir cria uma pasta raiz.
 
     ```
     sudo mkdir /mymountpoint
     ```
 
-3. **Use este comando para acrescentar a linha a seguir a `/etc/fstab`**: lembre-se de substituir `<storage-account-name>`, `<share-name>` e `<storage-account-key>` pelas informações apropriadas.
+3. **A seguir use Olá comando Olá tooappend seguinte linha muito`/etc/fstab`**: Lembre-se de tooreplace `<storage-account-name>`, `<share-name>`, e `<storage-account-key>` com informações apropriadas hello.
 
     ```
     sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  
-> Você pode usar `sudo mount -a` para montar o Compartilhamento de Arquivos do Azure após a edição de `/etc/fstab` em vez de reinicializar.
+> Você pode usar `sudo mount -a` toomount hello Azure compartilhamento após a edição `/etc/fstab` em vez de reinicialização.
 
 ## <a name="feedback"></a>Comentários
-Usuários do Linux, queremos ouvir sua opinião!
+Os usuários do Linux, queremos toohear de você!
 
-O Armazenamento de arquivos do Azure para o grupo de usuários do Linux oferece um fórum para que você possa compartilhar comentários à medida que você avalia e adota o Armazenamento de arquivos no Linux. Envie um email [aos usuários do Linux do Armazenamento de Arquivos do Azure](mailto:azurefileslinuxusers@microsoft.com) para participar do grupo de usuários.
+Olá armazenamento de arquivo do Azure para o grupo de usuários do Linux fornece um fórum para você tooshare comentários como avaliar e adotar o armazenamento de arquivo em Linux. Email [armazenamento de arquivo do Azure os usuários do Linux](mailto:azurefileslinuxusers@microsoft.com) grupo toojoin Olá dos usuários.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte estes links para obter mais informações sobre o armazenamento de arquivo do Azure.
 * [Referência à API REST do serviço de arquivos](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-* [Como usar o AzCopy com o Armazenamento do Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Usando a CLI do Azure com o Armazenamento do Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Como toouse AzCopy com o armazenamento do Microsoft Azure](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Usando Olá CLI do Azure com o armazenamento do Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Perguntas frequentes](../storage-files-faq.md)
 * [Solução de problemas](storage-troubleshoot-linux-file-connection-problems.md)

@@ -1,5 +1,5 @@
 ---
-title: "Compilação contínua e integração para o aplicativo Java Linux do Azure Service Fabric usando o Jenkins | Microsoft Docs"
+title: "aaaContinuous integração para o seu aplicativo do Azure Service Fabric Linux Java usando Jenkins e compilação | Microsoft Docs"
 description: "Compilação contínua e integração para o aplicativo Java Linux do Azure Service Fabric usando o Jenkins"
 services: service-fabric
 documentationcenter: java
@@ -14,75 +14,75 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.openlocfilehash: d9372407540d903acca5b1639a2d9ceb0bf3c571
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 15da2cb8c759233219369ea889550da93748129f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Use o Jenkins para criar e implantar o aplicativo Java do Linux
-Jenkins é uma ferramenta popular para implantação e integração contínua de seus aplicativos. Veja como criar e implantar o aplicativo do Service Fabric do Azure usando o Jenkins.
+# <a name="use-jenkins-toobuild-and-deploy-your-linux-java-application"></a>Use toobuild Jenkins e implantar seu aplicativo Java do Linux
+Jenkins é uma ferramenta popular para implantação e integração contínua de seus aplicativos. Aqui está como toobuild e implantar seu aplicativo do Azure Service Fabric usando Jenkins.
 
 ## <a name="general-prerequisites"></a>Pré-requisitos gerais
-- Ter o Git instalado localmente. Você pode instalar a versão apropriada do Git da [página de downloads do Git](https://git-scm.com/downloads), com base no seu sistema operacional. Se for novo no Git, saiba mais sobre ele na [documentação do Git](https://git-scm.com/docs).
-- Ter o plug-in Jenkins do Service Fabric à mão. Você pode baixá-lo de [Downloads do Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
+- Ter o Git instalado localmente. Você pode instalar a versão Git apropriada de saudação do [página de downloads de saudação Git](https://git-scm.com/downloads), com base no seu sistema operacional. Se você for novo tooGit, saiba mais sobre ele de saudação [Git documentação](https://git-scm.com/docs).
+- Ter Olá plug-in do serviço de malha Jenkins útil. Você pode baixá-lo de [Downloads do Service Fabric](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi).
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Configurar o Jenkins em um cluster do Service Fabric
 
-Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As próximas seções mostram como configurá-lo em um cluster usando uma conta de armazenamento do Azure para salvar o estado da instância do contêiner.
+Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. a seguir Olá seções mostrar como tooset-o dentro de um cluster durante o uso de um armazenamento do Azure conta toosave estado de saudação da instância de contêiner de saudação.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-1. Ter um cluster Linux do Service Fabric pronto. Um cluster do Service Fabric criado no portal do Azure já tem o Docker instalado. Se estiver realizando a execução localmente no cluster, verifique se o Docker está instalado usando o comando ``docker info``. Se não estiver instalado, instale-o adequadamente usando os seguintes comandos:
+1. Ter um cluster Linux do Service Fabric pronto. Um cluster do Service Fabric já criado de saudação portal do Azure tem Docker instalado. Se você estiver executando o cluster Olá localmente, verifique se o Docker é instalado usando o comando Olá ``docker info``. Se não estiver instalado, instalá-lo adequadamente usando Olá comandos a seguir:
 
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
   ```
-2. Ter o aplicativo de contêiner do Service Fabric implantado no cluster, usando as seguintes etapas:
+2. Ter o aplicativo de contêiner do Service Fabric hello implantado em cluster hello, usando Olá etapas a seguir:
 
   ```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
 ```
 
-3. Você precisa dos detalhes da opção de conexão do compartilhamento de arquivos do armazenamento do Azure no qual deseja persistir o estado da instância do contêiner Jenkins. Se estiver usando o portal do Microsoft Azure para o mesmo, siga as etapas – Criar uma conta de armazenamento do Azure, digamos, ``sfjenkinsstorage1``. Crie um **Compartilhamento de Arquivos** nessa conta de armazenamento, digamos, ``sfjenkins``. Clique em **Conectar** no compartilhamento de arquivos e observe os valores exibidos em **Conectando por meio do Linux**. Digamos que isso seja parecido com o seguinte:
+3. Você precisa Olá conectar detalhes de opção de saudação compartilhamento de arquivos do armazenamento do Azure, onde você deseja que o estado de saudação toopersist da instância de contêiner do hello Jenkins. Se você estiver usando o portal do Microsoft Azure Olá para Olá iguais,. Siga as etapas de saudação - criar uma conta de armazenamento do Azure, digamos que ``sfjenkinsstorage1``. Crie um **Compartilhamento de Arquivos** nessa conta de armazenamento, digamos, ``sfjenkins``. Clique em **conectar** para Olá Olá de compartilhamento de arquivos e observe o valores exibe em **conectando do Linux**, digamos que seria como as seguintes:
 ```sh
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
-4. Atualize os valores de espaço reservado no script ```setupentrypoint.sh``` com os detalhes correspondentes do armazenamento do Azure.
+4. Atualizar valores de espaço reservado Olá Olá ```setupentrypoint.sh``` script com detalhes correspondentes do armazenamento do azure.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 ```
-Substitua ``[REMOTE_FILE_SHARE_LOCATION]`` pelo valor ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` do resultado da conexão no ponto 3 acima.
-Substitua ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` pelo valor ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` no ponto 3 acima.
+Substituir ``[REMOTE_FILE_SHARE_LOCATION]`` com valor de saudação ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` da saída de saudação de saudação conectar-se no ponto 3 acima.
+Substituir ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` com valor de saudação ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` de ponto 3 acima.
 
-5. Conecte-se ao cluster e instale o aplicativo contêiner.
+5. Conecte-se o cluster toohello e instalar o aplicativo de contêiner hello.
 ```azurecli
 sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
-Isso instala um contêiner Jenkins no cluster e pode ser monitorado usando o Service Fabric Explorer.
+Isso instala um contêiner Jenkins no cluster Olá e pode ser monitorado usando Olá Service Fabric Explorer.
 
 ### <a name="steps"></a>Etapas
-1. No navegador, acesse ``http://PublicIPorFQDN:8081``. Ela fornece o caminho da senha de administrador inicial necessária para entrar. Você pode continuar a usar o Jenkins como um usuário administrativo. Ou você pode criar e alterar o usuário depois de entrar com a conta do administrador inicial.
+1. Em seu navegador, vá muito``http://PublicIPorFQDN:8081``. Ele fornece o caminho de saudação do toosign de senha necessária Olá administrador inicial no. Você pode continuar toouse Jenkins como um usuário administrativo. Ou você pode criar e alterar usuário hello, depois que você entrar com a conta de administrador inicial hello.
 
    > [!NOTE]
-   > Verifique se a porta 8081 é especificada como a porta de ponto de extremidade do aplicativo durante a criação do cluster.
+   > Verifique se a porta 8081 de saudação é especificada como a porta de ponto de extremidade de aplicativo hello enquanto você estiver criando um cluster de saudação.
    >
 
-2. Obter a ID de instância do contêiner usando ``docker ps -a``.
-3. Entre com SSH (Secure Shell) no contêiner e cole o caminho exibido no portal do Jenkins. Por exemplo, se o portal mostrar o caminho `PATH_TO_INITIAL_ADMIN_PASSWORD`, execute o seguinte:
+2. Obter ID de instância de contêiner hello usando ``docker ps -a``.
+3. Secure Shell (SSH) de entrada toohello contêiner e, em seguida, cole o caminho Olá que foi exibido no portal do hello Jenkins. Por exemplo, se no portal de saudação mostra o caminho de saudação `PATH_TO_INITIAL_ADMIN_PASSWORD`, execute Olá seguinte:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
   cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
 
-4. Configure o GitHub para trabalhar com o Jenkins, usando as etapas mencionadas em [Gerando uma nova chave SSH e adicionando-a ao agente SSH](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
-    * Usar as instruções fornecidas pelo GitHub para gerar uma chave SSH e adicionar a chave SSH à conta do GitHub que está hospedando o repositório.
-    * Execute os comandos mencionados no link anterior no shell Jenkins Docker (e não no host).
-    * Para entrar no shell Jenkins do host, use o seguinte comando:
+4. Configurar o GitHub toowork com Jenkins, usando as etapas Olá mencionadas [gerar uma nova chave SSH e adicioná-lo toohello SSH agente](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+    * Use instruções Olá fornecidas pela chave SSH do GitHub toogenerate hello e tooadd Olá SSH chave toohello conta do GitHub que está hospedando o seu repositório.
+    * Execute comandos Olá mencionados na saudação anterior link Olá shell Jenkins Docker (e não em seu host).
+    * toosign em toohello Jenkins shell do seu host, use Olá comando a seguir:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
@@ -90,82 +90,82 @@ Isso instala um contêiner Jenkins no cluster e pode ser monitorado usando o Ser
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Configurar o Jenkins fora de um cluster do Service Fabric
 
-Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As seções a seguir mostram como configurá-lo fora de um cluster.
+Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. Olá Mostrar seções a seguir como tooset-o fora de um cluster.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Você precisa ter o Docker instalado. Os comandos abaixo podem ser usados para instalar o Docker do terminal:
+É necessário toohave Docker instalado. Olá comandos a seguir pode ser usado tooinstall Docker de saudação terminal:
 
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
   ```
 
-Agora, ao executar ``docker info`` no terminal, você deve ver a saída executada pelo serviço Docker.
+Agora, quando você executa ``docker info`` no hello terminal, você verá na saída de saudação que Olá Docker serviço está em execução.
 
 ### <a name="steps"></a>Etapas
-  1. Baixar a imagem de contêiner Jenkins do Service Fabric:``docker pull raunakpandya/jenkins:v1``
-  2. Executar a imagem de contêiner:``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
-  3. Obter a ID de instância de imagem de contêiner. Você pode listar todos os contêineres do Docker com o comando ``docker ps –a``
-  4. Entre no portal do Jenkins usando as seguintes etapas:
+  1. Imagem de contêiner Olá Jenkins de malha do serviço de pull:``docker pull raunakpandya/jenkins:v1``
+  2. Execute a imagem de contêiner hello:``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
+  3. Obter ID de saudação da instância de imagem de contêiner de saudação. Você pode listar todos os contêineres do Docker Olá com o comando Olá``docker ps –a``
+  4. Entre no toohello Jenkins portal usando Olá etapas a seguir:
 
     * ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
     ```
     Se a ID do contêiner for 2d24a73b5964, use 2d 24.
-    * Esta senha é necessária para entrar no painel do Jenkins do portal, que é ``http://<HOST-IP>:8080``
-    * Depois de entrar pela primeira vez, você pode criar a própria conta de usuário e usá-la futuramente ou pode continuar a usar a conta de administrador. Após criar um usuário, você precisa continuar com ele.
-  5. Configure o GitHub para trabalhar com o Jenkins, usando as etapas mencionadas em [Gerando uma nova chave SSH e adicionando-a ao agente SSH](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
-        * Usar as instruções fornecidas no GitHub para gerar uma chave SSH e adicionar a chave SSH à conta do GitHub que está hospedando o repositório.
-        * Execute os comandos mencionados no link anterior no shell Jenkins Docker (e não no host).
-      * Para fazer logon no shell Jenkins do host, use os seguintes comandos:
+    * Essa senha é necessária para entrar no painel de Jenkins toohello do portal, que é``http://<HOST-IP>:8080``
+    * Após se inscrever hello primeira vez, você pode criar sua própria conta de usuário e usá-lo para fins de futuras, ou você pode continuar a conta de administrador toouse hello. Depois de criar um usuário, você precisa toocontinue com isso.
+  5. Configurar o GitHub toowork com Jenkins, usando as etapas Olá mencionadas [gerar uma nova chave SSH e adicioná-lo toohello SSH agente](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+        * Use instruções Olá fornecidas pela chave SSH de saudação do GitHub toogenerate e tooadd Olá SSH chave toohello conta do GitHub que está hospedando o repositório de saudação.
+        * Execute comandos Olá mencionados na saudação anterior link Olá shell Jenkins Docker (e não em seu host).
+      * toosign em toohello Jenkins shell do seu host, use Olá comandos a seguir:
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
       ```
 
-Verifique se o cluster ou a máquina em que a imagem de contêiner Jenkins está hospedada tem um IP público. Isso permite que a instância do Jenkins receba notificações do GitHub.
+Certifique-se de que cluster hello ou máquina onde Olá Jenkins contêiner imagem está hospedada tem um IP público. Isso permite que as notificações do hello Jenkins instância tooreceive do GitHub.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Instalar o plug-in do Jenkins do Service Fabric por meio do portal
+## <a name="install-hello-service-fabric-jenkins-plug-in-from-hello-portal"></a>Instalar Olá Jenkins de malha do serviço Plug-in do portal de saudação
 
-1. Acesse ``http://PublicIPorFQDN:8081``
-2. No painel do Jenkins, selecione **Gerenciar Jenkins** > **Gerenciar plug-ins** > **Avançado**.
-Aqui, você pode carregar um plug-in. Selecione **Escolher arquivo** e selecione o arquivo **serviceFabric.hpi** que você baixou na etapa de pré-requisitos. Quando você seleciona **Carregar**, o Jenkins instala o plug-in automaticamente. Se solicitado, permita a reinicialização.
+1. Vá muito``http://PublicIPorFQDN:8081``
+2. No painel de Jenkins hello, selecione **Jenkins gerenciar** > **gerenciar plug-ins** > **avançado**.
+Aqui, você pode carregar um plug-in. Selecione **Escolher arquivo**e, em seguida, selecione Olá **serviceFabric.hpi** arquivo que você baixou em pré-requisitos. Quando você seleciona **carregar**, Jenkins instala automaticamente Olá plug-in. Se solicitado, permita a reinicialização.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Criar e configurar um trabalho do Jenkins
 
 1. Criar um **novo item** no painel.
 2. Insira um nome de item (por exemplo, **MyJob**). Selecione **projeto em estilo livre**e clique em **OK**.
-3. Acesse a página do trabalho e clique em **Configurar**.
+3. Acesse a página de saudação do trabalho e clique **configurar**.
 
-   a. Na seção geral, em **Projeto GitHub**, especifique a URL do projeto GitHub. Essa URL hospeda o aplicativo Java do Service Fabric que você deseja integrar à integração contínua do Jenkins, no fluxo de implantação contínua (CI/CD) (por exemplo, ``https://github.com/sayantancs/SFJenkins``).
+   a. Na seção geral de hello, em **GitHub projeto**, especifique a URL do projeto GitHub. Essa URL hosts Olá Service Fabric aplicativo Java que você deseja toointegrate com hello integração contínua Jenkins, implantação contínua (CI/CD) fluxo (por exemplo, ``https://github.com/sayantancs/SFJenkins``).
 
-   b. Na seção **Gerenciamento de Código-Fonte**, selecione **Git**. Especifique a URL do repositório que hospeda o aplicativo Java do Service Fabric que você deseja integrar ao fluxo CI/CD do Jenkins (por exemplo, ``https://github.com/sayantancs/SFJenkins.git``). Você também pode especificar aqui quais ramificações devem ser criadas (por exemplo, **/mestre**).
-4. Configure seu *GitHub* (que está hospedando o repositório) para que ele seja capaz de se comunicar com o Jenkins. Use as seguintes etapas:
+   b. Em Olá **código-fonte gerenciamento** seção, selecione **Git**. Especifique a URL do repositório Olá que hospeda o aplicativo de serviço do Fabric Java hello que você deseja toointegrate com hello fluxo Jenkins CI/CD (por exemplo, ``https://github.com/sayantancs/SFJenkins.git``). Além disso, você pode especificar aqui quais toobuild ramificação (por exemplo, **/mestre**).
+4. Configurar seu *GitHub* (que está hospedando o repositório de saudação) para que ele seja capaz de tootalk tooJenkins. Olá Use as etapas a seguir:
 
-   a. Vá para sua página do repositório GitHub. Vá para **Configurações** > **Integrações e Serviços**.
+   a. Acesse a página de repositório do GitHub tooyour. Vá muito**configurações** > **integrações e serviços**.
 
-   b. Selecione **Adicionar Serviço**, digite **Jenkins** e selecione o **plug-in Jenkins-Github**.
+   b. Selecione **Adicionar serviço**, tipo **Jenkins**e selecione hello **Jenkins GitHub plug-in**.
 
    c. Insira a URL do webhook Jenkins (por padrão, ele deve ser ``http://<PublicIPorFQDN>:8081/github-webhook/``). Clique em **adicionar/atualizar serviço**.
 
-   d. Um evento de teste é enviado para a instância do Jenkins. Você verá uma marca de seleção verde ao lado do webhook no GitHub, e o projeto será criado.
+   d. Um evento de teste é enviado tooyour Jenkins instância. Você deve ver uma marca de seleção verde Olá webhook no GitHub e criará seu projeto.
 
-   e. Na seção **Criar Gatilhos**, selecione a opção de compilação desejada. Para este exemplo, você deseja disparar uma compilação sempre que ocorrer alguma envio para o repositório. Portanto, você seleciona **Gatilho de gancho do GitHub para sondagem GITScm**. (Anteriormente, essa opção se chamava **Compilar quando uma alteração for enviada ao GitHub**.)
+   e. Em Olá **criar gatilhos** seção, selecione a opção desejada de compilação. Neste exemplo, você deseja tootrigger uma compilação sempre que ocorre algum repositório toohello de envio. Portanto, você seleciona **Gatilho de gancho do GitHub para sondagem GITScm**. (Anteriormente, essa opção foi chamada **criar quando uma alteração é enviada por push tooGitHub**.)
 
-   f. Na **seção Criar**, na lista suspensa **Adicionar etapa de compilação**, selecione a opção **Invocar Gradle Script**. No widget surgido, especifique o caminho para **Script da build raiz** para o aplicativo. Ele obtém o build.gradle no caminho especificado e funciona de maneira correspondente. Se você criar um projeto chamado ``MyActor``(usando o plug-in Eclipse ou gerador Yeoman), o script da build raiz deverá conter ``${WORKSPACE}/MyActor``. Confira a seguinte captura de tela para obter um exemplo dessa aparência:
+   f. Em Olá **criar seção**, na lista suspensa Olá **adicionar a etapa de compilação**, selecione opção Olá **invocar Gradle Script**. No widget de saudação que vem, especifique o caminho de saudação muito**raiz criar script** para seu aplicativo. Ele seleciona gradle do caminho de saudação especificado e funciona adequadamente. Se você criar um projeto chamado ``MyActor`` (usando o gerador de plug-in ou Yeoman Eclipse Olá), o script de compilação Olá raiz deve conter ``${WORKSPACE}/MyActor``. Consulte Olá captura de tela de um exemplo de aparência a seguir:
 
     ![Ação Compilar do Jenkins no Service Fabric][build-step]
 
-   g. No menu suspenso **Ações Pós-Compilação**, selecione **Implantar Projeto do Service Fabric**. Aqui, você precisa fornecer detalhes do cluster em que o aplicativo do Service Fabric compilado para o Jenkins deve ser implantado. Você também pode fornecer detalhes adicionais de aplicativos usados para implantar o aplicativo. Confira a seguinte captura de tela para obter um exemplo dessa aparência:
+   g. De saudação **ações de pós-compilação** lista suspensa, selecione **implantar projeto do serviço de malha**. Aqui, você deve tooprovide cluster detalhes onde hello Jenkins compilada aplicativo de malha do serviço devem ser implantados. Você também pode fornecer detalhes de aplicativo adicionais usados aplicativo hello de toodeploy. Consulte Olá captura de tela de um exemplo de aparência a seguir:
 
     ![Ação Compilar do Jenkins no Service Fabric][post-build-step]
 
    > [!NOTE]
-   > Aqui, o cluster pode ser o mesmo que hospeda o aplicativo de contêiner Jenkins caso você esteja usando o Service Fabric para implantar a imagem de contêiner Jenkins.
+   > cluster de saudação aqui pode ser o mesmo como Olá uma hospedagem Olá Jenkins aplicativo de contêiner, caso você esteja usando imagem de contêiner do Service Fabric toodeploy Olá Jenkins.
    >
 
 ## <a name="next-steps"></a>Próximas etapas
-O GitHub e o Jenkins agora estão configurados. Considere fazer algumas alterações de exemplo em seu projeto ``MyActor`` no repositório de exemplo, https://github.com/sayantancs/SFJenkins. Envie por push as alterações à ramificação ``master`` remota (ou a qualquer ramificação que você configurou para o trabalho). Isso dispara o trabalho do Jenkins, ``MyJob``, que você configurou. Busca as alterações do GitHub, compila-as e implanta o aplicativo no ponto de extremidade do cluster especificado nas ações pós-compilação.  
+O GitHub e o Jenkins agora estão configurados. Considere fazer algum exemplo alterar seu ``MyActor`` projeto no exemplo de repositório hello, https://github.com/sayantancs/SFJenkins. Enviar por push o tooa alterações remoto ``master`` ramificação (ou qualquer que você configurou toowork com). Isso dispara o trabalho de Jenkins hello, ``MyJob``, que você configurou. Busca de alterações de saudação do GitHub, compila-los e implanta Olá aplicativo toohello cluster ponto de extremidade especificado em ações de pós-compilação.  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png

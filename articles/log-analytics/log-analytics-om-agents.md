@@ -1,6 +1,6 @@
 ---
-title: Conectar o Operations Manager ao Log Analytics | Microsoft Docs
-description: "Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho do OMS."
+title: "aaaConnect do Operations Manager tooLog análise | Microsoft Docs"
+description: "toomaintain estendido de seu investimento no System Center Operations Manager e usar recursos de análise de Log, você pode integrar o Operations Manager com o seu espaço de trabalho do OMS."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: magoedte
-ms.openlocfilehash: bcfffe05dbce2824ea4933997865e8c7e86610b6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b2841c7aa209fec7357dc4c8b1ff4325fdaa37ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-operations-manager-to-log-analytics"></a>Conectar o Operations Manager ao Log Analytics
-Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho do OMS.  Isso permite aproveitar as oportunidades do OMS e continuar a usar o Operations Manager para:
+# <a name="connect-operations-manager-toolog-analytics"></a>Conectar o Operations Manager tooLog análise
+toomaintain estendido de seu investimento no System Center Operations Manager e usar recursos de análise de Log, você pode integrar o Operations Manager com o seu espaço de trabalho do OMS.  Isso permite que você aproveitar as oportunidades de saudação do OMS enquanto continua toouse do Operations Manager para:
 
-* Continuar a monitorar a integridade dos seus serviços de TI com o Operations Manager
+* Continuar o monitoramento de integridade de saudação de seus serviços de TI com o Operations Manager
 * Manter a integração com suas soluções de ITSM com suporte ao gerenciamento de incidentes e problemas
-* Gerenciar o ciclo de vida dos agentes implantados em máquinas virtuais locais e em IaaS em nuvem pública que podem ser monitorados com o Operations Manager
+* Gerenciar o ciclo de vida de saudação dos agentes implantados tooon local e nuvem pública máquinas virtuais que você monitorar com o Operations Manager
 
-A integração com o System Center Operations Manager agrega valor à sua estratégia de operações de serviço, usando a velocidade e eficiência do OMS ao coletar, armazenar e analisar dados do Operations Manager.  O OMS ajuda a correlacionar e busca identificar as falhas dos problemas e identificar recorrências para dar suporte ao seu processo de gerenciamento de problemas existente.   A flexibilidade do mecanismo de pesquisa para examinar dados de desempenho, de eventos e de alertas com painéis avançados e recursos de relatórios para expor tais dados de maneiras significativas demonstra a potência do que OMS traz para complementar o Operations Manager.
+Integração com o System Center Operations Manager adiciona estratégia de operações de serviço do valor tooyour usando a velocidade de saudação e a eficiência do OMS de coletar, armazenar e analisar dados do Operations Manager.  OMS ajuda a correlacionar e trabalho com relação a identificação de falhas de saudação de problemas e identificar recorrências para oferecer suporte a seu processo de gerenciamento existente do problema.   Olá flexibilidade de saudação pesquisa mecanismo tooexamine desempenho, eventos e alerta de dados, com painéis avançados e reporting recursos tooexpose esses dados de maneiras significativas, demonstra força Olá OMS coloca em como complemento do Operations Manager.
 
-Os agentes de relatórios para o grupo de gerenciamento do Operations Manager coletam dados dos seus servidores com base em como as fontes de dados e soluções do Log Analytics habilitados na sua assinatura do OMS.  Dependendo da solução que você habilitou, dados dessas soluções são enviados diretamente de um servidor de gerenciamento do Operations Manager para o serviço Web do OMS ou por causa do volume de dados coletados no sistema gerenciado por agente, são enviados diretamente do agente para o serviço Web do OMS. O servidor de gerenciamento encaminha os dados do OMS diretamente para o serviço Web do OMS e eles nunca são gravados no banco de dados do OperationsManager ou OperationsManagerDW.  Quando um servidor de gerenciamento perde a conectividade com o serviço Web do OMS, ele armazena os dados em cache localmente até a comunicação ser restabelecida com o OMS.  Se o servidor de gerenciamento estiver offline devido a uma manutenção planejada ou interrupção inesperada, outro servidor de gerenciamento no grupo de gerenciamento continuará a conectividade com o OMS.  
+agentes de saudação reporting grupo de gerenciamento do Operations Manager toohello coletam dados de seus servidores com base em fontes de dados de análise de Log hello e soluções habilitadas em sua assinatura do OMS.  Dependendo da solução Olá que você habilitou, dados, essas soluções são enviadas diretamente de um servidor de gerenciamento do Operations Manager toohello OMS o serviço da web, ou devido a saudação volume de dados coletados no sistema gerenciado por agente hello, são enviados diretamente do serviço web do hello agente tooOMS. servidor de gerenciamento Olá encaminha os dados do OMS Olá diretamente toohello OMS web serviço; banco de dados OperationsManager ou OperationsManagerDW toohello nunca será gravada.  Quando um servidor de gerenciamento perde a conectividade com o serviço de web do OMS hello, ele armazena em cache dados saudação localmente até que a comunicação é restabelecida com o OMS.  Se o servidor de gerenciamento Olá estiver offline devido tooplanned manutenção ou paralisação, outro servidor de gerenciamento no grupo de gerenciamento Olá retoma a conectividade com o OMS.  
 
-O diagrama a seguir ilustra a conexão entre os servidores de gerenciamento e agentes em um grupo de gerenciamento do System Center Operations Manager e o OMS, incluindo a direção e as portas.   
+Olá diagrama a seguir ilustra conexão Olá entre servidores de gerenciamento hello e os agentes em um grupo de gerenciamento do System Center Operations Manager e o OMS, incluindo portas e direção hello.   
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-Se suas políticas de segurança não permitem que computadores em sua rede se conectem à Internet, os servidores de gerenciamento podem ser configurados para se conectar ao Gateway do OMS para receber informações de configuração e enviar os dados coletados dependendo da solução habilitada.  Para obter mais informações e etapas sobre como configurar o grupo de gerenciamento do Operations Manager para se comunicar através de um Gateway do OMS ao serviço OMS, consulte [Conectar computadores ao OMS usando o Gateway do OMS](log-analytics-oms-gateway.md).  
+Se suas políticas de segurança de TI não permitir que os computadores em sua toohello tooconnect de rede da Internet, servidores de gerenciamento podem ser configurado tooconnect toohello OMS Gateway tooreceive configuração informações e enviar os dados coletados dependendo na solução Olá ter habilitado.  Para obter mais informações e etapas sobre como tooconfigure seu toocommunicate de grupo de gerenciamento do Operations Manager por meio de um serviço OMS do Gateway do OMS toohello, consulte [conectar computadores tooOMS usando Olá OMS Gateway](log-analytics-oms-gateway.md).  
 
 ## <a name="system-requirements"></a>Requisitos do sistema
-Antes de começar, examine os detalhes a seguir para verificar se você atende aos pré-requisitos.
+Antes de começar, examine Olá tooverify detalhes que você atenda aos pré-requisitos a seguir.
 
 * O OMS dá suporte apenas ao Operations Manager 2016, Operations Manager 2012 SP1 UR6 e superior e ao Operations Manager 2012 R2 UR2 e superior.  Foi adicionado suporte a proxy ao Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
-* Todos os agentes do Operations Manager devem atender aos requisitos de suporte mínimos. Verifique se os agentes estão em dia pelo menos até a atualização mínima, caso contrário o tráfego de agente do Windows poderão falhar e muitos erros poderão lotar o log de eventos do Operations Manager.
+* Todos os agentes do Operations Manager devem atender aos requisitos de suporte mínimos. Certifique-se de que agentes estão no atualização mínima hello, caso contrário, o tráfego de agente do Windows pode falhar e muitos erros podem preencher o log de eventos do Operations Manager de saudação.
 * Uma assinatura do OMS.  Para obter informações adicionais, leia a [Introdução ao Log Analytics](log-analytics-get-started.md).
 
 ### <a name="network"></a>Rede
-As informações abaixo listam as informações de configuração de proxy e firewall necessárias para o agente do Operations Manager, servidores de gerenciamento e console de Operações para se comunicar com o OMS.  O tráfego de cada componente sai da rede para o serviço OMS.     
+informações de saudação abaixo lista Olá proxy e firewall informações de configuração necessárias para o agente do Operations Manager hello, servidores de gerenciamento e toocommunicate do console de operações com o OMS.  Tráfego de cada componente é de saída do seu serviço OMS do toohello de rede.     
 
 |Recurso | Número da porta| Ignorar a Inspeção de HTTP|  
 |---------|------|-----------------------|  
@@ -59,7 +59,7 @@ As informações abaixo listam as informações de configuração de proxy e fir
 |\*.blob.core.windows.net| 443| Sim|  
 |\*.ods.opinsights.azure.com| 443| Sim|  
 |*.azure-automation.net | 443| Sim|  
-|**Console do Operations Manager para o OMS**|||  
+|**TooOMS de console do Operations Manager**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
 |\*.live.com| 80 e 443||  
@@ -69,133 +69,133 @@ As informações abaixo listam as informações de configuração de proxy e fir
 |login.windows.net| 80 e 443||  
 
 
-## <a name="connecting-operations-manager-to-oms"></a>Conectando o Operations Manager ao OMS
-Realize a série de etapas a seguir para configurar o grupo de gerenciamento do Operations Manager para se conectar a um dos seus espaços de trabalho do OMS.
+## <a name="connecting-operations-manager-toooms"></a>Conectando o Operations Manager tooOMS
+Execute Olá seguinte série de etapas tooconfigure seu tooone de tooconnect do grupo de gerenciamento do Operations Manager dos espaços de trabalho do OMS.
 
-1. Abra o console do Operations Manager e selecione o espaço de trabalho **Administração** .
-2. Expanda o nó do Operations Management Suite e clique em **Conexão**.
-3. Clique no link **Registrar-se no Operations Management Suite** .
-4. Na página **Assistente de Integração do Operations Management Suite: autenticação**, insira o endereço de email ou o número de telefone e a senha da conta de administrador que está associada à sua assinatura do OMS e clique em **Entrar**.
-5. Depois de ser autenticado com êxito, na página **Assistente de Integração do Operations Management Suite: selecione o espaço de trabalho**, será solicitado que você selecione seu espaço de trabalho do OMS.  Se você tiver mais de um espaço de trabalho, selecione aquele em que você deseja registrar-se com o grupo de gerenciamento do Operations Manager da lista suspensa e clique em **Avançar**.
+1. No console do Operations Manager hello, selecione Olá **administração** espaço de trabalho.
+2. Expanda o nó do hello Operations Management Suite e clique em **Conexão**.
+3. Clique em Olá **registrar tooOperations Management Suite** link.
+4. Em Olá **operações Assistente integrado do consultor: autenticação** página, insira o endereço de email de saudação ou o número de telefone e a senha da conta de administrador de saudação que é associada à sua assinatura do OMS e clique em  **Entrar no**.
+5. Depois que você está autenticado com êxito, no hello **Assistente para integração do Operations Management Suite: selecionar espaço de trabalho** página, são solicitadas tooselect seu espaço de trabalho do OMS.  Se você tiver mais de um espaço de trabalho, selecione Olá espaço de trabalho, você deseja tooregister com grupo de gerenciamento do Operations Manager Olá da lista suspensa de saudação e, em seguida, clique em **próximo**.
    
    > [!NOTE]
-   > O Operations Manager dá suporte a apenas um espaço de trabalho do OMS por vez. A conexão e os computadores que foram registrados ao OMS com o espaço de trabalho anterior são removidos do OMS.
+   > O Operations Manager dá suporte a apenas um espaço de trabalho do OMS por vez. conexão Olá Olá computadores e que foram registrados tooOMS com espaço de trabalho anterior de saudação são removidos do OMS.
    > 
    > 
-6. Na página **Assistente de Integração do Operations Management Suite: resumo**, confirme suas configurações e, se elas estiverem corretas, clique em **Criar**.
-7. Na página **Assistente de Integração do Operations Management Suite: conclusão** clique em **Fechar**.
+6. Em Olá **operações Assistente integrado do consultor: resumo** página, confirme suas configurações e se estiverem corretas, clique em **criar**.
+7. Em Olá **operações Assistente integrado do consultor: Concluir** , clique em **fechar**.
 
 ### <a name="add-agent-managed-computers"></a>Adicionar computadores gerenciados por agente
-Depois de configurar a integração com o seu espaço de trabalho do OMS, apenas uma conexão com o OMS é estabelecida, nenhum dado é coletado dos agentes de relatórios para o grupo de gerenciamento. Isso só acontecerá depois de configurar quais computadores gerenciados por agente específicos coletam dados para o Log Analytics. Você pode selecionar os objetos de computador individualmente ou um grupo que contém objetos de computador do Windows. Não é possível selecionar um grupo que contém instâncias de outra classe, como discos lógicos ou Bancos de Dados SQL.
+Depois de configurar a integração com o seu espaço de trabalho do OMS, isso só estabelece uma conexão com o OMS, sem dados são coletados dos agentes Olá tooyour grupo de gerenciamento de relatórios. Isso só acontecerá depois de configurar quais computadores gerenciados por agente específicos coletam dados para o Log Analytics. Você pode selecionar objetos de computador Olá individualmente ou você pode selecionar um grupo que contenha objetos de computador do Windows. Não é possível selecionar um grupo que contém instâncias de outra classe, como discos lógicos ou Bancos de Dados SQL.
 
-1. Abra o console do Operations Manager e selecione o espaço de trabalho **Administração** .
-2. Expanda o nó do Operations Management Suite e clique em **Conexão**.
-3. Clique no link **Adicionar um Computador/Grupo** no cabeçalho Ações no lado direito do painel.
-4. Na caixa de diálogo **Pesquisa de Computador**, é possível pesquisar computadores ou grupos monitorados pelo Operations Manager. Selecione os computadores ou grupos a serem carregado para o OMS, clique em **Adicionar** e em **OK**.
+1. Console do Operations Manager abertos hello e selecione Olá **administração** espaço de trabalho.
+2. Expanda o nó do hello Operations Management Suite e clique em **Conexão**.
+3. Clique em hello **adicionar um grupo decomputadores/** link em ações de saudação título no lado direito de saudação do painel de saudação.
+4. Em Olá **pesquisa de computador** caixa de diálogo, você pode pesquisar computadores ou grupos monitorados pelo Operations Manager. Selecione tooOMS tooonboard de computadores ou grupos, clique em **adicionar**e, em seguida, clique em **Okey**.
 
-Você pode exibir computadores e grupos configurados para coletar dados do nó Computadores Gerenciados no Operations Management Suite no espaço de trabalho **Administração** do Console de operações.  Aqui, é possível adicionar ou remover computadores e grupos conforme necessário.
+Você pode exibir os computadores e grupos configurados toocollect dados do nó de computadores gerenciados de saudação sob Operations Management Suite em Olá **administração** espaço de trabalho do console de operações de saudação.  Aqui, é possível adicionar ou remover computadores e grupos conforme necessário.
 
-### <a name="configure-oms-proxy-settings-in-the-operations-console"></a>Definir configurações de proxy do OMS no Console de operações
-Execute as etapas a seguir se um servidor proxy interno estiver entre o grupo de gerenciamento e o serviço Web do OMS.  Essas configurações são gerenciadas centralmente do grupo de gerenciamento e distribuídas para sistemas gerenciados por agentes que estão incluídos no escopo para coletar dados para OMS.  Isso é útil para quando determinadas soluções ignorarem o servidor de gerenciamento e enviarem dados diretamente para o serviço Web do OMS.
+### <a name="configure-oms-proxy-settings-in-hello-operations-console"></a>Definir configurações de proxy OMS no console de operações de saudação
+Execute Olá etapas a seguir se for um servidor proxy interno entre o grupo de gerenciamento hello e o serviço web do OMS.  Essas configurações são gerenciadas centralmente em grupo de gerenciamento de saudação e sistemas distribuídos tooagent gerenciados que estão incluídos nos dados de toocollect escopo Olá para OMS.  Isso é útil para quando determinadas soluções bypass Olá gerenciamento servidor e enviar dados diretamente tooOMS de serviço da web.
 
-1. Abra o console do Operations Manager e selecione o espaço de trabalho **Administração** .
+1. Console do Operations Manager abertos hello e selecione Olá **administração** espaço de trabalho.
 2. Expanda Operations Management Suite e clique em **Conexões**.
-3. Na exibição Conexão do OMS, clique em **Configurar Servidor Proxy**.
-4. Na página **Assistente do Operations Management Suite: servidor proxy**, selecione **Usar um servidor proxy para acessar o Operations Management Suite** e digite a URL com o número da porta, por exemplo, http://corpproxy:80, e clique em **Concluir**.
+3. No hello exibição Conexão do OMS, clique em **configurar servidor Proxy**.
+4. Em **Assistente do consultor: servidor Proxy** página, selecione **usar uma tooaccess saudação do servidor proxy Operations Management Suite**, e, em seguida, digite a URL de saudação com número de porta hello, por exemplo, http:// corpproxy:80 e clique **concluir**.
 
-Se o servidor proxy exigir autenticação, execute as etapas a seguir para configurar as credenciais e as configurações que precisam ser propagadas para computadores gerenciados que relatam para o OMS no grupo de gerenciamento.
+Se o servidor proxy requer autenticação, execute as etapas a seguir de saudação tooconfigure credenciais e configurações que precisam toopropagate toomanaged computadores que relata tooOMS no grupo de gerenciamento de saudação.
 
-1. Abra o console do Operations Manager e selecione o espaço de trabalho **Administração** .
+1. Console do Operations Manager abertos hello e selecione Olá **administração** espaço de trabalho.
 2. Em **Configuração RunAs**, selecione **Perfis**.
-3. Abra o perfil **System Center Advisor executado como Proxy de perfil** .
-4. No Assistente de perfil Executar como, clique em Adicionar para usar uma conta Executar como. Você pode criar uma conta [Executar Como](https://technet.microsoft.com/library/hh321655.aspx) ou usar uma conta existente. Essa conta deve ter permissões suficientes para passar pelo servidor proxy.
-5. Para definir a conta para gerenciar, escolha **Uma classe, grupo ou objeto selecionado** e clique em **Selecione...** e, em seguida, clique em **Grupo...** para abrir a caixa **Pesquisa de Grupo**.
-6. Procure e selecione o **Grupo de Servidores de Monitoramento do Microsoft System Center Advisor**.  Clique em **OK** depois de selecionar o grupo para fechar a caixa **Pesquisa de Grupo**.
-7. Clique em **OK** para fechar a caixa **Adicionar uma conta Executar como**.
-8. Clique em **Salvar** para concluir o assistente e salvar suas alterações.
+3. Olá abrir **Proxy System Center Advisor executado como perfil** perfil.
+4. No hello Assistente executar como perfil, clique em Adicionar toouse uma conta executar como. Você pode criar uma conta [Executar Como](https://technet.microsoft.com/library/hh321655.aspx) ou usar uma conta existente. Essa conta precisa toohave suficientes permissões toopass por meio do servidor de proxy de saudação.
+5. tooset Olá conta toomanage, escolha **uma classe selecionada, grupo ou objeto**, clique em **selecione...** e, em seguida, clique em **Grupo...** Olá tooopen **grupo pesquisa** caixa.
+6. Procure e selecione o **Grupo de Servidores de Monitoramento do Microsoft System Center Advisor**.  Clique em **Okey** depois de selecionar saudação do hello grupo tooclose **grupo pesquisa** caixa.
+7. Clique em **Okey** tooclose Olá **adicionar uma conta executar como** caixa.
+8. Clique em **salvar** toocomplete Olá assistente e salve as alterações.
 
-Depois de a conexão ser criada e você configurar quais agentes coletarão e relatarão dados para o OMS, a configuração a seguir é aplicada ao grupo de gerenciamento, não necessariamente nesta ordem:
+Depois de criar conexão hello e configurar quais agentes irá coletar e relatar dados tooOMS, hello configuração a seguir é aplicada no grupo de gerenciamento hello, não necessariamente nesta ordem:
 
-* A conta Executar como **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** é criada.  Ela está associada ao perfil Executar como Blob de perfil Executar como do **Microsoft System Center Advisor** e está voltada para duas classes: **Servidor de Coleta** e **Grupo de Gerenciamento do Operations Manager**.
-* Dois conectores são criados.  O primeiro é denominado **Microsoft.SystemCenter.Advisor.DataConnector** e é automaticamente configurado com uma assinatura que encaminha todos os alertas gerados de instâncias de todas as classes no grupo de gerenciamento para o Log Analytics do OMS. O segundo conector é o **Conector do Advisor**, que é responsável pela comunicação com o serviço Web do OMS e o compartilhamento de dados.
-* Agentes e grupos que você selecionou para coletar dados do grupo de gerenciamento são adicionados ao **Grupo de Servidores de Monitoramento do Microsoft System Center Advisor**.
+* Olá conta executar como **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** é criado.  Ele está associado ao perfil executar como da saudação **System Center Advisor executado como perfil de BLOBs do Microsoft** e o direcionamento de duas classes - **servidor coleta** e **grupo de gerenciamento do Operations Manager** .
+* Dois conectores são criados.  Olá primeiro chamado **Microsoft.SystemCenter.Advisor.DataConnector** e é automaticamente configurado com uma assinatura que encaminha todos os alertas gerados a partir de instâncias de todas as classes tooOMS de grupo de gerenciamento Olá Log Análise. conector segundo Olá **Advisor Connector**, que é responsável pela comunicação com o serviço web do OMS e compartilhamento de dados.
+* Agentes e grupos que você selecionou toocollect dados no grupo de gerenciamento de saudação é adicionado toohello **grupo de servidor de monitoramento do Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Atualizações do pacote de gerenciamento
-Após o assistente de configuração ser concluído, cada grupo de gerenciamento do Operations Manager estabelecerá uma conexão com o serviço do OMS.  O servidor de gerenciamento é sincronizado com o serviço Web e receberá informações de configuração atualizadas na forma de pacotes de gerenciamento para as soluções que você habilitou integradas ao Operations Manager.   O Operations Manager verifica atualizações para esses pacotes de gerenciamento, baixando-as e importando-as imediatamente quando elas estão disponíveis.  Há duas regras específicas que controlam esse comportamento:
+Após a configuração, o grupo de gerenciamento do Operations Manager Olá estabelece uma conexão com hello serviço OMS.  servidor de gerenciamento de saudação sincroniza com o serviço web de saudação e receber informações de configuração atualizada na forma de saudação de pacotes de gerenciamento para soluções de saudação habilitadas que se integram com o Operations Manager.   O Operations Manager verifica atualizações para esses pacotes de gerenciamento, baixando-as e importando-as imediatamente quando elas estão disponíveis.  Há duas regras específicas que controlam esse comportamento:
 
-* **Microsoft.SystemCenter.Advisor.MPUpdate** - Atualiza os pacotes de gerenciamento base do OMS. Executada a cada 12 horas por padrão.
+* **Microsoft.SystemCenter.Advisor.MPUpdate** -atualizações de pacotes de gerenciamento de OMS base hello. Executada a cada 12 horas por padrão.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Atualiza os pacotes de gerenciamento de solução habilitados no seu espaço de trabalho. Executada a cada cinco (5) minutos por padrão.
 
-Você pode substituir essas duas regras para impedir o download automático desabilitando-as ou modificando a frequência com que o servidor de gerenciamento é sincronizado com o OMS para determinar se um novo pacote de gerenciamento está disponível e deve ser baixado.  Siga as etapas em [Como substituir uma regra ou monitor](https://technet.microsoft.com/library/hh212869.aspx) para modificar o parâmetro **Frequency** com um valor em segundos para alterar o agendamento de sincronização ou modificar o parâmetro **Enabled** para desabilitar as regras.  Direcionar as substituições a todos os objetos da classe Grupo de Gerenciamento do Operations Manager.
+Você pode substituir essas duas regras tooeither impedir download automático, desativando-os ou modificar a frequência de saudação de frequência hello servidor de gerenciamento sincroniza com o OMS toodetermine se um novo pacote de gerenciamento estiver disponível e deve ser baixado.  Siga as etapas de saudação [como tooOverride uma regra ou Monitor](https://technet.microsoft.com/library/hh212869.aspx) toomodify Olá **frequência** parâmetro com um valor em segundos toochange Olá agenda de sincronização ou modificar Olá **habilitado**  regras de saudação do parâmetro toodisable.  Saudação de destino substitui tooall objetos da classe grupo de gerenciamento do Operations Manager.
 
-Se você quiser continuar seguindo o processo de controle de alterações existente para controlar as versões do pacote de gerenciamento no grupo de gerenciamento de produção, desabilite as regras e habilite-as durante horários específicos quando as atualizações forem permitidas. Se você tiver um desenvolvimento ou um grupo de gerenciamento de garantia de qualidade em seu ambiente e ele tiver conectividade com a Internet, configure esse grupo de gerenciamento com um espaço de trabalho do OMS para dar suporte a esse cenário.  Isso permite que você analise e avalie as versões iterativas dos pacotes de gerenciamento do OMS antes de liberá-las para seu grupo de gerenciamento de produção.
+Se você quiser toocontinue seguindo o processo de controle de alterações existente para controlar versões do pacote de gerenciamento no grupo de gerenciamento de produção, pode desabilitar regras hello e habilitá-los durante horários específicos quando as atualizações são permitidas. Se você tiver um desenvolvimento ou o grupo de gerenciamento de controle de qualidade em seu ambiente e tem toohello de conectividade da Internet, você pode configurar esse grupo de gerenciamento com uma toosupport de espaço de trabalho do OMS neste cenário.  Isso permite que você tooreview e avaliar a versões iterativo Olá Olá OMS de pacotes de gerenciamento antes de liberá-los em seu grupo de gerenciamento de produção.
 
-## <a name="switch-an-operations-manager-group-to-a-new-oms-workspace"></a>Alternar um grupo do Operations Manager para um novo espaço de trabalho do OMS
-1. Faça logon na sua assinatura do OMS e crie um espaço de trabalho no [Microsoft Operations Management Suite](http://oms.microsoft.com/).
-2. Abra o console do Operations Manager com uma conta que seja membro da função Administradores do Operations Manager e selecione o espaço de trabalho **Administração** .
+## <a name="switch-an-operations-manager-group-tooa-new-oms-workspace"></a>Alternar um tooa de grupo do Operations Manager novo espaço de trabalho do OMS
+1. Faça logon na assinatura do OMS tooyour e crie um espaço de trabalho em [Microsoft Operations Management Suite](http://oms.microsoft.com/).
+2. Console do Operations Manager Olá aberto com uma conta que seja membro da função de administradores do Operations Manager de saudação e selecione Olá **administração** espaço de trabalho.
 3. Expanda o Operations Management Suite e selecione **Conexões**.
-4. Selecione o link **Reconfigurar o Operation Management Suite** no meio do painel.
-5. Siga o **Assistente de Integração do Operations Management Suite** e insira o endereço de email ou número de telefone e a senha da conta de administrador associada ao seu espaço de trabalho do OMS.
+4. Selecione Olá **configurar novamente a operação Management Suite** link no lado intermediária saudação do painel de saudação.
+5. Siga Olá **Assistente para integração do Operations Management Suite** e digite Olá email endereço ou número de telefone e a senha da conta de administrador de saudação que está associada com seu novo espaço de trabalho do OMS.
    
    > [!NOTE]
-   > A página **Assistente de Integração do Operations Management: selecione o espaço de trabalho** apresenta o espaço de trabalho existente que está em uso.
+   > Olá **Assistente para integração do Operations Management Suite: selecionar espaço de trabalho** página apresenta o espaço de trabalho existente do hello que está em uso.
    > 
    > 
 
 ## <a name="validate-operations-manager-integration-with-oms"></a>Validar a Integração do Operations Manager com o OMS
-Existem algumas maneiras diferentes de verificar se a integração do OMS ao Operations Manager foi bem-sucedida.
+Há algumas maneiras diferentes, você pode verificar se seu tooOperations OMS integração Manager foi bem-sucedida.
 
-### <a name="to-confirm-integration-from-the-oms-portal"></a>Para confirmar a integração do portal do OMS
-1. No portal do OMS, clique no bloco **Configurações**
+### <a name="tooconfirm-integration-from-hello-oms-portal"></a>integração de tooconfirm do portal do OMS Olá
+1. No portal do OMS hello, clique em Olá **configurações** lado a lado
 2. Selecione **Fontes Conectadas**.
-3. Na tabela da seção System Center Operations Manager, você deve ver o nome do grupo de gerenciamento listado com o número de agentes e status de quando os dados foram recebidos pela última vez.
+3. Na tabela de saudação em Olá seção do System Center Operations Manager, você deve ver o nome de Olá Olá do grupo de gerenciamento listado com número de saudação de agentes e o status ao último recebimento de dados.
    
    ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
-4. Anote o valor da **ID do Espaço de Trabalho** no lado esquerdo da página Configurações.  Você a valida junto ao seu grupo de gerenciamento do Operations Manager, abaixo.  
+4. Saudação de Observação **ID do espaço de trabalho** valor saudação do lado esquerdo da página de configurações de saudação.  Você a valida junto ao seu grupo de gerenciamento do Operations Manager, abaixo.  
 
-### <a name="to-confirm-integration-from-the-operations-console"></a>Para confirmar a integração do console de Operações
-1. Abra o console do Operations Manager e selecione o espaço de trabalho **Administração** .
-2. Clique em **Pacotes de Gerenciamento** e, na caixa de texto **Procurar por:**, digite **Advisor** ou **Intelligence**.
-3. Dependendo das soluções que tiver habilitado, você verá um pacote de gerenciamento correspondente listado nos resultados da pesquisa.  Por exemplo, se tiver habilitado a solução de Gerenciamento de Alertas, o pacote de gerenciamento do Gerenciamento de Alertas do Microsoft System Center Advisor constará na lista.
-4. Da exibição **Monitoramento**, navegue até a exibição **Operations Management Suite\Estado de Integridade**.  Selecione um servidor de Gerenciamento no painel **Estado do Servidor de Gerenciamento** e, no painel **Exibição de Detalhes**, confirme se o valor da propriedade **URI do serviço de autenticação** coincide com a ID do espaço de trabalho do OMS.
+### <a name="tooconfirm-integration-from-hello-operations-console"></a>integração tooconfirm Olá no console de operações
+1. Console do Operations Manager abertos hello e selecione Olá **administração** espaço de trabalho.
+2. Selecione **pacotes de gerenciamento** e em Olá **procure:** tipo de caixa de texto **Advisor** ou **Intelligence**.
+3. Dependendo de você habilitou as soluções hello, verá um pacote de gerenciamento correspondente listado nos resultados da pesquisa de saudação.  Por exemplo, se você tiver habilitado o hello solução de gerenciamento de alertas, o pacote de gerenciamento de saudação gerenciamento de alertas do Microsoft System Center Advisor está na lista de saudação.
+4. De saudação **monitoramento** exibir, navegar toohello **Operations Management Suite\Health estado** exibição.  Selecione um servidor de gerenciamento em Olá **estado do servidor de gerenciamento** painel e em Olá **exibição de detalhes** painel Confirmar valor Olá propriedade **URI do serviço de autenticação** coincide com a ID do espaço de trabalho do OMS Olá
    
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-oms"></a>Remover a Integração com o OMS
-Quando você não precisar mais da integração entre o grupo de gerenciamento do Operations Manager e o espaço de trabalho do OMS, há várias etapas necessárias para remover corretamente a conexão e a configuração do grupo de gerenciamento. O procedimento a seguir fará você atualizar seu espaço de trabalho do OMS, excluindo a referência do grupo de gerenciamento, excluindo os conectores do OMS e, em seguida, excluindo os pacotes de gerenciamento com suporte do OMS.   
+Quando você não precisa mais integração entre o grupo de gerenciamento do Operations Manager e o espaço de trabalho do OMS, há várias etapas necessárias tooproperly remover Olá conexão e a configuração no grupo de gerenciamento de saudação. Olá procedimento a seguir tem você atualizar seu espaço de trabalho do OMS, excluindo a referência de saudação do seu grupo de gerenciamento, exclua Olá OMS conectores e, em seguida, excluir pacotes de gerenciamento com suporte do OMS.   
 
-Não é possível excluir facilmente do grupo de gerenciamento nem os pacotes de gerenciamento para as soluções que você habilitou que se integram com o Operations Manager, tampouco os pacotes de gerenciamento necessários para dar suporte à integração com o serviço OMS.  Isso ocorre porque alguns dos pacotes de gerenciamento de OMS têm dependências em outros pacotes de gerenciamento relacionados.  Para excluir pacotes de gerenciamento com uma dependência em outros pacotes de gerenciamento, baixe o script [remover um pacote de gerenciamento com dependências](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) do TechNet Script Center.  
+Pacotes de gerenciamento para soluções de saudação habilitadas que se integram com o Operations Manager e integração de toosupport necessária de pacotes de gerenciamento de Olá com hello serviço OMS não pode ser excluída facilmente saudação do grupo de gerenciamento.  Isso ocorre porque alguns dos pacotes de gerenciamento do OMS Olá tem dependências em outros pacotes de gerenciamento relacionados.  toodelete pacotes de gerenciamento com uma dependência em outros pacotes de gerenciamento, baixe o script hello [remover um pacote de gerenciamento com dependências](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) do TechNet Script Center.  
 
-1. Abra o Shell de Comando do Operations Manager com uma conta que seja membro da função Administradores do Operations Manager.
+1. Abra Olá Shell de comando do Operations Manager com uma conta que seja membro da função de administradores do Operations Manager hello.
    
     > [!WARNING]
-    > Verifique se você não tem pacotes de gerenciamento personalizados com a palavra Advisor ou IntelligencePack no nome antes de prosseguir, caso contrário, as etapas a seguir os excluirão do grupo de gerenciamento.
+    > Verifique se você não tiver pacotes de gerenciamento personalizados com palavra hello Supervisor ou IntelligencePack em nome de saudação antes de prosseguir, caso contrário, Olá etapas excluí-los a saudação do grupo de gerenciamento.
     > 
 
-2. No prompt de shell de comando, digite `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+2. No prompt de shell de comando hello, digite`Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 3. Em seguida, digite `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-4. Para remover quaisquer pacotes de gerenciamento restantes que tenham uma dependência de outros pacotes de gerenciamento do System Center Advisor, use o script *RecursiveRemove.ps1* baixado anteriormente do TechNet Script Center.  
+4. pacotes de pacotes de gerenciamento restantes que possuem uma dependência em outro gerenciamento do System Center Advisor tooremove, use o script hello *RecursiveRemove.ps1* baixado do hello TechNet Script Center anteriormente.  
  
     > [!NOTE]
-    > Não exclua os pacotes de gerenciamento do Microsoft System Center Advisor ou Microsoft System Center Advisor Interno.  
+    > Não exclua os pacotes de gerenciamento do Microsoft System Center Advisor ou o Microsoft System Center Advisor interno hello.  
     >  
 
-5. Abra o Console de operações do Operations Manager com uma conta que seja membro da função Administradores do Operations Manager.
-6. Em **Administração**, selecione o nó **Pacotes de Gerenciamento** e, na caixa **Procurar por:**, digite **Advisor** e verifique se os seguintes pacotes de gerenciamento ainda foram importados no grupo de gerenciamento:
+5. Abra o console de operações do Operations Manager Olá com uma conta que seja membro da função de administradores do Operations Manager hello.
+6. Em **administração**, selecione Olá **pacotes de gerenciamento** nó e em Olá **procure:** , digite **Advisor** e verifique se Olá ainda, os seguintes pacotes de gerenciamento são importados no grupo de gerenciamento:
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Interno
-7. No portal do OMS, clique no bloco **Configurações**.
+7. No portal do OMS hello, clique em Olá **configurações** lado a lado.
 8. Selecione **Fontes Conectadas**.
-9. Na tabela na seção System Center Operations Manager, você verá o nome do grupo de gerenciamento que deseja remover do espaço de trabalho.  Na coluna **Últimos Dados**, clique em **Remover**.  
+9. Na tabela de saudação em Olá seção do System Center Operations Manager, você deve ver o nome de Olá Olá do grupo de gerenciamento que você deseja tooremove do espaço de trabalho de saudação.  Na coluna Olá **últimos dados**, clique em **remover**.  
    
     > [!NOTE]
-    > O link **Remover** não estará disponível até depois de 14 dias, se não for detectada nenhuma atividade pelo grupo de gerenciamento conectado.  
+    > Olá **remover** link não estará disponível até depois de 14 dias se não houver nenhuma atividade detectada a partir do grupo de gerenciamento conectado hello.  
     > 
 
-10. Uma janela será exibida solicitando que você confirme se deseja continuar com a remoção.  Clique em **Sim** para confirmar. 
+10. Uma janela será exibida solicitando que você tooconfirm que você deseja tooproceed com a remoção de saudação.  Clique em **Sim** tooproceed. 
 
-Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e o Conector do Advisor, salve o script do PowerShell abaixo em seu computador e execute-o usando os exemplos a seguir:
+toodelete Olá dois conectores - Microsoft.SystemCenter.Advisor.DataConnector e o conector do Advisor, salve o script do PowerShell Olá abaixo tooyour computador e executar usando Olá exemplos a seguir:
 
 ```
     .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
@@ -203,7 +203,7 @@ Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e 
 ```
 
 > [!NOTE]
-> O computador no qual você executará esse script, se não for um servidor de gerenciamento, deverá ter o shell de comando do Operations Manager instalado, dependendo da versão do seu grupo de gerenciamento.
+> computador Olá de que executar este script, se não for um servidor de gerenciamento deve ter o shell de comando do Operations Manager Olá instalado dependendo da versão de saudação do seu grupo de gerenciamento.
 > 
 > 
 
@@ -215,7 +215,7 @@ Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e 
     $mg = new-object Microsoft.EnterpriseManagement.ManagementGroup $msName
     $admin = $mg.GetConnectorFrameworkAdministration()
     ##########################################################################################
-    # Configures a connector with the specified name.
+    # Configures a connector with hello specified name.
     ##########################################################################################
     function New-Connector([String] $name)
     {
@@ -239,7 +239,7 @@ Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e 
     return $connectorForTest
     }
     ##########################################################################################
-    # Removes a connector with the specified name.
+    # Removes a connector with hello specified name.
     ##########################################################################################
     function Remove-Connector([String] $name)
     {
@@ -293,9 +293,9 @@ Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e 
     Remove-Connector $connectorName
 ```
 
-No futuro, se você planejar reconectar o grupo de gerenciamento para um espaço de trabalho do OMS, será necessário importar novamente o arquivo de pacote de gerenciamento `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` do pacote cumulativo de atualizações mais recente aplicado ao grupo de gerenciamento.  Você pode encontrar esse arquivo no `%ProgramFiles%\Microsoft System Center 2012` ou na pasta `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+Na Olá futuras se você planeja reconectar seu gerenciamento grupo tooan OMS espaço de trabalho, você precisa importar toore Olá `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` arquivo de pacote de gerenciamento do pacote cumulativo de atualização mais recente da saudação aplicado tooyour grupo de gerenciamento.  Você pode encontrar esse arquivo na Olá `%ProgramFiles%\Microsoft System Center 2012` ou hello `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` pasta.
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md) para adicionar funcionalidade e coletar dados.
+funcionalidade de tooadd e coletar dados, consulte [soluções de análise de Log adicionar da Galeria de soluções de saudação](log-analytics-add-solutions.md).
 
 

@@ -1,5 +1,5 @@
 ---
-title: Limites de recursos do Banco de Dados SQL do Azure | Microsoft Docs
+title: Limites de recursos de banco de dados SQL do aaaAzure | Microsoft Docs
 description: "Esta página descreve alguns limites de recurso comuns para o Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: na
@@ -15,61 +15,61 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/12/2017
 ms.author: carlrab
-ms.openlocfilehash: e75458db79e6c15f8d5155b71f04a20fa21818ff
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3e7be4fdc74e802d37274690531caaf138bcedb0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-sql-database-resource-limits"></a>Limites de recursos do Banco de Dados SQL do Azure
 ## <a name="overview"></a>Visão geral
-O Banco de Dados SQL do Azure gerencia os recursos disponíveis para um banco de dados usando dois mecanismos diferentes: **Governança de Recursos** e **Imposição de Limites**. Este tópico explica essas duas áreas principais do gerenciamento de recursos.
+Banco de dados SQL do Azure gerencia Olá recursos disponíveis tooa banco de dados usando dois mecanismos diferentes: **governança de recursos** e **imposição de limites**. Este tópico explica essas duas áreas principais do gerenciamento de recursos.
 
 ## <a name="resource-governance"></a>Governança de recursos
-Uma das metas de design das camadas de serviço Básico, Standard, Premium e Premium RS é que o Banco de Dados SQL do Azure se comporte como se o banco de dados estivesse sendo executado em seu próprio computador, isolado de outros bancos de dados. A governança de recursos emula esse comportamento. Se a utilização de recursos agregada atingir o máximo de recursos da CPU, Memória, E/S de Log e de E/S de Dados disponíveis atribuídos ao banco de dados, a governança de recursos colocará na fila as consultas em execução e atribuirá recursos às consultas na fila conforme eles são liberados.
+Uma das metas de design Olá das camadas de serviço Basic, Standard, Premium e RS Premium Olá é para o banco de dados do Azure SQL toobehave como se o banco de dados de saudação está em execução em sua própria máquina, isolada de outros bancos de dados. A governança de recursos emula esse comportamento. Se Olá agregados utilização de recursos atinge Olá máximo disponível da CPU, memória, e/s de Log e banco de dados de e/s de dados recursos toohello atribuído, administração do recurso de consultas de filas em execução e atribuir recursos toohello enfileirada consultas como eles liberar.
 
-Assim como ocorre em um computador dedicado, a utilização de todos os recursos disponíveis resultará em uma execução mais longa das consultas em execução, o que poderá resultar em tempos limite de comando no cliente. Aplicativos com uma lógica de repetição agressiva e aplicativos que executam consultas no banco de dados com uma alta frequência podem encontrar mensagens de erro ao tentar executar novas consultas quando o limite de solicitações simultâneas for atingido.
+Como em um computador dedicado, utilizando os resultados de todos os recursos disponíveis em uma execução maior de consultas, em execução no momento, que pode resultar em tempos limite de comando no cliente de saudação. Aplicativos com lógica de repetição agressiva e aplicativos que executarem consultas no banco de dados de saudação com uma frequência alta podem encontrar mensagens de erros durante a tentativa de tooexecute novas consultas quando Olá limite de solicitações simultâneas foi atingido.
 
 ### <a name="recommendations"></a>Recomendações:
-Monitore a utilização de recursos e os tempos de resposta médios das consultas quando estiver próximo da utilização máxima de um banco de dados. Quando encontrar latências maiores de consulta, você geralmente terá três opções:
+Monitorar utilização de recursos de saudação e tempos de resposta médio de saudação de consultas ao se aproximar Olá máxima utilização de um banco de dados. Quando encontrar latências maiores de consulta, você geralmente terá três opções:
 
-1. Reduzir o número de solicitações de entrada para o banco de dados para prevenir o tempo limite e o acúmulo de solicitações.
-2. Atribuir um nível mais alto de desempenho ao banco de dados.
-3. Otimizar consultas para reduzir a utilização de recursos de cada consulta. Para obter mais informações, veja a seção Ajuste/dicas de consulta no artigo Diretrizes de desempenho do Banco de Dados SQL do Azure.
+1. Reduza o número de saudação de entrada solicitações toohello banco de dados tooprevent tempo limite e hello acumulação de solicitações.
+2. Atribua um banco de dados de toohello nível mais alto desempenho.
+3. Otimize a utilização de recursos de saudação consultas tooreduce de cada consulta. Para obter mais informações, consulte Olá seção ajuste/dicas de consulta no artigo de diretrizes de desempenho de banco de dados de SQL do Azure hello.
 
 ## <a name="enforcement-of-limits"></a>Imposição de limites
-Os recursos, além da CPU, Memória, E/S de log e E/S de dados, são impostos pela negação de novas solicitações quando os limites são atingidos. Quando um banco de dados atinge o limite de tamanho máximo configurado, inserções e atualizações que aumentam a falha do tamanho de dados, enquanto selecionar e excluir continua a funcionar. Os clientes recebem uma [mensagem de erro](sql-database-develop-error-messages.md) dependendo do limite que foi atingido.
+Os recursos, além da CPU, Memória, E/S de log e E/S de dados, são impostos pela negação de novas solicitações quando os limites são atingidos. Quando um banco de dados atinge o limite de tamanho máximo de saudação configurado, inserções e atualizações que aumentam o tamanho de dados falhar, enquanto seleciona e exclusões continuam toowork. Os clientes recebem um [mensagem de erro](sql-database-develop-error-messages.md) dependendo de limite de saudação foi atingido.
 
-Por exemplo, o número de conexões a um Banco de Dados SQL e o número de solicitações simultâneas que podem ser processadas, é restrito. O Banco de Dados SQL permite que o número de conexões ao banco de dados seja maior que o número de solicitações simultâneas para dar suporte ao pooling de conexões. Embora o número de conexões disponíveis possa facilmente ser controlado pelo aplicativo, o número de solicitações paralelas costuma ser mais difícil de ser estimado e controlado. Especialmente durante os picos de carga quando o aplicativo envia um número excessivo de solicitações ou quando o banco de dados atinge seus limites de recursos e começa a acumular threads de trabalho devido a consultas com execução mais longa, é possível encontrar erros.
+Por exemplo, número de saudação do banco de dados do SQL conexões tooa e número de saudação de solicitações simultâneas que podem ser processados são restritas. Banco de dados SQL permite o número de saudação de conexões toohello banco de dados toobe maior número de saudação do pool de conexão do toosupport de solicitações simultâneas. Enquanto o número de saudação de conexões que estão disponíveis facilmente possa ser controlado pelo aplicativo hello, Olá número de solicitações em paralelo geralmente é tooestimate mais difícil de vezes e toocontrol. Especialmente durante cargas de picos quando o aplicativo hello envia muitas solicitações ou banco de dados de saudação atinja os limites de recurso e começa a acumular threads de trabalho devido a consultas de execução toolonger, erros podem ser encontrados.
 
 ## <a name="service-tiers-and-performance-levels"></a>Camadas de serviço e níveis de desempenho
 Há camadas de serviço e níveis de desempenho para o banco de dados individual e pools elásticos.
 
 ### <a name="single-databases"></a>Bancos de dados únicos
-Para um banco de dados individual, os limites são definidos pelo nível de serviço e de desempenho do banco de dados. A tabela a seguir descreve as características dos bancos de dados Básico, Standard, Premium e Premium RS em vários níveis de desempenho.
+Para um único banco de dados, os limites de saudação do banco de dados são definidos por nível de desempenho e da camada de serviço de banco de dados do hello. Olá a tabela a seguir descreve as características de saudação de bancos de dados Basic, Standard, Premium e RS Premium em vários níveis de desempenho.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 > [!IMPORTANT]
-> Os clientes que usam os níveis de desempenho P11 e P15 podem usar até 4 TB de armazenamento incluído sem custo adicional. Essa opção de 4 TB está atualmente disponível nas seguintes regiões: Leste dos EUA 2, Oeste dos EUA, US Gov – Virginia, Europa Ocidental, Alemanha Central, Sudeste Asiático, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá.
+> Os clientes que usam níveis de desempenho P11 e P15 podem usar até too4 TB de armazenamento incluído sem custos adicionais. Essa opção de 4 TB está disponível no momento no hello seguintes regiões: US East2, oeste dos EUA, nos Gov Virgínia, Europa Ocidental, Alemanha Central, Sul Leste da Ásia, Leste do Japão, Leste da Austrália, Canadá Central e Leste do Canadá.
 >
 
 ### <a name="elastic-pools"></a>Pools elásticos
-[Pools elásticos](sql-database-elastic-pool.md) compartilham recursos entre bancos de dados no pool. A tabela a seguir descreve as características dos pools elásticos Básico, Standard, Premium e Premium RS.
+[Pools Elásticos](sql-database-elastic-pool.md) compartilhar recursos entre bancos de dados no pool de saudação. Olá a tabela a seguir descreve as características de saudação de pools Elásticos Basic, Standard, Premium e RS Premium.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
 
-Para obter uma definição expandida de cada recurso listado nas tabelas anteriores, consulte as descrições em [Limites e recursos das camadas de serviço](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). Para obter uma visão geral das camadas de serviço, consulte [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
+Para uma definição expandida de cada recurso listada nas tabelas anteriores hello, consulte as descrições de saudação em [limites e recursos da camada de serviço](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). Para obter uma visão geral das camadas de serviço, consulte [Camadas de serviço e níveis de desempenho do Banco de Dados SQL do Azure](sql-database-service-tiers.md).
 
 ## <a name="other-sql-database-limits"></a>Outros limites de Banco de Dados SQL
 | Área | Limite | Descrição |
 | --- | --- | --- |
-| Bancos de dados usando a exportação Automatizada por assinatura |10 |A exportação automatizada permite que você crie uma agenda personalizada para realização do backup de seus bancos de dados SQL. A visualização desse recurso será encerrada em 1º de março de 2017.  |
-| Bancos de dados por servidor |Até 5.000 |Até 5.000 bancos de dados são permitidos por servidor. |
-| DTUs por servidor |45000 |São permitidas 45.000 DTUs por servidor para o provisionamento de bancos de dados autônomos e pools elásticos. O número total de bancos de dados independentes e pools permitidos por servidor é limitado somente pelo número de DTUs do servidor.  
+| Bancos de dados usando a exportação Automatizada por assinatura |10 |Exportação automatizada permite que você toocreate uma agenda personalizada para fazer backup de bancos de dados SQL. visualização de saudação desse recurso terminará em 1 de março de 2017.  |
+| Bancos de dados por servidor |Backup too5000 |Backup too5000 bancos de dados são permitidos por servidor. |
+| DTUs por servidor |45000 |São permitidas 45.000 DTUs por servidor para o provisionamento de bancos de dados autônomos e pools elásticos. número total de saudação de bancos de dados independentes e pools permitidos por servidor é limitado somente pelo número de saudação do servidor DTUs.  
 
 > [!IMPORTANT]
-> A Exportação Automatizada do Banco de Dados SQL do Azure está agora em visualização e será desativada em 1º de março de 2017. A partir de 1º de dezembro de 2016, não será mais possível configurar a exportação automatizada em um banco de dados SQL. Todos os trabalhos de exportação automatizada existentes continuarão funcionando até 1º de março de 2017. Após 1º de dezembro de 2016, você poderá usar a [retenção de backup de longo prazo](sql-database-long-term-retention.md) ou a [Automação do Azure](../automation/automation-intro.md) para arquivar bancos de dados SQL periodicamente, usando o PowerShell periodicamente de acordo com um agendamento de sua escolha. Para obter um script de exemplo, baixe o [script de exemplo no GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).
+> A Exportação Automatizada do Banco de Dados SQL do Azure está agora em visualização e será desativada em 1º de março de 2017. Começando em 1º de dezembro de 2016, você não será capaz de tooconfigure automatizada de exportação em qualquer banco de dados SQL. Todos os trabalhos de exportação automatizada existente continuará toowork até 1º de março de 2017. Depois de 1º de dezembro de 2016, você pode usar [retenção de backup de longo prazo](sql-database-long-term-retention.md) ou [automação do Azure](../automation/automation-intro.md) bancos de dados do SQL tooarchive periodicamente usando o PowerShell periodicamente de acordo com o agendamento de tooa de sua escolha. Para um exemplo de script, você pode baixar Olá [exemplo de script do GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export).
 >
 
 

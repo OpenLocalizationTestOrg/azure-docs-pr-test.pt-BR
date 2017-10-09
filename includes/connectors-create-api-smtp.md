@@ -1,14 +1,14 @@
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma conta [SMTP](https://wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)  
 
-Antes de usar a conta SMTP em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta SMTP. Felizmente, você pode fazer isso facilmente dentro do seu aplicativo lógico no Portal do Azure.  
+Antes de usar sua conta SMTP em um aplicativo lógico, é necessário autorizar a conta do hello lógica aplicativo tooconnect tooyour SMTP. Felizmente, você pode fazer isso facilmente a partir de dentro de seu aplicativo lógica em Olá Portal do Azure.  
 
-Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua conta SMTP:  
+Aqui está Olá etapas tooauthorize sua conta do lógica aplicativo tooconnect tooyour SMTP:  
 
-1. Para criar uma conexão com o SMTP, no designer do aplicativo lógico, selecione **Mostrar APIs gerenciadas da Microsoft** na lista suspensa, em seguida, digite *SMTP* na caixa de pesquisa. Selecione o gatilho ou ação que gostaria de usar:   
+1. toocreate tooSMTP uma conexão, no designer de aplicativo de lógica de saudação, selecione **APIs gerenciadas do Microsoft Mostrar** em Olá lista suspensa e digite *SMTP* na caixa de pesquisa de saudação. Selecione a ação que você irá gostar toouse ou gatilho Olá:  
    ![](./media/connectors-create-api-smtp/smtp-1.png)  
-2. Se você não tiver criado nenhuma conexão com o SMTP antes, suas credenciais do SMTP serão solicitadas. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta SMTP e usá-los:  
+2. Se você não criou nenhum tooSMTP conexões antes, você obterá tooprovide solicitada as credenciais de SMTP. Essas credenciais serão tooauthorize usado tooconnect de aplicativo a lógica para e acessar dados da sua conta SMTP:  
    ![](./media/connectors-create-api-smtp/smtp-2.png)  
-3. Observe que a conexão foi criada e agora você pode continuar com as outras etapas em seu aplicativo lógico:  
+3. Aviso Olá conexão tiver sido criado e você está livre tooproceed com hello outra etapas em seu aplicativo de lógica:  
    ![](./media/connectors-create-api-smtp/smtp-3.png)  
 

@@ -1,6 +1,6 @@
 ---
 title: Arquivo de teste Sipi | Microsoft Docs
-description: "Arquivo de teste para verificar dependências de ReadyForTest"
+description: "Arquivo toocheck ReadyForTest dependências de teste"
 services: active-directory-b2c
 documentationcenter: 
 author: Sipi
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: Sipi
-ms.openlocfilehash: 871d58818dcbaee5f7a5f07c19e2297ec6459a6f
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: afd3dc94dfb30926b316256fb06a768a391004f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sipi-test-file"></a>Arquivo de teste Sipi
 
-Este Guia de início rápido ajuda você a registrar um aplicativo em um locatário do Microsoft Azure Active Directory (Azure AD) B2C em poucos minutos. Quando terminar, seu aplicativo estará registrado para uso no locatário B2C do Azure.
+Este Guia de início rápido ajuda você a registrar um aplicativo em um locatário do Microsoft Azure Active Directory (Azure AD) B2C em poucos minutos. Quando você terminar, seu aplicativo está registrado para uso no locatário Olá B2C do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para compilar um aplicativo que aceite a inscrição e a entrada do consumidor, primeiro será necessário registrar o aplicativo em um locatário do Azure Active Directory B2C. Obtenha seu próprio locatário usando as etapas descritas em [Criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md).
+toobuild um aplicativo que aceita o consumidor Inscreva-se e entrar, você precisa primeiro aplicativo de hello tooregister com um locatário do Azure Active Directory B2C. Obter seu próprio locatário usando Olá etapas descritas em [criar um locatário Azure AD B2C](active-directory-b2c-get-started.md).
 
-Os aplicativos criados da folha Azure AD B2C no portal do Azure devem ser gerenciados do mesmo local. Se você editar os aplicativos B2C usando o PowerShell ou outro portal, eles deixarão de ter suporte e não funcionarão com o Azure AD B2C. Consulte os detalhes da seção [aplicativos com falha](#faulted-apps). 
+Os aplicativos criados na folha de saudação do Azure AD B2C em Olá portal do Azure devem ser gerenciados da saudação mesmo local. Se você editar aplicativos de B2C hello usando o PowerShell ou outro portal, eles se tornam sem suporte e não funcionam com o Azure AD B2C. Consulte os detalhes em Olá [falha aplicativos](#faulted-apps) seção. 
 
-## <a name="navigate-to-b2c-settings"></a>Navegue até as configurações de B2C
+## <a name="navigate-toob2c-settings"></a>Navegue tooB2C configurações
 
-Entre no [Portal do Azure](https://portal.azure.com/) como Administrador Global do locatário B2C. 
+Faça logon no toohello [portal do Azure](https://portal.azure.com/) como Olá Administrador Global do locatário Olá B2C. 
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-Escolha as próximas etapas com base no tipo de aplicativo que você está registrando:
+Escolha as próximas etapas com base no tipo de aplicativo hello que está sendo registrado:

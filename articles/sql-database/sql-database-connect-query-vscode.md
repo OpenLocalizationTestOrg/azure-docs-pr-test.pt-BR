@@ -1,8 +1,8 @@
 ---
 title: 'VS Code: Conectar e consultar dados no Banco de Dados SQL do Azure | Microsoft Docs'
-description: "Saiba como se conectar a um Banco de Dados SQL no Azure usando o Visual Studio Code. Em seguida, execute instruções T-SQL (Transact-SQL) para consultar e editar dados."
+description: "Saiba como tooconnect tooSQL banco de dados no Azure usando o código do Visual Studio. Em seguida, execute instruções Transact-SQL (T-SQL) tooquery e editar dados."
 metacanonical: 
-keywords: conectar-se ao banco de dados sql
+keywords: Conecte-se o banco de dados toosql
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -17,30 +17,30 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/20/2017
 ms.author: carlrab
-ms.openlocfilehash: 4076b1e7ab3a70009217a1deff72da4bff0dc871
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ed8bdbfc3271b463a21cde5ff6b5f05fd0ff51d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Use Visual Studio Code para se conectar e consultar dados
+# <a name="azure-sql-database-use-visual-studio-code-tooconnect-and-query-data"></a>Banco de dados SQL do Azure: O código do Visual Studio para usar tooconnect e consultar dados
 
-O [Visual Studio Code](https://code.visualstudio.com/docs) é um editor de código gráfico para o Linux, macOS e Windows que oferece suporte às extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, Banco de Dados SQL do Azure e SQL Data Warehouse. Este início rápido demonstra como usar o Visual Studio Code para conectar um banco de dados SQL do Azure, então, usar as instruções Transact-SQL para consultar, inserir, atualizar e excluir os dados no banco de dados.
+[Código do Visual Studio](https://code.visualstudio.com/docs) é um editor de código gráfica para Linux, macOS, e que oferece suporte a extensões, incluindo Windows hello [mssql extensão](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o banco de dados do SQL Azure e SQL Data Warehouse. Este guia rápido demonstra como banco de dados do toouse código do Visual Studio tooconnect tooan SQL Azure e, em seguida, use Transact-SQL instruções tooquery, inserir, atualizar e excluir dados no banco de dados de saudação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
+Este guia rápido usa como seus recursos de saudação ponto inicial criados em um desses inícios rápidos:
 
 - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
 - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
 - [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
-Antes de começar, verifique se você instalou a versão mais recente do [Visual Studio Code](https://code.visualstudio.com/Download) e carregou a [extensão mssql](https://aka.ms/mssql-marketplace). Para obter orientações de instalação para a extensão mssql, consulte [Instalar o VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) e consulte [mssql para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
+Antes de começar, verifique se você instalou a versão mais recente de saudação do [código do Visual Studio](https://code.visualstudio.com/Download) e carregados hello [mssql extensão](https://aka.ms/mssql-marketplace). Para instruções de instalação para a extensão do mssql hello, consulte [instalar VS código](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) e consulte [mssql para o código do Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
 
 ## <a name="configure-vs-code"></a>Configurar o VS Code 
 
 ### <a name="mac-os"></a>**Mac OS**
-Para o macOS, você precisa instalar o OpenSSL, que é um pré-requisito do DotNet Core a extensão mssql usa. Abra seu terminal e digite os seguintes comandos para instalar o **brew** e o **OpenSSL**. 
+Para macOS, você precisa tooinstall OpenSSL que é um pré-requisito para DotNet Core essa extensão mssql usa. Abra seu terminal e insira Olá tooinstall comandos a seguir **brew** e **OpenSSL**. 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -61,64 +61,64 @@ Nenhuma configuração especial é necessária.
 
 ## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
-Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
+Obter Olá conexão informações necessárias tooconnect toohello SQL Azure banco de dados. Será necessário o nome totalmente qualificado do servidor de saudação, nome do banco de dados e informações de logon em procedimentos Avançar hello.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. Na página **Visão geral** do banco de dados, examine o nome totalmente qualificado do servidor, como mostrado na imagem a seguir. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**.
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
+2. Selecione **bancos de dados SQL** no menu esquerdo do hello e clique em seu banco de dados em Olá **bancos de dados SQL** página. 
+3. Em Olá **visão geral** página do banco de dados, examine Olá nome totalmente qualificado do servidor conforme Olá a imagem a seguir. Você pode focalizar Olá toobring de nome de servidor backup Olá **clique toocopy** opção.
 
    ![informações da conexão](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se você esqueceu as informações de logon para o servidor do Banco de Dados SQL, navegue até a página do servidor para exibir o nome de administrador do servidor e, se necessário, redefinir a senha. 
+4. Se você tiver esquecido a informações de logon Olá para o servidor de banco de dados de SQL do Azure, navegue toohello banco de dados do SQL server página tooview Olá administrador nome do servidor e, se necessário, Redefinir senha hello. 
 
-## <a name="set-language-mode-to-sql"></a>Definir o modo de linguagem para SQL
+## <a name="set-language-mode-toosql"></a>Set language modo tooSQL
 
-Defina o modo de linguagem como **SQL** no Visual Studio Code para permitir comandos mssql e T-SQL IntelliSense.
+Modo de linguagem de saudação do conjunto é definido muito**SQL** em comandos do Visual Studio Code tooenable mssql e T-SQL IntelliSense.
 
 1. Abra uma nova janela do Visual Studio Code. 
 
-2. Clique em **Texto sem Formatação** no canto inferior direito da barra de status.
-3. No menu suspenso **Selecionar modo de linguagem** aberto, digite **SQL**e pressione **ENTER** para definir o modo de linguagem para SQL. 
+2. Clique em **texto sem formatação** no canto inferior direito de Olá Olá da barra de status.
+3. Em Olá **modo Selecionar idioma** menu suspenso que se abre, digite **SQL**e, em seguida, pressione **ENTER** tooset Olá idioma modo tooSQL. 
 
    ![Modo de linguagem SQL](./media/sql-database-connect-query-vscode/vscode-language-mode.png)
 
-## <a name="connect-to-your-database"></a>Conectar-se ao seu banco de dados
+## <a name="connect-tooyour-database"></a>Conecte-se o banco de dados tooyour
 
-Use o Visual Studio Code para estabelecer uma conexão com seu servidor de Banco de Dados SQL do Azure.
+Use o código do Visual Studio tooestablish um servidor de banco de dados SQL do tooyour de conexão.
 
 > [!IMPORTANT]
-> Antes de continuar, verifique se você tem seu servidor, banco de dados e informações de logon prontos. Depois que você começar a inserir as informações de perfil da conexão, se você mudar o foco do Visual Studio Code, terá que reiniciar a criação do perfil de conexão.
+> Antes de continuar, verifique se você tem seu servidor, banco de dados e informações de logon prontos. Quando você começar a inserir informações de perfil de conexão hello, se você alterar o foco de código do Visual Studio, você tem toorestart criação de perfil de conexão de saudação.
 >
 
-1. No VS Code, pressione **CTRL + SHIFT + P** (ou **F1**) para abrir a Paleta de Comandos.
+1. No código VS, pressione **CTRL + SHIFT + P** (ou **F1**) tooopen Olá paleta de comando.
 
 2. Digite **sqlcon** e pressione **ENTER**.
 
-3. Pressione **ENTER** para selecionar **Criar Perfil de Conexão**. Isso cria um perfil de conexão para a instância do SQL Server.
+3. Pressione **ENTER** tooselect **criar perfil de Conexão**. Isso cria um perfil de conexão para a instância do SQL Server.
 
-4. Siga os prompts para especificar as propriedades de conexão para o novo perfil de conexão. Depois de especificar cada valor, pressione **ENTER** para continuar. 
+4. Siga Olá prompts toospecify Olá conexão propriedades para o novo perfil de conexão hello. Depois de especificar cada valor, pressione **ENTER** toocontinue. 
 
    | Configuração       | Valor sugerido | Descrição |
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nome do servidor | O nome do servidor totalmente qualificado | O nome deve ser semelhante como: **mynewserver20170313.database.windows.net**. |
-   | **Nome do banco de dados** | mySampleDatabase | O nome do banco de dados ao qual conectar. |
-   | **Autenticação** | Logon do SQL| A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
-   | **Nome de usuário** | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
-   | **Senha (Logon do SQL)** | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
-   | **Salvar a Senha?** | Sim ou não | Selecione Sim se não quiser inserir a senha toda vez. |
+   | **Nome do servidor | nome totalmente qualificado do servidor de saudação | Olá nome deve ser semelhante a esta: **mynewserver20170313.database.windows.net**. |
+   | **Nome do banco de dados** | mySampleDatabase | nome de saudação do hello tooconnect de toowhich de banco de dados. |
+   | **Autenticação** | Logon do SQL| Autenticação do SQL é o tipo de autenticação somente de saudação que configuramos neste tutorial. |
+   | **Nome de usuário** | conta de administrador do servidor de saudação | Essa é a conta de saudação que você especificou quando criou o servidor de saudação. |
+   | **Senha (Logon do SQL)** | senha de saudação para sua conta de administrador do servidor | Essa é a senha de saudação que você especificou quando criou o servidor de saudação. |
+   | **Salvar a Senha?** | Sim ou não | Selecione Sim se você não quiser senha de saudação tooenter cada vez. |
    | **Insira um nome para este perfil** | Um nome do perfil, como **mySampleDatabase** | Um nome do perfil salvo acelera sua conexão nos logons subsequentes. | 
 
-5. Pressione a tecla **ESC** para fechar a mensagem de informações que informa que o perfil foi criado e está conectado.
+5. Olá pressione **ESC** tooclose chave mensagem de informações de saudação que informa que o perfil de saudação é criado e conectado.
 
-6. Verifique se sua conexão na barra de status.
+6. Verifique se sua conexão na barra de status de saudação.
 
    ![Status da conexão](./media/sql-database-connect-query-vscode/vscode-connection-status.png)
 
 ## <a name="query-data"></a>Consultar dados
 
-Use o seguinte código para consultar os 20 principais produtos por categoria usando a instrução [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) do Transact-SQL.
+Tooquery para Olá primeiros 20 produtos de código a seguir do uso Olá por categoria usando Olá [selecione](https://msdn.microsoft.com/library/ms189499.aspx) instrução Transact-SQL.
 
-1. Na janela **Editor**, insira a seguinte consulta na janela de consulta vazia:
+1. Em Olá **Editor** janela, digite Olá consulta na janela de consulta vazia Olá a seguir:
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -127,15 +127,15 @@ Use o seguinte código para consultar os 20 principais produtos por categoria us
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Pressione **CTRL + SHIFT + E** para recuperar dados das tabelas Product e ProductCategory.
+2. Pressione **CTRL + SHIFT + E** tooretrieve dados de tabelas Product e ProductCategory de saudação.
 
     ![Consultar](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Inserir dados
 
-Use o código a seguir para inserir um novo produto na tabela SalesLT.Product usando a instrução [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) do Transact-SQL.
+Use Olá de código a seguir tooinsert um novo produto na tabela de SalesLT.Product hello usando Olá [inserir](https://msdn.microsoft.com/library/ms174335.aspx) instrução Transact-SQL.
 
-1. Na janela **Editor**, exclua a consulta anterior e insira a seguinte consulta:
+1. Em Olá **Editor** janela, excluir a consulta anterior hello e digite Olá consulta a seguir:
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -157,13 +157,13 @@ Use o código a seguir para inserir um novo produto na tabela SalesLT.Product us
            ,GETDATE() );
    ```
 
-2. Pressione **CTRL + SHIFT + E** para inserir uma nova linha na tabela Product.
+2. Pressione **CTRL + SHIFT + E** tooinsert uma nova linha na tabela de produto hello.
 
 ## <a name="update-data"></a>Atualizar dados
 
-Use o código a seguir para atualizar o novo produto que você adicionou anteriormente usando a instrução [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) do Transact-SQL.
+Tooupdate Olá novo produto que você adicionou anteriormente usando Olá de código a seguir de saudação de uso [atualização](https://msdn.microsoft.com/library/ms177523.aspx) instrução Transact-SQL.
 
-1.  Na janela **Editor**, exclua a consulta anterior e insira a seguinte consulta:
+1.  Em Olá **Editor** janela, excluir a consulta anterior hello e digite Olá consulta a seguir:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -171,22 +171,22 @@ Use o código a seguir para atualizar o novo produto que você adicionou anterio
    WHERE Name = 'myNewProduct';
    ```
 
-2. Pressione **CTRL + SHIFT + E** para atualizar a linha especificada na tabela Product.
+2. Pressione **CTRL + SHIFT + E** tooupdate Olá especificado linha hello produto tabela.
 
 ## <a name="delete-data"></a>Excluir dados
 
-Use o código a seguir para excluir o novo produto que você adicionou anteriormente usando a instrução [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) do Transact-SQL.
+Toodelete Olá novo produto que você adicionou anteriormente usando Olá de código a seguir de saudação de uso [excluir](https://msdn.microsoft.com/library/ms189835.aspx) instrução Transact-SQL.
 
-1. Na janela **Editor**, exclua a consulta anterior e insira a seguinte consulta:
+1. Em Olá **Editor** janela, excluir a consulta anterior hello e digite Olá consulta a seguir:
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. Pressione **CTRL + SHIFT + E** para excluir a linha especificada na tabela Product.
+2. Pressione **CTRL + SHIFT + E** toodelete Olá especificado linha hello produto tabela.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md).
+- tooconnect e consulta usando o SQL Server Management Studio, consulte [conectar e consultar com SSMS](sql-database-connect-query-ssms.md).
 - Para obter um artigo da MSDN magazine sobre como usar o Visual Studio Code, veja [Criar um banco de dados IDE com a postagem de blog de extensão MSSQL](https://msdn.microsoft.com/magazine/mt809115).

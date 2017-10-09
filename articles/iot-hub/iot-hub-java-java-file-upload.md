@@ -1,6 +1,6 @@
 ---
-title: Carregar arquivos de dispositivos para o Hub IoT do Azure com Java | Microsoft Docs
-description: "Como carregar arquivos de um dispositivo para a nuvem usando o SDK do dispositivo IoT do Azure para Java. Os arquivos carregados são armazenados em um contêiner de Azure Storage Blob."
+title: arquivos de aaaUpload de tooAzure dispositivos IoT Hub com Java | Microsoft Docs
+description: "Como tooupload arquivos de uma dispositivo toohello nuvem usando o dispositivo IoT do Azure SDK para Java. Os arquivos carregados são armazenados em um contêiner de Azure Storage Blob."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: c917a3b3e16f1e84f202d6c87a04faf642266701
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e305fe61bf7ca0aeb2c092bc2c7efebdc78d4f68
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
+# <a name="upload-files-from-your-device-toohello-cloud-with-iot-hub"></a>Carregar arquivos de seu dispositivo toohello nuvem com o IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial baseia-se no código do tutorial [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-java-java-c2d.md) para mostrar como usar os [recursos de upload de arquivo do Hub IoT](iot-hub-devguide-file-upload.md) para carregar um arquivo para o [armazenamento de blobs do Azure](../storage/index.md). Este tutorial mostra como:
+Este tutorial baseia-se em código Olá Olá [enviar mensagens de nuvem para dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tooshow tutorial você como Olá toouse [arquivo de recursos de carregamento do IoT Hub](iot-hub-devguide-file-upload.md) tooupload um arquivo muito[ Armazenamento de BLOBs do Azure](../storage/index.md). Olá tutorial mostra como para:
 
 - Fornecer com segurança um URI de blob do Azure a um dispositivo para carregamento de um arquivo.
-- Usar as notificações de carregamento de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
+- Use Olá IoT Hub arquivo carregamento notificações tootrigger processar o arquivo de saudação em seu back-end do aplicativo.
 
-Os tutoriais [Introdução ao Hub IoT](iot-hub-java-java-getstarted.md) e [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-java-java-c2d.md) mostram a funcionalidade básica de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IoT. O tutorial [Processar mensagens do dispositivo para a nuvem](iot-hub-java-java-process-d2c.md) descreve uma forma de armazenamento confiável das mensagens do dispositivo para a nuvem no Armazenamento de Blobs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo:
+Olá [começar com o IoT Hub](iot-hub-java-java-getstarted.md) e [enviar mensagens de nuvem para dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tutoriais mostram Olá dispositivo para nuvem e nuvem para dispositivo mensagens funcionalidade básica de IoT Hub. Olá [mensagens de dispositivo para nuvem processo](iot-hub-java-java-process-d2c.md) tutorial descreve um mensagens de dispositivo para nuvem maneira tooreliably repositório no armazenamento de BLOBs do Azure. No entanto, em alguns cenários você não pode mapear facilmente dados Olá que enviam seus dispositivos em Olá relativamente pequeno dispositivo para nuvem mensagens de IoT Hub aceita. Por exemplo:
 
 * Arquivos grandes que contêm imagens
 * Vídeos
 * Dados de vibração amostrados a alta frequência
 * Alguma forma de dados pré-processados.
 
-Esses arquivos normalmente são processados em lote na nuvem usando ferramentas como o [Azure Data Factory](../data-factory/index.md) ou a pilha do [Hadoop](../hdinsight/index.md). Quando você precisar carregar arquivos de um dispositivo, ainda poderá usar a segurança e a confiabilidade do Hub IoT.
+Esses arquivos normalmente são processadas na nuvem hello usando ferramentas como em lote [do Azure Data Factory](../data-factory/index.md) ou hello [Hadoop](../hdinsight/index.md) pilha. Quando você precisar tooupland arquivos de um dispositivo, você ainda pode usar segurança hello e a confiabilidade do IoT Hub.
 
-No final deste tutorial, você executará dois aplicativos do console Java:
+Olá final deste tutorial você executadas dois aplicativos de console de Java:
 
-* **simulated-device**, uma versão modificada do aplicativo criado no tutorial [Enviar mensagens da nuvem para o dispositivo com o Hub IoT]. Esse aplicativo carrega um arquivo no armazenamento usando um URI SAS fornecido pelo seu Hub IoT.
+* **dispositivo simulado**, uma versão modificada do aplicativo hello criado no tutorial Olá [mensagens de envio de nuvem para dispositivo com o IoT Hub]. Este aplicativo carrega um toostorage de arquivo usando um URI de SAS fornecido pelo seu hub IoT.
 * **read-file-upload-notification**, que recebe notificações de upload de arquivo do seu Hub IoT.
 
 > [!NOTE]
-> O Hub IoT dá suporte a muitas plataformas de dispositivo e linguagens (incluindo C, .NET e Javascript) por meio dos SDKs do dispositivo IoT do Azure. Confira a [Central de Desenvolvedores do IoT do Azure] para obter instruções passo a passo sobre como conectar seu dispositivo ao Hub IoT do Azure.
+> O Hub IoT dá suporte a muitas plataformas de dispositivo e linguagens (incluindo C, .NET e Javascript) por meio dos SDKs do dispositivo IoT do Azure. Consulte toohello [Centro de desenvolvedores do Azure IoT] para obter instruções passo a passo sobre como tooconnect tooAzure seu dispositivo IoT Hub.
 
-Para concluir este tutorial, você precisará do seguinte:
+toocomplete neste tutorial, você precisa Olá a seguir:
 
-* A versão mais recente do [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* Olá mais recente [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
@@ -56,34 +56,34 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## <a name="upload-a-file-from-a-device-app"></a>Carregar um arquivo de um aplicativo de dispositivo
 
-Nesta seção, você modifica o aplicativo de dispositivo criado em [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-java-java-c2d.md) para carregar um arquivo para o hub IoT.
+Nesta seção, você modificar o aplicativo para dispositivo Olá criado na [enviar mensagens de nuvem para dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tooupload um hub de tooIoT do arquivo.
 
-1. Copie um arquivo de imagem para a pasta `simulated-device` e renomeie-o como `myimage.png`.
+1. Copiar um toohello do arquivo de imagem `simulated-device` pasta e renomeie- `myimage.png`.
 
-1. Usando um editor de texto, abra o arquivo `simulated-device\src\main\java\com\mycompany\app\App.java`.
+1. Usando um editor de texto, abra Olá `simulated-device\src\main\java\com\mycompany\app\App.java` arquivo.
 
-1. Adicione a declaração de variável para a classe **Aplicativo**:
+1. Adicionar Olá declaração de variável toohello **aplicativo** classe:
 
     ```java
     private static String fileName = "myimage.png";
     ```
 
-1. Para processar mensagens de retorno de chamada de status de upload de arquivo, adicione a seguinte classe aninhada à classe **Aplicativo**:
+1. tooprocess mensagens de retorno de chamada de status de carregamento de arquivo, adicione o seguinte Olá aninhados classe toohello **aplicativo** classe:
 
     ```java
-    // Define a callback method to print status codes from IoT Hub.
+    // Define a callback method tooprint status codes from IoT Hub.
     protected static class FileUploadStatusCallBack implements IotHubEventCallback {
       public void execute(IotHubStatusCode status, Object context) {
-        System.out.println("IoT Hub responded to file upload for " + fileName
+        System.out.println("IoT Hub responded toofile upload for " + fileName
             + " operation with status " + status.name());
       }
     }
     ```
 
-1. Para carregar imagens para o IoT Hub, adicione o seguinte método à classe de **Aplicativo** para carregar imagens para o Hub IoT:
+1. tooupload imagens tooIoT Hub, adicionar Olá após o método toohello **aplicativo** tooupload classe imagens tooIoT Hub:
 
     ```java
-    // Use IoT Hub to upload a file asynchronously to Azure blob storage.
+    // Use IoT Hub tooupload a file asynchronously tooAzure blob storage.
     private static void uploadFile(String fullFileName) throws FileNotFoundException, IOException
     {
       File file = new File(fullFileName);
@@ -94,14 +94,14 @@ Nesta seção, você modifica o aplicativo de dispositivo criado em [Enviar mens
     }
     ```
 
-1. Modifique o método **principal** para chamar o método **uploadFile** conforme mostrado no trecho a seguir:
+1. Modificar Olá **principal** saudação do método toocall **uploadFile** método conforme Olá trecho de código a seguir:
 
     ```java
     client.open();
 
     try
     {
-      // Get the filename and start the upload.
+      // Get hello filename and start hello upload.
       String fullFileName = System.getProperty("user.dir") + File.separator + fileName;
       uploadFile(fullFileName);
       System.out.println("File upload started with success");
@@ -114,7 +114,7 @@ Nesta seção, você modifica o aplicativo de dispositivo criado em [Enviar mens
     MessageSender sender = new MessageSender();
     ```
 
-1. Use o seguinte comando para criar o aplicativo **simulated-device** e verificar se há erros:
+1. Olá toobuild do comando de uso a seguir de saudação **dispositivo simulado** aplicativo e verifique se há erros:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -124,17 +124,17 @@ Nesta seção, você modifica o aplicativo de dispositivo criado em [Enviar mens
 
 Nesta seção, você criará um aplicativo de console Java que receba mensagens de notificação de upload de arquivo do Hub IoT.
 
-É necessário ter a cadeia de conexão **iothubowner** para o Hub IoT concluir esta seção. Você pode encontrar a cadeia de conexão no [portal do Azure](https://portal.azure.com/) na folha **Política de acesso compartilhado**.
+Você precisa Olá **iothubowner** cadeia de conexão do seu IoT Hub toocomplete nesta seção. Você pode encontrar a cadeia de caracteres de conexão Olá no hello [portal do Azure](https://portal.azure.com/) em Olá **política de acesso compartilhado** folha.
 
-1. Crie um projeto Maven chamado **read-file-upload-notification** usando o seguinte comando no prompt de comando. Observe que esse é um comando único e longo:
+1. Crie um projeto Maven chamado **leitura-arquivo de carregamento de notificação** usando Olá comando no prompt de comando a seguir. Observe que esse é um comando único e longo:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=read-file-upload-notification -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-1. No prompt de comando, navegue até a nova pasta `read-file-upload-notification`.
+1. No prompt de comando, navegue toohello novo `read-file-upload-notification` pasta.
 
-1. Usando um editor de texto, abra o arquivo `pom.xml` na pasta `read-file-upload-notification` e adicione a dependência a seguir ao nó **dependencies**. A adição da dependência permite que você use o pacote **iothub-java-service-client** no aplicativo para se comunicar com o serviço do Hub IoT:
+1. Usando um editor de texto, abra Olá `pom.xml` arquivo hello `read-file-upload-notification` pasta e adicione Olá seguir dependência toohello **dependências** nó. Adicionando a dependência do hello permite Olá toouse **hub IOT-serviço-cliente java** pacote no toocommunicate seu aplicativo com o serviço de hub IoT:
 
     ```xml
     <dependency>
@@ -145,13 +145,13 @@ Nesta seção, você criará um aplicativo de console Java que receba mensagens 
     ```
 
     > [!NOTE]
-    > Você pode verificar a versão mais recente do **iot-service-client** usando a [pesquisa do Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Você pode verificar a versão mais recente de saudação do **cliente de serviço iot** usando [pesquisa Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Salve e feche o arquivo `pom.xml`.
+1. Salve e feche o hello `pom.xml` arquivo.
 
-1. Usando um editor de texto, abra o arquivo `read-file-upload-notification\src\main\java\com\mycompany\app\App.java`.
+1. Usando um editor de texto, abra Olá `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` arquivo.
 
-1. Adicione as seguintes instruções **import** ao arquivo:
+1. Adicione o seguinte Olá **importar** arquivo de toohello instruções:
 
     ```java
     import com.microsoft.azure.sdk.iot.service.*;
@@ -161,7 +161,7 @@ Nesta seção, você criará um aplicativo de console Java que receba mensagens 
     import java.util.concurrent.Executors;
     ```
 
-1. Adicione as seguintes variáveis no nível da classe à classe **App** :
+1. Adicionar Olá seguintes variáveis de nível de classe toohello **aplicativo** classe:
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";
@@ -169,10 +169,10 @@ Nesta seção, você criará um aplicativo de console Java que receba mensagens 
     private static FileUploadNotificationReceiver fileUploadNotificationReceiver = null;
     ```
 
-1. Para imprimir informações sobre o upload do arquivo para o console, adicione a seguinte classe aninhada à classe **Aplicativo**:
+1. tooprint informações sobre o console de toohello de carregamento de arquivo hello, adicione o seguinte de saudação aninhados classe toohello **aplicativo** classe:
 
     ```java
-    // Create a thread to receive file upload notifications.
+    // Create a thread tooreceive file upload notifications.
     private static class ShowFileUploadNotifications implements Runnable {
       public void run() {
         try {
@@ -196,7 +196,7 @@ Nesta seção, você criará um aplicativo de console Java que receba mensagens 
     }
     ```
 
-1. Para iniciar o thread que escuta notificações de upload de arquivo, adicione o seguinte código ao método **principal**:
+1. thread de saudação toostart que escuta as notificações de carregamento de arquivo, adicione Olá toohello de código a seguir **principal** método:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException, Exception {
@@ -205,16 +205,16 @@ Nesta seção, você criará um aplicativo de console Java que receba mensagens 
       if (serviceClient != null) {
         serviceClient.open();
 
-        // Get a file upload notification receiver from the ServiceClient.
+        // Get a file upload notification receiver from hello ServiceClient.
         fileUploadNotificationReceiver = serviceClient.getFileUploadNotificationReceiver();
         fileUploadNotificationReceiver.open();
 
-        // Start the thread to receive file upload notifications.
+        // Start hello thread tooreceive file upload notifications.
         ShowFileUploadNotifications showFileUploadNotifications = new ShowFileUploadNotifications();
         ExecutorService executor = Executors.newFixedThreadPool(1);
         executor.execute(showFileUploadNotifications);
 
-        System.out.println("Press ENTER to exit.");
+        System.out.println("Press ENTER tooexit.");
         System.in.read();
         executor.shutdownNow();
         System.out.println("Shutting down sample...");
@@ -224,51 +224,51 @@ Nesta seção, você criará um aplicativo de console Java que receba mensagens 
     }
     ```
 
-1. Salve e feche o arquivo `read-file-upload-notification\src\main\java\com\mycompany\app\App.java`.
+1. Salve e feche o hello `read-file-upload-notification\src\main\java\com\mycompany\app\App.java` arquivo.
 
-1. Use o seguinte comando para criar o aplicativo **read-file-upload-notification** e verificar se há erros:
+1. Olá toobuild do comando de uso a seguir de saudação **leitura-arquivo de carregamento de notificação** aplicativo e verifique se há erros:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
 
-## <a name="run-the-applications"></a>Executar os aplicativos
+## <a name="run-hello-applications"></a>Executar aplicativos Olá
 
-Agora você está pronto para executar os aplicativos.
+Agora você está pronto toorun aplicativos de saudação.
 
-Em um prompt de comando na pasta `read-file-upload-notification`, execute o seguinte comando:
-
-```cmd/sh
-mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
-```
-
-Em um prompt de comando na pasta `simulated-device`, execute o seguinte comando:
+Em um prompt de comando no hello `read-file-upload-notification` pasta, execute o comando a seguir de saudação:
 
 ```cmd/sh
 mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 ```
 
-A captura de tela a seguir mostra a saída do aplicativo **simulated-device**:
+Em um prompt de comando no hello `simulated-device` pasta, execute o comando a seguir de saudação:
+
+```cmd/sh
+mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+```
+
+Olá, seguinte captura de tela mostra a saída Olá de saudação **dispositivo simulado** aplicativo:
 
 ![Saída do aplicativo simulated-device](media/iot-hub-java-java-upload/simulated-device.png)
 
-A captura de tela a seguir mostra a saída do aplicativo **read-file-upload-notification**:
+Olá, seguinte captura de tela mostra a saída Olá de saudação **leitura-arquivo de carregamento de notificação** aplicativo:
 
 ![Saída do aplicativo read-file-upload-notification](media/iot-hub-java-java-upload/read-file-upload-notification.png)
 
-Você pode usar o portal para exibir o arquivo carregado no contêiner de armazenamento configurado:
+Você pode usar o hello tooview portal Olá carregado arquivo no contêiner de armazenamento de saudação configurado:
 
 ![Arquivo carregado](media/iot-hub-java-java-upload/uploaded-file.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a usar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar explorando os recursos e cenários do Hub IoT com os seguintes artigos:
+Neste tutorial, você aprendeu como toouse Olá transferência recursos do IoT Hub toosimplify arquivo carregamentos de dispositivos. Você pode continuar tooexplore IoT hub recursos e cenários com hello artigos a seguir:
 
 * [Criar um Hub IoT de modo programático][lnk-create-hub]
-* [Introdução ao SDK de C][lnk-c-sdk]
+* [Introdução tooC SDK][lnk-c-sdk]
 * [SDKs do Azure IoT][lnk-sdks]
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
+toofurther explorar recursos de saudação do IoT Hub, consulte:
 
 * [Simulando um dispositivo com IoT Edge][lnk-iotedge]
 
@@ -283,7 +283,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 
 
-[Central de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
+[Centro de desenvolvedores do Azure IoT]: http://www.azure.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account

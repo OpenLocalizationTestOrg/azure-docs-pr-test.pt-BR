@@ -1,6 +1,6 @@
 ---
-title: "Autenticação RADIUS e Servidor de MFA do Azure | Microsoft Docs"
-description: "Esta é a página do Azure Multi-Factor Authentication que auxiliará na implantação de autenticação RADIUS e do servidor Azure Multi-Factor Authentication."
+title: "aaaRADIUS autenticação e o servidor Azure MFA | Microsoft Docs"
+description: "Isso é a página de autenticação do Azure multi-factor Olá ajudará na implantação de autenticação RADIUS e servidor Azure multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,65 +15,65 @@ ms.date: 02/26/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: a4c52cc40b17902d92f7a94028ddb3c641911e8d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dac061b83f2657c67192a7aa9c5de63ffeffaaa8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrar a autenticação RADIUS com o Servidor de Autenticação Multifator do Azure
-Use a seção de Autenticação RADIUS do Servidor de MFA do Azure para habilitar e configurar a autenticação RADIUS. RADIUS é um protocolo padrão para aceitar solicitações de autenticação e processar essas solicitações. O Servidor de Autenticação Multifator do Azure atua como um servidor RADIUS. Insira-o entre o cliente RADIUS (dispositivo VPN) e o destino de autenticação, que pode ser o Active Directory (AD), um diretório LDAP ou outro servidor RADIUS, para adicionar a Autenticação Multifator do Azure. Para a MFA (Autenticação Multifator) do Azure funcionar, você deve configurar o Servidor de MFA do Azure para que ele possa se comunicar com os servidores clientes e com o destino de autenticação. O Servidor de MFA do Azure aceita solicitações de um cliente RADIUS, valida as credenciais no destino de autenticação, adiciona a Autenticação Multifator do Azure e devolve uma resposta ao cliente RADIUS. A solicitação de autenticação só terá êxito se a autenticação primária e a Autenticação Multifator do Azure tiverem êxito.
+Use a seção de autenticação RADIUS de saudação do servidor Azure MFA tooenable e configurar a autenticação de RADIUS. RADIUS é um padrão de protocolo tooaccept solicitações de autenticação e tooprocess essas solicitações. Olá servidor Azure multi-Factor Authentication atua como um servidor RADIUS. Insira-o entre o cliente RADIUS (dispositivo de VPN) e o destino de autenticação, que pode ser do Active Directory (AD), um diretório LDAP ou outro tooadd de servidor RADIUS do Azure multi-Factor Authentication. Para o Azure multi-Factor Authentication (MFA) toofunction, configure Olá servidor Azure MFA para que ele possa se comunicar com servidores de saudação do cliente e o destino de autenticação hello. Olá servidor Azure MFA aceita solicitações de um cliente RADIUS, valida as credenciais usando o destino de autenticação hello, adiciona o Azure multi-Factor Authentication e envia uma resposta ao cliente toohello back RADIUS. solicitação de autenticação Olá só terá êxito se autenticação primária hello e hello Azure multi-Factor Authentication for bem-sucedida.
 
 > [!NOTE]
-> O servidor MFA só dá suporte a PAP (protocolo de autenticação de senha) e o MSCHAPv2 (Microsoft’s Challenge Handshake Authentication Protocol) de protocolos de RADIUS agindo como um servidor RADIUS.  Outros protocolos, como o EAP (Protocolo de Autenticação Extensível) podem ser usados quando o servidor MFA atua como um proxy RADIUS para outro servidor RADIUS que dá suporte a esse protocolo.
+> Olá servidor MFA só oferece suporte a PAP (protocolo de autenticação de senha) e MSCHAPv2 (da Microsoft Challenge Handshake Authentication Protocol) RADIUS protocolos agindo como um servidor RADIUS.  Outros protocolos, como o EAP (protocolo de autenticação extensível), podem ser usados quando o servidor MFA de saudação atua como um servidor RADIUS de tooanother de proxy RADIUS que dá suporte a esse protocolo.
 >
-> Os tokens SMS e OATH unidirecionais não funcionam nessa configuração, pois o servidor MFA não pode iniciar uma resposta de desafio de RADIUS bem-sucedida usando protocolos alternativos.
+> Nessa configuração, tokens OATH e de SMS unidirecionais não funcionam como Olá servidor MFA não é possível iniciar uma resposta de desafio de RADIUS com êxito usando protocolos alternativos.
 
 ![Autenticação Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 ## <a name="add-a-radius-client"></a>Adicionar um cliente RADIUS
-Para configurar a autenticação RADIUS, instale o servidor Azure Multi-Factor Authentication em um servidor Windows. Se você tiver um ambiente do Active Directory, o servidor deve ser associado ao domínio dentro da rede. Use o procedimento a seguir para configurar o servidor Azure Multi-Factor Authentication:
+autenticação de RADIUS tooconfigure, Olá instalar servidor Azure multi-Factor Authentication em um servidor Windows. Se você tiver um ambiente do Active Directory, o servidor de saudação deve ser toohello ingressado no domínio dentro da rede de saudação. Use Olá Olá do procedimento tooconfigure servidor Azure multi-Factor Authentication a seguir:
 
-1. No Servidor de Autenticação Multifator do Azure, clique no ícone de Autenticação RADIUS no menu esquerdo.
-2. Marque a caixa de seleção **Habilitar autenticação RADIUS**.
-3. Na guia Clientes, altere as portas de Autenticação e de Conta se o serviço RADIUS de MFA do Azure precisa escutar solicitações de RADIUS em portas não padrão.
+1. No hello servidor Azure multi-Factor Authentication, clique em ícone de autenticação RADIUS Olá no menu esquerdo hello.
+2. Verificar Olá **habilitar autenticação RADIUS** caixa de seleção.
+3. Na guia de clientes hello, altere hello autenticação e portas de contabilização se Olá serviço Azure MFA RADIUS precisa toolisten solicitações RADIUS em portas não padrão.
 4. Clique em **Adicionar**.
-5. Insira o endereço IP do dispositivo/servidor que fará a autenticação no Servidor de Autenticação Multifator do Azure, um nome de aplicativo (opcional) e um segredo compartilhado.
+5. Insira o endereço IP de saudação do hello dispositivo/servidor que irá autenticar toohello servidor Azure multi-Factor Authentication, um nome de aplicativo (opcional) e um segredo compartilhado.
 
-  O nome do aplicativo aparece nos relatórios da Autenticação Multifator do Azure e pode ser exibido nas mensagens de autenticação por SMS ou do Aplicativo Móvel.
+  nome do aplicativo Hello aparece em relatórios do Azure multi-Factor Authentication e pode ser exibido em mensagens de autenticação SMS ou do aplicativo móvel.
 
-  O segredo compartilhado deve ser o mesmo tanto no Servidor de Autenticação Multifator do Azure quanto no dispositivo/servidor.
+  Olá compartilhada secreta necessidades toobe Olá mesmo em ambos os saudação do servidor Azure multi-Factor Authentication e no dispositivo/servidor.
 
-6. Marque a caixa **Exigir correspondência do usuário da Autenticação Multifator** se todos os usuários foram ou vierem a ser importados para o Servidor e estiverem sujeitos à autenticação multifator. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada.
-7. Marque a caixa **Habilitar token OATH de fallback** se desejar usar senhas OATH de aplicativos móveis de verificação como um fallback para chamada telefônica, SMS ou notificação por push fora de banda.
+6. Verificar Olá **correspondência do usuário exigir multi-Factor Authentication** caixa se todos os usuários foram ou serão importados para hello servidor e autenticação de fator de toomulti da entidade. Se um número significativo de usuários ainda não foi importado no servidor de saudação e/ou estará isento da verificação em duas etapas, marque caixa hello.
+7. Verificar Olá **token OATH de fallback habilitar** caixa se desejar toouse OATH senhas de aplicativos móveis de verificação como um fallback toohello fora de banda telefonema, SMS, ou notificação por push.
 8. Clique em **OK**.
 
-Repita as etapas 4 à 8 para adicionar tantos clientes RADIUS quanto necessário.
+Repita as etapas 4 a 8 tooadd quantos clientes RADIUS adicionais conforme necessário.
 
 ## <a name="configure-your-radius-client"></a>Configurar o cliente RADIUS
 
-1. Clique na guia **Destino**.
-2. Se o Servidor de MFA do Azure estiver instalado em um servidor ingressado em domínio em um ambiente do Active Directory, selecione o domínio do Windows.
+1. Clique em Olá **destino** guia.
+2. Se Olá servidor Azure MFA é instalado em um servidor de domínio em um ambiente do Active Directory, selecione o domínio do Windows.
 3. Se os usuários devem ser autenticados em um diretório LDAP, selecione **Associação LDAP**.
 
-  Para usar a associação LDAP, clique no ícone de Integração de Diretórios e edite a configuração de LDAP na guia Configurações para que o servidor possa se associar ao diretório. As instruções para configurar o LDAP podem ser encontradas no [guia de configuração de Proxy LDAP](multi-factor-authentication-get-started-server-ldap.md).
+  ligação LDAP toouse, clique em ícone de integração de diretórios hello e Editar configuração de LDAP Olá na guia Configurações de saudação de forma que hello servidor possa ligar tooyour directory. Instruções para configurar o LDAP podem ser encontradas no hello [guia de configuração de Proxy de LDAP](multi-factor-authentication-get-started-server-ldap.md).
 
 4. Se os usuários forem autenticados em outro servidor RADIUS, selecione servidores RADIUS.
-5. Clique em **Adicionar** para configurar o servidor para o qual o Servidor de MFA do Azure fará proxy das solicitações de RADIUS.
-6. Na caixa de diálogo Adicionar Servidor RADIUS, digite o endereço IP do servidor RADIUS e um segredo compartilhado.
+5. Clique em **adicionar** solicitações tooconfigure Olá toowhich Olá servidor Azure MFA será proxy saudação do servidor RADIUS.
+6. Na caixa de diálogo Adicionar servidor RADIUS Olá, insira o endereço IP de saudação do servidor RADIUS de saudação e um segredo compartilhado.
 
-  O segredo compartilhado deve ser o mesmo no Servidor de Autenticação Multifator do Azure e no servidor RADIUS. Altere a porta de autenticação e a porta de contabilização se forem usadas portas diferentes pelo servidor RADIUS.
+  Olá compartilhada secreta necessidades toobe Olá mesmo em ambos os saudação do servidor Azure multi-Factor Authentication e o servidor RADIUS. Alterar a porta de autenticação hello e porta de contabilização se portas diferentes são usadas pelo servidor RADIUS de saudação.
 
 7. Clique em **OK**.
-8. Adicione o Servidor de MFA do Azure como um cliente RADIUS no outro servidor RADIUS para que ele possa processar as solicitações de acesso enviadas do Servidor de MFA do Azure. Use o mesmo segredo compartilhado configurado no Servidor de Autenticação Multifator do Azure.
+8. Adicione Olá servidor Azure MFA como um cliente RADIUS no hello outro servidor RADIUS para que ele possa processar solicitações de acesso enviadas tooit de saudação servidor Azure MFA. Use Olá que mesmo compartilhado configurado no servidor Azure multi-Factor Authentication de saudação do segredo.
 
-Repita estas etapas para adicionar mais servidores RADIUS e configurar a ordem em que o Servidor de MFA do Azure deve chamá-los com os botões **Mover para Cima** e **Mover para Baixo**.
+Repita essas etapas tooadd mais servidores RADIUS e configurar Olá ordem na qual Olá servidor Azure MFA deve chamá-los com hello **mover para cima** e **mover para baixo** botões.
 
-Isso conclui a configuração do servidor Azure Multi-Factor Authentication. O servidor agora está escutando nas portas configuradas solicitações de acesso RADIUS dos clientes configurados.   
+Isso conclui a configuração do servidor Azure multi-Factor Authentication hello. Olá servidor agora está escutando nas portas de saudação configurada para solicitações de acesso RADIUS dos clientes de saudação configurado.   
 
 ## <a name="radius-client-configuration"></a>Configuração do cliente RADIUS
-Para configurar o cliente RADIUS, use as diretrizes:
+Olá tooconfigure cliente RADIUS, use as diretrizes de saudação:
 
-* Configure o dispositivo/servidor para autenticar via RADIUS para o endereço IP do servidor Azure Multi-Factor Authentication, que atuará como o servidor RADIUS.
-* Use o mesmo segredo compartilhado que foi configurado anteriormente.
-* Configure o tempo limite RADIUS para 30 a 60 segundos, de forma que haja tempo para validar as credenciais do usuário, executar a verificação em duas etapas, receber a resposta e responder à solicitação de acesso RADIUS.
+* Configure seu tooauthenticate dispositivo/servidor por meio do endereço IP do servidor de autenticação multifator do Azure RADIUS toohello, o que irá agir como servidor RADIUS de saudação.
+* Use Olá que mesmo compartilhado segredo que foi configurado anteriormente.
+* Configurar o tempo limite too30-60 segundos do hello RADIUS para que haja tempo toovalidate Olá as credenciais de usuário, executar a verificação em duas etapas, receber a resposta e, em seguida, responder a solicitação de acesso RADIUS toohello.

@@ -1,6 +1,6 @@
 ---
-title: "Cadeia de conexão de armazenamento de imagens do Azure Service Fabric | Microsoft Docs"
-description: "Entender a cadeia de conexão de armazenamento de imagens"
+title: "aaaAzure cadeia de conexão de repositório de imagens do Service Fabric | Microsoft Docs"
+description: "Entender a cadeia de conexão de repositório de imagens de saudação"
 services: service-fabric
 documentationcenter: .net
 author: alexwun
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: alexwun
-ms.openlocfilehash: f497006a8ba48da0032b82113702d8014952ca20
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 83f5ad75b5df07726997da3173722028255b8cae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="understand-the-imagestoreconnectionstring-setting"></a>Noções básicas sobre a configuração ImageStoreConnectionString
+# <a name="understand-hello-imagestoreconnectionstring-setting"></a>Entender a configuração de ImageStoreConnectionString de saudação
 
-Em algumas das documentações, devemos mencionar brevemente a existência de um parâmetro "ImageStoreConnectionString" sem descrevendo o que realmente significa. E depois de passar por meio de um artigo como [implantar e remover aplicativos usando o PowerShell][10], parece que tudo o que precisa fazer é copiar/colar o valor como ele aparece no manifesto do cluster do cluster de destino. Então, a configuração deve ser configurável por cluster, mas quando você cria um cluster por meio de [portal do Azure][11], não há nenhuma opção para definir esta configuração e é sempre "fabric: ImageStore". Qual é a finalidade dessa configuração?
+Em alguns nossa documentação, vamos mencionar brevemente existência de saudação de um parâmetro de "ImageStoreConnectionString" sem que descreve o que realmente significa. E depois passando por um artigo como [implantar e remover aplicativos usando o PowerShell][10], parece que tudo é o valor de saudação de copiar/colar como ele aparece no manifesto do cluster de saudação do destino Olá cluster. Para configuração de saudação sejam configurável por cluster, mas quando você cria um cluster por meio de saudação [portal do Azure][11], não há nenhuma opção tooconfigure essa configuração e é sempre "fabric: ImageStore". Qual é a finalidade de saudação dessa configuração?
 
 ![Manifesto do cluster][img_cm]
 
-O Service Fabric começou como uma plataforma para consumo interno da Microsoft por muitas equipes diferentes, para alguns aspectos são altamente personalizáveis - o repositório"imagem" é um aspecto tal. Essencialmente, o armazenamento de imagens é um repositório conectável para armazenar pacotes de aplicativos. Quando seu aplicativo é implantado em um nó no cluster, o nó baixa o conteúdo de seu pacote de aplicativos do repositório de imagem. ImageStoreConnectionString é uma configuração que inclui todas as informações necessárias para clientes e nós localizar o armazenamento correto de imagem de um determinado cluster.
+Service Fabric foi iniciada como uma plataforma para consumo interno do Microsoft por muitas equipes diferentes, para alguns aspectos são altamente personalizáveis - Olá "Image Store" é um aspecto tal. Essencialmente, Olá Image Store é um repositório conectável para armazenar os pacotes de aplicativos. Quando seu aplicativo é implantado tooa nó no cluster Olá, o nó baixa conteúdo de saudação do seu pacote de aplicativo de saudação Image Store. Olá ImageStoreConnectionString é uma configuração que inclui todas as informações necessárias de saudação para clientes e nós toofind Olá imagem repositório correto para um determinado cluster.
 
 Existem três tipos possíveis de provedores de armazenamento de imagens e suas cadeias de conexão correspondentes são os seguintes:
 
@@ -36,15 +36,15 @@ Existem três tipos possíveis de provedores de armazenamento de imagens e suas 
 
 3. Armazenamento do Azure: "xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...]"
 
-O tipo de provedor usado na produção é o serviço de armazenamento de imagem, que é um serviço de sistema persistente com monitoração de estado que você pode ver no Service Fabric Explorer. 
+tipo de provedor de saudação usado na produção é Olá serviço de repositório de imagem, que é um serviço de sistema persistente com monitoração de estado que você pode ver no Gerenciador do Service Fabric. 
 
 ![Serviço de armazenamento de imagens][img_is]
 
-O armazenamento de imagens em um serviço de sistema dentro do próprio cluster de hospedagem elimina as dependências externas para o repositório de pacotes e nos dá mais controle sobre a localidade de armazenamento. As melhorias futuras no armazenamento de imagens do têm probabilidade do provedor de armazenamento de imagens de destino, primeiro, se não exclusivamente. A cadeia de conexão para o provedor de serviço de armazenamento de imagem não tem nenhuma informação exclusiva desde que o cliente já está conectado ao cluster de destino. O cliente só precisa saber que protocolos direcionando o serviço do sistema devem ser usados.
+Hospedagem hello Image Store em um serviço de sistema dentro do próprio cluster Olá elimina dependências externas para o repositório de pacotes de saudação e nos dá mais controle sobre a localidade de saudação do armazenamento. As melhorias futuras no hello repositório de imagens é provavelmente tootarget provedor de repositório de imagens de Olá primeiro, se não exclusivamente. cadeia de caracteres de conexão de saudação para o provedor de serviço de repositório de imagem Olá não tem nenhuma informação exclusiva desde que o cliente Olá já está conectado toohello cluster de destino. cliente Olá só precisa tooknow que protocolos direcionando o serviço do sistema Olá devem ser usados.
 
-O provedor do sistema de arquivos é usado em vez do serviço de armazenamento de imagem para clusters de uma caixa locais durante o desenvolvimento para inicializar o cluster ligeiramente mais rápido. A diferença é normalmente pequena, mas é uma otimização útil para a maioria das pessoas durante o desenvolvimento. É possível implantar um cluster local de uma caixa com os outros provedor tipos de armazenamento, bem, mas geralmente não há nenhum motivo para fazer isso, já que o fluxo de trabalho de desenvolvimento/teste permanece o mesmo, independentemente do provedor. Diferente para esse fim, os provedores de sistema de arquivos e armazenamento do Azure só existem para dar suporte.
+Olá sistema de arquivos provedor é usado em vez da saudação serviço de repositório de imagens para clusters de uma caixa locais durante o cluster de saudação do desenvolvimento toobootstrap ligeiramente mais rápido. diferença de saudação seja normalmente pequena, mas é uma otimização útil para a maioria das pessoas durante o desenvolvimento. É possível toodeploy uma caixa local de um cluster com hello outros tipos de provedor de armazenamento, mas geralmente não há nenhum motivo toodo assim como fluxo de trabalho de desenvolvimento/teste Olá permanece Olá mesmo, independentemente do provedor. Diferentes esse uso, provedores de sistema de arquivos e armazenamento do Azure Olá só existem para dar suporte.
 
-Então embora ImageStoreConnectionString é configurável, você geralmente apenas usar a configuração padrão. Ao publicar no Azure por meio do [Visual Studio][12], o parâmetro será definido automaticamente para você de forma adequada. Para implantação programática em clusters hospedados no Azure, a cadeia de conexão sempre será "fabric: ImageStore". Entretanto, em caso de dúvida, seu valor pode ser verificado sempre por meio da recuperação do manifesto do cluster pelo [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Os clusters de teste e de produção locais sempre deverão estar configurados para usar o provedor do Serviço de repositório de imagens também.
+Portanto enquanto Olá ImageStoreConnectionString é configurável, você geralmente apenas use Olá configuração padrão. Ao publicar tooAzure por meio de [Visual Studio][12], parâmetro hello será definido automaticamente para você adequadamente. Para tooclusters implantação programática hospedado no Azure, a cadeia de caracteres de conexão de saudação é sempre "fabric: ImageStore". Embora em caso de dúvida, seu valor pode ser verificado sempre recuperando Olá manifesto do cluster por [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx), ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Locais de teste e clusters de produção devem sempre ser o provedor de serviço de repositório de imagens de saudação toouse configurado também.
 
 ### <a name="next-steps"></a>Próximas etapas
 [Implantar e remover aplicativos usando o PowerShell][10]

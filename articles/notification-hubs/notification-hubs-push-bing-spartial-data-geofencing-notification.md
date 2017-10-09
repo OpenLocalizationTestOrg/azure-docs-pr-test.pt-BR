@@ -1,6 +1,6 @@
 ---
-title: "Notificações por push com delimitação geográfica com os Hubs de Notificação do Azure e o Bing Spatial Data | Microsoft Docs"
-description: "Neste tutorial, você aprenderá a entregar notificações por push baseadas na localização com os Hubs de Notificação do Azure e o Bing Spatial Data."
+title: "notificações de push isolados aaaGeo com Hubs de notificação do Azure e dados espaciais Bing | Microsoft Docs"
+description: "Neste tutorial, você aprenderá como toodeliver com base no local de enviar notificações por push com Hubs de notificação do Azure e dados espaciais do Bing."
 services: notification-hubs
 documentationcenter: windows
 keywords: "notificação por push,notificação por push"
@@ -15,114 +15,114 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/31/2016
 ms.author: dendeli
-ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d6efe473537f2159240c53e780741f12619c045d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Notificações por push com delimitação geográfica com os Hubs de Notificação do Azure e o Bing Spatial Data
 > [!NOTE]
-> Para concluir este tutorial, você precisa ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> toocomplete neste tutorial, você deve ter uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
 > 
 > 
 
-Neste tutorial, você aprenderá a enviar notificações por push baseadas na localização com os Hubs de Notificação do Azure e o Bing Spatial Data em um aplicativo da Plataforma Universal do Windows.
+Neste tutorial, você aprenderá como toodeliver com base no local de enviar notificações por push com Hubs de notificação do Azure e dados espaciais do Bing, utilizado de dentro de um aplicativo de plataforma Universal do Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Primeiro, você precisa se certificar de que tem todos os pré-requisitos de software e de serviço:
+Primeiramente, você precisa toomake-se de que você tenha todos os Olá software e serviço de pré-requisitos:
 
 * [Visual Studio 2015 Atualização 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) ou posterior (o [Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) também servirá). 
-* Versão mais recente do [SDK do Azure](https://azure.microsoft.com/downloads/). 
+* Versão mais recente do hello [SDK do Azure](https://azure.microsoft.com/downloads/). 
 * [Conta do Centro de Desenvolvimento do Bing Mapas](https://www.bingmapsportal.com/) (você pode criá-la gratuitamente e associá-la à sua conta da Microsoft). 
 
 ## <a name="getting-started"></a>Introdução
-Vamos começar pela criação do projeto. No Visual Studio, inicie um novo projeto do tipo **Aplicativo em Branco (Universal do Windows)**.
+Vamos começar criando o projeto de saudação. No Visual Studio, inicie um novo projeto do tipo **Aplicativo em Branco (Universal do Windows)**.
 
 ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 
-Uma vez concluída a criação do projeto, você deverá ter o agente para o próprio aplicativo. Agora vamos configurar tudo para a infraestrutura de delimitação geográfica. Como vamos usar os serviços do Bing para isso, há um ponto de extremidade de API REST público que permite consultar quadros de local específico:
+Após a conclusão da criação do projeto hello, você deve ter equipamento Olá para o aplicativo hello em si. Agora vamos configurar tudo para a infraestrutura do hello geográfico. Como estamos toouse contínuo que Bing serviços para este, há um ponto de extremidade de REST API público que nos permite tooquery quadros de local específico:
 
     http://spatial.virtualearth.net/REST/v1/data/
 
-Você precisará especificar os parâmetros a seguir para fazer isso funcionar:
+Você precisará toospecify-lo funcionar Olá tooget parâmetros a seguir:
 
 * **ID da Fonte de Dados** e **Nome da Fonte de Dados** – na API do Bing Mapas, as fontes de dados contêm diversos metadados classificados, como locais e horas comerciais de operação. Leia mais sobre isso aqui. 
-* **Nome da Entidade** – a entidade que você deseja usar como um ponto de referência para a notificação. 
-* **Chave de API do Bing Mapas** – é a chave que você obteve anteriormente quando criou a conta do Centro de Desenvolvimento do Bing.
+* **Nome da entidade** – Olá entidade que você deseja toouse como um ponto de referência de notificação de saudação. 
+* **Chave de API do Bing Maps** – chave Olá obtido anteriormente quando você criou a conta do Centro de desenvolvimento do Bing hello.
 
-Vamos fazer uma análise aprofundada sobre a instalação de cada um dos elementos acima.
+Vamos fazer uma análise aprofundada sobre instalação Olá para cada um dos elementos de saudação acima.
 
-## <a name="setting-up-the-data-source"></a>Configuração da fonte de dados
-Você pode fazer isso no Centro de Desenvolvimento do Bing Mapas. Basta clicar em **Fontes de dados** na barra de navegação superior e selecionar **Gerenciar Fontes de Dados**.
+## <a name="setting-up-hello-data-source"></a>Configurando a fonte de dados de saudação
+Você pode fazer isso no hello Centro de desenvolvimento do Bing Maps. Basta clicar no **fontes de dados** em Olá superior barra de navegação e selecione **gerenciar fontes de dados**.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
 
-Se você não tiver trabalhado com a API do Bing Mapas antes, provavelmente não haverá fontes de dados presentes e, portanto, é possível criar uma nova clicando em Carregar dados em uma fonte de dados. Preencha todos os campos obrigatórios:
+Se você não tenha trabalhado com a API do Bing Maps antes, provavelmente haverá qualquer fonte de dados presente, apenas você possa criar um novo clicando em dados de carregamento tooa fonte de dados. Verifique se que você preencher todos os campos de saudação necessário:
 
 ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
 
-Você deve estar imaginando – o que é o arquivo de dados e o que você deve carregar? Para os fins deste teste, nós usaremos apenas a amostra baseada em pipe que enquadra uma área da orla marítima de São Francisco:
+Você deve estar se perguntando – o que é o arquivo de dados de saudação e o que deverá que ser carregados? Para fins de saudação desse teste, podemos usar apenas exemplo hello baseados em pipe que quadros uma área de concientizá de são Francisco hello:
 
     Bing Spatial Data Services, 1.0, TestBoundaries
     EntityID(Edm.String,primaryKey)|Name(Edm.String)|Longitude(Edm.Double)|Latitude(Edm.Double)|Boundary(Edm.Geography)
     1|SanFranciscoPier|||POLYGON ((-122.389825 37.776598,-122.389438 37.773087,-122.381885 37.771849,-122.382186 37.777022,-122.389825 37.776598))
 
-O texto acima representa esta entidade:
+Olá acima representa essa entidade:
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
-Simplesmente copie e cole a cadeia de caracteres acima em um novo arquivo e salve-o como **NotificationHubsGeofence.pipe**; carregue-o no Centro de Desenvolvimento do Bing.
+Simplesmente copie e cole a cadeia de caracteres hello acima em um novo arquivo e salve-o como **NotificationHubsGeofence.pipe**e carregá-lo no hello Centro de desenvolvimento do Bing.
 
 > [!NOTE]
-> Poderá ser solicitada uma nova chave para a **Chave Mestra**, que é diferente da **Chave de Consulta**. Basta criar uma nova chave por meio do painel e atualizar a página de carregamento da fonte de dados.
+> Pode ser solicitado toospecify uma nova chave para Olá **chave mestra** que é diferente da saudação **chave de consulta**. Basta crie uma nova chave por meio de saudação painel e atualização Olá página fonte de dados carregamento.
 > 
 > 
 
-Depois que você carregar o arquivo de dados, deverá publicar a fonte de dados. 
+Depois que você carregar o arquivo de dados hello, você precisará toomake-se de que você publicar a fonte de dados de saudação. 
 
-Vá para **Gerenciar Fontes de Dados**, exatamente como fizemos acima, localize a fonte de dados na lista e clique em **Publicar** na coluna **Ações**. Em instantes, você deverá ver sua fonte de dados na guia **Fontes de Dados Publicadas** :
+Vá muito**gerenciar fontes de dados**, exatamente como fizemos acima, localize a fonte de dados na lista de saudação e clique em **publicar** em Olá **ações** coluna. Em um bit, você deverá ver sua fonte de dados em Olá **fontes de dados publicados** guia:
 
 ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
 
-Se você clicar em **Editar**, poderá ver rapidamente quais locais introduzimos nela:
+Se você clicar em **editar**, você será capaz de toosee em um relance locais que introduzimos nele:
 
 ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
-Neste ponto, o portal não mostrará os limites geográficos que criamos. Tudo o que precisamos é uma confirmação de que o local especificado está na vizinhança certa.
+Neste ponto, o portal de saudação não mostra Olá limites para geofence Olá que criamos – tudo o que é necessário é uma confirmação que é local Olá especificado no ambiente de saudação à direita.
 
-Agora você tem todos os requisitos da fonte de dados. Para obter os detalhes na URL de solicitação para a chamada à API, no Centro de Desenvolvimento do Bing Mapas, clique em **Fontes de dados** e selecione **Informações da Fonte de Dados**.
+Agora você tem todos os requisitos de Olá Olá fonte de dados. detalhes de saudação tooget na URL de solicitação de saudação para chamada hello API no hello Centro de desenvolvimento do Bing Maps, clique em **fontes de dados** e selecione **informações de fonte de dados**.
 
 ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
-A **URL da Consulta** é o que queremos aqui. Esse é o ponto de extremidade no qual podemos executar consultas para verificar se o dispositivo ainda está dentro dos limites de um local ou não. Para executar essa verificação, precisamos apenas executar uma chamada GET na URL de consulta, com os seguintes parâmetros anexados:
+Olá **consulta URL** é o que estamos aqui. Este é o ponto de extremidade de saudação em relação ao qual podemos executar consultas toocheck se o dispositivo hello está dentro dos limites de saudação de um local ou não. tooperform verificar isso, precisamos simplesmente tooexecute um GET chamar com relação à URL de consulta hello, com hello parâmetros acrescentados a seguir:
 
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
 
-Dessa forma, você está especificando um ponto de destino obtido do dispositivo e o Bing Mapas executará automaticamente os cálculos para ver se ele está dentro do limite geográfico. Depois de executar a solicitação por meio de um navegador (ou cURL), você obterá uma resposta JSON padrão:
+Dessa forma você está especificando um ponto de destino que obtemos do dispositivo hello e Bing Maps executará automaticamente Olá cálculos toosee se ele está dentro geofence hello. Quando você executa a solicitação de saudação por meio de um navegador (ou ondulação), você obterá padrão uma resposta JSON:
 
 ![](./media/notification-hubs-geofence/bing-maps-json.png)
 
-Essa resposta só acontece quando o ponto está realmente dentro dos limites designados. Caso contrário, você obterá um bucket vazio de **resultados** :
+Essa resposta só acontece quando ponto Olá realmente é dentro Olá designado limites. Caso contrário, você obterá um bucket vazio de **resultados** :
 
 ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-## <a name="setting-up-the-uwp-application"></a>Configuração do aplicativo UWP
-Agora que a fonte de dados está pronta, podemos começar a trabalhar no aplicativo UWP que inicializamos anteriormente.
+## <a name="setting-up-hello-uwp-application"></a>Configuração de aplicativo de UWP hello
+Agora que temos de fonte de dados de saudação pronto, podemos começar trabalhando Olá aplicativo UWP que são inicializados anteriormente.
 
-Primeiro, devemos habilitar os serviços de localização para o nosso aplicativo. Para isso, clique duas vezes no arquivo `Package.appxmanifest` no **Gerenciador de Soluções**.
+Primeiro, devemos habilitar os serviços de localização para o nosso aplicativo. toodo isso, clique duas vezes no `Package.appxmanifest` arquivo **Gerenciador de soluções**.
 
 ![](./media/notification-hubs-geofence/vs-package-manifest.png)
 
-Na guia de propriedades do pacote que acabou de abrir, clique em **Recursos** e selecione **Local**:
+Olá pacote Propriedades guia que acabou de abrir, clique em **recursos** e certifique-se de que você selecione **local**:
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
-Como o recurso local é declarado, crie uma nova pasta na solução denominada `Core` e adicione um novo arquivo a ela, chamado `LocationHelper.cs`:
+Como o recurso de local de saudação for declarado, crie uma nova pasta em sua solução chamada `Core`e adicione um novo arquivo dentro dele, chamado `LocationHelper.cs`:
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
-A classe `LocationHelper` em si é bem básica neste ponto – tudo o que ela faz é permitir a obtenção da localização do usuário por meio da API do sistema:
+Olá `LocationHelper` própria classe neste ponto é bem básica – tudo o que ele faz é processada local do usuário Olá tooobtain por meio da API do sistema de saudação:
 
     using System;
     using System.Threading.Tasks;
@@ -155,9 +155,9 @@ A classe `LocationHelper` em si é bem básica neste ponto – tudo o que ela fa
         }
     }
 
-Você pode ler mais sobre como obter a localização do usuário em aplicativos UWP no [documento do MSDN](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx)oficial.
+Você pode ler mais sobre como obter Olá local do usuário em aplicativos UWP em oficial Olá [documento MSDN](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
 
-Para verificar se a aquisição da localização está funcionando, abra o lado do código da página principal (`MainPage.xaml.cs`). Criar um novo manipulador de eventos para o evento `Loaded` no construtor `MainPage`:
+toocheck aquisição de local de saudação está funcionando, abra no lado do código de saudação da página principal (`MainPage.xaml.cs`). Criar um novo manipulador de eventos Olá `Loaded` evento Olá `MainPage` construtor:
 
     public MainPage()
     {
@@ -165,7 +165,7 @@ Para verificar se a aquisição da localização está funcionando, abra o lado 
         this.Loaded += MainPage_Loaded;
     }
 
-A implementação do manipulador de eventos é a seguinte:
+implementação de Olá Olá do manipulador de eventos é o seguinte:
 
     private async void MainPage_Loaded(object sender, RoutedEventArgs e)
     {
@@ -178,23 +178,23 @@ A implementação do manipulador de eventos é a seguinte:
         }
     }
 
-Observe que declaramos o manipulador como assíncrono porque `GetCurrentLocation` é aguardável e, portanto, exige ser executado em um contexto assíncrono. Além disso, como sob determinadas circunstâncias podemos terminar com uma localização nula (por exemplo, os serviços de localização estão desabilitados ou o aplicativo não teve permissões para acessar a localização), precisamos garantir que ele seja adequadamente manipulado com uma verificação de nulo.
+Observe que é declarada manipulador hello como assíncronas porque `GetCurrentLocation` é possível aguardar e, portanto, requer toobe executado em um contexto assíncrono. Além disso, como em determinadas circunstâncias, pode acabar com um local nulo (por exemplo, serviços de localização de saudação são desabilitados ou o aplicativo hello foi negado local de tooaccess permissões), é preciso toomake-se de que ela será manipulada corretamente com uma verificação de nula.
 
-Execute o aplicativo. Permita o acesso de localização:
+Execute o aplicativo hello. Permita o acesso de localização:
 
 ![](./media/notification-hubs-geofence/notification-hubs-location-access.png)
 
-Assim que o aplicativo for iniciado, você deverá ser capaz de ver as coordenadas na janela **Saída** :
+Uma vez Olá inícios de aplicativos, você deve ser capaz de toosee Olá coordenadas no hello **saída** janela:
 
 ![](./media/notification-hubs-geofence/notification-hubs-location-output.png)
 
-Agora você sabe que a aquisição de localização funciona – fique à vontade para remover o manipulador de eventos de teste carregado porque nós não o utilizarem mais.
+Agora você sabe que funciona de aquisição local – sinta-se livre tooremove manipulador de eventos de teste de saudação para carregado porque é não usá-lo mais.
 
-A próxima etapa é capturar as alterações de localização. Para isso, vamos voltar para a classe `LocationHelper` e adicionar o manipulador de eventos para `PositionChanged`:
+Olá próxima etapa é toocapture as alterações de localização. Para fazer isso, vamos voltar toohello `LocationHelper` classe e adicione o manipulador de eventos Olá `PositionChanged`:
 
     geolocator.PositionChanged += Geolocator_PositionChanged;
 
-A implementação mostrará as coordenadas de localização na janela **Saída** :
+implementação de saudação mostrará as coordenadas de local de saudação na Olá **saída** janela:
 
     private static async void Geolocator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
     {
@@ -204,20 +204,20 @@ A implementação mostrará as coordenadas de localização na janela **Saída**
         });
     }
 
-## <a name="setting-up-the-backend"></a>Configuração do back-end
-Baixe o [exemplo de back-end .NET do GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). Quando o download for concluído, abra a pasta `NotifyUsers` e depois o arquivo `NotifyUsers.sln`.
+## <a name="setting-up-hello-backend"></a>Configuração de back-end de saudação
+Baixar Olá [exemplo de back-end do .NET do GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers). Após a conclusão do download hello, abra Olá `NotifyUsers` pasta e subsequentemente – hello `NotifyUsers.sln` arquivo.
 
-Defina o projeto `AppBackend` como o **Projeto de Inicialização** e inicie-o.
+Saudação de conjunto `AppBackend` projeto como Olá **projeto de inicialização** e iniciá-lo.
 
 ![](./media/notification-hubs-geofence/vs-startup-project.png)
 
-O projeto já está configurado para enviar notificações por push para dispositivos de destino e, portanto, precisamos fazer somente duas coisas – trocar a cadeia de conexão correta para o hub de notificação e adicionar identificação de limite para enviar a notificação somente quando o usuário estiver dentro do limite geográfico.
+Olá projeto já está configurado toosend push notificações tootarget dispositivos, portanto vamos precisar toodo somente duas coisas – alternar cadeia de caracteres de conexão à direita de Olá Olá hub de notificação e adicionar limite identificação toosend Olá notificação apenas quando hello usuário está dentro do geofence hello.
 
-Para configurar a cadeia de conexão, abra `Notifications.cs` na pasta `Models`. A função `NotificationHubClient.CreateClientFromConnectionString` deve conter as informações sobre o hub de notificação que você pode obter no [Portal do Azure](https://portal.azure.com) (examine a folha **Políticas de Acesso** em **Configurações**). Salve o arquivo de configuração atualizado.
+cadeia de conexão tooconfigure hello, em Olá `Models` pasta abrir `Notifications.cs`. Olá `NotificationHubClient.CreateClientFromConnectionString` função deve conter informações de saudação sobre seu hub de notificação que você pode obter Olá [Portal do Azure](https://portal.azure.com) (Examinar Olá **políticas de acesso** folha em  **Configurações de**). Salve o arquivo de configuração atualizada do hello.
 
-Agora precisamos criar um modelo para o resultado da API do Bing Mapas. A maneira mais fácil de fazer isso é clicar com o botão direito do mouse na pasta `Models`, **Adicionar** > **Classe**. Nomeie-o `GeofenceBoundary.cs`. Quando tiver terminado, copie o JSON da resposta da API que abordamos na primeira seção e, no Visual Studio, use **Editar** > **Colar Especial** > **Colar JSON como Classes**. 
+Agora precisamos toocreate um modelo para Olá resultados de API do Bing Maps. Olá toodo de maneira mais fácil que é o botão direito do mouse em hello `Models` pasta **adicionar** > **classe**. Nomeie-o `GeofenceBoundary.cs`. Depois, copie Olá JSON da resposta Olá API que abordamos na primeira seção do hello e no uso do Visual Studio **editar** > **Colar especial** > **colar JSON como Classes**. 
 
-Dessa forma, garantimos que o objeto será desserializado exatamente como foi pretendido. O conjunto de classes resultante deve ter esta aparência:
+Dessa forma, podemos garantir que o objeto hello será desserializada exatamente como ele estivesse destinado. O conjunto de classes resultante deve ter esta aparência:
 
     namespace AppBackend.Models
     {
@@ -254,11 +254,11 @@ Dessa forma, garantimos que o objeto será desserializado exatamente como foi pr
         }
     }
 
-Em seguida, abra `Controllers` > `NotificationsController.cs`. É necessário ajustar a chamada Post para levar em consideração a latitude e a longitude do destino. Para isso, basta adicionar duas cadeias de caracteres à assinatura da função – `latitude` e `longitude`.
+Em seguida, abra `Controllers` > `NotificationsController.cs`. Precisamos tootweak Olá Post chamada tooaccount de latitude e longitude de destino hello. Para fazer isso, basta adicionar assinatura de função de toohello de duas cadeias de caracteres – `latitude` e `longitude`.
 
     public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag, string latitude, string longitude)
 
-Crie uma nova classe no projeto chamado `ApiHelper.cs` – nós a usaremos para a conexão com o Bing para criarmos pontos de verificação em interseções de limite. Implemente uma função `IsPointWithinBounds` , desta forma:
+Criar uma nova classe no projeto Olá chamado `ApiHelper.cs` – usaremos a ele interseções de limite do tooconnect tooBing toocheck ponto. Implemente uma função `IsPointWithinBounds` , desta forma:
 
     public class ApiHelper
     {
@@ -281,13 +281,13 @@ Crie uma nova classe no projeto chamado `ApiHelper.cs` – nós a usaremos para 
     }
 
 > [!NOTE]
-> Substitua o ponto de extremidade de API pela URL de consulta obtida anteriormente do Centro de Desenvolvimento do Bing (o mesmo se aplica à chave de API). 
+> Certifique-se de que toosubstitute Olá API ponto de extremidade com hello URL de consulta que você obteve anteriormente da saudação Centro de desenvolvimento do Bing (mesmo se aplica chave toohello API). 
 > 
 > 
 
-Se houver resultados para a consulta, isso significa que o ponto especificado está nos limites da delimitação geográfica e, portanto, retornamos `true`. Se não houver nenhum resultado, o Bing está dizendo que o ponto está fora do quadro de pesquisa e, portanto, retornamos `false`.
+Se houver consulta toohello de resultados, isso significa que Olá ponto especificado está dentro dos limites de saudação do geofence Olá, portanto retornamos `true`. Se não houver nenhum resultado, Bing é informar que o ponto de saudação está fora do quadro de pesquisa Olá, portanto retornamos `false`.
 
-Novamente em `NotificationsController.cs`, crie uma verificação logo antes da instrução switch:
+Em `NotificationsController.cs`, crie uma seleção antes de instrução de comutador hello:
 
     if (ApiHelper.IsPointWithinBounds(longitude, latitude))
     {
@@ -308,10 +308,10 @@ Novamente em `NotificationsController.cs`, crie uma verificação logo antes da 
         }
     }
 
-Dessa forma, a notificação só será enviada quando o ponto estiver dentro dos limites.
+Dessa forma, notificação Olá é enviada apenas quando o ponto de saudação está dentro dos limites de saudação.
 
-## <a name="testing-push-notifications-in-the-uwp-app"></a>Teste de notificações por push no aplicativo UWP
-Voltando ao aplicativo UWP, agora devemos conseguir testar as notificações. Na classe `LocationHelper`, crie uma nova função – `SendLocationToBackend`:
+## <a name="testing-push-notifications-in-hello-uwp-app"></a>Notificações por push de teste no aplicativo UWP Olá
+Voltando toohello aplicativo UWP, é agora deve ser capaz de tootest notificações. Dentro de saudação `LocationHelper` classe, crie uma nova função – `SendLocationToBackend`:
 
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
     {
@@ -333,61 +333,61 @@ Voltando ao aplicativo UWP, agora devemos conseguir testar as notificações. Na
     }
 
 > [!NOTE]
-> Troque o `POST_URL` para a localização do aplicativo Web implantado que criamos na seção anterior. Por enquanto, é possível executá-lo localmente, mas à medida que você trabalhar na implantação de uma versão pública, precisará hospedá-lo em um provedor externo.
+> Trocar Olá `POST_URL` toohello local do seu aplicativo da web implantados criada na seção anterior hello. Por ora, é toorun Okey-lo localmente, mas, conforme você trabalha na implantação de uma versão pública, será necessário toohost-lo com um provedor externo.
 > 
 > 
 
-Agora vamos registrar o aplicativo UWP para notificações por push. No Visual Studio, clique em **Projeto** > **Loja** > **Associar aplicativo à loja**.
+Vamos agora Certifique-se de que é registrar o aplicativo UWP Olá para notificações por push. No Visual Studio, clique em **projeto** > **armazenar** > **associar aplicativo store Olá**.
 
 ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
 
-Depois que você entrar em sua conta de desenvolvedor, selecione um aplicativo existente ou crie um novo e associe o pacote a ele. 
+Depois que você entrar na conta de desenvolvedor tooyour, certifique-se de selecionar um aplicativo existente ou crie um novo e associar o pacote de saudação a ele. 
 
-Vá para o Centro de Desenvolvimento e abra o aplicativo que você acabou de criar. Clique em **Serviços** > **Notificações por Push** > **Site dos Live Services**.
+Vá toohello Dev Center e o aplicativo hello abertos que você acabou de criar. Clique em **Serviços** > **Notificações por Push** > **Site dos Live Services**.
 
 ![](./media/notification-hubs-geofence/ms-live-services.png)
 
-No site, anote o **Segredo do Aplicativo** e o **SID do Pacote**. Você precisará deles no Portal do Azure – abra seu hub de notificação, clique em **Configurações** > **Serviços de Notificação** > **Windows (WNS)** e insira as informações nos campos obrigatórios.
+No site de hello, tome nota das Olá **segredo do aplicativo** e hello **SID do pacote**. Você precisará tanto no hello Azure Portal – abra seu hub de notificação, clique em **configurações** > **Notification Services** > **do Windows (WNS)**e insira as informações de Olá nos campos Olá necessário.
 
 ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
 
 Clique em **Save**.
 
-Clique com o botão direito do mouse em **Referências** no **Gerenciador de Soluções** e selecione **Gerenciar Pacotes NuGet**. Precisaremos adicionar uma referência à **biblioteca gerenciada do Barramento de Serviço do Microsoft Azure** – basta procurar `WindowsAzure.Messaging.Managed` e adicioná-lo ao seu projeto.
+Clique com o botão direito do mouse em **Referências** no **Gerenciador de Soluções** e selecione **Gerenciar Pacotes NuGet**. Precisaremos tooadd toohello uma referência **biblioteca gerenciada do barramento de serviço do Microsoft Azure** – simplesmente procurar `WindowsAzure.Messaging.Managed` e adicioná-lo tooyour projeto.
 
 ![](./media/notification-hubs-geofence/vs-nuget.png)
 
-Para fins de teste, podemos criar o manipulador de eventos `MainPage_Loaded` novamente e adicionar este trecho de código a ele:
+Para fins de teste, podemos criar hello `MainPage_Loaded` novamente, o manipulador de eventos e adicionar esse tooit de trecho de código:
 
     var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
     var hub = new NotificationHub("HUB_NAME", "HUB_LISTEN_CONNECTION_STRING");
     var result = await hub.RegisterNativeAsync(channel.Uri);
 
-    // Displays the registration ID so you know it was successful
+    // Displays hello registration ID so you know it was successful
     if (result.RegistrationId != null)
     {
         Debug.WriteLine("Reg successful.");
     }
 
-O trecho acima registra o aplicativo no hub de notificação. Você está pronto! 
+Olá acima registra o aplicativo hello com hub de notificação de saudação. Você está pronto toogo! 
 
-Em `LocationHelper`, no manipulador `Geolocator_PositionChanged`, você pode adicionar uma parte do código de teste que irá impor a colocação da localização dentro do limite geográfico:
+Em `LocationHelper`, dentro de saudação `Geolocator_PositionChanged` manipulador, você pode adicionar uma parte do código de teste que colocarão forçada local hello dentro Olá geofence:
 
     await LocationHelper.SendLocationToBackend("wns", "TEST_USER", "TEST", "37.7746", "-122.3858");
 
-Como não estamos passando as coordenadas reais (que podem não estar nos limites no momento) e como estamos usando valores predefinidos de teste, veremos uma notificação sobre atualização:
+Porque não está transmitindo coordenadas real de saudação (que não podem ser dentro dos limites de saudação momento Olá) e está usando valores de teste predefinidas, veremos uma notificação aparecem na atualização:
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
 ## <a name="whats-next"></a>O que vem a seguir?
-Existem algumas etapas que talvez você precise seguir além das anteriores para garantir que a solução esteja pronta para produção.
+Há algumas etapas que talvez você precise toofollow em adição toohello acima toomake se a solução hello está pronto para produção.
 
-Primeiro, talvez seja necessário garantir que os limites geográficos sejam dinâmicos. Isso exigirá algum trabalho extra com a API do Bing para poder carregar novos limites na fonte de dados existente. Consulte a [documentação da API do Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx) para obter mais detalhes sobre o assunto.
+Primeiramente, talvez seja necessário tooensure que geofences são dinâmicos. Isso exigirá algum trabalho adicional com hello API do Bing em limites nova de ordem toobe tooupload capaz de na fonte de dados existente do hello. Consulte Olá [documentação da API de serviços de dados espaciais do Bing](https://msdn.microsoft.com/library/ff701734.aspx) para obter mais detalhes sobre o assunto de saudação.
 
-Segundo, como você está trabalhando para garantir que a entrega seja feita aos participantes certos, talvez você queira usar a [marcação](notification-hubs-tags-segment-push-message.md)para tê-los como destino.
+Segundo, que tooensure de trabalho que entrega Olá é feita participantes direito toohello, talvez você queira tootarget-los por meio de [marcação](notification-hubs-tags-segment-push-message.md).
 
-A solução mostrada acima descreve um cenário em que você pode ter uma ampla variedade de plataformas de destino e, portanto, não limitamos a delimitação geográfica a recursos específicos do sistema. Dito isso, a Plataforma Universal do Windows oferece recursos para [detectar delimitações geográficas prontas](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
+solução de saudação mostrada acima descreve um cenário em que você pode ter uma ampla variedade de plataformas de destino, portanto não limitamos recursos de toosystem específicos de isolamento geográfico de saudação. Dito isso, Olá plataforma Universal do Windows oferece recursos muito[detectar geofences direito-de-prontos](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
 
 Para obter mais detalhes sobre os recursos de Hubs de Notificação, confira nosso [portal de documentação](https://azure.microsoft.com/documentation/services/notification-hubs/).
 

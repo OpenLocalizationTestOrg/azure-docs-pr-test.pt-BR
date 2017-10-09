@@ -1,6 +1,6 @@
 ---
-title: "Atualizar a versão do SO na Central de Segurança do Azure | Microsoft Docs"
-description: "Este artigo mostra como implementar a recomendação da Central de Segurança do Azure **Atualizar versão do sistema operacional**."
+title: "versão aaaUpdate SO na Central de segurança do Azure | Microsoft Docs"
+description: "Este artigo mostra como tooimplement Olá recomendação da Central de segurança do Azure * * versão de sistema operacional de atualização * *."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-ms.openlocfilehash: ce0d178914907750e5da59f223a4b1e04b9bb6fb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f3497d7266da40d3a965f9cb8e84392d2aaa28f0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Atualizar a versão do sistema operacional na Central de Segurança do Azure
-Para VMs (máquinas virtuais) em serviços de nuvem, a Central de Segurança do Azure recomendará que o SO (sistema operacional) seja atualizado se houver uma versão mais recente disponível.  Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados.
+Para máquinas virtuais (VMs) em serviços de nuvem, Central de segurança do Azure recomendará o sistema operacional (SO) Olá ser atualizado se houver uma versão mais recente disponível.  Apenas serviços de nuvem da Web e funções de trabalho em execução em slots de produção são monitorados.
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo.  Ela não é um guia passo a passo.
+> Este documento apresenta serviço hello usando um exemplo de implantação.  Ela não é um guia passo a passo.
 > 
 > 
 
-## <a name="implement-the-recommendation"></a>Implementar a recomendação
-1. Na folha **Recomendações**, selecione **Atualizar versão do sistema operacional**.
+## <a name="implement-hello-recommendation"></a>Implementar a recomendação de saudação
+1. Em Olá **recomendações** folha, selecione **versão do sistema operacional de atualização**.
    ![Atualizar a versão do sistema operacional][1]
-2. Isso abrirá a folha **Atualizar versão do sistema operacional**. Siga as etapas nessa folha para atualizar a versão do sistema operacional.
+2. Isso abre a folha de saudação **versão do sistema operacional de atualização**. Siga as etapas de saudação nesta versão de sistema operacional folha tooupdate hello.
 
 ## <a name="see-also"></a>Consulte também
-Este artigo mostrou como implementar a recomendação da Central de Segurança "Atualizar versão do iOS". Para saber mais sobre os serviços de nuvem e atualizar a versão do sistema operacional para um serviço de nuvem, confira:
+Este artigo lhe mostrou como tooimplement Olá Central de segurança recomendação "sistema operacional versão de atualização." toolearn mais sobre serviços de nuvem e a versão do sistema operacional Olá atualização para um serviço de nuvem, consulte:
 
 * [Visão geral dos Serviços de Nuvem](../cloud-services/cloud-services-choose-me.md)
-* [Como atualizar um serviço de nuvem](../cloud-services/cloud-services-update-azure-service.md)
-* [Como configurar serviços de nuvem](../cloud-services/cloud-services-how-to-configure-portal.md)
+* [Como tooupdate um serviço de nuvem](../cloud-services/cloud-services-update-azure-service.md)
+* [Como os serviços de nuvem tooConfigure](../cloud-services/cloud-services-how-to-configure-portal.md)
 
-Para saber mais sobre a Central de Segurança, confira o seguinte:
+toolearn mais sobre o Centro de segurança, consulte o seguinte hello:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
+* [Definir políticas de segurança na Central de segurança do Azure](security-center-policies.md) – Saiba como tooconfigure as políticas de segurança para sua assinatura do Azure e grupos de recursos.
 * [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
-* [Monitoramento de soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiro.
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço de localização.
-* [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) : obtenha as últimas notícias de segurança e informações do Azure.
+* [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md) – Saiba como toomonitor Olá a integridade de seus recursos do Azure.
+* [Gerenciando e respondendo toosecurity alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como alertas de toosecurity toomanage e responder.
+* [Soluções de parceiro com a Central de segurança do Azure de monitoramento](security-center-partner-solutions.md) – Saiba como toomonitor Olá status de integridade de suas soluções de parceiro.
+* [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) – localizar perguntas frequentes sobre como usar o serviço de saudação.
+* [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – obter notícias mais recentes de segurança do Azure hello e informações.
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png

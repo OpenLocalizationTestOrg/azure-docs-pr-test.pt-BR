@@ -17,14 +17,14 @@
 
 <sup>1</sup>Os limites padrão variam de acordo com o tipo de categoria oferecido, como avaliação gratuita, pré-pago e séries como Dv2, F, G etc.
 
-<sup>2</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). A equipe de Armazenamento do Azure examinará seu caso de negócios e poderá aprovar até 250 contas de armazenamento.
+<sup>2</sup>Isso inclui contas de armazenamento Standard e Premium. Se você precisar de mais de 200 contas de armazenamento, faça uma solicitação por meio do [Suporte do Azure](https://azure.microsoft.com/support/faq/). equipe de armazenamento do Azure Olá examine seu caso de negócios e pode aprovar as contas de armazenamento too250.
 
-<sup>3</sup>Você pode aplicar um número ilimitado de marcas por assinatura. O número de marcas por recurso ou grupo de recursos é limitado a 15. O Gerenciador de Recursos só retorna uma [lista de valores e nomes de marca exclusivos](/rest/api/resources/tags#Tags_List) na assinatura quando o número de marcas é menor ou igual a 10.000. No entanto, ainda é possível encontrar um recurso por marca quando o número excede 10.000.  
+<sup>3</sup>Você pode aplicar um número ilimitado de marcas por assinatura. número de saudação de marcas por recurso ou grupo de recursos é limitado too15. Gerenciador de recursos só retorna um [lista de valores e nomes de marca exclusivo](/rest/api/resources/tags#Tags_List) na assinatura hello quando o número de saudação de marcas é 10.000 ou. No entanto, ainda é possível encontrar um recurso por marca, quando o número de saudação exceder 10.000.  
 
-<sup>4</sup>Esses recursos não são mais necessários com os Grupos de Recursos do Azure e o Azure Resource Manager.
+<sup>4</sup>esses recursos não são mais necessários com grupos de recursos do Azure e hello Azure Resource Manager.
 
 > [!NOTE]
-> É importante enfatizar que os núcleos de máquina virtual têm um limite regional total, bem como um limite regional por tamanho de série (Dv2, F etc.), que são aplicados separadamente.  Por exemplo, considere uma assinatura com uma VM do Leste dos EUA com um limite total de núcleos de 30, um limite de núcleos da série A de 30 e um limite de núcleos da série D de 30.  Esta assinatura teria permissão para implantar 30 VMs A1, ou 30 VMs D1 ou uma combinação das duas a fim de não exceder um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs D1).  
+> É importante tooemphasize núcleos de máquina virtual com um limite total regional, bem como um regionais por limite de série (Dv2, F, etc.) que são aplicadas separadamente.  Por exemplo, considere uma assinatura com uma VM do Leste dos EUA com um limite total de núcleos de 30, um limite de núcleos da série A de 30 e um limite de núcleos da série D de 30.  Essa assinatura deve ser permitida toodeploy 30 A1 VMs ou 30 VMs D1 ou uma combinação de Olá dois tooexceed um total de 30 núcleos (por exemplo, 10 VMs A1 e 20 VMs de D1).  
 > <!-- -->
 > 
 > 

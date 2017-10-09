@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao Android no Azure AD v2 – Instalação | Microsoft Docs"
+title: "aaaAzure AD v2 Android Introdução - instalação | Microsoft Docs"
 description: Como um aplicativo do Android pode obter um token de acesso e chamar a API do Microsoft Graph ou APIs que exigem tokens de acesso por meio do ponto de extremidade do Azure Active Directory v2
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,27 +15,27 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: a43d7e30a6f4176afba27f0de2c2c116df741080
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: df2670d6d35b7a9a81158d4d7eb190540ca9c695
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
-> Prefere baixar este projeto do Android Studio de exemplo? [Baixe um projeto](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) e vá para a [Etapa de configuração](#create-an-application-express) para configurar o exemplo de código antes de executá-lo.
+> Preferir toodownload Android Studio projeto desse exemplo em vez disso? [Baixar um projeto](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) e ignorar toohello [etapa de configuração](#create-an-application-express) exemplo de código tooconfigure hello antes de executar.
 
 
 ### <a name="create-a-new-project"></a>Criar um novo projeto 
 1.  Abra o Android Studio e acesse: `File` > `New` > `New Project`
 2.  Nomeie o aplicativo e clique em `Next`
-3.  Lembre-se de selecionar *API 21 ou mais nova (Android 5.0)* e clique em `Next`
+3.  Certifique-se de que tooselect *21 de API ou mais recente (Android 5.0)* e clique em`Next`
 4.  Mantenha `Empty Activity`, clique em `Next` e, em seguida, em `Finish`
 
 
-### <a name="add-the-microsoft-authentication-library-msal-to-your-project"></a>Adicionar a MSAL (Biblioteca de Autenticação da Microsoft) ao projeto
+### <a name="add-hello-microsoft-authentication-library-msal-tooyour-project"></a>Adicionar projeto de tooyour Olá biblioteca de autenticação da Microsoft (MSAL)
 1.  No Android Studio, acesse: `Gradle Scripts` > `build.gradle (Module: app)`
-2.  Copie e cole o seguinte código em `Dependencies`:
+2.  Copiar e colar a seguir Olá código em `Dependencies`:
 
 ```ruby  
 compile ('com.microsoft.identity.client:msal:0.1.+') {
@@ -47,15 +47,15 @@ compile 'com.android.volley:volley:1.0.0'
 <!--start-collapse-->
 ### <a name="about-this-package"></a>Sobre este pacote
 
-O pacote acima instala a MSAL (Biblioteca de Autenticação da Microsoft). A MSAL manipula a aquisição, o armazenamento em cache e a atualização de tokens de usuário usados para acessar APIs protegidas pelo ponto de extremidade do Azure Active Directory v2.
+pacote de saudação acima instala Olá biblioteca de autenticação da Microsoft (MSAL). MSAL lida com a aquisição, cache e atualizar usuário tokens usados tooaccess APIs protegidos pelo ponto de extremidade do Active Directory do Azure v2.
 <!--end-collapse-->
 
 ## <a name="create-your-applications-ui"></a>Criar a interface do usuário do aplicativo
 
 1.  Abra `activity_main.xml` em `res` > `layout`
-2.  Altere o layout de atividade de `android.support.constraint.ConstraintLayout` ou outro para `LinearLayout`
-3.  Adicione a propriedade `android:orientation="vertical"` ao nó `LinearLayout`
-4.  Copie e cole o seguinte código no nó `LinearLayout`, substituindo o conteúdo atual:
+2.  Alterar o layout de atividade de saudação do `android.support.constraint.ConstraintLayout` ou outros muito`LinearLayout`
+3.  Adicionar `android:orientation="vertical"` propriedade muito`LinearLayout` nó
+4.  Copiar e colar a seguir Olá código em Olá `LinearLayout` nó, substituindo o conteúdo atual da saudação:
 
 ```xml
 <TextView

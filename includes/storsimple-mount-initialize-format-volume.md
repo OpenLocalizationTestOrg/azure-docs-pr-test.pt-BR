@@ -1,27 +1,27 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-mount-initialize-and-format-a-volume"></a>Para montar, inicializar e formatar um volume
-1. Inicie o iniciador iSCSI da Microsoft.
-2. Na janela **Propriedades do Iniciador iSCSI** na guia **Descoberta**, clique em **Descobrir Portal**.
-3. Na caixa de diálogo **Descobrir Portal de Destino**, forneça o endereço IP de seu adaptador de rede habilitado para iSCSI e clique em **OK**. 
-4. Na janela **Propriedades do Iniciador iSCSI** na guia **Destinos**, localize os **Destinos descobertos**. O status do dispositivo deve aparecer como **Inativo**.
-5. Selecione o dispositivo de destino e depois clique em **Conectar**. Após o dispositivo ter sido conectado, o status deverá mudar para **Conectado**. (Para saber mais sobre como usar o iniciador iSCSI da Microsoft, veja [Instalação e configuração do iniciador iSCSI da Microsoft][1]).
-6. No host do Windows, aperte a tecla do logotipo do Windows + X e depois clique em **Executar**. 
-7. Na caixa de diálogo **Executar**, digite **Diskmgmt.msc**. Clique em **OK** e a caixa de diálogo **Gerenciamento de Disco** será exibida. O painel do lado direito exibirá os volumes do seu host.
-8. Na janela **Gerenciamento de Disco** , os volumes montados serão exibidos conforme exibido na ilustração a seguir. Clique com o botão direito no volume descoberto (clique no nome do disco) e depois clique em **Online**.
+#### <a name="toomount-initialize-and-format-a-volume"></a>toomount, inicializar e formatar um volume
+1. Inicie o iniciador iSCSI da Microsoft hello.
+2. Em Olá **propriedades do iniciador iSCSI** janela Olá **descoberta** , clique em **descobrir Portal**.
+3. Em Olá **descobrir Portal de destino** caixa de diálogo, forneça Olá endereço IP de sua interface de rede habilitada com iSCSI e, em seguida, clique em **Okey**. 
+4. Em Olá **propriedades do iniciador iSCSI** janela Olá **destinos** guia, localize Olá **descobertos destinos**. status do dispositivo Olá devem aparecer como **inativo**.
+5. Selecione o dispositivo de destino hello e, em seguida, clique em **conectar**. Depois Olá dispositivo estiver conectado, o status de saudação deve mudar muito**conectado**. (Para obter mais informações sobre como usar o iniciador iSCSI da Microsoft hello, consulte [instalando e configurando o Microsoft iSCSI Initiator][1]).
+6. No host do Windows, pressione a tecla de logotipo do Windows hello + X e, em seguida, clique em **executar**. 
+7. Em Olá **executar** caixa de diálogo, digite **Diskmgmt.msc**. Clique em **Okey**e hello **gerenciamento de disco** caixa de diálogo será exibida. painel direito da saudação mostrará volumes Olá em seu host.
+8. Em Olá **gerenciamento de disco** janela, hello volumes montados serão exibidos conforme mostrado na ilustração a seguir de saudação. Com o botão direito volume Olá descoberto (clique em nome do disco Olá) e, em seguida, clique em **Online**.
    
      ![Inicializar formatação de volume](./media/storsimple-mount-initialize-format-volume/HCS_InitializeFormatVolume-include.png) 
-9. Clique com o botão direito no volume descoberto (clique no nome do disco) e depois clique em **Inicializar**.
-10. Para formatar um volume simples, realize as seguintes etapas:
+9. Clique com botão direito volume hello (clique em nome do disco Olá) novamente e, em seguida, clique em **inicializar**.
+10. tooformat um volume simples, execute Olá etapas a seguir:
     
-    1. Selecione o volume, clique com o botão direito no mesmo (clique na área do lado direito) e clique em **Novo Volume Simples**.
-    2. No assistente para Novo Volume Simples, especifique o tamanho do volume e a letra do drive e configure o volume como um sistema de arquivos NTFS.
-    3. Especifique um tamanho de unidade de alocação com 64 KB. Esse tamanho de unidade de alocação funciona bem com os algoritmos de eliminação de duplicação usados na solução StorSimple.
+    1. Selecione o volume de saudação, clique duas vezes (clique na área da direita Olá) e clique em **Novo Volume simples**.
+    2. No Assistente de novo Volume simples hello, especifique a letra de drive e tamanho do volume de hello e configurar o volume hello como um sistema de arquivos NTFS.
+    3. Especifique um tamanho de unidade de alocação com 64 KB. Esse tamanho de unidade de alocação funciona bem com algoritmos de eliminação de duplicação de saudação usados em Olá solução StorSimple.
     4. Realize uma formatação rápida.
 
 ![Vídeo disponível](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Vídeo disponível**
 
-Para assistir a um vídeo que demonstra como montar, inicializar e formatar um volume do StorSimple, clique [aqui](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+toowatch um vídeo que demonstra como toomount, inicializar e formatar um volume StorSimple, clique em [aqui](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx

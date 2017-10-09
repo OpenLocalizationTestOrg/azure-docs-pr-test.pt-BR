@@ -1,6 +1,6 @@
-### <a name="noconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - sem conexão de gateway
+### <a name="noconnection"></a>prefixos de endereço IP da gateway de rede local toomodify - nenhuma conexão de gateway
 
-Para adicionar prefixos de endereço adicional:
+prefixos de endereço adicional tooadd:
 
 ```powershell
 $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
@@ -8,8 +8,8 @@ Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
 -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 ```
 
-Para remover os prefixo de endereço:<br>
-Exclua os prefixos de que você não precisa mais. Neste exemplo, não é mais necessário prefixar 20.0.0.0/24 (do exemplo anterior), portanto, atualizaremos o gateway de rede local e excluiremos o prefixo.
+prefixos de endereço tooremove:<br>
+Omitir os prefixos de saudação que não é mais necessário. Neste exemplo, não é necessário prefixar 20.0.0.0/24 (de saudação exemplo anterior), para que podemos atualizar o gateway de rede local Olá, excluindo esse prefixo.
 
 ```powershell
 $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
@@ -17,39 +17,39 @@ Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
 -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 ```
 
-### <a name="withconnection"></a>Para modificar prefixos de endereço IP de gateway de rede local - conexão de gateway existente
+### <a name="withconnection"></a>toomodify local de rede gateway prefixos de endereço IP - existente de conexão de gateway
 
-Se você possui uma conexão de gateway e deseja adicionar ou remover os prefixos do endereço IP contidos no gateway de rede local, você precisará executar as etapas a seguir nessa ordem. Isso resulta em algum tempo de inatividade para a conexão VPN. Ao modificar prefixos de endereço IP, você não precisa excluir o gateway de VPN. Você precisa apenas remover a conexão.
+Se você tiver uma conexão de gateway e deseja tooadd ou remove os prefixos de endereço IP de saudação contidos no seu gateway de rede local, você precisa Olá toodo etapas, na ordem a seguir. Isso resulta em algum tempo de inatividade para a conexão VPN. Ao modificar prefixos de endereço IP, gateway VPN Olá toodelete não é necessário. Você só precisa de conexão de saudação tooremove.
 
 
-1. Remova a conexão.
+1. Remova conexão hello.
 
   ```powershell
   Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName
   ```
-2. Modifique os prefixos do endereço para seu gateway de rede local.
+2. Modifique os prefixos de endereço de saudação do seu gateway de rede local.
    
-  Defina a variável para LocalNetworkGateway.
+  Definir variável Olá Olá LocalNetworkGateway.
 
   ```powershell
   $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName
   ```
    
-  Modifique os prefixos.
+  Modifique os prefixos de saudação.
    
   ```powershell
   Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
   -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
   ```
-3. Crie a conexão. Neste exemplo, configuramos um tipo de conexão IPsec. Quando você recriar a conexão, use o tipo de conexão especificado para sua configuração. Para outros tipos de conexão, consulte a página [Cmdlet do PowerShell](https://msdn.microsoft.com/library/mt603611.aspx) .
+3. Crie conexão hello. Neste exemplo, configuramos um tipo de conexão IPsec. Ao recriar sua conexão, use o tipo de conexão de saudação que é especificado para sua configuração. Para tipos de conexão adicionais, consulte Olá [cmdlet do PowerShell](https://msdn.microsoft.com/library/mt603611.aspx) página.
    
-  Defina a variável para VirtualNetworkGateway.
+  Definir variável Olá Olá VirtualNetworkGateway.
 
   ```powershell
   $gateway1 = Get-AzureRmVirtualNetworkGateway -Name RMGateway  -ResourceGroupName MyRGName
   ```
    
-  Crie a conexão. Este exemplo usa a variável $local que você definiu na etapa 2.
+  Crie conexão hello. Este exemplo usa a variável de saudação $local definido na etapa 2.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `

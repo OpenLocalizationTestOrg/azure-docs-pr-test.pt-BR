@@ -1,7 +1,7 @@
-Se você quiser criar uma conexão P2S de um computador cliente diferente daquele usada para gerar os certificados cliente, instale um certificado de cliente. Ao instalar um certificado do cliente, você precisará da senha criada durante a exportação do certificado do cliente.
+Se você quiser toocreate um P2S conexão de um computador cliente que não sejam Olá você usado certificados de cliente toogenerate Olá, é necessário tooinstall um certificado de cliente. Ao instalar um certificado de cliente, é necessário senha Olá que foi criada quando o certificado de cliente Olá foi exportado.
 
-1. Localize e copie o arquivo *.pfx* no computador cliente. No computador cliente, clique duas vezes no arquivo *.pfx* para instalá-lo. Deixe o **Local do Repositório** como **Usuário Atual** e clique em **Avançar**.
-2. Na página **Arquivo** a importar, não faça nenhuma alteração. Clique em **Avançar**.
-3. Na página **Proteção da chave privada**, insira a senha do certificado ou verifique se a entidade de segurança está correta e clique em **Avançar**.
-4. Na página **Repositório de Certificados**, deixe a localização padrão e clique em **Avançar**.
-5. Clique em **Concluir**. No **Aviso de Segurança** da instalação do certificado, clique em **Sim**. Clique em 'Sim' sem medo, pois você gerou o certificado. O certificado foi importado com êxito.
+1. Localize e copie Olá *. pfx* computador de cliente do arquivo toohello. No computador do cliente hello, clique duas vezes em Olá *. pfx* tooinstall de arquivos. Deixe Olá **local do repositório** como **usuário atual**e, em seguida, clique em **próximo**.
+2. Em Olá **arquivo** tooimport página, não faça nenhuma alteração. Clique em **Avançar**.
+3. Em Olá **proteção de chave privada** página, entrada de senha Olá certificado hello, ou verifique se essa entidade de segurança hello está correta e clique em **próximo**.
+4. Em Olá **repositório de certificados** página, deixe saudação padrão local e, em seguida, clique em **próximo**.
+5. Clique em **Concluir**. Em Olá **aviso de segurança** para instalação do certificado hello, clique em **Sim**. Você pode se sentir confortável clicando em 'Sim', porque você gerou o certificado de saudação. certificado de saudação agora foi importado com êxito.

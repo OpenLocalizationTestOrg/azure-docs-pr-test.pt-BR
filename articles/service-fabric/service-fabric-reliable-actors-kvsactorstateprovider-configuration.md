@@ -1,5 +1,5 @@
 ---
-title: "Alterar as configurações de KVSActorStateProvider nos microsserviços do Azure | Microsoft Docs"
+title: "configurações de KVSActorStateProvider aaaChange no Azure microservices | Microsoft Docs"
 description: "Saiba como configurar atores com monitoração de estado do Service Fabric do Azure do tipo KVSActorStateProvider."
 services: Service-Fabric
 documentationcenter: .net
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/29/2017
 ms.author: sumukhs
-ms.openlocfilehash: 2af1d21a46cde5ba63c967461a1835b5e34ca3cc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e003512678556e68a8926b1b9c6c28d9ae3979d2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configurando Reliable Actors--KVSActorStateProvider
-A configuração padrão do KVSActorStateProvider pode ser alterada modificando-se o arquivo settings.xml gerado na raiz pacote do Microsoft Visual Studio dentro da pasta Config para o ator especificado.
+Você pode modificar a configuração padrão de saudação do KVSActorStateProvider alterando Olá settings.xml arquivo gerado na raiz do pacote de saudação Microsoft Visual Studio na pasta de configuração Olá para ator especificado hello.
 
-O tempo de execução do Service Fabric do Azure procura nomes de seção predefinidos no arquivo settings.xml e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
+Hello Azure Service Fabric runtime procura nomes de seção predefinida no arquivo settings.xml de saudação e consome os valores de configuração de saudação ao criar hello subjacente de componentes de tempo de execução.
 
 > [!NOTE]
-> **Não** exclua/modifique os nomes de seção das configurações a seguir no arquivo settings.xml que é gerado na solução do Visual Studio.
+> Fazer **não** excluir ou modificar os nomes de seção Olá de saudação seguintes configurações no arquivo settings.xml de saudação que é gerado no hello solução do Visual Studio.
 > 
 > 
 
 ## <a name="replicator-security-configuration"></a>Configuração de segurança do replicador
-As configurações de segurança do replicador servem para proteger o canal de comunicação que é usado durante a replicação. Isso significa que os serviços não podem ver o tráfego de replicação uns dos outros, garantindo que os dados que têm alta disponibilidade também estejam seguros.
+As configurações de segurança do replicador são canal de comunicação do hello toosecure usado é usado durante a replicação. Isso significa que os serviços não consegue ver do outro tráfego de replicação, garantindo que os dados de saudação estará altamente disponíveis também seja seguros.
 Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
 
 ### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Configuração do replicador
-Configurações do replicador configuram o replicador que será responsável por tornar o Provedor de Estado do Ator altamente confiável.
-A configuração padrão é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre configurações adicionais que estão disponíveis para ajustar o replicador.
+Configurações de replicador configurar replicador de saudação que é responsável por verificar o estado do provedor de estado de ator Olá altamente confiável.
+configuração padrão de saudação é gerada pelo modelo do Visual Studio hello e deve ser suficiente. Esta seção fala sobre as configurações adicionais que são replicador de saudação tootune disponíveis.
 
 ### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceReplicatorConfig
@@ -47,16 +47,16 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 ### <a name="configuration-names"></a>Nomes da configuração
 | Nome | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta. |
-| ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Consulte [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para saber mais sobre como definir os recursos de ponto de extremidade no manifesto de serviço. |
-| RetryInterval |Segundos |5 |Período de tempo após o qual o replicador transmite novamente uma mensagem caso não receba uma confirmação para uma operação. |
+| BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo para o replicador Olá a esperas de saudação secundário após o recebimento de uma operação antes de enviar de volta um reconhecimento toohello primário. Outros toobe de confirmações enviada para operações processadas dentro deste intervalo são enviadas como uma resposta. |
+| ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que Olá replicador primário/secundário usará toocommunicate com outros replicadores no conjunto de réplicas de saudação. Isso deve fazer referência a um ponto de extremidade TCP recurso no manifesto do serviço de saudação. Consulte também[recursos de manifesto do serviço](service-fabric-service-manifest-resources.md) tooread mais sobre como definir recursos de ponto de extremidade no manifesto do serviço de saudação. |
+| RetryInterval |Segundos |5 |Período de tempo após o qual Olá replicador novamente transmite uma mensagem se não receber uma confirmação de uma operação. |
 | MaxReplicationMessageSize |Bytes |50 MB |Tamanho máximo de dados de replicação que podem ser transmitidos em uma única mensagem. |
-| MaxPrimaryReplicationQueueSize |Número de operações |1024 |Número máximo de operações na fila principal. Uma operação é liberada depois que o replicador primário recebe uma confirmação de todos os replicadores secundários. Esse valor deve ser maior que 64 e uma potência de 2. |
-| MaxSecondaryReplicationQueueSize |Número de operações |2048 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
+| MaxPrimaryReplicationQueueSize |Número de operações |1024 |Número máximo de operações em fila primária hello. Uma operação é liberada após replicador primário Olá recebe uma confirmação de todos os replicadores secundário de saudação. Esse valor deve ser maior que 64 e uma potência de 2. |
+| MaxSecondaryReplicationQueueSize |Número de operações |2.048 |Número máximo de operações em fila secundária hello. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
 
 ## <a name="store-configuration"></a>Configuração de armazenamento
-As configurações de armazenamento servem para configurar o armazenamento local que é usado para manter o estado que está sendo replicado.
-A configuração padrão é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre configurações adicionais que estão disponíveis para ajustar o armazenamento local.
+Configurações de armazenamento são usados tooconfigure Olá local de armazenamento é usada toopersist Olá estado que está sendo replicado.
+configuração padrão de saudação é gerada pelo modelo do Visual Studio hello e deve ser suficiente. Esta seção fala sobre as configurações adicionais que são o repositório local de saudação tootune disponíveis.
 
 ### <a name="section-name"></a>Nome da seção
 &lt;ActorName&gt;ServiceLocalStoreConfig
@@ -64,8 +64,8 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 ### <a name="configuration-names"></a>Nomes da configuração
 | Nome | Unidade | Valor padrão | Comentários |
 | --- | --- | --- | --- |
-| MaxAsyncCommitDelayInMilliseconds |Milissegundos |200 |Define o intervalo máximo de envio em lotes para a confirmação do local de armazenamento durável . |
-| MaxVerPages |Número de páginas |16384 |O número máximo de páginas de versão no banco de dados do armazenamento local. Ele determina o número máximo de transações pendentes. |
+| MaxAsyncCommitDelayInMilliseconds |Milissegundos |200 |Define o máximo de saudação intervalo para o local de repositório durável confirmações de envio em lote. |
+| MaxVerPages |Número de páginas |16384 |número máximo de saudação de páginas de versão no local de saudação armazena o banco de dados. Ele determina o número máximo de saudação de transações pendentes. |
 
 ## <a name="sample-configuration-file"></a>Arquivo de exemplo de configuração
 ```xml
@@ -90,6 +90,6 @@ A configuração padrão é gerada pelo modelo do Visual Studio e deve ser sufic
 </Settings>
 ```
 ## <a name="remarks"></a>Comentários
-O parâmetro BatchAcknowledgementInterval controla a latência de replicação. Um valor '0' resulta na menor latência possível, ao custo de taxa de transferência (como mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo menos confirmações).
-Quanto maior o valor para BatchAcknowledgementInterval, maior será a produtividade geral da replicação, ao custo da maior latência de operação. Isso se converte diretamente para a latência de confirmações de transações.
+parâmetro de BatchAcknowledgementInterval Hello controla a latência de replicação. Um valor de '0' resulta em Olá menor latência possível, ao custo de saudação de taxa de transferência (conforme mais mensagens de confirmação devem ser enviadas e processadas, cada uma contendo confirmações menos).
+Olá maior valor de saudação do BatchAcknowledgementInterval, Olá Olá superior geral produtividade de replicação, ao custo de saudação de maior latência de operação. Isso se traduz diretamente toohello latência de confirmações de transações.
 

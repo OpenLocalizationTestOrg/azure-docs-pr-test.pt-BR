@@ -1,9 +1,9 @@
-A CLI do Azure 2.0 permite criar e gerenciar os recursos do Azure no Windows, Linux e macOS. Este artigo detalha alguns dos comandos mais comuns para criar e gerenciar máquinas virtuais (VMs).
+Olá 2.0 do CLI do Azure permite que você toocreate e gerenciar seus recursos do Azure no Windows, Linux e macOS. Este artigo detalha algumas Olá toocreate de comandos mais comuns e gerenciar máquinas virtuais (VMs).
 
-Este tutorial requer a CLI do Azure, versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Você também pode usar o [Cloud Shell](/azure/cloud-shell/quickstart) no seu navegador.
+Este artigo requer Olá CLI do Azure versão 2.0.4 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooupgrade, consulte [instalar o Azure CLI 2.0](/cli/azure/install-azure-cli). Você também pode usar o [Cloud Shell](/azure/cloud-shell/quickstart) no seu navegador.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos do Azure Resource Manager na CLI do Azure
-Para obter ajuda mais detalhada com opções específicas de linha de comando, você pode usar as opções e a ajuda online sobre os comandos digitando `az <command> <subcommand> --help`.
+Para obter mais ajuda com as opções e opções de linha de comando específico, você pode usar ajuda de comando online hello e opções digitando `az <command> <subcommand> --help`.
 
 ### <a name="create-vms"></a>Criar VMs
 | Tarefa | Comandos da CLI do Azure |
@@ -33,7 +33,7 @@ Para obter ajuda mais detalhada com opções específicas de linha de comando, v
 ## <a name="disks-and-images"></a>Discos e imagens
 | Tarefa | Comandos da CLI do Azure |
 | --- | --- |
-| Adicionar um disco de dados a uma VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
+| Adicionar um disco de dados tooa VM | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
 | Remover um disco de dados de uma VM | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | Redimensionar um disco | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
 | Instantâneo de um disco | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |
@@ -42,5 +42,5 @@ Para obter ajuda mais detalhada com opções específicas de linha de comando, v
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter exemplos adicionais dos comandos da CLI, consulte o tutorial [Criar e gerenciar VMs do Linux com a CLI do Azure](../articles/virtual-machines/linux/tutorial-manage-vm.md).
+Para obter exemplos adicionais de comandos CLI hello, consulte Olá [criar e gerenciar máquinas virtuais Linux com hello CLI do Azure](../articles/virtual-machines/linux/tutorial-manage-vm.md) tutorial.
 

@@ -1,6 +1,6 @@
 ---
-title: "Atualização de aplicativos do Service Fabric | Microsoft Docs"
-description: "Este artigo fornece uma introdução à atualização de um aplicativo do Service Fabric, incluindo a escolha de modos de atualização e execução de verificações de integridade."
+title: "atualização de aplicativo de malha aaaService | Microsoft Docs"
+description: "Este artigo fornece uma introdução tooupgrading um aplicativo de malha do serviço, incluindo modos de atualização escolhendo e executando verificações de integridade."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,52 +14,52 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 4c2752bee8e9a859b23dbf47662d15798b551bb5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6f649ef4a5c0afab682522bcba7d2d66a4268ead
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Atualização de aplicativos do Service Fabric
-Um aplicativo do Azure Service Fabric é uma coleção de serviços. Durante uma atualização, a Malha do Serviço compara o novo [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) com a versão anterior e determina quais serviços as atualizações do aplicativo exigem. O Service Fabric compara os números de versão nos manifestos de serviço com os números de versão na versão anterior. Se um serviço não foi alterado, ele não foi atualizado.
+Um aplicativo do Azure Service Fabric é uma coleção de serviços. Durante uma atualização, o Service Fabric compara Olá novo [o manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) com versão anterior do hello e determina quais serviços de aplicativo hello exigem atualizações. Service Fabric compara versão Olá números no serviço Olá manifestos com números de versão de saudação na versão anterior do hello. Se um serviço não foi alterado, ele não foi atualizado.
 
 ## <a name="rolling-upgrades-overview"></a>Visão geral das atualizações sem interrupção
-Em uma atualização do aplicativo sem interrupção, a atualização é executada em estágios. Em cada estágio, a atualização é aplicada a um subconjunto de nós no cluster, chamado de domínio de atualização. Como resultado, o aplicativo permanece disponível durante a atualização. Durante a atualização, o cluster pode conter uma combinação de versões antigas e novas.
+Em uma atualização sem interrupção do aplicativo, a atualização de saudação é executada em estágios. Em cada estágio, a atualização de saudação é aplicado tooa subconjunto de nós no cluster hello, chamado de um domínio de atualização. Como resultado, o aplicativo hello permanece disponível durante a atualização de saudação. Durante a atualização de saudação cluster Olá pode conter uma mistura de versões antigas e novas de saudação.
 
-Por esse motivo, as duas versões devem ser compatíveis uma com a outra. Se não forem compatíveis, o administrador do aplicativo é responsável por realizar uma atualização de várias fases para manter a disponibilidade. Em uma atualização multifásica, a primeira etapa é atualizar para uma versão intermediária do aplicativo que é compatível com a versão anterior. A segunda etapa é atualizar a versão final que quebra a compatibilidade com a versão anterior à atualização, mas é compatível com a versão intermediária.
+Por esse motivo, as versões de saudação dois devem ser frente e para trás compatível. Se eles não forem compatíveis, o administrador do aplicativo hello é responsável por uma disponibilidade toomaintain de atualização de várias fases de preparação. Em uma atualização de várias fases, primeira etapa de saudação está atualizando versão intermediária tooan aplicativo hello que é compatível com a versão anterior de saudação. Olá segunda etapa é tooupgrade Olá versão final que quebras de compatibilidade com a versão de pré-atualização hello, mas é compatível com versão intermediária hello.
 
-Os domínios de atualização ficam especificados no manifesto do cluster quando este é configurado. Os domínios de atualização não recebem atualizações em uma ordem específica. Um domínio de atualização é uma unidade lógica de implantação para um aplicativo. Os domínios de atualização permitem que os serviços permaneçam com alta disponibilidade durante uma atualização.
+Domínios de atualização são especificados no manifesto do cluster hello quando você configurar o cluster hello. Os domínios de atualização não recebem atualizações em uma ordem específica. Um domínio de atualização é uma unidade lógica de implantação para um aplicativo. Domínios de atualização permitem Olá serviços tooremain a alta disponibilidade durante uma atualização.
 
-Atualizações com interrupção são possíveis se a atualização for aplicada a todos os nós no cluster, que é o caso quando o aplicativo tem somente um domínio de atualização. Essa abordagem não é recomendável porque o serviço ficaria paralisado e não estaria disponível no momento da atualização. Além disso, o Azure não fornece qualquer garantia quando um cluster é configurado com apenas um domínio de atualização.
+As atualizações sem interrupção não são possíveis se Olá for aplicado tooall nós no cluster hello, que é o caso de saudação quando o aplicativo hello tem apenas um domínio de atualização. Essa abordagem não é recomendável, pois o serviço Olá fica inativo e não está disponível no momento de saudação da atualização. Além disso, o Azure não fornece qualquer garantia quando um cluster é configurado com apenas um domínio de atualização.
 
 ## <a name="health-checks-during-upgrades"></a>Verificações de integridade durante atualizações
-Para uma atualização, as políticas de integridade precisam ser configuradas (ou valores padrão podem ser usados). Uma atualização é considerada bem-sucedida quando todos os domínios de atualização são atualizados dentro do tempo limite especificado e quando todos os domínios de atualização são considerados íntegros.  Um domínio de atualização íntegro significa que o domínio de atualização foi aprovado em todas as verificações de integridade especificadas na política de integridade. Por exemplo, uma política de integridade pode obrigar que todos os serviços em uma instância do aplicativo estejam *íntegros*, de acordo com a definição de integridade do Service Fabric.
+Para uma atualização, as diretivas de integridade tem toobe definido (ou valores padrão podem ser usados). Uma atualização é chamada com êxito quando todos os domínios de atualização são atualizados em Olá especificado tempos limite e quando a atualização de todos os domínios são considerados íntegros.  Um domínio de atualização Íntegro significa que esse domínio de atualização Olá passado todas as verificações de integridade Olá especificadas na política de integridade de saudação. Por exemplo, uma política de integridade pode obrigar que todos os serviços em uma instância do aplicativo estejam *íntegros*, de acordo com a definição de integridade do Service Fabric.
 
-As políticas e verificações de integridade durante a atualização feita pelo Service Fabric são independentes do serviço e do aplicativo. Ou seja, nenhum teste específico de serviço é realizado.  Por exemplo, o serviço pode ter um requisito de taxa de transferência, mas o Service Fabric não tem as informações para verificar a taxa de transferência. Confira os [artigos sobre integridade](service-fabric-health-introduction.md) para as verificações que serão executadas. As verificações que ocorrem durante uma atualização incluem testes para ver se o pacote de aplicativos foi copiado corretamente, se a instância foi iniciada e assim por diante.
+As políticas e verificações de integridade durante a atualização feita pelo Service Fabric são independentes do serviço e do aplicativo. Ou seja, nenhum teste específico de serviço é realizado.  Por exemplo, o serviço pode ter um requisito de taxa de transferência, mas o Service Fabric não tem a taxa de transferência do hello informações toocheck. Consulte toohello [artigos de integridade](service-fabric-health-introduction.md) para verificações de saudação que são executadas. verificações de saudação que ocorrem durante uma atualização incluir testa se o pacote de aplicativo hello foi copiado corretamente, se Olá instância foi iniciada e assim por diante.
 
-A integridade do aplicativo é uma agregação das entidades filho do aplicativo. Em resumo, o Service Fabric avalia a integridade do aplicativo por meio da integridade reportada no aplicativo. Ele também avalia a integridade de todos os serviços do aplicativo dessa maneira. O Service Fabric ainda avalia a integridade dos serviços de aplicativo agregando a integridade de seus filhos, como a réplica do serviço. Quando a política de integridade do aplicativo for atendida, a atualização poderá continuar. Se a política de integridade for violada, a atualização do aplicativo falhará.
+integridade do aplicativo Hello é uma agregação de entidades de filho de saudação do aplicativo hello. Em resumo, Service Fabric avalia a integridade de saudação do aplicativo hello por meio de integridade Olá relatado no aplicativo hello. Também avalia a integridade Olá de todos os serviços de saudação para o aplicativo hello dessa maneira. Adicional do Service Fabric avalia a integridade de saudação dos serviços de aplicativo hello agregando integridade Olá de seus filhos, como réplicas do serviço hello. Quando a política de integridade de aplicativo hello for satisfeita, atualização Olá pode continuar. Se a política de integridade de saudação for violada, a atualização do aplicativo hello falhará.
 
 ## <a name="upgrade-modes"></a>Modos de atualização
-O modo recomendado de atualização do aplicativo é o modo monitorado, que é o comumente usado. O modo monitorado executa a atualização em um domínio de atualização, e se todas as verificações de integridade forem aprovadas (pela política especificada), ele passa para o próximo domínio de atualização automaticamente.  Se as verificações de integridade falharem e/ou o tempo limite for atingido, a atualização será revertida para o domínio de atualização ou o modo será alterado para manual não monitorado. Você pode configurar a atualização para escolher um desses dois modos para atualizações que falharam. 
+Olá modo que recomendamos para atualização de aplicativo é Olá monitorado, que é o modo de saudação usado com frequência. Modo monitorado executa a atualização de saudação na atualização de um domínio e se as verificações de integridade de todos os passagem (por Olá política especificada), move em toohello próximo domínio de atualização automaticamente.  Se as verificações de integridade falharem e/ou tempos limite é atingido, Olá é ou reverter a atualização para o domínio de atualização de saudação ou modo Olá é alterado toounmonitored manual. Você pode configurar Olá toochoose atualização um desses dois modos para atualizações que falharam. 
 
-O manual não monitorado precisaria de intervenção manual após cada atualização em um domínio de atualização, a fim de disparar a atualização no domínio de atualização seguinte. Nenhuma verificação de integridade do Service Fabric é executada. O administrador executa as verificações de integridade ou de status antes de iniciar a atualização no próximo domínio de atualização.
+Não monitorado de modo manual precisa de intervenção manual depois de cada atualização em um domínio de atualização, tookick off Olá atualização no próximo domínio de atualização hello. Nenhuma verificação de integridade do Service Fabric é executada. administrador Olá executa verificações de integridade ou status de saudação antes de Iniciar atualização Olá Olá próximo domínio de atualização.
 
 ## <a name="upgrade-default-services"></a>Fazer upgrade dos serviços padrão
-Os serviços padrão no aplicativo Service Fabric podem ser atualizados durante o processo de upgrade de um aplicativo. Os serviços padrão são definidos no [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application). As regras padrão de upgrade dos serviços padrão são:
+Serviços de padrão de aplicativo de malha do serviço podem ser atualizados durante o processo de atualização de saudação de um aplicativo. Serviços padrão são definidos em Olá [o manifesto do aplicativo](service-fabric-application-model.md#describe-an-application). saudação de regras padrão da atualização de serviços padrão é:
 
-1. Os serviços padrão no novo [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) que não existem no cluster são criados.
+1. Serviços de saudação novo padrão [o manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) que não existe no cluster Olá são criados.
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) precisa ser definido como true para habilitar as regras a seguir. Esse recurso é compatível com a v5.5.
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) precisa toobe definir tootrue tooenable Olá regras a seguir. Esse recurso é compatível com a v5.5.
 
-2. Os serviços padrão existentes no [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) anterior e na nova versão são atualizados. As descrições de serviço na nova versão substituem aquelas que já estão no cluster. A atualização do aplicativo é revertida automaticamente na falha de atualização do serviço padrão.
-3. Os serviços padrão no [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) anterior, mas não na nova versão, são excluídos. **Observe que essa exclusão de serviços padrão não pode ser revertida.**
+2. Os serviços padrão existentes no [manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) anterior e na nova versão são atualizados. Descrições de serviços na nova versão de hello substituiria aqueles já está em cluster hello. A atualização do aplicativo é revertida automaticamente na falha de atualização do serviço padrão.
+3. Serviços de saudação anterior padrão [o manifesto do aplicativo](service-fabric-application-model.md#describe-an-application) , mas não na nova versão de hello serão excluídos. **Observe que essa exclusão de serviços padrão não pode ser revertida.**
 
-Caso o upgrade de um aplicativo seja revertido, os serviços padrão serão revertidos para o status antes do início do upgrade. Mas os serviços excluídos nunca poderão ser criados.
+No caso de um aplicativo de atualização é revertida, serviços padrão são toohello revertido status antes do início da atualização. Mas os serviços excluídos nunca poderão ser criados.
 
 ## <a name="application-upgrade-flowchart"></a>Fluxograma de atualização de aplicativo
-O fluxograma após este parágrafo pode ajudar na compreensão do processo de atualização de um aplicativo do Service Fabric. Mais especificamente, o fluxo descreve como os tempos limite, incluindo *HealthCheckStableDuration*, *HealthCheckRetryTimeout* e *UpgradeHealthCheckInterval*, ajudam a controlar quando a atualização em um domínio de atualização é considerada um êxito ou falha.
+fluxograma Olá este parágrafo a seguir pode ajudá-lo a entender o processo de atualização de saudação de um aplicativo de malha do serviço. Em particular, descreve o fluxo de Olá Olá como tempos-limite, inclusive *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, e *UpgradeHealthCheckInterval*, ajuda a controlar quando Olá atualização no domínio de uma atualização é considerada um sucesso ou falha.
 
-![O processo de atualização de um aplicativo a Malha do Serviço][image]
+![processo de atualização Olá para um aplicativo de serviço de malha][image]
 
 ## <a name="next-steps"></a>Próximas etapas
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
@@ -68,10 +68,10 @@ O fluxograma após este parágrafo pode ajudar na compreensão do processo de at
 
 Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
 
-Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serialização de Dados](service-fabric-application-upgrade-data-serialization.md).
+Verifique suas atualizações de aplicativo compatível aprendendo como toouse [serialização de dados](service-fabric-application-upgrade-data-serialization.md).
 
-Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
+Saiba como toouse funcionalidade avançada ao atualizar seu aplicativo referindo-se muito[tópicos avançados](service-fabric-application-upgrade-advanced.md).
 
-Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
+Corrigir problemas comuns em atualizações de aplicativo consultando etapas toohello [de solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png

@@ -1,5 +1,5 @@
 ---
-title: "(preterido) Previsão — Ajuste exponencial — Azure | Microsoft Docs"
+title: "AAA(deprecated) previsão - Ajuste exponencial - Azure | Microsoft Docs"
 description: "(preterido) Serviço Web: Suavização exponencial da previsão"
 services: machine-learning
 documentationcenter: 
@@ -16,38 +16,38 @@ ms.date: 01/06/2017
 ms.author: yijichen
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 736d5d4adb8ecfd1e3372d273b64917f4a2e76ce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: ebc732d3a47943405b0cb26a373f529a50de9005
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-forecasting---exponential-smoothing"></a>(preterido) Previsão — Ajuste exponencial
 
 > [!NOTE]
-> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> Olá Microsoft DataMarket está sendo desativado e esta API foi preterida. 
 > 
-> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Você pode encontrar várias APIs e experiências de exemplo útil no hello [Cortana Intelligence galeria](http://gallery.cortanaintelligence.com). Para obter mais informações sobre Olá galeria, consulte [compartilhamento e descobrir recursos na Olá Cortana Intelligence galeria](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Este [serviço Web](https://datamarket.azure.com/dataset/aml_labs/ets) implementa o Modelo de ajuste exponencial (ETS) para produzir previsões com base nos dados históricos fornecidos pelo usuário. A demanda de um produto específico aumentará neste ano? Posso prever as vendas do meu produto para a temporada de Natal para que eu possa planejar efetivamente meu estoque? Modelos de previsão são adequados para responder a essas perguntas. Considerando os dados passados, esses modelos examinam tendências ocultas e a sazonalidade para prever tendências futuras.  
+Isso [serviço web](https://datamarket.azure.com/dataset/aml_labs/ets) implementa Olá previsões de tooproduce de modelo (ETS) Ajuste exponencial com base em dados históricos de saudação fornecidos pelo usuário hello. Será Olá demanda para um aumento de produto específico deste ano? Pode, prever Minhas vendas de produto para Olá Natal, para que eu efetivamente pode planejar o inventário do meu? Modelos de previsão são tooaddress apt essas perguntas. Considerando Olá após os dados, esses modelos examinar tendências ocultas e tendências do futuro periodicidade toopredict.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Azure Machine Learning pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – sem qualquer infraestrutura configurada pelo autor do serviço Web.
+> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas finalidade de saudação do serviço web de saudação também é tooserve como um exemplo de como o aprendizado de máquina do Azure pode ser usado toocreate os serviços da web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Azure Machine Learning Studio, um experimento pode ser criado com código R e publicado como um serviço Web. serviço web de saudação pode ser publicado toohello Azure Marketplace e consumido por usuários e dispositivos em Olá, mundo com nenhuma configuração de infraestrutura pelo autor de saudação do serviço web de saudação.
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Consumo do serviço Web
-Este serviço aceita quatro argumentos e calcula as previsões ETS.
-Os argumentos de entrada são:
+Este serviço aceita 4 argumentos e calcula as previsões ETS hello.
+argumentos de entrada Hello são:
 
-* Frequência - indica a frequência dos dados brutos (diários/semanais/mensais/trimestrais/anuais).
+* Frequência – indica a frequência de saudação de dados brutos de saudação (diariamente/semanalmente/mês/trimestre/anual).
 * Horizonte - período de tempo de previsão do futuro.
-* Data - adicionar novos dados de série de tempo para o tempo.
-* Valor - adicionar os novos valores de dados de série de tempo.
+* Data - adicionar na nova série de tempo Olá dados de tempo.
+* Valor - adicionar em valores de dados de série de tempo novo de saudação.
 
-A saída do serviço são os valores de previsão calculados.
+saída de saudação do serviço de saudação é Olá calculados os valores de previsão.
 
 A amostrada de entrada poderia ser: 
 
@@ -56,11 +56,11 @@ A amostrada de entrada poderia ser:
 * Data - 15/1/2012;15/2/2012;15/3/2012;15/4/2012;15/5/2012;15/6/2012;15/7/2012;15/8/2012;15/9/2012;15/10/2012;15/11/2012;15/12/2012; 15/1/2013;15/2/2013;15/3/2013;15/4/2013;15/5/2013;15/6/2013;15/7/2013;15/8/2013;15/9/2013;15/10/2013;15/11/2013;15/12/2013; 15/1/2014;15/2/2014;15/3/2014;15/4/2014;15/5/2014;15/6/2014;15/7/2014;15/8/2014;15/9/2014
 * Valor - 3.479;3,68;3.832;3.941;3.797;3.586;3.508;3.731;3.915;3.844;3.634;3.549;3.557;3.785;3.782;3.601;3.544;3.556;3.65;3.709;3.682;3.511; 3.429;3,51;3.523;3.525;3.626;3.695;3.711;3.711;3.693;3.571;3.509
 
-> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET. 
+> Esse serviço, como hospedado em hello Azure Marketplace é um serviço OData; Esses podem ser chamados por meio de métodos POST ou GET. 
 > 
 > 
 
-Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/etsForecasting.aspx)).
+Há várias maneiras de consumo de serviço de saudação de forma automática (um aplicativo de exemplo é [aqui](http://microsoftazuremachinelearning.azurewebsites.net/etsForecasting.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Iniciando o código C# para consumo de serviço Web:
     public class Input
@@ -95,16 +95,16 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
 
 ## <a name="creation-of-web-service"></a>Criação de serviço Web
-> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
+> Este serviço Web foi criado usando o Azure Machine Learning. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do experimento Olá que criou o código de exemplo e o serviço da web hello para cada um dos módulos Olá experimento hello.
 > 
 > 
 
-De dentro do Azure Machine Learning, um novo teste em branco foi criado. Os dados de entrada de amostra foram carregados com um esquema de dados predefinido. Vinculado ao esquema de dados está um módulo de [Executar Script R][execute-r-script] que gera o modelo de previsão ETS usando as funções “ets” e “forecast” de R. 
+De dentro do Azure Machine Learning, um novo teste em branco foi criado. Os dados de entrada de amostra foram carregados com um esquema de dados predefinido. Esquema de dados toohello vinculado é um [Executar Script R] [ execute-r-script] módulo gera Olá ETS modelo de previsão usando 'ets' e 'prever' funções de R. 
 
 ![Fluxo de teste][2]
 
 #### <a name="module-1"></a>Módulo 1:
-    # Add in the CSV file with the data in the format shown below 
+    # Add in hello CSV file with hello data in hello format shown below 
 ![Exemplo de dados][3]    
 
 #### <a name="module-2"></a>Módulo 2:
@@ -136,10 +136,10 @@ De dentro do Azure Machine Learning, um novo teste em branco foi criado. Os dado
 
 
 ## <a name="limitations"></a>Limitações
-Este é um exemplo muito simples para a previsão ETS. Como se pode ver no código de exemplo acima, nenhuma captura de erro é implementada e o serviço presume que todas as variáveis são valores contínuos/positivos e a frequência deve ser um inteiro maior que 1. Os vetores de data e valor devem ter o mesmo tamanho. A variável de data deve seguir o formato 'mm/dd/aaaa'.
+Este é um exemplo muito simples para a previsão ETS. Como pode ser visto no código de exemplo hello acima, nenhum erro capturando é implementado e serviço Olá presume que todas as variáveis de saudação são valores contínuos positivo e frequência Olá deve ser um inteiro maior que 1. comprimento de saudação de vetores de valor de data e Olá deve Olá mesmo. variável de data de saudação deve aderir toohello formato "mm/dd/aaaa'.
 
 ## <a name="faq"></a>Perguntas frequentes
-Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publicação no Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
+Para perguntas frequentes sobre o consumo do serviço web de saudação ou publicação toohello Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img1.png
 [2]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img2.png

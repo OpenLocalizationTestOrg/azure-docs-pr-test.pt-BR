@@ -1,6 +1,6 @@
 ---
-title: "Cancelar e excluir um trabalho de Importação/Exportação do Azure | Microsoft Docs"
-description: "Saiba como cancelar e excluir trabalhos do serviço de Importação/Exportação do Microsoft Azure."
+title: "aaaCancel e excluir um trabalho de importação/exportação do Azure | Microsoft Docs"
+description: "Saiba como toocancel e excluir trabalhos para Olá serviço de importação/exportação do Microsoft Azure."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 1e989c72fc03697bf6d2e515ff53003703665d1a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 13456a8e7652850baacb53730cc7bb1520b0a4c4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>Cancelando e excluindo trabalhos de Importação/Exportação do Azure
 
- Para solicitar que um trabalho seja cancelado antes que ele entre no estado `Packaging`, chame a operação [Atualizar Propriedades do Trabalho](/rest/api/storageimportexport/jobs#Jobs_Update) e defina o elemento `CancelRequested` como `true`. O trabalho é cancelado com os melhores esforços. Se as unidades estiverem transferindo dados, os dados poderão continuar sendo transferidos mesmo depois que o cancelamento tiver sido solicitado.
+ toorequest que um trabalho cancelado antes que ele está em Olá `Packaging` estado, chamada hello [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) operação e conjunto Olá `CancelRequested` elemento muito`true`. Olá trabalho for cancelado em uma base de melhor esforço. Se as unidades estiverem no processo de saudação de transferência de dados, dados podem continuar toobe transferido mesmo depois que o cancelamento foi solicitado.
 
- Um trabalho cancelado é movido para o estado `Completed` e é mantido por 90 dias, ponto em que é excluído.
+ Um trabalho cancelado é movido toohello `Completed` de estado e são mantidas por 90 dias, no ponto em que ele é excluído.
 
- Para excluir um trabalho, chame a operação [Delete Job](/rest/api/storageimportexport/jobs#Jobs_Delete) antes que o trabalho seja enviado (ou seja, enquanto o trabalho está no estado `Creating`). Também é possível excluir um trabalho quando ele está no estado `Completed`. Após a exclusão de um trabalho, suas informações e seu status não são mais acessíveis por meio da API REST ou do portal do Azure.
+ toodelete um trabalho, chamada hello [excluir trabalho](/rest/api/storageimportexport/jobs#Jobs_Delete) operação antes que o trabalho Olá tiver sido enviado (ou seja, enquanto o trabalho de saudação estiver no hello `Creating` estado). Você também pode excluir um trabalho quando ele estiver em Olá `Completed` estado. Depois que um trabalho é excluído, suas informações e status não são mais acessíveis por meio da API REST de saudação ou Olá portal do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
+* [Usando a API REST do serviço de importação/exportação Olá](storage-import-export-using-the-rest-api.md)

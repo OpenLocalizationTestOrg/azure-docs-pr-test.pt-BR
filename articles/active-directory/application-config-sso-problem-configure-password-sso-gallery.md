@@ -1,6 +1,6 @@
 ---
-title: "Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD | Microsoft Docs"
-description: "Compreender os problemas comuns que as pessoas enfrentam ao configurar o Logon Único com Senha para aplicativos já listados na Galeria do Aplicativo Azure AD"
+title: aaaProblem configurando senha single sign-on para um aplicativo da Galeria do AD do Azure | Microsoft Docs
+description: "Entender a face de pessoas problemas comuns Olá ao configurar logon único de senha para aplicativos que já estão listados no hello Galeria de aplicativos do Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,98 +13,98 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 58d29996a922fac6d295e753ba5d66d32e745a57
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 78c37c52453c375bf7ccbca6df5c9008be4ce642
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD
 
-Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrentam ao configurar o **Logon Único com Senha** com um aplicativo na Galeria do Azure AD.
+Este artigo ajuda face de pessoas de problemas comuns do toounderstand Olá ao configurar **senha Single Sign-on** com um aplicativo da Galeria do AD do Azure.
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>As credenciais são preenchidas, mas a extensão não as envia
+## <a name="credentials-are-filled-in-but-hello-extension-does-not-submit-them"></a>As credenciais são preenchidas, mas a extensão Olá não enviá-los
 
-Isso geralmente acontece se o fornecedor do aplicativo alterou a página de entrada recentemente para adicionar um campo, alterar um identificador subjacente que usamos para detectar os campos de nome de usuário e senha ou modificar como a experiência de entrada do usuário funciona no seu aplicativo. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente esses problemas.
+Isso geralmente acontece se o fornecedor do aplicativo hello mudou sua entrada recentemente página tooadd um campo, alterar um identificador subjacente que usamos campos de nome de usuário e senha Olá toodetect ou modificar como entrada hello experiência funciona para seus aplicativos. Felizmente, em muitos casos, Microsoft pode trabalhar com aplicativos fornecedores toorapidly resolver esses problemas.
 
-Ainda que a Microsoft possua tecnologias para detectar automaticamente quando essas integrações interrompem, às vezes não é possível localizar esses problemas imediatamente ou levam algum tempo para serem corrigidos. Quando uma dessas integrações não funcionar corretamente, agradeceríamos se você abrisse um caso de suporte para podermos corrigir o mais rapidamente possível.
+Enquanto a Microsoft tem tecnologias tooautomatically detectar quando essas integrações quebrar, mas, às vezes, não é capaz de toofind esses problemas direito ausente, ou se eles contêm algum tempo toofix. No caso de Olá quando uma dessas integrações não funciona corretamente, agradeceríamos se você abrir um caso de suporte para que possamos corrigi-lo assim que possível.
 
-Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) para iniciá-los.
+Em adição toothis, **se você em contato com o fornecedor do aplicativo,** **enviá-los em nossa maneira** para que possamos trabalhar com eles toonatively integrar seus aplicativos com o Active Directory do Azure. Você pode enviar Olá fornecedor toohello [listando seu aplicativo na Galeria de aplicativo do Active Directory do Azure Olá](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) tooget-los iniciados.
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais estão preenchidas e enviadas, mas a página indica que as credenciais estão incorretas
+## <a name="credentials-are-filled-in-and-submitted-but-hello-page-indicates-hello-credentials-are-incorrect"></a>As credenciais estão preenchidas e enviadas, mas página Olá indica Olá credenciais estão incorretas
 
-Para resolver esse problema, verifique primeiro o seguinte:
+tooresolve esse problema, primeiro seguinte Olá de verificação:
 
--   Peça ao usuário que primeiro tente **entrar diretamente no site do aplicativo** com as credenciais armazenadas para eles.
+-   Faça com que o usuário Olá primeiro tentar muito**entrar no site de aplicativo toohello diretamente** com hello credenciais armazenadas para eles.
 
-  * Se isso funcionar, faça com que o usuário clique no botão **Atualizar Credenciais** no **Bloco do Aplicativo** na seção **Aplicativos** do [Painel de Acesso a Aplicativo](https://myapps.microsoft.com/) para atualizá-los com o nome de usuário e senha mais recentes conhecidos.
+  * Se isso funcionar, em seguida, ter Olá usuário clique Olá **atualizar credenciais** botão Olá **bloco de aplicativo** em Olá **aplicativos** seção Olá [aplicativo Acessar o painel](https://myapps.microsoft.com/) tooupdate-los toohello mais recente conhecido trabalhando nome de usuário e senha.
 
-   * Se você ou outro administrador atribuiu as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou grupo, navegando até a guia **Usuários e Grupos** do aplicativo, selecionando a atribuição e clicando no botão **Atualizar Credenciais**.
+   * Se você ou outro credenciais de Olá administrador atribuído para este usuário, localizar usuário hello ou atribuição de aplicativo do grupo navegando toohello **usuários e grupos** guia do aplicativo hello, selecionando a atribuição de saudação e clicando em Olá **credenciais de atualização** botão.
 
--   Se o usuário atribuiu suas próprias credenciais, solicite ao usuário que **certifique-se de que a senha dele não tenha expirado no aplicativo** e, esse for o caso, **atualize a senha expirada** entrando diretamente no aplicativo.
+-   Se o usuário Olá atribuído suas próprias credenciais, ter usuário Olá **verificar toobe-se de que sua senha não expirou no aplicativo hello** e nesse caso, **atualizar sua senha expirada** entrando no toohello aplicativo diretamente.
 
-   * Após a atualização da senha no aplicativo, solicite que o usuário clique no botão **Atualizar Credenciais** no **Bloco do Aplicativo** na seção **Aplicativos** do [Painel de Acesso a Aplicativo](https://myapps.microsoft.com/) para atualizá-los com o nome de usuário e senha mais recentes conhecidos.
+   * Após Olá senha foi atualizada no aplicativo hello, solicitar Olá Olá de tooclick usuário **atualizar credenciais** botão Olá **bloco de aplicativo** em Olá **aplicativos** seção de saudação [painel de acesso do aplicativo](https://myapps.microsoft.com/) tooupdate-los toohello mais recente conhecido trabalhando nome de usuário e senha.
 
-   * Se você ou outro administrador atribuiu as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou grupo, navegando até a guia **Usuários e Grupos** do aplicativo, selecionando a atribuição e clicando no botão **Atualizar Credenciais**.
+   * Se você ou outro credenciais de Olá administrador atribuído para este usuário, localizar usuário hello ou atribuição de aplicativo do grupo navegando toohello **usuários e grupos** guia do aplicativo hello, selecionando a atribuição de saudação e clicando em Olá **credenciais de atualização** botão.
 
--   Peça ao usuário para que atualize a extensão do navegador do painel de acesso, seguindo as etapas abaixo na seção [Como instalar a extensão do Navegador do Painel de Acesso](#how-to-install-the-access-panel-browser-extension).
+-   Têm extensão de navegador Olá usuário atualização Olá acesso painel seguindo as etapas Olá na Olá [como tooinstall Olá extensão de navegador do painel de acesso](#how-to-install-the-access-panel-browser-extension) seção.
 
--   Certifique-se de que a extensão do navegador do painel de acesso esteja em execução e habilitada no navegador do usuário.
+-   Verifique se a extensão de navegador do painel de acesso hello está em execução e habilitados no navegador do usuário.
 
--   Certifique-se de que os usuários não estão tentando entrar no aplicativo pelo painel de acesso enquanto estão no **modo incógnito, inPrivate ou Privado**. Não há suporte para a extensão do painel de acesso nesses modos.
+-   Certifique-se de que os usuários não estão tentando toosign no aplicativo toohello do painel de acesso Olá ao mesmo tempo em **modo privado, inPrivate ou incognito**. Não há suporte para a extensão do painel de acesso Olá nesses modos.
 
-Caso isso não funcione, pode ser que tenha ocorrido uma alteração no aplicativo que interrompeu temporariamente a integração do aplicativo com o Azure AD. Por exemplo, isso pode ocorrer quando o fornecedor do aplicativo introduz um script em sua página que se comporta de forma diferente para entrada manual ou automatizada, o que faz com que a integração automatizada, como a nossa, seja interrompida. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente esses problemas.
+Caso isso não funciona, ele pode ser o caso de Olá que ocorreu uma alteração no lado do aplicativo hello que violou temporariamente a integração do aplicativo hello com o Azure AD. Por exemplo, isso pode ocorrer quando o fornecedor do aplicativo hello apresenta um script em sua página que se comporta de forma diferente para vs manuais automatizada de entrada, que faz com que automatizada de integração, como nosso próprio, toobreak. Felizmente, em muitos casos, Microsoft pode trabalhar com aplicativos fornecedores toorapidly resolver esses problemas.
 
-Ainda que a Microsoft possua tecnologias para detectar automaticamente quando essas integrações interrompem, às vezes não é possível localizar esses problemas imediatamente ou levam algum tempo para serem corrigidos. Quando uma dessas integrações não funcionar corretamente, agradeceríamos se você abrisse um caso de suporte para podermos corrigir o mais rapidamente possível.
+Enquanto a Microsoft tem tecnologias tooautomatically detectar quando essas integrações quebrar, mas, às vezes, não é capaz de toofind esses problemas direito ausente, ou se eles contêm algum tempo toofix. No caso de Olá quando uma dessas integrações não funciona corretamente, agradeceríamos se você abrir um caso de suporte para que possamos corrigi-lo assim que possível.
 
-Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) para iniciá-los.
+Em adição toothis, **se você em contato com o fornecedor do aplicativo,** **enviá-los em nossa maneira** para que possamos trabalhar com eles toonatively integrar seus aplicativos com o Active Directory do Azure. Você pode enviar Olá fornecedor toohello [listando seu aplicativo na Galeria de aplicativo do Active Directory do Azure Olá](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) tooget-los iniciados.
 
-## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>A extensão funciona no Chrome e no Firefox, mas não no Internet Explorer
+## <a name="hello-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>extensão de saudação funciona no Chrome e Firefox, mas não no Internet Explorer
 
-Existem duas principais causas para esse problema:
+Há duas causas principais toothis problema:
 
--   Dependendo das configurações de segurança habilitadas no Internet Explorer, se o site não faz parte de uma **Zona Confiável**, às vezes nosso script é bloqueado para executar o aplicativo.
+-   Dependendo das configurações de segurança de saudação habilitadas no Internet Explorer, se o site de saudação não for parte de um **zona confiáveis**, às vezes, nosso script impedidos de execução para o aplicativo hello.
 
-  *  Para resolver isso, instrua o usuário a **adicionar sites da Web do aplicativo** para o **Sites confiáveis** lista dentro de suas **as configurações de segurança do Internet Explorer**. Você pode encaminhar seus usuários para o artigo [Como adicionar um site à minha lista de sites confiáveis](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) para obter instruções detalhadas.
+  *  tooresolve isso, instrua o usuário de saudação muito**adicionar sites da Web do aplicativo hello** toohello **Sites confiáveis** lista dentro de seus **as configurações de segurança do Internet Explorer**. Você pode enviar seu usuários toohello [como tooadd toomy um site confiável sites lista](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) artigo para obter instruções detalhadas.
 
--   Em raras circunstâncias, a validação de segurança do Internet Explorer pode, às vezess, fazer com que a página seja carregada mais lentamente do que a execução do nosso script.
+-   Em circunstâncias raras, validação de segurança do Internet Explorer pode às vezes causar tooload de página hello mais lentamente do que a execução de saudação do nosso script.
 
-   * Infelizmente, essa situação pode variar dependendo da versão do navegador, da velocidade do computador ou do site visitado. Nesse caso, sugerimos que você contate o suporte para que possamos corrigir a integração para esse aplicativo específico.
+   * Infelizmente, essa situação pode variar dependendo da versão do navegador hello, velocidade do computador ou site visitado. Nesse caso, é recomendável que você contate o suporte para que possamos corrigir integração Olá para esse aplicativo específico.
 
-Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) para iniciá-los.
+Em adição toothis, **se você em contato com o fornecedor do aplicativo,** **enviá-los em nossa maneira** para que possamos trabalhar com eles toonatively integrar seus aplicativos com o Active Directory do Azure. Você pode enviar Olá fornecedor toohello [listando seu aplicativo na Galeria de aplicativo do Active Directory do Azure Olá](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) tooget-los iniciados.
 
-## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verifique se a página de logon do aplicativo foi alterada recentemente ou exige um campo adicional
+## <a name="check-if-hello-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verifique se hello página de logon do aplicativo foi alterado recentemente ou requer um campo adicional
 
-Se a página de logon do aplicativo foi drasticamente alterada, às vezes isso causa a interrupção de nossas integrações. Um exemplo disso é quando um fornecedor de aplicativo adiciona um campo de entrada, um captcha ou uma autenticação multifator às suas experiências. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente esses problemas.
+Se a página de logon do aplicativo hello mudou drasticamente, às vezes, isso faz com que o nosso toobreak integrações. Um exemplo disso é quando um fornecedor do aplicativo adiciona uma entrada no campo, um captcha, ou passa por tootheir de autenticação multifator. Felizmente, em muitos casos, Microsoft pode trabalhar com aplicativos fornecedores toorapidly resolver esses problemas.
 
-Ainda que a Microsoft possua tecnologias para detectar automaticamente quando essas integrações interrompem, às vezes não é possível localizar esses problemas imediatamente. Caso contrário, eles levem algum tempo para serem corrigidos. Quando uma dessas integrações não funcionar corretamente, agradeceríamos a abertura de um caso de suporte para podermos corrigir o mais rapidamente possível.
+A Microsoft tem tecnologias tooautomatically detectar quando essas integrações quebrar, mas, às vezes, não é possível toofind esses emite imediatamente. Caso contrário, eles têm toofix algum tempo. No caso de Olá quando uma dessas integrações não funciona corretamente, agradeceríamos abrir um caso de suporte para que possamos corrigi-lo assim que possível.
 
-Além disso, **se você estiver em contato com o fornecedor desse aplicativo,** **coloque-o em contato conosco** de modo que possamos trabalhar em conjunto para integrar nativamente o aplicativo com o Azure Active Directory. É possível enviar o fornecedor para o [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) para iniciá-los.
+Em adição toothis, **se você em contato com o fornecedor do aplicativo,** **enviá-los em nossa maneira** para que possamos trabalhar com eles toonatively integrar seus aplicativos com o Active Directory do Azure. Você pode enviar Olá fornecedor toohello [listando seu aplicativo na Galeria de aplicativo do Active Directory do Azure Olá](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing) tooget-los iniciados.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
+## <a name="how-tooinstall-hello-access-panel-browser-extension"></a>Como tooinstall Olá extensão de navegador do painel de acesso
 
-Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
+Olá tooinstall extensão de navegador do painel de acesso, execute as etapas de saudação abaixo:
 
-1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
+1.  Olá abrir [painel de acesso](https://myapps.microsoft.com) em um dos navegadores Olá com suporte e entre como um **usuário** no AD do Azure.
 
-2.  Clique no **aplicativo de SSO com senha** no Painel de Acesso.
+2.  Clique em uma **aplicativo SSO de senha** no painel de acesso de saudação.
 
-3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
+3.  Olá prompt perguntando tooinstall Olá software, selecione **instalar agora**.
 
-4.  Com base no seu navegador, você será direcionado para o link de download. **Adicione** a extensão ao seu navegador.
+4.  Com base em seu navegador é direcionado toohello link para download. **Adicionar** navegador de tooyour Olá extensão.
 
-5.  Se o navegador solicitar, selecione como **Habilitar** ou **Permitir** a extensão.
+5.  Se seu navegador solicita, selecione tooeither **habilitar** ou **permitir** Olá extensão.
 
 6.  Quando estiver instalado, **reinicie** a sessão do navegador.
 
-7.  Entrar no Painel de Acesso e verificar se é possível **iniciar** os aplicativos de SSO de senha
+7.  Entrar painel de acesso de saudação e veja se é possível **iniciar** seus aplicativos de SSO de senha
 
-Também é possível baixar a extensão para Chrome e Firefox diretamente pelos links abaixo:
+Você também pode baixar a extensão Olá para Chrome e Firefox de links diretos da saudação abaixo:
 
 -   [Extensão do Painel de Acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 -   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
+[Fornecer aplicativos de tooyour de logon único com o Proxy de aplicativo](active-directory-application-proxy-sso-using-kcd.md)
 

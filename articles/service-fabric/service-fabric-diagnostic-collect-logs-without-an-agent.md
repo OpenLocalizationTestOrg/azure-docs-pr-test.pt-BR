@@ -1,6 +1,6 @@
 ---
-title: "Coletar logs diretamente de um processo de serviço do Azure Service Fabric | Microsoft Azure"
-description: "Descreve como os aplicativos do Service Fabric podem enviar logs diretamente para um local central, como o Azure Application Insights ou o Elasticsearch, sem depender de agentes do Diagnóstico do Azure."
+title: "logs de aaaCollect diretamente de uma malha de serviço do Azure processo do serviço | Microsoft Azure"
+description: "Descreve os aplicativos podem enviar logs diretamente local central tooa, como informações de aplicativo do Azure ou Elasticsearch, sem depender de agente de diagnóstico do Azure do Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: karolz-ms
@@ -15,63 +15,63 @@ ms.workload: NA
 ms.date: 01/18/2017
 ms.author: karolz
 redirect_url: /azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow
-ms.openlocfilehash: b7d2541928f4248750417a77d99033c8b4354dcc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0681a2a6aaa76028d7cb469c31c006f24bbe954
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="collect-logs-directly-from-an-azure-service-fabric-service-process"></a>Coletar logs diretamente de um processo do serviço Azure Service Fabric
 ## <a name="in-process-log-collection"></a>Coleta de logs no processo
-Coletar logs de aplicativo usando a [extensão do Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md) será uma boa opção para serviços do **Azure Service Fabric** se o conjunto de origens e destinos de log for pequeno, não forem alterados com frequência e se houver um mapeamento direto entre as origens e seus destinos. Caso contrário, uma alternativa é fazer com que os serviços enviem seus logs diretamente para um local central. Esse processo é conhecido como **coleta de logs no processo** e tem várias vantagens potenciais:
+Coletar o aplicativo registra em log usando [extensão de diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-wad.md) é uma boa opção para **Azure Service Fabric** serviços se Olá conjunto de log origens e destinos é pequeno, não altere muitas vezes e há é um mapeamento direto entre as origens de saudação e seus destinos. Caso contrário, uma alternativa é toohave serviços enviar os logs diretamente local central tooa. Esse processo é conhecido como **coleta de logs no processo** e tem várias vantagens potenciais:
 
 * *Fácil Configuração e implantação*
 
-    * A configuração de coleta de dados de diagnóstico é apenas uma parte da configuração do serviço. É fácil sempre mantê-la "sincronizada" com o restante do aplicativo.
+    * configuração de saudação da coleta de dados de diagnóstico é apenas parte da configuração do serviço de saudação. É fácil tooalways manter "sincronizado" com hello-rest do aplicativo hello.
     * A configuração por aplicativo ou por serviço é facilmente realizável.
-        * A coleta de logs baseada em agentes normalmente requer a implantação e a configuração separadas do agente de diagnóstico, que é uma tarefa administrativa extra e uma possível fonte de erros. Geralmente, há apenas uma instância do agente permitido por máquina virtual (nó) e a configuração do agente é compartilhada entre todos os aplicativos e serviços em execução nesse nó. 
+        * Coleta de log com base em agente normalmente requer uma implantação separada e a configuração do agente de diagnóstico hello, que é uma tarefa administrativa adicional e uma fonte de erros em potencial. Geralmente, há apenas uma instância do agente de saudação permitido por máquina virtual (nó) e configuração do agente Olá é compartilhada entre todos os aplicativos e serviços em execução nesse nó. 
 
 * *Flexibilidade*
    
-    * O aplicativo pode enviar os dados sempre que eles forem necessários, desde que exista uma biblioteca de cliente que ofereça suporte ao sistema de armazenamento de dados de destino. Novos destinos podem ser adicionados conforme desejado.
+    * aplicativo Hello pode enviar dados Olá sempre que ele precisa toogo, enquanto há uma biblioteca de cliente que oferece suporte ao sistema de armazenamento de dados Olá direcionado. Novos destinos podem ser adicionados conforme desejado.
     * Regras de captura complexa, filtragem e agregação de dados podem ser implementadas.
-    * Coleta de log do agente geralmente é limitada pelos Coletores de dados que suporta o agente. Alguns agentes são extensíveis.
+    * Coleta de log com base em agente geralmente é limitada pelo Coletores de dados de saudação que Olá agent dá suporte a. Alguns agentes são extensíveis.
 
-* *Acesso a dados de aplicativos internos e contexto*
+* *Contexto e acessar dados de aplicativo toointernal*
    
-    * O subsistema de diagnóstico em execução dentro do processo de serviço/do aplicativo pode facilmente aumentar os rastreamentos com informações contextuais.
-    * Com a coleta de logs baseada em agentes, os dados devem ser enviados a um agente por meio de um mecanismo de comunicação entre processos, como Rastreamento de Eventos para Windows. Esse mecanismo pode impor limitações adicionais.
+    * subsistema de diagnóstico Olá em execução no processo de aplicativo/serviço Olá facilmente pode aumentar rastreamentos Olá com informações contextuais.
+    * Com a coleção de log com base em agente dados saudação devem ser enviados tooan agent por meio de um mecanismo de comunicação entre processos, como o rastreamento de eventos do Windows. Esse mecanismo pode impor limitações adicionais.
 
-É possível combinar e aproveitar ambos os métodos de coleta. Na verdade, essa pode ser a melhor solução para muitos aplicativos. Coleção com base em agente é uma solução natural para coletar logs relacionados para o cluster inteiro e nós de cluster individuais. Ele é muito mais confiável maneira, que coleta de log em processo para diagnosticar problemas de inicialização do serviço e falhas. Além disso, com vários serviços em execução dentro de um cluster de Service Fabric, cada serviço fazer sua própria coleção de log em processo resulta em várias conexões de saída do cluster. Grande número de conexões de saída é uma sobrecarga para o subsistema de rede e o destino de log. Um agente como [ **diagnóstico do Azure** ](../cloud-services/cloud-services-dotnet-diagnostics.md) pode coletar dados de vários serviços e enviar dados por meio de algumas conexões, melhorando a taxa de transferência. 
+É possível toocombine e se beneficiam de ambos os métodos de coleção. Na verdade, talvez seja melhor solução Olá para muitos aplicativos. Coleção com base em agente é uma solução natural para coletar o cluster inteiro de toohello relacionados de logs e nós de cluster individuais. É uma maneira muito mais confiável, que coleta de log em processo, problemas de inicialização do serviço de toodiagnose e falhas. Além disso, com muitos serviços em execução dentro de um cluster do Service Fabric, cada serviço fazer sua própria coleção de log em processo resulta em várias conexões de saída do cluster hello. Grande número de conexões de saída é uma sobrecarga para o subsistema de rede hello e de destino de log hello. Um agente como [ **diagnóstico do Azure** ](../cloud-services/cloud-services-dotnet-diagnostics.md) pode coletar dados de vários serviços e enviar dados por meio de algumas conexões, melhorando a taxa de transferência. 
 
-Neste artigo, mostramos como configurar uma coleção no processo log usando [ **biblioteca de código-fonte aberto EventFlow**](https://github.com/Azure/diagnostics-eventflow). Outras bibliotecas que podem ser usadas para a mesma finalidade, mas EventFlow tem a vantagem de ter foi projetado especificamente para coleta de log em processo e para dar suporte a serviços de Service Fabric. Usamos [ **Azure Application Insights** ](https://azure.microsoft.com/services/application-insights/) como o destino de log. Outros destinos, como [ **Hubs de eventos** ](https://azure.microsoft.com/services/event-hubs/) ou [ **Elasticsearch** ](https://www.elastic.co/products/elasticsearch) também têm suporte. É apenas uma questão de instalar o pacote do NuGet apropriado e configurando o destino no arquivo de configuração EventFlow. Para obter mais informações sobre destinos de log diferente do Application Insights, consulte [EventFlow documentação](https://github.com/Azure/diagnostics-eventflow).
+Neste artigo, mostramos como tooset um processo de-log coleção usando [ **biblioteca de código-fonte aberto EventFlow**](https://github.com/Azure/diagnostics-eventflow). Outras bibliotecas podem ser usadas para Olá mesmo propósito, mas EventFlow tem benefício de saudação de projetados especificamente para em processo log coleta e toosupport serviços do Service Fabric. Usamos [ **Azure Application Insights** ](https://azure.microsoft.com/services/application-insights/) como destino de log hello. Outros destinos, como [ **Hubs de eventos** ](https://azure.microsoft.com/services/event-hubs/) ou [ **Elasticsearch** ](https://www.elastic.co/products/elasticsearch) também têm suporte. É apenas uma questão de instalar o pacote do NuGet apropriado e configurando o destino de Olá no arquivo de configuração EventFlow Olá. Para obter mais informações sobre destinos de log diferente do Application Insights, consulte [EventFlow documentação](https://github.com/Azure/diagnostics-eventflow).
 
-## <a name="adding-eventflow-library-to-a-service-fabric-service-project"></a>Adição da biblioteca EventFlow a um projeto de serviço do Service Fabric
-EventFlow binários estão disponíveis como um conjunto de pacotes do NuGet. Para adicionar EventFlow a um projeto de serviço do Service Fabric, clique com botão direito do mouse no projeto no Gerenciador de Soluções e escolha "Gerenciar pacotes NuGet." Alternar para a guia "Procurar" e pesquise por "`Diagnostics.EventFlow`":
+## <a name="adding-eventflow-library-tooa-service-fabric-service-project"></a>Adicionar projeto de serviço EventFlow biblioteca tooa Service Fabric
+EventFlow binários estão disponíveis como um conjunto de pacotes do NuGet. tooadd EventFlow tooa projeto do serviço do Service Fabric, clique com botão direito Olá no hello Gerenciador de soluções e escolha "Pacotes de gerenciar NuGet". Alternar o guia de "Procurar" toohello e procure "`Diagnostics.EventFlow`":
 
 ![Pacotes do EventFlow NuGet no Gerenciador de pacotes do NuGet do Visual Studio da interface do usuário][1]
 
-O serviço que hospeda EventFlow deve incluir pacotes apropriados dependendo da origem e destino para os logs de aplicativo. Adicione os seguintes pacotes: 
+serviço de saudação hospedagem EventFlow deve incluir pacotes apropriados dependendo da origem de saudação e de destino para os logs de aplicativo hello. Adicione Olá pacotes a seguir: 
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 
-    * (para capturar dados de classe do EventSource do serviço e de EventSources padrão como *Microsoft-ServiceFabric-Services* e *Microsoft-ServiceFabric-Actors*)
+    * (toocapture dados de classe de EventSource do serviço hello e de EventSources padrão como *serviços do Microsoft-ServiceFabric* e *ServiceFabric-Microsoft-atores*)
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` 
-    * (vamos enviar os logs para um recurso do Azure Application Insights)  
+    * (vamos toosend Olá logs tooan Azure Application Insights recurso)  
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric` 
-    * (permite a inicialização do pipeline EventFlow da configuração do serviço Service Fabric e relata quaisquer problemas com o envio de dados de diagnóstico como relatórios de integridade do Service Fabric)
+    * (permite a inicialização do pipeline de EventFlow Olá da configuração de serviço do Service Fabric e reporta os problemas com o envio de dados de diagnóstico como relatórios de integridade da malha do serviço)
 
 > [!NOTE]
-> O pacote `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` requer que o projeto de serviço tenha como destino o .NET Framework 4.6 ou mais recente. Certifique-se de que definir a estrutura de destino apropriada nas propriedades do projeto antes de instalar este pacote. 
+> `Microsoft.Diagnostics.EventFlow.Inputs.EventSource`o pacote requer tootarget de projeto de serviço de saudação do .NET Framework 4.6 ou mais recente. Verifique se que você configurou o framework de destino apropriado Olá nas propriedades do projeto antes de instalar este pacote. 
 
-Depois que todos os pacotes são instalados, a próxima etapa é configurar e habilitar EventFlow no serviço.
+Depois que todos os hello pacotes estão instalados, Olá próxima etapa é tooconfigure e habilitar EventFlow no serviço de saudação.
 
 ## <a name="configuring-and-enabling-log-collection"></a>Configurar e habilitar a coleta de logs
-O pipeline de EventFlow, responsável pelo envio de logs, é criado de uma especificação armazenada em um arquivo de configuração. `Microsoft.Diagnostics.EventFlow.ServiceFabric`pacote instala um arquivo de configuração inicial do EventFlow em `PackageRoot\Config` pasta da solução. O nome do arquivo é `eventFlowConfig.json`. Esse arquivo de configuração precisa ser modificado para capturar dados do serviço padrão `EventSource` classe e enviar dados ao serviço Application Insights.
+Pipeline EventFlow, responsável pelo envio de logs Olá, é criado a partir de uma especificação armazenada em um arquivo de configuração. `Microsoft.Diagnostics.EventFlow.ServiceFabric`pacote instala um arquivo de configuração inicial do EventFlow em `PackageRoot\Config` pasta da solução. nome do arquivo Hello é `eventFlowConfig.json`. Esse arquivo de configuração precisa toobe modificado toocapture dados do serviço de padrão de saudação `EventSource` classe e envia dados tooApplication Insights service.
 
 > [!NOTE]
-> Vamos supor que você esteja familiarizado com o seviço **Azure Application Insights** e que tenha um recurso Application Insights que planeja usar para monitorar seu serviço do Service Fabric. Se você precisar de mais informações, veja [Criar um recurso do Application Insights](../application-insights/app-insights-create-new-resource.md).
+> Vamos supor que você esteja familiarizado com **Azure Application Insights** serviço e se você tem um recurso do Application Insights que você planeje toouse toomonitor seu serviço de malha do serviço. Se você precisar de mais informações, veja [Criar um recurso do Application Insights](../application-insights/app-insights-create-new-resource.md).
 
-Abra o `eventFlowConfig.json` no editor de arquivo e altere seu conteúdo conforme mostrado abaixo. Substitua o nome da ServiceEventSource e a chave de instrumentação do Application Insights de acordo com comentários. 
+Olá abrir `eventFlowConfig.json` no editor de saudação e alterar seu conteúdo, conforme mostrado abaixo. Certifique-se de nome de ServiceEventSource de saudação de tooreplace e a chave de instrumentação do Application Insights toocomments de acordo com. 
 
 ```json
 {
@@ -81,7 +81,7 @@ Abra o `eventFlowConfig.json` no editor de arquivo e altere seu conteúdo confor
       "sources": [
         { "providerName": "Microsoft-ServiceFabric-Services" },
         { "providerName": "Microsoft-ServiceFabric-Actors" },
-        // (replace the following value with your service's ServiceEventSource name)
+        // (replace hello following value with your service's ServiceEventSource name)
         { "providerName": "your-service-EventSource-name" }
       ]
     }
@@ -95,7 +95,7 @@ Abra o `eventFlowConfig.json` no editor de arquivo e altere seu conteúdo confor
   "outputs": [
     {
       "type": "ApplicationInsights",
-      // (replace the following value with your AI resource's instrumentation key)
+      // (replace hello following value with your AI resource's instrumentation key)
       "instrumentationKey": "00000000-0000-0000-0000-000000000000"
     }
   ],
@@ -104,7 +104,7 @@ Abra o `eventFlowConfig.json` no editor de arquivo e altere seu conteúdo confor
 ```
 
 > [!NOTE]
-> O nome da ServiceEventSource do serviço é o valor da propriedade Nome do `EventSourceAttribute` aplicado à classe ServiceEventSource. Isso é especificado no arquivo `ServiceEventSource.cs`, que faz parte do código do serviço. Por exemplo, no trecho de código a seguir, o nome do ServiceEventSource é *MyCompany-Application1-Stateless1*:
+> nome de saudação do ServiceEventSource do serviço é o valor de saudação do hello propriedade Name de saudação `EventSourceAttribute` aplicada toohello ServiceEventSource classe. Ele é especificado em Olá `ServiceEventSource.cs` arquivo, que faz parte do código de serviço hello. Por exemplo, em Olá seguir Olá nome do trecho de saudação ServiceEventSource é *MyCompany-Application1-Stateless1*:
 > ```csharp
 > [EventSource(Name = "MyCompany-Application1-Stateless1")]
 > internal sealed class ServiceEventSource : EventSource
@@ -113,9 +113,9 @@ Abra o `eventFlowConfig.json` no editor de arquivo e altere seu conteúdo confor
 >} 
 > ```
 
-Observe que o arquivo `eventFlowConfig.json` faz parte do pacote de configuração de serviço. As alterações feitas neste arquivo podem ser incluídas em atualizações completo - ou apenas da configuração do serviço, sujeito a verificações de integridade de atualização do Service Fabric e a reversão automática se houver falha na atualização. Para saber mais, confira [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md).
+Observe que o arquivo `eventFlowConfig.json` faz parte do pacote de configuração de serviço. Arquivo de toothis de alterações pode ser incluído no completo ou configuração-somente atualizações de serviço hello, assunto tooService malha atualização verificações de integridade e reversão automática se houver falha na atualização. Para saber mais, confira [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md).
 
-A etapa final é criar uma instância de pipeline de EventFlow no código de inicialização do serviço, localizado em `Program.cs` arquivo. No exemplo a seguir relacionados EventFlow adições são marcadas com comentários começando com `****`:
+Olá última etapa é o pipeline de EventFlow tooinstantiate no código de inicialização do serviço, localizado em `Program.cs` arquivo. Em Olá adições a seguir exemplo EventFlow relacionadas são marcadas com comentários começando com `****`:
 
 ```csharp
 using System;
@@ -132,7 +132,7 @@ namespace Stateless1
     internal static class Program
     {
         /// <summary>
-        /// This is the entry point of the service host process.
+        /// This is hello entry point of hello service host process.
         /// </summary>
         private static void Main()
         {
@@ -161,10 +161,10 @@ namespace Stateless1
 }
 ```
 
-O nome passado como o parâmetro do método `CreatePipeline` do `ServiceFabricDiagnosticsPipelineFactory` é o nome da *entidade de integridade* que representa o pipeline de coleta de logs de EventFlow. Esse nome será usado se EventFlow encontrar um erro e o reportar por meio do subsistema de integridade do Service Fabric.
+nome Hello passado como parâmetro de saudação do hello `CreatePipeline` método hello `ServiceFabricDiagnosticsPipelineFactory` é nome de saudação do hello *entidade integridade* que representa o pipeline de coleta de log Olá EventFlow. Esse nome é usado se encontrar EventFlow e erro e reporta isso por meio de saudação subsistema de integridade da malha do serviço.
 
 ## <a name="verification"></a>Verificação
-Inicie o serviço e observe a depuração janela saída no Visual Studio. Depois que o serviço for iniciado, você deverá começar a ver evidências de que o serviço está enviando registros de "Application Insights Telemetry". Abra um navegador da Web e vá até seu recurso do Application Insights. Abra a guia "Pesquisar" (na parte superior da folha padrão "Visão geral"). Após um pequeno atraso, deve ser possível ver os rastreamentos no portal do Application Insights:
+Iniciar o serviço e observar Olá depuração janela de saída no Visual Studio. Depois de iniciado o serviço hello, você deve começar a ver evidências de que o serviço está enviando registros de "Telemetria do Application Insights". Abra um navegador da web e navegue tooyour vá Application Insights recursos. Abra a guia "Pesquisar" (na parte superior de saudação da folha de "Visão geral" hello padrão). Após um pequeno atraso você deve começar a ver os rastreamentos no portal do Application Insights hello:
 
 ![Portal do Application Insights mostrando logs de um aplicativo do Service Fabric][2]
 

@@ -1,5 +1,5 @@
 ---
-title: Indexando blobs JSON com o indexador de blobs da Pesquisa do Azure
+title: blobs JSON aaaIndexing com indexador de blob de pesquisa do Azure
 description: Indexando blobs JSON com o indexador de blobs da Pesquisa do Azure
 services: search
 documentationcenter: 
@@ -14,29 +14,29 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 269968714358cd40ea66863b4dbb97766e1d77e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexando blobs JSON com o indexador de blobs da Pesquisa do Azure
-Este artigo mostra como configurar o indexador de pesquisa de blob da Pesquisa do Azure para extrair o conteúdo estruturado de blobs que contêm JSON.
+Este artigo mostra como tooconfigure pesquisa do Azure blob indexador tooextract estruturado conteúdo de blobs que contêm JSON.
 
 ## <a name="scenarios"></a>Cenários
-Por padrão, o [indexador de blobs da Pesquisa do Azure](search-howto-indexing-azure-blob-storage.md) analisa blobs JSON como um único bloco de texto. Muitas vezes, você deseja preservar a estrutura dos seus documentos JSON. Por exemplo, considerando o documento JSON
+Por padrão, o [indexador de blobs da Pesquisa do Azure](search-howto-indexing-azure-blob-storage.md) analisa blobs JSON como um único bloco de texto. Geralmente, você deseja toopreserve estrutura de saudação de seus documentos JSON. Por exemplo, considerando o documento JSON Olá
 
     {
         "article" : {
-             "text" : "A hopefully useful article explaining how to parse JSON blobs",
+             "text" : "A hopefully useful article explaining how tooparse JSON blobs",
             "datePublished" : "2016-04-13"
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
 
-talvez você queira analisá-lo em uma documento da Pesquisa do Azure com os campos "text", "datePublished" e "tags".
+Talvez você queira tooparse-lo em uma pesquisa do Azure um documento com campos "tags", "data de publicação" e "texto".
 
-Como alternativa, quando seus blobs contêm uma **matriz de objetos JSON**, convém que cada elemento da matriz se torne um documento separado da Pesquisa do Azure. Por exemplo, um blob com este JSON:  
+Como alternativa, quando seus blobs contêm um **matriz de objetos JSON**, convém cada elemento de saudação matriz toobecome um documento de pesquisa do Azure separado. Por exemplo, um blob com este JSON:  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -47,12 +47,12 @@ Como alternativa, quando seus blobs contêm uma **matriz de objetos JSON**, conv
 você pode popular o índice do Azure Search com três documentos separados, cada um com os campos "id" e "text".
 
 > [!IMPORTANT]
-> A funcionalidade de análise de matriz JSON está atualmente em visualização. Ela está disponível somente na API REST que usa a versão **2015-02-28-Preview**. Lembre-se de que as APIs em visualização ia servem para teste e avaliação e não devem ser usadas em ambientes de produção.
+> matriz JSON Olá análise funcionalidade está atualmente em visualização. Ele está disponível apenas no hello REST API com a versão **2015-02-28-visualização**. Lembre-se de que as APIs em visualização ia servem para teste e avaliação e não devem ser usadas em ambientes de produção.
 >
 >
 
 ## <a name="setting-up-json-indexing"></a>Configuração da indexação de JSON
-A indexação de blobs JSON é semelhante para a extração de documentos comum. Primeiro, crie a fonte de dados exatamente como faria normalmente: 
+Indexação de blobs do JSON é extração de documento regular toohello semelhante. Primeiro, crie a fonte de dados Olá exatamente como faria normalmente: 
 
     POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
     Content-Type: application/json
@@ -65,9 +65,9 @@ A indexação de blobs JSON é semelhante para a extração de documentos comum.
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
 
-Em seguida, crie um índice de destino da pesquisa, caso ainda não tenha um. 
+Em seguida, crie índice de pesquisa de destino Olá se você ainda não tiver um. 
 
-Por fim, crie um indexador e defina o parâmetro `parsingMode` para `json` (para indexar cada blob como um único documento) ou `jsonArray` (se seus blobs contêm matrizes JSON e você precisa que cada elemento da matriz seja tratado como um documento separado):
+Por fim, crie um indexador e defina Olá `parsingMode` parâmetro muito`json` (tooindex cada blob como um único documento) ou `jsonArray` (se seus blobs contenham matrizes JSON, e é necessário que cada elemento de uma toobe matriz tratado como um documento separado):
 
     POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
     Content-Type: application/json
@@ -81,27 +81,27 @@ Por fim, crie um indexador e defina o parâmetro `parsingMode` para `json` (para
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-Se necessário, use **mapeamentos de campo** para selecionar as propriedades do documento JSON de origem usado para preencher o índice de pesquisa de destino, conforme mostrados na seção a seguir.
+Se necessário, use **mapeamentos de campo** toopick Olá propriedades de saudação fonte JSON documento usado toopopulate o índice de pesquisa de destino, conforme mostrado na próxima seção, Olá.
 
 > [!IMPORTANT]
-> Ao usar o modo de análise `json` ou `jsonArray`, o Azure Search pressupõe que todos os blobs em sua fonte de dados contêm JSON. Se você precisar dar suporte a uma combinação de blobs JSON e não JSON na mesma fonte de dados, informe-nos em nosso [site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Ao usar o modo de análise `json` ou `jsonArray`, o Azure Search pressupõe que todos os blobs em sua fonte de dados contêm JSON. Se você precisar toosupport uma mistura de JSON e JSON não blobs em Olá mesmo fonte de dados, nos informar em [nosso site UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 >
 >
 
-## <a name="using-field-mappings-to-build-search-documents"></a>Usando mapeamentos de campo para criar documentos de pesquisa
-Atualmente, a Pesquisa do Azure não pode indexar documentos JSON arbitrários diretamente porque dá suporte somente a tipos de dados primitivos, matrizes de cadeia de caracteres e pontos GeoJSON. No entanto, você pode usar **mapeamentos de campo** para separar partes do documento JSON e "elevá-los" para campos de nível superior do documento de pesquisa. Para saber mais sobre os conceitos básicos de mapeamentos de campo, veja [Os mapeamentos de campo do indexador da Pesquisa do Azure reduzem as diferenças entre fontes de dados e índices de pesquisa](search-indexer-field-mappings.md).
+## <a name="using-field-mappings-toobuild-search-documents"></a>Usando documentos de pesquisa de toobuild de mapeamentos de campo
+Atualmente, a Pesquisa do Azure não pode indexar documentos JSON arbitrários diretamente porque dá suporte somente a tipos de dados primitivos, matrizes de cadeia de caracteres e pontos GeoJSON. No entanto, você pode usar **mapeamentos de campo** toopick partes o JSON de documento e "comparação de precisão"-las nos campos de nível superior do documento da pesquisa de saudação. toolearn sobre noções básicas sobre mapeamentos de campo, consulte [mapeamentos de campo do indexador de pesquisa do Azure ligar as diferenças de saudação entre fontes de dados e índices de pesquisa](search-indexer-field-mappings.md).
 
-Voltando ao nosso documento JSON de exemplo:
+Voltando tooour documento JSON de exemplo:
 
     {
         "article" : {
-             "text" : "A hopefully useful article explaining how to parse JSON blobs",
+             "text" : "A hopefully useful article explaining how tooparse JSON blobs",
             "datePublished" : "2016-04-13"
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
 
-Digamos que você tenha um índice de pesquisa com os seguintes campos: `text` do tipo `Edm.String`, `date` do tipo `Edm.DateTimeOffset` e `tags` do tipo `Collection(Edm.String)`. Para mapear seu JSON para a forma desejada, use os seguintes mapeamentos de campo:
+Digamos que você tenha um índice de pesquisa com hello campos a seguir: `text` do tipo `Edm.String`, `date` do tipo `Edm.DateTimeOffset`, e `tags` do tipo `Collection(Edm.String)`. toomap forma desejada do seu JSON em hello, use Olá mapeamentos de campo a seguir:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -109,21 +109,21 @@ Digamos que você tenha um índice de pesquisa com os seguintes campos: `text` d
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
 
-Os nomes dos campos de origem nos mapeamentos são especificados usando a notação [JSON Pointer](http://tools.ietf.org/html/rfc6901) . Comece com uma barra invertida para referir-se à raiz do documento JSON, então selecione a propriedade desejada (em nível arbitrário de aninhamento) usando um caminho separado por barra invertida.
+Olá nomes de campo de fonte de mapeamentos de saudação são especificados usando Olá [JSON ponteiro](http://tools.ietf.org/html/rfc6901) notação. Você começar com uma raiz de toohello toorefer barra do documento JSON, depois selecione a propriedade Olá desejado (nível arbitrário de aninhamento) usando encaminhamento caminho separados por barra.
 
-Você também pode se referir a elementos individuais da matriz usando um índice com base em zero. Por exemplo, para selecionar o primeiro elemento da matriz "tags" do exemplo anterior, use um mapeamento de campo como este:
+Você também pode consultar tooindividual elementos da matriz, usando um índice com base em zero. Por exemplo, toopick Olá primeiro elemento da matriz de "tags" hello da saudação acima como exemplo, use um mapeamento de campo como este:
 
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
 > [!NOTE]
-> Se o nome de um campo de origem em um caminho de mapeamento de campo se referir a uma propriedade que não existe em JSON, esse mapeamento será ignorado sem erro. Isso é feito para que possamos dar suporte a documentos com um esquema diferente (o que é um caso de uso comum). Como não há nenhuma validação, você precisa tomar cuidado para evitar erros de digitação na especificação do mapeamento do campo.
+> Se um nome de campo de origem em um caminho de mapeamento de campo refere-se a propriedade tooa que não existe em JSON, esse mapeamento é ignorado sem erro. Isso é feito para que possamos dar suporte a documentos com um esquema diferente (o que é um caso de uso comum). Porque não há nenhuma validação, você precisa de erros de digitação tootake cuidado tooavoid na especificação do mapeamento de campo.
 >
 >
 
-Se seus documentos JSON contiverem somente propriedades simples de nível superior, talvez você não precise de mapeamentos de campo. Por exemplo, se o seu JSON tiver esta aparência, as propriedades "text", "datePublished" e "tags" de nível superior mapearão diretamente para os campos correspondentes no índice de pesquisa:
+Se seus documentos JSON contiverem somente propriedades simples de nível superior, talvez você não precise de mapeamentos de campo. Por exemplo, se o JSON se parece com este, propriedades de nível superior hello "text", "data de publicação" e "q" diretamente mapeia toohello de campos correspondentes no índice de pesquisa de saudação:
 
     {
-       "text" : "A hopefully useful article explaining how to parse JSON blobs",
+       "text" : "A hopefully useful article explaining how tooparse JSON blobs",
        "datePublished" : "2016-04-13"
        "tags" : [ "search", "storage", "howto" ]    
      }
@@ -148,19 +148,19 @@ Aqui está um conteúdo completo do indexador com mapeamentos de campo:
     }
 
 ## <a name="indexing-nested-json-arrays"></a>Indexação de matrizes aninhadas de JSON
-E se você quiser indexar uma matriz de objetos JSON, mas essa matriz estiver aninhada em algum lugar dentro do documento? Você pode escolher qual propriedade contém a matriz usando a propriedade de configuração `documentRoot` . Por exemplo, se o seu blob tiver esta aparência:
+Se desejar que tooindex uma matriz de objetos JSON, mas essa matriz está aninhado em algum lugar no documento Olá? Você pode escolher qual propriedade contém a matriz de saudação usando Olá `documentRoot` propriedade de configuração. Por exemplo, se o seu blob tiver esta aparência:
 
     {
         "level1" : {
             "level2" : [
-                { "id" : "1", "text" : "Use the documentRoot property" },
-                { "id" : "2", "text" : "to pluck the array you want to index" },
-                { "id" : "3", "text" : "even if it's nested inside the document" }  
+                { "id" : "1", "text" : "Use hello documentRoot property" },
+                { "id" : "2", "text" : "toopluck hello array you want tooindex" },
+                { "id" : "3", "text" : "even if it's nested inside hello document" }  
             ]
         }
     }
 
-use esta configuração para indexar a matriz contida na propriedade `level2`:
+Use essa matriz de saudação de tooindex configuração contida na Olá `level2` propriedade:
 
     {
         "name" : "my-json-array-indexer",
@@ -168,5 +168,5 @@ use esta configuração para indexar a matriz contida na propriedade `level2`:
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
-Se você tiver solicitações de recursos ou ideias para aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar o Azure Search
+Se você tiver solicitações de recursos ou ideias para melhorias, alcançar toous em nosso [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

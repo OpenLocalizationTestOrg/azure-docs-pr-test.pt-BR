@@ -1,6 +1,6 @@
 ---
-title: "Usando a API REST para acessar as APIs de serviço do Azure Mobile Engagement"
-description: "Descreve como usar as APIs REST do Mobile Engagement para acessar as APIs de Serviço do Azure Mobile Engagement"
+title: "Olá aaaUsing tooaccess da API REST APIs de serviço do Azure Mobile Engagement"
+description: "Descreve como toouse Olá tooaccess de APIs de REST do Mobile Engagement APIs de serviço do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 4b21bca6fee7012ce1dba96950ae075eded414f8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 315761299a42df6f65e81df20e632f9713844b0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-rest-to-access-azure-mobile-engagement-service-apis"></a>Usando REST para acessar as APIs de Serviço do Azure Mobile Engagement
-O Azure Mobile Engagement fornece a [API REST do Azure Mobile Engagement](https://msdn.microsoft.com/library/azure/mt683754.aspx) para gerenciar campanhas de dispositivos, push/alcance, etc.
+# <a name="using-rest-tooaccess-azure-mobile-engagement-service-apis"></a>Usando REST tooaccess APIs de serviço do Azure Mobile Engagement
+O Azure Mobile Engagement fornece Olá [API REST do Azure Mobile Engagement](https://msdn.microsoft.com/library/azure/mt683754.aspx) para você toomanage dispositivos, campanhas de alcance/enviar por Push etc.
 
 > [!NOTE]
-> O serviço Azure Mobile Engagement será desativado em março de 2018 e, no momento, está disponível somente para os clientes existentes. Para saber mais, confira [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> serviço do Azure Mobile Engagement Olá será descontinuado de 2018 março e está apenas disponível tooexisting clientes. Para saber mais, confira [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
-Se você não quiser usar as APIs REST diretamente, também forneceremos um [arquivo Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) que pode ser usado com ferramentas para gerar SDKs em seu idioma de preferência. Recomendamos usar a ferramenta [AutoRest](https://github.com/Azure/AutoRest) para gerar o SDK do nosso arquivo de Swagger. Criamos um SDK do .NET de forma semelhante que permite que você interaja com essas APIs usando um wrapper C#. Você não precisará fazer a negociação do token de autenticação e a atualização por conta própria. Consulte [Amostra do SDK do .NET da API de serviço](mobile-engagement-dotnet-sdk-service-api.md) para aprender a usar o SDK do .Net para API
+Se você não quiser toouse Olá APIs REST diretamente, nós também fornecemos um [arquivo Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) que você pode usar com ferramentas toogenerate SDKs para seu idioma preferencial. É recomendável usar Olá [AutoRest](https://github.com/Azure/AutoRest) ferramenta toogenerate o SDK do nosso arquivo Swagger. Criamos um SDK .NET de maneira semelhante, que permite que você toointeract com essas APIs usando um wrapper em c# e você não tiver toodo Olá negociação do token de autenticação e atualização por conta própria. Consulte [amostra do SDK do serviço de API .NET](mobile-engagement-dotnet-sdk-service-api.md) toolearn como toouse Olá .net SDK para API

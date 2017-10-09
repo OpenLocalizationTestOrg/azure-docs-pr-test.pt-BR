@@ -1,6 +1,6 @@
 ---
-title: "Streaming Estruturado do Apache Spark com Kafka – Azure HDInsight | Microsoft Docs"
-description: "Saiba como usar o streaming do Apache Spark (DStream) para transmitir dados para dentro ou fora do Apache Kafka. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight."
+title: aaaApache Spark Streaming estruturado com Kafka - HDInsight do Azure | Microsoft Docs
+description: "Saiba como toouse Apache Spark streaming (DStream) tooget dados entrando ou saindo Kafka do Apache. Neste exemplo, você deve transmitir dados usando um bloco de anotações do Jupyter do Spark no HDInsight."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -14,87 +14,87 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/09/2017
 ms.author: larryfr
-ms.openlocfilehash: 02b49e13e8f54c3d55310f4d2b21c7e09c91fe81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0837e8fc5ea314e644daed029d596feeb2b02c68
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Use o Streaming Estruturado do Spark com o Kafka (versão prévia) no HDInsight
 
-Saiba como usar o Streaming Estruturado do Spark para ler dados do Apache Kafka no Azure HDInsight.
+Saiba como toouse Spark estruturado fluxo de dados de tooread do Apache Kafka no Azure HDInsight.
 
-O streaming estruturado do Spark é um mecanismo de processamento de fluxo baseado no Spark SQL. Ele permite expressar cálculos de streaming do mesmo modo que cálculos de lote em dados estáticos. Para obter mais informações sobre Streaming Estruturado, consulte o [Guia de Programação de Streaming Estruturado [Versão Alfa]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) em Apache.org.
+O streaming estruturado do Spark é um mecanismo de processamento de fluxo baseado no Spark SQL. Ele permite que você tooexpress cálculos de streaming Olá igual a computação de lote em dados estáticos. Para obter mais informações sobre fluxo estruturado, consulte Olá [estruturado Streaming guia de programação [alfa]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) em Apache.org.
 
 > [!IMPORTANT]
 > Este exemplo usou o Spark 2.1 no HDInsight 3.6. O Streaming Estruturado é considerado __versão alfa__ no Spark 2.1.
 >
-> As etapas neste documento criam um grupo de recursos do Azure que contém um Spark no HDInsight e um Kafka no cluster de HDInsight. Esses clusters são ambos localizados em uma Rede Virtual do Azure, que permite que o cluster Spark se comunique diretamente com o cluster Kafka.
+> etapas de saudação neste documento criam um grupo de recursos do Azure que contém um Spark no HDInsight tanto um Kafka no cluster HDInsight. Esses agrupamentos são ambos localizados em uma rede Virtual do Azure, que permite Olá toodirectly de cluster do Spark Olá cluster Kafka se comunicam.
 >
-> Quando você terminar as etapas neste documento, lembre-se de excluir os clusters para evitar cobranças em excesso.
+> Quando você concluir etapas Olá neste documento, lembre-se toodelete Olá clusters tooavoid em excesso encargos.
 
-## <a name="create-the-clusters"></a>Criar os clusters
+## <a name="create-hello-clusters"></a>Criar clusters de saudação
 
-Apache Kafka no HDInsight não fornece acesso para Agentes de Kafka pela internet pública. Qualquer coisa que se comunique com Kafka deve estar na mesma rede virtual do Azure que os nós no cluster Kafka. Para este exemplo, clusters de Spark e Kafka estão localizados em uma rede virtual do Azure. O diagrama a seguir mostra como a comunicação flui entre os clusters:
+Apache Kafka no HDInsight não fornece acesso toohello Kafka agentes sobre Olá internet pública. Qualquer coisa que fala tooKafka deve estar no hello mesma rede virtual do Azure como nós Olá Olá cluster Kafka. Neste exemplo, Olá Kafka e clusters do Spark estão localizados em uma rede virtual do Azure. Olá diagrama a seguir mostra como a comunicação flui entre clusters de saudação:
 
 ![Diagrama de clusters Spark e Kafka em uma rede virtual do Azure](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
-> O serviço Kafka é limitado a comunicação dentro da rede virtual. Outros serviços no cluster, como SSH e Ambari, podem ser acessados pela Internet. Para obter mais informações sobre as portas públicas disponíveis com o HDInsight, consulte [portas e URIs usados pelo HDInsight](hdinsight-hadoop-port-settings-for-services.md).
+> Olá serviço Kafka é toocommunication limitado na rede virtual hello. Outros serviços em cluster hello, como SSH e Ambari, podem ser acessados pela Olá da internet. Para obter mais informações sobre portas públicas de saudação disponíveis com o HDInsight, consulte [portas e URIs usados por HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
-Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark manualmente, é mais fácil usar um modelo do Azure Resource Manager. Use as seguintes etapas para implantar uma rede virtual do Azure, Kafka e clusters de Spark para sua assinatura do Azure.
+Embora você possa criar uma rede virtual do Azure, Kafka e Spark clusters manualmente, é mais fácil toouse um modelo do Gerenciador de recursos do Azure. Toodeploy uma rede virtual do Azure, Kafka, as etapas a seguir do uso hello e Spark clusters tooyour assinatura do Azure.
 
-1. Use o botão a seguir para entrar no Azure e abra o modelo do Gerenciador de Recursos no portal do Azure.
+1. Use Olá botão toosign em tooAzure e modelo Olá abrir no portal do Azure de saudação a seguir.
     
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy tooAzure"></a>
     
-    O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
+    Hello Azure Resource Manager modelo está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-spark-cluster-in-vnet-v4.1.json**.
 
-    Este modelo cria os seguintes recursos:
+    Este modelo cria Olá recursos a seguir:
 
     * Um cluster Kafka no HDInsight 3.5.
     * Um cluster Spark no HDInsight 3.6.
-    * Uma Rede Virtual do Azure, que contém os clusters HDInsight.
+    * Uma rede Virtual do Azure, que contém os clusters de HDInsight hello.
 
     > [!IMPORTANT]
-    > O bloco de anotações de streaming estruturado usado neste exemplo requer o Spark no HDInsight 3.6. Se você usar uma versão anterior do Spark no HDInsight, você receberá erros ao usar o bloco de anotações.
+    > notebook streaming estruturado Olá usado neste exemplo requer Spark no HDInsight 3.6. Se você usar uma versão anterior do Spark no HDInsight, você recebe erros ao usar o bloco de anotações de saudação.
 
-2. Use as seguintes informações para preencher as entradas na folha de **Implantação personalizada** :
+2. Olá usar entradas de saudação toopopulate informações a seguir no hello **implantação personalizada** folha:
    
     ![Implantação personalizada do HDInsight](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
-    * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster HDInsight.
+    * **Grupo de recursos**: Crie um grupo ou selecione um existente. Esse grupo contém o cluster do HDInsight hello.
 
-    * **Local**: escolha um local geograficamente perto de você.
+    * **Local**: selecione um tooyou geograficamente fechar do local.
 
-    * **Nome do Cluster de base**: esse valor é usado como o nome de base para os clusters Spark e Kafka. Por exemplo, inserir **hdi** cria um cluster Spark chamado hdi__ spark e um cluster Kafka chamado **kafka hdi**.
+    * **Nome do Cluster base**: esse valor é usado como nome de base Olá para clusters de saudação Spark e Kafka. Por exemplo, inserir **hdi** cria um cluster Spark chamado hdi__ spark e um cluster Kafka chamado **kafka hdi**.
 
-    * **Nome de usuário de logon do cluster**: O nome de usuário do administrador para os clusters Spark e Kafka.
+    * **Nome de usuário de logon de cluster**: nome de usuário de administrador Olá para clusters de saudação Spark e Kafka.
 
-    * **Senha de logon do cluster**: A senha de usuário do administrador para os clusters Spark e Kafka.
+    * **Senha de logon de cluster**: senha do usuário administrador Olá para clusters de saudação Spark e Kafka.
 
-    * **Nome de usuário SSH**: O usuário SSH para criar para os clusters Spark e Kafka.
+    * **Nome de usuário SSH**: Olá toocreate de usuário SSH para clusters de saudação Spark e Kafka.
 
-    * **Senha SSH**: a senha para o usuário SSH dos clusters Kafka e Spark.
+    * **Senha SSH**: senha Olá para usuário SSH Olá Olá Spark e Kafka clusters.
 
-3. Leia **Termos e Condições**, e depois selecione **Concordo com os termos e condições declarados acima**.
+3. Saudação de leitura **termos e condições**e, em seguida, selecione **concordo toohello termos e condições declaradas acima**.
 
-4. Por fim, marque **Fixar no painel** e selecione **Comprar**. Demora cerca de 20 minutos para criar os clusters.
+4. Finalmente, verifique **Pin toodashboard** e, em seguida, selecione **compra**. Demora cerca de 20 minutos toocreate clusters hello.
 
-Depois que os recursos tiverem sido criados, você será redirecionado para a folha do grupo de recursos.
+Após a criação dos recursos Olá, você é redirecionado toohello folha de grupo de recursos.
 
-![Folha do grupo de recursos para rede virtual e clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![Folha de grupo de recursos para redes hello e clusters](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
-> Observe que os nomes dos clusters HDInsight são **spark-BASENAME** e **kafka-BASENAME**, em que BASENAME é o nome fornecido para o modelo. Você usa esses nomes em etapas posteriores ao se conectar aos clusters.
+> Observe que os nomes de saudação de clusters de HDInsight Olá ficam **nome base do spark** e **kafka nome de base**, onde nome base é o nome da saudação fornecido toohello modelo. Você pode usar esses nomes em etapas posteriores ao conectar-se toohello clusters.
 
-## <a name="get-the-kafka-brokers"></a>Obter os agentes de Kafka
+## <a name="get-hello-kafka-brokers"></a>Obter Olá Kafka agentes
 
-O código neste exemplo conecta-se aos hosts de agente Kafka no cluster Kafka. Para localizar os hosts de agente Kafka, use o exemplo do PowerShell ou Bash a seguir:
+o código neste exemplo Hello conecta toohello Kafka hosts no cluster Kafka de saudação do agente. toofind Olá hosts de broker Kafka, use Olá PowerShell ou Bash exemplo a seguir:
 
 ```powershell
-$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
-$clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
+$creds = Get-Credential -UserName "admin" -Message "Enter hello HDInsight login"
+$clusterName = Read-Host -Prompt "Enter hello Kafka cluster name"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
@@ -107,53 +107,53 @@ curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clust
 ```
 
 > [!NOTE]
-> Este exemplo espera `$PASSWORD` para conter a senha para o logon de cluster e `$CLUSTERNAME` para conter o nome do cluster Kafka.
+> Este exemplo espera `$PASSWORD` toocontain senha de saudação para logon de cluster Olá, e `$CLUSTERNAME` toocontain nome de saudação do hello cluster Kafka.
 >
-> Este exemplo usa o utilitário [jq](https://stedolan.github.io/jq/) para analisar dados fora do documento JSON.
+> Este exemplo usa Olá [jq](https://stedolan.github.io/jq/) dados do utilitário tooparse fora do documento JSON hello.
 
-A saída é semelhante ao texto a seguir:
+saudação de saída é similar toohello texto a seguir:
 
 `wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn2-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn3-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
 
-Salve essas informações, pois elas são usadas nas diversas etapas deste documento.
+Salve essas informações, como ele é usado no hello seguintes seções deste documento.
 
-## <a name="get-the-notebooks"></a>Obter os blocos de anotações
+## <a name="get-hello-notebooks"></a>Obter blocos de anotações de saudação
 
-O código do exemplo descrito neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
+Olá código de exemplo hello descrito neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming).
 
-## <a name="upload-the-notebooks"></a>Carregar os blocos de anotações
+## <a name="upload-hello-notebooks"></a>Carregar os blocos de anotações de saudação
 
-Use as etapas a seguir para carregar os blocos de anotações do projeto para o Spark no cluster HDInsight:
+Use Olá seguir etapas tooupload Olá blocos de anotações de saudação projeto tooyour Spark no cluster HDInsight:
 
-1. No navegador da Web, conecte-se ao bloco de anotações do Jupyter em seu cluster Spark. Na URL a seguir, substitua `CLUSTERNAME` pelo nome do cluster Kafka:
+1. No navegador da web, conecte-se de anotações do Jupyter toohello em seu cluster Spark. Olá seguindo a URL, substitua `CLUSTERNAME` com nome de saudação do cluster Kafka:
 
         https://CLUSTERNAME.azurehdinsight.net/jupyter
 
-    Quando solicitado, insira o nome de usuário e senha que você inseriu ao criar o cluster.
+    Quando solicitado, insira o logon de cluster da saudação (admin) e a senha usada ao criar cluster hello.
 
-2. No canto superior direito da página, use o botão __Carregar__ para carregar o arquivo __Stream-Tweets-To_Kafka.ipynb__ no cluster. Selecione __Abrir__ para iniciar o upload.
+2. Olá superior direita da página Olá, use Olá __carregar__ saudação do botão tooupload __fluxo Tweets To_Kafka.ipynb__ cluster toohello de arquivos. Selecione __abrir__ toostart carregamento de saudação.
 
-    ![Use o botão Carregar para selecionar e carregar um notebook](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-button.png)
+    ![Use Olá tooselect de botão de carregamento e carregar um bloco de anotações](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-button.png)
 
-    ![Selecione o arquivo KafkaStreaming.ipynb](./media/hdinsight-apache-kafka-spark-structured-streaming/select-notebook.png)
+    ![Selecione o arquivo de KafkaStreaming.ipynb Olá](./media/hdinsight-apache-kafka-spark-structured-streaming/select-notebook.png)
 
-3. Localize a entrada __Stream-Tweets-To_Kafka.ipynb__ na lista de blocos de anotações e selecione o botão __Carregar__ ao lado dela.
+3. Localize Olá __fluxo Tweets To_Kafka.ipynb__ entrada na lista de saudação do blocos de anotações e selecione __carregar__ botão ao lado dela.
 
-    ![Use o botão Carregar ao lado da entrada KafkaStreaming.ipynb para carregá-la para o servidor de notebook](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
+    ![Carregamento de saudação do uso botão ao lado de tooupload de entrada KafkaStreaming.ipynb Olá-servidor de notebook toohello](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
 
-4. Repita as etapas de 1 a 3 para carregar o bloco de anotações __Spark-Structured-Streaming-From-Kafka.ipynb__.
+4. Repita as etapas de saudação do tooload de 1 a 3 __Spark-estruturado-Streaming-de-Kafka.ipynb__ notebook.
 
 ## <a name="load-tweets-into-kafka"></a>Carregar tweets no Kafka
 
-Depois que o arquivo foi carregado, selecione a entrada __Stream-Tweets-To_Kafka.ipynb__ para abrir o bloco de anotações. Siga as etapas no bloco de anotações para carregar tweets no Kafka.
+Depois de carregar arquivos hello, selecionar Olá __fluxo Tweets To_Kafka.ipynb__ notebook de saudação do tooopen de entrada. Siga as etapas de Olá Olá notebook tooload tweets em Kafka.
 
 ## <a name="process-tweets-using-spark-structured-streaming"></a>Processar tweets usando o streaming estruturado do Spark
 
-Na home page do Jupyter Notebook, selecione a entrada __Spark-Structured-Streaming-From-Kafka.ipynb__. Siga as etapas no bloco de anotações para carregar tweets de Kafka usando o Streaming Estruturado do Spark.
+Olá home page do Jupyter Notebook, selecione Olá __Spark-estruturado-Streaming-de-Kafka.ipynb__ entrada. Siga as etapas de Olá Olá notebook tooload tweets de Kafka usando fluxo estruturado do Spark.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu a usar o Streaming Estruturado do Spark, consulte os documentos a seguir para saber mais sobre como trabalhar com Spark e Kafka:
+Agora que você aprendeu como toouse Spark estruturado Streaming, consulte Olá documentos toolearn mais sobre como trabalhar com Spark e Kafka a seguir:
 
-* [Como usar o streaming do Spark (DStream) com Kafka](hdinsight-apache-spark-with-kafka.md).
+* [Como toouse despertar streaming (DStream) com Kafka](hdinsight-apache-spark-with-kafka.md).
 * [Iniciar com o bloco de anotações do Jupyter e Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md)

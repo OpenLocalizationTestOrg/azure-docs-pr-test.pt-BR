@@ -1,6 +1,6 @@
 ---
-title: "Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP – Aplicativos Lógicos do Azure | Microsoft Docs"
-description: "Configurar pontos de extremidade HTTP para chamar, disparar ou aninhar fluxos de trabalho para Aplicativos Lógicos do Azure"
+title: "aaaCall, gatilho ou aninhar fluxos de trabalho com pontos de extremidade HTTP - os aplicativos lógicos do Azure | Microsoft Docs"
+description: "Configurar fluxos de trabalho aninhados, gatilho ou toocall de pontos de extremidade HTTP para os aplicativos lógicos do Azure"
 services: logic-apps
 keywords: fluxos de trabalho, pontos de extremidade HTTP
 author: jeffhollan
@@ -16,17 +16,17 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 072a314c3bff75ab7696f86bb063bb7c03c4ae89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP em aplicativos lógicos
 
 Você pode expor nativamente pontos de extremidade HTTP síncronos como gatilhos em aplicativos lógicos para que seja possível disparar ou chamar aplicativos lógicos por meio de uma URL. Também é possível aninhar fluxos de trabalho em aplicativos lógicos usando um padrão de pontos de extremidade resgatáveis.
 
-Para criar pontos de extremidade HTTP, você pode adicionar esses gatilhos para que seus aplicativos lógicos possam receber solicitações de entrada:
+pontos de extremidade HTTP toocreate, você pode adicionar esses gatilhos para que seus aplicativos lógicos podem receber solicitações de entrada:
 
 * [Solicitação](../connectors/connectors-native-reqres.md)
 
@@ -35,22 +35,22 @@ Para criar pontos de extremidade HTTP, você pode adicionar esses gatilhos para 
 * [Webhook HTTP](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Embora nossos exemplos usem o gatilho **Solicitar**, você pode usar qualquer um dos gatilhos HTTP listados e todos os princípios se aplicam de modo idêntico a outros tipos de gatilho.
+   > Embora os exemplos usam Olá **solicitar** gatilho, você pode usar qualquer um dos Olá listados gatilhos HTTP e todos os princípios identicamente aplicam toohello outros tipos de disparadores.
 
 ## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurar um ponto de extremidade HTTP para o aplicativo lógico
 
-Para criar um ponto de extremidade HTTP, adicione um gatilho que possa receber solicitações de entrada.
+toocreate um ponto de extremidade HTTP, adicione um gatilho que pode receber solicitações de entrada.
 
-1. Entre no [portal do Azure](https://portal.azure.com "portal do Azure"). Vá até o aplicativo lógico e abra o Designer do Aplicativo Lógico.
+1. Entrar toohello [portal do Azure](https://portal.azure.com "portal do Azure"). Vá tooyour lógica aplicativo e, em seguida, abra o Designer de lógica do aplicativo.
 
-2. Adicione um gatilho que permita ao aplicativo lógico receber solicitações de entrada. Por exemplo, adicione o gatilho **Solicitação** em seu aplicativo lógico.
+2. Adicione um gatilho que permita ao aplicativo lógico receber solicitações de entrada. Por exemplo, adicionar Olá **solicitação** gatilho tooyour lógica aplicativo.
 
-3.  Em **Esquema JSON do Corpo da Solicitação**, se desejar, você pode inserir um esquema JSON para o conteúdo que espera receber.
+3.  Em **esquema de JSON de corpo de solicitação**, opcionalmente, você pode inserir um esquema JSON para carga hello (dados) que você espera Olá gatilho tooreceive.
 
-    O designer usa esse esquema para gerar tokens que o aplicativo lógico pode usar para consumir, analisar e transmitir dados do gatilho por meio do fluxo de trabalho. 
+    designer de saudação usa este esquema para a geração de tokens que seu aplicativo lógico pode usar tooconsume, análise e passar dados do disparador Olá por meio de seu fluxo de trabalho. 
     Saiba mais sobre [tokens gerados de esquemas JSON](#generated-tokens).
 
-    Para este exemplo, digite o esquema mostrado no designer:
+    Para este exemplo, digite esquema Olá mostrada no designer de saudação:
 
     ```json
     {
@@ -66,11 +66,11 @@ Para criar um ponto de extremidade HTTP, adicione um gatilho que possa receber s
     }
     ```
 
-    ![Adicionar a ação Solicitar][1]
+    ![Adicionar ação de solicitação de saudação][1]
 
     > [!TIP]
     > 
-    > Você pode gerar um esquema para um conteúdo JSON de exemplo usando uma ferramenta como [jsonschema.net](http://jsonschema.net/) ou no gatilho **Solicitar** escolhendo **Use o conteúdo de amostra para gerar o esquema**. 
+    > Você pode gerar um esquema para uma carga JSON de exemplo de uma ferramenta como [jsonschema.net](http://jsonschema.net/), ou em Olá **solicitação** gatilho escolhendo **esquema de toogenerate de carga de exemplo de uso**. 
     > Insira o conteúdo de exemplo e escolha **Concluído**.
 
     Por exemplo, este conteúdo de exemplo:
@@ -94,31 +94,31 @@ Para criar um ponto de extremidade HTTP, adicione um gatilho que possa receber s
     }
     ```
 
-4.  Salve seu aplicativo lógico. Em **HTTP POST para esta URL**, agora você deve encontrar uma URL de retorno de chamada gerada, como neste exemplo:
+4.  Salve seu aplicativo lógico. Em **HTTP POST toothis URL**, agora você deve encontrar uma URL de retorno de chamada gerado, como neste exemplo:
 
     ![URL de retorno de chamada gerada para ponto de extremidade](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
-    Essa URL contém uma chave de SAS (Assinatura de Acesso Compartilhado) nos parâmetros de consulta usados para autenticação. 
-    Você também pode obter a URL de ponto de extremidade HTTP da visão geral do aplicativo lógico no portal do Azure. Em **Histórico de Gatilho**, selecione o gatilho:
+    Essa URL contém uma chave de assinatura de acesso compartilhado (SAS) em parâmetros de consulta de saudação que são usados para autenticação. 
+    Você também pode obter a URL de ponto de extremidade HTTP de saudação de visão geral do seu aplicativo lógica em Olá portal do Azure. Em **Histórico de Gatilho**, selecione o gatilho:
 
     ![Obter a URL de ponto de extremidade HTTP no portal do Azure][2]
 
-    Ou você pode obter a URL fazendo esta chamada:
+    Ou você pode obter a URL de saudação ao fazer essa chamada:
 
     ```
     POST https://management.azure.com/{logic-app-resourceID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
     ```
 
-## <a name="change-the-http-method-for-your-trigger"></a>Alterar o método HTTP para o gatilho
+## <a name="change-hello-http-method-for-your-trigger"></a>Alterar método HTTP Olá para o disparador
 
-Por padrão, o gatilho **Solicitar** espera uma solicitação HTTP POST, mas você pode usar um método HTTP diferente. 
+Por padrão, Olá **solicitação** gatilho espera uma solicitação HTTP POST, mas você pode usar um método diferente de HTTP. 
 
 > [!NOTE]
 > Você pode especificar somente um tipo de método.
 
 1. No gatilho **Solicitar**, escolha **Mostrar opções avançadas**.
 
-2. Abra a lista **Método**. Para este exemplo, selecione **GET** para que você possa testar posteriormente sua URL de ponto de extremidade HTTP.
+2. Olá abrir **método** lista. Para este exemplo, selecione **GET** para que você possa testar posteriormente sua URL de ponto de extremidade HTTP.
 
     > [!NOTE]
     > É possível selecionar qualquer outro método HTTP ou especificar um método personalizado para seu próprio aplicativo lógico.
@@ -127,27 +127,27 @@ Por padrão, o gatilho **Solicitar** espera uma solicitação HTTP POST, mas voc
 
 ## <a name="accept-parameters-through-your-http-endpoint-url"></a>Aceitar parâmetros por meio da URL de ponto de extremidade HTTP
 
-Quando desejar que a URL de ponto de extremidade HTTP aceite parâmetros, personalize o caminho relativo do gatilho.
+Quando você quiser que os parâmetros de tooaccept de URL de ponto de extremidade HTTP, personalize o caminho relativo do gatilho.
 
 1. No gatilho **Solicitar**, escolha **Mostrar opções avançadas**. 
 
-2. Em **Método**, especifique o método HTTP que deseja que sua solicitação use. Para este exemplo, selecione o método **GET**, se ainda não o fez, para que seja possível testar a URL de ponto de extremidade HTTP.
+2. Em **método**, especifique o método hello HTTP que você deseja toouse sua solicitação. Neste exemplo, selecione Olá **obter** método, se você ainda não fez isso, para que você pode testar a URL do ponto de extremidade o HTTP.
 
       > [!NOTE]
       > Ao especificar um caminho relativo para o gatilho, você deve especificar explicitamente um método HTTP para o gatilho.
 
-3. Em **Caminho relativo**, especifique o caminho relativo para o parâmetro que sua URL deve aceitar, por exemplo, `customers/{customerID}`.
+3. Em **caminho relativo**, especifique o caminho relativo para o parâmetro hello que sua URL deve aceitar, por exemplo, o hello `customers/{customerID}`.
 
-    ![Especificar o método HTTP e o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relativeurl.png)
+    ![Especifique o método HTTP hello e o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relativeurl.png)
 
-4. Para usar o parâmetro, adicione uma ação **Resposta** ao aplicativo lógico. (No gatilho, escolha **Nova etapa** > **Adicionar uma ação** > **Resposta**) 
+4. toouse Olá parâmetro, adicione uma **resposta** ação tooyour lógica aplicativo. (No gatilho, escolha **Nova etapa** > **Adicionar uma ação** > **Resposta**) 
 
-5. No **Corpo** da resposta, inclua o token para o parâmetro que você especificou no caminho relativo do gatilho.
+5. Em sua resposta **corpo**, inclui um token Olá para o parâmetro hello especificado no caminho relativo do gatilho.
 
-    Por exemplo, para retornar `Hello {customerID}`, atualize o **Corpo** da resposta com `Hello {customerID token}`. 
-    A lista de conteúdo dinâmica deve aparecer e mostrar o `customerID` token para você selecionar.
+    Por exemplo, tooreturn `Hello {customerID}`, atualize sua resposta **corpo** com `Hello {customerID token}`. 
+    lista de conteúdo dinâmico Olá deve aparecer e mostrar Olá `customerID` token para você tooselect.
 
-    ![Adicionar parâmetro ao corpo da resposta](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+    ![Adicionar o corpo do parâmetro tooresponse](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
     O **Corpo** deve se parecer com este exemplo:
 
@@ -155,11 +155,11 @@ Quando desejar que a URL de ponto de extremidade HTTP aceite parâmetros, person
 
 6. Salve seu aplicativo lógico. 
 
-    A URL de ponto de extremidade HTTP agora inclui o caminho relativo, por exemplo: 
+    A URL do ponto de extremidade HTTP agora inclui caminho relativo do hello, por exemplo: 
 
     https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
-7. Para testar o ponto de extremidade HTTP, copie e cole a URL atualizada em outra janela do navegador, mas substitua `{customerID}` por `123456` e pressione Enter.
+7. tootest seu ponto de extremidade HTTP, copiar e colar Olá URL atualizada em outra janela do navegador, mas substituam `{customerID}` com `123456`, e pressione Enter.
 
     O navegador agora deve mostrar este texto: 
 
@@ -168,11 +168,11 @@ Quando desejar que a URL de ponto de extremidade HTTP aceite parâmetros, person
 <a name="generated-tokens"></a>
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Tokens gerados de esquemas JSON para o aplicativo lógico
 
-Quando você fornece um esquema JSON no gatilho **Solicitar**, o Designer de Aplicativo Lógico gera tokens para propriedades nesse esquema. Assim, você pode usar esses tokens para transmitir dados por meio do fluxo de trabalho do aplicativo lógico.
+Quando você fornece um esquema JSON no seu **solicitação** disparar, hello lógica de aplicativo Designer gera tokens para propriedades nesse esquema. Assim, você pode usar esses tokens para transmitir dados por meio do fluxo de trabalho do aplicativo lógico.
 
-Para este exemplo, se você adicionar as propriedades `title` e `name` ao esquema JSON, seus tokens estarão disponíveis para uso nas etapas posteriores do fluxo de trabalho. 
+Neste exemplo, se você adicionar Olá `title` e `name` esquema JSON tooyour propriedades, seus tokens agora estão disponível toouse em etapas posteriores do fluxo de trabalho. 
 
-Veja a seguir o esquema JSON completo:
+Aqui está o esquema JSON completo hello:
 
 ```json
 {
@@ -198,19 +198,19 @@ Veja a seguir o esquema JSON completo:
 
 ## <a name="create-nested-workflows-for-logic-apps"></a>Criar fluxos de trabalho aninhados para aplicativos lógicos
 
-Você pode aninhar os fluxos de trabalho no aplicativo lógico adicionando outros aplicativos lógicos que podem receber solicitações. Para incluir esses aplicativos lógicos, adicione a ação **Aplicativos Lógicos do Azure – Escolha um fluxo de trabalho de Aplicativos Lógicos** ao gatilho. Você pode selecionar dentre aplicativos lógicos qualificados.
+Você pode aninhar os fluxos de trabalho no aplicativo lógico adicionando outros aplicativos lógicos que podem receber solicitações. tooinclude esses aplicativos lógicos, adicionar Olá **os aplicativos lógicos do Azure - escolha um fluxo de trabalho de aplicativos lógicos** tooyour de disparo de ação. Você pode selecionar dentre aplicativos lógicos qualificados.
 
 ![Adicionar outro aplicativo lógico](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
 ## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>Chamar ou disparar aplicativos lógicos por meio de pontos de extremidade HTTP
 
-Depois de criar o ponto de extremidade HTTP, é possível disparar o aplicativo lógico por meio de um método `POST` para a URL completa. Os aplicativos lógicos têm suporte interno para pontos de extremidade de acesso direto.
+Depois de criar seu ponto de extremidade HTTP, você pode disparar o seu aplicativo lógica por meio de um `POST` método toohello a URL completa. Os aplicativos lógicos têm suporte interno para pontos de extremidade de acesso direto.
 
 ## <a name="reference-content-from-an-incoming-request"></a>Fazer referência ao conteúdo de uma solicitação de entrada
 
-Se o tipo do conteúdo for `application/json`, você poderá fazer referência às propriedades da solicitação de entrada. Caso contrário, o conteúdo será tratado como uma única unidade binária que você pode passar para outras APIs. Para fazer referência a esse conteúdo no fluxo de trabalho, você deve converter esse conteúdo. Por exemplo, se transmitir o conteúdo de `application/xml`, você poderá usar `@xpath()` para uma extração de XPath ou `@json()` para converter XML em JSON. Saiba mais sobre [como trabalhar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
+Se Olá conteúdo do tipo for `application/json`, você pode fazer referência a propriedades da solicitação de entrada hello. Caso contrário, conteúdo é tratado como uma única unidade de binária que você pode passar tooother APIs. tooreference esse conteúdo dentro do fluxo de trabalho hello, você deve converter esse conteúdo. Por exemplo, se você passar `application/xml` conteúdo, você pode usar `@xpath()` para uma extração de XPath, ou `@json()` para converter tooJSON XML. Saiba mais sobre [como trabalhar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
 
-Para obter a saída de uma solicitação de entrada, você poderá usar a função `@triggerOutputs()`. A saída pode se parecer com este exemplo:
+Olá tooget de saída de uma solicitação de entrada, você pode usar o hello `@triggerOutputs()` função. saída de Hello pode parecer semelhante a este exemplo:
 
 ```json
 {
@@ -223,18 +223,18 @@ Para obter a saída de uma solicitação de entrada, você poderá usar a funç�
 }
 ```
 
-Para acessar a propriedade `body` de forma específica, você pode usar o atalho `@triggerBody()`. 
+Olá tooaccess `body` propriedade especificamente, você pode usar Olá `@triggerBody()` atalho. 
 
-## <a name="respond-to-requests"></a>Responder às solicitações
+## <a name="respond-toorequests"></a>Responder toorequests
 
-Talvez você queira responder a determinadas solicitações que iniciam um aplicativo lógico retornando conteúdo a outro chamador. Para construir o código de status, o cabeçalho e o corpo da resposta, você pode usar a ação **Resposta**. Essa ação pode aparecer em qualquer lugar no aplicativo lógico, não apenas no fim do fluxo de trabalho.
+Talvez você queira toorespond toocertain solicitações que iniciar um aplicativo lógico, retornando conteúdo toohello chamador. código de status tooconstruct hello, cabeçalho e corpo de resposta, você pode usar o hello **resposta** ação. Esta ação pode aparecer em qualquer lugar no seu aplicativo lógico, não apenas no final de saudação do fluxo de trabalho.
 
 > [!NOTE] 
-> Se o aplicativo lógico não incluir uma **Resposta**, o ponto de extremidade HTTP responderá *imediatamente* com um status **202 Aceito**. Além disso, para a solicitação original obter a resposta, todas as etapas exigidas para a resposta devem ser finalizadas dentro do [tempo limite da solicitação](./logic-apps-limits-and-config.md), a menos que você chame o fluxo de trabalho como um aplicativo lógico aninhado. Se não houver resposta dentro desse limite, a solicitação de entrada atingirá o tempo limite e receberá a resposta HTTP **408 Tempo limite de cliente**. Para aplicativos lógicos aninhados, o aplicativo lógico pai continuará a aguardar uma resposta até a conclusão, independentemente de quanto tempo for necessário.
+> Se seu aplicativo lógico não incluir um **resposta**, ponto de extremidade HTTP de saudação responde *imediatamente* com um **202 aceito** status. Além disso, para Olá solicitação tooget Olá resposta original, todas as etapas necessárias para a resposta de saudação deverá ser concluída em Olá [limite de solicitação](./logic-apps-limits-and-config.md) , a menos que você chamar o fluxo de trabalho hello como um aplicativo lógica aninhada. Se nenhuma resposta acontece dentro desse limite, solicitação de entrada hello expirar e recebe a resposta HTTP de saudação **408 tempo limite do cliente**. Para aplicativos lógicos aninhadas, Olá aplicativo-pai lógica continuará toowait por uma resposta até a conclusão, independentemente de quanto tempo é necessário.
 
-### <a name="construct-the-response"></a>Construir a resposta
+### <a name="construct-hello-response"></a>Resposta de saudação de construção
 
-Você pode incluir mais de um cabeçalho e qualquer tipo de conteúdo no corpo da resposta. Em nossa resposta de exemplo, o cabeçalho especifica que a resposta tem o tipo de conteúdo `application/json`. E o corpo contém `title` e `name`, com base no esquema JSON atualizado anteriormente para o gatilho **Solicitar**.
+Você pode incluir mais de um cabeçalho e qualquer tipo de conteúdo no corpo de resposta de saudação. Em nosso exemplo de resposta, o cabeçalho de saudação especifica a resposta Olá tem tipo de conteúdo `application/json`. e o corpo da saudação contém `title` e `name`, com base no esquema JSON Olá atualizada anteriormente para Olá **solicitação** gatilho.
 
 ![Ação Resposta HTTP][3]
 
@@ -242,11 +242,11 @@ As respostas têm estas propriedades:
 
 | Propriedade | Descrição |
 | --- | --- |
-| statusCode |Especifica o código de status HTTP para responder à solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
-| headers |Define qualquer número de cabeçalhos a serem incluídos na resposta. |
-| Corpo |Especifica um objeto de corpo que pode ser uma cadeia de caracteres, um objeto JSON ou, até mesmo, o conteúdo binário referenciado em uma etapa anterior. |
+| statusCode |Especifica o código de status HTTP de saudação respondendo toohello solicitação de entrada. Este código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx. No entanto, não há permissão para códigos de status 3xx. |
+| headers |Define qualquer número de tooinclude cabeçalhos na resposta de saudação. |
+| body |Especifica um objeto de corpo que pode ser uma cadeia de caracteres, um objeto JSON ou, até mesmo, o conteúdo binário referenciado em uma etapa anterior. |
 
-Veja a seguir como o esquema JSON se parece agora para a ação **Resposta**:
+Aqui está o esquema JSON Olá aparência agora para Olá **resposta** ação:
 
 ``` json
 "Response": {
@@ -266,48 +266,48 @@ Veja a seguir como o esquema JSON se parece agora para a ação **Resposta**:
 ```
 
 > [!TIP]
-> Para exibir a definição completa de JSON para seu aplicativo lógico, no Designer de Aplicativo Lógico, escolha **Exibição de código**.
+> tooview Olá JSON definição completa para seu aplicativo de lógica, no hello Designer de lógica do aplicativo, escolha **exibição de código**.
 
 ## <a name="q--a"></a>Perguntas e respostas
 
 #### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
 
-R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico usando uma SAS (Assinatura de Acesso Compartilhado). Essa assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
+R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico usando uma SAS (Assinatura de Acesso Compartilhado). Essa assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. Azure gera assinatura hello usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, nome do disparador hello e operação de saudação que é executada. Portanto, a menos que alguém tem a chave de segredo lógica de aplicativo do acesso toohello, eles não é possível gerar uma assinatura válida.
 
    > [!IMPORTANT]
-   > Para sistemas seguros e de produção, é altamente recomendável não chamar o aplicativo lógico de chamada diretamente do navegador porque:
+   > Para proteger sistemas de produção e, é altamente recomendável em relação a sua lógica de aplicativo de chamada diretamente do navegador de saudação porque:
    > 
-   > * A chave de acesso compartilhado é exibida na URL.
-   > * Você não pode gerenciar políticas de conteúdo seguras devido a domínios compartilhados entre clientes de Aplicativos Lógicos.
+   > * chave de acesso compartilhado Olá aparece na URL de saudação.
+   > * Você não pode gerenciar políticas de conteúdo seguras devido tooshared domínios entre os clientes do aplicativo lógico.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar pontos de extremidade HTTP mais tarde?
 
-R: Sim, os pontos de extremidade HTTP dão suporte à configuração mais avançada por meio do [**Gerenciamento de API**](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
+R: Sim, os pontos de extremidade HTTP dão suporte à configuração mais avançada por meio do [**Gerenciamento de API**](../api-management/api-management-key-concepts.md). Esse serviço também oferece recursos de saudação para você tooconsistently gerencie todas as suas APIs, incluindo aplicativos lógicos, configurar os nomes de domínio personalizado, use os métodos de autenticação mais e mais, por exemplo:
 
-* [Alterar o método de solicitação](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
-* [Alterar os segmentos de URL da solicitação](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* Configurar os domínios de Gerenciamento de API no [portal do Azure](https://portal.azure.com/ "portal do Azure")
-* Configurar a política para verificar a autenticação Básica
+* [Alterar o método de solicitação hello](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
+* [Alterar os segmentos de URL de saudação da solicitação de saudação](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
+* Configurar seus domínios de gerenciamento de API no hello [portal do Azure](https://portal.azure.com/ "portal do Azure")
+* Configurar a política toocheck para autenticação básica
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: O que mudou quando o esquema migrou do modo de visualização de 1º de dezembro de 2014?
+#### <a name="q-what-changed-when-hello-schema-migrated-from-hello-december-1-2014-preview"></a>P: o que mudou quando esquema Olá migrado de visualização de 1 de dezembro de 2014 Olá?
 
 R: Veja um resumo sobre essas alterações:
 
 | Visualização de 1º de dezembro de 2014 | 1º de junho de 2016 |
 | --- | --- |
 | Clique no aplicativo de API **Ouvinte HTTP** |Clique em **Gatilho manual** (nenhum aplicativo de API é necessário) |
-| Configuração “*Envia a resposta automaticamente*” do Ouvinte HTTP |Inclua uma ação **Resposta** ou não na definição do fluxo de trabalho |
+| Configuração “*Envia a resposta automaticamente*” do Ouvinte HTTP |O inclui um **resposta** ação ou não na definição de fluxo de trabalho de saudação |
 | Configure a autenticação Básica ou OAuth |por meio do Gerenciamento de API |
 | Configurar o método HTTP |Em **Mostrar opções avançadas**, escolha um método HTTP |
 | Configurar o caminho relativo |Em **Mostrar opções avançadas**, adicione um caminho relativo |
-| Fazer referência ao corpo de entrada por meio de `@triggerOutputs().body.Content` |Fazer referência por meio de `@triggerOutputs().body` |
-| **Enviar resposta HTTP** no Ouvinte HTTP |Clique em **Responder à solicitação HTTP** (nenhum aplicativo de API é necessário) |
+| Corpo de entrada hello referência por meio de`@triggerOutputs().body.Content` |Fazer referência por meio de `@triggerOutputs().body` |
+| **Enviar a resposta HTTP** ação Olá ouvinte HTTP |Clique em **responder tooHTTP solicitação** (nenhuma API App necessário) |
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para fazer perguntas, responder a perguntas e saber o que os outros usuários dos Aplicativos Lógicos do Azure estão fazendo, visite o [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+tooask perguntas, responder às perguntas e saber quais outros aplicativos do Azure lógica os usuários estão fazendo, visite Olá [Fórum de aplicativos do Azure lógica](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-Para ajudar a melhorar os Aplicativos Lógicos do Azure e conectores, vote ou envie ideias no [site de comentários do usuário dos Aplicativos Lógicos do Azure](http://aka.ms/logicapps-wish).
+toohelp aprimorar aplicativos do Azure lógica e os conectores, votar ou enviar ideias em Olá [site de comentários do usuário de aplicativos do Azure lógica](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 

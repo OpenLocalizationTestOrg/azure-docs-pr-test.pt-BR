@@ -1,6 +1,6 @@
 ---
-title: "Conectar a um sistema SAP local no Aplicativo Lógico do Azure | Microsoft Docs"
-description: "Conectar ao sistema SAP local no fluxo de trabalho do aplicativo lógico por meio do gateway de dados local"
+title: "aaaConnect tooan sistema SAP no Azure lógica de aplicativos local | Microsoft Docs"
+description: "Conecte-se tooan no sistema local da SAP de seu fluxo de trabalho de aplicativo lógica por meio do gateway de dados local Olá"
 services: logic-apps
 author: padmavc
 manager: anneta
@@ -13,80 +13,80 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 594ec5fed337398bf931d396684630ee9f907d2f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-an-on-premises-sap-system-from-logic-apps-with-the-sap-connector"></a>Conectar a um sistema SAP local por meio de aplicativos lógicos com o conector do SAP 
+# <a name="connect-tooan-on-premises-sap-system-from-logic-apps-with-hello-sap-connector"></a>Conecte-se tooan no sistema local da SAP de lógica de aplicativos com o conector do SAP Olá 
 
-O gateway de dados local permite gerenciar dados e acessar com segurança recursos locais. Este tópico mostra como é possível conectar aplicativos lógicos a um sistema SAP local. Neste exemplo, o aplicativo lógico solicita um IDOC por HTTP e envia a resposta de volta.    
+gateway de dados local Olá permite toomanage dados e acessar com segurança os recursos que estão no local. Este tópico mostra como você pode se conectar a lógica aplicativos tooan no sistema local da SAP. Neste exemplo, seu aplicativo lógico solicita um IDOC via HTTP e envia a resposta de saudação novamente.    
 
 > [!NOTE]
 > Limitações atuais: 
-> - O aplicativo lógico atingirá o tempo limite se todas as etapas necessárias para a resposta não forem concluídas dentro do [tempo limite de solicitação](./logic-apps-limits-and-config.md). Nesse cenário, as solicitações podem ser bloqueadas. 
-> - O seletor de arquivos não exibe todos os campos disponíveis. Nesse cenário, você pode adicionar os caminhos manualmente.
+> - Seu aplicativo lógico expira se não concluir todas as etapas necessárias para a resposta de saudação dentro Olá [limite de solicitação](./logic-apps-limits-and-config.md). Nesse cenário, as solicitações podem ser bloqueadas. 
+> - seletor de arquivo Hello não exibe todos os campos disponíveis de saudação. Nesse cenário, você pode adicionar os caminhos manualmente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Instale e configure a versão mais recente do [gateway de dados local](https://www.microsoft.com/download/details.aspx?id=53127), versão 1.15.6150.1 ou superior. [Como conectar-se ao gateway de dados local em um aplicativo lógico](http://aka.ms/logicapps-gateway) lista as etapas. O gateway deve ser instalado em um computador local antes de prosseguir.
+- Instalar e configurar hello mais recente [gateway de dados no local](https://www.microsoft.com/download/details.aspx?id=53127) versão 1.15.6150.1 ou mais recente. [Como tooconnect toohello no gateway de dados local em um aplicativo de lógica](http://aka.ms/logicapps-gateway) listas Olá etapas. gateway de saudação deve ser instalado em um computador local antes de prosseguir.
 
-- Baixe e instale a biblioteca de cliente SAP mais recente no mesmo computador em que você instalou o gateway de dados. Use qualquer uma das versões de SAP a seguir: 
+- Download e instalação hello mais recente SAP biblioteca de cliente em hello mesmo computador onde você instalou o gateway de dados hello. Use qualquer Olá versões da SAP a seguir: 
     - Servidor SAP
-        - Qualquer Servidor SAP compatível com o .NET Connector (NCo) 3.0
+        - Qualquer servidor SAP que Olá suporte .NET conector (NCo) 3.0
  
     - Cliente SAP
         - Conector SAP do .NET (NCo) 3.0
 
-## <a name="add-triggers-and-actions-for-connecting-to-your-sap-system"></a>Adicionar gatilhos e ações para conectar ao sistema SAP
+## <a name="add-triggers-and-actions-for-connecting-tooyour-sap-system"></a>Adicionar gatilhos e ações para conectar-se o sistema do SAP tooyour
 
-O conector do SAP tem ações, mas não gatilhos. Portanto, precisamos usar outro gatilho no início do fluxo de trabalho. 
+conector do SAP Olá tem ações, mas não a gatilhos. Assim, temos toouse outro gatilho no início de saudação do fluxo de trabalho de saudação. 
 
-1. Adicione o gatilho Solicitação/Resposta e, em seguida, selecione **Nova etapa**.
+1. Adicionar Olá gatilho de solicitação/resposta e, em seguida, selecione **nova etapa**.
 
-2. Selecione **Adicionar uma ação** e, em seguida, escolha o conector SAP digitando `SAP` no campo de pesquisa:    
+2. Selecione **adicionar uma ação**e, em seguida, selecione o conector do SAP Olá digitando `SAP` no campo de pesquisa de saudação:    
 
      ![Selecionar Servidor de Aplicativos SAP ou Servidor de Mensagens SAP](media/logic-apps-using-sap-connector/sap-action.png)
 
-3. Selecione [**Servidor de Aplicativos SAP**](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) ou [**Servidor de Mensagens SAP**](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm), de acordo com a configuração do SAP. Caso não tenha uma conexão existente, é solicitado que você crie uma.
+3. Selecione [**Servidor de Aplicativos SAP**](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) ou [**Servidor de Mensagens SAP**](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm), de acordo com a configuração do SAP. Se você não tiver uma conexão existente, você é solicitado toocreate um.
 
-   1. Selecione **Conectar-se por meio do gateway de dados local** e insira os detalhes do sistema SAP:   
+   1. Selecione **conectar por meio do gateway de dados local**e insira os detalhes de saudação para seu sistema SAP:   
 
-       ![Adicionar cadeia de conexão ao SAP](media/logic-apps-using-sap-connector/picture2.png)  
+       ![Adicionar tooSAP de cadeia de caracteres de conexão](media/logic-apps-using-sap-connector/picture2.png)  
 
-   2. Em **Gateway**, selecione um gateway existente ou, para instalar um novo gateway, selecione **Instalar Gateway**.
+   2. Em **Gateway**, selecione um gateway existente ou tooinstall um novo gateway, selecione **instalar o Gateway**.
 
         ![Instalar um novo gateway](media/logic-apps-using-sap-connector/install-gateway.png)
   
-   3. Após inserir todos os detalhes, selecione **Criar**. 
-   Os Aplicativos Lógicos configuram e testam a conexão, garantindo seu funcionamento correto.
+   3. Depois de inserir todos os detalhes de saudação, selecione **criar**. 
+   Lógica de aplicativos configura e testa a conexão hello, certificando-se de que a conexão Olá funcione corretamente.
 
 4. Insira um nome para a conexão SAP.
 
-5. Agora, as diferentes opções de SAP estão disponíveis. Para localizar a categoria do IDOC, selecione uma na lista. Ou digite manualmente o caminho e selecione a resposta HTTP no campo **corpo**:
+5. opções diferentes de SAP Olá agora estão disponíveis. toofind categoria IDOC, selecione na lista de saudação. Ou digite manualmente no caminho hello e resposta Olá selecione HTTP no hello **corpo** campo:
 
      ![Ação do SAP](media/logic-apps-using-sap-connector/picture3.png)
 
-6. Adicione a ação para criar uma **resposta HTTP**. A mensagem de resposta deve se originar da saída do SAP.
+6. Adicionar ação de saudação para criar um **resposta HTTP**. mensagem de resposta de saudação deve ser de saída do SAP hello.
 
-7. Salve seu aplicativo lógico. Teste-o enviando um IDOC por meio da URL de gatilho HTTP. Após o envio do IDOC, aguarde a resposta do aplicativo lógico:   
+7. Salve seu aplicativo lógico. Testá-lo, enviando um IDOC por meio da URL do gatilho Olá HTTP. Após Olá que IDOC é enviada, aguarde resposta de saudação do aplicativo lógico de saudação:   
 
      > [!TIP]
-     > Confira como [monitorar seus Aplicativos Lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+     > Check-out como muito[monitorar seus aplicativos lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
-Com o conector SAP adicionado ao aplicativo lógico, comece a explorar outras funcionalidades:
+Agora que o conector do SAP Olá é adicionado tooyour lógica aplicativo, comece a explorar outras funcionalidades:
 
 - BAPI
 - RFC
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para fazer perguntas, responder a perguntas e saber o que os outros usuários dos Aplicativos Lógicos do Azure estão fazendo, visite o [fórum de Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+tooask perguntas, responder às perguntas e saber quais outros aplicativos do Azure lógica os usuários estão fazendo, visite Olá [Fórum de aplicativos do Azure lógica](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-Para ajudar a melhorar os Aplicativos Lógicos do Azure e conectores, vote ou envie ideias no [site de comentários do usuário dos Aplicativos Lógicos do Azure](http://aka.ms/logicapps-wish).
+toohelp aprimorar aplicativos do Azure lógica e os conectores, votar ou enviar ideias em Olá [site de comentários do usuário de aplicativos do Azure lógica](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como validar, transformar e outras funções semelhantes ao BizTalk no [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
-- [Conectar-se a dados locais](../logic-apps/logic-apps-gateway-connection.md) por meio de aplicativos lógicos
+- Saiba como toovalidate, transformar e outras funções BizTalk no hello [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
+- [Conecte-se a dados locais tooon](../logic-apps/logic-apps-gateway-connection.md) de aplicativos lógicos

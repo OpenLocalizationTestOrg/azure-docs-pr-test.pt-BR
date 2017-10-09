@@ -1,5 +1,5 @@
 ---
-title: "Explorar dados na máquina virtual do SQL Server no Azure | Microsoft Docs"
+title: "aaaExplore dados em uma máquina de virtual do SQL Server no Azure | Microsoft Docs"
 description: "Explorar dados e gerar recursos em uma máquina virtual do SQL Server no Azure"
 services: machine-learning
 documentationcenter: 
@@ -14,61 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: 16fabb29bdc8ec770efd843e18e9016e338a8f4e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 67f4b058b0f6557ee15fd42795c918d68f1a9871
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="heading"></a>Processar dados na Máquina Virtual do SQL Server no Azure
-Este documento aborda como explorar dados e gerar recursos dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.
+Este documento aborda como tooexplore dados e gerar recursos para dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.
 
 > [!NOTE]
-> As instruções SQL de exemplo neste documento pressupõem que os dados estão no SQL Server. Se não estiverem, consulte o mapa do processo de ciência de dados de nuvem para aprender a mover seus dados para o SQL Server.
+> instruções de SQL de exemplo Hello neste documento pressupõem que dados estejam no SQL Server. Se não for, consulte toohello nuvem dados ciência processo mapa toolearn como toomove seu servidor de tooSQL de dados.
 > 
 > 
 
 ## <a name="SQL"></a>Usando o SQL
-Descrevemos as seguintes tarefas wrangling de dados nesta seção usando SQL:
+Descrevemos Olá dados disputa as tarefas nesta seção usando SQL a seguir:
 
 1. [Exploração de Dados](#sql-dataexploration)
 2. [Geração de Recursos](#sql-featuregen)
 
 ### <a name="sql-dataexploration"></a>Exploração de Dados
-Aqui estão alguns scripts de SQL de exemplo que podem ser usados para explorar armazenamentos de dados no SQL Server.
+Aqui estão alguns scripts de SQL de exemplo que podem ser usado tooexplore repositórios de dados no SQL Server.
 
 > [!NOTE]
-> Para ver um exemplo prático, é possível usar o [conjunto de dados de Táxis de NYC](http://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado[NYC Data wrangling using IPython Notebook and SQL Server (Realizar o wrangling de dados de NYC usando o IPython Notebook e SQL Server)](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um passo a passo de ponta a ponta.
+> Para obter um exemplo prático, você pode usar o hello [NYC táxi dataset](http://www.andresmh.com/nyctaxitrips/) e consulte toohello IPNB intitulada [NYC dados disputa usando o bloco de anotações do IPython e o SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para uma apresentação de ponta a ponta.
 > 
 > 
 
-1. Obter a contagem de observações por dia
+1. Obter a contagem de saudação de observações por dia
    
     `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
-2. Obter os níveis em uma coluna categórica
+2. Obter os níveis de saudação em uma coluna categórica
    
     `select  distinct <column_name> from <databasename>`
-3. Obter o número de níveis na combinação de duas colunas categóricas 
+3. Obter o número de saudação de níveis na combinação de duas colunas categóricas 
    
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
-4. Obter a distribuição de colunas numéricas
+4. Obter distribuição Olá para colunas numéricas
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="sql-featuregen"></a>Geração de Recursos
+### <a name="sql-featuregen"></a>Geração de recursos
 Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:  
 
 1. [Geração de recursos baseada em contagem](#sql-countfeature)
 2. [Agrupamento da Geração de Recursos](#sql-binningfeature)
-3. [Propagar os recursos de uma única coluna](#sql-featurerollout)
+3. [Implantar recursos de saudação de uma única coluna](#sql-featurerollout)
 
 > [!NOTE]
-> Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser unida com a tabela original. 
+> Depois de gerar recursos adicionais, você pode adicioná-los como tabela existente de toohello de colunas ou crie uma nova tabela com recursos adicionais de saudação e a chave primária, que pode ser unido a tabela original hello. 
 > 
 > 
 
 ### <a name="sql-countfeature"></a>Geração de recursos baseada em contagem
-Os exemplos a seguir demonstram duas maneiras de gerar recursos de contagem. O primeiro método usa a soma condicional e o segundo usa a cláusula 'where'. Eles podem então ser unidos à tabela original (usando colunas de chave primária) para que os recursos de contagem fiquem junto com os dados originais.
+Olá exemplos a seguir demonstram duas maneiras de gerar recursos de contagem. Olá primeiro método usa soma condicional e usos de método segundo Olá Olá cláusula 'where'. Esses podem ser unidas com hello original (usando colunas de chave primária) toohave contagem recursos de tabela junto com os dados originais hello.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -76,28 +76,28 @@ Os exemplos a seguir demonstram duas maneiras de gerar recursos de contagem. O p
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
 ### <a name="sql-binningfeature"></a>Agrupamento da Geração de Recursos
-O exemplo a seguir mostra como gerar recursos compartimentalizados guardando (usando cinco compartimentos) uma coluna numérica que poderá ser usada como um recurso:
+Olá exemplo a seguir mostra como toogenerate guardado recursos guardando (usando cinco compartimentos) uma coluna numérica que pode ser usada como um recurso em vez disso:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="sql-featurerollout"></a>Propagar os recursos de uma única coluna
-Nesta seção, demonstraremos como propagar uma única coluna em uma tabela para gerar recursos adicionais. O exemplo presume que há uma coluna de latitude ou longitude na tabela da qual você está tentando gerar recursos.
+### <a name="sql-featurerollout"></a>Implantar recursos de saudação de uma única coluna
+Nesta seção, demonstraremos como tooroll-out de uma única coluna em uma tabela toogenerate adicionais de recursos. exemplo Hello supõe que haja uma coluna de latitude ou longitude na tabela de saudação do qual você está tentando toogenerate recursos.
 
-Apresentamos aqui uma breve cartilha sobre dados de localização de latitude/longitude (extraídos de [How to measure the accuracy of latitude and longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)[Como medir a precisão de latitude e longitude?] do StackOverflow). É útil entender isso antes de destacar o campo local:
+Aqui está uma breve introdução em dados de localização de latitude/longitude (recursos de stackoverflow [como toomeasure Olá precisão de latitude e longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Isso é útil toounderstand antes de campo de local de saudação featurizing:
 
-* O sinal nos informa se estamos na parte norte ou sul, leste ou oeste do globo.
+* entrada de saudação informa se estamos Norte ou Sul, Leste ou oeste no mundo hello.
 * Um dígito em centenas diferente de zero informa que estamos usando longitude, não latitude!
-* O dígito de dezena indica uma posição de cerca de 1.000 quilômetros. Ele nos dá informações úteis sobre em qual continente ou oceano estamos.
-* O dígito e unidades (um grau decimal) oferece uma posição até 111 quilômetros (60 milhas náuticas, cerca de 69 milhas). Ele pode indicar aproximadamente em qual grande estado ou país estamos.
-* A primeira casa decimal representa até 11,1 km: ela pode distinguir a posição de uma cidade grande de uma cidade grande vizinha.
-* A segunda casa decimal representa 1,1 km: ela pode separar um vila da próxima.
-* A terceira casa decimal representa até 110 m: ela pode identificar um campo agrícola ou campus institucional grande.
-* A quarta casa decimal representa até 11 m: ela pode identificar um lote de terreno. Ela é comparável à precisão típica de uma unidade GPS não corrigida sem interferência.
-* A quinta casa decimal representa até 1,1 m: ela distingue as árvores umas das outras. Uma precisão desse nível com unidades GPS comerciais só pode ser obtida com a correção diferencial.
-* A sexta casa decimal representa até 0,11 m: você pode usá-la para dispor estruturas detalhadamente, projetar paisagens e criar estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Isso pode ser obtido coletando medidas arduamente com o GPS, tais como GPS com correção diferencial.
+* Dígito Olá dezenas oferece uma posição tooabout 1.000 quilômetros. Ele nos dá informações úteis sobre em qual continente ou oceano estamos.
+* Dígito de unidades de saudação (um grau decimal) fornece uma posição para cima too111 quilômetros (60 náuticas milhas, cerca de 69 milhas). Ele pode indicar aproximadamente em qual grande estado ou país estamos.
+* Olá primeiro decimal lugar vale backup too11.1 km: ele pode distinguir posição de saudação de uma cidade grande de uma cidade grande vizinha.
+* casa decimal da segunda Olá vale backup too1.1 km: ele pode separar um Vila dos Olá lado.
+* Olá terceiro lugar de decimal é vale a pena too110 m, ele pode identificar um campo agrícola grande ou campus institucional.
+* casa decimal da quarta Olá é vale a pena m too11: ele pode identificar um pacote de terra. É toohello comparável a precisão típica de uma unidade GPS não corrigida sem interferência.
+* Olá quinto decimal é vale a pena o m too1.1: faz distinção árvores uns dos outros. Nível de toothis de precisão com unidades de GPS comerciais só pode ser obtida com a correção diferencial.
+* Olá sexto decimal local é vale a pena m: too0.11 que você pode usar isso para dispor estruturas detalhadamente, para a criação de estruturas, criar estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Isso pode ser obtido coletando medidas arduamente com o GPS, tais como GPS com correção diferencial.
 
-As informações de local podem ser destacadas da maneira indicada a seguir, separando as informações de região, local e cidade. Observe que também é possível chamar um ponto de extremidade REST tal como a API do Bing Mapas disponível em [Find a Location by Point](https://msdn.microsoft.com/library/ff701710.aspx) (Encontrar um local por ponto) para obter as informações de região/distrito.
+informações de local de saudação podem ser featurized da seguinte maneira separar região, local e informações de cidade. Observe que você também pode chamar um ponto de extremidade REST, como a API do Bing Maps disponível em [encontrar um local pelo ponto](https://msdn.microsoft.com/library/ff701710.aspx) tooget informações de região/Distrito de saudação.
 
     select 
         <location_columnname>
@@ -110,38 +110,36 @@ As informações de local podem ser destacadas da maneira indicada a seguir, sep
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Os recursos baseados em localização podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente. 
+Esses recursos com base no local podem ser ainda mais recursos de contagem adicionais toogenerate usado conforme descrito anteriormente. 
 
 > [!TIP]
-> É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação (para obter um exemplo de como fazer isso usando o pyodbc, veja [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)[Uma amostra do HelloWorld para acessar o SQL Server com o Python]). Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> Programaticamente, você pode inserir registros hello usando a linguagem de sua escolha. Talvez seja necessário tooinsert dados Olá eficiência de gravação de tooimprove partes (para obter um exemplo de como toodo esse usando pyodbc, consulte [tooaccess de exemplo de HelloWorld um SQL Server com python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)). Outra alternativa é tooinsert dados no banco de dados de saudação usando Olá [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 > 
 > 
 
-### 
-            <a name="sql-aml">
-            </a>Conectando ao Azure Machine Learning
-O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Os recursos podem ser gerados ou acessados, se já foram criados, usando o módulo [Importar Dados][import-data] no Azure Machine Learning, conforme mostrado abaixo:
+### <a name="sql-aml"></a>Conectando tooAzure aprendizado de máquina
+recurso Olá recentemente gerado pode ser adicionado como uma tabela existente de tooan de coluna ou armazenado em uma nova tabela e Unido Olá a tabela original para o aprendizado de máquina. Recursos podem ser gerados ou acessados se já criou, usando Olá [importar dados] [ import-data] módulo no aprendizado de máquina do Azure conforme mostrado abaixo:
 
 ![leitores de azureml][1] 
 
 ## <a name="python"></a>Usando uma linguagem de programação como Python
-Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante a processar dados no blob do Azure usando o Python, conforme documentado em [Processar dados de Blobs do Azure no ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md). Os dados precisam ser carregados do banco de dados para um quadro de dados pandas, quando então poderão ser processados. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um quadro de dados nesta seção.
+Usando dados de tooexplore Python e gerar recursos quando Olá são de dados no SQL Server é dados tooprocessing semelhantes no blob do Azure usando Python, conforme documentado no [dados de Blob do Azure de processo em seu ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md). dados de saudação precisa toobe carregado do banco de dados de saudação para um quadro de dados pandas e, em seguida, podem ser processados. Documentamos processo Olá de conexão de banco de dados toohello e carregar dados de saudação no quadro de dados Olá nesta seção.
 
-O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, username e password pelos seus valores específicos):
+Olá, formato de cadeia de caracteres de conexão a seguir pode ser usado tooconnect tooa banco de dados SQL do Python usando pyodbc (substituir servername, dbname, nome de usuário e senha com valores específicos):
 
-    #Set up the SQL Azure connection
+    #Set up hello SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-A [Biblioteca Pandas](http://pandas.pydata.org/) no Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação Python. O código a seguir lê os resultados retornados de um banco de dados do SQL Server em um quadro de dados Pandas:
+Olá [biblioteca Pandas](http://pandas.pydata.org/) Python fornece um rico conjunto de ferramentas de análise de dados e estruturas de dados para a manipulação de dados para programação Python. código de saudação abaixo lê Olá resultados de um banco de dados do SQL Server em um quadro de dados Pandas:
 
-    # Query database and load the returned results in pandas data frame
+    # Query database and load hello returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Agora, você pode trabalhar com o quadro de dados do Pandas, como abordamos no artigo [Processar dados do Blob do Azure no ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md).
+Agora você pode trabalhar com o quadro de dados Pandas Olá conforme abordado no artigo Olá [dados de Blob do Azure de processo em seu ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md).
 
 ## <a name="azure-data-science-in-action-example"></a>Exemplo da Ciência de Dados do Azure em Ação
-Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de Dados do Azure usando um conjunto de dados público, consulte [Processo de Ciência de Dados do Azure em Ação](machine-learning-data-science-process-sql-walkthrough.md).
+Para obter um exemplo passo a passo de ponta a ponta do processo de ciência de dados do Azure usando um conjunto de dados público de saudação, consulte [processo de ciência de dados do Azure em ação](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png
 

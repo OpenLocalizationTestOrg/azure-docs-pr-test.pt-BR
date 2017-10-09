@@ -1,5 +1,5 @@
 ---
-title: Restaurar SQL Data Warehouse do Azure (Portal do Azure) | Microsoft Docs
+title: aaaRestore Azure SQL Data Warehouse (portal do Azure) | Microsoft Docs
 description: "Tarefas do Portal do Azure para a restauração de um SQL Data Warehouse do Azure."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 09/21/2016
 ms.author: lakshmir;barbkess
-ms.openlocfilehash: f6bc8671410dc7015a8d2a4bea1ba11f9ae526c3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cb225d2a21b61acab70a51b69c266f8d3ffacc9a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Restaurar SQL Data Warehouse do Azure (Portal)
 > [!div class="op_single_selector"]
@@ -29,71 +29,71 @@ ms.lasthandoff: 07/11/2017
 > * [REST][REST]
 >
 >
-Neste artigo, você aprenderá como restaurar o SQL Data Warehouse do Azure usando o Portal do Azure.
+Neste artigo, você aprenderá como toorestore Azure SQL Data Warehouse usando Olá portal do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
-**Verifique sua capacidade de DTU.** Cada instância do SQL Data Warehouse é hospedada por um SQL Server (por exemplo, myserver.database.windows.net) que tem uma cota DTU (Unidade de Transmissão de Dados) padrão. Antes de restaurar o SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que você está restaurando. Para saber como calcular a cota de DTU ou para solicitar mais DTUs, veja [Solicitar uma alteração de cota de DTU][Request a DTU quota change].
+**Verifique sua capacidade de DTU.** Cada instância do SQL Data Warehouse é hospedada por um SQL Server (por exemplo, myserver.database.windows.net) que tem uma cota DTU (Unidade de Transmissão de Dados) padrão. Antes de poder restaurar SQL Data Warehouse, verifique se o SQL server tem suficiente restante cota de DTU para o banco de dados de saudação que você está restaurando. toolearn como cota de DTU toocalculate ou toorequest mais DTUs, consulte [solicitar uma alteração de cota DTU][Request a DTU quota change].
 
 ## <a name="restore-an-active-or-paused-database"></a>Restaurar um banco de dados ativo ou pausado
-Para restaurar um banco de dados:
+toorestore um banco de dados:
 
-1. Entre no [Portal do Azure][Azure portal].
-2. No painel esquerdo, selecione **Procurar** e, em seguida, selecione **Servidores SQL**.
+1. Entrar toohello [portal do Azure][Azure portal].
+2. No painel esquerdo do hello, selecione **procurar**e, em seguida, selecione **servidores SQL**.
 
     ![Selecione Procurar > servidores SQL](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 3. Localize o servidor e, em seguida, selecione-o.
 
     ![Selecione seu servidor](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
-4. Localize a instância do SQL Data Warehouse da qual você quer restaurar e selecione-a.
+4. Localize a instância de saudação do SQL Data Warehouse que você deseja toorestore do e, em seguida, selecione.
 
-    ![Selecione a instância do SQL Data Warehouse para restaurar](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
-5. Na parte superior da folha Data Warehouse, selecione **Restaurar**.
+    ![Selecionar instância de saudação do SQL Data Warehouse toorestore](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
+5. Na parte superior de saudação da folha de Data Warehouse hello, selecione **restauração**.
 
     ![Selecione Restaurar](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
 6. Especifique um novo **Nome de banco de dados**.
-7. Selecione o **Ponto de restauração** mais recente.
+7. Selecione hello mais recente **ponto de restauração**.
 
-   Certifique-se de escolher o ponto de restauração mais recente. Como os pontos de restauração são mostrados em Hora Universal Coordenada (UTC), a opção padrão poderá não ser o ponto de restauração mais recente.
+   Certifique-se de que escolher o ponto de restauração mais recente da saudação. Como pontos de restauração são mostrados no tempo Universal Coordenado (UTC), a opção de padrão de Olá não pode ser ponto de restauração mais recente da saudação.
 
       ![Selecione um ponto de restauração](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
 8. Selecione **OK**.
-9. O processo de restauração de banco de dados será iniciado e você poderá usar as **NOTIFICAÇÕES** para monitorar o processo.
+9. processo de restauração de banco de dados de saudação será iniciado e você pode usar **notificações** toomonitor processo de saudação.
 
 > [!NOTE]
-> Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][Configure your database after recovery].
+> Após a restauração hello, você pode configurar o banco de dados recuperado seguindo [configurar seu banco de dados após a recuperação][Configure your database after recovery].
 >
 >
 
 ## <a name="restore-a-deleted-database"></a>Restaurar um banco de dados excluído
-Para restaurar um banco de dados excluído:
+toorestore um banco de dados excluído:
 
-1. Entre no [Portal do Azure][Azure portal].
-2. No painel esquerdo, selecione **Procurar** e, em seguida, selecione **Servidores SQL**.
+1. Entrar toohello [portal do Azure][Azure portal].
+2. No painel esquerdo do hello, selecione **procurar**e, em seguida, selecione **servidores SQL**.
 
     ![Selecione Procurar > servidores SQL](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 3. Localize o servidor e, em seguida, selecione-o.
 
     ![Selecione seu servidor](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
-4. Role para baixo até a seção **Operações** na folha do seu servidor.
-5. Selecione o bloco **Bancos de Dados excluídos**.
+4. Role para baixo toohello **operações** seção na folha do seu servidor.
+5. Selecione Olá **bancos de dados excluídos** lado a lado.
 
-    ![Selecione o bloco Bancos de Dados excluídos](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
-6. Selecione o banco de dados excluído que você deseja restaurar.
+    ![Selecione Bloco de bancos de dados excluídos Olá](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
+6. Selecione Olá excluído o banco de dados que você deseja toorestore.
 
-    ![Selecionar um banco de dados para ser restaurado](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
+    ![Selecione um banco de dados toorestore](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
 7. Especifique um novo **Nome de banco de dados**.
 
-    ![Adicione um nome para o banco de dados](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
+    ![Adicionar um nome para o banco de dados de saudação](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
 8. Selecione **OK**.
-9. O processo de restauração de banco de dados será iniciado e você poderá usar as **NOTIFICAÇÕES** para monitorar o processo.
+9. processo de restauração de banco de dados de saudação será iniciado e você pode usar **notificações** toomonitor processo de saudação.
 
 > [!NOTE]
-> Para configurar o banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação][Configure your database after recovery].
+> tooconfigure seu banco de dados após a restauração hello, consulte [configurar seu banco de dados após a recuperação][Configure your database after recovery].
 >
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre os recursos de continuidade dos negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure][Azure SQL Database business continuity overview].
+toolearn sobre recursos de continuidade de negócios Olá de edições de banco de dados SQL, ler Olá [visão geral de continuidade de negócios do Azure SQL Database][Azure SQL Database business continuity overview].
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar políticas de laboratório no Azure DevTest Labs| Microsoft Docs"
-description: "Aprenda a definir as políticas do laboratório, como os tamanhos das VMs, o número máximo de VMs por usuário e o desligamento automático."
+title: "políticas de laboratório aaaManage no Azure DevTest Labs | Microsoft Docs"
+description: "Saiba como os tamanhos de políticas de laboratório toodefine como VMs, VMs máximo por usuário e a automação de desligamento."
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -15,99 +15,99 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 351b3645a1fd729455884e5d177877c2986bd853
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerenciar todas as políticas de um laboratório no Azure DevTest Labs
 
-O Azure DevTest Labs permite controlar o custo e minimize o desperdício nos laboratórios gerenciando políticas (configurações) de cada laboratório. Este artigo explica em detalhes passo a passo como definir cada política.  
+O Azure DevTest Labs permite controlar o custo e minimize o desperdício nos laboratórios gerenciando políticas (configurações) de cada laboratório. Este artigo explica detalhadamente como tooset cada política.  
 
 ## <a name="set-allowed-virtual-machine-sizes"></a>Definir tamanhos de máquina virtual permitidos
-A política para definir os tamanhos de VM permitidos ajuda a minimizar o desperdício de laboratório, permitindo que você especifique quais tamanhos de VM são permitidos no laboratório. Quando essa política é ativada, somente os tamanhos de VM nesta lista podem ser usados para criar VMs.
+Hello política para Olá configuração permitidos tamanhos de VM ajuda toominimize laboratório desperdiçar, permitindo que você toospecify quais tamanhos de VM são permitidos em laboratório hello. Se essa política está ativada, apenas os tamanhos de VM da lista podem ser usado toocreate VMs.
 
-1. Na folha **Configurações e políticas** do laboratório, selecione **Tamanhos de máquinas virtuais permitidos**.
+1. No laboratório de saudação **políticas e configurações** folha, selecione **permitidos tamanhos de máquinas virtuais**.
    
     ![Tamanhos de máquinas virtuais permitidos](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
 
-1. Selecione **Ativado** para habilitar essa política e **Desativado** para desabilitá-la.
+1. Selecione **na** tooenable essa política, e **Off** toodisable-lo.
 
 1. Se você habilitar essa política, selecione um ou mais tamanhos de VM que podem ser criados no laboratório.
 
 1. Selecione **Salvar**.
 
 ## <a name="set-virtual-machines-per-user"></a>Conjunto de máquinas virtuais por usuário
-A política de **Máquinas virtuais por usuário** permite que você especifique o número máximo de VMs que podem ser criadas por um usuário individual. Se um usuário tentar criar ou reivindicar uma VM quando o limite de usuários for atingido, uma mensagem de erro indicará que a VM não poderá ser criada/reivindicada. 
+Olá política para **máquinas virtuais por usuário** permite a você toospecify Olá alto número de máquinas virtuais que podem ser criados por um usuário individual. Se um usuário tentar toocreate ou declaração de uma máquina virtual quando o limite de saudação do usuário foram atendido, uma mensagem de erro indica que Olá que VM não pode ser criado/exigida. 
 
-1. No menu **Configuração e políticas** do laboratório, selecione **Máquinas virtuais por usuário**.
+1. No laboratório de saudação **políticas e configurações** menu, selecione **máquinas virtuais por usuário**.
    
     ![Máquinas virtuais por usuário](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Selecione **Sim** para limitar o número de VMs por usuário. Se você não quiser limitar o número de VMs por usuário, selecione **Não**. Se você selecionar **Sim**, insira um valor numérico indicando o número máximo de VMs que podem ser criadas ou reivindicadas por um usuário. 
+1. Selecione **Sim** toolimit Olá diversas VMs por usuário. Se você não quiser toolimit Olá diversas VMs por usuário, selecione **não**. Se você selecionar **Sim**, insira um valor numérico que indica o número máximo de saudação de VMs que pode ser criado ou solicitado por um usuário. 
 
-1. Selecione **Sim** para limitar o número de VMs que podem usar o SSD (disco de estado sólido). Se você não quiser limitar o número de VMs que podem usar o SSD, selecione **Não**. Se você selecionar **Sim**, insira um valor indicando o número máximo de VMs que podem ser criadas usando SSD. 
+1. Selecione **Sim** toolimit diversas Olá VMs que pode usar SSD (disco de estado sólido). Se você não quiser toolimit diversas Olá VMs que pode usar o SSD, selecione **não**. Se você selecionar **Sim**, insira um valor que indica o número máximo de saudação de máquinas virtuais que podem ser criados usando SSD. 
 
 1. Selecione **Salvar**.
 
 ## <a name="set-virtual-machines-per-lab"></a>Conjunto de máquinas virtuais por laboratório
-A política de **Máquinas virtuais por laboratório** permite que você especifique o número máximo de VMs que podem ser criadas para o laboratório atual. Se um usuário tentar criar uma VM quando o limite de laboratórios for alcançado, uma mensagem de erro indicará que a VM não pode ser criada. 
+Olá política para **máquinas virtuais por laboratório** permite que você toospecify Olá número de máquinas virtuais que podem ser criados para o laboratório atual hello. Se um usuário tentar toocreate uma VM quando o limite de laboratório Olá foram atendido, uma mensagem de erro indica que Olá que VM não pode ser criada. 
 
-1. No menu **Configuração e políticas** do laboratório, selecione **Máquinas virtuais por laboratório**.
+1. No laboratório de saudação **políticas e configurações** menu, selecione **máquinas virtuais por laboratório**.
    
     ![Máquinas virtuais por laboratório](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
-1. Selecione **Sim** para limitar o número de VMs por laboratório. Se você não quiser limitar o número de VMs por laboratório, selecione **Não**. Se você selecionar **Sim**, insira um valor numérico indicando o número máximo de VMs que podem ser criadas ou reivindicadas por um usuário. 
+1. Selecione **Sim** toolimit Olá diversas VMs por laboratório. Se você não quiser toolimit Olá diversas VMs por laboratório, selecione **não**. Se você selecionar **Sim**, insira um valor numérico que indica o número máximo de saudação de VMs que pode ser criado ou solicitado por um usuário. 
 
-1. Selecione **Sim** para limitar o número de VMs que podem usar o SSD (disco de estado sólido). Se você não quiser limitar o número de VMs que podem usar o SSD, selecione **Não**. Se você selecionar **Sim**, insira um valor indicando o número máximo de VMs que podem ser criadas usando SSD. 
+1. Selecione **Sim** toolimit diversas Olá VMs que pode usar SSD (disco de estado sólido). Se você não quiser toolimit diversas Olá VMs que pode usar o SSD, selecione **não**. Se você selecionar **Sim**, insira um valor que indica o número máximo de saudação de máquinas virtuais que podem ser criados usando SSD. 
 
 1. Selecione **Salvar**.
 
 ## <a name="set-auto-shutdown"></a>Definir desligamento automático
-A política de desligamento automático ajuda a minimizar o desperdício de laboratório, permitindo que você especifique a hora em que as VMs desse laboratório serão desligadas.
+política de desligamento automático de saudação ajuda toominimize laboratório desperdiçar, permitindo que você tenha tempo de saudação toospecify que VMs deste laboratório desligadas.
 
-1. Na folha **Configuração e políticas** do laboratório, selecione **Desligamento automático**.
+1. No laboratório de saudação **políticas e configurações** folha, selecione **desligamento automático**.
    
     ![Desligamento automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
-1. Selecione **Ativado** para habilitar essa política e **Desativado** para desabilitá-la.
+1. Selecione **na** tooenable essa política, e **Off** toodisable-lo.
 
-1. Se você habilitar essa política, especifique a hora (e fuso horário) para desligar todas as VMs no laboratório atual.
+1. Se você habilitar essa política, especifique Olá tooshut de tempo (e o fuso horário) para todas as máquinas virtuais no laboratório atual hello.
 
-1. Especifique **Sim** ou **Não** para a opção de enviar uma notificação 15 minutos antes do tempo de desligamento automático especificado. Se você especificar **Sim**, insira um ponto de extremidade de URL de webhook para receber a notificação. Para saber mais sobre os webhooks, veja [Criar um webhook ou uma função da API do Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Especifique **Sim** ou **não** para Olá opção toosend uma toohello anterior de 15 minutos de notificação especificado o tempo de desligamento automático. Se você especificar **Sim**, insira uma notificação de saudação tooreceive de ponto de extremidade do webhook URL. Para saber mais sobre os webhooks, veja [Criar um webhook ou uma função da API do Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Selecione **Salvar**.
 
-    Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra a folha da VM e altere sua configuração de **Desligamento Automático** 
+    Por padrão, uma vez habilitada, essa diretiva se aplica a tooall VMs no laboratório atual hello. tooremove essa configuração de uma VM específica, abra da VM Olá folha e altere seu **desligamento automático** configuração 
 
 ## <a name="set-auto-start"></a>Definir início automático
-A política de início automático permite que você especifique quando as VMs do laboratório atual deverão ser iniciadas.  
+política de início automático Olá permite toospecify quando Olá máquinas virtuais no laboratório atual Olá deve ser iniciado.  
 
-1. Na folha **Configuração e políticas** do laboratório, selecione **Início automático**.
+1. No laboratório de saudação **políticas e configurações** folha, selecione **Auto-start**.
    
     ![Início automático](./media/devtest-lab-set-lab-policy/auto-start.png)
 
-2. Selecione **Ativado** para habilitar essa política e **Desativado** para desabilitá-la.
+2. Selecione **na** tooenable essa política, e **Off** toodisable-lo.
 
-3. Se você habilitar esta política, especifique o horário de início agendado, o fuso horário e os dias da semana para os quais o horário se aplica. 
+3. Se você habilitar essa política, especifique a hora de início agendada de saudação, fuso horário e Olá dias da semana Olá para qual Olá tempo se aplica. 
 
 4. Selecione **Salvar**.
 
-    Quando habilitada, essa política não será aplicada automaticamente a quaisquer máquinas virtuais do laboratório atual. Para aplicar essa configuração a uma VM específica, abra a folha da VM e altere sua configuração de **Início automático** 
+    Uma vez habilitada, essa política não é aplicada automaticamente tooany VMs no laboratório atual Olá. tooapply tooa essa configuração VM específica, folha e alteração da VM Olá abrir seu **Auto-start** configuração 
 
 ## <a name="set-expiration-date"></a>Definir a data de validade
-Você pode definir uma data de validade ao [criar a VM](devtest-lab-add-vm.md). Em **Configurações avançadas**, escolha o ícone de calendário para especificar uma data em que a VM será excluída automaticamente.  Por padrão, a VM nunca expirará.
+Você pode definir uma expiração de data em que você [criar hello VM](devtest-lab-add-vm.md). Em **configurações avançadas**, escolha Olá Calendário ícone toospecify uma data na qual Olá VM será excluída automaticamente.  Por padrão, a saudação VM nunca expirará.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de definir e aplicar as várias configurações da política de VM em seu laboratório, aqui estão algumas opções para você tentar em seguida:
+Depois de definido e aplicado Olá várias configurações de política VM para o laboratório, aqui estão algumas coisas tootry lado:
 
-* [Entender os endereços IP compartilhados](devtest-lab-shared-ip.md) - explica como os endereços IP compartilhados são usados no DevTest Labs para minimizar o número de endereços IP públicos necessárias para conectar-se às VMs de seu laboratório.
-* [Configurar o gerenciamento de custo](devtest-lab-configure-cost-management.md) – ilustra como usar o gráfico **Tendência de custo estimado mensal**  
-  para exibir o custo até a data estimado do mês atual e o custo projetado do final de mês.
-* [Criar imagem personalizada](devtest-lab-create-template.md) – durante a criação de uma VM, você especifica uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um arquivo VHD.
-* [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md) – O Azure DevTest Labs dá suporte à criação de VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens (caso haja alguma) do Azure Marketplace podem ser usadas durante a criação de VMs em um laboratório.
-* [Criar uma VM em um laboratório](devtest-lab-add-vm-with-artifacts.md) – ilustra como criar uma VM de uma imagem base (personalizada ou do Marketplace) e como trabalhar com artefatos na VM.
+* [Entender os endereços IP compartilhados](devtest-lab-shared-ip.md) -explica como compartilhado IP endereços são usados no número de saudação do DevTest Labs toominimize público IP endereços tooconnect necessária tooyour do laboratório de VMs.
+* [Configurar o gerenciamento de custo](devtest-lab-configure-cost-management.md) -ilustra como Olá toouse **tendência mensal de custo estimado** gráfico  
+  tooview Olá estimado custo acumulado do mês atual e o custo de final de mês de Olá projetado.
+* [Criar imagem personalizada](devtest-lab-create-template.md) – durante a criação de uma VM, você especifica uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como toocreate um personalizado da imagem de um arquivo VHD.
+* [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md) – O Azure DevTest Labs dá suporte à criação de VMs com base em imagens do Azure Marketplace. Este artigo ilustra como toospecify que, se houver, imagens do Azure Marketplace podem ser usado ao criar máquinas virtuais em um laboratório.
+* [Criar uma máquina virtual em um laboratório](devtest-lab-add-vm-with-artifacts.md) -ilustra como toocreate uma VM por meio de uma imagem de base (ou personalizadas ou Marketplace) e como toowork com artefatos em sua VM.
 

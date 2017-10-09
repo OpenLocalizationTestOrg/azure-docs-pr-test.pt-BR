@@ -1,5 +1,5 @@
 ---
-title: Guia para usar PolyBase no SQL Data Warehouse | Microsoft Docs
+title: aaaGuide para usar o PolyBase no SQL Data Warehouse | Microsoft Docs
 description: "Diretrizes e recomendações para usar o PolyBase em cenários do SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,36 +15,36 @@ ms.workload: data-services
 ms.date: 6/5/2016
 ms.custom: loading
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b05e4c5d528f2fe1c60d6855b5333065f0c908ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guia para usar o PolyBase no SQL Data Warehouse
 Este guia fornece informações práticas para usar o PolyBase no SQL Data Warehouse.
 
-Para começar, consulte o tutorial [Carregar dados com o PolyBase][Load data with PolyBase].
+tooget iniciado, consulte Olá [carregar dados com o PolyBase] [ Load data with PolyBase] tutorial.
 
 ## <a name="rotating-storage-keys"></a>Rotação de chaves de armazenamento
-Às vezes você desejará alterar a chave de acesso para o armazenamento de blob por motivos de segurança.
+De tootime de tempo, você desejará o armazenamento de blob de chave tooyour do toochange Olá acesso por motivos de segurança.
 
-A maneira mais elegante de realizar essa tarefa é seguir um processo conhecido como "rotação das chaves". Você talvez tenha observado que há duas chaves de armazenamento para a conta de armazenamento de blob. Isso é para que você possa fazer a transição
+Olá mais elegante tooperform de forma que essa tarefa é toofollow um processo conhecido como "rotação de chaves de Olá". Você talvez tenha observado que há duas chaves de armazenamento para a conta de armazenamento de blob. Isso é para que você possa fazer a transição
 
 A rotação das suas chaves da conta de Armazenamento do Azure é um processo simples de três etapas
 
-1. Criar uma segunda credencial no escopo do banco de dados com base na chave de acesso de armazenamento secundário
+1. Criar segunda credencial no escopo do banco de dados com base na chave de acesso de armazenamento secundário Olá
 2. Criar a segunda fonte de dados externa com base nessa nova credencial
-3. Remover e criar as tabelas externas apontando para a nova fonte de dados externa
+3. Descarte e crie Olá tabelas externas apontando toohello nova fonte de dados externa
 
-Depois de migrar todas as tabelas externas para a nova fonte de dados externa, você pode executar as tarefas de limpeza:
+Depois de migrar todas as tabelas externas toohello nova fonte de dados externa, em seguida, você pode executar o hello Limpar tarefas:
 
 1. Remover a primeira fonte de dados externa
-2. Remover a primeira credencial no escopo do banco de dados na chave de acesso de armazenamento primário
-3. Fazer logon no Azure e regenerar a chave de acesso primária pronta para a próxima vez
+2. Credencial com base na chave de acesso de armazenamento primário Olá com escopo de descarte primeiro o banco de dados
+3. Faça logon no Azure e regenerar chave de acesso primária Olá pronto para Olá próxima vez
 
 ## <a name="query-azure-blob-storage-data"></a>Consultar dados de armazenamento de blob do Azure
-As consultas em tabelas externas simplesmente usam o nome da tabela como se ele fosse uma tabela relacional.
+Consultas em tabelas externas simplesmente usam o nome da tabela hello como se fosse uma tabela relacional.
 
 ```sql
 -- Query Azure storage resident data via external table.
@@ -53,21 +53,21 @@ SELECT * FROM [ext].[CarSensor_Data]
 ```
 
 > [!NOTE]
-> Uma consulta em uma tabela externa pode falhar com o erro *“Consulta anulada – o limite de rejeição máximo foi atingido durante a leitura de uma fonte externa”*. Isso indica que os dados externos contêm registros *sujos* . Um registro de dados é considerado “sujo” se os tipos de dados/número de colunas reais não correspondem às definições de coluna da tabela externa ou se os dados não são compatíveis com o formato de arquivo externo especificado. Para corrigir esse problema, verifique se a tabela externa e as definições de formato de arquivo externo estão corretas e se os dados externos são compatíveis com essas definições. Caso um subconjunto de registros de dados externos esteja sujo, é possível rejeitar esses registros para suas consultas usando as opções de rejeição em CREATE EXTERNAL TABLE DDL.
+> Uma consulta em uma tabela externa pode falhar com o erro Olá *"consulta anulada-limite máximo de rejeição de saudação foi atingido durante a leitura de uma fonte externa"*. Isso indica que os dados externos contêm registros *sujos* . Um registro de dados é considerado 'sujo' se tipos de dados reais Olá/número de colunas não correspondem a definições de coluna de saudação da tabela externa hello ou se dados saudação não está em conformidade toohello formato de arquivo externo especificado. toofix isso, certifique-se de que a tabela externa e as definições de formato de arquivo externo estão corretas e definições de toothese está de acordo com seus dados externos. No caso de um subconjunto de registros de dados externa estiver sujo, você pode escolher tooreject esses registros para as consultas usando as opções de rejeição de saudação em CREATE EXTERNAL TABLE DDL.
 > 
 > 
 
 ## <a name="load-data-from-azure-blob-storage"></a>Carregar dados do armazenamento de blob do Azure
-Este exemplo carrega dados do armazenamento de blob do Azure no banco de dados do SQL Data Warehouse.
+Este exemplo carrega dados do banco de dados do Data Warehouse tooSQL de armazenamento de BLOBs do Azure.
 
-Armazenar dados diretamente elimina o tempo de transferência de dados para consultas. Armazenar dados com um índice columnstore melhora o desempenho de consultas de análise em até 10 vezes.
+Armazenando dados diretamente remove Olá tempo de transferência de dados para consultas. Armazenando dados com um índice columnstore melhora o desempenho de consultas de análise pelo backup too10x.
 
-Este exemplo usa a instrução CREATE TABLE AS SELECT para carregar dados. A nova tabela herda as colunas nomeadas na consulta. Ela herda os tipos de dados dessas colunas da definição de tabela externa.
+Este exemplo usa dados de tooload de instrução CREATE TABLE AS SELECT saudação. nova tabela de saudação herda colunas de saudação nomeadas na consulta de saudação. Ele herda os tipos de dados Olá dessas colunas de definição de tabela externa hello.
 
-CREATE TABLE AS SELECT é uma instrução Transact-SQL de alto desempenho que carrega os dados em paralelo em todos os nós de computação do seu SQL Data Warehouse.  Ela foi originalmente desenvolvida para o mecanismo MPP (processamento massivamente paralelo) no Analytics Platform System e agora está no SQL Data Warehouse.
+CREATE TABLE AS SELECT é um alto desempenho instrução Transact-SQL que carrega dados Olá em paralelo tooall Olá nós de computação de Data Warehouse do SQL.  Ele foi originalmente desenvolvido para o mecanismo de processamento paralelo em massa (MPP) Olá no sistema de plataforma de análise e está agora no SQL Data Warehouse.
 
 ```sql
--- Load data from Azure blob storage to SQL Data Warehouse
+-- Load data from Azure blob storage tooSQL Data Warehouse
 
 CREATE TABLE [dbo].[Customer_Speed]
 WITH
@@ -84,7 +84,7 @@ FROM   [ext].[CarSensor_Data]
 Consulte [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)].
 
 ## <a name="create-statistics-on-newly-loaded-data"></a>Criar estatísticas sobre os dados recém-carregados
-O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática.  Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados.  Para obter uma explicação detalhada das estatísticas, confira o tópico [Estatísticas][Statistics] no grupo de tópicos Desenvolver.  Veja abaixo um exemplo de como criar estatísticas na tabela carregada neste exemplo.
+O SQL Data Warehouse do Azure ainda não dá suporte a estatísticas de criação ou atualização automática.  Em ordem tooget Olá melhor desempenho de suas consultas, é importante que ser criadas estatísticas em todas as colunas de todas as tabelas após a primeira carga de saudação ou alterações substanciais ocorrerem nos dados de saudação.  Para obter uma explicação detalhada de estatísticas, consulte Olá [estatísticas] [ Statistics] tópico no grupo de desenvolver Olá de tópicos.  Abaixo está um exemplo rápido de como toocreate estatísticas na tabela de saudação carregados neste exemplo.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -94,10 +94,10 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>Exportar dados no armazenamento de blob do Azure
-Esta seção mostra como exportar dados do SQL Data Warehouse para o armazenamento de blob do Azure. Este exemplo usa CREATE EXTERNAL TABLE AS SELECT, que é uma instrução Transact-SQL de alto desempenho, para exportar os dados em paralelo de todos os nós de computação.
+## <a name="export-data-tooazure-blob-storage"></a>Exportar o armazenamento de blob de tooAzure de dados
+Esta seção mostra como o armazenamento de blob dados tooexport tooAzure SQL Data Warehouse. Este exemplo usa CREATE EXTERNAL TABLE AS SELECT que é um altamente funcional Transact-SQL instrução tooexport Olá dados em paralelo de todos os nós de computação de saudação.
 
-O exemplo a seguir cria uma tabela Weblogs2014 externa usando definições de coluna e dados da tabela dbo.Weblogs. A definição da tabela externa é armazenada no SQL Data Warehouse e os resultados da instrução SELECT são exportados para o diretório "/archive/log2014 /" no contêiner de blob especificado pela fonte de dados. Os dados são exportados no formato de arquivo de texto especificado.
+Olá, exemplo a seguir cria uma tabela externa Weblogs2014 usando dados de dbo e definições de coluna. Tabela weblogs. definição da tabela externa de saudação é armazenada no SQL Data Warehouse e resultados de Olá da instrução SELECT Olá são exportado toohello directory "/ arquivar/log2014 /" no contêiner de blob Olá especificada pela fonte de dados de saudação. Olá dados são exportados no formato de arquivo de texto especificado hello.
 
 ```sql
 CREATE EXTERNAL TABLE Weblogs2014 WITH
@@ -118,21 +118,21 @@ WHERE
     AND DateRequested < '01/01/2015';
 ```
 ## <a name="isolate-loading-users"></a>Isolar Usuários em carregamento
-Geralmente, há a necessidade de ter vários usuários que podem carregar dados em um SQL DW. Como [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] requer permissões CONTROL do banco de dados, você acabará tendo vários usuários com acesso de controle sobre todos os esquemas. Para limitar isso, você pode usar a instrução DENY CONTROL.
+Há muitas vezes uma necessidade toohave vários usuários que podem carregar dados em um SQL DW. Porque Olá [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] requer permissões de controle do banco de dados hello, você acabará com vários usuários com controle de acesso sobre todos os esquemas. toolimit isso, você pode usar a instrução de controle negar hello.
 
 Exemplo: considere os esquemas de banco de dados schema_A para o departamento A e schema_B para o departamento B. Os usuários de banco de dados user_A e user_B serão usuários de carregamento de PolyBase nos departamentos A e B, respectivamente. Ambos receberam permissões de banco de dados CONTROL.
-Os criadores dos esquemas A e B agora bloquearam seus esquemas usando DENY:
+criadores de saudação do esquema A e B agora bloquear seus esquemas usando DENY:
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A toouser_B;
+   DENY CONTROL ON SCHEMA :: schema_B toouser_A;
 ```   
- Com isso, user_A e user_B devem agora ser bloqueados do esquema do outro departamento.
+ Com isso, user_A e user_B devem agora ser impedidos de saudação esquema do outro departamento.
  
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como mover dados para o SQL Data Warehouse, consulte o [Visão geral de migração de dados][data migration overview].
+toolearn mais sobre tooSQL movimentação de dados do Data Warehouse, consulte Olá [visão geral de migração de dados][data migration overview].
 
 <!--Image references-->
 

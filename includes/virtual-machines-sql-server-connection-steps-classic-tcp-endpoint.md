@@ -1,19 +1,19 @@
-### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Criar um ponto de extremidade TCP para a máquina virtual
-Para acessar o SQL Server da Internet, a máquina virtual deve ter um ponto de extremidade para escutar comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona o tráfego da porta TCP de entrada para uma porta TCP que está acessível para a máquina virtual.
+### <a name="create-a-tcp-endpoint-for-hello-virtual-machine"></a>Criar um ponto de extremidade TCP para a máquina virtual de saudação
+Em ordem tooaccess do SQL Server da saudação internet, uma máquina virtual de saudação deve ter toolisten um ponto de extremidade para comunicação TCP de entrada. Essa etapa de configuração do Azure, direciona a entrada TCP porta tráfego tooa pela porta TCP que é a máquina virtual de toohello acessível.
 
 > [!NOTE]
-> Se estiver se conectando dentro do mesmo serviço de nuvem ou rede virtual, você não precisa criar um ponto de extremidade acessível publicamente. Nesse caso, você pode continuar para a próxima etapa. Para obter mais informações, consulte [Cenários de conexão](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+> Se você estiver se conectando dentro Olá mesmo serviço ou de rede virtual na nuvem, você não tem toocreate um ponto de extremidade publicamente acessível. Nesse caso, você pode continuar toohello próxima etapa. Para obter mais informações, consulte [Cenários de conexão](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 > 
 > 
 
-1. No Portal do Azure, selecione **Máquinas virtuais (clássico)**.
+1. No Portal do Azure do hello, selecione **máquinas virtuais (clássicas)**.
 2. Em seguida, selecione a máquina virtual do SQL Server.
-3. Selecione **Pontos de Extremidade** e clique no botão **Adicionar** na parte superior da folha de Pontos de extremidade.
+3. Selecione **pontos de extremidade**e, em seguida, clique em Olá **adicionar** botão na parte superior de saudação da folha de pontos de extremidade de saudação.
    
     ![Etapas do Portal para Criação de Pontos de Extremidade](./media/virtual-machines-sql-server-connection-steps/portal-endpoint-creation.png)
-4. Na folha **Adicionar Ponto de Extremidade**, forneça um **Nome**, como SQLEndpoint.
-5. Selecione**TCP** como o **Protocolo**.
+4. Em Olá **Adicionar ponto de extremidade** folha, forneça um **nome** como SQLEndpoint.
+5. Selecione **TCP** para Olá **protocolo**.
 6. Para **Porta pública**, especifique um número de porta, como **57500**.
-7. Para **Porta privada**, especifique a porta de escuta do SQL Server, cujo valor padrão é **1433**.
-8. Clique em **OK** para criar o ponto de extremidade.
+7. Para **porta privada**, especifique a porta de escuta do SQL Server, cujo padrão é muito**1433**.
+8. Clique em **Okey** o ponto de extremidade do toocreate hello.
 

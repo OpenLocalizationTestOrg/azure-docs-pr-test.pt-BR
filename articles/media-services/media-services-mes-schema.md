@@ -1,6 +1,6 @@
 ---
-title: Esquema Media Encoder Standard | Microsoft Docs
-description: "Este tópico oferece uma visão geral do esquema do Media Encoder Standard."
+title: "esquema padrão do codificador aaaMedia | Microsoft Docs"
+description: "tópico de saudação fornece uma visão geral do esquema padrão do Media Encoder hello."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: 0d034e2c3827b297173262d294a2e566a6b45fac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 82bad27b9546f75557ac691ff148b46990647632
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema do Media Encoder Standard
-Este tópico descreve alguns dos elementos e tipos do esquema XML nos quais as [predefinições do Media Encoder Standard](media-services-mes-presets-overview.md) se baseiam. O tópico fornece uma explicação sobre os elementos e seus valores válidos. O esquema completo será publicado em uma data posterior.  
+Este tópico descreve alguns dos elementos de saudação e tipos de esquema XML, Olá no qual [predefinições de codificador de mídia padrão](media-services-mes-presets-overview.md) se baseiam. tópico de saudação fornece uma explicação das elementos e seus valores válidos. o esquema completo Hello será publicado em uma data posterior.  
 
 ## <a name="Preset"></a> Predefinição (elemento raiz)
 Define uma predefinição de codificação.  
@@ -29,16 +29,16 @@ Define uma predefinição de codificação.
 ### <a name="elements"></a>Elementos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Codificação** |[Codificação](media-services-mes-schema.md#Encoding) |Elemento raiz, indica que as fontes de entrada devem ser codificadas. |
+| **Codificação** |[Codificação](media-services-mes-schema.md#Encoding) |Elemento raiz, indica que as fontes de entrada hello toobe codificado. |
 | **Saídas** |[Saídas](media-services-mes-schema.md#Output) |Coleção dos arquivos de saída desejados. |
 
 ### <a name="attributes"></a>Atributos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Versão**<br/><br/> Obrigatório |**xs:decimal** |A versão predefinida. As seguintes restrições se aplicam: xs:fractionDigits value="1" e xs:minInclusive value="1" Por exemplo, **version="1.0"**. |
+| **Versão**<br/><br/> Obrigatório |**xs:decimal** |Olá predefinição versão. Olá seguintes restrições se aplicam: valor xs:fractionDigits = "1" e xs:minInclusive value = "1" por exemplo, **versão = "1.0"**. |
 
 ## <a name="Encoding"></a> Codificação
-Contém uma sequência dos elementos a seguir.  
+Contém uma sequência de saudação elementos a seguir.  
 
 ### <a name="elements"></a>Elementos
 | Nome | Tipo | Descrição |
@@ -54,20 +54,20 @@ Contém uma sequência dos elementos a seguir.
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **TwoPass**<br/><br/> minOccurs="0" |**xs:boolean** |Atualmente, há suporte apenas para a codificação em uma passo. |
-| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina o espaçamento fixo entre quadros IDR em unidades de segundos. Também referido como a duração de GOP. Consulte **SceneChangeDetection** para controlar se o codificador pode desviar-se desse valor. |
-| **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs:boolean** |Se definido como true, codificador tenta detectar alteração de cena no vídeo e insere um quadro IDR. |
-| **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Controla a compensação entre a qualidade de vídeo e a velocidade de codificação. Pode ser um dos seguintes valores: **velocidade**, **Equilibrado** ou **Qualidade**<br/><br/> Padrão: **Balanced** |
+| **KeyFrameInterval**<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |Determina a saudação fixada espaçamento entre quadros IDR em unidades de segundos. Também chamado de duração de GOP tooas hello. Consulte **SceneChangeDetection** (abaixo) para controlar se hello codificador pode desviar desse valor. |
+| **SceneChangeDetection**<br/><br/> minOccurs="0"<br/><br/> default=”false” |**xs:boolean** |Se set tootrue, tentativas de codificador cena toodetect alterar vídeo hello e insere um quadro IDR. |
+| **Complexity**<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |Controles Olá compensação entre a codificar a qualidade de vídeo e de velocidade. Pode ser uma saudação valores a seguir: **velocidade**, **equilibrado**, ou **qualidade**<br/><br/> Padrão: **Balanced** |
 | **SyncMode**<br/><br/> minOccurs="0" | |O recurso será exposto em versões futuras. |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |Coleção de camadas de vídeo de saída. |
 
 ### <a name="attributes"></a>Atributos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Condição** |**xs:string** | Quando a entrada não possui vídeo, é possível forçar o codificador para inserir uma faixa de vídeo monocromático. Para fazer isso, utilize Condition="InsertBlackIfNoVideoBottomLayerOnly" (para inserir um vídeo apenas na taxa de bits mais baixa) ou Condition="InsertBlackIfNoVideo" (para inserir um vídeo em todas as taxas de bits de saída). Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) tópico.|
+| **Condição** |**xs:string** | Quando a entrada de saudação não tem vídeo, talvez você queira tooforce Olá codificador tooinsert uma faixa de vídeo monocromática. toodo que usar condição = "InsertBlackIfNoVideoBottomLayerOnly" (tooinsert um vídeo em apenas hello mais baixa taxa de bits) ou condição = "InsertBlackIfNoVideo" (tooinsert um vídeo em todas as taxas de bits de saída). Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) tópico.|
 
 ## <a name="H264Layers"></a> H264Layers
 
-Por padrão, se você enviar uma entrada para o codificador que contém apenas áudio e sem vídeo, o ativo de saída irá conter apenas arquivos com dados de áudio. Alguns reprodutores podem não ser capazes de lidar com tais fluxos de saída. É possível utilizar a configuração de atributo **InsertBlackIfNoVideo** do H264Video para forçar o codificador a adicionar uma faixa de vídeo para a saída nesse cenário. Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) tópico.
+Por padrão, se você enviar um codificador de toohello de entrada que contenha apenas áudio e nenhum vídeo, Olá ativo de saída conterá arquivos com apenas os dados de áudio. Alguns players podem não ser capazes de toohandle tal fluxos de saída. Você pode usar do hello H264Video **InsertBlackIfNoVideo** atributo definindo uma saída de toohello da faixa de vídeo de tooforce Olá codificador tooadd nesse cenário. Para obter mais informações, consulte [este](media-services-advanced-encoding-with-mes.md#no_video) tópico.
               
 ### <a name="elements"></a>Elementos
 | Nome | Tipo | Descrição |
@@ -76,56 +76,56 @@ Por padrão, se você enviar uma entrada para o codificador que contém apenas �
 
 ## <a name="H264Layer"></a> H264Layer
 > [!NOTE]
-> Limites de vídeo se baseiam nos valores descritos na tabela [Níveis H264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels).  
+> Limites de vídeo são baseados nos valores de saudação descritos em Olá [H264 níveis](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC#Levels) tabela.  
 > 
 > 
 
 ### <a name="elements"></a>Elementos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Perfil**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs:string** |Pode ser de um dos seguintes valores **xs:string**: **Auto**, **Baseline**, **Main**, **High**. |
+| **Perfil**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs:string** |Pode ser de um dos seguintes Olá **xs: string** valores: **automática**, **Baseline**, **principal**, **alta**. |
 | **Level**<br/><br/> minOccurs="0"<br/><br/> default=”Auto” |**xs:string** | |
-| **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |A taxa de bits usada para esta camada de vídeo, especificada em kbps. |
-| **MaxBitrate**<br/><br/> minOccurs="0" |**xs:int** |A taxa de bits máxima usada para esta camada de vídeo, especificada em kbps. |
-| **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs:time** |Comprimento do buffer de vídeo. |
-| **Width**<br/><br/> minOccurs="0" |**xs:int** |Largura do quadro de vídeo de saída, em pixels.<br/><br/> Observe que, no momento, você deve especificar ambos Width e Height. Width e Height devem ser números pares. |
-| **Height**<br/><br/> minOccurs="0" |**xs:int** |Altura do quadro de vídeo de saída, em pixels.<br/><br/> Observe que, no momento, você deve especificar ambos Width e Height. Width e Height devem ser números pares.|
+| **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |taxa de bits Olá usada para esta camada de vídeo, especificada em kbps. |
+| **MaxBitrate**<br/><br/> minOccurs="0" |**xs:int** |Olá taxa de bits máxima usada para esta camada de vídeo, especificada em kbps. |
+| **BufferWindow**<br/><br/> minOccurs="0"<br/><br/> default="00:00:05" |**xs:time** |Comprimento do buffer de vídeo de saudação. |
+| **Width**<br/><br/> minOccurs="0" |**xs:int** |Largura da saudação saída quadros do vídeo, em pixels.<br/><br/> Observe que, no momento, você deve especificar ambos Width e Height. Olá largura e altura necessário toobe os números pares. |
+| **Height**<br/><br/> minOccurs="0" |**xs:int** |Altura da saudação saída quadros do vídeo, em pixels.<br/><br/> Observe que, no momento, você deve especificar ambos Width e Height. Olá largura e altura necessário toobe os números pares.|
 | **BFrames**<br/><br/> minOccurs="0" |**xs:int** |Número de quadros B entre quadros de referência. |
 | **ReferenceFrames**<br/><br/> minOccurs="0"<br/><br/> default=”3” |**xs:int** |Número de quadros de referência em um GOP. |
-| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs:string** |Poderia ser um dos seguintes valores: **Cabac** e **Cavlc**. |
-| **FrameRate**<br/><br/> minOccurs="0" |número racional |Determina a taxa de quadros de vídeo de saída. Use o padrão de "0/1" para permitir que o codificador use a mesma taxa de quadros que o vídeo de entrada. Os valores permitidos devem ser taxas de quadros de vídeo comuns, conforme mostrado abaixo. No entanto, qualquer valor racional é permitido. Por exemplo, 1/1 seria 1 fps e é válido.<br/><br/> -12/1 (12 fps)<br/><br/> -15/1 (15 fps)<br/><br/> -24/1 (24 fps)<br/><br/> -24.000/1.001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30.000/1.001 (29,97 fps) <br/> <br/>**Observação** se estiver criando uma predefinição personalizada para codificação de múltiplas taxas de bits, todas as camadas da predefinição **deverão** usar o mesmo valor de FrameRate.|
+| **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs:string** |Pode ser uma saudação valores a seguir: **Cabac** e **Cavlc**. |
+| **FrameRate**<br/><br/> minOccurs="0" |número racional |Determina a taxa de quadros de saudação do vídeo de saída de hello. Use padrão de "1/0" toolet Olá codificador use Olá mesmo quadro taxa como saudação de entrada de vídeo. Valores permitidos são toobe esperado comuns taxas de quadros do vídeo, conforme mostrado abaixo. No entanto, qualquer valor racional é permitido. Por exemplo, 1/1 seria 1 fps e é válido.<br/><br/> -12/1 (12 fps)<br/><br/> -15/1 (15 fps)<br/><br/> -24/1 (24 fps)<br/><br/> -24.000/1.001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30.000/1.001 (29,97 fps) <br/> <br/>**Observação** se você estiver criando uma predefinição de codificação de várias taxas de bits personalizada, predefinição de todas as camadas de hello, em seguida, **deve** use Olá mesmo valor de taxa de quadros.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs:boolean** |Cópia do Codificador de Mídia do Azure |
 | **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Determina em quantas fatias um quadro é dividido. É recomendável usar o padrão. |
 
 ## <a name="AACAudio"></a> AACAudio
- Contém uma sequência dos elementos e grupos a seguir.  
+ Contém uma sequência de saudação elementos a seguir e grupos.  
 
  Para saber mais sobre AAC, veja [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding).  
 
 ### <a name="elements"></a>Elementos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Perfil**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs:string** |Poderia ser um dos seguintes valores: **AACLC**, **HEAACV1** ou **HEAACV2**. |
+| **Perfil**<br/><br/> minOccurs="0 "<br/><br/> default="AACLC" |**xs:string** |Pode ser uma saudação valores a seguir: **AACLC**, **HEAACV1**, ou **HEAACV2**. |
 
 ### <a name="attributes"></a>Atributos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Condição** |**xs:string** |Para forçar o codificador a produzir um ativo que contenha uma faixa de áudio silenciosa quando a entrada não tiver áudio, especifique o valor de "InsertSilenceIfNoAudio".<br/><br/> Por padrão, se você enviar uma entrada para o codificador que contenha apenas vídeo e sem áudio, o ativo de saída conterá os arquivos que contêm apenas dados de vídeo. Alguns reprodutores podem não ser capazes de lidar com tais fluxos de saída. Você pode usar essa configuração para forçar o codificador a adicionar uma faixa de áudio silenciosa à saída nesse cenário. |
+| **Condição** |**xs:string** |tooforce Olá codificador tooproduce um ativo que contenha uma faixa de áudio silenciosa quando a entrada não tem áudio, especifique o valor de "InsertSilenceIfNoAudio" hello.<br/><br/> Por padrão, se você enviar um codificador de toohello de entrada que contenha apenas vídeo e nenhum áudio, Olá ativo de saída conterá os arquivos que contêm dados de apenas vídeo. Alguns players podem não ser capazes de toohandle tal fluxos de saída. Você pode usar essa configuração tooforce Olá codificador tooadd uma saída de toohello silenciosa faixa de áudio nesse cenário. |
 
 ### <a name="groups"></a>Grupos
 | Referência | Descrição |
 | --- | --- |
-| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Veja a descrição de [AudioGroup](media-services-mes-schema.md#AudioGroup) para saber o número apropriado de canais, a taxa de amostragem e a taxa de bits que podem ser definidas para cada perfil. |
+| [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Consulte a descrição do [AudioGroup](media-services-mes-schema.md#AudioGroup) tooknow Olá número apropriado de canais, taxa de amostragem e a taxa de bits que pode ser definida para cada perfil. |
 
 ## <a name="AudioGroup"></a> AudioGroup
-Para obter detalhes sobre quais valores são válidos para cada perfil, veja a tabela "Detalhes de codec de áudio" a seguir.  
+Para obter detalhes sobre quais valores são válidos para cada perfil, consulte a tabela a "Detalhes de codec de áudio" hello que segue.  
 
 ### <a name="elements"></a>Elementos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Channels**<br/><br/> minOccurs="0" |**xs:int** |O número de canais de áudio codificados. A seguir estão as opções válidas: 1, 2, 5, 6, 8.<br/><br/> Padrão: 2. |
-| **SamplingRate**<br/><br/> minOccurs="0" |**xs:int** |A taxa de amostragem de áudio, especificada em Hz. |
-| **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |A taxa de bits usada durante a codificação de áudio, especificada em kbps. |
+| **Channels**<br/><br/> minOccurs="0" |**xs:int** |número de saudação de canais de áudio codificado. Olá, estes são opções válidas: 1, 2, 5, 6, 8.<br/><br/> Padrão: 2. |
+| **SamplingRate**<br/><br/> minOccurs="0" |**xs:int** |taxa de amostragem de áudio Hello, especificada em Hz. |
+| **Bitrate**<br/><br/> minOccurs="0" |**xs:int** |taxa de bits de saudação usada quando a codificação de áudio hello, especificada em kbps. |
 
 ### <a name="audio-codec-details"></a>Detalhes do codec de áudio
 Codec de áudio|Detalhes  
@@ -139,25 +139,25 @@ Codec de áudio|Detalhes
 ### <a name="attributes"></a>Atributos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **StartTime** |**xs:duration** |Especifica a hora de início de uma apresentação. O valor da StartTime precisa corresponder aos carimbos de hora absolutos do vídeo de entrada. Por exemplo, se o primeiro quadro de vídeo de entrada tem um carimbo de data/hora de 12:00:10.000, então, a StartTime deve ser pelo menos 12:00:10.000 ou maior. |
-| **Duração** |**xs:duration** |Especifica a duração de uma apresentação (por exemplo, a aparência de uma sobreposição no vídeo). |
+| **StartTime** |**xs:duration** |Especifica a hora de início de saudação de uma apresentação. Olá. o valor de StartTime deve toomatch Olá absoluto carimbos de hora de vídeo de entrada hello. Por exemplo, se hello primeiro quadro de vídeo de entrada hello tem um carimbo de hora de 12:00:10.000, StartTime deve ser pelo menos 12:00:10.000 ou superior. |
+| **Duração** |**xs:duration** |Especifica a duração de saudação de uma apresentação (por exemplo, a aparência de uma sobreposição de vídeo Olá). |
 
 ## <a name="Output"></a> Output
 ### <a name="attributes"></a>Atributos
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **FileName** |**xs:string** |O nome do arquivo de saída.<br/><br/> Você pode usar as macros descritas na tabela a seguir para compilar os nomes dos arquivos de saída. Por exemplo:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
+| **FileName** |**xs:string** |nome de Olá Olá do arquivo de saída.<br/><br/> Você pode usar macros descritas em Olá nomes de arquivo de saída do tabela toobuild Olá a seguir. Por exemplo:<br/><br/> **"Outputs": [      {       "FileName": "{Basename}*{Resolution}*{Bitrate}.mp4",       "Format": {         "Type": "MP4Format"       }     }   ]** |
 
 ### <a name="macros"></a>Macros
 | Macro | Descrição |
 | --- | --- |
-| **{Basename}** |Se você estiver fazendo a codificação VoD, o {Basename} é composto pelos primeiros 32 caracteres da propriedade AssetFile.Name do arquivo primário no ativo de entrada.<br/><br/> Se o ativo de entrada for um arquivo em tempo real, o {Basename} será derivado dos atributos do trackName no manifesto do servidor. Se você estiver enviando um trabalho subclip usando TopBitrate como em “<VideoStream\>TopBitrate</VideoStream\>” e o arquivo de saída contiver vídeo, o {Basename} será composto pelos primeiros 32 caracteres do trackName da camada de vídeo com a taxa de bits mais alta.<br/><br/> Se em vez disso você estiver enviando um trabalho subclip usando todas as taxas de bits de entrada como em “<VideoStream\>*</VideoStream\>” e o arquivo de saída contiver vídeo, o {Basename} será composto pelos primeiros 32 caracteres do trackName da camada de vídeo correspondente. |
-| **{Codec}** |Mapeia "H264" para vídeo e "AAC" para áudio. |
-| **{Bitrate}** |A taxa de bits de vídeo de destino se o arquivo de saída contiver áudio e vídeo, ou então taxa de bits de áudio de destino se o arquivo de saída contiver somente áudio. O valor usado é a taxa de bits em kbps. |
-| **{Channel}** |Contagem de canais de áudio se o arquivo contiver áudio. |
-| **{Width}** |Largura do vídeo em pixels no arquivo de saída, se o arquivo contiver vídeo. |
-| **{Height}** |Altura do vídeo em pixels no arquivo de saída, se o arquivo contiver vídeo. |
-| **{Extension}** |Herda a propriedade "Type" para o arquivo de saída. O nome do arquivo de saída terá uma extensão que é uma entre: “mp4”, “ts”, “jpg”, “png” ou “bmp”. |
+| **{Basename}** |Se você estiver fazendo VoD codificação, Olá {nome base} é Olá primeiros 32 caracteres da propriedade de AssetFile.Name de saudação do arquivo primário de saudação no ativo de entrada hello.<br/><br/> Se o ativo de entrada hello é um arquivo em tempo real, em seguida, Olá {nome base} é derivado do atributos de trackName Olá no manifesto do servidor de saudação. Se você estiver enviando um trabalho de subclip usando Olá TopBitrate, como em: "< VideoStream\>TopBitrate < / VideoStream\>" e arquivo de saída de hello contém vídeo, Olá {nome base} é Olá primeiros 32 caracteres da saudação trackName de saudação camada de vídeo com taxa de bits máxima hello.<br/><br/> Se, em vez disso, você está enviando um trabalho subclip usando todas as taxas de bits entrada hello, como "< VideoStream\>* < / VideoStream\>" e Olá arquivo de saída contém vídeo, {nome base} é hello primeiro 32 caracteres da saudação trackName de camada de vídeo de saudação correspondente. |
+| **{Codec}** |Mapeia muito "H264" para vídeo e áudio "AAC". |
+| **{Bitrate}** |Olá destino vídeo com taxa de bits se Olá arquivo de saída contém áudio e vídeo ou áudio taxas de bits de destino se o arquivo de saída de hello somente de áudio. valor de saudação usado é a taxa de bits de saudação em kbps. |
+| **{Channel}** |Contagem de canais de áudio se o arquivo hello contém áudio. |
+| **{Width}** |Largura da saudação vídeo, em pixels, no arquivo de saída de hello, se o arquivo hello contém vídeo. |
+| **{Height}** |Altura do vídeo, em pixels, no arquivo de saída de hello, se o arquivo hello contém vídeo de saudação. |
+| **{Extension}** |Herda de Olá propriedade "Type" hello arquivo de saída. nome do arquivo de saída de Hello terá uma extensão que é um de: "mp4", "ts", "jpg", "png" ou "bmp". |
 | **{Index}** |Obrigatório para a miniatura. Deve estar presente apenas uma vez. |
 
 ## <a name="Video"></a> Video (o tipo complexo herda do Codec)
@@ -167,20 +167,20 @@ Codec de áudio|Detalhes
 | **Iniciar** |**xs:string** | |
 | **Step** |**xs:string** | |
 | **Range** |**xs:string** | |
-| **PreserveResolutionAfterRotation** |**xs:boolean** |Para obter explicações detalhadas, consulte a seção a seguir: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
+| **PreserveResolutionAfterRotation** |**xs:boolean** |Para uma explicação detalhada, consulte Olá seção a seguir: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
 
 ### <a name="PreserveResolutionAfterRotation"></a> PreserveResolutionAfterRotation
-É recomendável usar o sinalizador PreserveResolutionAfterRotation em combinação com valores de resolução expressos em termos percentuais (Width = "100%" Height = "100%").  
+É recomendável sinalizador de PreserveResolutionAfterRotation toouse Olá em combinação com os valores de resolução expressados em termos percentuais (Width = "100%" Height = "100%").  
 
-Por padrão, as configurações de resolução de codificação (Width, Height) em predefinições do MES (Media Encoder Standard) são destinadas a vídeos com 0 graus de rotação. Por exemplo, se o vídeo de entrada tiver as dimensões 1280x720 com zero graus de rotação, as predefinições padrão asseguram que a saída tem a mesma resolução. Ver a figura abaixo.  
+Por padrão, Olá codificar as configurações de resolução (largura, altura) em Olá predefinições de codificador de mídia padrão (MES) são destinadas a vídeos com 0 grau de rotação. Por exemplo, se o vídeo de entrada for 1280x720 com zero grau de rotação, a saudação padrão predefinições Verifique se saída Olá tem Olá mesma resolução. Ver a figura abaixo.  
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-No entanto, isso significa que se o vídeo de entrada tiver sido capturado com rotação diferente de zero (por exemplo, um smartphone ou tablet segurado verticalmente), o MES aplicará por padrão as configurações de resolução de codificação (Width, Height) ao vídeo de entrada e, em seguida, compensar a rotação. Por exemplo, veja a figura abaixo. A predefinição usa Width = “100%”, Height = “100%”, que o MES interpreta como uma exigência de que a saída tenha 1280 pixels de largura e 720 pixels de altura. Após girar o vídeo, ele reduz a imagem para que ela caiba na janela, levando a áreas verticais vazias à esquerda e à direita.  
+No entanto, isso significa que, se o vídeo de entrada hello foi capturado com rotação diferente de zero (por exemplo. um smartphone ou tablet mantido verticalmente), e em seguida, MES por padrão se aplicará Olá codificar resolução configurações (largura, altura) toohello vídeo de entrada e, em seguida, compensar a rotação de saudação. Por exemplo, consulte a imagem de saudação abaixo. predefinição Hello usa largura = "100%" Height = "100%", que MES interpreta como exigir Olá saída toobe 1280 pixels ampla e 720 pixels de altura. Após girar vídeo Olá, em seguida, reduz Olá imagem toofit essa janela, líderes áreas toopillar caixa Olá para esquerda e direita.  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-Se o comportamento acima não é o desejado, você pode fazer uso do sinalizador PreserveResolutionAfterRotation e defini-lo como "true" (o padrão é "false"). Então, se a predefinição tiver Width = “100%”, Height = “100%” e PreserveResolutionAfterRotation definido como "true", um vídeo de entrada que tem 1280 pixels de largura e 720 pixels de altura com 90 graus de rotação produzirá uma saída com zero graus de rotação, mas 720 pixels de largura e 1280 pixels de altura. Veja a figura abaixo.  
+Se Olá acima não é o comportamento de saudação desejado, você pode fazer uso de saudação PreserveResolutionAfterRotation sinalizador e defini-lo muito "true" (o padrão é "false"). Então se seu predefinido tem largura = "100%" Height = "100%" e PreserveResolutionAfterRotation definido muito "verdadeiro", um vídeo de entrada que é 1280 pixels de largura e 720 pixels de altura com rotação de 90 graus produzirá uma saída com rotação zero grau, mas 720 pixels de largura e 1280 pixels de altura. Consulte a imagem de saudação abaixo.  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 

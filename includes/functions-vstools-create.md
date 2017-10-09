@@ -1,7 +1,7 @@
-O modelo de projeto do Azure Functions no Visual Studio cria um projeto que pode ser publicado em um aplicativo de funções no Azure. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para facilitar o gerenciamento, implantação e compartilhamento de recursos.   
+modelo de projeto Olá funções do Azure no Visual Studio cria um projeto que pode ser publicado tooa função aplicativo no Azure. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para facilitar o gerenciamento, implantação e compartilhamento de recursos.   
 
-1. Clique com o botão direito do mouse no nó do projeto no **Gerenciador de Soluções**, escolha **Adicionar** > **Novo Item**. Escolha **Azure Function** na caixa de diálogo.
+1. Botão direito do mouse no nó do projeto Olá em **Solution Explorer**, em seguida, escolha **adicionar** > **Novo Item**. Escolha **função Azure** Olá caixa de diálogo.
 
-2. No diálogo **Novo Projeto**, expanda o nó **Visual C#** > **Cloud**, selecione **Azure Functions**, digite um **Nome** para seu projeto e clique em **OK**. O nome do aplicativo de funções deve ser válido como um namespace do C# e, portanto, não use outros caracteres não alfanuméricos, hífens ou sublinhados. 
+2. Em Olá **novo projeto** caixa de diálogo, expanda **Visual C#** > **nuvem** nó, selecione **funções do Azure**, digite um **Nome** para seu projeto e clique em **Okey**. nome do aplicativo de função Hello deve ser válido como um namespace do c#, portanto, não usar outros caracteres não alfanuméricos, hífens ou sublinhados. 
 
-    ![Diálogo Novo projeto para criar uma função no Visual Studio](./media/functions-vstools-create/functions-vstools-add-new-project.png)
+    ![Toocreate de caixa de diálogo Novo projeto uma função no Visual Studio](./media/functions-vstools-create/functions-vstools-add-new-project.png)

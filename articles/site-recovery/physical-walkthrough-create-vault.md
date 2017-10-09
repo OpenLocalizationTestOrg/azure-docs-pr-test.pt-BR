@@ -1,6 +1,6 @@
 ---
-title: "Configurar um cofre para a replicação de servidor físico para o Azure usando o Azure Site Recovery | Microsoft Docs"
-description: "Resume as etapas necessárias para configurar um cofre para replicar servidores físicos para o Azure usando o Azure Site Recovery"
+title: "aaaSet um cofre para o servidor físico tooAzure de replicação usando o Azure Site Recovery | Microsoft Docs"
+description: "Resume as etapas de saudação necessário tooset a um tooAzure de servidores físicos do cofre tooreplicate usando o Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: deb5ad0495edc969b374795eeb2698326dd4ff4d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 988928e3ece31116823f132cc39223fe44443468
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-6-set-up-a-vault-for-physical-server-replication-to-azure"></a>Etapa 6: Configurar um cofre para a replicação de servidor físico para o Azure
+# <a name="step-6-set-up-a-vault-for-physical-server-replication-tooazure"></a>Etapa 6: Configurar um cofre para tooAzure de replicação de servidor físico
 
 
-Este artigo descreve como configurar um cofre. Você cria o cofre e especifica o que deseja replicar de sua localização local para o Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
+Este artigo descreve como tooset um cofre. Criar cofre Olá e especifique o que você deseja tooreplicate do seu local local tooAzure, usando Olá [do Azure Site Recovery](site-recovery-overview.md) serviço Olá portal do Azure.
 
 
-Poste perguntas e comentários na parte inferior deste artigo ou no [Fórum de Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Postar perguntas e comentários na parte inferior da saudação deste artigo, ou em Olá [Fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 
@@ -37,13 +37,13 @@ Poste perguntas e comentários na parte inferior deste artigo ou no [Fórum de S
 
 ## <a name="select-a-protection-goal"></a>Selecionar uma meta de proteção
 
-Selecione o que você deseja replicar e para onde deseja replicar.
+Selecione o que você deseja tooreplicate, e onde você deseja tooreplicate para.
 
 1. Clique em **Cofres dos Serviços de Recuperação** > cofre.
-2. No Menu Recursos, clique em **Site Recovery** > **Preparar Infraestrutura** > **Meta de proteção**.
-3. Em **Meta de proteção**, selecione **Para o Azure** > **Não virtualizado/Outro**.
+2. No hello recurso de Menu, clique em **recuperação de Site** > **preparar a infraestrutura** > **objetivo de proteção**.
+3. Em **objetivo de proteção**, selecione **tooAzure** > **não virtualizados/outros**.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Ir para a [Etapa 7: Definir a origem e o destino](physical-walkthrough-source-target.md)
+Vá muito[etapa 7: configurar a origem e destino](physical-walkthrough-source-target.md)

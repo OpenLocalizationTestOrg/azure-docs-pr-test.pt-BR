@@ -1,6 +1,6 @@
 ---
-title: "Amostra de script da CLI do Azure – Exportar/copiar um instantâneo como VHD para uma conta de armazenamento em outra região | Microsoft Docs"
-description: "Amostra de script da CLI do Azure – Exportar/copiar um instantâneo como VHD para uma conta de armazenamento na mesma ou em outra assinatura"
+title: "Exemplo de Script CLI - instantâneo de exportação/copiar como conta de armazenamento tooa VHD em uma região diferente de aaaAzure | Microsoft Docs"
+description: "Exemplo de Script CLI do Azure - instantâneo de exportação/copiar como conta de armazenamento do VHD tooa na assinatura igual ou diferente"
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
-ms.openlocfilehash: fafb74af5f02f74036c770934c5e33f1b8a5593e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 027c5e588c4f10d64d125c17f4c78a7d8e1ef060
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-cli"></a>Exportar/copiar instantâneos gerenciados como VHD para uma conta de armazenamento em outa região com a CLI
+# <a name="exportcopy-managed-snapshots-as-vhd-tooa-storage-account-in-different-region-with-cli"></a>Exportação/copiar gerenciado instantâneos como conta de armazenamento tooa VHD em uma região diferente com CLI
 
-Esse script exporta um instantâneo gerenciado para uma conta de armazenamento em outra região. Primeiro, ele gera o URI de SAS do instantâneo e, em seguida, usa-o para copiá-lo para uma conta de armazenamento em outra região. Use esse script para manter o backup dos discos gerenciados em outra região para a recuperação de desastre. 
+Esse script exporta uma conta de armazenamento gerenciado instantâneo tooa em uma região diferente. Ele gera primeiro Olá SAS URI do instantâneo hello e, em seguida, usa-toocopy-tooa conta de armazenamento em uma região diferente. Use esse backup de toomaintain script discos gerenciados em uma região diferente para recuperação de desastres. 
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -32,17 +32,17 @@ Esse script exporta um instantâneo gerenciado para uma conta de armazenamento e
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[main](../../../cli_scripts/storage/copy-snapshots-to-storage-account/copy-snapshots-to-storage-account.sh "Copiar instantâneo")]
+[!code-azurecli[main](../../../cli_scripts/storage/copy-snapshots-to-storage-account/copy-snapshots-to-storage-account.sh "Copy snapshot")]
 
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Esse script usa os comandos a seguir para gerar o URI de SAS para um instantâneo gerenciado e copia o instantâneo para uma conta de armazenamento usando o URI de SAS. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa a seguinte comandos toogenerate URI SAS para uma saudação de instantâneos e cópias gerenciada instantâneo tooa conta de armazenamento usando o URI de SAS. Cada comando na documentação específica do toocommand Olá tabela links.
 
 | Command | Observações |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#grant-access) | Gera o SAS somente leitura usado para copiar o arquivo VHD subjacente para uma conta de armazenamento ou o baixa no local  |
-| [az storage blob copy start](https://docs.microsoft.com/en-us/cli/azure/storage/blob/copy#start) | Copia um blob de forma assíncrona de uma conta de armazenamento para outra |
+| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot#grant-access) | Gera SAS somente leitura que é usado toocopy conta de armazenamento de tooa de arquivo VHD de base ou baixá-lo tooon local  |
+| [az storage blob copy start](https://docs.microsoft.com/en-us/cli/azure/storage/blob/copy#start) | Copia um blob de forma assíncrona de um tooanother de conta de armazenamento |
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -50,6 +50,6 @@ Esse script usa os comandos a seguir para gerar o URI de SAS para um instantâne
 
 [Criar uma máquina virtual com base em um disco gerenciado](./../../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre Olá CLI do Azure, consulte [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Os exemplos adicionais de script da CLI de máquina virtual e discos gerenciados podem ser encontrados na [documentação da VM Linux do Azure](../../virtual-machines/linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Máquinas virtuais adicionais e exemplos de script CLI de discos gerenciados podem ser encontrados no hello [documentação de VM do Linux Azure](../../virtual-machines/linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

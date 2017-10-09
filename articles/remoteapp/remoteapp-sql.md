@@ -1,6 +1,6 @@
 ---
-title: SQL Azure com o Azure RemoteApp | Microsoft Docs
-description: Saiba como usar o SQL Azure com o Azure RemoteApp.
+title: aaaSQL do Azure com o Azure RemoteApp | Microsoft Docs
+description: Saiba como toouse SQL Azure com o Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
 author: ericorman
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: e3148a66ea65e78d47bd6c69742e288fa1afe12f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fec4cb1f1ab3cde03b6ff613650e01bae3552824
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-azure-with-azure-remoteapp"></a>SQL Azure com o Azure RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-Geralmente, quando os clientes optam por hospedar seus aplicativos do Windows na nuvem com o Azure RemoteApp, também querem migrar seus dados, como servidores SQL, para a nuvem para uma implantação de nuvem completa. Isso possibilita a solução hospedada de nuvem completa que pode ser acessada a qualquer momento por qualquer dispositivo em qualquer lugar usando o Azure RemoteApp. A seguir, os links e as referências juntamente com as orientações para ajudar você neste processo.  
+Muitas vezes, quando os clientes escolhem toohost seus aplicativos do Windows na nuvem Olá com o Azure RemoteApp também desejam toomigrate seus dados como servidores SQL em Olá de nuvem para uma implantação de nuvem inteira. Isso possibilita a solução hospedada de nuvem completa que pode ser acessada a qualquer momento por qualquer dispositivo em qualquer lugar usando o Azure RemoteApp. Abaixo estão os links e referências juntamente com diretrizes toohelp você com esse processo.  
 
 ## <a name="migrate-your-sql-data"></a>Migrar os dados SQL
-Comece com [Migrando um banco de dados do SQL Server para o Banco de Dados SQL do Azure](../sql-database/sql-database-cloud-migrate.md). 
+Iniciar com [migrando um banco de dados de SQL Server tooAzure banco de dados SQL](../sql-database/sql-database-cloud-migrate.md). 
 
 ## <a name="configure-azure-remoteapp"></a>Configurar o Azure RemoteApp
 Hospede seu aplicativo do Windows no Azure RemoteApp. A seguir, um passo a passo de nível muito alto:
 
-1. Crie a [VM de modelo do RemoteApp do Azure](remoteapp-imageoptions.md). 
-2. Instale o aplicativo necessário na VM.
-3. Configure o aplicativo para que ele se conecte ao banco de dados SQL e confirme se ele funciona.
-4. Execute o sysprep e desligue a máquina virtual. Capture isso como uma imagem para usá-la com o Azure. **Observação:** você precisará garantir que o aplicativo seja capaz de manter as informações de conectividade do banco de dados por meio do processo sysprep. Se o aplicativo for incapaz de reter as informações de conexão do banco de dados, talvez seja melhor entrar em contato com o fornecedor do aplicativo para verificar como podemos especificar a cadeia de conexão.
-5. Importe a imagem personalizada para a biblioteca do Azure RemoteApp selecionando a localização geográfica adequada da sua implantação do SQL Azure. 
-6. Implante uma coleção do RemoteApp no mesmo data center como a implantação do SQL Azure usando o modelo acima e publique o aplicativo. A implantação do Azure RemoteApp no mesmo data center que a implantação do SQL Azure ajuda a garantir velocidades de conexão mais rápidas e a reduzir a latência. 
+1. Criar hello [modelo do RemoteApp do Azure VM](remoteapp-imageoptions.md). 
+2. Instale o aplicativo hello necessárias em Olá VM.
+3. Configurar aplicativo hello, de modo que ele se conecta toohello banco de dados SQL e confirme que ele funciona.
+4. Olá Sysprep e desligue VM. Capture isso como uma imagem para usá-la com o Azure. **Observação:** tooensure aplicativo hello é tooretain capaz de informações de conectividade Olá DB por meio do processo do sysprep Olá será necessário. Se o aplicativo hello informações de conexão de saudação DB de tooretain não é possível, convém tooengage fornecedor Olá Olá aplicativo toocheck como podemos especificar cadeia de caracteres de conexão de saudação.
+5. Importar imagem personalizada Olá na biblioteca do Azure RemoteApp selecionando Olá adequada localização geográfica que sua implantação do SQL Azure reside. 
+6. Implante uma coleção do RemoteApp em Olá mesmo data center como sua implantação do SQL Azure usando Olá acima modelo e publica o aplicativo hello. Implantação do Azure RemoteApp em Olá mesmo data center da sua implantação do SQL Azure ajuda a garantir a velocidades de conexão mais rápidas hello e reduzir a latência. 
 
 ## <a name="app-and-sql-configuration-considerations"></a>Considerações sobre a configuração do aplicativo e do SQL:
-Há alguns pontos a considerar quando você estiver usando o SQL Azure com o RemoteApp:
+Há alguns tooconsider de pontos ao usar o SQL Azure com o RemoteApp:
 
-Saiba [como configurar um firewall do banco de dados SQL do Azure](../sql-database/sql-database-firewall-configure.md). Um trecho do artigo declara “Inicialmente, todo acesso ao seu servidor do Banco de Dados SQL do Azure é bloqueado pelo firewall. Para começar a usar seu servidor de Banco de Dados SQL do Azure, você deve acessar o Portal Clássico e especificar uma ou mais regras de firewall no nível do servidor que permitem acesso ao seu servidor de Banco de Dados SQL do Azure. Use as regras de firewall para especificar quais intervalos de endereço IP da Internet têm permissão e se os aplicativos do Azure podem tentar se conectar ao seu servidor de Banco de Dados SQL”.
+Saiba [como tooconfigure um SQL Azure banco de dados firewall](../sql-database/sql-database-firewall-configure.md). Um trecho de estados de artigo hello, "inicialmente, todos os servidores de banco de dados do SQL Azure tooyour de acesso está bloqueado por firewall hello. Toobegin ordem usando o servidor de banco de dados SQL, você deve ir toohello Portal clássico e especificar uma ou mais regras de firewall de nível de servidor que habilitar o acesso tooyour banco de dados SQL server. Use toospecify de regras de firewall Olá qual endereço IP varia de saudação Internet são permitidos, e se aplicativos do Azure podem tentar o servidor de banco de dados do Azure SQL tooyour tooconnect."
 
-Além disso, quando um computador tenta se conectar ao seu servidor de banco de dados pela Internet, o firewall verifica o endereço IP de origem da solicitação com base no conjunto completo de regras de firewall no nível do servidor e (se necessário) no nível do banco de dados: “Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida ao seu servidor de Banco de Dados SQL do Azure.” Portanto, podemos usar Intervalos de IP e não apenas os endereços IP de origem individuais.
+Além disso, quando um computador tenta tooconnect tooyour servidor de banco de dados de saudação da Internet, firewall de saudação verifica Olá endereços IP da solicitação Olá contra o conjunto completo de saudação de nível de servidor de origem e (se necessário) as regras de firewall de nível de banco de dados. "Se Olá endereço IP de saudação solicitação estiver dentro de um dos intervalos de saudação especificados nas regras de firewall de nível de servidor de saudação, conexão Olá será concedida tooyour servidor de banco de dados SQL." Portanto, podemos usar Intervalos de IP e não apenas os endereços IP de origem individuais.
 
-Siga as instruções passo a passo em [Como definir as configurações de firewall no Banco de Dados SQL usando o Portal do Azure](../sql-database/sql-database-configure-firewall-settings.md) para especificar o intervalo de IPs. Quando você estiver configurando as regras do Firewall do SQL, forneça o intervalo de IP da sub-rede especificada para a coleção do Azure RemoteApp. Isso deve permitir que os servidores ARA se conectem ao banco de dados SQL, embora eles tenham Endereços IP atribuídos dinamicamente.
+Siga as instruções passo a passo de saudação em [como: definir configurações de firewall no banco de dados SQL usando hello Azure Portal](../sql-database/sql-database-configure-firewall-settings.md) toospecify intervalo IP de saudação. Quando você estiver configurando regras de Firewall do SQL hello, forneça o intervalo IP de saudação da sub-rede Olá especificado para Olá coleção do RemoteApp do Azure. Isso deve permitir servidores de ARA Olá tooconnect toohello banco de dados SQL mesmo que eles serão ter-endereços IP atribuídos dinamicamente.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-Se a experiência de usar um aplicativo cliente hospedado no Azure RemoteApp que se conecta a um banco de dados SQL quando hospedado no Azure ou no local estiver lenta, pode haver alguns motivos para isso.  
+Se tiver de saudação do uso de um aplicativo cliente hospedado no Azure RemoteApp que se conecta tooa SQL de banco de dados onde hospedados no Azure ou local está lento pode haver alguns motivos por que.  
 
-* A latência de rede do dispositivo até o Azure é alta. Mova para uma conexão de rede que seja melhor e mais rápida para obter o melhor desempenho. Use [azurespeed.com](http://azurespeed.com/) como uma ferramenta geral para testar a latência dos dispositivos para o data center do Azure.  
-* O aplicativo cliente hospedado no Azure RemoteApp está sob carga excessiva. Escolher um plano de cobrança diferente, como a cobrança Premium, melhorará o desempenho. Outro truque é monitorar os recursos que o aplicativo está consumindo: durante uma sessão ativa, execute uma sequência de teclas ctrl-alt-end para iniciar a tela SAS, selecione o Gerenciador de Tarefas e observe a utilização de recursos para seu aplicativo.
+* Latência de rede do seu dispositivo tooAzure é alta. Mova toohello conexão de rede melhor e mais rápido que possível para melhor desempenho. Use [azurespeed.com](http://azurespeed.com/) como uma ferramenta geral tootest seu dispositivos latência tooAzure do data center.  
+* O aplicativo cliente hospedado no Azure RemoteApp está sob carga excessiva. Escolher um plano de cobrança diferente, como a cobrança Premium, melhorará o desempenho. Outro truque é toomonitor recursos de saudação seu aplicativo está consumindo: durante uma sessão ativa, executar uma sequência de teclas ctrl-alt-end que iniciará Olá SAS de tela, selecione o Gerenciador de tarefas e observar a utilização de recursos para seu aplicativo.
 * O servidor SQL está sob carga excessiva ou não está otimizado. Siga as diretrizes do SQL para solução de problemas. 
 

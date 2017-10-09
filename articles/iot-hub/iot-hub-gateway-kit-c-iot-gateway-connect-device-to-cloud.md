@@ -1,12 +1,12 @@
 ---
-title: Usar um gateway IoT para conectar um dispositivo ao Hub IoT do Azure | Microsoft Docs
-description: Saiba como usar o Intel NUC como um gateway IoT para conectar um SensorTag da TI e enviar dados de sensor ao Hub IoT do Azure na nuvem.
+title: aaaUse um gateway de IoT tooconnect tooAzure um dispositivo IoT Hub | Microsoft Docs
+description: "Saiba como toouse NUC Intel como um gateway de IoT tooconnect um SensorTag de TI e enviar os dados sensor tooAzure IoT Hub em Olá de nuvem."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timlt
 tags: 
-keywords: gateway iot conectar dispositivo para a nuvem
+keywords: "conexão de gateway de IOT toocloud do dispositivo"
 ms.assetid: cb851648-018c-4a7e-860f-b62ed3b493a5
 ms.service: iot-hub
 ms.devlang: c
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/25/2017
 ms.author: xshi
-ms.openlocfilehash: 4fb77ed0241d15338c2574fd22828507c3e40cb3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 418af34bf29992d46b76ae59ef548744808664c3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-iot-gateway-to-connect-things-to-the-cloud---sensortag-to-azure-iot-hub"></a>Usar o gateway IoT para conectar as coisas à nuvem – SensorTag para o Hub IoT do Azure
+# <a name="use-iot-gateway-tooconnect-things-toohello-cloud---sensortag-tooazure-iot-hub"></a>Usar IoT gateway tooconnect coisas toohello nuvem - SensorTag tooAzure IoT Hub
 
 > [!NOTE]
-> Antes de iniciar este tutorial, conclua a [Configurar o Intel NUC como um gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md). Em [Configurar o Intel NUC como um gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md), você configura o dispositivo Intel NUC como um gateway IoT.
+> Antes de iniciar este tutorial, conclua a [Configurar o Intel NUC como um gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md). Em [configurar NUC Intel como um gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md), configurar Olá Intel NUC dispositivo como um gateway de IoT.
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
 
-Você aprende a usar um gateway IoT para conectar um SensorTag da Texas Instruments (CC2650STK) ao Hub IoT do Azure. O gateway IoT envia dados de temperatura e umidade coletados do SensorTag para o Hub IoT do Azure.
+Você aprenderá como toouse um gateway de IoT tooconnect um tooAzure Texas instrumentos SensorTag (CC2650STK) IoT Hub. gateway de IoT Olá envia temperatura e umidade os dados coletados de saudação SensorTag tooAzure IoT Hub.
 
 ## <a name="what-you-will-do"></a>O que você fará
 
 - Crie um Hub IoT.
-- Registrar um dispositivo no Hub IoT para o SensorTag.
-- Habilitar a conexão entre o gateway IoT e o SensorTag.
-- Executar um aplicativo de exemplo BLE para enviar dados do SensorTag para o Hub IoT.
+- Registre um dispositivo no hub IoT de saudação para Olá SensorTag.
+- Habilite conexão Olá entre o gateway de IoT hello e Olá SensorTag.
+- Execute um Bilitar exemplo aplicativo toosend SensorTag tooyour IoT hub de dados.
 
 ## <a name="what-you-need"></a>O que você precisa
 
 - Do tutorial [Configurar o Intel NUC como um gateway IoT](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md) concluído, no qual você configura o Intel NUC como um gateway IoT.
 - * Uma assinatura ativa do Azure. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
 - Um cliente SSH executado no computador host. Recomenda-se o PuTTY no Windows. O Linux e o macOS já vêm com um cliente SSH.
-- Do endereço IP e do nome de usuário e a senha para acessar o gateway no cliente SSH.
+- Olá endereço IP e Olá username e password tooaccess Olá gateway de cliente SSH hello.
 - Uma conexão com a Internet.
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
@@ -50,38 +50,38 @@ Você aprende a usar um gateway IoT para conectar um SensorTag da Texas Instrume
 > [!NOTE]
 > Aqui você registra esse novo dispositivo para o seu SensorTag
 
-## <a name="enable-the-connection-between-the-iot-gateway-and-the-sensortag"></a>Habilitar a conexão entre o gateway IoT e o SensorTag
+## <a name="enable-hello-connection-between-hello-iot-gateway-and-hello-sensortag"></a>Habilitar conexão Olá entre o gateway de IoT hello e Olá SensorTag
 
-Nesta seção, você realiza as seguintes tarefas:
+Nesta seção, você executará Olá tarefas a seguir:
 
-- Obtém o endereço MAC do SensorTag para a conexão Bluetooth.
-- Inicia uma conexão Bluetooth do gateway IoT com o SensorTag.
+- Obter endereço MAC Olá Olá SensorTag conexão Bluetooth.
+- Inicie uma conexão de Bluetooth do hello IoT gateway toohello SensorTag.
 
-### <a name="get-the-mac-address-of-the-sensortag-for-bluetooth-connection"></a>Obter o endereço MAC do SensorTag para a conexão Bluetooth
+### <a name="get-hello-mac-address-of-hello-sensortag-for-bluetooth-connection"></a>Obter o endereço MAC Olá Olá SensorTag para conexão de Bluetooth
 
-1. No computador host, execute o cliente SSH e conecte-se ao gateway IoT.
-1. Desbloqueie o Bluetooth, executando o seguinte comando:
+1. No computador de host Olá, execute o cliente SSH hello e conecte-se toohello IoT gateway.
+1. Desbloquear Bluetooth executando Olá comando a seguir:
 
    ```bash
    sudo rfkill unblock bluetooth
    ```
 
-1. Inicie o serviço Bluetooth no gateway IoT e insira um shell de Bluetooth para configurar o Bluetooth, executando os seguintes comandos:
+1. Iniciar serviço de Bluetooth do hello no gateway do IoT hello e insira um tooconfigure de shell Bluetooth Bluetooth executando Olá comandos a seguir:
 
    ```bash
    sudo systemctl start bluetooth
    bluetoothctl
    ```
 
-1. Ligue o controlador Bluetooth, executando o seguinte comando no shell do Bluetooth:
+1. Ligar o controlador de Bluetooth Olá executando Olá comando no hello shell Bluetooth a seguir:
 
    ```bash
    power on
    ```
 
-   ![ligar o controlador Bluetooth no gateway IoT com bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/8_power-on-bluetooth-controller-at-bluetooth-shell-bluetoothctl.png)
+   ![ligar o controlador de Bluetooth Olá no gateway do IoT Olá com bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/8_power-on-bluetooth-controller-at-bluetooth-shell-bluetoothctl.png)
 
-1. Inicie a varredura por dispositivos Bluetooth próximos, executando o seguinte comando:
+1. Inicie a varredura para dispositivos Bluetooth próximos executando Olá comando a seguir:
 
    ```bash
    scan on
@@ -89,9 +89,9 @@ Nesta seção, você realiza as seguintes tarefas:
 
    ![Procurar dispositivos Bluetooth próximos com bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/9_start-scan-nearby-bluetooth-devices-at-bluetooth-shell-bluetoothctl.png)
 
-1. Pressione o botão de emparelhamento no SensorTag. O LED verde no SensorTag pisca.
-1. No shell do Bluetooth, você verá que o SensorTag foi encontrado. Anote o endereço MAC do SensorTag. Neste exemplo, o endereço MAC do SensorTag é `24:71:89:C0:7F:82`.
-1. Desative a varredura, executando o seguinte comando:
+1. Pressione Olá emparelhamento botão Olá SensorTag. Olá verde LED no hello SensorTag pisca.
+1. Em Olá Bluetooth shell, você deve ver Olá que sensortag foi encontrado. Anote Olá Olá SensorTag endereço MAC. Neste exemplo, Olá endereço MAC de saudação SensorTag é `24:71:89:C0:7F:82`.
+1. Desative a verificação de saudação executando o comando a seguir de saudação:
 
    ```bash
    scan off
@@ -99,70 +99,70 @@ Nesta seção, você realiza as seguintes tarefas:
 
    ![Interromper a varredura de dispositivos Bluetooth próximos com bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/10_stop-scanning-nearby-bluetooth-devices-at-bluetooth-shell-bluetoothctl.png)
 
-### <a name="initiate-a-bluetooth-connection-from-the-iot-gateway-to-the-sensortag"></a>Iniciar uma conexão Bluetooth do gateway IoT com o SensorTag
+### <a name="initiate-a-bluetooth-connection-from-hello-iot-gateway-toohello-sensortag"></a>Iniciar uma conexão de Bluetooth do hello IoT gateway toohello SensorTag
 
-1. Conecte-se ao SensorTag executando o seguinte comando:
+1. Conecte-se toohello SensorTag executando Olá comando a seguir:
 
    ```bash
    connect <MAC address>
    ```
 
-   ![Conectar ao SensorTag com bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/11_connect-to-sensortag-at-bluetooth-shell-bluetoothctl.png)
+   ![Conecte-se toohello SensorTag com bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/11_connect-to-sensortag-at-bluetooth-shell-bluetoothctl.png)
 
-1. Desconecte do SensorTag e saia do shell do Bluetooth, executando os seguintes comandos:
+1. Desconectar Olá SensorTag e sair do shell de Bluetooth Olá executando Olá comandos a seguir:
 
    ```bash
    disconnect
    exit
    ```
 
-   ![Desconectar do SensorTag com bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/12_disconnect-from-sensortag-at-bluetooth-shell-bluetoothctl.png)
+   ![Desconectar Olá SensorTag com bluetoothctl](./media/iot-hub-iot-gateway-connect-device-to-cloud/12_disconnect-from-sensortag-at-bluetooth-shell-bluetoothctl.png)
 
-Você habilitou com êxito a conexão entre o SensorTag e o gateway IoT.
+Conexão Olá entre o gateway de IoT hello e Olá SensorTag estiver habilitado.
 
-## <a name="run-a-ble-sample-application-to-send-sensortag-data-to-your-iot-hub"></a>Executar um aplicativo de exemplo BLE para enviar dados do SensorTag para o Hub IoT
+## <a name="run-a-ble-sample-application-toosend-sensortag-data-tooyour-iot-hub"></a>Executar um Bilitar exemplo aplicativo toosend SensorTag tooyour IoT hub de dados
 
-O aplicativo de exemplo BLE (Bluetooth de Baixa Energia) é fornecido pelo Azure IoT Edge. O aplicativo de exemplo coleta dados da conexão BLE e os envia ao Hub IoT. Para executar o aplicativo de exemplo, você precisa:
+Olá aplicativo de exemplo de Bluetooth baixa energia (var) é fornecido pelo Azure IoT borda. aplicativo de exemplo Hello coleta dados de conexão Bilitar e enviar o hub IoT do hello dados tooyou. aplicativo de exemplo hello toorun, você precisa:
 
-1. Configurar o aplicativo de exemplo.
-1. Executar o aplicativo de exemplo no gateway IoT.
+1. Configure o aplicativo de exemplo hello.
+1. Execute o aplicativo de exemplo hello no gateway do IoT hello.
 
-### <a name="configure-the-sample-application"></a>Configurar o aplicativo de exemplo
+### <a name="configure-hello-sample-application"></a>Configurar o aplicativo de exemplo hello
 
-1. Acesse a pasta do aplicativo de exemplo, executando o seguinte comando:
+1. Vá toohello pasta do aplicativo de exemplo hello executando Olá comando a seguir:
 
    ```bash
    cd /usr/share/azureiotgatewaysdk/samples/ble_gateway
    ```
 
-1. Abra o arquivo de configuração, executando o seguinte comando:
+1. Abra o arquivo de configuração de saudação executando Olá comando a seguir:
 
    ```bash
    vi ble_gateway.json
    ```
 
-1. No arquivo de configuração, preencha os seguintes valores:
+1. No arquivo de configuração hello, preencha Olá valores a seguir:
 
-   **IoTHubName**: o nome do seu Hub IoT.
+   **IoTHubName**: nome de saudação do seu hub IoT.
 
-   **IoTHubSuffix**: obtenha o IoTHubSuffix da chave primária da cadeia de conexão do dispositivo que você anotou. Certifique-se de obter a chave primária da cadeia de conexão do dispositivo e não a chave primária da cadeia de conexão do seu Hub IoT. A chave primária da cadeia de conexão do dispositivo é no formato `HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY`.
+   **IoTHubSuffix**: IoTHubSuffix obter da saudação chave primária da cadeia de caracteres de conexão de dispositivo Olá que você anotou para baixo. Certifique-se de que você obter a chave primária de saudação da cadeia de caracteres de conexão de dispositivo hello, Olá não chave primária de sua cadeia de conexão de hub IoT. chave primária de saudação da cadeia de caracteres de conexão de dispositivo hello está no formato de saudação do `HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY`.
 
-   **Transport**: o valor padrão é `amqp`. Este valor mostra o protocolo durante o transporte. Ele pode ser `http`, `amqp` ou `mqtt`.
+   **Transporte**: valor de padrão de saudação é `amqp`. Esse valor mostra o protocolo de saudação durante transpotation. Ele pode ser `http`, `amqp` ou `mqtt`.
 
-   **macAddress**: o endereço MAC do SensorTag que você anotou.
+   **macAddress**: Olá endereço MAC de saudação SensorTag que você anotou para baixo.
 
-   **deviceID**: ID do dispositivo que você criou em seu Hub IoT.
+   **deviceID**: ID do dispositivo Olá que você criou em seu hub IoT.
 
-   **deviceKey**: a chave primária da cadeia de conexão do dispositivo.
+   **deviceKey**: chave primária de saudação da cadeia de caracteres de conexão de dispositivo hello.
 
-   ![Concluir o arquivo de configuração do aplicativo BLE de exemplo](./media/iot-hub-iot-gateway-connect-device-to-cloud/13_edit-config-file-of-ble-sample.png)
+   ![Arquivo de configuração de saudação completa de saudação aplicativo de exemplo Bilitar](./media/iot-hub-iot-gateway-connect-device-to-cloud/13_edit-config-file-of-ble-sample.png)
 
-1. Pressione `ESC` e digite `:wq` para salvar o arquivo.
+1. Pressione `ESC` e tipo `:wq` toosave arquivo de saudação.
 
-### <a name="run-the-sample-application"></a>Executar o aplicativo de exemplo
+### <a name="run-hello-sample-application"></a>Executar o aplicativo de exemplo hello
 
-1. Verifique se o SensorTag está ligado.
-1. Execute o comando a seguir:
+1. Verifique se Olá que sensortag está ligado.
+1. Execute Olá comando a seguir:
 
    ```bash
    ./ble_gateway ble_gateway.json

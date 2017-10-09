@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar iterações de teste no Machine Learning Studio | Microsoft Docs"
-description: "Como gerenciar iterações de teste no Machine Learning Studio do Microsoft Azure"
+title: "aaaManage experimentar iterações no estúdio de aprendizado de máquina | Microsoft Docs"
+description: "Como toomanage experimentar iterações no estúdio de aprendizado de máquina do Azure"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 0e32a02358d1901bb80f356b0289b02b8e98afdb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bd30c048ce063811b1b2de8ce6d71e99ba975713
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gerenciar iterações de teste no Machine Learning Studio do Microsoft Azure
-Desenvolver um modelo de análise de previsão é um processo iterativo - como modificar as várias funções e parâmetros de seu teste, seus resultados convergem até você ficar satisfeito com um modelo treinado e eficiente. A chave para esse processo está em acompanhar várias iterações dos parâmetros e configurações do seu teste.
+Desenvolvendo um modelo de análise de previsão é um processo iterativo - conforme você modificar Olá várias funções e os parâmetros de sua experiência, seus resultados convergirem até ficar satisfeito que você tenha um modelo treinado e eficiente. Processo de toothis da chave é controle Olá várias iterações de seus parâmetros de teste e configurações.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Você pode examinar as execuções anteriores dos seus testes a qualquer momento para desafiar, revisitar e, por fim, confirmar ou refinar suposições anteriores. Quando você executa um teste, o Machine Learning Studio mantém um histórico de execução, incluindo o conjunto de dados, o módulo e as conexões de porta e parâmetros. Esse histórico também captura resultados, informações de tempo de execução, como tempos de início e parada, mensagens de log e status de execução. Você pode observar qualquer uma dessas execuções a qualquer momento para examinar o cronograma de seu teste e os resultados intermediários. Você pode até usar uma execução anterior de seu teste para fazer a inicialização em uma nova fase de consulta e descoberta em seu caminho para criar soluções simples, complexas ou até mesmo de modelagem conjunta.
+Você pode examinar as execuções anteriores de suas experiências a qualquer momento na ordem toochallenge, revisitar e, por fim, confirme ou refinar suposições anteriores. Quando você executa um teste, o estúdio de aprendizado de máquina mantém um histórico dos Olá executar, incluindo o conjunto de dados, o módulo e conexões de porta e parâmetros. Esse histórico também captura resultados, informações de tempo de execução, como tempos de início e parada, mensagens de log e status de execução. Você pode examinar novamente qualquer uma dessas execuções em qualquer ordem cronológica a saudação tempo tooreview de sua experiência e os resultados intermediários. Você pode até usar uma execução anterior toolaunch sua experiência em uma nova fase da consulta e a descoberta em seu caminho toocreating simples, complexos ou até mesmo de ensemble soluções de modelagem.
 
 > [!NOTE]
-> Quando você exibe uma execução anterior de um teste, essa versão do teste está bloqueada e não pode ser editada. No entanto, você pode salvar uma cópia dele clicando em **SALVAR COMO** e fornecendo um novo nome para a cópia. O Machine Learning Studio abre a nova cópia, que você pode editar e executar. Esta cópia do seu teste está disponível na lista **TESTES** junto com todos os seus testes.
+> Quando você exibir uma execução anterior de um experimento, essa versão do experimento hello está bloqueado e não pode ser editado. No entanto, você pode salvar uma cópia dele clicando **Salvar como** e fornecendo um novo nome para a cópia de saudação. O estúdio de aprendizado de máquina abre Olá nova cópia, o que você pode editar e executar. Esta cópia do seu teste está disponível no hello **experiências** lista juntamente com todas as suas experiências.
 > 
 > 
 
-## <a name="viewing-the-prior-run"></a>Exibindo a execução anterior
-Quando tiver um teste aberto que você tenha executado pelo menos uma vez, você pode exibir a execução anterior do teste clicando em **Execução anterior** no painel Propriedades.
+## <a name="viewing-hello-prior-run"></a>Exibindo Olá executar anterior
+Quando você abriu um experimento que você tiver executado pelo menos uma vez, você pode exibir hello anterior a execução de teste de saudação clicando **anteriores executar** no painel de propriedades de saudação.
 
-Por exemplo, suponha que você crie um teste e execute versões dele às 11h23 11h42 e 11h55. Se você abrir a última execução do teste (11h55) e clicar em **Execução anterior**, a versão que você executou às 11h42 será aberta.
+Por exemplo, suponha que você crie um teste e execute versões dele às 11h23 11h42 e 11h55. Se você abrir a última execução de saudação do experimento hello (11:55) e clique em **anteriores executar**, versão Olá executou em 11:42 é aberto.
 
-## <a name="viewing-the-run-history"></a>Exibindo o Histórico de execução
-Você pode exibir todas as execuções anteriores de um teste clicando em **Exibir Histórico de execução** em um teste aberto.
+## <a name="viewing-hello-run-history"></a>Olá exibindo histórico de execução
+Você pode exibir todas as execuções de saudação anterior de um experimento clicando **exibir o histórico de execução** em um experimento aberto.
 
-Por exemplo, suponha que você crie um teste com o módulo [Regressão Linear][linear-regression] e queira observar o efeito da alteração no valor da **Taxa de aprendizado** em seus resultados do teste. Você executa o teste várias vezes com valores diferentes para esse parâmetro, conforme segue:
+Por exemplo, suponha que você crie uma experiência com hello [Regressão Linear] [ linear-regression] módulo e você desejar tooobserve efeito de saudação de alterar o valor de saudação do **taxa de aprendizagem** em os resultados de teste. Você executar Olá teste várias vezes com valores diferentes para esse parâmetro, da seguinte maneira:
 
 | Valor da Taxa de aprendizado | Hora de início da execução |
 | --- | --- |
@@ -53,29 +53,29 @@ Se clicar em **EXIBIR O HISTÓRICO DE EXECUÇÃO**, você verá uma lista de tod
 
 ![Exemplo de histórico de execução][runhistory]
 
-Clique em qualquer uma dessas execuções para exibir um instantâneo do teste no momento em que você o executou. A configuração, os valores de parâmetro, comentários e resultados são preservados para que você tenha um registro completo da execução do seu teste.
+Clique em qualquer um desses tooview executa um instantâneo de saudação experiências em tempo de saudação você executou. Hello configuração, os valores de parâmetro, comentários e resultados são todos preservado toogive é um registro completo de executados de sua experiência.
 
 > [!TIP]
-> Para documentar suas iterações do teste, você pode modificar o título cada vez que executá-lo, pode atualizar o **Resumo** do teste no painel de propriedades e pode adicionar ou atualizar os comentários em módulos individuais para registrar as alterações. Os comentários do título, do resumo e do módulo são salvos com cada execução do teste.
+> toodocument seu iterações de teste hello, você pode modificar Olá título cada vez que você executá-lo, você pode atualizar Olá **resumo** de saudação experimentar no painel de propriedades Olá, e você pode adicionar ou atualizar os comentários em módulos individuais toorecord suas alterações. comentários de título, o resumo e o módulo de saudação são salvos com cada execução de teste de saudação.
 > 
 > 
 
-A lista de testes na guia **TESTES** no Machine Learning Studio sempre exibe a versão mais recente de um teste. Se abrir uma execução anterior do teste (usando **Execução anterior** ou **EXIBIR O HISTÓRICO DE EXECUÇÃO**), você pode retornar para a versão de rascunho, clicando em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e selecionando a iteração que tem um **ESTADO** **Editável**.
+lista de saudação de experiências na Olá **experiências** guia no estúdio de aprendizado de máquina sempre exibe a versão mais recente de saudação de um experimento. Se você abrir uma execução anterior do experimento hello (usando **anteriores executar** ou **exibir o histórico de execução**), você pode retornar a versão de rascunho toohello clicando **exibir o histórico de execução** e selecionando Olá iteração que tem um **estado** de **editável**.
 
 ## <a name="iterating-on-a-previous-run"></a>Iterando sobre uma Execução anterior
 Quando clicar em **Execução anterior** ou em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e abrir uma execução anterior, você poderá exibir um teste concluído no modo somente leitura.
 
-Se quiser iniciar uma iteração de seu teste começando com o modo como você o configurou para uma execução anterior, você pode fazer isso abrindo a execução e clicando em **SALVAR COMO**. Isso cria um novo teste, com um novo título, um histórico de execução vazio e todos os componentes e os valores de parâmetro de versões anteriores. Esse novo teste é listado na guia **TESTES** na home page do Machine Learning Studio e você pode modificá-lo e executá-lo, iniciando um novo histórico de execução para essa iteração do seu teste. 
+Se você quiser toobegin uma iteração de sua experiência, começando com a forma de saudação configurado para uma execução anterior, você pode fazer isso abrindo Olá executar e clicando em **Salvar como**. Isso cria um novo teste, com um novo título, um histórico de execução vazio e todos os componentes de saudação e valores de parâmetro de saudação anterior executar. Esse novo teste é listado na Olá **experiências** guia na home page do hello estúdio de aprendizado de máquina e você pode modificar e histórico para essa iteração de sua experiência de executá-lo, iniciando uma nova execução. 
 
-Por exemplo, suponha que você tenha o teste executando o histórico mostrado na seção anterior. Você deseja observar o que acontece quando define o parâmetro **Taxa de aprendizagem** para 0,4 e testa valores diferentes para o parâmetro **Número de épocas de treinamento**.
+Por exemplo, suponha que você tiver experiência Olá mostrado na seção anterior de saudação do histórico de execução. Você deseja tooobserve o que acontece quando você definir Olá **taxa de aprendizagem** too0.4 de parâmetro e tente diferentes valores para Olá **número de épocas de treinamento** parâmetro.
 
-1. Clique em **EXIBIR O HISTÓRICO DE EXECUÇÃO** e abra a iteração do teste que você executou às 16h28min36s (no qual você definiu o valor do parâmetro para 0,4).
+1. Clique em **exibir o histórico de execução** e abra a iteração de saudação do experimento Olá executado às 4:28:36 (no qual você define Olá too0.4 de valor de parâmetro).
 2. Clique em **SALVAR COMO**.
-3. Digite um novo título e clique na marca de seleção **OK** . É criada uma nova cópia do teste.
-4. Modifique o parâmetro **Número de épocas de treinamento** .
+3. Digite um novo título e clique em Olá **Okey** marca de seleção. Uma nova cópia do experimento Olá é criada.
+4. Modificar Olá **número de épocas de treinamento** parâmetro.
 5. Clique em **EXECUTAR**.
 
-Agora você pode continuar a modificar e executar esta versão do seu teste, criando um novo histórico de execução para registrar o seu trabalho.
+Agora você pode continuar toomodify e executar essa versão de sua experiência, criando um novo toorecord de histórico de execução de seu trabalho.
 
 <!-- Images -->
 [runhistory]:./media/machine-learning-manage-experiment-iterations/viewrunhistory.jpg

@@ -1,6 +1,6 @@
 ---
-title: "Monitorar hubs de superfície com o Azure Log Analytics | Microsoft Docs"
-description: "Use a solução Surface Hubs para controlar a integridade dos seus Hubs de superfície e compreender como eles estão sendo usados."
+title: "aaaMonitor Surface hub com análise de logs do Azure | Microsoft Docs"
+description: "Usar a saudação Surface Hub solução tootrack Olá integridade de seus Hubs de superfície e entender como eles estão sendo usados."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,76 +15,76 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6ecd0d09589fec85c1633f528afc1165c346b7f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 623d30e749cafdd4a34ba0c5b3408164f1b4a95b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorar Surface Hubs com o Log Analytics para acompanhar sua integridade
+# <a name="monitor-surface-hubs-with-log-analytics-tootrack-their-health"></a>Monitore Surface hub com análise de Log tootrack sua integridade
 
 ![Símbolo do Surface Hub](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
 
-Este artigo descreve como você pode usar a solução Surface Hub no Log Analytics para monitorar dispositivos do Microsoft Surface Hubs com o Microsoft Operations Management Suite (OMS). O Log Analytics o ajuda a controlar a integridade dos seus Surface Hubs além de compreender como eles estão sendo usados.
+Este artigo descreve como você pode usar o hello solução Surface Hub em dispositivos de Microsoft Surface Hub toomonitor análise de Log com hello Microsoft Operations Management Suite (OMS). Faça a análise ajuda a que acompanhar integridade Olá seus hubs de superfície, bem como entender como eles estão sendo usados.
 
-Cada Surface Hub tem o Microsoft Monitoring Agent instalado. É por meio do agente que você pode enviar dados do seu Surface Hub para o OMS. Os arquivos de log são lidos a partir de seus Surface Hubs e são, em seguida, enviados para o serviço OMS. Problemas como servidores offline, o calendário não está sincronizando, ou se a conta do dispositivo não puder fazer logon no Skype são mostrados no OMS no painel do Surface Hub. Ao usar os dados no painel, você pode identificar os dispositivos que não estão em execução ou que têm outros problemas e, potencialmente, aplicar correções para os problemas detectados.
+Cada Surface Hub tem Olá que Microsoft Monitoring Agent instalado. O agente de saudação que você pode enviar dados de sua tooOMS Surface Hub. Arquivos de log são lidos a partir de sua superfície Hubs e são, em seguida, são enviados toohello serviço do OMS. Problemas como servidores offline, Olá calendário não está sincronizando ou conta de saudação do dispositivo é toolog não é possível para o Skype são mostrados no OMS no painel do hello Surface Hub. Usando dados de saudação no painel de saudação, você pode identificar dispositivos que não estão em execução, ou que têm outros problemas e potencialmente aplicar correções para problemas de saudação detectado.
 
-## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
-Use as informações a seguir para instalar e configurar a solução. Para gerenciar os Surface Hubs do Microsoft Operations Management Suite (OMS), você precisará do seguinte:
+## <a name="installing-and-configuring-hello-solution"></a>Instalando e configurando a solução Olá
+Use Olá tooinstall informações a seguir e configurar a solução de saudação. Em ordem toomanage seus Hubs de superfície da saudação Microsoft Operations Management Suite (OMS), você precisará Olá a seguir:
 
-* Uma assinatura válida para o [OMS](http://www.microsoft.com/oms).
-* Um nível de [assinatura do OMS](https://azure.microsoft.com/pricing/details/log-analytics/) que dará suporte ao número de dispositivos que você deseja monitorar. Os preços do OMS variam dependendo de quantos dispositivos estão registrados e a quantidade de dados que ele processa. Convém levar isso em consideração ao planejar a distribuição do Surface Hub.
+* Uma assinatura válida muito[OMS](http://www.microsoft.com/oms).
+* Um [assinatura OMS](https://azure.microsoft.com/pricing/details/log-analytics/) nível que darão suporte a saudação número de dispositivos que você deseja toomonitor. Os preços do OMS variam dependendo de quantos dispositivos estão registrados e a quantidade de dados que ele processa. Você vai querer tootake isso em consideração ao planejar a distribuição de Surface Hub.
 
-Em seguida, você adicionará uma assinatura do OMS à sua assinatura do Microsoft Azure existente ou criará um novo espaço de trabalho diretamente através do portal do OMS. Instruções detalhadas para usar o método podem ser encontradas em [Introdução ao Log Analytics](log-analytics-get-started.md). Depois que a assinatura do OMS estiver configurada, há duas maneiras de registrar seus dispositivos do Surface Hub:
+Em seguida, você irá adicionar uma assinatura Microsoft Azure existente do OMS assinatura tooyour ou criar um novo espaço de trabalho diretamente por meio do portal do OMS hello. Instruções detalhadas para usar o método podem ser encontradas em [Introdução ao Log Analytics](log-analytics-get-started.md). Depois do hello assinatura do OMS é, há tooenroll de duas maneiras dos dispositivos Surface Hub:
 
 * Automaticamente por meio do Intune
 * Manualmente por meio das **configurações** em seu dispositivo do Surface Hub.
 
 ## <a name="set-up-monitoring"></a>Configurar monitoramento
-Você pode monitorar a integridade e a atividade do seu Surface Hub usando o Log Analytics no OMS. Você pode registrar o Surface Hub no OMS usando o Intune ou localmente usando as **Configurações** no Surface Hub.
+Você pode monitorar a integridade de saudação e atividade do seu Hub de superfície usando a análise de Log no OMS. Você pode registrar Olá Surface Hub no OMS usando o Intune ou localmente usando **configurações** em Olá Surface Hub.
 
-## <a name="connect-surface-hubs-to-oms-through-intune"></a>Conectar Surface Hubs ao OMS através do Intune
-Será necessário o ID do espaço de trabalho e a chave do espaço de trabalho para o espaço de trabalho do OMS que gerenciará os Surface Hubs. Você pode obtê-los no portal do OMS.
+## <a name="connect-surface-hubs-toooms-through-intune"></a>Conectar Hubs superfície tooOMS por meio do Intune
+Você vai precisar Olá ID do espaço de trabalho e a chave de espaço de trabalho espaço de trabalho do OMS Olá que irão gerenciar seus Hubs de superfície. Você pode obter do portal do OMS hello.
 
-O Intune é um produto da Microsoft que permite que você gerencie centralmente as definições de configuração do OMS que são aplicadas a um ou mais dos seus dispositivos. Siga estas etapas para configurar seus dispositivos por meio do Intune:
+Intune é um produto da Microsoft que permite que você toocentrally gerenciar definições de configuração do OMS Olá são aplicada tooone ou mais dos seus dispositivos. Siga estas etapas tooconfigure seus dispositivos por meio do Intune:
 
-1. Entre no Intune.
-2. Navegue até **configurações** > **Fontes conectadas**.
-3. Criar ou editar uma política com base no modelo de Surface Hub.
-4. Navegue até a seção OMS (Insights operacionais do Azure) da política e adicione o *ID do espaço de trabalho* e a *Chave do espaço de trabalho* à política.
-5. Salve a política.
-6. Associe a política ao grupo de dispositivos apropriado.
+1. Entrar tooIntune.
+2. Navegue muito**configurações** > **fontes conectadas**.
+3. Criar ou editar uma política com base no modelo do hello Surface Hub.
+4. Navegue toohello seção OMS (Insights operacionais) de diretiva de saudação e adicionar Olá *ID do espaço de trabalho* e *chave do espaço de trabalho* toohello política.
+5. Salve a política de saudação.
+6. Associe a política de saudação com o grupo de dispositivos apropriado hello.
 
    ![Política do Intune](./media/log-analytics-surface-hubs/intune.png)
 
-O Intune então sincroniza as configurações do OMS com os dispositivos no grupo de destino, registrando-os em seu espaço de trabalho do OMS.
+Intune é sincronizado, em seguida, configurações do OMS Olá com dispositivos de saudação do grupo-alvo hello, registrá-los em seu espaço de trabalho do OMS.
 
-## <a name="connect-surface-hubs-to-oms-using-the-settings-app"></a>Conectar Surface Hubs ao OMS usando o aplicativo de configurações
-Será necessário o ID do espaço de trabalho e a chave do espaço de trabalho para o espaço de trabalho do OMS que gerenciará os Surface Hubs. Você pode obtê-los no portal do OMS.
+## <a name="connect-surface-hubs-toooms-using-hello-settings-app"></a>Conectar Hubs superfície tooOMS usando o aplicativo de configurações de saudação
+Você vai precisar Olá ID do espaço de trabalho e a chave de espaço de trabalho espaço de trabalho do OMS Olá que irão gerenciar seus Hubs de superfície. Você pode obter do portal do OMS hello.
 
-Se você não usar o Intune para gerenciar seu ambiente, poderá registrar dispositivos manualmente por meio das **Configurações** em cada Surface Hub:
+Se você não usar o Intune toomanage seu ambiente, você pode registrar manualmente por meio de dispositivos **configurações** em cada Surface Hub:
 
 1. No seu Surface Hub, abra **Configurações**.
-2. Insira as credenciais de administrador do dispositivo quando solicitado.
-3. Clique em **Este dispositivo** e, em **Monitoramento**, clique em **Configurar definições do OMS**.
+2. Insira as credenciais de administrador de dispositivo hello quando solicitado.
+3. Clique em **este dispositivo**e Olá em **monitoramento**, clique em **definir configurações de OMS**.
 4. Selecione **Habilitar monitoramento**.
-5. Na caixa de diálogo Configurações do OMS, digite o **ID do espaço de trabalho** e digite a **Chave do espaço de trabalho**.  
+5. No diálogo de configurações do OMS hello, digite Olá **ID do espaço de trabalho** e tipo hello **chave do espaço de trabalho**.  
    ![configurações](./media/log-analytics-surface-hubs/settings.png)
-6. Clique em **OK** para concluir a configuração.
+6. Clique em **Okey** toocomplete configuração de saudação.
 
-Uma confirmação será exibida informando se a configuração do OMS foi aplicada ou não com êxito ao dispositivo. Se foi, uma mensagem será exibida informando que o agente foi conectado com êxito ao serviço do OMS. O dispositivo começará a enviar dados ao OMS, onde você pode exibi-lo e trabalhar com ele.
+Uma confirmação será exibida informando se Olá configuração OMS foi iniciado com êxito aplicado toohello dispositivo. Se ela foi, aparecerá uma mensagem informando que o agente de saudação conectado com êxito o serviço OMS toohello. dispositivo Hello, em seguida, começa a enviar dados tooOMS onde você pode exibir e agir sobre ele.
 
 ## <a name="monitor-surface-hubs"></a>Monitorar Surface Hubs
 Monitorar os Surface Hubs usando o OMS é muito parecido com o monitoramento de todos os outros dispositivos registrados.
 
-1. Entrar no portal do OMS.
-2. Navegue até o painel do pacote de solução do Surface Hub.
+1. Entrar toohello portal do OMS.
+2. Navegue dashboard do pacote de solução toohello Surface Hub.
 3. A integridade do dispositivo é exibida.
 
    ![Painel do Surface Hub](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-Você pode criar [alertas](log-analytics-alerts.md) com base em pesquisas de log existentes ou personalizadas. Ao usar os dados que o OMS coleta de seu Surface Hubs, você pode procurar problemas e alertar sobre as condições que definir para seus dispositivos.
+Você pode criar [alertas](log-analytics-alerts.md) com base em pesquisas de log existentes ou personalizadas. Usando Olá Olá de dados que OMS coleta dos seus Hubs de superfície, você pode procurar problemas e alerta em condições de saudação que você define para seus dispositivos.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [Pesquisas de Log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados do Surface Hub.
-* Crie [alertas](log-analytics-alerts.md) para notificá-lo quando ocorrerem problemas com seus Surface Hubs.
+* Use [pesquisas de Log na análise de Log](log-analytics-log-searches.md) tooview informações detalhadas e Surface Hub.
+* Criar [alertas](log-analytics-alerts.md) toonotify quando ocorrem problemas com seu Surface hub.

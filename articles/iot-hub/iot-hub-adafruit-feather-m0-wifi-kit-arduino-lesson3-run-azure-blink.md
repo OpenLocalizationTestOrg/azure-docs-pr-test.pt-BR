@@ -1,12 +1,12 @@
 ---
-title: "Conectar o Arduino (C) ao IoT do Azure - Lição 3: executar exemplo | Microsoft Docs"
-description: Implante e execute um aplicativo de exemplo no Adafruit Feather M0 WiFi que envia mensagens ao Hub IoT e pisca o LED.
+title: "Connect Arduino (C) tooAzure IoT – lição 3: executar o exemplo | Microsoft Docs"
+description: "Implantar e executar um aplicativo de exemplo tooAdafruit difusão M0 Wi-Fi que envia o hub de IoT tooyour mensagens e pisca Olá LED."
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "serviço de nuvem iot, enviar dados para nuvem arduino"
+keywords: "serviço de nuvem de IOT arduino enviar dados toocloud"
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started
 ms.assetid: 92cce319-2b17-4c9b-889d-deac959e3e7c
@@ -17,64 +17,64 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 0c17fe74dbd78abca955f7789a1674ed6333367f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ddca015a3655f8a1a9de2a00e718ec0d28a5affb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="run-a-sample-application-to-send-device-to-cloud-messages"></a>Executar um aplicativo de exemplo para enviar mensagens do dispositivo para a nuvem
+# <a name="run-a-sample-application-toosend-device-to-cloud-messages"></a>Executar um toosend do aplicativo de exemplo mensagens de dispositivo para nuvem
 ## <a name="what-you-will-do"></a>O que você fará
-Este artigo mostrará como implantar e executar um aplicativo de exemplo em sua plava Adafruit Feather M0 WiFi Arduino que envia mensagens ao Hub IoT.
+Este artigo mostra como toodeploy e execute um aplicativo de exemplo no seu Arduino de Wi-Fi Adafruit difusão M0 placa envia mensagens tooyour IoT hub.
 
-Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].
+Se você tiver problemas, procure por soluções em Olá [página de solução][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
-Você aprenderá a usar a ferramenta gulp para implantar e executar o aplicativo Arduino de exemplo em sua placa Arduino.
+Você aprenderá como Olá toouse gulp toodeploy de ferramenta e execute o aplicativo de Arduino exemplo hello em seu quadro Arduino.
 
 ## <a name="what-you-need"></a>O que você precisa
-* Antes de iniciar essa tarefa, você precisa ter concluído com sucesso [Criar um aplicativo de funções e uma conta de armazenamento do Azure para processar e armazenar mensagens do Hub IoT][process-and-store-iot-hub-messages].
+* Antes de começar essa tarefa, você deve concluir com êxito [criar um aplicativo de função do Azure e um armazenamento conta tooprocess e o repositório de IoT hub mensagens][process-and-store-iot-hub-messages].
 
 ## <a name="get-your-iot-hub-and-device-connection-strings"></a>Obter as cadeias de conexão do dispositivo e do Hub IoT
-A cadeia de conexão do dispositivo é usada para conectar a placa Arduino ao Hub IoT. A cadeia de conexão do Hub IoT é usada para conectar o Hub IoT à identidade de dispositivo que representa a placa Arduino no Hub IoT.
+Olá a cadeia de caracteres de conexão de dispositivo é usado tooconnect seu hub de IoT tooyour Arduino quadro. cadeia de caracteres de conexão do Hello IoT hub é usado tooconnect sua identidade de dispositivo de toohello de hub IoT que representa o Arduino placa no hub IoT de saudação.
 
-* Liste todos os Hubs IoT no seu grupo de recursos executando o seguinte comando da CLI do Azure:
+* Liste todos os seus hubs de IoT em seu grupo de recursos executando Olá após o comando CLI do Azure:
 
 ```bash
 az iot hub list -g iot-sample --query [].name
 ```
 
-Use `iot-sample` como o valor de `{resource group name}` se não tiver alterado o valor.
+Use `iot-sample` como valor de saudação do `{resource group name}` se você não alterar o valor de saudação.
 
-* Obtenha a cadeia de conexão do hub IoT executando o seguinte comando da CLI do Azure:
+* Obter cadeia de caracteres de conexão do hello IoT hub executando Olá após o comando CLI do Azure:
 
 ```bash
 az iot hub show-connection-string --name {my hub name}
 ```
 
-`{my hub name}` é o nome que você especificou quando criou o Hub IoT e registrou a placa Arduino.
+`{my hub name}`é o nome de saudação que você especificou ao criar o hub IoT e registrado seu quadro Arduino.
 
-* Obtenha a cadeia de conexão do dispositivo executando o seguinte comando:
+* Obter cadeia de caracteres de conexão de dispositivo Olá executando Olá comando a seguir:
 
 ```bash
 az iot device show-connection-string --hub-name {my hub name} --device-id mym0wifi
 ```
 
-Use `mym0wifi` como o valor de `{device id}` se não tiver alterado o valor.
-## <a name="configure-the-device-connection"></a>Configurar a conexão do dispositivo
-Para configurar a conexão do dispositivo, siga estas etapas:
+Use `mym0wifi` como valor de saudação do `{device id}` se você não alterar o valor de saudação.
+## <a name="configure-hello-device-connection"></a>Configurar conexão do dispositivo Olá
+tooconfigure Olá conexão do dispositivo, siga estas etapas:
 
-1. Obter a porta serial do dispositivo com a CLI de descoberta de dispositivo:
+1. Obter a porta serial saudação do dispositivo Olá Olá CLI de descoberta do dispositivo:
 
    ```bash
    devdisco list --usb
    ```
 
-   Você deve ver uma saída semelhante à seguinte e encontrar a porta COM USB para sua placa Arduino:
+   Você deve ver uma saída que é a seguir toohello semelhante e encontrar hello usb porta COM para a sua placa Arduino:
 
    ![Descoberta de dispositivo][device-discovery]
 
-2. Abra o arquivo `config.json` na pasta da lição e adicione o valor do número da porta COM encontrado:
+2. Arquivo hello abrir `config.json` em Olá pasta lição e adicionar valor Olá Olá encontrado número da porta COM:
 
    ```json
    {
@@ -85,16 +85,16 @@ Para configurar a conexão do dispositivo, siga estas etapas:
    ![config.json][config-json]
 
    > [!NOTE]
-   > Para a porta COM, na plataforma Windows, ele tem o formato de `COM1, COM2, ...`. No macOS ou Ubuntu, começa com `/dev/`.
+   > Para a porta de saudação COM, na plataforma Windows, tem um formato de Olá `COM1, COM2, ...`. No macOS ou Ubuntu, começa com `/dev/`.
 
-3. Inicialize o arquivo de configuração executando os seguintes comandos:
+3. Inicialize o arquivo de configuração de saudação executando Olá comandos a seguir:
 
    ```bash
    npm install
    gulp init
    gulp install-tools
    ```
-4. Abra o arquivo de configuração `config-arduino.json` do dispositivo no Visual Studio Code executando o seguinte comando:
+4. Arquivo de configuração de dispositivo aberto Olá `config-arduino.json` no código do Visual Studio executando Olá comando a seguir:
 
    ```bash
    # For Windows command prompt
@@ -106,22 +106,22 @@ Para configurar a conexão do dispositivo, siga estas etapas:
 
    ![config-arduino.json][config-arduino-json]
 
-5. Faça as seguintes substituições no arquivo `config-arduino.json`:
+5. Verifique Olá substituições em Olá a seguir `config-arduino.json` arquivo:
 
-   * Substitua **[SSID Wi-Fi]** por seu SSID Wi-Fi conectado à Internet.
-   * Substitua **[senha Wi-Fi]** pela senha de Wi-Fi. Remova a cadeia de caracteres se o Wi-Fi não precisar de uma senha.
-   * Substitua **[cadeia de conexão do dispositivo IoT]** pelo `device connection string` que você obteve.
-   * Substitua **[cadeia de conexão do hub IoT]** pelo `iot hub connection string` que você obteve.
+   * Substituir **[Wi-Fi SSID]** com o seu SSID de Wi-Fi que conectado toohello da Internet.
+   * Substitua **[senha Wi-Fi]** pela senha de Wi-Fi. Remova cadeia de caracteres de saudação se o Wi-Fi não exigir uma senha.
+   * Substituir **[cadeia de conexão de dispositivo IoT]** com hello `device connection string` obtidas.
+   * Substituir **[cadeia de conexão de hub IoT]** com hello `iot hub connection string` obtidas.
 
    > [!NOTE]
    > Você não precisa do `azure_storage_connection_string` neste artigo. Mantenha como está.
 
-## <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
-Implante e execute o aplicativo de exemplo na sua placa do Arduino executando o seguinte comando:
+## <a name="deploy-and-run-hello-sample-application"></a>Implantar e executar o aplicativo de exemplo hello
+Implantar e executar o aplicativo de exemplo hello em seu quadro Arduino executando Olá comando a seguir:
 
 ```bash
 gulp run
-# You can monitor the serial port by running listen task:
+# You can monitor hello serial port by running listen task:
 gulp listen
 
 # Or you can combine above two gulp tasks into one:
@@ -129,15 +129,15 @@ gulp run --listen
 ```
 
 > [!NOTE]
-> A tarefa de gulp padrão executa as tarefas `install-tools` e `run` em sequência. Quando [implantou o aplicativo de piscar][deployed-the-blink-app], você executou estas tarefas separadamente.
+> Olá padrão gulp tarefa é executada `install-tools` e `run` em sequência de tarefas. Quando você [implantado Olá intermitência aplicativo][deployed-the-blink-app], você executou estas tarefas separadamente.
 
-## <a name="verify-that-the-sample-application-works"></a>Verificar se o aplicativo de exemplo funciona
-Você deve ver o LED do GPIO núm. 0 na placa piscando a cada dois segundos. Sempre que o LED pisca, o aplicativo de exemplo envia uma mensagem ao hub IoT e verifica se a mensagem foi enviada com êxito para o hub IoT. Além disso, cada mensagem recebida pelo Hub IoT é impressa na janela do console. O aplicativo de exemplo é encerrado automaticamente após o envio de 20 mensagens.
+## <a name="verify-that-hello-sample-application-works"></a>Verifique se o aplicativo de exemplo hello funciona
+Você deve ver o LED integrado de saudação GPIO #0 piscando cada dois segundos. Sempre Olá LED pisca, o aplicativo de exemplo hello envia um hub de IoT tooyour mensagem e verifica que essa mensagem de saudação enviada com êxito tooyour IoT hub. Além disso, cada mensagem recebida pelo hub IoT de saudação é impressa na janela de console hello. aplicativo de exemplo Hello encerra automaticamente após o envio de mensagens de 20.
 
 ![Exemplo de aplicativo com mensagens enviadas e recebidas][sample-application-with-sent-and-received-messages]
 
 ## <a name="summary"></a>Resumo
-Você implantou e executou o novo aplicativo de exemplo de piscar em sua placa Arduino para enviar mensagens do dispositivo para a nuvem para o hub IoT. Agora, você monitorara suas mensagens conforme elas são gravadas na conta de armazenamento.
+Você tiver implantado e execute o novo aplicativo de exemplo de intermitência Olá em seu hub IoT Arduino placa toosend mensagens de dispositivo para nuvem tooyour. Agora você monitorar suas mensagens como eles são gravados toohello conta de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Ler mensagens persistentes no Armazenamento do Azure][read-messages-persisted-in-azure-storage]

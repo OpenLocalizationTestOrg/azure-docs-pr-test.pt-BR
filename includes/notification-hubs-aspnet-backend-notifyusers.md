@@ -1,38 +1,38 @@
-## <a name="create-the-webapi-project"></a>Criar o projeto WebAPI
-Um novo back-end da API Web ASP.NET será criado nas seções a seguir e terá três objetivos principais:
+## <a name="create-hello-webapi-project"></a>Criar hello WebAPI projeto
+Um novo back-end ASP.NET WebAPI será criado em seções Olá a seguir e terá três objetivos principais:
 
-1. **Autenticar Clientes**: um manipulador de mensagens será adicionado posteriormente para autenticar solicitações de cliente e associar o usuário à solicitação.
-2. **Registros de Notificação do Cliente**: mais tarde, você adicionará um controlador para manipular novos registros para um dispositivo cliente receber notificações. O nome de usuário autenticado será automaticamente adicionado ao registro como uma [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Enviar notificações aos clientes**: posteriormente, você também adicionará um controlador para fornecer uma maneira para um usuário disparar um envio por push seguro para dispositivos e clientes associados à marca. 
+1. **Autenticação de clientes**: um manipulador de mensagens será adicionado posteriormente solicitações de cliente tooauthenticate e usuário Olá associado com a solicitação de saudação.
+2. **Registros de notificação do cliente**: mais tarde, você adicionará um controlador toohandle novos registros para notificações tooreceive um cliente. Olá nome de usuário autenticado será adicionado automaticamente toohello registro como um [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+3. **Enviar notificações tooClients**: posteriormente, você também adicionará uma tooprovide uma maneira de tootrigger um usuário um toodevices push segura do controlador e clientes associados Olá marca. 
 
-As etapas a seguir mostram como criar o novo back-end da API Web ASP.NET: 
+Olá, as etapas a seguir mostra como toocreate Olá novo ASP.NET WebAPI back-end: 
 
 > [!IMPORTANT]
-> Se você estiver usando o Visual Studio 2015 ou anterior, antes de iniciar este tutorial, instale a versão mais recente do Gerenciador de Pacotes NuGet. Para verificar, inicie o Visual Studio. No menu **Ferramentas**, clique em **Extensões e Atualizações**. Pesquise por **Gerenciador de Pacotes NuGet** para sua versão do Visual Studio, e verifique se versão mais recente está instalada. Se não tiver, desinstale o Gerenciador de Pacotes NuGet e instale-o novamente.
+> Se você estiver usando o Visual Studio 2015 ou anterior, antes de iniciar este tutorial, verifique se você instalou a versão mais recente de saudação do hello NuGet Package Manager. toocheck, iniciar o Visual Studio. De saudação **ferramentas** menu, clique em **extensões e atualizações**. Procurar **NuGet Package Manager** para sua versão do Visual Studio e verifique se você tem a versão mais recente do hello. Se não, desinstale e reinstale o hello NuGet Package Manager.
 > 
 > ![][B4]
 > 
 > [!NOTE]
-> Verifique se você instalou o [SDK do Azure](https://azure.microsoft.com/downloads/) do Visual Studio para implantação de site.
+> Verifique se você instalou Olá Visual Studio [SDK do Azure](https://azure.microsoft.com/downloads/) para implantação de site.
 > 
 > 
 
-1. Inicie o Visual Studio ou o Visual Studio Express. Clique em **Gerenciador de Servidores** e entre na sua conta do Azure. Será preciso que você se conecte para que o Visual Studio crie os recursos do site na sua conta.
-2. No Visual Studio, clique em **Arquivo**, clique em **Novo**, **Projeto**, expanda **Modelos**, **Visual C#** e clique em **Web** e em **Aplicativo Web ASP.NET**, digite o nome **AppBackend** e clique em **OK**. 
+1. Inicie o Visual Studio ou o Visual Studio Express. Clique em **Server Explorer** e entrar tooyour conta do Azure. O Visual Studio será necessário que entrou em recursos do site Olá toocreate em sua conta.
+2. No Visual Studio, clique em **arquivo**, em seguida, clique em **novo**, em seguida, **projeto**, expanda **modelos**, **Visual C#**, em seguida, clique em **Web** e **aplicativo Web ASP.NET**, o nome do tipo hello **AppBackend**e, em seguida, clique em **Okey**. 
    
     ![][B1]
-3. Na caixa de diálogo **Novo Projeto ASP.NET**, clique em **API Web** e, por último, clique em **OK**.
+3. Em Olá **novo projeto ASP.NET** caixa de diálogo, clique em **API da Web**, em seguida, clique em **Okey**.
    
     ![][B2]
-4. Na caixa de diálogo **Configurar o Aplicativo Web do Microsoft Azure**, escolha uma assinatura e um **Plano do Serviço de Aplicativo** que você já criou. Você também pode escolher **Criar um novo plano de serviço de aplicativo** e criá-lo na caixa de diálogo. Não é necessário um banco de dados para este tutorial. Depois que você tiver selecionado o seu plano de serviço de aplicativo, clique em **OK** para criar o projeto.
+4. Em Olá **configurar o aplicativo de Web do Microsoft Azure** caixa de diálogo, escolha uma assinatura e um **plano de serviço de aplicativo** você já tiver criado. Você também pode escolher **criar um novo plano de serviço de aplicativo** e criar uma caixa de diálogo de saudação. Não é necessário um banco de dados para este tutorial. Depois que você selecionou seu plano de serviço de aplicativo, clique em **Okey** toocreate projeto de saudação.
    
     ![][B5]
 
-## <a name="authenticating-clients-to-the-webapi-backend"></a>Autenticando clientes para o back-end de API da Web
-Nesta seção, você criará uma nova classe de manipulador de mensagens denominada **AuthenticationTestHandler** para o novo back-end. Essa classe é derivada de [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) e adicionada como um manipulador de mensagens para poder processar todas as solicitações que chegam ao back-end. 
+## <a name="authenticating-clients-toohello-webapi-backend"></a>Autenticar clientes toohello WebAPI Backend
+Nesta seção, você criará uma nova classe de manipulador de mensagem denominada **AuthenticationTestHandler** para Olá novo back-end. Essa classe é derivada de [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) e adicionado como um manipulador de mensagens para poder processar todas as solicitações que entram Olá back-end. 
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **AppBackend**, clique em **Adicionar**. Em seguida, clique em **Classe**. Nomeie a nova classe **AuthenticationTestHandler.cs** e clique em **Adicionar** para gerar a classe. Essa classe será utilizada para autenticar usuários com a *Autenticação Básica* para manter a simplicidade. Observe que seu aplicativo pode utilizar qualquer esquema de autenticação.
-2. Em AuthenticationTestHandler.cs, adicione as seguintes instruções `using`:
+1. No Gerenciador de soluções, clique com botão direito Olá **AppBackend** de projeto, clique em **adicionar**, em seguida, clique em **classe**. Nomeie a nova classe de saudação **AuthenticationTestHandler.cs**e clique em **adicionar** toogenerate classe de saudação. Essa classe será usado tooauthenticate usuários usando *autenticação básica* para manter a simplicidade. Observe que seu aplicativo pode utilizar qualquer esquema de autenticação.
+2. Em AuthenticationTestHandler.cs, adicione o seguinte Olá `using` instruções:
    
         using System.Net.Http;
         using System.Threading;
@@ -41,17 +41,17 @@ Nesta seção, você criará uma nova classe de manipulador de mensagens denomin
         using System.Text;
         using System.Threading.Tasks;
 
-3. Em AuthenticationTestHandler.cs, substitua a definição da classe `AuthenticationTestHandler` pelo código a seguir. 
+3. Em AuthenticationTestHandler.cs, substituindo Olá `AuthenticationTestHandler` definição da classe com hello código a seguir. 
    
-    Esse manipulador autorizará a solicitação quando as três seguintes condições forem verdadeiras:
+    Este manipulador autorizará solicitação hello quando Olá três condições a seguir forem verdadeira:
    
-   * A solicitação incluía um cabeçalho de *Autorização* . 
-   * A solicitação usa a autenticação *básica* . 
-   * A cadeia de caracteres de nome de usuário e a cadeia de caracteres de senha são iguais.
+   * solicitação de saudação incluída um *autorização* cabeçalho. 
+   * Olá solicitação usa *básica* autenticação. 
+   * cadeia de caracteres de nome de usuário Hello e cadeia de caracteres de senha Olá são Olá mesma cadeia de caracteres.
      
-     Caso contrário, a solicitação será rejeitada. Essa não é uma autenticação verdadeira e uma abordagem de autorização. É apenas um exemplo muito simples para este tutorial.
+     Caso contrário, Olá solicitação será rejeitada. Essa não é uma autenticação verdadeira e uma abordagem de autorização. É apenas um exemplo muito simples para este tutorial.
      
-     Se a mensagem de solicitação for autenticada e autorizada pelo `AuthenticationTestHandler`, em seguida, o usuário de autenticação básica será anexado à solicitação atual no [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). As informações do usuário no HttpContext serão usadas por outro controlador (RegisterController) posteriormente para adicionar uma [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx) à solicitação de registro de notificação.
+     Se a mensagem de solicitação de saudação é autenticada e autorizada pelo Olá `AuthenticationTestHandler`, usuário de autenticação básica hello serão toohello anexado a solicitação atual no hello [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Informações do usuário em Olá HttpContext serão usadas por outro controlador (RegisterController) tooadd posteriormente um [marca](https://msdn.microsoft.com/library/azure/dn530749.aspx) toohello solicitação de registro de notificação.
      
        public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
@@ -67,7 +67,7 @@ Nesta seção, você criará uma nova classe de manipulador de mensagens denomin
      
                    if (verifyUserAndPwd(user, password))
                    {
-                       // Attach the new principal object to the current HttpContext object
+                       // Attach hello new principal object toohello current HttpContext object
                        HttpContext.Current.User =
                            new GenericPrincipal(new GenericIdentity(user), new string[0]);
                        System.Threading.Thread.CurrentPrincipal =
@@ -96,29 +96,29 @@ Nesta seção, você criará uma nova classe de manipulador de mensagens denomin
        }
      
      > [!NOTE]
-     > **Nota de Segurança**: a classe `AuthenticationTestHandler` não oferece autenticação verdadeira. Ela é usada somente para imitar a autenticação básica e não é segura. Você deve implementar um mecanismo de autenticação seguro em seus aplicativos e serviços de produção.                
+     > **Observação de segurança**: Olá `AuthenticationTestHandler` classe não fornecerá autenticação true. Ele é usado toomimic somente a autenticação básica e não é seguro. Você deve implementar um mecanismo de autenticação seguro em seus aplicativos e serviços de produção.                
      > 
      > 
-4. Adicione o seguinte código ao final do método `Register` na classe **App_Start/WebApiConfig.cs** para registrar o manipulador de mensagens:
+4. Adicionar Olá após código final Olá Olá `Register` método hello **App_Start/WebApiConfig.cs** manipulador de mensagem de saudação de tooregister de classe:
    
         config.MessageHandlers.Add(new AuthenticationTestHandler());
 5. Salve suas alterações.
 
-## <a name="registering-for-notifications-using-the-webapi-backend"></a>Registrar-se nas Notificações usando o backup-end da API Web
-Nesta seção, adicionaremos um novo controlador ao back-end da API Web para manipular solicitações para registrar um usuário e um dispositivo para notificações usando a biblioteca de cliente dos hubs de notificação. O controlador adicionará uma marca de usuário ao usuário que foi autenticado e anexado a HttpContext pelo `AuthenticationTestHandler`. A marca terá o formato de cadeia de caracteres, `"username:<actual username>"`.
+## <a name="registering-for-notifications-using-hello-webapi-backend"></a>Se registrar para notificações usando Olá WebAPI Backend
+Nesta seção, vamos adicionar que um novo toohandle de back-end de WebAPI de toohello controlador solicitações tooregister um usuário e dispositivo para notificações usando a biblioteca de saudação do cliente para hubs de notificação. controlador Olá adicionará uma marca de usuário para usuário Olá que foi autenticada e anexados toohello HttpContext por Olá `AuthenticationTestHandler`. marca de saudação terá o formato de cadeia de caracteres hello, `"username:<actual username>"`.
 
-1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **AppBackend** e clique em **Gerenciar Pacotes NuGet**.
-2. No lado esquerdo, clique em **Online** e procure **Microsoft.Azure.NotificationHubs** na caixa **Pesquisar**.
-3. Na lista de resultados, clique em **Hubs de Notificação do Microsoft Azure** e, em seguida, clique em **Instalar**. Conclua a instalação e, por fim, feche a janela do gerenciador de pacotes NuGet.
+1. No Gerenciador de soluções, clique com botão direito Olá **AppBackend** do projeto e, em seguida, clique em **gerenciar pacotes NuGet**.
+2. No lado esquerdo do hello, clique em **Online**e procure **Microsoft.Azure.NotificationHubs** em Olá **pesquisa** caixa.
+3. Na lista de resultados de saudação, clique em **Hubs de notificação do Microsoft Azure**e, em seguida, clique em **instalar**. Concluir a instalação de saudação e fechar a janela do Gerenciador de pacote de NuGet de saudação.
    
-    Isso adiciona uma referência ao SDK dos Hubs de Notificação do Azure usando o <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacote NuGet Microsoft.Azure.Notification Hubs</a>.
-4. Agora criaremos um novo arquivo de classe que representa a conexão com o hub de notificação usado para enviar notificações. No Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Modelos**, clique em **Adicionar** e, em seguida, em **Classe**. Nomeie a nova classe como **Notifications.cs**, clique em **Adicionar** para gerar a classe. 
+    Isso adiciona um toohello Referência SDK de Hubs de notificação do Azure usando Olá <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pacote NuGet de Hubs Microsoft.Azure.Notification</a>.
+4. Agora, vamos criar um novo arquivo de classe que representa a conexão de saudação com notificação hub usado toosend notificações. Em Olá Gerenciador de soluções, clique com botão direito Olá **modelos** pasta, clique em **adicionar**, em seguida, clique em **classe**. Nomeie a nova classe de saudação **Notifications.cs**, em seguida, clique em **adicionar** toogenerate classe de saudação. 
    
     ![][B6]
-5. Em Notifications.cs, adicione a seguinte instrução `using` à parte superior do arquivo:
+5. Em Notifications.cs, adicione o seguinte Olá `using` instrução na parte superior de saudação do arquivo hello:
    
         using Microsoft.Azure.NotificationHubs;
-6. Substitua a definição da classe `Notifications` pelo seguinte e certifique-se de substituir os dois espaços reservados pela cadeia de conexão (com acesso completo) para o hub de notificação e o nome do hub (disponível no [Portal Clássico do Azure](http://manage.windowsazure.com)):
+6. Substituir saudação `Notifications` definição com os seguintes Olá da classe e os espaços reservados de saudação dois tooreplace-se com a cadeia de conexão hello (com acesso completo) para o hub de notificação e Olá nome do hub (disponível em [Portal clássico do Azure ](http://manage.windowsazure.com)):
    
         public class Notifications
         {
@@ -131,19 +131,19 @@ Nesta seção, adicionaremos um novo controlador ao back-end da API Web para man
                                                                              "<hub name>");
             }
         }
-7. Em seguida, criaremos um novo controlador, chamado **RegisterController**. No Gerenciador de Soluções, clique com o botão direito na pasta **Controladores**, depois em **Adicionar**, por fim clique em **Controlador**. Clique no item **Controlador de API Web 2 -- Vazio**, depois clique em **Adicionar**. Nomeie a nova classe **RegisterController**, em seguida clique em **Adicionar** novamente para gerar o controlador.
+7. Em seguida, criaremos um novo controlador, chamado **RegisterController**. No Gerenciador de soluções, clique com botão direito Olá **controladores** pasta, em seguida, clique em **adicionar**, em seguida, clique em **controlador**. Clique em Olá **controlador de 2 de API da Web – vazio** item e, em seguida, clique em **adicionar**. Nomeie a nova classe de saudação **RegisterController**e, em seguida, clique em **adicionar** controlador de saudação toogenerate novamente.
    
     ![][B7]
    
     ![][B8]
-8. Em RegisterController.cs, adicione as seguintes instruções `using` :
+8. Em RegisterController.cs, adicione o seguinte Olá `using` instruções:
    
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-9. Adicione o código a seguir à definição de classe `RegisterController` . Observe que, nesse código, adicionamos uma marca de usuário para o usuário anexado ao HttpContext. O usuário foi autenticado e anexado ao HttpContext pelo filtro de mensagens que adicionamos, `AuthenticationTestHandler`. Você também pode adicionar verificações opcionais para conferir se o usuário tem direitos para registro das tags requeridas.
+9. Adicionar Olá seguindo o código dentro de saudação `RegisterController` definição da classe. Observe que esse código, vamos adicionar uma marca de usuário para usuário Olá que isso é anexado toohello HttpContext. usuário Olá foi autenticado e conectado toohello HttpContext pelo filtro de mensagem de saudação adicionamos, `AuthenticationTestHandler`. Você também pode adicionar tooverify verificações opcional que Olá usuário tem direitos tooregister para Olá solicitado marcas.
    
         private NotificationHubClient hub;
    
@@ -190,7 +190,7 @@ Nesta seção, adicionaremos um novo controlador ao back-end da API Web para man
         }
    
         // PUT api/register/5
-        // This creates or updates a registration (with provided channelURI) at the specified id
+        // This creates or updates a registration (with provided channelURI) at hello specified id
         public async Task<HttpResponseMessage> Put(string id, DeviceRegistration deviceUpdate)
         {
             RegistrationDescription registration = null;
@@ -215,7 +215,7 @@ Nesta seção, adicionaremos um novo controlador ao back-end da API Web para man
             registration.RegistrationId = id;
             var username = HttpContext.Current.User.Identity.Name;
    
-            // add check if user is allowed to add these tags
+            // add check if user is allowed tooadd these tags
             registration.Tags = new HashSet<string>(deviceUpdate.Tags);
             registration.Tags.Add("username:" + username);
    
@@ -250,20 +250,20 @@ Nesta seção, adicionaremos um novo controlador ao back-end da API Web para man
         }
 10. Salve suas alterações.
 
-## <a name="sending-notifications-from-the-webapi-backend"></a>Enviando notificações do back-end da API Web
-Nesta seção, você adiciona um novo controlador que expõe uma maneira para dispositivos clientes enviarem uma notificação com base na marca de nome de usuário usando a Biblioteca de Gerenciamento de Serviços dos Hubs de Notificação do Azure no back-end da API Web no ASP.NET.
+## <a name="sending-notifications-from-hello-webapi-backend"></a>Enviar notificações de saudação WebAPI Backend
+Nesta seção, você adicionar um novo controlador que expõe uma maneira de dispositivos de cliente toosend uma notificação com base na marca de nome de usuário hello usando a biblioteca de gerenciamento de serviço do Azure notificação Hubs em Olá ASP.NET WebAPI back-end.
 
-1. Crie outro novo controlador chamado **NotificationsController**. Crie-o da mesma maneira como você criou o **RegisterController** na seção anterior.
-2. Em NotificationsController.cs, adicione as seguintes instruções `using` :
+1. Crie outro novo controlador chamado **NotificationsController**. Criá-lo Olá mesma maneira que você criou Olá **RegisterController** na seção anterior hello.
+2. Em NotificationsController.cs, adicione o seguinte Olá `using` instruções:
    
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-3. Adicione o método a seguir à classe **NotificationsController** .
+3. Adicionar Olá após o método toohello **NotificationsController** classe.
    
-    Esse código envia um tipo de notificação com base no parâmetro `pns` do PNS (Platform Notification Service). O valor de `to_tag` é usado para definir a marca *username* na mensagem. Essa marca deve corresponder a uma marca de nome de usuário de um registro de hub de notificação ativo. A mensagem de notificação é recuperada do corpo da solicitação POST e formatada para o PNS de destino. 
+    Esse código enviar um tipo de notificação com base em Olá serviço de notificação de plataforma (PNS) `pns` parâmetro. Olá valor `to_tag` é usado tooset hello *username* marca na mensagem de saudação. Essa marca deve corresponder a uma marca de nome de usuário de um registro de hub de notificação ativo. mensagem de notificação de saudação é extraída de corpo de saudação de solicitação POST hello e formatada para o destino de saudação PNS. 
    
-    Dependendo do PNS (Serviço de Notificação de Plataforma) que seus dispositivos com suporte usam para receber notificações, diferentes notificações têm suporte usando diferentes formatos. Por exemplo, em dispositivos do Windows, você pode usar uma [notificação do sistema com WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) à qual um outro PNS não dá suporte diretamente. Então, o back-end precisaria formatar a notificação em uma notificação com suporte para o PNS de dispositivos para os quais que você planeja dar suporte. Em seguida, use a API de envio apropriada na [classe NotificationHubClient](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    Dependendo Olá plataforma notificação PNS (serviço) que seus dispositivos com suporte usam notificações tooreceive, notificações diferentes têm suporte usando formatos diferentes. Por exemplo, em dispositivos do Windows, você pode usar uma [notificação do sistema com WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) à qual um outro PNS não dá suporte diretamente. Para que seu back-end precisem tooformat notificação de saudação em uma notificação com suporte para Olá PNS de dispositivos, você planejar toosupport. Use Olá envio apropriado API no hello [NotificationHubClient classe](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -306,20 +306,20 @@ Nesta seção, você adiciona um novo controlador que expõe uma maneira para di
    
             return Request.CreateResponse(ret);
         }
-4. Pressione **F5** para executar o aplicativo e garantir a precisão de seu trabalho até aqui. O aplicativo deve inicializar um navegador da Web e exibir a página inicial ASP.NET. 
+4. Pressione **F5** toorun Olá aplicativo e tooensure Olá precisão de seu trabalho até o momento. aplicativo Hello deve iniciar um navegador da web e exibir hello ASP.NET home page. 
 
-## <a name="publish-the-new-webapi-backend"></a>Publicar o novo back-end da API Web
-1. Agora, implantaremos esse aplicativo em um Site do Azure para torná-lo acessível de todos os dispositivos. Clique com o botão direito do mouse no projeto **AppBackend** e selecione **Publicar**.
-2. Escolha **Serviço de Aplicativo do Microsoft Azure** como destino de publicação e clique em **Publicar**. Isso abre a caixa de diálogo Criar Serviço de Aplicativo, o que ajuda a criar todos os recursos do Azure necessários para executar seu aplicativo Web ASP.NET no Azure.
+## <a name="publish-hello-new-webapi-backend"></a>Publicar Olá novo WebAPI Backend
+1. Agora podemos implantará essa tooan aplicativo site do Azure em ordem toomake-lo acessível de todos os dispositivos. Clique duas vezes em Olá **AppBackend** do projeto e selecione **publicar**.
+2. Escolha **Serviço de Aplicativo do Microsoft Azure** como destino de publicação e clique em **Publicar**. Isso abre a saudação do serviço de aplicativo criar caixa de diálogo, que ajuda você a criar todos os Olá recursos do Azure necessários toorun Olá ASP.NET web aplicativo no Azure.
 
     ![][B15]
-3. Na caixa de diálogo **Criar Serviço de Aplicativo**, selecione sua conta do Azure. Clique em **Alterar Tipo** e selecione **Aplicativo Web**. Mantenha o **Nome do Aplicativo Web** fornecido e selecione a **Assinatura**, **Grupo de Recursos** e **Plano do Serviço de Aplicativo**.  Clique em **Criar**.
+3. Em Olá **criar serviço de aplicativo** caixa de diálogo, selecione sua conta do Azure. Clique em **Alterar Tipo** e selecione **Aplicativo Web**. Lembre-Olá **nome do aplicativo Web** Olá fornecida e selecione **assinatura**, **grupo de recursos**, e **plano do serviço de aplicativo**.  Clique em **Criar**.
 
-4. Anote a propriedade **URL do Site** na seção **Resumo**. Iremos nos referir a essa URL, posteriormente neste tutorial, como seu *ponto de extremidade de back-end* . Clique em **Publicar**.
+4. Anote Olá **URL do Site** propriedade Olá **resumo** seção. Chamaremos toothis URL como o *ponto de extremidade de back-end* posteriormente neste tutorial. Clique em **Publicar**.
 
-5. Depois que o assistente é concluído, ele publica o aplicativo Web ASP.NET no Azure e, em seguida, inicia o aplicativo no navegador padrão.  Seu aplicativo poderá ser exibido nos Serviços de Aplicativo do Azure.
+5. Após a conclusão do assistente Olá, ela publica Olá ASP.NET web aplicativo tooAzure e, em seguida, inicia Olá aplicativo no navegador padrão de saudação.  Seu aplicativo poderá ser exibido nos Serviços de Aplicativo do Azure.
 
-A URL usa o nome do aplicativo Web especificado anteriormente, com o formato http://<app_name>.azurewebsites.net.
+Olá URL usa o nome do aplicativo web hello que você especificou anteriormente, com hello formato http://<app_name>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png

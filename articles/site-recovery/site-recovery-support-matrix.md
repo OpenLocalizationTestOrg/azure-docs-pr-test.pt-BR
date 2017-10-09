@@ -1,6 +1,6 @@
 ---
-title: Matriz de suporte do Azure Site Recovery | Microsoft Docs
-description: Resume os sistemas operacionais e componentes com suporte para o Azure Site Recovery
+title: "matriz de suporte de recuperação de Site aaaAzure | Microsoft Docs"
+description: "Resume os componentes e sistemas operacionais de saudação com suporte do Azure Site Recovery"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -16,12 +16,12 @@ ms.date: 03/27/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: site-recovery-support-matrix-to-azure
-ms.openlocfilehash: ed6f8488bf784cd79b70dc4dea63a38d8c6a0f50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a067b2baa141ce44a2c65d50ad22780fe0dca37e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-site-recovery-support-matrix"></a>Matriz de suporte do Azure Site Recovery
 
-Este artigo resume os sistemas operacionais e componentes com suporte para do Azure Site Recovery. Uma lista de componentes e pré-requisitos com suporte está disponível para cada cenário de implantação em cada artigo de implantação correspondente, e este documento os resume.
+Este artigo resume os sistemas operacionais e componentes com suporte para do Azure Site Recovery. Uma lista de componentes com suporte e os pré-requisitos está disponível para cada cenário de implantação em cada artigo de implantação Olá correspondente, e este documento resume-los.

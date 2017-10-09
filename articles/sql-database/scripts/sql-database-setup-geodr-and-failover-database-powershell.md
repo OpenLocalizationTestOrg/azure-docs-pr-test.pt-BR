@@ -1,6 +1,6 @@
 ---
-title: "Exemplo do PowerShell para replicação geográfica ativa individual do Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Script de exemplo do Azure PowerShell para configurar uma replicação geográfica ativa para um banco de dados SQL individual do Azure"
+title: "aaaPowerShell ativo de exemplo geo-replication-único banco de dados SQL do Azure | Microsoft Docs"
+description: "Azure tooset do script de exemplo do PowerShell a replicação geográfica ativa para um único banco de dados do SQL Azure"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: b25bc02acda7905cd4c08bbafee1d9b29907d332
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9ad424d313a5aa96e31b50a1a39c71fd346a7ae9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>Usar o PowerShell para configurar a replicação geográfica ativa para um banco de dados SQL individual do Azure
+# <a name="use-powershell-tooconfigure-active-geo-replication-for-a-single-azure-sql-database"></a>Use o PowerShell tooconfigure a replicação geográfica ativa para um único banco de dados do SQL Azure
 
-Este exemplo de script do PowerShell configura a replicação geográfica ativa para um banco de dados SQL individual do Azure e faz o failover para uma réplica secundária do banco de dados SQL do Azure.
+Este exemplo de script do PowerShell configura a replicação geográfica ativa para um único banco de dados do SQL Azure e ele failover tooa a réplica secundária do banco de dados do SQL Azure hello.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>Exemplos de scripts
 
-[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1?highlight=17-20 "Configurar a replicação geográfica ativa para o banco de dados individual")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database.ps1?highlight=17-20 "Set up active geo-replication for single database")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
-Após executar o exemplo de script, o comando a seguir pode ser usado para remover o grupo de recursos e todos os recursos associados a ele.
+Após a execução do exemplo de script hello, Olá comando a seguir pode ser usado tooremove grupo de recursos de saudação e todos os recursos associados a ele.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
@@ -43,7 +43,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 
 ## <a name="script-explanation"></a>Explicação sobre o script
 
-Este script usa os seguintes comandos. Cada comando na tabela redireciona para a documentação específica do comando.
+Esse script usa Olá comandos a seguir. Cada comando na documentação específica do toocommand Olá tabela links.
 
 | Command | Observações |
 |---|---|
@@ -53,14 +53,14 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Atualiza as propriedades do banco de dados ou move um banco de dados para dentro, para fora entre pools elásticos. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Cria um banco de dados secundário para um banco de dados existente e inicia a replicação de dados. |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| Obtém um ou mais bancos de dados. |
-| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| Alterna um banco de dados secundário para primário a fim de iniciar o failover.|
-| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Obtém os links de replicação geográfica entre um Banco de Dados SQL do Azure e um grupo de recursos ou do SQL Server. |
-| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Encerra uma replicação de dados entre um Banco de Dados SQL e o banco de dados secundário especificado. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| Alterna um failover do banco de dados secundário toobe tooinitiate primário.|
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Obtém os links de replicação geográfica Olá entre um banco de dados do SQL Azure e um grupo de recursos ou do SQL Server. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Encerra a replicação de dados entre um banco de dados SQL e Olá secundário banco de dados especificado. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 |||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
+Para obter mais informações sobre hello Azure PowerShell, consulte [documentação do Azure PowerShell](/powershell/azure/overview).
 
-Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser encontrados nos [scripts do PowerShell do Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).
+Exemplos de script do PowerShell do banco de dados SQL adicionais podem ser encontrados no hello [scripts de banco de dados do SQL Azure PowerShell](../sql-database-powershell-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: "Carregar dados em ambientes de armazenamento do Azure para análise | Microsoft Docs"
-description: Mover dados de e para o Armazenamento de Blobs do Azure
+title: "dados aaaLoad em ambientes de armazenamento do Azure para análise | Microsoft Docs"
+description: Mover dados tooand do armazenamento de BLOBs do Azure
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.openlocfilehash: 7fbf3bfedca8fa57a5e9428c9399558992b4acbd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0fea2290991f9fa63d9e46c3a657000e27d95289
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Carregar dados em ambientes de armazenamento para análise
-O Processo de Ciência de Dados de Equipe exige que os dados sejam incluídos ou carregados em uma variedade de ambientes de armazenamento diferentes para serem processados ou analisados da maneira mais apropriada em cada estágio do processo. Os destinos de dados geralmente usados para processamento incluem Armazenamento de Blobs do Azure, bancos de dados do SQL Azure, SQL Server na VM do Azure, HDInsight (Hadoop) e Azure Machine Learning. 
+Olá, equipe de processo de ciência de dados exige que dados ser incluídos ou carregados em uma variedade de armazenamento diferentes ambientes toobe processado ou analisados de forma mais apropriada do hello em cada estágio do processo de saudação. Os destinos de dados geralmente usados para processamento incluem Armazenamento de Blobs do Azure, bancos de dados do SQL Azure, SQL Server na VM do Azure, HDInsight (Hadoop) e Azure Machine Learning. 
 
 [!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
-Esse **menu** liga os tópicos que descrevem como ingerir dados em ambientes de destino nos quais os dados podem ser armazenados e processados.
+Isso **menu** links tootopics que descrevem como dados tooingest nesses ambientes onde os dados de saudação são armazenados e processados de destino.
 
-Necessidades comerciais e técnicos, bem como o local inicial, formato e tamanho de seus dados que determinarão os ambientes de destino no qual os dados precisam ser incluídos para atingir as metas de sua análise. Não é incomum para um cenário exigir dados a serem movidos entre vários ambientes para atingir a variedade de tarefas necessárias para construir um modelo de previsão. Essa sequência de tarefas pode incluir, por exemplo, a exploração de dados, pré-processamento, limpar, redução da resolução e treinamento de modelo.
+Técnico e necessidades de negócios, bem como o local inicial do hello, formatar e tamanho dos dados determinará os ambientes de destino Olá em qual Olá dados precisam toobe incluído tooachieve Olá objetivos de sua análise. Não é incomum um toobe de dados do cenário toorequire movido entre vários ambientes tooachieve Olá diversas tarefas necessárias tooconstruct um modelo de previsão. Essa sequência de tarefas pode incluir, por exemplo, a exploração de dados, pré-processamento, limpar, redução da resolução e treinamento de modelo.
 

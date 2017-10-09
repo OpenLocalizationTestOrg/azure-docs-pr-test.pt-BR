@@ -1,6 +1,6 @@
 ---
-title: "Extensão 1.3 do Diagnóstico do Azure e esquema de configuração mais recente | Microsoft Docs"
-description: "A versão de esquema 1.3 e posterior do Diagnóstico do Azure é fornecida como parte do SDK 2.4 e posteriores do Microsoft Azure."
+title: "esquema de configuração 1.3 e posterior da extensão de diagnóstico aaaAzure | Microsoft Docs"
+description: "A versão de esquema 1.3 e posterior diagnóstico do Azure fornecido como parte do hello Microsoft Azure SDK 2.4 e posterior."
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 0d814825fb08452238a254ccd30bde230380c74c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bd15d3a79ea818fcb3235854717e58d5da36518e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuração 1.3 e posterior do Diagnóstico do Azure
 > [!NOTE]
-> A extensão do Diagnóstico do Azure é o componente usado para coletar contadores de desempenho e outras estatísticas de:
+> Olá extensão de diagnóstico do Azure é o componente Olá usado toocollect contadores de desempenho e outras estatísticas de:
 > - Máquinas Virtuais do Azure 
 > - Conjuntos de Escala de Máquina Virtual
 > - Service Fabric 
@@ -31,15 +31,15 @@ ms.lasthandoff: 07/11/2017
 > 
 > Esta página só é relevante se você estiver usando um desses serviços.
 
-Esta página é válida para as versões 1.3 e mais recentes (SDK 2.4 e mais recente do Azure). As seções de configuração mais recentes são comentadas para mostrar em qual versão eles foram adicionados.  
+Esta página é válida para as versões 1.3 e mais recentes (SDK 2.4 e mais recente do Azure). As seções de configuração mais recentes são comentada tooshow no qual eles foram adicionados a versão.  
 
-O arquivo de configuração descrito aqui é usado para definir as configurações de diagnóstico quando o monitor de diagnóstico é iniciado.  
+arquivo de configuração de saudação descrito aqui é definições de configuração de diagnóstico de tooset usada quando inicia do monitor de diagnósticos de saudação.  
 
-A extensão é usada em conjunto com outros produtos de diagnóstico da Microsoft, como o Azure Monitor, o Application Insights e o Log Analytics.
+extensão de saudação é usada em conjunto com outros produtos da Microsoft diagnóstico como Monitor do Azure, Application Insights e análise de Log.
 
 
 
-Baixe a definição do esquema do arquivo de configuração pública ao executar o seguinte comando PowerShell:  
+Baixe a definição de esquema de arquivo de configuração pública Olá executando Olá comando PowerShell a seguir:  
 
 ```powershell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
@@ -47,8 +47,8 @@ Baixe a definição do esquema do arquivo de configuração pública ao executar
 
 Para saber mais sobre como usar o Diagnóstico do Azure, confira [Extensão do Diagnóstico do Azure](azure-diagnostics.md).  
 
-## <a name="example-of-the-diagnostics-configuration-file"></a>Exemplo do arquivo de configuração de diagnóstico  
- O exemplo a seguir mostra um arquivo de configuração de diagnóstico típico:  
+## <a name="example-of-hello-diagnostics-configuration-file"></a>Exemplo de arquivo de configuração de diagnóstico Olá  
+ saudação de exemplo a seguir mostra um arquivo de configuração de diagnóstico típico:  
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>  
@@ -158,9 +158,9 @@ Para saber mais sobre como usar o Diagnóstico do Azure, confira [Extensão do D
 
 ```  
 
-Equivalente em JSON do arquivo de configuração XML anterior. 
+Equivalente JSON do arquivo de configuração XML anterior hello. 
 
-O PublicConfig e PrivateConfig são separados, pois na maioria dos casos de uso de json, eles são passados como variáveis diferentes. Esses casos incluem modelos do Resource Manager, conjunto de dimensionamento de máquinas virtuais, PowerShell e Visual Studio. 
+Olá PublicConfig e PrivateConfig são separadas porque na maioria dos casos de uso de json, eles são passados como variáveis diferentes. Esses casos incluem modelos do Resource Manager, conjunto de dimensionamento de máquinas virtuais, PowerShell e Visual Studio. 
 
 ```json
 "PublicConfig" {
@@ -363,10 +363,10 @@ O PublicConfig e PrivateConfig são separados, pois na maioria dos casos de uso 
 ```
 
 ## <a name="reading-this-page"></a>Leitura desta página  
- As marcas a seguir estão aproximadamente na ordem mostrada no exemplo anterior.  Se você não vir uma descrição completa onde você espera, procure a página para o elemento ou atributo.  
+ Olá marcas a seguir são aproximadamente na ordem mostrada na saudação anterior de exemplo.  Se você não vir uma descrição completa em que você espera, pesquise página Olá Olá elemento ou atributo.  
 
 ## <a name="common-attribute-types"></a>Tipos comuns de atributo  
- O atributo **scheduledTransferPeriod** aparece em vários elementos. É o intervalo entre transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)
+ O atributo **scheduledTransferPeriod** aparece em vários elementos. É o intervalo de saudação entre transferências agendadas toostorage arredondado toohello mais próximo minuto. Olá valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp)
 
 
 ## <a name="diagnosticsconfiguration-element"></a>Elemento DiagnosticsConfiguration  
@@ -374,9 +374,9 @@ O PublicConfig e PrivateConfig são separados, pois na maioria dos casos de uso 
 
 Adicionado na versão 1.3.  
 
-O elemento de nível superior do arquivo de configuração de diagnóstico.  
+elemento de nível superior de saudação do arquivo de configuração de diagnóstico de saudação.  
 
-**Atributo** xmlns - O namespace XML para o arquivo de configuração de diagnóstico é:  
+**Atributo** xmlns - Olá namespace XML para o arquivo de configuração de diagnóstico Olá é:  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
@@ -389,19 +389,19 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="publicconfig-element"></a>Elemento PublicConfig  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig*
 
- Descreve a configuração de diagnóstico pública.  
+ Descreve a configuração de diagnóstico pública hello.  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**WadCfg**|Obrigatório. Veja a descrição em outro lugar nesta página.|  
-|**StorageAccount**|O nome da conta do Armazenamento do Azure para armazenar os dados. Pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**StorageType**|Pode ser *Table*, *Blob* ou *TableAndBlob*. Tabela é o padrão. Quando TableAndBlob for escolhido, os dados de diagnóstico serão gravados duas vezes, uma vez para cada tipo.|  
-|**LocalResourceDirectory**|O diretório na máquina virtual em que o Agente de Monitoramento armazena dados de evento. Caso contrário, o diretório padrão definido será usado:<br /><br /> Para uma função de Trabalho/da Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos obrigatórios são:<br /><br /> - **path** - o diretório no sistema a ser usado pelo Diagnóstico do Azure.<br /><br /> - **expandEnvironment** - controla se as variáveis de ambiente estão expandidas ou não no nome do caminho.|  
+|**StorageAccount**|nome de Olá Olá armazenamento do Azure toostore Olá de dados de conta no. Também pode ser especificado como um parâmetro ao executar o cmdlet Olá AzureServiceDiagnosticsExtension conjunto.|  
+|**StorageType**|Pode ser *Table*, *Blob* ou *TableAndBlob*. Tabela é o padrão. Quando TableAndBlob for escolhido, dados de diagnóstico são gravados duas vezes, uma vez tooeach tipo.|  
+|**LocalResourceDirectory**|diretório de saudação na máquina virtual de saudação onde hello Monitoring Agent armazena dados de evento. Se não, o diretório padrão de saudação definido, é usado:<br /><br /> Para uma função de Trabalho/da Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos obrigatórios são:<br /><br /> - **caminho** - Olá do hello sistema toobe usado pelo diagnóstico do Azure.<br /><br /> - **expandEnvironment** -controla se as variáveis de ambiente são expandidas no nome do caminho de saudação.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG*
  
- Identifica e configura os dados de telemetria a serem coletados.  
+ Identifica e configura Olá toobe de dados de telemetria coletado.  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>Elemento DiagnosticMonitorConfiguration 
@@ -411,15 +411,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Atributos|Descrição|  
 |----------------|-----------------|  
-| **overallQuotaInMB** | A quantidade máxima de espaço em disco local que pode ser consumido pelos diversos tipos de dados de diagnóstico coletados pelo Diagnóstico do Azure. A configuração padrão é 5120 MB.<br />
-|**useProxyServer** | Configure o Diagnóstico do Azure para usar as configurações de servidor proxy como definido nas configurações do IE.|  
+| **overallQuotaInMB** | quantidade máxima de saudação do espaço em disco local que pode ser consumido por Olá vários tipos de dados de diagnóstico coletados pelo diagnóstico do Azure. configuração do saudação padrão é 5120 MB.<br />
+|**useProxyServer** | Defina configurações de servidor de proxy do diagnóstico do Azure toouse Olá conforme definido nas configurações do IE.|  
 
 <br /> <br />
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**CrashDumps**|Veja a descrição em outro lugar nesta página.|  
-|**DiagnosticInfrastructureLogs**|Habilite a coleta de logs gerados pelo Diagnóstico do Azure. Os logs de infraestrutura de diagnóstico são úteis para solucionar problemas de sistema de diagnóstico. Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - configura o nível de severidade mínimo dos logs coletados.<br /><br /> - **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|Habilite a coleta de logs gerados pelo Diagnóstico do Azure. Olá logs de infraestrutura de diagnóstico são úteis para solucionar Olá sistema de diagnóstico. Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** -configura o nível de severidade mínimo Olá Olá logs coletados.<br /><br /> - **scheduledTransferPeriod** -intervalo de saudação entre transferências agendadas toostorage arredondado toohello mais próximo minuto. Olá valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 |**Diretórios**|Veja a descrição em outro lugar nesta página.|  
 |**EtwProviders**|Veja a descrição em outro lugar nesta página.|  
 |**Métricas**|Veja a descrição em outro lugar nesta página.|  
@@ -432,30 +432,30 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
  
- Habilite a coleção de despejos de memória.  
+ Habilite a coleta de saudação de despejos de memória.  
 
 |Atributos|Descrição|  
 |----------------|-----------------|  
-|**containerName**|Opcional. O nome do contêiner de blobs em sua conta do Armazenamento do Azure para ser usado para armazenar despejos de memória.|  
-|**crashDumpType**|Opcional.  Configura o Diagnóstico do Azure para coletar minidespejos de memória ou despejos de memória completos.|  
-|**directoryQuotaPercentage**|Opcional.  Configura o percentual de **overallQuotaInMB** a ser reservado para despejos de memória na VM.|  
+|**containerName**|Opcional. nome de Olá Olá do contêiner de blob em sua toobe de conta de armazenamento do Azure usado toostore despejos de memória.|  
+|**crashDumpType**|Opcional.  Configura o diagnóstico do Azure toocollect completo ou mini despejos de memória.|  
+|**directoryQuotaPercentage**|Opcional.  Configura o percentual de saudação do **overallQuotaInMB** toobe reservado para despejos de memória em Olá VM.|  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Obrigatório. Define os valores de configuração para cada processo.<br /><br /> O atributo a seguir também é obrigatório:<br /><br /> **processName** - o nome do processo para o qual você deseja que o Diagnóstico do Azure colete um despejo de memória.|  
+|**CrashDumpConfiguration**|Obrigatório. Define os valores de configuração para cada processo.<br /><br /> Olá atributos a seguir também é necessário:<br /><br /> **processName** - Olá nome do processo de saudação deseja toocollect de diagnóstico do Azure um despejo de memória para.|  
 
 ## <a name="directories-element"></a>Elemento Directories 
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
 
- Habilita a coleta do conteúdo de um diretório, logs de solicitação de acesso com falha do IIS e/ou logs do IIS.  
+ Habilita Olá coleção de conteúdo de saudação de um diretório, os logs de solicitação de acesso e/ou os logs do IIS com falha do IIS.  
 
  Atributo **scheduledTransferPeriod** opcional. Veja a explicação anterior.  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**IISLogs**|A inclusão deste elemento na configuração habilita a coleta de logs do IIS:<br /><br /> **containerName** - o nome do contêiner de blobs na sua conta do Armazenamento do Azure a ser usado para armazenar os logs do IIS.|   
-|**FailedRequestLogs**|A inclusão desse elemento na configuração habilita a coleta de logs sobre solicitações com falha para um site ou aplicativo do IIS. Você também deve habilitar as opções de rastreamento em **system.WebServer** em **Web.config**.|  
-|**DataSources**|Uma lista de diretórios para monitorar.| 
+|**IISLogs**|Incluindo esse elemento na configuração de saudação habilita a coleta de saudação de logs do IIS:<br /><br /> **containerName** -nome Olá Olá do contêiner de blob em sua toobe de conta de armazenamento do Azure usado logs do IIS Olá toostore.|   
+|**FailedRequestLogs**|Incluindo esse elemento na configuração de saudação habilita a coleta de logs de aplicativo ou site do IIS tooan solicitações com falha. Você também deve habilitar as opções de rastreamento em **system.WebServer** em **Web.config**.|  
+|**DataSources**|Uma lista de diretórios toomonitor.| 
 
 
 
@@ -463,11 +463,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="datasources-element"></a>Elemento DataSources  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources*
 
- Uma lista de diretórios para monitorar.  
+ Uma lista de diretórios toomonitor.  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Obrigatório. Atributo obrigatório:<br /><br /> **containerName** - o nome do contêiner de blob no armazenamento do Azure na conta a ser usada para armazenar os arquivos de log.|  
+|**DirectoryConfiguration**|Obrigatório. Atributo obrigatório:<br /><br /> **containerName** - Olá nome saudação do contêiner de blob em sua conta de armazenamento do Azure que toobe usados arquivos de log toostore hello.|  
 
 
 
@@ -476,12 +476,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="directoryconfiguration-element"></a>Elemento DirectoryConfiguration  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories - DataSources - DirectoryConfiguration*
 
- Pode incluir o elemento **Absolute** ou **LocalResource**, mas não ambos.  
+ Pode incluir qualquer Olá **absoluto** ou **LocalResource** elemento, mas não ambos.  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**Absolute**|O caminho absoluto para o diretório a ser monitorado. Os atributos a seguir são obrigatórios:<br /><br /> - **Path** - o caminho absoluto para o diretório a ser monitorado.<br /><br /> - **expandEnvironment** - configura se as variáveis de ambiente em Path são expandidas ou não.|  
-|**LocalResource**|O caminho relativo a um recurso local a ser monitorado. Os atributos obrigatórios são:<br /><br /> - **Name** - o recurso local que contém o diretório a ser monitorado<br /><br /> - **relativePath** - o caminho relativo a Name que contém o diretório a ser monitorado|  
+|**Absolute**|Olá caminho absoluto toohello diretório toomonitor. Olá seguintes atributos é necessário:<br /><br /> - **Caminho** -Olá caminho absoluto toohello diretório toomonitor.<br /><br /> - **expandEnvironment** - configura se as variáveis de ambiente em Path são expandidas ou não.|  
+|**LocalResource**|Olá toomonitor do caminho relativo tooa recurso local. Os atributos obrigatórios são:<br /><br /> - **Nome** -Olá recurso local que contém a saudação diretório toomonitor<br /><br /> - **relativePath** -Olá tooName relativo de caminho que contém a saudação diretório toomonitor|  
 
 
 
@@ -492,8 +492,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configura a coleta de eventos gerados desde a [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo obrigatório:<br /><br /> **provider** - o nome da classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o Armazenamento do Azure arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|Atributo obrigatório:<br /><br /> **provider** - o GUID do provedor de eventos<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o Armazenamento do Azure arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|Configura a coleta de eventos gerados desde a [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo obrigatório:<br /><br /> **provedor** -nome da classe de saudação do evento de EventSource hello.<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** -Olá conta de armazenamento de tooyour de tootransfer nível de severidade mínimo.<br /><br /> - **scheduledTransferPeriod** -intervalo de saudação entre transferências agendadas toostorage arredondado toohello mais próximo minuto. Olá valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|Atributo obrigatório:<br /><br /> **provedor** -Olá GUID do provedor de eventos de saudação<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** -Olá conta de armazenamento de tooyour de tootransfer nível de severidade mínimo.<br /><br /> - **scheduledTransferPeriod** -intervalo de saudação entre transferências agendadas toostorage arredondado toohello mais próximo minuto. Olá valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 
 
 
@@ -504,8 +504,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**DefaultEvents**|Atributo opcional:<br/><br/> **eventDestination** - o nome da tabela para armazenar os eventos|  
-|**Evento**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
+|**DefaultEvents**|Atributo opcional:<br/><br/> **eventDestination** - Olá nome hello toostore Olá eventos de tabela em|  
+|**Evento**|Atributo obrigatório:<br /><br /> **ID** -id de saudação do evento de saudação.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - Olá nome hello toostore Olá eventos de tabela em|  
 
 
 
@@ -514,28 +514,28 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
-|**Evento**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
+|**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** - Olá nome hello toostore Olá eventos de tabela em|  
+|**Evento**|Atributo obrigatório:<br /><br /> **ID** -id de saudação do evento de saudação.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - Olá nome hello toostore Olá eventos de tabela em|  
 
 
 
 ## <a name="metrics-element"></a>Elemento Metrics  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
 
- Permite gerar uma tabela de contador de desempenho otimizada para consultas rápidas. Cada contador de desempenho definido no elemento **PerformanceCounters** é armazenado na tabela Métricas, além de na tabela Contador de Desempenho.  
+ Permite que você toogenerate uma tabela de contador de desempenho é otimizada para consultas rápidas. Cada contador de desempenho que é definido em Olá **PerformanceCounters** elemento é armazenado na tabela de métricas de saudação na tabela de contador de desempenho toohello adição.  
 
- O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual na qual você está implantando o Diagnóstico do Azure. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **Procurar** -> **Grupos de Recursos** -> **<Nome\>**. Clique no bloco **Propriedades** e copie o valor do campo **ID**.  
+ Olá **resourceId** atributo é necessário.  ID de recurso de saudação do hello Máquina Virtual que você está implantando o diagnóstico do Azure. Obter Olá **resourceID** de saudação [portal do Azure](https://portal.azure.com). Selecione **Procurar** -> **Grupos de Recursos** -> **<Nome\>**. Clique em Olá **propriedades** lado a lado e copie o valor de saudação da saudação **ID** campo.  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**MetricAggregation**|Atributo obrigatório:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**MetricAggregation**|Atributo obrigatório:<br /><br /> **scheduledTransferPeriod** -intervalo de saudação entre transferências agendadas toostorage arredondado toohello mais próximo minuto. Olá valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 
 
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - PerformanceCounters*
 
- Habilita a coleta de contadores de desempenho.  
+ Habilita a coleta de saudação de contadores de desempenho.  
 
  Atributo opcional:  
 
@@ -543,7 +543,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Elemento filho|Descrição|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Os atributos a seguir são obrigatórios:<br /><br /> - **counterSpecifier** - o nome do contador de desempenho. Por exemplo: `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu host, execute o comando `typeperf`.<br /><br /> - **sampleRate** - Com que frequência o contador deve ser testado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - a unidade de medida do contador.|  
+|**PerformanceCounterConfiguration**|Olá seguintes atributos é necessário:<br /><br /> - **counterSpecifier** - Olá nome saudação do contador de desempenho. Por exemplo: `\Processor(_Total)\% Processor Time`. tooget contadores de uma lista de desempenho em seu host, execute o comando de saudação `typeperf`.<br /><br /> - **sampleRate** -frequência hello contador deve ser testado.<br /><br /> Atributo opcional:<br /><br /> **unidade** -unidade de medida de contador de saudação de saudação.|  
 
 
 
@@ -551,13 +551,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
  
- Habilita a coleta de Logs de Eventos do Windows.  
+ Habilita a coleta de saudação de Logs de eventos do Windows.  
 
  Atributo **scheduledTransferPeriod** opcional. Veja a explicação anterior.  
 
 |Elemento filho|Descrição|  
 |-------------------|-----------------|  
-|**DataSource**|Os logs de Eventos do Windows a serem coletados. Atributo obrigatório:<br /><br /> **name** - a consulta XPath que descreve os eventos do windows a serem coletados. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para coletar todos os eventos, especifique "*"|  
+|**DataSource**|toocollect de logs de eventos do Windows Hello. Atributo obrigatório:<br /><br /> **nome** -coletados de consulta do XPath Olá descrevendo toobe de eventos do windows hello. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> toocollect todos os eventos, especifique "*"|  
 
 
 
@@ -567,14 +567,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Presente na versão 1.0 e 1.1. Ausente na 1.2. Adicionado novamente na versão 1.3.  
 
- Define a configuração de buffer para logs básicos do Azure.  
+ Define a configuração de buffer de saudação para logs básicos do Azure.  
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
-|**scheduledTransferLogLevelFilterr**|**string**|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
-|**scheduledTransferPeriod**|**duration**|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
-|**coletores** Adicionados na 1.5|**string**|Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, o Application Insights.|  
+|**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de saudação do armazenamento de sistema de arquivos está disponível para Olá especificado dados.<br /><br /> saudação padrão é 0.|  
+|**scheduledTransferLogLevelFilterr**|**string**|Opcional. Especifica o nível de severidade mínimo Olá para entradas de log que são transferidos. valor padrão de saudação é **indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem da maioria das informações de tooleast) são **detalhado**, **informações**, **aviso**, **erro**e **Crítico**.|  
+|**scheduledTransferPeriod**|**duration**|Opcional. Especifica o intervalo de saudação entre transferências agendadas de dados, arredondados para cima toohello mais próximo minuto.<br /><br /> padrão de saudação é PT0S.|  
+|**coletores** Adicionados na 1.5|**string**|Opcional. Pontos tooa coletor local tooalso enviar dados de diagnóstico. Por exemplo, o Application Insights.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -583,12 +583,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**Stats**|Informa ao sistema para coletar estatísticas para contêineres do Docker|  
+|**Stats**|Informa ao sistema Olá toocollect estatísticas para contêineres do Docker|  
 
 ## <a name="sinksconfig-element"></a>Elemento SinksConfig  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig*
 
- Uma lista de locais para enviar dados de diagnóstico e a configuração associada a esses locais.  
+ Uma lista de locais toosend dados tooand Olá configuração de diagnóstico associada nesses locais.  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
@@ -599,15 +599,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Adicionado na versão 1.5.  
 
- Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
+ Define os locais toosend dados de diagnóstico. Por exemplo, hello serviço Application Insights.  
 
 |Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|string|Uma cadeia de caracteres que identifica o nome do coletor.|  
+|**name**|string|Uma cadeia de caracteres identificação Olá sinkname.|  
 
 |Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
-|**Application Insights**|string|Usado somente durante o envio de dados para o Application Insights. Contém a Chave de Instrumentação para uma conta ativa do Application Insights a que você tem acesso.|  
+|**Application Insights**|string|Usado somente durante o envio de dados tooApplication Insights. Conter Olá chave de instrumentação para uma conta ativa do Application Insights que você tem acesso ao.|  
 |**Channels**|string|Uma para cada filtragem adicional que o fluxo que você|  
 
 ## <a name="channels-element"></a>Elemento Channels  
@@ -626,12 +626,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Adicionado na versão 1.5.  
 
- Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
+ Define os locais toosend dados de diagnóstico. Por exemplo, hello serviço Application Insights.  
 
 |Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
-|**logLevel**|**string**|Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
-|**name**|**string**|Um nome exclusivo do canal que será mencionado|  
+|**logLevel**|**string**|Especifica o nível de severidade mínimo Olá para entradas de log que são transferidos. valor padrão de saudação é **indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem da maioria das informações de tooleast) são **detalhado**, **informações**, **aviso**, **erro**e **Crítico**.|  
+|**name**|**string**|Um nome exclusivo da saudação canal toorefer para|  
 
 
 ## <a name="privateconfig-element"></a>Elemento PrivateConfig 
@@ -641,14 +641,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Opcional  
 
- Armazena os detalhes privados da conta de armazenamento (nome, chave e ponto de extremidade). Essa informação é enviada para a máquina virtual, mas não pode ser recuperada dela.  
+ Armazena detalhes de privada Olá Olá da conta de armazenamento (nome da chave e ponto de extremidade). Essas informações são enviadas a máquina virtual de toohello, mas não podem ser recuperadas.  
 
 |Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**StorageAccount**|A conta de armazenamento a ser usada. Os atributos a seguir são necessários<br /><br /> - **name** - o nome da conta de armazenamento.<br /><br /> - **chave** - a chave para a conta de armazenamento.<br /><br /> - **ponto de extremidade** - o ponto de extremidade para acessar a conta de armazenamento. <br /><br /> -**sasToken** (adicionado na versão 1.8.1)- Você pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração privada. Se for fornecida, a chave da conta de armazenamento será ignorada. <br />Requisitos para o Token SAS: <br />– Oferece suporte apenas ao token SAS da conta <br />Os tipos de serviço - *b*, *t* são obrigatórios. <br /> As permissões - *a*, *c*, *u*, *w* são obrigatórias. <br /> Os tipos de recurso - *c*, *o* são obrigatórios. <br /> – Oferece suporte somente ao protocolo HTTPS <br /> – A hora de início e de expiração deve ser válida.|  
+|**StorageAccount**|Olá toouse de conta de armazenamento. Olá seguintes atributos é necessário<br /><br /> - **nome** - Olá nome hello da conta de armazenamento.<br /><br /> - **chave** - Olá toohello conta de armazenamento de chave.<br /><br /> - **ponto de extremidade** -tooaccess de ponto de extremidade Olá Olá conta de armazenamento. <br /><br /> -**sasToken** (adicionado 1.8.1)-, você pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração privada hello. Se fornecido, a chave de conta de armazenamento Olá é ignorado. <br />Requisitos para Olá Token SAS: <br />– Oferece suporte apenas ao token SAS da conta <br />Os tipos de serviço - *b*, *t* são obrigatórios. <br /> As permissões - *a*, *c*, *u*, *w* são obrigatórias. <br /> Os tipos de recurso - *c*, *o* são obrigatórios. <br /> -Oferece suporte ao protocolo HTTPS de saudação apenas <br /> – A hora de início e de expiração deve ser válida.|  
 
 
 ## <a name="isenabled-element"></a>Elemento IsEnabled  
  *Árvore: Raiz - DiagnosticsConfiguration - IsEnabled*
 
- Booliano. Use `true` para habilitar o diagnóstico ou `false` para desabilitar o diagnóstico.
+ Booliano. Use `true` tooenable diagnóstico de saudação ou `false` toodisable diagnóstico de saudação.

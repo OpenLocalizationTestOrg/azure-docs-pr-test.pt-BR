@@ -1,6 +1,6 @@
 ---
-title: "Adicionar uma VM declarável a um laboratório no Azure DevTest Labs | Microsoft Docs"
-description: "Saiba como adicionar uma máquina virtual declarável a um laboratório no Azure DevTest Labs"
+title: "aaaAdd um laboratório de tooa claimable VM no Azure DevTest Labs | Microsoft Docs"
+description: "Saiba como tooadd um laboratório de tooa claimable máquina de virtual no Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: tarcher
-ms.openlocfilehash: 98950d72e90b0e178bae2fffa7644fd824a25eea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: fe6385ae2e59b9636b82aec250dc3a1f8a40ba5d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma VM declarável a um laboratório no Azure DevTest Labs
-Você adiciona uma VM declarável a um laboratório de maneira semelhante a como [adiciona uma VM padrão](devtest-lab-add-vm.md) – de uma *base* que é uma [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica como usar o portal do Azure para adicionar uma VM declarável a um laboratório no DevTest Labs e mostra o processo que um usuário segue para declarar a VM.
+# <a name="add-a-claimable-vm-tooa-lab-in-azure-devtest-labs"></a>Adicionar um laboratório de tooa claimable VM no Azure DevTest Labs
+Adicionar um laboratório de tooa claimable VM em um toohow de maneira semelhante você [adicionar uma VM padrão](devtest-lab-add-vm.md) – de uma *base* seja um [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial orienta você a usar Olá tooadd portal do Azure um laboratório de tooa VM claimable DevTest Labs e mostra o processo de saudação que um usuário segue tooclaim Olá VM.
 
 > [!NOTE]
-> Se você implantar VMs de laboratório por meio de [modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md), poderá criar VMs declaráveis definindo a propriedade **allowClaim** como verdadeiro na seção de propriedades.
+> Se você implantar máquinas virtuais do laboratório por meio de [modelos do Azure Resource Manager](devtest-lab-create-environment-from-arm.md), você pode criar VMs claimable por configuração Olá **allowClaim** tootrue de propriedade na seção de propriedades de saudação.
 >
 >
 
-## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Etapas para adicionar uma VM declarável a um laboratório no Azure DevTest Labs
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Selecione **Mais Serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
-1. Na lista de laboratórios, selecione o laboratório no qual você deseja criar a VM de declaração.  
-1. Na folha **Visão geral** do laboratório, selecione **+ Adicionar**.  
+## <a name="steps-tooadd-a-claimable-vm-tooa-lab-in-azure-devtest-labs"></a>Etapas tooadd um laboratório de tooa claimable VM no Azure DevTest Labs
+1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista de saudação.
+1. Saudação de laboratórios, selecione lista laboratório Olá no qual você deseja toocreate Olá claimable VM.  
+1. No laboratório de saudação **visão geral** folha, selecione **+ adicionar**.  
 
     ![Botão Adicionar VM](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. Na folha **Escolher uma base** , selecione uma base para a VM.
-1. Na folha **Máquina virtual**, insira um nome para a nova máquina virtual na caixa de texto **Nome da máquina virtual**.
+1. Em Olá **escolher uma base** folha, selecione uma base para Olá VM.
+1. Em Olá **Máquina Virtual** folha, digite um nome para a máquina virtual da nova Olá no hello **nome da máquina Virtual** caixa de texto.
 
     ![Folha VM de Laboratório](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. Insira um **Nome de Usuário** que receberá privilégios de administrador na máquina virtual.  
-1. Se você quiser usar uma senha armazenada em seu [repositório secreto](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), selecione **Usar um segredo salvo** e especifique um valor de chave que corresponda ao seu segredo (senha). Caso contrário, digite uma senha no campo de texto rotulado **Digite um valor**.
-1. O **tipo de disco de máquina virtual** determina que tipo de disco de armazenamento é permitido para as máquinas virtuais no laboratório.
-1. Selecione **Tamanho da máquina virtual** e selecione um dos itens predefinidos que especificam os núcleos de processador, o tamanho da RAM e o tamanho do disco rígido da VM a ser criada.
-1. Selecione **Artefatos** e, na lista de artefatos, selecione e configure os artefatos que você deseja adicionar à imagem base. Se você for iniciante em Laboratórios de Desenvolvimento/Teste ou na configuração de artefatos, veja a seção [Adicionar um artefato existente a uma VM](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) e volte aqui quando terminar.
-1. Selecione **Configurações avançadas** para configurar as opções de expiração e as opções de rede da VM. Em **Opções de declaração**, escolha **Sim** para tornar a máquina declarável.
+1. Insira um **nome de usuário** que tem privilégios de administrador na máquina virtual de saudação.  
+1. Se você quiser toouse uma senha armazenada em seu [armazenamento secreto](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store), selecione **usar um segredo salvo**e especifique um valor de chave que corresponde a tooyour segredo (senha). Caso contrário, digite uma senha no campo de texto de saudação rotulado **digite um valor**.
+1. Olá **tipo de disco de máquina Virtual** determina qual tipo de disco de armazenamento será permitido para máquinas virtuais de saudação laboratório hello.
+1. Selecione **tamanho da máquina Virtual** e selecione uma das Olá predefinidos itens que especificam os núcleos de processador hello, tamanho da RAM e tamanho de disco rígido de saudação do hello VM toocreate.
+1. Selecione **artefatos** e, na lista de saudação de artefatos, selecionar e configurar os artefatos de saudação que deseja que a imagem base do tooadd toohello. Se você for novo laboratórios de tooDevTest ou configurando artefatos, consulte toohello [adicionar um tooa de artefato existente VM](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) seção e, em seguida, retornar aqui quando terminar.
+1. Selecione **configurações avançadas** opções de opções e expiração de rede da VM do tooconfigure hello. Em **opções de declaração**, escolha **Sim** máquina de saudação toomake claimable.
 
-  ![Opte por tornar a VM declarável.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
+  ![Escolha toomake Olá claimable de VM.](./media/devtest-lab-add-vm/devtestlab-claim-VM-option.png)
 
-1. Se quiser exibir ou copiar o modelo do Azure Resource Manager, veja a seção [Salvar modelo do Azure Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) e retorne para cá quando terminar.
-1. Selecione **Criar** para adicionar a VM especificada ao laboratório.
-1. A folha do laboratório exibe o status da criação da VM; primeiro como **Criando** e como **Executando** após a inicialização da VM.
+1. Se você quiser tooview ou copia modelo do Azure Resource Manager Olá, consulte toohello [do Azure Resource Manager Salvar modelo](devtest-lab-add-vm.md#save-azure-resource-manager-template) seção e retornar aqui quando terminar.
+1. Selecione **criar** tooadd Olá especificado laboratório toohello de VM.
+1. folha de laboratório Olá exibe o status de saudação da criação da VM Olá - primeiro como **criando**, em seguida, como **executando** após Olá VM foi iniciada.
 
 
 ## <a name="using-a-claimable-vm"></a>Usando uma VM declarável
 
-Um usuário pode declarar qualquer VM na lista de “Máquinas virtuais declaráveis” realizando uma destas etapas:
+Um usuário pode declaração qualquer VM na lista de saudação de "Máquinas de virtuais Claimable" seguindo uma destas etapas:
 
-* Na lista de “Máquinas virtuais declaráveis” na parte inferior da folha Visão Geral do laboratório, clique com o botão direito do mouse em uma das VMs da lista e escolha **Declarar computador**.
+* Na lista de saudação de "Máquinas de virtuais Claimable" na parte inferior da saudação da folha de visão geral do laboratório hello, com o botão direito em uma saudação VMs na lista de saudação e escolha **máquina declaração**.
 
  ![Solicite uma VM declarável específica.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
-* Na parte superior da folha **Visão Geral**, escolha **Declarar qualquer um**. Uma máquina virtual aleatória é atribuída da lista de VMs declaráveis.
+* Na parte superior de saudação do hello **visão geral** folha, escolha **declaração qualquer**. Uma máquina virtual aleatória é atribuída na lista de saudação de VMs claimable.
 
  ![Solicite uma VM declarável.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
@@ -72,5 +72,5 @@ Um usuário pode declarar qualquer VM na lista de “Máquinas virtuais declará
 Depois que um usuário declara uma VM, ela é movida para cima em sua lista de “Minhas máquinas virtuais” e não é mais declarável por nenhum outro usuário.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Após a criação da VM, você poderá se conectar à VM selecionando **Conectar** na folha da VM.
-* Explorar a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
+* Uma vez Olá VM tiver sido criada, você pode se conectar toohello VM selecionando **conectar** na folha de saudação da VM.
+* Explorar Olá [DevTest Labs Azure Resource Manager QuickStart Galeria de modelos](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)

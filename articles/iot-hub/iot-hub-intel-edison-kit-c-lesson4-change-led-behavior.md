@@ -1,6 +1,6 @@
 ---
-title: "Conectar o Intel Edison (C) ao IoT do Azure - Lição 4: piscar o LED| Microsoft Docs"
-description: Personalize as mensagens para alterar o comportamento liga e desliga do LED.
+title: "Connect Intel Edison (C) tooAzure IoT – lição 4: piscar Olá LED | Microsoft Docs"
+description: "Personalize a saudação de toochange de mensagens de saudação LED do ativa e desativa o comportamento."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,30 +17,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 4852b1cca4c6186ef4857b903b771f76cc20adb8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c51acb42aa297ca91cfe76d7b0361ad95e2fb2e4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-on-and-off-behavior-of-the-led"></a>Alterar o comportamento de ativar e desativar do LED
+# <a name="change-hello-on-and-off-behavior-of-hello-led"></a>Alterar Olá ativa e desativa o comportamento de saudação LED
 ## <a name="what-you-will-do"></a>O que você fará
-Personalize as mensagens para alterar o comportamento liga e desliga do LED. Se você tiver problemas, procure por soluções na [página de solução de problemas][troubleshooting].
+Personalize a saudação de toochange de mensagens de saudação LED do ativa e desativa o comportamento. Se você tiver problemas, procure por soluções em Olá [página de solução][troubleshooting].
 
 ## <a name="what-you-will-learn"></a>O que você aprenderá
-Utilizar funções adicionais para alterar o comportamento de ligar e desligar do LED.
+Use Olá toochange de funções adicionais LED do ativa e desativa o comportamento.
 
 ## <a name="what-you-need"></a>O que você precisa
-Você deve ter concluído com sucesso [Executar um aplicativo de exemplo no Intel Edison para receber mensagens da nuvem para o dispositivo][receive-cloud-to-device-messages].
+Você deve ter concluído com êxito [executar um aplicativo de exemplo na nuvem do Intel Edison tooreceive mensagens toodevice][receive-cloud-to-device-messages].
 
-## <a name="add-functions-to-mainc-and-gulpfilejs"></a>Adicionar funções ao main.c e ao gulpfile.js
-1. Abra o aplicativo de exemplo no Visual Studio Code, executando os seguintes comandos:
+## <a name="add-functions-toomainc-and-gulpfilejs"></a>Adicionar gulpfile.js e toomain.c de funções
+1. Abra o aplicativo de exemplo hello no código do Visual Studio executando Olá comandos a seguir:
 
    ```bash
    cd Lesson4
    code .
    ```
-2. Abra o arquivo `main.c` e, em seguida, adicione as seguintes funções após a função blinkLED():
+2. Olá abrir `main.c` arquivo e, em seguida, adicionar funções a seguir após a função blinkLED() de saudação:
 
    ```c
    static void turnOnLED()
@@ -56,7 +56,7 @@ Você deve ter concluído com sucesso [Executar um aplicativo de exemplo no Inte
 
    ![arquivo main.c com funções adicionais](media/iot-hub-intel-edison-lessons/lesson4/updated_app_c.png)
 
-3. Adicione as seguintes condições antes do bloco `else if` da função `receiveMessageCallback`:
+3. Adicionar Olá seguintes condições antes de saudação `else if` bloco de saudação `receiveMessageCallback` função:
 
    ```c
    else if (0 == strcmp((const char*)value, "\"on\""))
@@ -69,8 +69,8 @@ Você deve ter concluído com sucesso [Executar um aplicativo de exemplo no Inte
    }
    ```
 
-   Agora você configurou o aplicativo de exemplo para responder a mais instruções por meio de mensagens. A instrução "on" ativa o LED e a instrução "off" desativa o LED.
-4. Abra o arquivo gulpfile.js e, em seguida, adicione uma nova função antes da função `sendMessage`:
+   Agora você configurou instruções de toomore de toorespond Olá exemplo aplicativo por meio de mensagens. Olá "em" instrução ativa Olá LED e hello "desativado" instrução desativa Olá LED.
+4. Abrir o arquivo de gulpfile.js hello e, em seguida, adicionar uma nova função antes da função hello `sendMessage`:
 
    ```javascript
    var buildCustomMessage = function (messageId) {
@@ -85,28 +85,28 @@ Você deve ter concluído com sucesso [Executar um aplicativo de exemplo no Inte
    ```
 
    ![Arquivo Gulpfile.js com funções adicionais][gulpfile]
-5. Na função `sendMessage`, substitua a linha `var message = buildMessage(sentMessageCount);` com a nova linha mostrada no trecho a seguir:
+5. Em Olá `sendMessage` funcionar, substitua a linha hello `var message = buildMessage(sentMessageCount);` com nova linha de Olá Olá trecho de código a seguir mostrada:
 
    ```javascript
    var message = buildCustomMessage(sentMessageCount);
    ```
-6. Salve todas as alterações.
+6. Salve todas as alterações de saudação.
 
-### <a name="deploy-and-run-the-sample-application"></a>Implantar e executar o aplicativo de exemplo
-Implante e execute o aplicativo de exemplo no Edison executando o seguinte comando:
+### <a name="deploy-and-run-hello-sample-application"></a>Implantar e executar o aplicativo de exemplo hello
+Implantar e executar o aplicativo de exemplo hello Edison executando Olá comando a seguir:
 
 ```bash
 gulp deploy && gulp run
 ```
 
-Você deve ver o LED ativar por dois segundos e, em seguida, desativar por outros dois segundos. A última mensagem "stop" interrompe a execução do aplicativo de exemplo.
+Você verá Olá LED ativar por dois segundos e, em seguida, desligue por outro dois segundos. última mensagem de "stop" Hello interrompe o aplicativo de exemplo hello seja executado.
 
 ![liga e desliga][on-and-off]
 
-Parabéns! Você personalizou com sucesso as mensagens que são enviadas do Hub IoT para o Edison.
+Parabéns! Você personalizou mensagens de saudação enviadas tooEdison de seu hub IoT com êxito.
 
 ### <a name="summary"></a>Resumo
-Essa seção opcional demonstra como personalizar as mensagens para que o aplicativo de exemplo controle o comportamento liga e desliga do LED de maneira diferente.
+Essa seção demonstra como toocustomize mensagens para que o aplicativo de exemplo hello possa controlar Olá ativa e desativa o comportamento de saudação LED de maneira diferente.
 
 <!-- Images and links -->
 

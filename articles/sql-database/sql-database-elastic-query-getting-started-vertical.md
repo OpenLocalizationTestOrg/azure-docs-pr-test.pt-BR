@@ -1,6 +1,6 @@
 ---
-title: "Introdução às consultas entre bancos de dados (particionamento vertical) | Microsoft Docs"
-description: "como usar a consulta de banco de dados elástico com bancos de dados particionados verticalmente"
+title: aaaGet iniciado com consultas de bancos de dados (particionamento vertical) | Microsoft Docs
+description: "como a consulta de banco de dados Elástico toouse com particionado verticalmente bancos de dados"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: torsteng
-ms.openlocfilehash: 17158c4960e9ba9251524659c90af9aec1316774
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9e6183268e8bf87e3ac28f502711fcc05a7a3f52
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introdução às consultas entre bancos de dados (particionamento vertical) (preview)
-A consulta de banco de dados elástico (visualização) para o Banco de Dados SQL do Azure permite executar consultas T-SQL que abrangem vários bancos de dados usando um único ponto de conexão. Este tópico se aplica a [bancos de dados particionados verticalmente](sql-database-elastic-query-vertical-partitioning.md).  
+Consulta de banco de dados Elástico (visualização) para o banco de dados SQL permite consultas do T-SQL toorun que abrangem vários bancos de dados usando um ponto de conexão única. Este tópico aplica-se muito[particionado verticalmente bancos de dados](sql-database-elastic-query-vertical-partitioning.md).  
 
-Quando tiver concluído, você saberá como configurar e usar um Banco de Dados SQL do Azure para executar consultas que abrangem vários bancos de dados relacionados. 
+Quando concluído, você verá: Saiba como tooconfigure e usar um banco de dados do Azure SQL tooperform as consultas que abrangem vários bancos de dados relacionados. 
 
-Para saber mais sobre o recurso de consulta de banco de dados elástico, veja a [visão geral da consulta de banco de dados elástico do Banco de Dados SQL do Azure](sql-database-elastic-query-overview.md). 
+Para obter mais informações sobre o recurso de consulta de banco de dados Elástico hello, consulte [visão geral de consulta de banco de dados Elástico de banco de dados do Azure SQL](sql-database-elastic-query-overview.md). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão está incluída na permissão ALTERAR BANCO DE DADOS. As permissões para ALTERAR QUALQUER FONTE DE DADOS EXTERNA são necessárias para referenciar a fonte de dados subjacente.
+Você deve ter a permissão para ALTERAR QUALQUER FONTE DE DADOS EXTERNA. Essa permissão é incluída com a permissão ALTER DATABASE hello. Permissões ALTER ANY EXTERNAL DATA SOURCE são necessários toorefer toohello subjacente da fonte de dados.
 
-## <a name="create-the-sample-databases"></a>Criar os bancos de dados de exemplo
-Para começar, precisamos criar dois bancos de dados, **Customers** e **Orders**, nos mesmos servidores lógicos ou em servidores diferentes.   
+## <a name="create-hello-sample-databases"></a>Criar hello bancos de dados de exemplo
+toostart com, precisamos de dois bancos de dados de toocreate, **clientes** e **pedidos**, em Olá mesmos ou em diferentes servidores lógicos.   
 
-Execute as consultas a seguir no banco de dados **Orders** para criar a tabela **OrderInformation** e inserir os dados de exemplo. 
+Executar Olá consultas a seguir no hello **pedidos** saudação do banco de dados toocreate **OrderInformation** tabela e a entrada de dados de exemplo hello. 
 
     CREATE TABLE [dbo].[OrderInformation]( 
         [OrderID] [int] NOT NULL, 
@@ -46,7 +46,7 @@ Execute as consultas a seguir no banco de dados **Orders** para criar a tabela *
     INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
     INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Agora, execute a consulta a seguir no banco de dados **Customers** para criar a tabela **CustomerInformation** e inserir os dados de exemplo. 
+Agora, execute seguinte consulta no hello **clientes** saudação do banco de dados toocreate **CustomerInformation** tabela e a entrada de dados de exemplo hello. 
 
     CREATE TABLE [dbo].[CustomerInformation]( 
         [CustomerID] [int] NOT NULL, 
@@ -61,18 +61,18 @@ Agora, execute a consulta a seguir no banco de dados **Customers** para criar a 
 ## <a name="create-database-objects"></a>Criar objetos de banco de dados
 ### <a name="database-scoped-master-key-and-credentials"></a>Chave mestra e credenciais do escopo do banco de dados
 1. Abra o SQL Server Management Studio ou o SQL Server Data Tools no Visual Studio.
-2. Conecte-se ao banco de dados Orders e execute os seguintes comandos T-SQL:
+2. Conecte-se o banco de dados de pedidos de toohello e execute Olá comandos T-SQL a seguir:
    
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>'; 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred 
         WITH IDENTITY = '<username>', 
         SECRET = '<password>';  
    
-    O "nome de usuário" e a "senha" devem ser o nome de usuário e a senha usados para fazer logon no banco de dados Customers.
+    Olá "username" e "password" devem ser Olá nome de usuário e senha usada toologin no banco de dados de clientes hello.
     Atualmente não há suporte para a autenticação usando o Azure Active Directory com consultas elásticas.
 
 ### <a name="external-data-sources"></a>Fontes de dados externas
-Para criar uma fonte de dados externa, execute o seguinte comando no banco de dados Orders: 
+toocreate uma fonte de dados externa, execute Olá comando a seguir no banco de dados de pedidos de saudação: 
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH 
         (TYPE = RDBMS, 
@@ -82,7 +82,7 @@ Para criar uma fonte de dados externa, execute o seguinte comando no banco de da
     ) ;
 
 ### <a name="external-tables"></a>Tabelas externas
-Crie uma tabela externa ao banco de dados Orders, que corresponde à definição da tabela CustomerInformation:
+Crie uma tabela externa Olá pedidos banco de dados que corresponde a definição de saudação da tabela de CustomerInformation hello:
 
     CREATE EXTERNAL TABLE [dbo].[CustomerInformation] 
     ( [CustomerID] [int] NOT NULL, 
@@ -92,7 +92,7 @@ Crie uma tabela externa ao banco de dados Orders, que corresponde à definição
     ( DATA_SOURCE = MyElasticDBQueryDataSrc) 
 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Executar uma consulta T-SQL no banco de dados elástico de exemplo
-Depois de definir sua fonte de dados e suas tabelas externas, agora você poderá usar o T-SQL para consultar suas tabelas externas. Execute esta consulta no banco de dados Orders: 
+Depois de definir a fonte de dados externa e suas tabelas externas, agora você pode usar tooquery T-SQL as tabelas externas. Execute esta consulta no banco de dados de pedidos de saudação: 
 
     SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company 
     FROM OrderInformation 
@@ -100,7 +100,7 @@ Depois de definir sua fonte de dados e suas tabelas externas, agora você poder�
     ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
 
 ## <a name="cost"></a>Custo
-Atualmente, o recurso de consulta de banco de dados elástico está incluído no custo de seu Banco de Dados SQL do Azure.  
+No momento, o recurso de consulta de banco de dados Elástico Olá está incluído nos custo de saudação do banco de dados SQL do Azure.  
 
 Para saber mais sobre preços, consulte [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database). 
 

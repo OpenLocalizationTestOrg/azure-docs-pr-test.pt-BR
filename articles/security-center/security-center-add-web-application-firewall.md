@@ -1,6 +1,6 @@
 ---
-title: "Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure **Adicionar um Firewall do Aplicativo Web** e **Finalizar a proteção do aplicativo**."
+title: "aaaAdd um firewall do aplicativo web na Central de segurança do Azure | Microsoft Docs"
+description: "Este documento mostra como tooimplement Olá recomendações da Central de segurança do Azure * * adicionar um firewall * * de aplicativo de web e * * finalizar a proteção de aplicativo * *."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,69 +14,69 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: terrylan
-ms.openlocfilehash: d04a07237029953d8a9b20704d85e852ce45d867
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bff0aa2a5c6e0dde23396f93de52abe295053581
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Adicionar um Firewall do Aplicativo Web na Central de Segurança do Azure
-A Central de Segurança do Azure pode recomendar que você adicione um WAF (Firewall do Aplicativo Web) de um parceiro da Microsoft para proteger seus aplicativos Web. Este documento guiará você por um exemplo de como realizar essa recomendação.
+Central de segurança do Azure pode recomendar que você adicionar um firewall do aplicativo web (WAF) de um toosecure de parceiro Microsoft seus aplicativos web. Este documento orienta você por um exemplo de como tooapply essa recomendação.
 
 Uma recomendação WAF é mostrada para qualquer IP voltado para uso público (IP de nível de instância ou IP de balanceamento de carga) que tem um grupo de segurança de rede associado com portas de entrada da Web abertas (80,443).
 
-A Central de Segurança recomenda que você provisione um WAF para ajudar a proteger contra ataques direcionados a seus aplicativos Web em máquinas virtuais e no Ambiente do Serviço de Aplicativo. Um ASE (Ambiente do Serviço de Aplicativo) é uma opção do plano de serviço [Premium](https://azure.microsoft.com/pricing/details/app-service/) do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo do Azure. Para saber mais sobre o ASE, consulte a [Documentação do Ambiente do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
+Central de segurança recomenda que você provisionar um toohelp WAF se proteger contra ataques direcionados a seus aplicativos web em máquinas virtuais e no ambiente de serviço de aplicativo. Um ASE (Ambiente do Serviço de Aplicativo) é uma opção do plano de serviço [Premium](https://azure.microsoft.com/pricing/details/app-service/) do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo do Azure. toolearn mais sobre ASE, consulte Olá [documentação do ambiente de serviço de aplicativo](../app-service/app-service-app-service-environments-readme.md).
 
 > [!NOTE]
-> Este documento apresenta o serviço usando uma implantação de exemplo.  Este documento não é um guia passo a passo.
+> Este documento apresenta serviço hello usando um exemplo de implantação.  Este documento não é um guia passo a passo.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Implementar a recomendação
-1. Na folha **Recomendações**, selecione **Proteger o aplicativo Web usando o Firewall do Aplicativo Web**.
+## <a name="implement-hello-recommendation"></a>Implementar a recomendação de saudação
+1. Em Olá **recomendações** folha, selecione **proteger o aplicativo web usando o firewall do aplicativo web**.
    ![Aplicativo Web protegido][1]
-2. Na folha **Proteger seus aplicativos Web usando o Firewall do Aplicativo Web** , selecione um aplicativo Web. A folha **Adicionar um Firewall do Aplicativo Web** é aberta.
-   ![Add a web application firewall][2]
-3. Você pode optar por usar um Firewall do Aplicativo Web existente, se disponível, ou criar um novo. Neste exemplo, não existem WAFs disponíveis, por isso vamos criar um novo.
-4. Para criar um WAF, selecione uma solução da lista dos parceiros integrados. Neste exemplo, selecionamos **Barracuda Web Application Firewall**.
-5. A folha **Firewall do Aplicativo Web Barracuda** se abre e fornece informações sobre a solução do parceiro. Selecione **Criar** na folha de informações.
+2. Em Olá **proteger seus aplicativos da web usando o firewall do aplicativo web** folha, selecione um aplicativo web. Olá **adicionar um Firewall do aplicativo Web** folha é aberta.
+   ![Adicione um firewall do aplicativo Web][2]
+3. Você pode escolher toouse um firewall do aplicativo web existente se estiver disponível ou você pode criar um novo. Neste exemplo, não existem WAFs disponíveis, por isso vamos criar um novo.
+4. toocreate um WAF, selecione uma solução de lista de saudação de parceiros integrados. Neste exemplo, selecionamos **Barracuda Web Application Firewall**.
+5. Olá **Firewall do aplicativo Web Barracuda** folha é aberto, fornecendo informações sobre solução de parceiro hello. Selecione **criar** na folha de informações de saudação.
 
    ![Folha Informações do firewall][3]
 
-6. A folha **Novo Firewall do Aplicativo Web** é aberta e você pode executar as etapas de **Configuração da VM** e fornecer **Informações do WAF**. Selecione **Configuração da VM**.
-7. Na folha **Configuração da VM**, você deve inserir as informações necessárias para criar a máquina virtual que executará o WAF.
+6. Olá **novo Firewall do aplicativo Web** folha é aberto, onde você pode executar **configuração da VM** etapas e fornecer **WAF informações**. Selecione **Configuração da VM**.
+7. Em Olá **configuração da VM** folha, inserir informações toospin necessário Olá máquina de virtual que executa Olá WAF.
    ![VM configuration][4]
-8. Volte para a folha **Novo Firewall do Aplicativo Web** e selecione **Informações do WAF**. Você configura o WAF em si na folha **Informações do WAF**. A Etapa 7 permite configurar a máquina virtual na qual o WAF será executado e a Etapa 8 permite provisionar o WAF em si.
+8. Retornar toohello **novo Firewall do aplicativo Web** folha e selecione **WAF informações**. Em Olá **WAF informações** folha, configurar WAF Olá em si. Etapa 7 permite tooconfigure Olá máquina na qual Olá WAF é executado e a etapa 8 permite Olá tooprovision WAF em si.
 
 ## <a name="finalize-application-protection"></a>Finalizar a proteção do aplicativo
-1. Volte para a folha **Recomendações** . Uma nova entrada foi gerada depois que você criou o WAF, chamada **Finalizar a proteção do aplicativo**. Essa entrada informa o que é necessário para concluir o processo de conectar o WAF dentro da Rede Virtual do Azure para que ele possa proteger o aplicativo.
+1. Retornar toohello **recomendações** folha. Uma nova entrada foi gerada depois que você criou WAF hello, chamado **finalizar a proteção do aplicativo**. Essa entrada permite que você saiba o que você precisa que o processo de saudação do toocomplete de ligar Olá WAF dentro Olá rede Virtual do Azure, na verdade, para que ele possa proteger o aplicativo hello.
 
    ![Finalizar a proteção do aplicativo][5]
 
-2. Selecione **Finalizar a proteção do aplicativo**. Uma nova lâmina é aberta. Você pode ver que há um aplicativo Web que precisa ter seu tráfego redirecionado.
-3. Selecione o aplicativo Web. Uma folha será aberta com etapas para concluir a configuração de firewall do aplicativo Web. Conclua as etapas e selecione **Restringir o tráfego**. A Central de Segurança criará então as estruturas para você.
+2. Selecione **Finalizar a proteção do aplicativo**. Uma nova lâmina é aberta. Você pode ver que há um aplicativo web que precisa toohave seu tráfego redirecionado.
+3. Selecione o aplicativo da web hello. Uma folha é aberta e mostra as etapas para concluir a configuração de firewall do aplicativo de web hello. Conclua as etapas de Olá e, em seguida, selecione **restringir o tráfego**. Central de segurança, em seguida, Olá o cabeamento para você.
 
    ![Restringir o tráfego][6]
 
 > [!NOTE]
-> Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes.
+> Você pode proteger vários aplicativos web na Central de segurança adicionando esses aplicativos tooyour WAF as implantações existentes.
 >
 >
 
-Os logs daquele WAF agora estão totalmente integrados. A Central de Segurança pode iniciar a coleta e a análise dos logs automaticamente para revelar alertas de segurança importantes para você.
+logs de saudação do que WAF agora são totalmente integrados. Central de segurança pode iniciar automaticamente coletar e analisar logs de saudação para que ele pode superfície tooyou de alertas de segurança importantes.
 
 ## <a name="next-steps"></a>Próximas etapas
-Este documento mostrou como implementar a recomendação da Central de Segurança "Adicionar um aplicativo Web". Para saber mais sobre como configurar um Firewall do Aplicativo Web, consulte o seguinte:
+Este documento lhe mostrou como tooimplement Olá recomendação da Central de segurança "Adicionar um aplicativo web". toolearn mais sobre como configurar um firewall do aplicativo web, consulte o seguinte hello:
 
 * [Configurando um WAF (Firewall do Aplicativo Web) para Ambiente do Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
 
-Para saber mais sobre a Central de Segurança, confira o seguinte:
+toolearn mais sobre o Centro de segurança, consulte o seguinte hello:
 
-* [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Monitoramento de integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
-* [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) – aprenda a gerenciar e a responder a alertas de segurança.
-* [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) – saiba como as recomendações ajudam a proteger os recursos do Azure.
-* [Perguntas frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço.
+* [Definir políticas de segurança na Central de segurança do Azure](security-center-policies.md) – Saiba como tooconfigure as políticas de segurança para sua assinatura do Azure e grupos de recursos.
+* [Monitoramento de integridade de segurança na Central de segurança do Azure](security-center-monitoring.md) – Saiba como toomonitor Olá a integridade de seus recursos do Azure.
+* [Gerenciando e respondendo toosecurity alertas na Central de segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como alertas de toosecurity toomanage e responder.
+* [Gerenciar as recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md) : saiba como as recomendações ajudam a proteger os recursos do Azure.
+* [Perguntas frequentes sobre o Centro de segurança do Azure](security-center-faq.md) – localizar perguntas frequentes sobre como usar o serviço de saudação.
 * [Blog de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure.
 
 <!--Image references-->

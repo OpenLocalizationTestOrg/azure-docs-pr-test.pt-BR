@@ -1,6 +1,6 @@
 ---
-title: Use o PowerShell para redimensionar uma VM Windows no Azure | Microsoft Docs
-description: "Redimensione uma máquina virtual do Windows criada no modelo de implantação do Resource Manager usando o Azure Powershell."
+title: aaaUse PowerShell tooresize uma VM do Windows Azure | Microsoft Docs
+description: "Redimensione uma máquina virtual do Windows criada no modelo de implantação do Gerenciador de recursos de hello, usando o Powershell do Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: Drewm3
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a4a80f3bc99911e4f1a095f0ce63aca00fa50694
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionar uma VM do Windows
-Este artigo mostra como redimensionar uma VM do Windows criada no modelo de implantação do Resource Manager usando o Azure Powershell.
+Este artigo mostra como tooresize uma VM do Windows criada no modelo de implantação do Gerenciador de recursos do hello usando o Powershell do Azure.
 
-Depois de criar uma VM (máquina virtual), você pode expandir ou reduzir a VM, alterando o tamanho da VM. Em alguns casos, você deverá desalocar a VM primeiro. Isso pode acontecer se o novo tamanho não estiver disponível no cluster de hardware que hospeda atualmente a VM.
+Depois de criar uma máquina virtual (VM), você pode dimensionar Olá VM para cima ou para baixo, alterando o tamanho da VM hello. Em alguns casos, você deverá desalocar Olá VM pela primeira vez. Isso pode acontecer se o novo tamanho de saudação não está disponível no cluster de hardware de saudação que está hospedando Olá VM.
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Redimensionar uma VM do Windows que não está em um conjunto de disponibilidade
-1. Liste os tamanhos de VM que estão disponíveis no cluster do hardware onde a VM está hospedada. 
+1. Lista os tamanhos de VM Olá que estão disponíveis no cluster de hardware Olá onde Olá VM está hospedado. 
    
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName> 
     ```
-2. Se o tamanho desejado estiver listado, execute o comando a seguir para redimensionar a VM. Se o tamanho desejado não estiver listado, vá para a etapa 3.
+2. Se Olá desejado tamanho estiver listado, execute Olá comandos tooresize Olá VM a seguir. Se Olá desejado tamanho não estiver listado, vá toostep 3.
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
     $vm.HardwareProfile.VmSize = "<newVMsize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-3. Se o tamanho desejado não estiver listado, execute os comandos a seguir para desalocar a máquina virtual, redimensioná-la e reinicie a máquina virtual.
+3. Se Olá desejado tamanho não estiver listado, execute Olá toodeallocate Olá VM, redimensioná-la e reiniciar Olá VM de comandos a seguir.
    
     ```powershell
     $rgname = "<resourceGroupName>"
@@ -52,27 +52,27 @@ Depois de criar uma VM (máquina virtual), você pode expandir ou reduzir a VM, 
     ```
 
 > [!WARNING]
-> Desalocar a VM libera os endereços IP dinâmicos atribuídos à VM. Os discos do sistema operacional e de dados não são afetados. 
+> Olá ao desalocar VM libera os endereços IP dinâmicos atribuídos toohello VM. Olá SO e discos de dados não são afetados. 
 > 
 > 
 
 ## <a name="resize-a-windows-vm-in-an-availability-set"></a>Redimensionar uma VM do Windows que está em um conjunto de disponibilidade
-Se o novo tamanho de uma VM em um conjunto de disponibilidade não estiver disponível no cluster de hardware que está hospedando atualmente a VM, todas as VMs no conjunto de disponibilidade precisarão ser desalocadas para redimensionar a VM. Talvez também seja necessário atualizar o tamanho de outras VMs no conjunto de disponibilidade depois que uma máquina virtual for redimensionada. Para redimensionar uma VM em um conjunto de disponibilidade, execute as seguintes etapas.
+Se hello novo tamanho para uma VM em um conjunto de disponibilidade não está disponível no cluster de hardware Olá hospedando Olá VM, em seguida, todas as VMs no conjunto de disponibilidade Olá precisará toobe desalocada tooresize Olá VM. Talvez também seja necessário tooupdate tamanho de saudação de outras VMs no conjunto depois de uma máquina virtual foi redimensionada de disponibilidade de saudação. tooresize uma VM em um conjunto de disponibilidade, execute Olá etapas a seguir.
 
-1. Liste os tamanhos de VM que estão disponíveis no cluster do hardware onde a VM está hospedada.
+1. Lista os tamanhos de VM Olá que estão disponíveis no cluster de hardware Olá onde Olá VM está hospedado.
    
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName>
     ```
-2. Se o tamanho desejado estiver listado, execute o comando a seguir para redimensionar a VM. Se ela não estiver listada, vá para a etapa 3.
+2. Se Olá desejado tamanho estiver listado, execute Olá comandos tooresize Olá VM a seguir. Se não estiver listado, vá toostep 3.
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
     $vm.HardwareProfile.VmSize = "<newVmSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-3. Se o tamanho desejado não estiver listado, continue com as etapas a seguir para desalocar todas as VMs no conjunto de disponibilidade, redimensionar as VMs e reiniciá-las.
-4. Pare todas as VMs no conjunto de disponibilidade.
+3. Se Olá desejado tamanho não estiver listado, continue com hello toodeallocate as etapas a seguir todas as VMs no conjunto de disponibilidade de saudação, redimensionar VMs e reiniciá-los.
+4. Pare todas as VMs no conjunto de disponibilidade de saudação.
    
    ```powershell
    $rg = "<resourceGroupName>"
@@ -84,7 +84,7 @@ Se o novo tamanho de uma VM em um conjunto de disponibilidade não estiver dispo
      Stop-AzureRmVM -ResourceGroupName $rg -Name $vmName -Force
    } 
    ```
-5. Redimensione e reinicie todas as VMs no conjunto de disponibilidade.
+5. Redimensionar e reinicie Olá VMs no conjunto de disponibilidade de saudação.
    
    ```powershell
    $rg = "<resourceGroupName>"

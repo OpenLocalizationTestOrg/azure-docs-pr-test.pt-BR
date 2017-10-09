@@ -1,18 +1,18 @@
 <!--author=alkohli last changed: 06/22/17-->
 
-#### <a name="to-get-the-storsimple-service-registration-key"></a>Para obter a chave de registro do serviço StorSimple
+#### <a name="tooget-hello-storsimple-service-registration-key"></a>chave de registro de serviço do tooget Olá StorSimple
 
-1. Na folha **StorSimple Device Manager**, clique no serviço que você criou. Isso abre uma nova folha à direita.
+1. Em Olá **Gerenciador de dispositivos de StorSimple** folha, clique em serviço Olá que você criou. Isso abre um novo direito toohello folha.
    
      ![Folha do Gerenciador de Dispositivos StorSimple](./media/storsimple-8000-get-service-registration-key/createssdevman5.png)
 
-2.  Vá para **Gerenciamento > Chaves**.
+2.  Vá muito**gerenciamento > chaves**.
    
      ![Folha Chaves](./media/storsimple-8000-get-service-registration-key/getregkey2.png)
 
-3.  Na folha aberta, clique no ícone de cópia para copiar a chave de registro de serviço e salvá-la para uso posterior.
+3.  Na folha de saudação que é aberta, clique em Olá cópia ícone toocopy Olá chave de registro e salvá-lo para uso posterior.
 
 > [!NOTE]
-> A chave de registro de serviço é usada para registrar todos os dispositivos que precisam se registrar no serviço Gerenciador de Dispositivos StorSimple.
+> Olá, chave de registro de serviço é usado tooregister todos Olá dispositivos que necessitam de tooregister com o serviço do Gerenciador de dispositivos do StorSimple.
 
 

@@ -1,6 +1,6 @@
 ---
-title: Criar uma imagem personalizada do Azure DevTest Labs de uma VM | Microsoft Docs
-description: Saiba como criar uma imagem personalizada no Azure DevTest Labs de uma VM provisionada usando o Portal do Azure
+title: aaaCreate uma imagem personalizada do Azure DevTest Labs de uma VM | Microsoft Docs
+description: "Saiba como toocreate uma imagem personalizada no Azure DevTest Labs de uma VM provisionados usando Olá portal do Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7dccb79d3db4aae676c7bd2f6b800301210491e2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Criar uma imagem personalizada de uma VM
 
@@ -26,29 +26,29 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="step-by-step-instructions"></a>Instruções passo a passo
 
-Você pode criar uma imagem personalizada de uma VM provisionada e depois usá-la para criar VMs idênticas. As etapas a seguir ilustram como criar uma imagem personalizada com base em uma VM:
+Você pode criar uma imagem personalizada de uma VM provisionada e depois usar essa imagem personalizada toocreate VMs idênticas. Olá, as etapas a seguir ilustra como toocreate um personalizado da imagem de uma VM:
 
-1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Entrar toohello [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Mais serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **mais serviços**e, em seguida, selecione **DevTest Labs** da lista de saudação.
 
-1. Na lista de laboratórios, selecione o laboratório desejado.  
+1. Saudação de laboratórios, selecione lista laboratório desejado hello.  
 
-1. Na folha do laboratório, selecione **Minhas máquinas virtuais**.
+1. Na folha do laboratório hello, selecione **minhas máquinas virtuais**.
  
-1. Na folha **Minhas máquinas virtuais** , selecione a VM com base na qual você deseja criar a imagem personalizada.
+1. Em Olá **minhas máquinas virtuais** folha, selecione Olá VM do qual você deseja imagem personalizada do toocreate hello.
 
-1. Na folha da VM, selecione **Criar imagem personalizada (VHD)**.
+1. Na folha de saudação da VM, selecione **criar imagem personalizada (VHD)**.
 
     ![Criar item de menu de imagem personalizada](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Na folha **Criar imagem** , digite um nome e uma descrição para a sua imagem personalizada. Essas informações são exibidas na lista de bases quando você cria uma VM.
+1. Em Olá **criar imagem** folha, insira um nome e uma descrição para sua imagem personalizada. Essa informação é exibida na lista de saudação de bases de dados quando você cria uma máquina virtual.
 
     ![Criar folha de imagem personalizada](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Selecione se o sysprep foi executado na VM. Se o sysprep não tiver sido executado na VM, especifique se deseja que o sysprep seja executado quando uma VM for criada usando essa imagem personalizada.
+1. Selecione se o sysprep foi executado no hello VM. Se sysprep Olá não foi executado no hello VM, especifique se você deseja executar quando uma VM é criada usando essa imagem personalizada do sysprep.
 
-1. Selecione **OK** quando tiver terminado de criar a imagem personalizada.
+1. Selecione **Okey** quando terminar de toocreate Olá imagem personalizada.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -59,4 +59,4 @@ Você pode criar uma imagem personalizada de uma VM provisionada e depois usá-l
 
 ##<a name="next-steps"></a>Próximas etapas
 
-- [Adicionar uma VM ao laboratório](./devtest-lab-add-vm-with-artifacts.md)
+- [Adicionar um laboratório de tooyour VM](./devtest-lab-add-vm-with-artifacts.md)

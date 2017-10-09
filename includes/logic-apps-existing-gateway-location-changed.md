@@ -1,0 +1,2 @@
+**P**: por que alterou o local de saudação meu gateway existente? <br/>
+**Um**: recursos de Gateway criados antes de 3 de maio de 2017 foram movidos para locais de origem toohello de locatário de saudação do AD do Azure para hello ou de estudante da conta que criou os gateways. No entanto, essas alterações não devem afetar aplicativos lógicos em execução no momento, os quais devem continuar funcionando normalmente. Com a disponibilidade geral do gateway Olá em maio, locais de recursos de gateway podem ser diferente de locais de aplicativo de lógica.

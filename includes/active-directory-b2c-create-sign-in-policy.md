@@ -1,23 +1,23 @@
-Para habilitar a entrada no aplicativo, você precisará criar uma política de entrada. Essa política descreve as experiências pelas quais os consumidores passarão durante a entrada e o conteúdo de tokens que o aplicativo receberá de entradas bem-sucedidas.
+tooenable entrar em seu aplicativo, você precisará de política de toocreate uma entrada. Essa política descreve experiências Olá consumidores revisará durante o logon e conteúdo de saudação de tokens que Olá aplicativo receberá em logons com êxito.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)] Clique em **Políticas de entrada**.
 
-Clique em **+Adicionar** , na parte superior da folha.
+Clique em **+ adicionar** na parte superior de saudação da folha de saudação.
 
-O **Nome** determina o nome da política de entrada usado pelo seu aplicativo. Por exemplo, insira **SiIn**.
+Olá **nome** determina o nome de política de entrada hello usado pelo seu aplicativo. Por exemplo, insira **SiIn**.
 
 Clique em **Provedores de identidade** e selecione **Entrada na Conta Local**. Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado. Clique em **OK**.
 
-Clique em **Declarações do aplicativo**. Escolha aqui as declarações que você deseja que sejam retornadas dos tokens enviados ao aplicativo após uma experiência de entrada bem-sucedida. Por exemplo, selecione **Nome de Exibição**, **Provedor de Identidade**, **CEP** e **ID de Objeto do Usuário**. Clique em **OK**.
+Clique em **Declarações do aplicativo**. Aqui você escolhe as declarações que você deseja que sejam retornados nos tokens de saudação enviada tooyour back aplicativo após uma experiência de logon com êxito. Por exemplo, selecione **Nome de Exibição**, **Provedor de Identidade**, **CEP** e **ID de Objeto do Usuário**. Clique em **OK**.
 
-Clique em **Criar**. Observe que a política recém-criada aparece como **B2C_1_SiIn** (o fragmento **B2C\_1\_** torna-se automaticamente pré-pendente) na folha **Políticas de entrada**.
+Clique em **Criar**. Observe que a política Olá recém-criada aparece como **B2C_1_SiIn** (Olá **B2C\_1\_**  fragmento é automaticamente adicionado) em Olá **entrar políticas**folha.
 
-Abra a política clicando em **B2C_1_SiIn**.
+Abrir a diretiva de saudação clicando **B2C_1_SiIn**.
 
-Selecione **Aplicativo Contoso B2C** na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de Redirecionamento**.
+Selecione **aplicativo Contoso B2C** em Olá **aplicativos** suspenso e `https://localhost:44321/` em Olá **URL de resposta / URI de redirecionamento** lista suspensa.
 
-Clique em **Executar agora**. Uma nova guia do navegador se abre e você poderá percorrer a experiência do consumidor de entrada no aplicativo.
+Clique em **Executar agora**. Abre uma nova guia do navegador e você pode executar através da experiência do consumidor de saudação da assinatura em seu aplicativo.
 
 > [!NOTE]
-> Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+> Ele ocupa tooa minuto para criação de políticas e atualiza tootake efeito.
 >

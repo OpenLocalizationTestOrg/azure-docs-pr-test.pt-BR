@@ -1,6 +1,6 @@
 ---
-title: "Configurar política de autorização de chave de conteúdo usando o portal do Azure | Microsoft Docs"
-description: "Saiba como configurar uma política de autorização para uma chave de conteúdo."
+title: "aaaConfigure política de autorização de chave de conteúdo usando Olá portal do Azure | Microsoft Docs"
+description: "Saiba como tooconfigure uma política de autorização para uma chave de conteúdo."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a35c7255a1c30a693862589c14f6a22a1900790
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 157fb691b7f71f4889228817e1dc64555e327d48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-content-key-authorization-policy"></a>Configurar a Política de Autorização de Chave de Conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>Visão geral
-Os Serviços de Mídia do Microsoft Azure permitem distribuir fluxos MPEG-DASH, Smooth Streaming e HLS (HTTP-Live-Streaming) protegidos com a criptografia AES (usando chaves de criptografia de 128 bits) ou com o [DRM do Microsoft PlayReady](https://www.microsoft.com/playready/overview/). O AMS também permite distribuir fluxos DASH criptografados com o DRM do Widevine. PlayReady e Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC).
+Serviços de mídia do Microsoft Azure permite que você toodeliver MPEG-DASH, Smooth Streaming e fluxos de HTTP-Live-Streaming (HLS) protegidos com Advanced Encryption Standard (AES) (usando chaves de criptografia de 128 bits) ou [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/). AMS também permite que você toodeliver DASH streams criptografados com Widevine DRM. PlayReady e Widevine são criptografados por Olá especificação de criptografia comum (ISO/IEC 23001-7 CENC).
 
-Os Serviços de Mídia também fornecem um **Serviço de Entrega de Chaves/Licenças** por meio do qual os clientes podem obter chaves AES ou licenças do PlayReady/Widevine para reproduzir o conteúdo criptografado.
+Serviços de mídia também fornecem um **serviço de entrega de chave ou a licença** dos quais os clientes podem obter chaves AES ou tooplay de licenças do PlayReady/Widevine Olá conteúdo criptografado.
 
-Este tópico mostra como usar o Portal do Azure para configurar a política de autorização de chave de conteúdo. A chave pode ser usada posteriormente para criptografar dinamicamente o conteúdo. Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Não é possível criptografar downloads progressivos.
+Este tópico mostra como toouse Olá política de autorização da chave de conteúdo de saudação tooconfigure portal do Azure. chave Olá pode ser usado posteriormente toodynamically criptografar seu conteúdo. Observe que no momento você pode criptografar Olá seguintes formatos de streaming: Smooth Streaming, MPEG DASH e HLS. Não é possível criptografar downloads progressivos.
 
-Quando um player solicita um fluxo definido para ser criptografado dinamicamente, os Serviços de Mídia usam a chave configurada para criptografar dinamicamente o conteúdo usando a criptografia AES ou DRM. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+Quando um player solicita um fluxo que é definido toobe dinamicamente criptografado, o Media Services usa Olá configurado chave toodynamically criptografar o conteúdo usando a criptografia AES ou DRM. fluxo de saudação toodecrypt, player Olá solicitar chave Olá do serviço de distribuição de chaves de saudação. toodecide ou não usuário Olá é autorizado chave de saudação tooget, serviço Olá avalia as políticas de autorização de saudação que você especificou para a chave de saudação.
 
-Se você pretende ter várias chaves de conteúdo ou se deseja especificar uma URL de **Serviço de Entrega de Chave/Licença** diferente do serviço de entrega de chaves dos Serviços de Mídia, use o SDK do .NET dos Serviços de Mídia ou as APIs REST.
+Se você planejar toohave várias chaves de conteúdo ou toospecify um **serviço de entrega de chave ou a licença** URL diferente Olá serviço de distribuição de chaves de serviços de mídia, usar o SDK do Media Services .NET ou APIs REST.
 
 [Configurar política de autorização de chave de conteúdo usando o SDK do .NET dos Serviços de Mídia](media-services-dotnet-configure-content-key-auth-policy.md)
 
 [Configurar política de autorização de chave de conteúdo usando a API REST dos Serviços de Mídia](media-services-rest-configure-content-key-auth-policy.md)
 
 ### <a name="some-considerations-apply"></a>Algumas considerações se aplicam:
-* Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para começar a transmitir seu conteúdo e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming deve estar no estado **Executando**. 
+* Quando sua conta AMS é criada um **padrão** ponto de extremidade de streaming é adicionada conta tooyour Olá **parado** estado. toostart seu conteúdo e execute aproveitar o empacotamento dinâmico e criptografia dinâmica, o ponto de extremidade de streaming de streaming tem toobe em Olá **executando** estado. 
 * O ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).
-* O serviço de entrega de chave armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições da política) por 15 minutos.  Se você criar um ContentKeyAuthorizationPolicy e optar por usar uma restrição "Token", testá-lo e, em seguida, atualizar a política de restrição "Aberta", levará aproximadamente 15 minutos antes da política alternar para a versão "Aberta" da política.
+* Olá serviço de entrega de chave armazena ContentKeyAuthorizationPolicy e seus objetos relacionados (restrições e opções de política) por 15 minutos.  Se você criar um ContentKeyAuthorizationPolicy e especifica toouse uma restrição por "Token", em seguida, testá-lo e, em seguida, atualizar a política de saudação muito "abrir" restrição, levará aproximadamente 15 minutos antes de saudação política comutadores toohello versão "Aberta da política de saudação".
 
-## <a name="how-to-configure-the-key-authorization-policy"></a>Como: configurar a política de autorização da chave
-Para configurar a política de autorização da chave, selecione a página **PROTEÇÃO DE CONTEÚDO** .
+## <a name="how-to-configure-hello-key-authorization-policy"></a>Como: configurar a política de autorização da chave de saudação
+política de autorização da chave tooconfigure hello, selecione Olá **proteção de conteúdo** página.
 
-Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo pode ter restrições de autorização **abertas**, de **token** ou de **IP** (a de **IP** pode ser configurada com REST ou SDK do .NET).
+Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. política de autorização da chave de conteúdo Olá pode ter **abrir**, **token**, ou **IP** restrições de autorização (**IP** pode ser configurado com SDK .NET ou REST).
 
 ### <a name="open-restriction"></a>Restrição aberta
-A restrição **aberta** significa que o sistema fornecerá a chave para qualquer pessoa que fizer uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
+Olá **abrir** restrição significa sistema Olá fornecerá Olá tooanyone chave que faz uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
 
 ![OpenPolicy][open_policy]
 
 ### <a name="token-restriction"></a>Restrição de token
-Para escolher a política com restrição de token, pressione o botão **TOKEN** .
+política, pressione Olá restrita do token de saudação toochoose **TOKEN** botão.
 
-A política restrita do **token** deve ser acompanhada por um token emitido por um **Serviço de Token Seguro** (STS). Os Serviços de Mídia oferecem suporte a tokens no formato **Token Simples da Web** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e no formato **Token Web JSON** (JWT). Para obter informações, consulte [Autenticação de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
+Olá **token** política de restrição deve ser acompanhada por um token emitido por uma **serviço de Token seguro** (STS). Serviços de mídia oferece suporte a tokens no hello **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) formato e **JSON Web Token** formato (JWT). Para obter informações, consulte [Autenticação de token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Os Serviços de Mídia não fornecem **Serviços de Token Seguro**. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos serviços de mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem aos configurados para a chave de conteúdo. Para saber mais, consulte [Uso do Azure ACS para emitir tokens](http://mingfeiy.com/acs-with-key-services).
+Os Serviços de Mídia não fornecem **Serviços de Token Seguro**. Você pode criar um STS personalizado ou utilizar a tokens de tooissue ACS do Microsoft Azure. Olá STS deve ser configurado toocreate um token assinado com hello especificado chave e emitir declarações que você especificou na configuração de restrição de token hello. Olá serviço de distribuição de chaves de serviços de mídia retornará cliente de toohello chave de criptografia de saudação se Olá token é válido e hello declarações no token Olá correspondam às configuradas para chave de conteúdo de saudação. Para obter mais informações, consulte [tokens do uso do Azure ACS tooissue](http://mingfeiy.com/acs-with-key-services).
 
-Ao configurar a política com restrição de **TOKEN**, você deve definir valores para **chave de verificação**, **emissor** e **Público**. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
+Ao configurar Olá **TOKEN** política de restrição, você deve definir valores para **chave de verificação**, **emissor** e **público**. chave de verificação primária Olá contém Olá chave que Olá token foi assinado com, o emissor é Olá serviço de token seguro que emite o token de saudação. público Hello (às vezes chamado de escopo) descreve a intenção de saudação do token de saudação ou token de saudação do recurso de saudação autoriza o acesso ao. Olá serviço de distribuição de chaves de serviços de mídia valida que esses valores no token Olá correspondem a valores de saudação no modelo de saudação.
 
 ### <a name="playready"></a>PlayReady
-Ao proteger o conteúdo com **PlayReady**, uma das coisas que você precisa especificar na sua política de autorização é uma cadeia de caracteres XML que define o modelo de licença do PlayReady. Por padrão, a seguinte política é definida:
+Ao proteger seu conteúdo com **PlayReady**, uma das coisas Olá precisar toospecify em sua política de autorização é uma cadeia de caracteres XML que define o modelo de licença do PlayReady hello. Por padrão, Olá seguindo a política é definida:
 
 <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"> <LicenseTemplates> <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices> <ContentKey i:type="ContentEncryptionKeyFromHeader" /> <LicenseType>Nonpersistent</LicenseType> <PlayRight> <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput> </PlayRight> </PlayReadyLicenseTemplate> </LicenseTemplates> </PlayReadyLicenseResponseTemplate>
 
-Você pode clicar no botão **Importar a política XML** e fornecer um XML diferente que está em conformidade com o esquema XML definido [aqui](media-services-playready-license-template-overview.md).
+Você pode clicar em Olá **importar política xml** botão e fornecer um XML diferente que esteja de acordo com toohello esquema XML definido [aqui](media-services-playready-license-template-overview.md).
 
 ## <a name="next-step"></a>Próxima etapa
 Revise os roteiros de aprendizagem dos Serviços de Mídia.

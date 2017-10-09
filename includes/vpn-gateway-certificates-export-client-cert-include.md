@@ -1,0 +1,8 @@
+Quando você gerar um certificado de cliente, ele foi instalado automaticamente no Olá computador que você usou toogenerate-lo. Se desejar que o certificado de cliente Olá tooinstall em outro computador cliente, é necessário certificado de cliente de saudação tooexport gerado.                              
+
+1. tooexport um certificado de cliente, abra **gerenciar certificados de usuário**. certificados de cliente Olá gerado são, por padrão, localizados em 'Certificados - certificados atual'. Certificado de cliente do botão direito do mouse Olá que você deseja tooexport, clique em **todas as tarefas**e, em seguida, clique em **exportar** tooopen Olá **Assistente para exportação de certificados**.
+2. No Assistente de saudação, clique em **próximo**, em seguida, selecione **Sim, exportar a chave privada Olá**e, em seguida, clique em **próximo**.
+3. Em Olá **formato do arquivo de exportação** , deixe os padrões de saudação selecionados. Verifique se **incluir todos os certificados no caminho de certificação hello, se possível** está selecionado. Selecionar essa opção também exporta informações de certificado raiz de saudação que é necessárias para autenticação com êxito. Em seguida, clique em **Avançar**.
+4. Em Olá **segurança** página, você deve proteger a chave privada hello. Se você selecionar toouse uma senha, certifique-se de que toorecord ou lembrar senha Olá que você definiu para este certificado. Em seguida, clique em **Avançar**.
+5. Em Olá **arquivo tooExport**, **procurar** toohello local toowhich você deseja tooexport Olá certificado. Para **nome de arquivo**, arquivo de certificado de saudação do nome. Em seguida, clique em **Avançar**.
+6. Clique em **concluir** tooexport certificado de saudação.

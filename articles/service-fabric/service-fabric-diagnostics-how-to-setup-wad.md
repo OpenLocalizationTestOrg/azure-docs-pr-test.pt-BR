@@ -1,6 +1,6 @@
 ---
-title: "Coletar logs usando o Diagnóstico do Azure | Microsoft Docs"
-description: "Este artigo descreve como configurar o Diagnóstico do Azure para coletar logs de um cluster do Service Fabric em execução no Azure."
+title: "aaaCollect logs usando o diagnóstico do Azure | Microsoft Docs"
+description: "Este artigo descreve como tooset o diagnóstico do Azure toocollect logs de um cluster de malha do serviço em execução no Azure."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.openlocfilehash: 190a8a393f2e7d74a792db4efa81f94a18b02221
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: afbcfbe972b1847ef33bf0539b4398794b1bd56b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Coletar logs usando o Diagnóstico do Azure
 > [!div class="op_single_selector"]
@@ -27,74 +27,74 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda a analisar e solucionar problemas no cluster ou nos aplicativos e serviços em execução nesse cluster.
+Quando você estiver executando um cluster do Service Fabric do Azure, é logs de Olá de toocollect uma boa ideia de todos os nós de saudação em um local central. Ter Olá logs em um local central ajuda a analisar e solucionar problemas no seu cluster, ou em aplicativos de saudação e serviços em execução no cluster.
 
-Uma forma de carregar e coletar logs é usar a extensão de Diagnóstico do Azure, que carrega os logs no Armazenamento do Azure, no Application Insights do Azure ou nos Hubs de Eventos do Azure. Os logs não são tão úteis diretamente no armazenamento ou em Hubs de Eventos. Mas você pode usar um processo externo para ler os eventos do armazenamento e colocá-los em um produto, como o [Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou em outra solução de análise de log. O [Application Insights do Azure](https://azure.microsoft.com/services/application-insights/) apresenta um serviço abrangente interno de pesquisa e análise de logs.
+Tooupload uma forma e coletar logs é a extensão de diagnóstico do Azure Olá toouse, quais carregamentos logs tooAzure armazenamento, informações de aplicativo do Azure ou Hubs de eventos do Azure. Olá logs não são úteis diretamente no armazenamento ou em Hubs de eventos. Mas você pode usar um processo externo tooread Olá de eventos do armazenamento e colocá-los em um produto como [análise de Log](../log-analytics/log-analytics-service-fabric.md) ou outra solução de análise de log. O [Application Insights do Azure](https://azure.microsoft.com/services/application-insights/) apresenta um serviço abrangente interno de pesquisa e análise de logs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você pode usar essas ferramentas para executar algumas das operações neste documento:
+Use essas ferramentas tooperform algumas das operações de saudação neste documento:
 
-* [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (relacionado aos Serviços de Nuvem do Azure, mas tem boas informações e exemplos)
+* [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (relacionado tooAzure serviços de nuvem, mas tem boas informações e exemplos)
 * [Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md)
 * [PowerShell do Azure](/powershell/azure/overview)
 * [Cliente do Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## <a name="log-sources-that-you-might-want-to-collect"></a>Fontes de log que você talvez queira coletar
-* **Logs do Service Fabric:** emitidos pela plataforma para canais de ETW (Rastreamento de Eventos para Windows) e EventSource padrão. Os logs podem ser de vários tipos:
-  * Eventos operacionais: logs para operações executadas pela plataforma do Service Fabric. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização.
+## <a name="log-sources-that-you-might-want-toocollect"></a>Fontes de log que convém toocollect
+* **Logs do Service Fabric**: emitido de canais de rastreamento de eventos para Windows (ETW) e EventSource de toostandard de plataforma do hello. Os logs podem ser de vários tipos:
+  * Eventos operacionais: Logs de operações que Olá executa a plataforma do Service Fabric. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização.
   * [Eventos do modelo de programação Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
   * [Eventos do modelo de programação Reliable Services](service-fabric-reliable-services-diagnostics.md)
-* **Eventos do aplicativo:** eventos emitidos do código de serviços e escritos usando a classe auxiliar EventSource fornecida nos modelos do Visual Studio. Para obter mais informações sobre como gravar logs de seu aplicativo, consulte [Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+* **Eventos de aplicativo**: eventos emitidas a partir de código do serviço e gravadas usando Olá EventSource auxiliar classe fornecido em modelos do Visual Studio hello. Para obter mais informações sobre como toowrite logs de seu aplicativo, consulte [monitorar e diagnosticar os serviços em uma instalação de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
-## <a name="deploy-the-diagnostics-extension"></a>Implantar a extensão de Diagnóstico
-A primeira etapa para coletar logs será implantar a extensão Diagnóstico em cada uma das VMs no cluster do Service Fabric. A extensão de Diagnóstico coleta logs em cada VM e os carrega para a conta de armazenamento especificada. As etapas variam um pouco com base em seu uso do Portal do Azure ou do Azure Resource Manager. As etapas também variam com base em se a implantação faz parte da criação do cluster ou é para um cluster que já existe. Vejamos as etapas para cada cenário.
+## <a name="deploy-hello-diagnostics-extension"></a>Implantar a extensão de diagnóstico Olá
+Olá primeira etapa na coleta de logs é extensão de diagnóstico Olá toodeploy em cada uma das VMs Olá no cluster do Service Fabric hello. Olá extensão de diagnóstico coleta logs em cada VM e os carrega toohello conta de armazenamento que você especificar. etapas de saudação variam um pouco com base em se você usar Olá portal do Azure ou o Gerenciador de recursos do Azure. etapas de saudação também variam com base na implantação Olá faz parte da criação do cluster ou para um cluster que já existe. Vamos dar uma olhada em etapas Olá para cada cenário.
 
-### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-the-portal"></a>Implantar a extensão de Diagnóstico como parte da criação de cluster por meio do portal
-Para implantar a extensão de Diagnóstico nas VMs no cluster como parte da criação do cluster, você usa o painel de configurações de Diagnóstico mostrado na imagem abaixo. Para habilitar a coleta de eventos de Reliable Actors ou Reliable Services, certifique-se de que o diagnóstico esteja definido como **Ativado** (a configuração padrão). Depois de criar o cluster, você não poderá alterar essas configurações por meio do portal.
+### <a name="deploy-hello-diagnostics-extension-as-part-of-cluster-creation-through-hello-portal"></a>Implantar a extensão de diagnóstico hello como parte da criação de cluster por meio do portal Olá
+toodeploy Olá diagnóstico extensão toohello VMs no cluster hello como parte da criação do cluster, você usar o painel de configurações de diagnóstico Olá Olá a imagem a seguir mostrada. tooenable Reliable Actors ou serviços confiáveis coleta de eventos, verifique se o diagnóstico está definido muito**em** (Olá a configuração padrão). Depois de criar o cluster hello, você não pode alterar essas configurações usando o portal de saudação.
 
-![Configuração de Diagnóstico do Azure no portal para a criação do cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
+![Configurações de diagnóstico do Azure no portal de saudação para criação de cluster](./media/service-fabric-diagnostics-how-to-setup-wad/portal-cluster-creation-diagnostics-setting.png)
 
-A equipe de suporte do Azure *requer* os logs de suporte para ajudar a resolver as solicitações de suporte que você criar. Esses logs são coletados em tempo real e são armazenados em uma das contas de armazenamento criadas no grupo de recursos. As definições de Diagnóstico configuram eventos de nível de aplicativo. Esses eventos incluem eventos de [Reliable Actors](service-fabric-reliable-actors-diagnostics.md), eventos de [Reliable Services](service-fabric-reliable-services-diagnostics.md) e alguns eventos de Service Fabric no nível de sistema a serem armazenados no Armazenamento do Azure.
+Olá a equipe de suporte do Azure *requer* suporte logs toohelp resolver as solicitações de suporte que você criar. Esses logs são coletados em tempo real e são armazenados em uma saudação contas de armazenamento criadas no grupo de recursos de saudação. as configurações de diagnóstico Olá configuram eventos em nível de aplicativo. Esses eventos incluem [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) eventos, [serviços confiáveis](service-fabric-reliable-services-diagnostics.md) eventos e alguns toobe de eventos do nível de sistema do Service Fabric no armazenamento do Azure.
 
-Os produtos como a [Elasticsearch](https://www.elastic.co/guide/index.html), ou seu próprio processo, podem obter os eventos na conta de armazenamento. Atualmente, não há nenhuma maneira de filtrar ou limpar os eventos que são enviados para a tabela. Se você não implantar um processo para remover eventos da tabela, a tabela continuará crescendo.
+Produtos como [Elasticsearch](https://www.elastic.co/guide/index.html) ou seu próprio processo pode obter eventos Olá Olá da conta de armazenamento. Atualmente, não há nenhuma maneira toofilter ou limpar Olá eventos enviados toohello tabela. Se você não implementa um tooremove de processar eventos de tabela hello, tabela Olá continuará toogrow.
 
-Ao criar um cluster usando o portal, é altamente recomendável que você baixe o modelo **antes de clicar em OK** para criar o cluster. Para obter detalhes, confira [Setup a Service Fabric cluster by using an Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md) (Configurar um cluster do Service Fabric usando um modelo do Azure Resource Manager). Você precisará do modelo para fazer alterações posteriormente, porque não é possível fazer algumas alterações usando o portal.
+Quando você estiver criando um cluster usando o portal de Olá, é altamente recomendável que você baixe o modelo de saudação **antes de clicar em Okey** toocreate cluster de saudação. Para obter detalhes, consulte muito[configurar um cluster do Service Fabric usando um modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Será necessário toomake alterações do modelo de hello mais tarde, porque você não pode fazer algumas alterações usando o portal de saudação.
 
-Você pode exportar modelos por meio do portal usando as etapas a seguir. No entanto, esses modelos podem ser mais difíceis de usar porque podem ter valores nulos em que estão faltando informações necessárias.
+Você pode exportar modelos do portal Olá Olá etapas a seguir. No entanto, esses modelos podem ser mais difícil toouse porque eles podem ter valores nulos que estão faltando informações necessárias.
 
 1. Abra seu grupo de recursos.
-2. Selecione **Configurações** para exibir o painel Configurações.
-3. Selecione **Implantações** para exibir o painel de histórico de implantação.
-4. Selecione uma implantação para exibir os detalhes da implantação.
-5. Selecione **Exportar Modelo** para exibir o painel de modelo.
-6. Selecione **Salvar no arquivo** para exportar um arquivo .zip contendo os arquivos de modelo, parâmetro e do PowerShell.
+2. Selecione **configurações** toodisplay painel de configurações de saudação.
+3. Selecione **implantações** toodisplay painel de histórico de implantação de saudação.
+4. Selecione detalhes implantação toodisplay Olá de implantação de saudação.
+5. Selecione **exportar modelo** toodisplay painel de modelo de saudação.
+6. Selecione **salvar toofile** tooexport um arquivo. zip que contém o modelo de hello, parâmetro e arquivos do PowerShell.
 
-Depois de exportar os arquivos, é necessário fazer uma modificação. Edite o arquivo parameters.json e remova o elemento **adminPassword**. Isso fará com que a senha seja solicitada quando o script de implantação for executado. Ao executar o script de implantação, você pode precisar corrigir os valores de parâmetro nulo.
+Depois de exportar arquivos Olá, é necessário toomake uma modificação. Editar o arquivo de parameters.json hello e remover Olá **adminPassword** elemento. Isso fará com que um prompt de senha hello quando Olá script de implantação é executado. Quando você estiver executando o script de implantação hello, você pode ter valores de parâmetro nulo toofix.
 
-Para usar o modelo baixado para atualizar uma configuração:
+Olá toouse baixado modelo tooupdate uma configuração:
 
-1. Extraia o conteúdo para uma pasta no computador local.
-2. Modifique o conteúdo para refletir a nova configuração.
-3. Inicie o PowerShell e altere para a pasta para a qual você extraiu o conteúdo.
-4. Execute **deploy.ps1** e preencha a ID da assinatura, o nome do grupo de recursos (use o mesmo nome para atualizar a configuração) e um nome exclusivo da implantação.
+1. Extraia a pasta de tooa Olá conteúdo no computador local.
+2. Modificar Olá conteúdo tooreflect Olá nova configuração.
+3. Inicie o PowerShell e alterar pasta toohello onde você extraiu o conteúdo de saudação.
+4. Executar **deploy.ps1** e preencha a ID da assinatura Olá, nome do grupo de recursos de saudação (use Olá mesma configuração do nome tooupdate Olá) e um nome de implantação exclusiva.
 
-### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Implantar a extensão de diagnóstico como parte da criação de cluster usando o Gerenciador de Recursos do Azure
-Para criar um cluster usando o Resource Manager, você precisa adicionar a configuração de Diagnóstico JSON para o modelo do Resource Manager completo do cluster antes de criar o cluster. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure: [cluster cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype).
+### <a name="deploy-hello-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Implantar a extensão de diagnóstico hello como parte da criação de cluster usando o Gerenciador de recursos do Azure
+toocreate um cluster usando o Gerenciador de recursos, é necessário tooadd Olá diagnóstico JSON toohello completo do cluster Resource Manager modelo de configuração antes de criar o cluster de saudação. Fornecemos um modelo de Gerenciador de recursos de cluster de cinco VM de exemplo com a configuração de diagnóstico adicionada tooit como parte de nossos exemplos de modelo do Gerenciador de recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure Olá: [cluster de cinco nós com exemplo de modelo do Gerenciador de recursos de diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype).
 
-Para ver a configuração do Diagnóstico no modelo do Resource Manager, abra o arquivo azuredeploy.json e pesquise **IaaSDiagnostics**. Para criar um cluster usando este modelo, selecione o botão **Implantar no Azure** disponível no link anterior.
+configuração de diagnóstico de Olá toosee no modelo do Gerenciador de recursos de saudação, arquivo de azuredeploy.json Olá aberto e procure **IaaSDiagnostics**. toocreate um cluster usando esse modelo, selecione Olá **implantar tooAzure** disponíveis no link anterior de saudação do botão.
 
-Como alternativa você pode baixar o exemplo de Gerenciador de Recursos, fazer suas alterações e criar um cluster com o modelo modificado usando o comando `New-AzureRmResourceGroupDeployment` em uma janela do Azure PowerShell. Consulte no código a seguir para ver os parâmetros que você passa para o comando. Para obter informações detalhadas sobre como implantar um grupo de recursos usando o PowerShell, consulte o artigo [Deploy a resource group with the Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) (Implantar o grupo de recursos com o modelo do Azure Resource Manager).
+Como alternativa, você pode baixar o exemplo do Gerenciador de recursos de hello, fazer alterações tooit e criar um cluster com o modelo modificado hello usando Olá `New-AzureRmResourceGroupDeployment` comando em uma janela do PowerShell do Azure. Consulte Olá código para hello parâmetros que você passa no toohello comando a seguir. Para obter informações detalhadas sobre como toodeploy um recurso de grupo usando o PowerShell, consulte o artigo Olá [implantar um grupo de recursos com o modelo do Azure Resource Manager Olá](../azure-resource-manager/resource-group-template-deploy.md).
 
 ```powershell
 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
-### <a name="deploy-the-diagnostics-extension-to-an-existing-cluster"></a>Implantar a extensão de diagnóstico em um cluster existente
-Se você tiver um cluster existente que não tenha o Diagnóstico implantado ou se você quiser modificar uma configuração existente, você poderá adicioná-lo ou atualizá-lo. Modifique o modelo do Resource Manager usado para criar o cluster existente ou baixe o modelo do portal, conforme descrito anteriormente. Modifique o arquivo template.json executando as seguintes tarefas.
+### <a name="deploy-hello-diagnostics-extension-tooan-existing-cluster"></a>Implantar um cluster existente do hello diagnóstico extensão tooan
+Se você tiver um cluster existente que não tem o diagnóstico de implantado, ou se você quiser toomodify uma configuração existente, você pode adicionar ou atualizá-lo. Modificar o modelo do Gerenciador de recursos de saudação que é usado toocreate Olá existente cluster ou baixar o modelo de saudação do portal Olá conforme descrito anteriormente. Modificar o arquivo de template.json de saudação executando Olá tarefas a seguir.
 
-Adicione um novo recurso de armazenamento ao modelo, adicionando à seção de recursos.
+Adicione um novo modelo de toohello de recursos de armazenamento adicionando toohello seção de recursos.
 
 ```json
 {
@@ -112,7 +112,7 @@ Adicione um novo recurso de armazenamento ao modelo, adicionando à seção de r
 },
 ```
 
- Em seguida, adicione à seção de parâmetros logo após as definições da conta de armazenamento, entre `supportLogStorageAccountName` e `vmNodeType0Name`. Substitua o texto do espaço reservado *nome da conta de armazenamento aqui* pelo nome da conta de armazenamento.
+ Em seguida, adicione a seção parâmetros toohello depois de definições de conta de armazenamento hello, entre `supportLogStorageAccountName` e `vmNodeType0Name`. Substitua o texto do espaço reservado Olá *o nome de conta de armazenamento aqui* com nome Olá Olá da conta de armazenamento.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -123,18 +123,18 @@ Adicione um novo recurso de armazenamento ao modelo, adicionando à seção de r
       ],
       "defaultValue": "Standard_LRS",
       "metadata": {
-        "description": "Replication option for the application diagnostics storage account"
+        "description": "Replication option for hello application diagnostics storage account"
       }
     },
     "applicationDiagnosticsStorageAccountName": {
       "type": "string",
       "defaultValue": "storage account name goes here",
       "metadata": {
-        "description": "Name for the storage account that contains application diagnostics data from the cluster"
+        "description": "Name for hello storage account that contains application diagnostics data from hello cluster"
       }
     },
 ```
-Em seguida, atualize a seção `VirtualMachineProfile` do arquivo template.json adicionando o conteúdo a seguir dentro da matriz extensions. Adicione uma vírgula no início ou no fim, dependendo de onde será inserido.
+Em seguida, atualizar Olá `VirtualMachineProfile` seção do arquivo de template.json Olá adicionando Olá código dentro do conjunto de extensões de saudação a seguir. Ser tooadd se uma vírgula no início de saudação ou no final de hello, dependendo de onde será inserido.
 
 ```json
 {
@@ -191,13 +191,13 @@ Em seguida, atualize a seção `VirtualMachineProfile` do arquivo template.json 
 }
 ```
 
-Após modificar o arquivo template.json conforme descrito, republique o modelo do Resource Manager. Se o modelo tiver sido exportado, a execução do arquivo deploy.ps1 republicará o modelo. Após implantar, verifique se o status de **ProvisioningState** é **Com êxito**.
+Depois de modificar o arquivo de template.json Olá conforme descrito, republicar o modelo do Gerenciador de recursos de saudação. Se o modelo de saudação foi exportado, executando o arquivo hello deploy.ps1 republica modelo hello. Após implantar, verifique se o status de **ProvisioningState** é **Com êxito**.
 
-## <a name="update-diagnostics-to-collect-health-and-load-events"></a>Atualizar o diagnóstico para coletar eventos de integridade e de carga
+## <a name="update-diagnostics-toocollect-health-and-load-events"></a>Atualizar diagnóstico toocollect eventos de integridade e de carga
 
-Começando com a versão 5.4 do Service Fabric, eventos de métrica de carga e integridade estão disponíveis para coleta. Esses eventos refletir os eventos gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Isso permite agregar e exibir a integridade do sistema ao longo do tempo e para alertas com base em eventos de integridade ou de carga. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
+A partir da versão de hello 5.4 da malha do serviço, eventos de métrica de integridade e de carga estão disponíveis para coleção. Esses eventos refletir os eventos gerados pelo sistema hello ou seu código usando a integridade de saudação ou carregar relatórios APIs como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Isso permite agregar e exibir a integridade do sistema ao longo do tempo e para alertas com base em eventos de integridade ou de carga. tooview adicionar esses eventos no Visualizador de eventos diagnóstico do Visual Studio "Microsoft-ServiceFabric:4:0x4000000000000008" toohello lista de provedores do ETW.
 
-Para coletar os eventos, modificar o modelo do Resource Manager para incluir
+eventos de saudação toocollect, modificar Olá tooinclude de modelo de Gerenciador de recursos
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -212,12 +212,12 @@ Para coletar os eventos, modificar o modelo do Resource Manager para incluir
     }
 ```
 
-## <a name="update-diagnostics-to-collect-and-upload-logs-from-new-eventsource-channels"></a>Atualizar o Diagnóstico para coletar e carregar os logs de novos canais EventSource
-Para atualizar o Diagnóstico para coletar logs de novos canais de EventSource que representam um novo aplicativo que você está prestes a implantar, basta executar as mesmas etapas da [seção acima](#deploywadarm) para configurar o Diagnóstico para um cluster existente.
+## <a name="update-diagnostics-toocollect-and-upload-logs-from-new-eventsource-channels"></a>Atualizar toocollect de diagnóstico e carregar os logs de novos canais de EventSource
+logs de toocollect tooupdate diagnóstico de novos canais de EventSource que representam um novo aplicativo que você está prestes a toodeploy, executar Olá mesmo etapas como Olá [seção anterior](#deploywadarm) para configuração de diagnóstico para um existente cluster.
 
-Atualize a seção `EtwEventSourceProviderConfiguration` no arquivo template.json para adicionar entradas para novos canais de EventSource antes de aplicar a atualização de configuração usando o comando `New-AzureRmResourceGroupDeployment` do PowerShell. O nome da origem do evento é definido como parte do seu código no arquivo Visual Studio-generated ServiceEventSource.cs.
+Atualizar Olá `EtwEventSourceProviderConfiguration` seção nas entradas de tooadd Olá template.json arquivo hello novos EventSource canais antes de aplicar a configuração de saudação atualizar usando Olá `New-AzureRmResourceGroupDeployment` comando do PowerShell. nome de saudação da origem de eventos de saudação é definido como parte do seu código no arquivo do hello ServiceEventSource.cs gerado pelo Visual Studio.
 
-Por exemplo, se a origem do evento for denominada My-Eventsource, adicione o seguinte código para colocar os eventos de My-Eventsource em uma tabela chamada MyDestinationTableName.
+Por exemplo, se a origem do evento é denominada Meu Eventsource, adicione Olá após eventos de saudação do código tooplace do meu Eventsource em uma tabela nomeada MyDestinationTableName.
 
 ```json
         {
@@ -229,12 +229,12 @@ Por exemplo, se a origem do evento for denominada My-Eventsource, adicione o seg
         }
 ```
 
-Para coletar contadores de desempenho ou logs de eventos, modifique o modelo do Resource Manager usando os exemplos fornecidos em [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando um modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Em seguira, republique o modelo do Resource Manager.
+contadores de desempenho de toocollect ou logs de eventos, modificar o modelo de Gerenciador de recursos de saudação usando exemplos Olá fornecidos [criar uma máquina virtual do Windows com o monitoramento e diagnóstico usando um modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Em seguida, republicar o modelo do Gerenciador de recursos de saudação.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para compreender com mais detalhes quais eventos você deve analisar enquanto soluciona problemas, consulte os eventos de diagnóstico para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md).
+toounderstand mais detalhadamente os eventos que você deve procurar na solução de problemas, consulte os eventos de diagnóstico Olá emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [serviços confiáveis](service-fabric-reliable-services-diagnostics.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
-* [Aprenda a coletar contadores de desempenho ou logs usando a extensão de Diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Saiba como os contadores de desempenho de toocollect ou logs usando Olá extensão de diagnóstico](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Solução do Service Fabric no Log Analytics](../log-analytics/log-analytics-service-fabric.md)
 

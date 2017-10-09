@@ -1,5 +1,5 @@
 ---
-title: "Proteger seu conteúdo com os Serviços de Mídia do Azure | Microsoft Docs"
+title: "aaaProtect seu conteúdo com os serviços de mídia do Azure | Microsoft Docs"
 description: "Este artigo fornece uma visão geral da proteção de conteúdo com os Serviços de Mídia."
 services: media-services
 documentationcenter: 
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 64be4ea104bd11b8e191e2c8d4170a2de88acb47
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: abab7602d71d7357a692976420ca9a988c0d096f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="protecting-content-overview"></a>Visão geral sobre a proteção de conteúdo
-Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o momento em que ela deixa computador e durante o armazenamento, processamento e entrega. Os Serviços de Mídia permitem que você entregue o conteúdo ao vivo e sob demanda criptografado dinamicamente com o Standard de Criptografia Avançada (AES) (usando chaves de criptografia de 128 bits) ou quaisquer DRMs principais: Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
+Serviços de mídia do Microsoft Azure permite que você toosecure sua mídia do tempo de saudação deixa o computador por meio de armazenamento, processamento e entrega. Serviços de mídia permitem toodeliver seu conteúdo ao vivo e sob demanda dinamicamente criptografado com AES Advanced Encryption Standard () (usando chaves de criptografia de 128 bits) ou qualquer um dos Olá DRMs principais: Microsoft PlayReady, Google Widevine e FairPlay da Apple. Serviços de mídia também fornece um serviço para distribuir chaves AES e DRM (PlayReady, Widevine e FairPlay) licencia tooauthorized clientes. 
 
-A imagem a seguir demonstra os fluxos de trabalho de proteção de conteúdo que oferece suporte ao AMS. 
+Olá a imagem a seguir demonstra a fluxos de trabalho de proteção de conteúdo de saudação que AMS oferece suporte. 
 
 ![Proteger com o PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
+>Quando sua conta AMS é criada um **padrão** ponto de extremidade de streaming é adicionada conta tooyour Olá **parado** estado. toostart streaming seu conteúdo e execute aproveitar o empacotamento dinâmico e criptografia dinâmica, Olá ponto de extremidade de streaming do qual você deseja toostream conteúdo tem toobe em Olá **executando** estado. 
 
-Este tópico explica os [conceitos e terminologia](media-services-content-protection-overview.md) relevantes para entender a proteção de conteúdo com o AMS. O tópico também contém [links](media-services-content-protection-overview.md#common-scenarios) para os tópicos que mostram como realizar as tarefas de proteção de conteúdo. 
+Este tópico explica [conceitos e terminologia](media-services-content-protection-overview.md) toounderstanding relevantes de proteção de conteúdo com AMS. Olá tópico também contém [links](media-services-content-protection-overview.md#common-scenarios) tootopics que mostram como tooachieve tarefas de proteção de conteúdo. 
 
 ## <a name="dynamic-encryption"></a>Criptografia dinâmica
-Os Serviços de Mídia do Microsoft Azure permitem que você forneça o conteúdo criptografado dinamicamente com a chave de limpeza do AES ou a criptografia DRM: Microsoft PlayReady, Google Widevine e Apple FairPlay.
+Serviços de mídia do Microsoft Azure permite que você toodeliver seu conteúdo dinamicamente criptografado com chave não criptografada AES ou criptografia DRM: Microsoft PlayReady, Google Widevine e FairPlay da Apple.
 
-Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Não é possível criptografar downloads progressivos.
+No momento, você pode criptografar Olá seguintes formatos de streaming: Smooth Streaming, MPEG DASH e HLS. Não é possível criptografar downloads progressivos.
 
-Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) ao ativo e também configurar políticas de autorização para a chave.
+Se você quiser para serviços de mídia tooencrypt um ativo, você precisa tooassociate uma chave de criptografia (CommonEncryption ou EnvelopeEncryption) com seu ativo e também configurar políticas de autorização para a chave de saudação.
 
-Você também precisa configurar a política de entrega do ativo. Se você deseja transmitir um ativo de armazenamento criptografado, certifique-se de especificar como deseja entregá-lo configurando a política de entrega de ativos.
+Você também precisa de política de distribuição do ativo de saudação tooconfigure. Se você quiser toostream um ativo de armazenamento criptografado, verifique se toospecify como você deseja toodelivê-lo ao configurar a política de entrega de ativos.
 
-Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a chave de limpeza do AES ou a criptografia DRM. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+Quando um fluxo é solicitado por um player, o Media Services usa Olá especificado toodynamically chave criptografar seu conteúdo usando a chave não criptografada AES ou a criptografia de DRM. fluxo de saudação toodecrypt, player Olá solicitar chave Olá do serviço de distribuição de chaves de saudação. toodecide ou não usuário Olá é autorizado chave de saudação tooget, serviço Olá avalia as políticas de autorização de saudação que você especificou para a chave de saudação.
 
 
 ## <a name="storage-encryption"></a>Criptografia do armazenamento
-Use a criptografia de armazenamento para criptografar seu conteúdo limpo localmente usando a criptografia AES de 256 bits, em seguida, carregue-o no Armazenamento do Azure no qual é armazenado e criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+Use tooencrypt de criptografia de armazenamento o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carregá-lo tooAzure armazenamento onde ele está armazenado criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um tooencoding anterior do sistema de arquivos criptografados e, opcionalmente, criptografada novamente toouploading anterior como um novo ativo de saída. caso de uso primário Olá para criptografia de armazenamento é quando você deseja toosecure seus arquivos de mídia de entrada de alta qualidade com criptografia forte em rest no disco.
 
-Para entregar um ativo de armazenamento criptografado, você deve configurar a política de entrega do ativo para que o Serviços de Mídia saiba como você deseja distribuir seu conteúdo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de distribuição especificada (por exemplo, AES, criptografia comum ou sem criptografia).
+Ordem toodeliver um ativo de armazenamento criptografado, você deve configurar a política de distribuição do ativo Olá para que serviços de mídia saibam como você deseja toodeliver seu conteúdo. Antes do ativo pode ser transmitido, Olá streaming fluxos e criptografia de armazenamento de saudação do servidor remove o conteúdo usando Olá especificado política de entrega (por exemplo, AES, criptografia comum ou sem criptografia).
 
 ## <a name="common-encryption-cenc"></a>Criptografia comum (CENC)
 A criptografia comum é usada ao criptografar o conteúdo com PlayReady e/ou Widewine.
@@ -56,39 +56,39 @@ A criptografia comum é usada ao criptografar o conteúdo com PlayReady e/ou Wid
 Cbcs-aapl é usado ao criptografar seu conteúdo com o FairPlay.
 
 ## <a name="envelope-encryption"></a>Criptografia de envelope
-Use esta opção se quiser proteger seu conteúdo com a chave de limpeza AES-128. Se você quiser uma opção mais segura, escolha um dos DRMs listados neste tópico. 
+Use esta opção se você quiser tooprotect seu conteúdo com a chave não criptografada AES-128. Se você quiser uma opção mais segura, escolha uma saudação DRMs listadas neste tópico. 
 
 ## <a name="licenses-and-keys-delivery-service"></a>Serviço de entrega de licenças e chaves
-Os Serviços de Mídia fornecem um serviço de distribuição de licenças DRM (PlayReady, Widevine e FairPlay) e chaves de limpeza AES para os clientes autorizados. Você pode usar o [portal do Azure](media-services-portal-protect-content.md), API REST ou SDK dos Serviços de Mídia para .NET para configurar políticas de autenticação e autorização para suas licenças e chaves.
+Serviços de mídia fornecem um serviço para distribuir licenças do DRM (PlayReady, Widevine, FairPlay) e os clientes tooauthorized de chaves não criptografada AES. Você pode usar [Olá portal do Azure](media-services-portal-protect-content.md), API REST ou o SDK do Media Services para políticas de autenticação e autorização de tooconfigure de .NET para suas licenças e chaves.
 
 ## <a name="token-restriction"></a>Restrição de token
-A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: aberta ou restrição de token. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os serviços de mídia oferecem suporte a tokens no formato Simple Web Tokens (SWT) e no formato JSON Web Token (JWT). Os serviços de mídia não fornecem Secure Token Services. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos Serviços de Mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem àquelas configuradas para a chave (ou licença).
+Olá política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abrir ou restrição de token. política de restrição de token de saudação deve ser acompanhada por um token emitido por um Token STS (serviço seguro). Serviços de mídia oferece suporte a tokens no formato do Simple Web Tokens (SWT) hello e JSON Web Token (JWT). Os serviços de mídia não fornecem Secure Token Services. Você pode criar um STS personalizado ou utilizar a tokens de tooissue ACS do Microsoft Azure. Olá STS deve ser configurado toocreate um token assinado com hello especificado chave e emitir declarações que você especificou na configuração de restrição de token hello. Serviços de mídia Olá serviço de entrega de chave retornará Olá solicitado hello e chave (ou licença) cliente toohello se Olá token for válido declarações em Olá token correspondam às configuradas para chave hello (ou licença).
 
-Ao configurar a política restrita do token, você deve especificar os parâmetros da chave de verificação primária, emissor e audiência. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
+Ao configurar a política de restrição de token do hello, você deve especificar a chave de verificação primária hello, emissor e parâmetros de público-alvo. chave de verificação primária Olá contém Olá chave que Olá token foi assinado com, o emissor é Olá serviço de token seguro que emite o token de saudação. público Hello (às vezes chamado de escopo) descreve a intenção de saudação do token de saudação ou token de saudação do recurso de saudação autoriza o acesso ao. Olá serviço de distribuição de chaves de serviços de mídia valida que esses valores no token Olá correspondem a valores de saudação no modelo de saudação.
 
 ## <a name="streaming-urls"></a>URLs de streaming
-Se o ativo foi criptografado com mais de um DRM, você deve usar uma marcação de criptografia na URL de streaming: (formato='m3u8-aapl' criptografia='xxx').
+Se seu ativo foi criptografado com DRM de mais de um, você deve usar uma marca de criptografia na URL de streaming de saudação: (formato = 'm3u8-aapl', criptografia = 'xxx').
 
-As seguintes considerações se aplicam:
+Olá considerações a seguir se aplicam:
 
 * Pode ser especificado apenas zero ou um tipo de criptografia.
-* O tipo de criptografia não precisa ser especificado na url se apenas uma criptografia foi aplicada no ativo.
+* Tipo de criptografia não tem toobe especificado na url de saudação se apenas uma criptografia foi aplicada toohello ativo.
 * O tipo de criptografia diferencia as letras maiúsculas de minúsculas.
-* Os seguintes tipos de criptografia podem ser especificados:  
+* Olá seguintes tipos de criptografia pode ser especificada:  
   * **cenc**: criptografia comum (Playready ou Widevine)
   * **cbcs-aapl**: Fairplay
   * **cbc**: criptografia de envelope AES.
 
 ## <a name="common-scenarios"></a>Cenários comuns
-Os tópicos a seguir demonstram como proteger o conteúdo no armazenamento, entregar a mídia de streaming criptografada dinamicamente e usar o serviço de entrega de chaves/licenças do AMS
+Olá tópicos a seguir demonstram como tooprotect conteúdo no armazenamento, entregar criptografado dinamicamente o streaming de mídia, use o serviço de entrega de chave ou a licença AMS
 
 * [Proteger com o AES](media-services-protect-with-aes128.md) 
 * [Proteger com o PlayReady e/ou Widevine ](media-services-protect-with-drm.md)
 * [Transmitir seu conteúdo HLS Protegido com o Apple FairPlay e/ou PlayReady](media-services-protect-hls-with-fairplay.md)
 
 ### <a name="additional-scenarios"></a>Cenários adicionais
-* [Como integrar o serviço de Licença do Azure PlayReady em seu próprio servidor de criptografia/streaming](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
-* [Usando o castLabs para fornecer licenças DRM para os serviços de mídia do Azure](media-services-castlabs-integration.md)
+* [Como toointegrate licença do PlayReady Azure serviço com seu próprio servidor Criptografador/streaming](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
+* [Usando castLabs toodeliver DRM licenças tooAzure serviços de mídia](media-services-castlabs-integration.md)
 
 >[!NOTE]
 >Um cenário no qual você usa um servidor (tecnologia) DRM externo e, atualmente, não há suporte ao fluxo do AMS.
@@ -105,12 +105,13 @@ Os tópicos a seguir demonstram como proteger o conteúdo no armazenamento, entr
 
 [Explicação dos preços de entrega da licença do PlayReady dos Serviços de Mídia do Azure](http://mingfeiy.com/playready-pricing-explained-in-azure-media-services)
 
-[Como depurar para fluxo de criptografado AES nos Serviços de Mídia do Azure](http://mingfeiy.com/debug-aes-encrypted-stream-azure-media-services)
+[Como toodebug AES criptografada fluxo nos serviços de mídia do Azure](http://mingfeiy.com/debug-aes-encrypted-stream-azure-media-services)
 
 [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
+<seg>
+  [Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).</seg>
 
-[Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
+[Usar tokens do Azure ACS tooissue](http://mingfeiy.com/acs-with-key-services).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png

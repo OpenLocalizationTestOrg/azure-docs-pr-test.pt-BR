@@ -1,6 +1,6 @@
 ---
-title: Publicar um aplicativo no RemoteApp do Azure | Microsoft Docs
-description: Saiba como publicar aplicativos e recursos no RemoteApp do Azure.
+title: aaaPublish um aplicativo no Azure RemoteApp | Microsoft Docs
+description: Saiba como toopublish aplicativos e recursos no Azure RemoteApp.
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 4565fa498dbadd0601004c73bfee5171efe1fad1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d7d92187e9ed999ac79554c9bb61f56a8eceeb31
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-publish-an-app-in-remoteapp"></a>Como publicar um aplicativo no RemoteApp
+# <a name="how-toopublish-an-app-in-remoteapp"></a>Como toopublish um aplicativo no RemoteApp
 > [!IMPORTANT]
-> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp será descontinuado até 31 de agosto de 2017. Saudação de leitura [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
 > 
 
-Depois de criar sua coleção RemoteApp, você precisa publicar os aplicativos ou recursos que você deseja disponibilizar para os usuários. As imagens de modelo fornecidas com sua assinatura tem apenas alguns aplicativos publicados por padrão – para compartilhar os outros aplicativos, é necessário publicá-los.
-
-> [!NOTE]
-> Você precisa atualizar um aplicativo? Você precisará [atualizar a imagem](remoteapp-update.md) primeiro.
-> 
-> 
-
-Na guia **Publicação** no portal, clique em **Publicar**. Você pode adicionar um aplicativo da imagem do modelo do menu **Iniciar** ou fornecer o caminho onde o aplicativo está instalado na imagem do modelo. Se você optar por adicionar do menu **Iniciar** , escolha na lista o aplicativo para publicação. Se você optar por fornecer o caminho para o aplicativo, digite um nome para o aplicativo e o caminho para o aplicativo. Use variáveis no caminho - por exemplo, "%systemdrive%" em vez de "c:\"".
+Depois de criar sua coleção do RemoteApp, você precisará toopublish Olá aplicativos ou recursos que você deseja toomake disponível para seus usuários. Olá imagens de modelo fornecidas com sua assinatura tem apenas alguns aplicativos publicados por padrão, - tooshare Olá outros aplicativos, você precisa toopublish-los.
 
 > [!NOTE]
-> Se quiser adicionar seu aplicativo do menu **Iniciar**, precisará ter *adicionado esse aplicativo ao menu **Iniciar** em sua imagem de modelo.* Caso contrário, o RemoteApp verá somente o que *está* no menu **Iniciar** e você ficará confuso. 
+> Você precisa de um aplicativo de tooupdate? Você precisará de muito[atualização Olá imagem](remoteapp-update.md) primeiro.
 > 
-> Para ter certeza de que seu aplicativo está no menu **Iniciar**, coloque um arquivo de atalho - **.lnk** - dentro da pasta %systemdrive%\ProgramData\Microsoft\Windows\Menu Iniciar\Programas.
 > 
-> Se você se esqueceu de adicionar o aplicativo ao menu **Iniciar** quando criou o modelo, opte por adicionar o caminho ao aplicativo. (Ou recrie a imagem do seu modelo, mas é muito mais trabalhoso.)
+
+Em Olá **publicação** no portal de saudação, clique em **publicar**. Você pode adicionar um aplicativo de sua imagem de modelo **iniciar** menu ou forneça Olá caminho toowhere Olá aplicativo está instalado na imagem de modelo hello. Se você escolher tooadd Olá **iniciar** menu, escolha Olá aplicativo toopublish Olá lista. Se você escolher tooprovide Olá caminho toohello aplicativo, insira um nome para o aplicativo hello e Olá caminho toohello aplicativo. Usar variáveis no caminho Olá - por exemplo, "% systemdrive %" em vez de "c:\".
+
+> [!NOTE]
+> Se você quiser tooadd seu aplicativo de saudação **iniciar** menu, você precisa toohave *adicionado toohello esse aplicativo **iniciar** menu em sua imagem de modelo.* Caso contrário, RemoteApp só verá o que *é* em Olá **iniciar** menu e você será confuso. 
+> 
+> toomake-se de que seu aplicativo estiver em Olá **iniciar** menu, colocar um arquivo de atalho - **. lnk** - Olá %systemdrive%\ProgramData\Microsoft\Windows\Start Iniciar\Programas pasta.
+> 
+> Se você esqueceu tooadd Olá aplicativo toohello **iniciar** menu quando você criou o modelo de saudação, escolha tooadd Olá caminho toohello aplicativo. (Ou recrie a imagem do seu modelo, mas é muito mais trabalhoso.)
 > 
 > 
 

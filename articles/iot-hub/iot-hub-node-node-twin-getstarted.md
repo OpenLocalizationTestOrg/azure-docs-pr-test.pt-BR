@@ -1,6 +1,6 @@
 ---
-title: "Introdução aos dispositivos gêmeos do Hub IoT do Azure (Node) | Microsoft Docs"
-description: "Como usar dispositivos gêmeos do Hub IoT do Azure para adicionar marcas e usar uma consulta do Hub IoT. Use os SDKs do IoT do Azure para Node.js para implementar um aplicativo de dispositivo simulado e um aplicativo de serviço que adiciona as marcas e executa a consulta do Hub IoT."
+title: "aaaGet iniciado com twins de dispositivo do Azure IoT Hub (nó) | Microsoft Docs"
+description: "Como toouse Azure IoT Hub dispositivo twins tooadd marcas e, em seguida, use uma consulta de IoT Hub. Use hello Azure IoT SDKs para aplicativo de dispositivo simulado Node. js tooimplement hello e um aplicativo de serviço que adiciona marcas hello e executa Olá consulta de IoT Hub."
 services: iot-hub
 documentationcenter: node
 author: fsautomata
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 633c9fd4f8a1d017d93148f8c2e860ccba14238c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d60b8c3de85e9285e496b86e27d4ee31a0554a1e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-device-twins-node"></a>Introdução aos dispositivos gêmeos (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-No fim deste tutorial, você terá dois aplicativos de console do Node.js:
+No final de saudação deste tutorial, você terá dois aplicativos de console Node. js:
 
 * **AddTagsAndQuery.js**, um aplicativo de back-end Node.js que adiciona marcas e consultas aos dispositivos gêmeos.
-* **TwinSimulatedDevice.js**, um aplicativo Node.js que simula um dispositivo que se conecta ao seu Hub IoT com a identidade do dispositivo criada anteriormente e reporta sua condição de conectividade.
+* **TwinSimulatedDevice.js**, um aplicativo Node. js que simula um dispositivo que conecta o hub IoT de tooyour com a identidade do dispositivo Olá criada anteriormente e sua condição de conectividade de relatórios.
 
 > [!NOTE]
-> O artigo [SDKs do IoT do Azure][lnk-hub-sdks] fornece informações sobre os SDKs do IoT do Azure que você pode usar para compilar dispositivos e aplicativos back-end.
+> artigo Olá [SDKs do Azure IoT] [ lnk-hub-sdks] fornece informações sobre Olá SDKs IoT do Azure que você pode usar toobuild aplicativos de dispositivo e de back-end.
 > 
 > 
 
-Para concluir este tutorial, você precisará do seguinte:
+toocomplete este tutorial, você precisa seguir hello:
 
 * Node.js versão 0.10.x ou posterior.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
@@ -42,21 +42,21 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
-Nesta seção, você cria um aplicativo de console do Node.js que adiciona metadados de local ao dispositivo gêmeo associado a **myDeviceId**. Em seguida, ele consulta os dispositivos gêmeos armazenados no hub IoT selecionando os dispositivos localizados nos EUA e, depois, aqueles que relatam uma conexão celular.
+## <a name="create-hello-service-app"></a>Criar aplicativo de serviço Olá
+Nesta seção, você cria um aplicativo de console Node. js que adiciona associada duas de dispositivo local metadados toohello **myDeviceId**. Em seguida, consultas twins de dispositivo Olá armazenadas no hub IoT de saudação selecionando Olá dispositivos localizados em Olá nos e hello, em seguida, aqueles que estão se comunicando uma conexão de celular.
 
-1. Crie uma nova pasta vazia denominada **addtagsandqueryapp**. Na pasta **addtagsandqueryapp**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+1. Crie uma nova pasta vazia denominada **addtagsandqueryapp**. Em Olá **addtagsandqueryapp** pasta, crie um novo arquivo Package. JSON usando Olá comando no prompt de comando a seguir. Aceite todos os padrões de saudação:
    
     ```
     npm init
     ```
-2. No prompt de comando, na pasta **addtagsandqueryapp**, execute o seguinte comando para instalar o pacote **azure-iothub**:
+2. O prompt de comando no hello **addtagsandqueryapp** pasta, execute Olá Olá de tooinstall de comando a seguir **hub IOT do azure** pacote:
    
     ```
     npm install azure-iothub --save
     ```
-3. Usando um editor de texto, crie um novo arquivo **AddTagsAndQuery.js** na pasta **addtagsandqueryapp**.
-4. Adicione o seguinte código ao arquivo **AddTagsAndQuery.js** e substitua o espaço reservado **{iot hub connection string}** pela cadeia de conexão do Hub IoT que você copiou quando criou seu hub:
+3. Usando um editor de texto, crie um novo **AddTagsAndQuery.js** arquivo hello **addtagsandqueryapp** pasta.
+4. Adicionar Olá toohello de código a seguir **AddTagsAndQuery.js** de arquivo e substituir Olá **{string de conexão de hub iot}** espaço reservado com hello cadeia de caracteres de conexão de IoT Hub copiadas quando você criar o hub:
    
         'use strict';
         var iothub = require('azure-iothub');
@@ -87,16 +87,16 @@ Nesta seção, você cria um aplicativo de console do Node.js que adiciona metad
             }
         });
    
-    O objeto **Registry** expõe todos os métodos necessários para interagir com gêmeos de dispositivo do serviço. O código anterior inicializa primeiro o objeto **Registry**, depois, recupera o dispositivo gêmeo para **myDeviceId** e finalmente atualiza as marcas com as informações do local desejado.
+    Olá **registro** objeto expõe toointeract necessária do todos os métodos de saudação com twins de dispositivo do serviço de saudação. código anterior Olá primeiro inicializa Olá **registro** do objeto, em seguida, recupera Olá duas de dispositivo para **myDeviceId**e finalmente atualiza as marcas com informações de localização de saudação desejada.
    
-    Depois de atualizar as marcas, ele chama a função **queryTwins**.
-5. Adicione o seguinte código ao final do **AddTagsAndQuery.js** para implementar a função **queryTwins**:
+    Após Olá atualizar Olá marcas-Olá chamadas **queryTwins** função.
+5. Adicionar Olá após código final Olá **AddTagsAndQuery.js** tooimplement Olá **queryTwins** função:
    
         var queryTwins = function() {
             var query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
-                    console.error('Failed to fetch the results: ' + err.message);
+                    console.error('Failed toofetch hello results: ' + err.message);
                 } else {
                     console.log("Devices in Redmond43: " + results.map(function(twin) {return twin.deviceId}).join(','));
                 }
@@ -105,46 +105,46 @@ Nesta seção, você cria um aplicativo de console do Node.js que adiciona metad
             query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
-                    console.error('Failed to fetch the results: ' + err.message);
+                    console.error('Failed toofetch hello results: ' + err.message);
                 } else {
                     console.log("Devices in Redmond43 using cellular network: " + results.map(function(twin) {return twin.deviceId}).join(','));
                 }
             });
         };
    
-    O código anterior executa duas consultas: a primeira seleciona somente os dispositivos gêmeos de dispositivos localizados na fábrica de **Redmond43**, e o segundo aperfeiçoa a consulta para selecionar somente os dispositivos que também estão conectados por meio de rede celular.
+    código anterior Olá executa duas consultas: Olá primeiro seleciona apenas twins de dispositivo de saudação de dispositivos localizados em Olá **Redmond43** fábrica Olá segundo refina Olá consulta tooselect somente Olá dispositivos e também são conectados por meio rede de celular.
    
-    Observe que o código anterior, quando ele cria o objeto **query**, especifica um número máximo de documentos retornados. O objeto **query** contém uma propriedade booliana **hasMoreResults** que você pode usar para invocar os métodos **nextAsTwin** várias vezes para recuperar todos os resultados. Um método chamado **next** está disponível para os resultados que não são de dispositivos gêmeos, por exemplo, resultados de consultas de agregação.
-6. Execute o aplicativo com:
+    Observe que Olá o código anterior, quando ele cria Olá **consulta** de objeto, especifica um número máximo de documentos retornados. Olá **consulta** objeto contém um **hasMoreResults** propriedade booleana que você pode usar o hello tooinvoke **nextAsTwin** métodos tooretrieve todos os resultados de várias vezes. Um método chamado **next** está disponível para os resultados que não são de dispositivos gêmeos, por exemplo, resultados de consultas de agregação.
+6. Execute o aplicativo hello com:
    
         node AddTagsAndQuery.js
    
-    Você deve ver um dispositivo nos resultados da consulta que pergunta sobre todos os dispositivos localizados em **Redmond43**, e nenhum para a consulta que restringe os resultados para dispositivos que usam uma rede de celular.
+    Você deve ver um dispositivo nos resultados de Olá Olá consulta pedindo para todos os dispositivos localizados no **Redmond43** e nenhuma consulta Olá que restringe Olá resultados toodevices que usam uma rede de celular.
    
     ![][1]
 
-Na próxima seção, você criará um aplicativo de dispositivo que reporta as informações de conectividade e altera o resultado da consulta na seção anterior.
+Na próxima seção, Olá você criar um aplicativo de dispositivo com informações de conectividade de saudação e resultado da consulta de saudação na seção anterior Olá Olá a alterações.
 
-## <a name="create-the-device-app"></a>Criar o aplicativo do dispositivo
-Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao seu hub como **myDeviceId**, e depois atualiza seu as propriedades reportadas de seu dispositivo gêmeo a fim de conter as informações indicando que ele está conectado usando uma rede de celular.
+## <a name="create-hello-device-app"></a>Criar aplicativo de dispositivo Olá
+Nesta seção, você cria um aplicativo de console Node. js que conecta o hub tooyour como **myDeviceId**e, em seguida, as atualizações duas seu dispositivo do relatado informações Olá toocontain das propriedades que ele está conectado usando uma rede de celular.
 
 > [!NOTE]
-> Neste momento, os dispositivos gêmeos podem ser acessados somente de dispositivos que se conectam ao Hub IoT usando o protocolo MQTT. Confira o artigo do [suporte a MQTT][lnk-devguide-mqtt] para obter instruções sobre como converter o aplicativo de dispositivo existente para usar MQTT.
+> Neste momento, twins de dispositivo são acessíveis somente de dispositivos que se conectam tooIoT Hub usando o protocolo MQTT hello. Consulte toohello [suporte MQTT] [ lnk-devguide-mqtt] artigo para obter instruções sobre como tooconvert existente dispositivo aplicativo toouse MQTT.
 > 
 > 
 
-1. Crie uma nova pasta vazia denominada **reportconnectivity**. Na pasta **reportconnectivity**, crie um novo arquivo package.json usando o comando a seguir no prompt de comando. Aceite todos os padrões:
+1. Crie uma nova pasta vazia denominada **reportconnectivity**. Em Olá **reportconnectivity** pasta, crie um novo arquivo Package. JSON usando Olá comando no prompt de comando a seguir. Aceite todos os padrões de saudação:
    
     ```
     npm init
     ```
-2. No prompt de comando, na pasta **reportconnectivity**, execute o seguinte comando para instalar os pacotes **azure-iot-device** e **azure-iot-device-mqtt**:
+2. O prompt de comando no hello **reportconnectivity** pasta, execute Olá Olá de tooinstall de comando a seguir **dispositivo de iot do azure**, e **azure iot-dispositivo mqtt** pacote :
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Usando um editor de texto, crie um novo arquivo **ReportConnectivity.js** na pasta **reportconnectivity**.
-4. Adicione o seguinte código ao arquivo **ReportConnectivity.js** e substitua o espaço reservado **{cadeia de conexão do dispositivo}** pela cadeia de conexão do dispositivo copiada quando você criou a identidade do dispositivo **myDeviceId**:
+3. Usando um editor de texto, crie um novo **ReportConnectivity.js** arquivo hello **reportconnectivity** pasta.
+4. Adicionar Olá toohello de código a seguir **ReportConnectivity.js** de arquivo e substituir Olá **{string de conexão do dispositivo}** espaço reservado com cadeia de conexão do dispositivo Olá copiadas quando você criou Olá **myDeviceId** identidade do dispositivo:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -182,13 +182,13 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
         }
         });
    
-    O objeto **Client** expõe todos os métodos necessários para você interagir com dispositivos gêmeos a partir do dispositivo. O código anterior, depois de inicializar o objeto **Client**, recupera o dispositivo gêmeo para **myDeviceId** e atualiza suas propriedades reportadas com as informações de conectividade.
-5. Executar o aplicativo do dispositivo
+    Olá **cliente** objeto expõe todos os métodos de saudação exigem toointeract com twins de dispositivo do dispositivo hello. Olá código anterior, depois que ele inicializa Olá **cliente** objeto recupera Olá duas de dispositivo para **myDeviceId** e atualiza sua propriedade relatada com informações de conectividade de saudação.
+5. Executar o aplicativo de dispositivo Olá
    
         node ReportConnectivity.js
    
-    Você deve ver a mensagem `twin state reported`.
-6. Agora que o dispositivo divulgou suas informações de conectividade, ele deve aparecer em ambas as consultas. Acesse novamente a pasta **addtagsandqueryapp** e execute as consultas novamente:
+    Você verá uma mensagem de saudação `twin state reported`.
+6. Agora que hello dispositivo relatado suas informações de conectividade, ele aparecerá em ambas as consultas. Vá em Olá **addtagsandqueryapp** Olá pasta e executar consultas novamente:
    
         node AddTagsAndQuery.js
    
@@ -197,13 +197,13 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
     ![][3]
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois criou uma identidade do dispositivo no Registro de identidade do Hub IoT. Você adicionou os metadados do dispositivo como marcações de um aplicativo de back-end e criou um aplicativo de dispositivo simulado para relatar informações de conectividade no dispositivo gêmeo. Você também aprendeu a consultar essas informações usando a linguagem de consulta do Hub IoT semelhante ao SQL.
+Neste tutorial, configurado um novo hub IoT no hello portal do Azure e, em seguida, criou uma identidade de dispositivo no registro de identidade do hub de IoT hello. Você adicionou o metadados do dispositivo como marcas de um aplicativo de back-end e gravou informações de conectividade do dispositivo do dispositivo simulado aplicativo tooreport em duas de dispositivo de saudação. Você também aprendeu como tooquery essas informações usando a linguagem de consulta do tipo SQL IoT Hub hello.
 
-Veja os recursos a seguir para saber como:
+Saudação de uso toolearn de recursos a seguir como a:
 
-* Enviar telemetria de dispositivos com o tutorial [Introdução ao Hub IoT][lnk-iothub-getstarted],
-* configurar dispositivos usando as propriedades desejadas do dispositivo gêmeo com o tutorial [Usar propriedades desejadas para configurar dispositivos][lnk-twin-how-to-configure],
-* Controlar dispositivos interativamente (como ativar um ventilador de um aplicativo controlado pelo usuário), com o tutorial [Usar métodos diretos][lnk-methods-tutorial].
+* Enviar telemetria de dispositivos com hello [começar com o IoT Hub] [ lnk-iothub-getstarted] tutorial,
+* Configurar dispositivos com propriedades desejadas de duas dispositivo Olá [uso desejado dispositivos de tooconfigure propriedades] [ lnk-twin-how-to-configure] tutorial,
+* controlar dispositivos interativamente (como ativar um ventilador de um aplicativo controlado pelo usuário), com hello [usar métodos diretos] [ lnk-methods-tutorial] tutorial.
 
 <!-- images -->
 [1]: media/iot-hub-node-node-twin-getstarted/service1.png

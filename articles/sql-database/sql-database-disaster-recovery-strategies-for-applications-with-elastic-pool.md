@@ -1,6 +1,6 @@
 ---
-title: "Criar soluções de recuperação de desastre – Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Aprenda a projetar sua solução de nuvem para recuperação de desastres escolhendo o padrão de failover correto."
+title: "soluções de recuperação de desastres aaaDesign - banco de dados do SQL Azure | Microsoft Docs"
+description: "Saiba como toodesign sua solução de nuvem para recuperação de desastres por escolhendo Olá failover direito padrão."
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -15,160 +15,160 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: sashan;carlrab
-ms.openlocfilehash: 4f5131fdd2ca83e7a0a2f986a2fa1e3551814c6e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9d9eca7570c7a01c992d0b33d449721709b471c3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicativos que usam o Pool Elástico do banco de dados SQL
-Ao longo dos anos, aprendemos que os serviços em nuvem não são à prova de falhas e que incidentes catastróficos acontecem. O banco de dados SQL fornece uma série de recursos para permitir a continuidade dos negócios do seu aplicativo quando esses incidentes ocorrerem. [Pools elásticos](sql-database-elastic-pool.md) e bancos de dados únicos são compatíveis com o mesmo tipo de recursos de recuperação de desastre. Este artigo descreve diversas estratégias de recuperação de desastres para pools elásticos que aproveitam esses recursos de continuidade de negócios do Banco de Dados SQL.
+Ao longo de anos de saudação aprendemos que os serviços de nuvem não são à prova de falhas e incidentes catastróficos acontecem. Banco de dados SQL fornece vários tooprovide de recursos Olá para continuidade de negócios do seu aplicativo quando esses incidentes ocorrem. [Pools Elásticos](sql-database-elastic-pool.md) e suportam a bancos de dados único Olá mesmo tipo de recursos de recuperação de desastres. Este artigo descreve diversas estratégias de recuperação de desastres para pools elásticos que aproveitam esses recursos de continuidade de negócios do Banco de Dados SQL.
 
-Este artigo usa o seguinte padrão de aplicativo de SaaS ISV canônico:
+Este artigo usa o saudação padrão de aplicativo SaaS ISV canônico a seguir:
 
-<i>Um aplicativo Web baseado em nuvem moderno provisiona um banco de dados SQL para cada usuário final. O ISV tem um grande número de clientes e, portanto, usa vários bancos de dados, conhecidos como bancos de dados de locatário. Como os bancos de dados do locatário normalmente têm padrões de atividade imprevisíveis, o ISV usa um pool elástico para tornar o custo do banco de dados bastante previsível por longos períodos de tempo. O pool elástico também simplifica o gerenciamento de desempenho quando há picos de atividade de usuário. Além dos bancos de dados do locatário, o aplicativo também usa vários bancos de dados para gerenciar perfis de usuário, segurança, coletar padrões de uso, etc. A disponibilidade de locatários individuais não afeta a disponibilidade do aplicativo como um todo. No entanto, a disponibilidade e o desempenho dos bancos de dados de gerenciamento são essenciais para o funcionamento do aplicativo. Se os bancos de dados de gerenciamento estiverem offline, todo o aplicativo estará offline.</i>  
+<i>Um aplicativo web baseado em nuvem modernos provisiona um banco de dados do SQL para cada usuário final. Olá ISV tem muitos clientes e, portanto, usa muitos bancos de dados, conhecidos como bancos de dados de locatário. Como bancos de dados de locatário Olá normalmente têm os padrões de atividade imprevisíveis, Olá ISV usa um pool Elástico toomake Olá banco de dados custo muito previsível por longos períodos de tempo. pool Elástico Olá também simplifica o gerenciamento de desempenho de saudação quando houver picos de atividade de usuário hello. Além do aplicativo hello do toohello locatário bancos de dados também usa vários bancos de dados toomanage perfis de usuário, segurança, coletam padrões de uso etc. Disponibilidade de locatários individuais Olá não afeta a disponibilidade do aplicativo hello como todo. No entanto, hello disponibilidade e o desempenho de bancos de dados de gerenciamento é essenciais para a função do aplicativo hello e se bancos de dados de gerenciamento Olá todo o aplicativo hello offline está offline.</i>  
 
-Este artigo discute estratégias de DR que abrangem uma variedade de cenários de aplicativos de inicialização sensíveis ao custo para aqueles com requisitos rígidos de disponibilidade.
+Este artigo discute estratégias de recuperação de desastres que abrangem uma variedade de cenários de custo inicialização confidenciais aplicativos tooones com requisitos rigorosos de disponibilidade.
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Cenário 1. Inicialização econômica
-<i>Sou uma startup e dependo muito do custo das coisas.  Quero simplificar a implantação e o gerenciamento do aplicativo e desejo ter um SLA limitado para clientes individuais. No entanto, quero garantir que o aplicativo como um todo nunca fique offline.</i>
+<i>Sou uma startup e dependo muito do custo das coisas.  Desejo toosimplify implantação e gerenciamento de aplicativo hello e tenho um SLA limitado para clientes individuais. Mas aplicativo hello de tooensure como um todo nunca está offline.</i>
 
-Para satisfazer o requisito de simplicidade, implante todos os bancos de dados do locatário em um pool elástico na região do Azure de sua escolha e implante os bancos de dados de gerenciamento como bancos de dados únicos replicados geograficamente. Na recuperação de desastres de locatários, use a restauração geográfica, que é fornecida sem custo adicional. Para garantir a disponibilidade dos bancos de dados de gerenciamento, eles devem ser replicados geograficamente em outra região usando um grupo de failover automático (na versão prévia) (etapa 1). O custo corrente da configuração da recuperação de desastres neste cenário é igual ao custo total dos bancos de dados secundários. Essa configuração está ilustrada no diagrama a seguir.
+requisito de simplicidade de saudação toosatisfy, implantar todos os bancos de dados de locatário em um pool Elástico em Olá região do Azure de sua escolha e implantar bancos de dados de gerenciamento como o único banco de dados replicada geograficamente. Olá para recuperação de desastres de locatários, use a restauração geográfica, que é fornecido sem custo adicional. disponibilidade de saudação tooensure de Olá bancos de dados de gerenciamento, replicar geograficamente-los região tooanother usando um grupo de failover automático (em visualização) (etapa 1). custos contínuos Olá configuração de recuperação de desastres Olá neste cenário é igual toohello o custo total de bancos de dados secundários hello. Essa configuração é ilustrada no próximo diagrama de saudação.
 
 ![A figura 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
-O próximo diagrama ilustra as etapas de recuperação online do seu aplicativo se uma interrupção na região primária ocorrer.
+Se ocorrer uma interrupção na região primária hello, Olá toobring de etapas de recuperação online, seu aplicativo são ilustrado pelo diagrama Avançar hello.
 
-* O grupo de failover inicia o failover automático do banco de dados de gerenciamento para a região de DR. O aplicativo é reconectado automaticamente às novas contas primárias e bancos de dados de locatário serão criados na região de DR. Os clientes existentes verão os seus dados como temporariamente indisponíveis.
-* Crie o pool elástico com a mesma configuração do pool original (2).
-* Use a restauração geográfica para criar cópias dos bancos de dados de locatário (3). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
+* grupo de failover Olá iniciará o failover automático de região de DR de toohello do hello Gerenciamento banco de dados. aplicativo Hello é reconectada automaticamente toohello novas contas de principal e todos os novos e bancos de dados de locatário são criados na região de DR hello. os clientes existentes do Hello veem seus dados temporariamente indisponíveis.
+* Criar o pool Elástico Olá com hello mesma configuração de pool original da saudação (2).
+* Use a restauração geográfica toocreate cópias de bancos de dados de locatário de saudação (3). Você pode considerar disparo restaurações individuais Olá por conexões de usuário final hello ou usar outro esquema de prioridade específica do aplicativo.
 
 
-Neste momento, seu aplicativo está online novamente na região de DR, mas alguns clientes acessarão seus dados com algum atraso.
+Neste ponto o aplicativo está novamente online na região de DR Olá, mas alguns clientes observem atraso ao acessar seus dados.
 
 ![Figura 2](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-2.png)
 
-Se a interrupção foi temporária, é possível que a região primária seja recuperada pelo Azure antes de todas as restaurações do banco de dados serem concluídas na região de DR. Nesse caso, você deve organizar a mudança do aplicativo novamente para a região primária. O processo usará as etapas ilustradas no diagrama a seguir.
+Se interrupção Olá temporária, é possível que região primária Olá é recuperado do Azure antes de todas as restaurações de banco de dados de saudação completas na região Olá DR. Nesse caso, orquestra móvel Olá aplicativo back toohello região primária. processo de saudação leva etapas Olá ilustradas no diagrama seguinte hello.
 
 * Cancele todas as solicitações de restauração geográfica pendentes.   
-* Faça o failover dos bancos de dados de gerenciamento para a região primária (5). Observação: após a recuperação da região, os antigos primários se tornarão secundários automaticamente. Agora eles alternam funções novamente. 
-* Altere a cadeia de conexão do aplicativo para apontar de volta para a região primária. Agora, todas os novos bancos de dados de locatário e contas serão criados na região primária. Alguns clientes existentes verão seus dados como temporariamente indisponíveis.   
-* Defina todos os bancos de dados no pool da recuperação de desastres como somente leitura a fim de garantir que eles não poderão ser modificados na região da recuperação de desastres (6). 
-* Para cada banco de dados no pool da recuperação de desastres que foi alterado desde a recuperação, renomeie ou exclua os bancos de dados correspondentes no pool primário (7). 
-* Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (8). 
-* Exclua o pool da recuperação de desastres (9)
+* Região de primária toohello (5) de bancos de dados de gerenciamento Olá o failover. Após a recuperação da região hello, primárias antigo Olá automaticamente tornaram secundários. Agora eles alternam funções novamente. 
+* Altere conexão cadeia de caracteres toopoint toohello back principal de região do aplicativo hello. Agora todas as novas contas e bancos de dados de locatário são criados na região primária hello. Alguns clientes existentes verão seus dados como temporariamente indisponíveis.   
+* Conjunto de todos os bancos de dados em Olá DR pool somente tooread tooensure que elas não podem ser modificadas na região de DR hello (6). 
+* Para cada banco de dados Olá pool DR que foi alterado desde a recuperação hello, renomear ou excluir bancos de dados correspondentes no pool principal da saudação (7) hello. 
+* Saudação de cópia atualizada bancos de dados de saudação pool principal de toohello pool da recuperação de desastres (8). 
+* Excluir o pool de DR hello (9)
 
-Neste momento, seu aplicativo estará online na região primária com todos os bancos de dados de locatário disponíveis no pool primário.
+Agora seu aplicativo está online na região primária do hello com todos os locatários bancos de dados disponíveis no pool principal hello.
 
 ![A figura 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
-A principal **vantagem** dessa estratégia é o baixo custo da redundância da camada de dados. Os backups são usados automaticamente pelo serviço Banco de Dados SQL sem a necessidade de nova codificação do aplicativo e sem nenhum custo adicional.  O custo é incorrido apenas quando os bancos de dados elásticos são restaurados. O **revés** é que a recuperação completa de todos os bancos de dados de locatário levará um tempo significativo. O tempo de recuperação dependerá do número total de restaurações que você iniciar na região de DR e do tamanho geral dos bancos de dados do locatário. Mesmo se você priorizar a restauração de alguns locatários em detrimentos de outros, você estará competindo com todos as outras restaurações iniciadas na mesma região, já que o serviço arbitrará e restringirá para minimizar o impacto geral nos bancos de dados dos clientes existentes. Além disso, a recuperação dos bancos de dados do locatário não poderá ser iniciada até que o novo pool elástico na região da recuperação de desastres seja criado.
+chave de saudação **se beneficiar** dessa estratégia é baixo custo em andamento para a redundância de camada de dados. Os backups são obtidos automaticamente pelo Olá serviço de banco de dados SQL com nenhuma reconfiguração de aplicativos e sem nenhum custo adicional.  custo de saudação incorrido somente quando os bancos de dados Elástico Olá são restaurados. Olá **compensação** está completa de recuperação de todos os bancos de dados de locatário Olá leva um tempo significativo. Olá período de tempo depende Olá número total de restauração que você iniciar o hello DR região e o tamanho total da saudação bancos de dados de locatário. Mesmo que você pode priorizar restaurações alguns locatários por outras pessoas, estão competindo por hello todas as outras restaurações iniciadas no hello mesma região como serviço de saudação arbitra e limita toominimize Olá impacto geral nos bancos de dados dos clientes Olá existente. Além disso, recuperação de saudação de bancos de dados de locatário Olá não pode iniciar até que o novo pool Elástico Olá na região de DR Olá é criado.
 
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>Cenário 2: Aplicativo maduro com o serviço em camadas
-<i>Tenho um aplicativo SaaS evoluído com ofertas de serviço em camadas e diferentes SLAs para clientes de avaliação e para clientes pagantes. Para clientes de avaliação, preciso reduzir o custo tanto quanto possível. Os clientes de teste podem ter um tempo de inatividade, mas quero reduzir sua probabilidade. Para clientes pagantes, qualquer tempo de inatividade é um risco. Portanto, quero garantir que os clientes pagantes possam sempre acessar seus dados.</i> 
+<i>Tenho um aplicativo SaaS evoluído com ofertas de serviço em camadas e diferentes SLAs para clientes de avaliação e para clientes pagantes. Para clientes de avaliação hello, tenho tooreduce Olá custo tanto quanto possível. Clientes de teste podem levar um tempo de inatividade, mas quero tooreduce sua probabilidade. Para os clientes pagantes de Olá, nenhum tempo de inatividade é um risco de voo. Forma desejada toomake se clientes pagantes estão sempre tooaccess capaz de seus dados.</i> 
 
-Para dar suporte a esse cenário, você deve separar os locatários de avaliação dos locatários pagos colocando-os em pools elásticos separados. Os clientes de avaliação teriam um eDTU menor por locatário e SLA inferior com tempo de recuperação mais longo. Os clientes pagantes estariam em um pool com maior eDTU por locatário e um SLA mais alto. Para garantir o menor tempo de recuperação, os bancos de dados de locatário dos clientes pagantes devem ser replicados geograficamente. Essa configuração está ilustrada no diagrama a seguir. 
+toosupport neste cenário, separado Olá locatários de avaliação de paga locatários colocando-os em pools Elásticos separados. os clientes de avaliação do Hello têm inferior eDTU por locatário e SLA inferior com um tempo de recuperação. clientes que pagam Olá estão em um pool com maior eDTU por locatário e um SLA mais alto. tempo de recuperação mais baixo saudação de tooguarantee, bancos de dados dos clientes pagantes Olá locatário são replicadas geograficamente. Essa configuração é ilustrada no próximo diagrama de saudação. 
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-Como no primeiro cenário, os bancos de dados de gerenciamento estarão muito ativos. Portanto, use um banco de dados único replicado geograficamente para ele (1). Isso garantirá o desempenho previsível para novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. A região em que residem os bancos de dados de gerenciamento primários é a região primária e a região em que residem os bancos de dados de gerenciamento secundários é a região de DR.
+Como o primeiro cenário de hello, bancos de dados de gerenciamento de saudação são muito ativos para usar um banco de dados único replicado geograficamente para (1). Isso garante um desempenho previsível Olá para novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. região na qual residem primários da saudação de bancos de dados de gerenciamento Olá Hello é região primária hello e Olá no qual residem secundários Olá de bancos de dados de gerenciamento Olá Olá DR a região é.
 
-Os bancos de dados de locatário dos clientes pagantes têm bancos de dados ativos no pool "pago" provisionado na região primária. Você deve provisionar um pool secundário com o mesmo nome na região de DR. Cada locatário é replicado geograficamente para o pool secundário (2). Isso permite a recuperação rápida de todos os bancos de dados do locatário usando o failover. 
+Olá locatário bancos de dados clientes pagantes têm bancos de dados ativos em hello "pago" pool provisionado na região primária hello. Provisione um pool secundário com hello mesmo nome na região Olá DR. Cada locatário é replicado geograficamente toohello secundário pool (2). Isso permite a recuperação rápida de todos os bancos de dados do locatário usando o failover. 
 
-Se uma interrupção na região primária ocorre, as etapas de recuperação para colocar o aplicativo online estão ilustradas no seguinte diagrama:
+Se ocorrer uma interrupção na região primária hello, Olá toobring de etapas de recuperação online, seu aplicativo são ilustradas no diagrama de Avançar hello:
 
 ![Figura 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
-* Faça o failover imediato dos bancos de dados de gerenciamento para a região de DR (3).
-* Altere a cadeia de conexão do aplicativo para apontar para a região da recuperação de desastres. Agora, todas as novas contas e bancos de dados de locatário são criados na região de DR. Os clientes de avaliação existentes verão seus dados como temporariamente indisponíveis.
-* Faça o failover dos bancos de dados de locatários pagantes para o pool na região de DR para restaurar sua disponibilidade imediatamente (4). Como o failover é uma alteração rápida no nível dos metadados, você pode considerar uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final. 
-* Se o tamanho eDTU do pool secundário era menor do que o primário porque os bancos de dados secundários precisavam apenas da capacidade de processar os logs de alteração enquanto eram secundários, aumente imediatamente a capacidade do pool para acomodar a carga de trabalho completa de todos os locatários (5). 
-* Crie um novo pool elástico com o mesmo nome e a mesma configuração na região da recuperação de desastres para os bancos de dados dos clientes de avaliação (6). 
-* Depois de criar o pool dos clientes de avaliação, use a restauração geográfica para restaurar os bancos de dados de locatário de avaliação individuais no novo pool (7). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
+* Failover imediatamente região Olá gerenciamento bancos de dados toohello DR (3).
+* Altere conexão cadeia de caracteres toopoint toohello DR de região do aplicativo hello. Agora todas as novas contas e bancos de dados de locatário são criados na região de DR hello. clientes de teste existente Olá veem seus dados temporariamente indisponíveis.
+* Failover Olá paga o pool de toohello de bancos de dados do locatário em Olá DR região tooimmediately restaurar sua disponibilidade (4). Como Olá failover é uma alteração do nível de metadados rápido, considere uma otimização onde failovers individuais Olá são disparadas sob demanda por conexões de usuário final hello. 
+* Se o tamanho de eDTU do pool secundário era inferior a saudação primária porque os bancos de dados secundários Olá apenas Olá necessária capacidade tooprocess Olá alteração logs ao mesmo tempo em que eles foram secundários, imediatamente aumentar capacidade do pool de saudação agora tooaccommodate Olá completo carga de trabalho de todos os locatários (5). 
+* Criar novo pool Elástico de saudação com hello mesmo nome e Olá mesmo configuração na região Olá recuperação de desastres para bancos de dados dos clientes avaliação hello (6). 
+* Depois que o pool dos clientes Olá avaliação é criado, use bancos de dados de restauração geográfica toorestore Olá individuais de locatário de avaliação no novo pool de saudação (7). Considere disparo restaurações individuais Olá por conexões de usuário final hello ou use outro esquema de prioridade específica do aplicativo.
 
-Neste momento, seu aplicativo está online novamente na região da recuperação de desastres. Todos os clientes pagantes têm acesso aos dados, ao passo que os clientes de avaliação acessarão seus dados com atraso.
+Agora seu aplicativo está novamente online na região de DR hello. Todos os clientes pagantes têm acesso tootheir dados enquanto os clientes de avaliação Olá experiência atraso ao acessar seus dados.
 
-Quando a região primária é recuperada pelo Azure *depois* de você ter restaurado o aplicativo na região da recuperação de desastre, é possível continuar executando o aplicativo nessa região ou optar por fazer o failback para a região primária. Se a região primária for recuperada *antes* da conclusão do processo de failover, você deverá considerar fazer o failback imediatamente. O failback executará as etapas ilustradas no seguinte diagrama: 
+Quando a região primária Olá é recuperado pelo Azure *depois* você restaurou o aplicativo hello na região Olá DR que você pode continuar executando o aplicativo hello nessa região ou você pode decidir região primária do toofail toohello voltar. Se a região primária Olá é recuperado *antes de* Olá failover processo for concluído, considere com falha novamente imediatamente. Olá failback necessárias etapas de saudação ilustradas no diagrama seguinte hello: 
 
 ![Figura 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * Cancele todas as solicitações de restauração geográfica pendentes.   
-* Faça o failover dos bancos de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se torna o secundário automaticamente. Agora, ele se tornará primário novamente.  
-* Faça o failover dos bancos de dados de locatário pagantes (9). Da mesma forma, após a recuperação da região, os antigos primários se tornaram secundários automaticamente. Agora, eles se tornarão primários novamente. 
-* Defina os bancos de dados de avaliação restaurados que foram alterados na região da recuperação de desastres como somente leitura (10).
-* Para cada banco de dados no pool da recuperação de desastres dos clientes de avaliação alterados desde a recuperação, renomeie ou exclua o banco de dados correspondente no pool primário dos clientes de avaliação (11). 
-* Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (12). 
-* Exclua o pool da recuperação de desastres (13). 
+* Failover de bancos de dados de gerenciamento de saudação (8). Após a recuperação da região hello, hello antigo primário se torna automaticamente Olá secundário. Agora ele se torna Olá primário novamente.  
+* Failover Olá paga bancos de dados do locatário (9). Da mesma forma, após a recuperação da região hello, primários antigo da saudação se torna automaticamente secundários hello. Agora eles se tornam primárias Olá novamente. 
+* Olá conjunto restaurado avaliação bancos de dados que foram alterados na região de DR Olá somente tooread (10).
+* Para cada banco de dados no pool de DR de clientes avaliação Olá que foram alteradas desde a recuperação hello, renomear ou excluir o banco de dados correspondente no pool principal de clientes de avaliações de saudação (11) hello. 
+* Saudação de cópia atualizada bancos de dados de saudação pool principal de toohello pool da recuperação de desastres (12). 
+* Excluir o pool de DR hello (13) 
 
 > [!NOTE]
-> A operação de failover é assíncrona. Para minimizar o tempo de recuperação, é importante que você execute o comando de failover dos bancos de dados de locatário em lotes de pelo menos 20 bancos de dados. 
+> a operação de failover Olá é assíncrona. tempo de recuperação de saudação toominimize é importante que você execute o comando de failover Olá locatário dos bancos de dados em lotes de pelo menos 20 bancos de dados. 
 > 
 > 
 
-A principal **vantagem** dessa estratégia é que ela fornece o SLA mais alto para os clientes pagantes. Ela também garante que as novas avaliações sejam desbloqueadas assim que o pool da recuperação de desastres de avaliação seja criado. O **revés** é que essa configuração aumentará o custo total de bancos de dados do locatário pelo custo do pool da DR secundária para clientes pagantes. Além disso, se o pool secundário tiver um tamanho diferente, os clientes pagantes verão um menor desempenho depois do failover até que a atualização de pool na região de DR seja concluída. 
+chave de saudação **se beneficiar** dessa estratégia é que ele fornece SLA mais alto Olá para Olá clientes pagantes. Ela também garante que avaliações novo Olá estiverem desbloqueadas, assim como Olá avaliação DR pool é criado. Olá **compensação** essa configuração aumenta Olá o custo total de bancos de dados de locatário Olá pelo custo de saudação do pool de DR secundário Olá para clientes pago. Além disso, se o pool secundário Olá tem um tamanho diferente, clientes pagantes Olá experiência menor desempenho depois do failover até hello pool na região Olá DR conclusão da atualização. 
 
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Cenário 3: Aplicativo distribuído geograficamente com o serviço em camadas
-<i>Eu tenho um aplicativo SaaS evoluído com ofertas de serviço em camadas. Quero oferecer um SLA muito agressivo para meus clientes pagos e minimizar o risco do impacto quando ocorrerem paralisações porque mesmo uma breve interrupção pode causar a insatisfação do cliente. É essencial que os clientes pagantes sempre possam acessar seus dados. As avaliações são gratuitas e não há oferta de SLA durante o período de avaliação. </i> 
+<i>Eu tenho um aplicativo SaaS evoluído com ofertas de serviço em camadas. Desejo toooffer um toomy SLA muito agressiva paga clientes e minimizar o risco de saudação do impacto quando ocorrem falhas porque o mesmo breves interrupções podem causar insatisfação dos clientes. É importante que os clientes pagantes de saudação sempre pode acessar seus dados. avaliações de saudação são gratuitas e um SLA não é oferecido durante o período de avaliação hello.</i> 
 
-Para oferecer suporte a esse cenário, use três pools elásticos separados. Dois pools de tamanhos iguais com eDTUs altos por banco de dados devem ser provisionados em duas regiões diferentes para conter os bancos de dados de locatário dos clientes pagantes. O terceiro pool que contém os locatários de avaliação teria eDTUs menores por banco de dados e seria provisionado em uma das duas regiões.
+toosupport neste cenário, três pools Elásticos separado use. Dois pools de tamanho igual provisionar com alta eDTUs por banco de dados em dois Olá toocontain de regiões diferentes pagos, bancos de dados de locatário de clientes. pool de terceiro Olá contendo locatários de avaliação Olá pode ter eDTUs inferior por banco de dados e ser provisionado em uma das duas regiões de saudação.
 
-Para garantir o menor tempo de recuperação durante as interrupções, os bancos de dados de locatário de clientes pagantes deverão ser replicados geograficamente com 50% dos bancos de dados primários em cada uma das duas regiões. Da mesma forma, cada região tem 50% dos bancos de dados secundários. Dessa forma, se uma região estivesse offline, apenas 50% dos bancos de dados dos clientes pagantes serão afetados e teriam de fazer failover. Os outros bancos de dados permanecem intactos. Essa configuração é ilustrada no diagrama abaixo:
+tempo menor de recuperação durante interrupções da saudação tooguarantee, bancos de dados dos clientes pagantes Olá locatário são replicados geograficamente com 50% de bancos de dados primário em cada uma das regiões Olá dois hello. Da mesma forma, cada região tem 50% dos bancos de dados secundários hello. Dessa forma, se uma região estiver offline, somente 50% da saudação paga bancos de dados de clientes são afetados e têm toofail sobre. Olá a outros bancos de dados permanecem intactos. Essa configuração é ilustrada no diagrama a seguir de saudação:
 
 ![Figura 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-Como nos cenários anteriores, os bancos de dados de gerenciamento estarão muito ativos e, portanto, você deverá configurá-los como bancos de dados únicos replicados geograficamente (1). Isso garantirá o desempenho previsível para novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. A região A é a região primária para os bancos de dados de gerenciamento e a região B é usada para recuperação dos bancos de dados de gerenciamento.
+Como em cenários de anterior hello, bancos de dados de gerenciamento de saudação são muito ativos para configurá-los como uma única replicado geograficamente bancos de dados (1). Isso garante um desempenho previsível Olá de novas assinaturas de cliente hello, atualizações de perfil e outras operações de gerenciamento. A saudação primário a região é para bancos de dados de gerenciamento hello e região Olá B é usado para recuperação de bancos de dados de gerenciamento de saudação.
 
-Os bancos de dados de locatário dos clientes pagantes também serão replicados geograficamente, mas com primários e secundários divididos entre a região A e a região B (2). Dessa forma, os bancos de dados primários do locatário afetados pela interrupção podem fazer failover para a outra região e ficarem disponíveis. A outra metade dos bancos de dados de locatário não será afetada. 
+bancos de dados dos clientes pagantes Olá locatário também são replicados geograficamente, mas com cores primárias e secundárias divididos entre regiões A e B (2). Dessa forma, Olá locatário bancos de dados primários afetados pela interrupção Olá failover toohello outra região e ficam disponíveis. Olá outros metade dos bancos de dados de locatário Olá não são afetados em todos os. 
 
-O diagrama a seguir ilustra as etapas de recuperação em caso de falha na região A.
+Olá próximo diagrama ilustra Olá tootake de etapas de recuperação se ocorrer uma interrupção na região A.
 
 ![Figura 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
-* Faça imediatamente o failover dos bancos de dados de gerenciamento para a região B (3).
-* Altere a cadeia de conexão do aplicativo para apontar para os bancos de dados de gerenciamento na região B. Modifique os bancos de dados de gerenciamento para garantir que as novas contas e bancos de dados de locatário sejam criados na região B e que os bancos de dados existentes do inquilino estejam lá também. Os clientes de avaliação existentes verão seus dados como temporariamente indisponíveis.
-* Faça o failover dos bancos de dados de locatários pagantes para o pool 2 na região B para restaurar imediatamente sua disponibilidade (4). Como o failover é uma alteração rápida no nível dos metadados, você pode considerar uma otimização em que os failovers individuais são disparados sob demanda pelas conexões do usuário final. 
-* A partir de agora, o pool 2 conterá apenas bancos de dados primários. A carga de trabalho total no pool aumentará e, portanto, você deverá aumentar seu tamanho do eDTU (5). 
-* Crie um novo pool elástico com o mesmo nome e a mesma configuração na região B para bancos de dados dos clientes de avaliação (6). 
-* Depois de criar o pool, use a restauração geográfica para restaurar os bancos de dados de locatário de avaliação individuais no pool (7). Você pode cogitar disparar as restaurações individuais pelas conexões do usuário final ou usar outro esquema de prioridade específica do aplicativo.
+* Failover imediatamente tooregion de bancos de dados de gerenciamento Olá B (3).
+* Alterar bancos de dados do aplicativo hello conexão cadeia de caracteres toopoint toohello gerenciamento na região B. modificar Olá gerenciamento bancos de dados toomake se Olá novas contas e bancos de dados de locatário são criados na região B e os bancos de dados do locatário existente Olá são encontrados como também. clientes de teste existente Olá veem seus dados temporariamente indisponíveis.
+* Failover Olá paga toopool de bancos de dados do locatário 2 na região B tooimmediately restaurar sua disponibilidade (4). Como Olá failover é uma alteração do nível de metadados rápido, você pode considerar uma otimização onde failovers individuais Olá são disparadas sob demanda por conexões de usuário final hello. 
+* Desde agora, pool 2 contém apenas bancos de dados primários, Olá a carga de trabalho total no hello pool aumenta e imediatamente pode aumentar o tamanho de eDTU (5). 
+* Criar novo pool Elástico de saudação com hello mesmo nome e Olá mesmo configuração na região Olá B para bancos de dados dos clientes avaliação hello (6). 
+* Depois que o pool de saudação é criado usar a restauração geográfica toorestore Olá locatário de avaliação individuais banco de dados no pool de saudação (7). Você pode considerar disparo restaurações individuais Olá por conexões de usuário final hello ou usar outro esquema de prioridade específica do aplicativo.
 
 > [!NOTE]
-> A operação de failover é assíncrona. Para minimizar o tempo de recuperação, é importante que você execute o comando de failover dos bancos de dados de locatário em lotes de pelo menos 20 bancos de dados. 
+> a operação de failover Olá é assíncrona. tempo de recuperação de saudação toominimize, é importante que você execute o comando de failover Olá locatário dos bancos de dados em lotes de pelo menos 20 bancos de dados. 
 > 
 
-Neste ponto, seu aplicativo está novamente online na região B. Todos os clientes pagantes terão acesso aos dados, ao passo que os clientes de avaliação acessarão seus dados com atraso.
+Agora seu aplicativo esteja online novamente na região B. Todos os clientes pagantes têm acesso tootheir dados enquanto os clientes de avaliação Olá experiência atraso ao acessar seus dados.
 
-Quando a região A for recuperada, você precisará decidir se deseja usar a região B para clientes de avaliação ou fazer o failback usando o pool de clientes de avaliação na região A. Um critério poderia ser a % dos bancos de dados de locatário de avaliação modificados desde a recuperação. Independentemente dessa decisão, você precisará balancear novamente os locatários pagantes entre dois pools. O próximo diagrama ilustra o processo quando os bancos de dados de locatário fazem failback para a região A.  
+Quando for recuperado região A precisar toodecide se você quiser região toouse B para clientes de avaliação ou pool de avaliação de clientes do failback toousing Olá na região A. Um critério pode ser Olá % de bancos de dados de locatário de avaliação modificado desde a recuperação de saudação. Independentemente dessa decisão, você precisa balancear toore Olá paga locatários entre dois pools de. Olá próximo diagrama ilustra o processo de saudação quando os bancos de dados de locatário de avaliação Olá falham a tooregion voltar.  
 
 ![Figura 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
-* Cancele todas as solicitações de restauração geográfica pendentes para o pool da recuperação de desastres de avaliação.   
-* Faça o failover do banco de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se torna secundário automaticamente. Agora, ele se tornará primário novamente.  
-* Escolha quais bancos de dados de locatário pagantes farão failback para o pool 1 e iniciarão o failover para seus secundários (9). Após a recuperação da região, todos os bancos de dados no pool 1 se tornam secundários automaticamente. Agora, 50% deles se tornarão primários novamente. 
-* Reduza o tamanho do pool 2 para o eDTU original (10).
-* Defina todos os bancos de dados de avaliação na região B como somente leitura (11).
-* Para cada banco de dados no pool da DR de avaliação que foi alterado desde a recuperação, renomeie ou exclua os bancos de dados correspondentes no pool primário de avaliação (12). 
-* Copie os bancos de dados atualizados do pool da recuperação de desastres para o pool primário (13). 
-* Excluir o pool da recuperação de desastres (14) 
+* Cancele todas as pool de tootrial DR de solicitações pendentes de restauração geográfica.   
+* Failover de banco de dados de gerenciamento de saudação (8). Após a recuperação da região hello, primário antigo Olá automaticamente se tornou Olá secundário. Agora ele se torna Olá primário novamente.  
+* Selecione quais bancos de dados do locatário paga falharem toopool back 1 e iniciar failover tootheir secundários (9). Após a recuperação da região hello, todos os bancos de dados no pool de 1 automaticamente se tornou secundários. Agora, 50% deles se tornarão primários novamente. 
+* Reduza o tamanho de saudação do eDTU do pool 2 toohello original (10).
+* Conjunto de todos os restaurado avaliação bancos de dados na região Olá B somente tooread (11).
+* Para cada banco de dados no pool DR avaliação Olá que foi alterado desde a recuperação hello, renomear ou excluir o banco de dados correspondente no pool (12) primário avaliação Olá Olá. 
+* Saudação de cópia atualizada bancos de dados de saudação pool principal de toohello pool da recuperação de desastres (13). 
+* Excluir o pool de DR hello (14) 
 
-As principais **vantagens** dessa estratégia são:
+chave de saudação **benefícios** dessa estratégia são:
 
-* Ela dá suporte ao SLA mais agressivo para os clientes pagantes porque faz com que uma interrupção não possa afetar mais de 50% dos bancos de dados de locatário. 
-* Ela faz com que as novas avaliações sejam desbloqueadas assim que a trilha do pool da recuperação de desastres for criada durante a recuperação. 
-* Ela permite um uso mais eficiente da capacidade do pool, já que 50% dos bancos de dados secundários nos pools 1 e 2 são garantidamente menos ativos que os bancos de dados primários.
+* Dá suporte à SLA mais agressivo Olá Olá clientes pagantes porque garante que uma interrupção não pode afetar mais de 50% dos bancos de dados de locatário hello. 
+* Ela garante que avaliações novo Olá estiverem desbloqueadas como trilha Olá DR pool é criada durante a recuperação de saudação. 
+* Permite um uso mais eficiente da capacidade de pool hello como 50% dos bancos de dados secundários no pool de 1 e 2 do pool são garantidas toobe menos ativas de bancos de dados primários hello.
 
-Os principais **poréns** são:
+Olá principal **compensações** são:
 
-* As operações CRUD em relação aos bancos de dados de gerenciamento terão menor latência para os usuários finais conectados à região A que para os usuários finais conectados à região B, já que elas serão executadas em relação ao primário dos bancos de dados de gerenciamento.
-* Ele requer um design mais complexo do banco de dados de gerenciamento. Por exemplo, cada registro de locatário precisa ter um rótulo de local que tem que ser alterado durante o failover e o failback.  
-* Os clientes pagantes podem sentir um desempenho menor que o normal até que a atualização do pool na região B seja concluída. 
+* as operações CRUD Olá em bancos de dados de gerenciamento de saudação tem menor latência de saudação usuários finais conectados tooregion A que para Olá usuários finais conectados tooregion B conforme elas são executadas em Olá primária dos bancos de dados de gerenciamento de saudação.
+* Ele exige mais complexo do design de banco de dados de gerenciamento de saudação. Por exemplo, cada registro de Inquilino tem uma marca de local que precisa toobe alterado durante o failover e failback.  
+* Olá clientes pagantes pode enfrentar desempenho mais baixo do que o usual até hello pool atualização na região B é concluída. 
 
 ## <a name="summary"></a>Resumo
-Este artigo aborda as estratégias de recuperação de desastres para a camada de banco de dados usada por um aplicativo ISV SaaS multilocatário. A escolha da estratégia deve ser baseada nas necessidades do aplicativo, como o modelo de negócios, o SLA que você deseja oferecer aos seus clientes, restrições orçamentárias etc. Cada estratégia descrita descreve as vantagens e os poréns para que você possa tomar uma decisão consciente. Além disso, seu aplicativo específico provavelmente incluirá outros componentes do Azure. Sendo assim, você deve examinar suas diretrizes de continuidade de negócios e coordenar com elas a recuperação da camada de banco de dados. Para saber mais sobre o gerenciamento da recuperação de aplicativos de banco de dados no Azure, confira [Como criar soluções de nuvem para recuperação de desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
+Este artigo se concentra em estratégias de recuperação de desastres Olá para Olá da camada de banco de dados usado por um aplicativo do ISV SaaS multilocatário. Hello estratégia que você escolher é com base nas necessidades de saudação do aplicativo hello, como o modelo de negócios hello, Olá SLA toooffer tooyour clientes, orçamento restrição etc. Cada descrita estratégia contornos Olá benefícios e compensação para que você pode tomar uma decisão informada. Além disso, seu aplicativo específico provavelmente incluirá outros componentes do Azure. Para que você revise sua orientação de continuidade de negócios e coordenar a recuperação de saudação da camada de banco de dados de saudação com eles. toolearn mais sobre o gerenciamento de recuperação de aplicativos de banco de dados no Azure, consulte muito[criação de soluções de nuvem para recuperação de desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
+* toolearn sobre backups de banco de dados do SQL Azure automatizadas, consulte [backups automatizados de banco de dados SQL](sql-database-automated-backups.md).
 * Para obter uma visão geral e os cenários de continuidade dos negócios, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
-* Para saber mais sobre como usar backups automatizados para recuperação, consulte [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
-* Para saber mais sobre opções de recuperação mais rápidas, confira [Replicação Geográfica ativa](sql-database-geo-replication-overview.md).
-* Para saber mais sobre como usar backups automatizados para arquivamento, confira [Cópia de banco de dados](sql-database-copy.md).
+* toolearn sobre como usar backups automatizados para recuperação, consulte [restaurar um banco de dados de backups de iniciadas pelo serviço de saudação](sql-database-recovery-using-backups.md).
+* toolearn sobre as opções de recuperação mais rápidas, consulte [replicação geográfica ativa](sql-database-geo-replication-overview.md).
+* toolearn sobre como usar backups automatizados para arquivamento, consulte [cópia de banco de dados](sql-database-copy.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Criar seu primeiro microsserviço do Azure baseado em ator em Java | Microsoft Docs"
-description: "Este tutorial orienta você pelas etapas de criação, depuração e implantação de um serviço simples baseado em ator usando os Reliable Actors do Service Fabric."
+title: "aaaCreate sua primeira baseado em ator Azure microsserviço em Java | Microsoft Docs"
+description: "Este tutorial orienta você pelas etapas de saudação de criar, depurar e implantar um serviço baseado em ator simples usando o serviço de malha Reliable Actors."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
 ms.author: vturecek
-ms.openlocfilehash: 288f1ed1016f50031065e66444d2562427194dc7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 24718a8d7034360c53597f139169580f1a6ce732
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução aos Reliable Actors
 > [!div class="op_single_selector"]
@@ -27,37 +27,37 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-Este artigo explica os conceitos básicos dos Reliable Actors do Azure Service Fabric e orienta você durante a criação e a implantação de um aplicativo Reliable Actor simples em Java.
+Este artigo explica as Noções básicas de saudação do Azure Service Fabric Reliable Actors e orienta você a criar e implantar um aplicativo simples de Reliable Actor em Java.
 
 ## <a name="installation-and-setup"></a>Instalação e configuração
-Antes de começar, verifique se há um ambiente de desenvolvimento do Service Fabric configurado no seu computador.
-Se precisar configurá-lo, vá para o [guia de introdução ao Mac](service-fabric-get-started-mac.md) ou o [guia de introdução ao Linux](service-fabric-get-started-linux.md).
+Antes de começar, certifique-se de que o ambiente de desenvolvimento do Service Fabric Olá configurado no seu computador.
+Se você precisar tooset-lo, vá muito[guia de Introdução no Mac](service-fabric-get-started-mac.md) ou [guia de Introdução no Linux](service-fabric-get-started-linux.md).
 
 ## <a name="basic-concepts"></a>Conceitos básicos
-Para começar a usar os Reliable Actors, você só precisa entender alguns conceitos básicos:
+tooget iniciado com atores confiável, você só precisa toounderstand alguns conceitos básicos:
 
-* **Serviço do ator**. Os Reliable Actors são empacotados em Reliable Services que podem ser implantados na infraestrutura do Service Fabric. As instâncias de ator são ativadas em uma instância de serviço nomeado.
-* **Registro do ator**. Como ocorre com Reliable Services, um serviço de Reliable Actor precisa ser registrado com o tempo de execução do Service Fabric. Além disso, o tipo de ator precisa ser registrado com o tempo de execução do ator.
-* **Interface do Ator**. A interface do ator é usada para definir uma interface pública fortemente tipada de um ator. Na terminologia do modelo de Reliable Actor, a interface do ator define os tipos de mensagem que o ator pode entender e processar. A interface do ator é usada por outros atores ou aplicativos cliente para “enviar” (de modo assíncrono) mensagens ao ator. Os Reliable Actors pode implantar várias interfaces.
-* **Classe ActorProxy**. A classe ActorProxy é usada por aplicativos cliente para invocar os métodos expostos por meio de suas interfaces de ator. A classe ActorProxy apresenta duas funcionalidades importantes:
+* **Serviço do ator**. Confiáveis atores são empacotados em serviços confiáveis que podem ser implantados na infraestrutura de malha do serviço de saudação. As instâncias de ator são ativadas em uma instância de serviço nomeado.
+* **Registro do ator**. Como com serviços confiáveis, um serviço de Reliable Actor deve toobe registrado com o tempo de execução do hello Service Fabric. Além disso, o tipo de ator Olá precisa toobe registrado com o tempo de execução do hello ator.
+* **Interface do Ator**. interface de ator Olá é usado toodefine uma interface pública fortemente tipada de um ator. No hello terminologia do modelo confiável ator, interface de ator Olá define Olá tipos de mensagens que Olá ator podem entender e processar. interface de ator Olá é usado por outros atores e aplicativos cliente muito "enviam" (de forma assíncrona) ator de toohello de mensagens. Os Reliable Actors pode implantar várias interfaces.
+* **Classe ActorProxy**. Olá ActorProxy classe é usada pelo cliente aplicativos tooinvoke Olá métodos expostos pela interface de ator hello. Olá ActorProxy classe fornece dois recursos importantes:
   
-  * Resolução do nome: ela consegue localizar o ator no cluster (localizar o nó do cluster no qual ele está hospedado).
-  * Tratamento de falhas: ela pode repetir as invocações do método e resolver novamente o local do ator, por exemplo, depois que uma falha exige que ele seja relocado para outro nó no cluster.
+  * A resolução de nome: é toolocate capaz de ator de saudação em cluster hello (localizar o nó de saudação do cluster de saudação onde ele está hospedado).
+  * Tratamento de falha: pode repetir invocações de método e resolver o local de ator Olá após novamente, por exemplo, uma falha que exija Olá ator toobe realocado tooanother nó no cluster hello.
 
-Vale a pena mencionar as seguintes regras que pertencem às interfaces de ator:
+Olá, seguindo as regras que pertencem a interfaces tooactor é vale a pena mencionar:
 
 * Métodos da interface de ator não podem ser sobrecarregados.
 * Métodos da interface de ator não podem ter parâmetros de saída, de referência e opcionais.
 * Não há suporte para interfaces genéricas.
 
 ## <a name="create-an-actor-service"></a>Criar um serviço de ator
-Comece criando um novo aplicativo de Service Fabric. O SDK do Service Fabric para Linux inclui um gerador Yeoman para fornecer o scaffolding de um aplicativo de Service Fabric com um serviço sem estado. Comece executando o seguinte comando Yeoman:
+Comece criando um novo aplicativo de Service Fabric. Olá SDK do Service Fabric para Linux inclui um Yeoman scaffolding de saudação do gerador tooprovide para um aplicativo de malha do serviço com um serviço sem monitoração de estado. Inicie executando Olá Yeoman a seguir de comando:
 
 ```bash
 $ yo azuresfjava
 ```
 
-Siga as instruções para criar um **Serviço de Ator Confiável**. Para este tutorial, nomeie o aplicativo "HelloWorldActorApplication" e o ator "HelloWorldActor". O scaffolding a seguir será criado:
+Siga Olá instruções toocreate um **serviço de ator confiável**. Neste tutorial, nomeie Olá aplicativo "HelloWorldActorApplication" e hello ator "HelloWorldActor". Olá scaffolding a seguir será criado:
 
 ```bash
 HelloWorldActorApplication/
@@ -100,10 +100,10 @@ HelloWorldActorApplication/
 ```
 
 ## <a name="reliable-actors-basic-building-blocks"></a>Blocos de construção básicos de Reliable Actors
-Os conceitos básicos descritos anteriormente são convertidos em blocos de construção básicos de um serviço Reliable Actor.
+conceitos básicos de saudação descritos anteriormente traduzem em Olá blocos de construção básicos de um serviço de Reliable Actor.
 
 ### <a name="actor-interface"></a>Interface do ator
-Contém a definição da interface para o ator. Essa interface define o contrato de ator que é compartilhado com a implementação do ator e os clientes chamando o ator, assim, geralmente faz sentido defini-lo em um local separado da implementação do ator e pode ser compartilhado por vários outros serviços ou aplicativos cliente.
+Isso contém a definição de interface de saudação de ator hello. Essa interface define o contrato de ator de saudação que é compartilhado por clientes de Olá chamando ator hello, então, geralmente faz sentido toodefine-lo em um local que é separar da implementação de ator hello e pode ser compartilhado por vários outros e implementação de ator Olá serviços ou aplicativos cliente.
 
 `HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`:
 
@@ -117,7 +117,7 @@ public interface HelloWorldActor extends Actor {
 ```
 
 ### <a name="actor-service"></a>Serviço de ator
-Contém a implementação do ator e o código de registro do ator. A classe de ator implementa a interface do ator. É o local em que o ator faz seu trabalho.
+Contém a implementação do ator e o código de registro do ator. classe de ator Olá implementa a interface de ator do hello. É o local em que o ator faz seu trabalho.
 
 `HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
 
@@ -148,7 +148,7 @@ public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActo
 ```
 
 ### <a name="actor-registration"></a>Registro do ator
-O serviço de ator deve ser registrado com um tipo de serviço no tempo de execução do Service Fabric. Para que o Serviço de Ator seja executado em suas instâncias de ator, o tipo de ator também deve ser registrado no Serviço de Ator. O método de registro `ActorRuntime` realiza esse trabalho para os atores.
+serviço de ator Olá deve ser registrado com um tipo de serviço em tempo de execução do Service Fabric hello. Em ordem para Olá toorun do serviço de ator suas instâncias de ator, seu tipo de ator também deve ser registrado com hello serviço de ator. Olá `ActorRuntime` método de registro executa essa tarefa para atores.
 
 `HelloWorldActor/src/reliableactor/HelloWorldActorHost`:
 
@@ -171,14 +171,14 @@ public class HelloWorldActorHost {
 ```
 
 ### <a name="test-client"></a>Cliente de teste
-Este é um aplicativo de cliente de teste simples pode ser executado separadamente do aplicativo do Service Fabric para testar o serviço de ator. Este é um exemplo de local em que o ActorProxy pode ser usado para ativar e comunicar-se com instâncias de ator. Ele não é implantado com seu serviço.
+Este é um aplicativo de cliente de teste simples você pode executar separadamente de saudação do Service Fabric application tootest seu serviço de ator. Este é um exemplo de onde hello ActorProxy pode ser usado tooactivate e se comunicar com instâncias de ator. Ele não é implantado com seu serviço.
 
-### <a name="the-application"></a>O aplicativo
-Por fim, o aplicativo empacota junto o serviço de ator e quaisquer outros serviços que você possa adicionar no futuro para implantação. Ele contém o *ApplicationManifest.xml* e espaços reservados para o pacote de serviço do ator.
+### <a name="hello-application"></a>aplicativo Hello
+Por fim, pacotes de aplicativos Olá Olá serviço ator e qualquer outro serviço que você pode adicionar em Olá futura juntas para implantação. Ele contém Olá *ApplicationManifest.xml* e espaços reservados para o pacote de serviço de ator hello.
 
-## <a name="run-the-application"></a>Executar o aplicativo
+## <a name="run-hello-application"></a>Executar o aplicativo hello
 
-O scaffolding Yeoman inclui um script gradle para compilar o aplicativo e os scripts bash para implantar e remover o aplicativo. Para implantar o aplicativo, primeiro compile o aplicativo com gradle:
+Olá Yeoman scaffolding inclui um gradle script toobuild Olá aplicativo e bash scripts toodeploy e remover o aplicativo. aplicativo de hello toodeploy, primeiro aplicativo hello de compilação com gradle:
 
 ```bash
 $ gradle
@@ -188,8 +188,8 @@ Isso produzirá um pacote de aplicativos do Service Fabric que poderá ser impla
 
 ### <a name="deploy-service-fabric-cli"></a>Implantar a CLI do Service Fabric
 
-O script install.sh contém os comandos da CLI do Service Fabric (sfctl) necessários para implantar o pacote de aplicativos.
-Execute o script install.sh para implantar o aplicativo.
+script de install.sh de Olá contém Olá necessário CLI de malha do serviço (sfctl) comandos toodeploy Olá pacote de aplicativo.
+Execute o aplicativo de saudação do hello install.sh script toodeploy.
 
 ```bash
 $ ./install.sh

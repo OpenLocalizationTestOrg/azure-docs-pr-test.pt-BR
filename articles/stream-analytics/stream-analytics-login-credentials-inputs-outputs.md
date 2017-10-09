@@ -1,6 +1,6 @@
 ---
 title: "Stream Analytics: alternar as credenciais de logon para entradas e saídas | Microsoft Docs"
-description: "Saiba como atualizar as credenciais para as entradas e saídas do Stream Analytics."
+description: "Saiba como tooupdate Olá credenciais para análise de fluxo de entradas e saídas."
 keywords: credenciais de logon
 services: stream-analytics
 documentationcenter: 
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: 2cb995a3969a8cb025f371ed0ab160cd04b0454d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ac2374c539012b66ab390656c5750024e02f6bdc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>Fazer a rotação de credenciais de logon para entradas e saídas em trabalhos do Stream Analytics
 ## <a name="abstract"></a>Resumo
-No momento, o Azure Stream Analytics não permite a substituição das credenciais em uma entrada/saída durante a execução do trabalho.
+O Azure Stream Analytics atualmente não permite substituindo credenciais Olá em uma entrada/saída ao trabalho hello está sendo executado.
 
-Embora o Azure Stream Analytics ofereça suporte à retomada de um trabalho desde a última saída, queremos compartilhar o processo inteiro para minimizar a latência entre a parada e o início do trabalho e fazer a rotação de credenciais de logon.
+Azure Stream Analytics dá suporte ao retomar um trabalho da última saída, queremos tooshare Olá todo o processo para minimizar a latência Olá entre Olá parando e iniciando trabalho hello e rotação de credenciais de logon de saudação.
 
-## <a name="part-1---prepare-the-new-set-of-credentials"></a>Parte 1 - Preparar o novo conjunto de credenciais:
-Essa parte é aplicável às seguintes entradas/saídas:
+## <a name="part-1---prepare-hello-new-set-of-credentials"></a>Parte 1 - Preparar o novo conjunto de credenciais de saudação:
+Esta parte é aplicável toohello entradas/saídas a seguir:
 
 * Armazenamento de Blob
 * Hubs de Eventos
@@ -38,51 +38,51 @@ Essa parte é aplicável às seguintes entradas/saídas:
 Para outras entradas/saídas, prossiga para a Parte 2.
 
 ### <a name="blob-storagetable-storage"></a>Armazenamento de blob/Armazenamento de tabela
-1. Vá para a extensão Armazenamento no Portal de Gerenciamento do Azure:   
+1. Acesse toohello extensão de armazenamento no portal de gerenciamento do Azure hello:  
    ![elementográfico1][graphic1]
-2. Localize o armazenamento usado por seu trabalho e acesse-o:   
+2. Localize o armazenamento de saudação usado por seu trabalho e vá para ele:  
    ![elementográfico2][graphic2]
-3. Clique no comando Gerenciar Chaves de Acesso:   
+3. Clique em Olá gerenciar chaves de acesso comando:  
    ![elementográfico3][graphic3]
-4. Entre a Chave de Acesso Primária e a Chave de Acesso Secundária, **escolha a que não é usada por seu trabalho**.
+4. Entre Olá chave de acesso primária e hello chave de acesso secundária, **escolher Olá não usado por seu trabalho**.
 5. Regeneração de ocorrência:   
    ![elementográfico4][graphic4]
-6. Copie a chave recém-gerada:   
+6. Copie a chave de saudação recentemente gerada:  
    ![elementográfico5][graphic5]
-7. Prossiga para a Parte 2.
+7. Continue tooPart 2.
 
 ### <a name="event-hubs"></a>Hubs de Eventos
-1. Vá para a extensão Barramento de Serviço no Portal de Gerenciamento do Azure:   
+1. Vá toohello extensão de barramento de serviço no portal de gerenciamento do Azure hello:  
    ![elementográfico6][graphic6]
-2. Localize o Namespace do Barramento de Serviço usado por seu trabalho e acesse-o:   
+2. Localize Olá Namespace de barramento de serviço usada pelo seu trabalho e vá para ele:  
    ![elementográfico7][graphic7]
-3. Se seu trabalho usar uma política de acesso compartilhado no Namespace de Barramento de Serviço, vá para a etapa 6  
-4. Vá para a guia Hubs de Eventos:   
+3. Se seu trabalho usa uma política de acesso compartilhado em Olá Namespace de barramento de serviço, ir toostep 6  
+4. Consulte o guia de Hubs de eventos toohello:  
    ![elementográfico8][graphic8]
-5. Localize o Hub de Eventos usado por seu trabalho e acesse-o:   
+5. Localize Olá Hub de eventos usado pelo seu trabalho e vá para ele:  
    ![elementográfico9][graphic9]
-6. Vá para a guia Configurar:   
+6. Vá toohello guia Configurar:  
    ![elementográfico10][graphic10]
-7. No menu suspenso Nome da Política, localize a política de acesso compartilhado usada por seu trabalho:   
+7. No hello suspensa Nome da política, localize a política de acesso Olá compartilhada usada por seu trabalho:  
    ![elementográfico11][graphic11]
-8. Entre a Chave Primária e a Chave Secundária, **escolha a que não é usada por seu trabalho**.  
+8. Entre hello chave primária e chave secundária, da saudação **escolher Olá não usado por seu trabalho**.  
 9. Regeneração de ocorrência:   
    ![elementográfico12][graphic12]
-10. Copie a chave recém-gerada:   
+10. Copie a chave de saudação recentemente gerada:  
    ![elementográfico13][graphic13]
-11. Prossiga para a Parte 2.  
+11. Continue tooPart 2.  
 
-### <a name="sql-database"></a>Banco de Dados SQL
+### <a name="sql-database"></a>Banco de dados SQL
 > [!NOTE]
-> Observação: será necessário se conectar ao Serviço de Banco de Dados SQL. Vamos mostrar como fazer isso usando a experiência de gerenciamento no Portal de Gerenciamento do Azure, mas você também pode optar por usar uma ferramenta do lado cliente, como o SQL Server Management Studio.
+> Observação: você precisará tooconnect toohello serviço de banco de dados SQL. Vamos tooshow como toodo esse usando Olá experiência de gerenciamento no portal de gerenciamento do Azure hello, mas você pode escolher uma ferramenta de cliente como o SQL Server Management Studio também toouse.
 >
 > 
 
-1. Vá para a extensão Bancos de Dados SQL no Portal de Gerenciamento do Azure:   
+1. Vá toohello extensão de bancos de dados SQL no portal de gerenciamento do Azure hello:  
    ![elementográfico14][graphic14]
-2. Localize o Banco de Dados SQL usado por seu trabalho e **clique no link do servidor** na mesma linha:  
+2. Localizar Olá banco de dados do SQL usado pelo seu trabalho e **clique no servidor de saudação** link Olá mesmo linha:  
    ![elementográfico15][graphic15]
-3. Clique no comando Gerenciar:   
+3. Clique em Olá gerenciar comando:  
    ![elementográfico16][graphic16]
 4. Digite o Banco de Dados Mestre:   
    ![elementográfico17][graphic17]
@@ -90,86 +90,86 @@ Para outras entradas/saídas, prossiga para a Parte 2.
    ![elementográfico18][graphic18]
 6. Clique em Nova Consulta:   
    ![elementográfico19][graphic19]
-7. Digite a consulta a seguir, substituindo <login_name> por seu Nome de Usuário e substituindo <enterStrongPasswordHere> por sua nova senha:  
+7. Tipo de saudação a seguir consulta substituindo < login_name > com o seu nome de usuário e a substituição <enterStrongPasswordHere> com sua nova senha:  
    `CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8. Clique em Executar:   
    ![elementográfico20][graphic20]
-9. Volte para etapa 2 e, dessa vez, clique no banco de dados:   
+9. Voltar toostep 2 e desta vez clique em banco de dados de saudação:  
    ![elementográfico21][graphic21]
-10. Clique no comando Gerenciar:   
+10. Clique em Olá gerenciar comando:  
    ![elementográfico22][graphic22]
 11. Digite seu Nome de Usuário, sua Senha e clique em Fazer logon:   
    ![elementográfico23][graphic23]
 12. Clique em Nova Consulta:   
    ![elementográfico24][graphic24]
-13. Digite a consulta a seguir, substituindo <user_name> por um nome pelo qual você deseja identificar esse logon no contexto desse banco de dados (é possível fornecer o mesmo valor atribuído para <login_name>, por exemplo) e substituindo <login_name> por seu novo nome de usuário:  
+13. Digite Olá a seguir consulta substituindo < Nome_de_usuário > com um nome pelo qual você deseja tooidentify esse logon no contexto de saudação do banco de dados (você pode fornecer Olá o mesmo valor que você atribuiu para < login_name >, por exemplo) e substituindo < login_name > com seu novo nome de usuário:  
    `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Clique em Executar:   
    ![elementográfico25][graphic25]
-15. Agora, você deve fornecer ao novo usuário as mesmas funções e privilégios que o usuário original tinha.
-16. Prossiga para a Parte 2.
+15. Agora você deve fornecer o novo usuário Olá mesmas funções e privilégios de usuário original tinha.
+16. Continue tooPart 2.
 
-## <a name="part-2-stopping-the-stream-analytics-job"></a>Parte 2: Interrompendo o trabalho do Stream Analytics
-1. Vá para a extensão Stream Analytics no Portal de Gerenciamento do Azure:   
+## <a name="part-2-stopping-hello-stream-analytics-job"></a>Parte 2: Parando Olá trabalho do Stream Analytics
+1. Vá extensão de análise de fluxo de toohello no portal de gerenciamento do Azure hello:  
    ![elementográfico26][graphic26]
 2. Localize seu trabalho e acesse-o:   
    ![elementográfico27][graphic27]
-3. Vá para a guia Entradas ou para a guia Saídas se você estiver fazendo uma rotação das credenciais em uma Entrada ou em uma Saída.  
+3. Vá toohello entradas guia ou Olá saídas com base em se você está girando credenciais Olá em uma entrada ou em uma saída.  
    ![elementográfico28][graphic28]
-4. Clique no comando Parar e confirme se o trabalho foi interrompido:   
-   ![graphic29][graphic29] Aguarde a interrupção do trabalho.
-5. Localize a entrada/saída em que você deseja fazer a rotação de credenciais e acesse-a:   
+4. Clique em comando de parada hello e confirme a saudação trabalho foi interrompido:  
+   ![graphic29][graphic29] aguardar Olá toostop de trabalho.
+5. Localizar Olá entrada/saída deseja toorotate credenciais no e vá para ele:  
    ![elementográfico30][graphic30]
-6. Prossiga para a Parte 3.
+6. Continue tooPart 3.
 
-## <a name="part-3-editing-the-credentials-on-the-stream-analytics-job"></a>Parte 3: Editando as credenciais no trabalho do Stream Analytics
+## <a name="part-3-editing-hello-credentials-on-hello-stream-analytics-job"></a>Parte 3: Editar Olá credenciais Olá trabalho do Stream Analytics
 ### <a name="blob-storagetable-storage"></a>Armazenamento de blob/Armazenamento de tabela
-1. Localize o campo Chave da Conta de Armazenamento e cole sua chave recém-gerada nele:   
+1. Localizar o campo de chave da conta de armazenamento hello e cole sua chave gerada mais recentemente ela:  
    ![elementográfico31][graphic31]
-2. Clique no comando Salvar e confirme o salvamento das alterações:   
+2. Clique Olá salvar comando e confirme a salvar suas alterações:  
    ![elementográfico32][graphic32]
 3. Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.
-4. Prossiga para a Parte 4.
+4. Continue tooPart 4.
 
 ### <a name="event-hubs"></a>Hubs de Eventos
-1. Localize o campo Política de Hub de Eventos e cole sua chave recém-gerada nele:   
+1. Localizar o campo de chave de política do Hub de eventos hello e cole sua chave gerada mais recentemente ela:  
    ![elementográfico33][graphic33]
-2. Clique no comando Salvar e confirme o salvamento das alterações:   
+2. Clique Olá salvar comando e confirme a salvar suas alterações:  
    ![elementográfico34][graphic34]
 3. Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.
-4. Prossiga para a Parte 4.
+4. Continue tooPart 4.
 
 ### <a name="power-bi"></a>Power BI
-1. Clique em Renovar autorização:  
+1. Clique em autorização de renovar hello:  
 
    ![elementográfico35][graphic35]
-2. Você obterá a seguinte confirmação:  
+2. Você obterá Olá confirmação a seguir:  
 
    ![elementográfico36][graphic36]
-3. Clique no comando Salvar e confirme o salvamento das alterações:   
+3. Clique Olá salvar comando e confirme a salvar suas alterações:  
    ![elementográfico37][graphic37]
 4. Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.
-5. Prossiga para a Parte 4.
+5. Continue tooPart 4.
 
-### <a name="sql-database"></a>Banco de Dados SQL
-1. Localize os campos Nome de usuário e Senha e cole seu conjunto de credenciais recém-criado neles:   
+### <a name="sql-database"></a>Banco de dados SQL
+1. Localizar Olá campos de nome de usuário e senha e cole o recém-criado conjunto de credenciais-los:  
    ![elementográfico38][graphic38]
-2. Clique no comando Salvar e confirme o salvamento das alterações:   
+2. Clique Olá salvar comando e confirme a salvar suas alterações:  
    ![elementográfico39][graphic39]
 3. Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.  
-4. Prossiga para a Parte 4.
+4. Continue tooPart 4.
 
 ## <a name="part-4-starting-your-job-from-last-stopped-time"></a>Parte 4: Iniciando o trabalho desde a hora da última interrupção
-1. Navegue para fora da Entrada/Saída:   
+1. Sair Olá entrada/saída:  
    ![elementográfico40][graphic40]
-2. Clique no comando Iniciar:   
+2. Clique em saudação inicial comando:  
    ![elementográfico41][graphic41]
-3. Selecione a Hora da Última Interrupção e clique em OK:   
+3. Escolher Olá hora da última interrupção e clique em Okey:  
    ![elementográfico42][graphic42]
-4. Prossiga para a Parte 5.  
+4. Continue tooPart 5.  
 
-## <a name="part-5-removing-the-old-set-of-credentials"></a>Parte 5: Removendo o conjunto de credenciais antigo
-Essa parte é aplicável às seguintes entradas/saídas:
+## <a name="part-5-removing-hello-old-set-of-credentials"></a>Parte 5: Removendo Olá antigo conjunto de credenciais
+Esta parte é aplicável toohello entradas/saídas a seguir:
 
 * Armazenamento de Blob
 * Hubs de Eventos
@@ -177,18 +177,18 @@ Essa parte é aplicável às seguintes entradas/saídas:
 * Armazenamento de tabela
 
 ### <a name="blob-storagetable-storage"></a>Armazenamento de blob/Armazenamento de tabela
-Repita a Parte 1 da Chave de Acesso usada anteriormente por seu trabalho para renovar a Chave de Acesso agora não utilizada.
+Repita a parte 1 para Olá chave de acesso que foi usado anteriormente pelo seu trabalho toorenew Olá agora não utilizado de chave de acesso.
 
 ### <a name="event-hubs"></a>Hubs de Eventos
-Repita a Parte 1 da Chave usada anteriormente por seu trabalho para renovar a Chave agora não utilizada.
+Repita a parte 1 para Olá chave que foi usada anteriormente pelo seu trabalho toorenew Olá chave agora não utilizado.
 
-### <a name="sql-database"></a>Banco de Dados SQL
-1. Vá para a janela de consulta da Parte 1 Etapa 7 e digite a consulta a seguir, substituindo <previous_login_name> pelo Nome de Usuário usado anteriormente por seu trabalho:  
+### <a name="sql-database"></a>Banco de dados SQL
+1. Volte toohello janela de consulta da parte 1 etapa 7 e digite Olá consulta a seguir, substituindo < previous_login_name > com hello nome de usuário que foi usado anteriormente pelo seu trabalho:  
    `DROP LOGIN <previous_login_name>`  
 2. Clique em Executar:   
    ![elementográfico43][graphic43]  
 
-Você deverá obter a seguinte confirmação: 
+Você deve obter Olá confirmação a seguir: 
 
     Command(s) completed successfully.
 
@@ -196,7 +196,7 @@ Você deverá obter a seguinte confirmação:
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
+* [Introdução tooAzure Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)

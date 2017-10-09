@@ -1,6 +1,6 @@
 ---
-title: "Suporte para vários locatários para replicação de VM do VMware no Azure (programa CSP) | Microsoft Docs"
-description: "Descreve como implantar o Azure Site Recovery em um ambiente de multilocatário para orquestrar a replicação, o failover e a recuperação de VMs (máquinas virtuais) VMware locais no Azure por meio do Programa CSP usando o Portal do Azure"
+title: "suporte a aaaMulti locatário tooAzure de replicação de VM do VMware (programa CSP) | Microsoft Docs"
+description: "Descreve como toodeploy do Azure Site Recovery em um ambiente multilocatário tooorchestrate replicação, failover e a recuperação de local tooAzure de máquinas virtuais (VMs) do VMware por meio do programa CSP hello usando Olá portal do Azure"
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
@@ -14,71 +14,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9be555c9a438f66e6d3dfcdc9f507a84763846d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Suporte a multilocatários no Azure Site Recovery para replicar máquinas virtuais do VMware no Azure por meio do CSP
+# <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-tooazure-through-csp"></a>Suporte a multilocatário no Azure Site Recovery para replicar tooAzure de máquinas virtuais VMware por meio de CSP
 
-O Azure Site Recovery oferece suporte a ambientes multilocatários para assinaturas de locatários. Ele também dá suporte à multilocação para assinaturas de locatários que são criadas e gerenciadas por meio do programa CSP (Provedor de Soluções na Nuvem da Microsoft). Este artigo detalha as diretrizes para implementar e gerenciar cenários multilocatários do VMware para o Azure. Ele também aborda a criação e o gerenciamento de assinaturas de locatários por meio do CSP.
+O Azure Site Recovery oferece suporte a ambientes multilocatários para assinaturas de locatários. Ele também dá suporte a multilocação para assinaturas de locatários que são criadas e gerenciadas por meio do programa do provedor de solução de nuvem da Microsoft (CSP) hello. Este artigo detalha as diretrizes de saudação para implementar e gerenciar cenários de VMware para o Azure de vários locatários. Ele também aborda a criação e o gerenciamento de assinaturas de locatários por meio do CSP.
 
-Essa diretriz é amplamente na documentação existente de replicação de máquinas virtuais VMware para o Azure. Para obter mais informações, consulte [Replicar máquinas virtuais VMware para o Azure com o Site Recovery](site-recovery-vmware-to-azure.md).
+Este guia muito desenhos de documentação existente de saudação para replicar tooAzure de máquinas virtuais VMware. Para obter mais informações, consulte [tooAzure de máquinas virtuais VMware replicar com a recuperação de Site](site-recovery-vmware-to-azure.md).
 
 ## <a name="multi-tenant-environments"></a>Ambientes multilocatário
 Há três modelos principais de multilocatários:
 
-* **HSP (Provedor de Serviços de Hospedagem) Compartilhado**: o parceiro tem a infraestrutura física e usa os recursos compartilhados (vCenter, datacenters, armazenamento físico e assim por diante) para hospedar VMs de vários locatários na mesma infraestrutura. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode ter recuperação de desastre como uma solução de autoatendimento.
+* **Compartilhado do provedor de serviços de hospedagem (HSP)**: parceiro Olá possui infraestrutura física hello e utiliza recursos compartilhados (vCenter, data centers, armazenamento físico e assim por diante) toohost VMs de vários locatários em Olá mesma infraestrutura. parceiro Olá pode fornecer gerenciamento de recuperação de desastres como um serviço gerenciado ou Locatário Olá pode possuir a recuperação de desastres como uma solução de autoatendimento.
 
-* **Provedor de Serviços de Hospedagem Dedicado**: o parceiro tem a infraestrutura física, mas usa recursos dedicados (vários vCenters, repositórios de dados físicos e assim por diante) para hospedar VMs de cada locatário em uma infraestrutura separada. O parceiro pode fornecer gerenciamento de recuperação de desastre como um serviço gerenciado ou o locatário pode já tê-la como uma solução de autoatendimento.
+* **Dedicado de provedor de serviços de hospedagem**: parceiro Olá possui infraestrutura física Olá mas usa recursos dedicados (vários vCenters, armazenamentos de dados físicos e assim por diante) toohost VMs de cada locatário em uma infraestrutura separada. parceiro Olá pode fornecer gerenciamento de recuperação de desastres como um serviço gerenciado, ou Locatário Olá pode ter como uma solução de autoatendimento.
 
-* **MSP (Provedor de Serviços Gerenciado)**: o cliente tem a infraestrutura física que hospeda as VMs e o parceiro fornece a habilitação e gerenciamento de recuperação de desastre.
+* **Gerenciado de provedor de serviços (MSP)**: cliente Olá possui infraestrutura física de saudação que hospeda as VMs de saudação e parceiro Olá fornece gerenciamento e habilitação de recuperação de desastres.
 
 ## <a name="shared-hosting-multi-tenant-guidance"></a>Diretriz de multilocatário de hospedagem compartilhada
-Esta seção aborda com detalhes o cenário de hospedagem compartilhada. Os outros dois cenários são subconjuntos do cenário de hospedagem compartilhada e usam os mesmos princípios. As diferenças são descritas ao final da diretriz de hospedagem compartilhada.
+Esta seção aborda um cenário de hospedagem compartilhada Olá detalhadamente. Olá, outros dois cenários são subconjuntos do cenário de hospedagem compartilhada hello e usarem Olá mesmos princípios. Olá diferenças são descritas no final de saudação de diretrizes de hospedagem compartilhada hello.
 
-O requisito básico em um cenário multilocatário é isolar os vários locatários. Um locatário não deve ser capaz de observar o que é hospedado por outro locatário. Em um ambiente gerenciado por parceiros, esse requisito não é tão importante quanto em um ambiente de autoatendimento, no qual ele pode ser crucial. Este guia presume que o isolamento de locatários é necessário.
+Olá, um requisito básico em um cenário de multilocatário é tooisolate Olá vários locatários. Um locatário não deve ser capaz de tooobserve que tenha hosted outro locatário. Em um ambiente gerenciado por parceiros, esse requisito não é tão importante quanto em um ambiente de autoatendimento, no qual ele pode ser crucial. Este guia presume que o isolamento de locatários é necessário.
 
-A arquitetura é apresentada no diagrama a seguir:
+arquitetura de saudação é apresentada na Olá diagrama a seguir:
 
 ![HSP compartilhado com um vCenter](./media/site-recovery-multi-tenant-support-vmware-using-csp/shared-hosting-scenario.png)  
 **Cenário de hospedagem compartilhada com um vCenter**
 
-Conforme visto no diagrama anterior, cada cliente tem um servidor de gerenciamento separado. Essa configuração limita o acesso do locatário a VMs de locatários específicos e habilita o isolamento de locatários. Um cenário de replicação de máquina virtual do VMware usa o servidor de configuração para gerenciar contas a fim de descobrir VMs e instalar agentes. Seguimos os mesmos princípios para ambientes multilocatários, mas acrescentando a restrição à descoberta de VM por meio do controle de acesso do vCenter.
+Conforme visto no hello precede o diagrama, cada cliente tem um servidor de gerenciamento separados. Este locatário de limites de configuração acesso específico tootenant VMs e habilita o isolamento de locatário. Um cenário de replicação da máquina virtual VMware usa Olá configuração servidor toomanage contas toodiscover VMs e instalar agentes. Seguimos Olá mesmos princípios para ambientes de multilocatários, com a adição de saudação de restringir a descoberta VM por meio do vCenter controle de acesso.
 
-O requisito de isolamento de dados precisa que todas as informações confidenciais de infraestrutura (como credenciais de acesso) continuem não sendo reveladas para os locatários. Por esse motivo, é recomendável que todos os componentes do servidor de gerenciamento permaneçam sob controle exclusivo do parceiro. Os componentes de servidor de gerenciamento são:
+requisito de isolamento de dados Olá exige que todas as informações confidenciais de infraestrutura (como credenciais de acesso) permanecem tootenants não revelado. Por esse motivo, é recomendável que todos os componentes do servidor de gerenciamento de saudação permaneçam sob controle exclusivo de saudação do parceiro de saudação. componentes de servidor de gerenciamento de saudação são:
 * CS (Servidor de configuração)
 * PS (Servidor de processo)
 * MT (Servidor de destino mestre) 
 
-Um PS de expansão também está sob controle do parceiro.
+PS uma expansão também está sob controle do parceiro hello.
 
-### <a name="every-cs-in-the-multi-tenant-scenario-uses-two-accounts"></a>Cada CS no cenário de multilocatários usa duas contas
+### <a name="every-cs-in-hello-multi-tenant-scenario-uses-two-accounts"></a>Cada CS no cenário de multilocatário Olá usa duas contas
 
-- **Conta de acesso do vCenter**: use essa conta para descobrir VMs do locatário. Ela recebe a atribuição de permissões de acesso do vCenter (conforme descrito na próxima seção). Para ajudar a evitar vazamentos de acesso, é recomendável que os próprios parceiros insiram essas credenciais na ferramenta de configuração.
+- **conta de acesso do vCenter**: usar máquinas virtuais do locatário de toodiscover essa conta. Ele tem permissões de acesso do vCenter atribuídas tooit (conforme descrito na próxima seção, Olá). toohelp evitar vazamentos acidentais de acesso, é recomendável que os parceiros Insira essas credenciais se na ferramenta de configuração de saudação.
 
-- **Conta de acesso à máquina virtual**: use essa conta para instalar o agente de mobilidade em VMs do locatário por meio de envio por push automático. Essa normalmente é uma conta de domínio que um locatário pode fornecer ao parceiro ou que, como alternativa, pode ser gerenciada diretamente pelo parceiro. Se o locatário não quiser compartilhar os detalhes diretamente com o parceiro, ele poderá receber permissão para inserir as credenciais por meio de um acesso por tempo limitado ao CS ou, com a assistência do parceiro, instalar agentes de mobilidade manualmente.
+- **Conta de acesso à máquina virtual**: Use este agente de mobilidade conta tooinstall Olá em máquinas virtuais do locatário Olá por meio de um envio automático. Geralmente é uma conta de domínio que um locatário pode fornecer tooa parceiro ou que, como alternativa, o parceiro de saudação pode gerenciar diretamente. Se um locatário não deseja detalhes de saudação tooshare com parceiro Olá diretamente, ele ou ela pode permitida credenciais de saudação tooenter por tempo limitado acessar toohello CS ou com a assistência do parceiro hello, instalar agentes de mobilidade manualmente.
 
 ### <a name="requirements-for-a-vcenter-access-account"></a>Requisitos para uma conta de acesso do vCenter
 
-Conforme mencionado na seção anterior, você deve configurar o CS com uma conta atribuída com uma função especial. A atribuição de função deve ser aplicada à conta de acesso do vCenter para cada objeto do vCenter e não propagada para os objetos filhos. Essa configuração garante o isolamento do locatário, pois a propagação de acesso também pode resultar em acesso acidental a outros objetos.
+Como mencionado na saudação anterior seção, configure Olá CS com uma conta que tenha um tooit especial de função atribuída. atribuição de função Hello deve ser aplicada a conta de acesso do vCenter toohello para cada objeto do vCenter e propagadas não toohello os objetos filho. Essa configuração garante o isolamento de locatários, porque a propagação de acesso pode resultar em objetos de tooother acesso acidental.
 
-![A opção Propagar para Filho](./media/site-recovery-multi-tenant-support-vmware-using-csp/assign-permissions-without-propagation.png)
+![Olá opção de objetos tooChild Propagate](./media/site-recovery-multi-tenant-support-vmware-using-csp/assign-permissions-without-propagation.png)
 
-A alternativa é atribuir a conta de usuário e a função no objeto do datacenter e propagá-las para os objetos filhos. Em seguida, conceda à conta uma função *Sem acesso* para cada objeto (como VMs de outros locatários) que deve ficar inacessíveis para um locatário específico. Essa configuração é trabalhosa e expõe controles de acesso acidentais, pois cada novo objeto filho criado também recebe automaticamente o acesso herdado do pai. Portanto, é recomendável usar a primeira abordagem.
+alternativa de saudação é tooassign conta de usuário de saudação e a função no objeto de datacenter hello e propagá-los toohello os objetos filho. Dar conta Olá um *nenhum acesso* função para cada objeto (como VMs de outros locatários) que deve ser locatário específico tooa inacessível. Essa configuração é complicada e expõe controles de acesso acidental, porque cada novo objeto filho recebe automaticamente o acesso que é herdado do hello pai. Portanto, é recomendável que você use a primeira abordagem de saudação.
 
-O procedimento de acesso da conta do vCenter é o seguinte:
+procedimento de acesso da conta do vCenter Olá é o seguinte:
 
-1. Crie uma nova função clonando a função *Somente leitura* predefinida e dê a ela um nome conveniente (como Azure_Site_Recovery usado neste exemplo).
+1. Criar uma nova função por meio da clonagem Olá predefinido *somente leitura* função e, em seguida, atribua a ele um nome conveniente (como Azure_Site_Recovery, conforme mostrado neste exemplo).
 
-2. Atribua as seguintes permissões a essa função:
+2. Atribua Olá função toothis de permissões a seguir:
 
     * **Repositório de dados**: Alocar espaço, Procurar repositório de dados, Operações de arquivo de baixo nível, Remover arquivo, Atualizar arquivos de máquina virtual
 
     * **Rede**: Atribuição de rede
 
-    * **Recurso**: Atribuir VM ao pool de recursos, Migrar VM desligada, Migrar VM ligada
+    * **Recurso**: pool de tooresource atribuir VM, migrar desligado a máquina virtual, migrar ligado a VM
 
     * **Tarefas**: Criar tarefa, Atualizar tarefa
 
@@ -89,134 +89,134 @@ O procedimento de acesso da conta do vCenter é o seguinte:
         * Provisionamento > Permitir download de máquina virtual, Permitir upload de arquivos de máquina virtual
         * Gerenciamento de instantâneo > Remover instantâneos
 
-    ![A caixa de diálogo Editar Função](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
+    ![caixa de diálogo Editar função Hello](./media/site-recovery-multi-tenant-support-vmware-using-csp/edit-role-permissions.png)
 
-3. Atribua os níveis de acesso à conta do vCenter (usada no CS do locatário) a diferentes objetos da seguinte maneira:
+3. Atribua níveis toohello vCenter conta de acesso (usada no locatário Olá CS) para vários objetos, da seguinte maneira:
 
 >| Objeto | Função | Comentários |
 >| --- | --- | --- |
->| vCenter | Somente leitura | É necessário apenas para permitir o acesso do vCenter para gerenciar diferentes objetos. Você pode remover essa permissão se a conta nunca será fornecida a um locatário ou usada para operações de gerenciamento no vCenter. |
+>| vCenter | Somente leitura | Somente vCenter de tooallow de acesso necessário para gerenciar diferentes objetos. Você pode remover essa permissão se Olá conta nunca vai toobe fornecido tooa locatário ou usados para as operações de gerenciamento em Olá vCenter. |
 >| Datacenter | Azure_Site_Recovery |  |
->| Host e cluster de host | Azure_Site_Recovery | Verifique novamente se o acesso está no nível de objeto, de forma que somente os hosts acessíveis tenham VMs do locatário antes do failover e após o failback. |
+>| Host e cluster de host | Azure_Site_Recovery | Novamente garante que o acesso é no nível de objeto hello, para que hosts acessíveis apenas ter locatário VMs antes do failover e depois de failback. |
 >| Repositório de dados e cluster de repositório de dados | Azure_Site_Recovery | Mesmo que o anterior. |
 >| Rede | Azure_Site_Recovery |  |
->| Servidor de gerenciamento | Azure_Site_Recovery | Inclui o acesso a todos os componentes (CS, PS e MT) se algum estiver fora do computador do CS. |
->| VMs do locatário | Azure_Site_Recovery | Verifique se as novas VMs de locatário de um locatário específico também recebem esse acesso ou elas não poderão ser descobertas por meio do Portal do Azure. |
+>| Servidor de gerenciamento | Azure_Site_Recovery | Inclui acesso tooall componentes (CS PS e MT) se houver fora da máquina Olá CS. |
+>| VMs do locatário | Azure_Site_Recovery | Garante que qualquer novo locatário VMs de um locatário específico também pode obter esse acesso, ou eles não poderão ser descobertos por meio de saudação portal do Azure. |
 
-O acesso à conta do vCenter está concluído. Essa etapa cumpre o requisito de permissões mínimas para concluir operações de failback. Você também pode usar essas permissões de acesso com as políticas existentes. Basta modificar seu conjunto de permissões existentes para incluir permissões de função da etapa 2, como detalhado anteriormente.
+acesso à conta Olá vCenter foi concluído. Operações de failback toocomplete do requisito de permissões mínimas Olá atende a essa etapa. Você também pode usar essas permissões de acesso com as políticas existentes. Basta modificar suas permissões conjunto tooinclude função permissões existentes da etapa 2, detalhado anteriormente.
 
-Para restringir as operações de recuperação de desastre até o estado de failover (ou seja, sem os recursos de failback), siga o procedimento anterior, com uma exceção: em vez de atribuir a função *Azure_Site_Recovery* à conta de acesso do vCenter, atribua apenas uma função *Somente Leitura* a essa conta. Esse conjunto de permissões permite failover e replicação de VM, mas não permite failback. Todo o resto do processo anterior permanece igual. Para garantir o isolamento do locatário e a restringir a descoberta de VM, cada permissão ainda é atribuída apenas no nível do objeto e não propagada aos objetos filhos.
+operações de recuperação de desastres toorestrict até que o estado de failover hello (ou seja, sem os recursos de failback), siga Olá precede o procedimento, com uma exceção: em vez de atribuir Olá *Azure_Site_Recovery* função conta de acesso do vCenter toohello, atribuir apenas um *somente leitura* conta com função toothat. Esse conjunto de permissões permite failover e replicação de VM, mas não permite failback. Tudo no hello precede o processo permanece como está. tooensure isolamento de locatários e restringir a descoberta VM, cada permissão ainda estiver atribuído a objetos de nível toochild somente e não propagadas objeto hello.
 
 ## <a name="other-multi-tenant-environments"></a>Outros ambientes multilocatários
 
-A seção anterior descreveu detalhadamente como configurar um ambiente multilocatário para uma solução de hospedagem compartilhada. As outras duas soluções principais são dedicadas à hospedagem e ao serviço gerenciado. A arquitetura dessas soluções é descrita nas seções a seguir.
+Olá anterior seção descrita como tooset um ambiente de multilocatário para uma solução de hospedagem compartilhada. Olá outras duas soluções principais são hospedagem dedicado e serviço gerenciado. arquitetura de saudação para essas soluções é descrita na Olá seções a seguir.
 
 ### <a name="dedicated-hosting-solution"></a>Solução de hospedagem dedicada
 
-Como mostrado no diagrama a seguir, a diferença de arquitetura em uma solução de hospedagem dedicada é que a infraestrutura de cada locatário está configurada somente para esse locatário. Como os locatários são isolados por meio de vCenters separados, o provedor de hospedagem ainda precisa seguir as etapas de CSP fornecidas para hospedagem compartilhada, mas não precisa se preocupar com o isolamento do locatário. A configuração do CSP permanece inalterada.
+Conforme mostrado no diagrama a seguir de saudação, a diferença de arquitetura de saudação em uma solução de hospedagem dedicada é que a infra-estrutura de cada locatário estiver configurada para esse locatário somente. Como locatários são isolados por meio de vCenters separado, o provedor de hospedagem de saudação ainda deve executar etapas CSP Olá fornecidas para hospedagem compartilhada, mas não precisa tooworry sobre isolamento de locatários. A configuração do CSP permanece inalterada.
 
 ![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)  
 **Cenário de hospedagem dedicada com vários vCenters**
 
 ### <a name="managed-service-solution"></a>Solução de serviço gerenciado
 
-Conforme mostrado no diagrama a seguir, a diferença de arquitetura em uma solução de serviço gerenciado é que a infraestrutura de cada locatário também é fisicamente separada da infraestrutura de outros locatários. Esse cenário normalmente existe quando o locatário tem a infraestrutura e busca um provedor de solução para gerenciar a recuperação de desastre. Novamente, como os locatários são isolados fisicamente por meio de infraestruturas diferentes, o parceiro ainda precisa seguir as etapas de CSP fornecidas para hospedagem compartilhada, mas não precisa se preocupar com o isolamento do locatário. O provisionamento de CSP permanece inalterado.
+Como Olá mostrada no diagrama a seguir, diferença de arquitetura de saudação em uma solução de serviço gerenciado é que a infra-estrutura de cada locatário também seja fisicamente separada da infraestrutura de outros locatários. Neste cenário geralmente existe quando o locatário Olá possui infra-estrutura de saudação e quer uma recuperação de desastres de toomanage de provedor de solução. Novamente, como locatários são fisicamente isolados através de infraestruturas diferentes, o parceiro Olá precisa de etapas CSP Olá toofollow fornecidas para hospedagem compartilhada, mas não precisa tooworry sobre isolamento de locatários. O provisionamento de CSP permanece inalterado.
 
 ![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)  
 **Cenário de serviço gerenciado com vários vCenters**
 
 ## <a name="csp-program-overview"></a>Visão geral do programa CSP
-O [Programa CSP](https://partner.microsoft.com/en-US/cloud-solution-provider) promove histórias de colaboração de sucesso que proporcionam aos parceiros todos os serviços em nuvem da Microsoft, incluindo o Office 365, Enterprise Mobility Suite e Microsoft Azure. Com o CSP, nossos parceiros controlem a relação ponta a ponta com os clientes e se tornem o principal ponto de contato principal desse relacionamento. Os parceiros pode implantar as assinaturas do Azure para os clientes e combiná-las com suas próprias ofertas personalizadas de valor agregado.
+Olá [programa CSP](https://partner.microsoft.com/en-US/cloud-solution-provider) promove histórias melhor que oferecem parceiros todos os serviços de nuvem da Microsoft, incluindo o Office 365 Enterprise Mobility Suite e Microsoft Azure. Com o CSP, nossos parceiros possuem relação de ponta a ponta Olá com clientes e tornam-se o ponto de contato Olá relação primária. Parceiros podem implantar as assinaturas do Azure para clientes e combinar assinaturas Olá com suas próprias ofertas de valor agregadas e personalizadas.
 
-Com o Azure Site Recovery, os parceiros podem gerenciar a solução completa de Recuperação de Desastre para os clientes diretamente por meio de do CSP. Ou então, eles podem usar o CSP para configurar ambientes de Site Recovery e permitir que os clientes gerenciem suas próprias necessidades de recuperação de desastre como autoatendimento. Em ambos os cenários, os parceiros são o elo entre o Site Recovery e seus clientes. Os parceiros cuidam do relacionamento com o cliente e cobram pelo uso do Site Recovery.
+Com o Azure Site Recovery, parceiros podem gerenciar a solução de recuperação de desastres completa Olá para clientes diretamente por meio de CSP. Ou eles podem usar CSP tooset ambientes de recuperação de Site e que permitem aos clientes gerenciar suas necessidades de recuperação de desastres de uma maneira de autoatendimento. Em ambos os cenários, os parceiros são ligação Olá entre a recuperação de Site e seus clientes. Parceiros de relacionamento com o cliente Olá de serviço e cobrar os clientes pelo uso da recuperação de Site.
 
 ## <a name="create-and-manage-tenant-accounts"></a>Criar e gerenciar contas de locatário
 
 ### <a name="step-0-prerequisite-check"></a>Etapa 0: Verificação de pré-requisitos
 
-Os pré-requisitos de VM são os mesmos descritos na [documentação do Azure Site Recovery](site-recovery-vmware-to-azure.md). Além desses pré-requisitos, você precisa ter os controles de acesso mencionados anteriormente em vigor antes de prosseguir com o gerenciamento de locatário por meio do CSP. Para cada locatário, crie um servidor de gerenciamento separado que possa se comunicar com as VMs do locatário e com o vCenter do parceiro. Somente o parceiro tem direitos de acesso a esse servidor.
+Olá pré-requisitos VM são Olá igual ao descrito em Olá [documentação do Azure Site Recovery](site-recovery-vmware-to-azure.md). Nos pré-requisitos do toothose adição, você deve ter Olá a controles de acesso mencionadas anteriormente em vigor antes de prosseguir com o gerenciamento de locatário por meio do CSP. Para cada locatário, crie um servidor de gerenciamento separados que pode se comunicar com VMs do locatário hello e vCenter do parceiro. Somente o parceiro Olá tem servidor de toothis de direitos de acesso.
 
 ### <a name="step-1-create-a-tenant-account"></a>Etapa 1: criar uma conta de locatário
 
-1. Entre na sua conta do CSP por meio do [Microsoft Partner Center](https://partnercenter.microsoft.com/). 
+1. Por meio de [Microsoft Partner Center](https://partnercenter.microsoft.com/), entre na conta de CSP tooyour. 
  
-2. No menu **Painel**, selecione **Clientes**.
+2. Em Olá **painel** menu, selecione **clientes**.
 
-    ![O link de clientes do Microsoft Partner Center](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
+    ![link de clientes do Microsoft Partner Center Olá](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
 
-3. Na página que se abre, clique no botão **Adicionar cliente**.
+3. Na página de saudação que é aberta, clique em Olá **Adicionar cliente** botão.
 
-    ![O botão Adicionar Cliente](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
+    ![botão Adicionar cliente de saudação](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
 
-4. Na página **Novo Cliente**, preencha todos os detalhes de informações da conta para o locatário e clique em **Avançar: Assinaturas**.
+4. Em Olá **novo cliente** página, preencha os detalhes de informações da conta para locatário Olá Olá e, em seguida, clique em **próximo: assinaturas**.
 
-    ![A página Informações da Conta](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
+    ![página de informações da conta de saudação](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
 
-5. Na página de seleção de assinaturas, marque a caixa de seleção **Microsoft Azure**. Você pode adicionar outras assinaturas agora ou a qualquer momento.
+5. Na página de seleção do hello assinaturas, selecione Olá **Microsoft Azure** caixa de seleção. Você pode adicionar outras assinaturas agora ou a qualquer momento.
 
-    ![A caixa de seleção da assinatura do Microsoft Azure](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
+    ![caixa de seleção de assinatura do Microsoft Azure Olá](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
 
-6. Na página **Revisão**, confirme os detalhes do locatário e clique em **Enviar**.
+6. Em Olá **revisão** página, confirme os detalhes do locatário hello e, em seguida, clique em **enviar**.
 
-    ![A página Revisão](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
+    ![página de revisão Olá](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    Depois de criar a conta do locatário, uma página de confirmação é mostrada exibindo os detalhes da conta e a senha padrão para essa assinatura. 
+    Depois que você criou a conta de locatário hello, uma página de confirmação aparece, exibindo os detalhes de saudação do hello conta padrão e Olá senha para essa assinatura. 
 
-7. Salve as informações e altere a senha mais tarde, conforme necessário, na página de Logon do Portal do Azure.  
+7. Salvar informações de saudação e alterar a senha de saudação posteriormente conforme necessário por meio de saudação do Azure portal na página de entrada.  
  
-    Você pode compartilhar essas informações dessa forma com o locatário ou criar e compartilhar uma conta separada, se necessário.
+    Você pode compartilhar essas informações com locatário hello como está, ou você pode criar e compartilhar uma conta separada, se necessário.
 
-### <a name="step-2-access-the-tenant-account"></a>Etapa 2: acessar a conta de locatário
+### <a name="step-2-access-hello-tenant-account"></a>Etapa 2: Acessar a conta de locatário Olá
 
-Você pode acessar a assinatura do locatário por meio do Painel do Microsoft Partner Center, conforme descrito em “Etapa 1: criar uma conta de locatário”. 
+Você pode acessar Olá assinatura de locatário por meio de saudação painel Microsoft Partner Center, conforme descrito em "etapa 1: criar uma conta de locatário." 
 
-1. Acesse a página **Clientes** e clique no nome da conta de locatário.
+1. Vá toohello **clientes** página e clique em nome de saudação da conta de locatário de saudação.
 
-2. Na página **Assinaturas** da conta do locatário, você pode monitorar as assinaturas existentes da conta e adicionar mais assinaturas conforme necessário. Para gerenciar operações de recuperação de desastre do locatário, selecione **Todos os recursos (Portal do Azure)**.
+2. Em Olá **assinaturas** página da conta de locatário hello, você pode monitorar assinaturas de conta existentes hello e adicionar mais assinaturas, conforme necessário. operações de recuperação de desastres do locatário de saudação toomanage, selecione **todos os recursos (portal do Azure)**.
 
-    ![O link Todos os Recursos](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
+    ![link de todos os recursos de saudação](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
     
-    Clicar em **Todos os recursos** concede a você o acesso às assinaturas do Azure do locatário. Você pode verificar o acesso clicando no link do Azure Active Directory na parte superior direita do Portal do Azure.
+    Clicando em **todos os recursos** concede acesso a assinaturas de toohello do locatário do Azure. Você pode verificar o acesso clicar no link do Active Directory do Azure Olá no hello parte superior direita da saudação portal do Azure.
 
     ![Link do Azure Active Directory](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
 
-Agora você pode executar todas as operações de recuperação de site para o locatário por meio do Portal do Azure e gerenciar as operações de recuperação de desastre. Para acessar a assinatura do locatário por meio de CSP para recuperação de desastre gerenciada, siga o processo descrito anteriormente.
+Agora você pode executar todas as operações de recuperação de site para o locatário Olá por meio de saudação portal do Azure e gerenciar operações de recuperação de desastres de saudação. tooaccess Olá assinatura de locatário por meio de CSP para recuperação de desastres gerenciado, siga Olá descrito anteriormente processo.
 
-### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Etapa 3: implantar recursos na assinatura do locatário
-1. No Portal do Azure, crie um grupo de recursos e implante um cofre dos Serviços de Recuperação de acordo com o processo normal. 
+### <a name="step-3-deploy-resources-toohello-tenant-subscription"></a>Etapa 3: Implantar a assinatura de recursos de locatário toohello
+1. No hello portal do Azure, crie um grupo de recursos e, em seguida, implante um cofre de serviços de recuperação por processo normal de saudação. 
  
-2. Baixe a chave do registro do cofre.
+2. Baixe a chave de registro de cofre hello.
 
-3. Registre o CS para o locatário usando a chave de registro do cofre.
+3. Registre Olá CS para locatário hello usando a chave de registro de cofre hello.
 
-4. Insira as credenciais das duas contas de acesso: a conta de acesso do vCenter e a conta de acesso da VM.
+4. Insira as credenciais de saudação para contas de acesso de saudação dois: conta de acesso de conta de acesso do vCenter e VM.
 
     ![Contas do servidor de configurações do gerenciador](./media/site-recovery-multi-tenant-support-vmware-using-csp/config-server-account-display.png)
 
-### <a name="step-4-register-site-recovery-infrastructure-to-the-recovery-services-vault"></a>Etapa 4: registrar a infraestrutura do Site Recovery no cofre dos Serviços de Recuperação
-1. No Portal do Azure, no cofre que você criou anteriormente, registre o servidor do vCenter para o CS que você registrou na “Etapa 3: implantar recursos para a assinatura do locatário”. Use a conta de acesso do vCenter para essa finalidade.
-2. Conclua o processo de “Preparação da infraestrutura” para o Site Recovery de acordo com o processo normal.
-3. Agora, as VMs estão prontas para serem replicadas. Verifique se apenas as VMs do locatário estão visíveis na folha **Selecione as máquinas virtuais** na opção **Replicar**.
+### <a name="step-4-register-site-recovery-infrastructure-toohello-recovery-services-vault"></a>Etapa 4: Infra-estrutura de recuperação de Site de registro de serviços de recuperação de toohello cofre
+1. No hello portal do Azure, no cofre Olá que você criou anteriormente, registrar Olá vCenter server toohello CS que você registrou na "etapa 3: implantar a assinatura de recursos de locatário toohello." Use conta de acesso do vCenter Olá para essa finalidade.
+2. Concluir o processo de "Infraestrutura de preparação" de Olá para recuperação de Site por processo normal de saudação.
+3. Olá VMs agora estão pronto toobe replicada. Verifique se apenas hello VMs do locatário são exibidas em Olá **selecionar máquinas virtuais** folha sob Olá **replicar** opção.
 
-    ![Lista de VMs do locatário na folha Selecione as máquinas virtuais](./media/site-recovery-multi-tenant-support-vmware-using-csp/tenant-vm-display.png)
+    ![Lista de máquinas virtuais de locatário na folha de máquinas virtuais específicas Olá](./media/site-recovery-multi-tenant-support-vmware-using-csp/tenant-vm-display.png)
 
-### <a name="step-5-assign-tenant-access-to-the-subscription"></a>Etapa 5: atribuir acesso do locatário à assinatura
+### <a name="step-5-assign-tenant-access-toohello-subscription"></a>Etapa 5: Atribuir locatário acesso toohello assinatura
 
-Para recuperação de desastre de autoatendimento, forneça os detalhes da conta ao locatário, conforme mencionado no passo 6 da seção “Etapa 1: criar uma conta de locatário”. Execute esta ação depois que o parceiro configurar a infraestrutura de recuperação de desastre. Se o tipo de recuperação de desastre for gerenciado ou autoatendimento, os parceiros precisarão acessar as assinaturas de locatário por meio do portal do CSP. Eles configuram o cofre do parceiro e registram a infraestrutura para as assinaturas do locatário.
+Autoatendimento para recuperação de desastres, forneça toohello locatário Olá detalhes da conta, conforme mencionado na etapa 6 do hello "etapa 1: criar uma conta de locatário" seção. Execute esta ação depois parceiro Olá configura a infraestrutura de recuperação de desastres hello. Se o tipo de recuperação de desastres de saudação é gerenciado ou autoatendimento, parceiros devem acessar as assinaturas do locatário por meio do portal CSP Olá. Eles configurar o Cofre de propriedade de parceiro hello e registre assinaturas de locatários de toohello de infraestrutura.
 
-Os parceiros também podem adicionar um novo usuário à assinatura do locatário por meio do portal do CSP da seguinte maneira:
+Parceiros também podem adicionar uma nova assinatura de locatário toohello do usuário por meio do portal CSP Olá Olá seguinte:
 
-1. Acesse a página da assinatura do CSP do locatário e selecione a opção **Usuários e licenças**.
+1. Acesse a página de assinatura do locatário toohello CSP e selecione Olá **usuários e licenças** opção.
 
-    ![A página da assinatura do CSP do locatário](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
+    ![Olá a página de inscrição do CSP do locatário](./media/site-recovery-multi-tenant-support-vmware-using-csp/users-and-licences.png)
 
-    Agora você pode criar um novo usuário inserindo os detalhes relevantes e selecionando as permissões ou carregando a lista de usuários em um arquivo CSV.
+    Agora você pode criar um novo usuário inserindo detalhes relevantes hello e selecionar permissões ou Carregando lista de saudação de usuários em um arquivo CSV.
 
-2. Depois de criar um novo usuário, volte para o Portal do Azure e, na folha **Assinatura**, selecione a assinatura relevante.
+2. Depois de criar um novo usuário, volte toohello Azure portal e, em seguida, em Olá **assinatura** folha, assinatura relevantes Olá select.
 
-3. Na nova folha que se abre, selecione **IAM (Controle de Acesso)** e clique em **Adicionar** para adicionar um usuário com o nível de acesso relevante.      
-    Os usuários criados por meio do Portal do CSP são exibidos automaticamente na folha que é aberta após você clicar em um nível de acesso.
+3. Na folha de saudação que é aberta, selecione **controle de acesso (IAM)**e, em seguida, clique em **adicionar** tooadd um usuário com nível de acesso relevantes hello.      
+    usuários Olá que foram criados por meio do portal CSP hello serão automaticamente exibidos na folha de saudação que é aberta após você clicar em um nível de acesso.
 
     ![Adicionar um usuário](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
-    Para a maioria das operações de gerenciamento, a função de *Colaborador* é suficiente. Usuários com esse nível de acesso podem fazer tudo em uma assinatura, exceto alterar os níveis de acesso (para tal é necessário o nível de acesso *Proprietário*). Você também pode ajustar os níveis de acesso conforme o necessário.
+    Para a maioria das operações de gerenciamento, Olá *Colaborador* função é suficiente. Usuários com esse nível de acesso podem fazer tudo em uma assinatura, exceto alterar os níveis de acesso (para tal é necessário o nível de acesso *Proprietário*). Você também pode ajustar os níveis de acesso Olá conforme necessário.

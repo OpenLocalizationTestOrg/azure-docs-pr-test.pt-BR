@@ -1,6 +1,6 @@
 ---
-title: "Criar um nó principal do Pacote HPC em uma VM do Azure | Microsoft Docs"
-description: "Saiba como usar o Portal do Azure e o modelo de implantação do Resource Manager para criar um nó de cabeçalho do Microsoft HPC Pack 2012 R2 em uma VM do Azure."
+title: "aaaCreate um nó principal do HPC Pack em uma VM do Azure | Microsoft Docs"
+description: "Saiba como toouse Olá implantação do Azure do Gerenciador de recursos de portal e hello modelo toocreate um nó principal do Microsoft HPC Pack 2012 R2 em uma VM do Azure."
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,68 +15,68 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: b2bb9caf82a580dc5f67ea0b0b1c2e9a46363e9c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3ddefb74b053a48a15f1ba1ca8edbc0192da51a8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Criar o nó principal de um cluster de Pacote HPC em uma VM do Azure com uma imagem do Marketplace
-Use uma [imagem de máquina virtual do Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) do Azure Marketplace e o Portal do Azure para criar o nó de cabeçalho de um cluster HPC. Esta imagem da VM do Pacote HPC baseia-se no Windows Server 2012 R2 Datacenter com Pacote HPC 2012 R2 Atualização 3 pré-instalado. Use esse nó principal para uma implantação de prova de conceito do Pacote HPC no Azure. Você pode adicionar nós de computação ao cluster para executar cargas de trabalho HPC.
+# <a name="create-hello-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Criar o nó de cabeçalho de saudação de um cluster de HPC Pack em uma VM do Azure com uma imagem do Marketplace
+Use um [imagem de máquina virtual do Microsoft HPC Pack 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) de saudação do Azure Marketplace e hello toocreate portal do Azure Olá nó principal de um cluster HPC. Esta imagem da VM do Pacote HPC baseia-se no Windows Server 2012 R2 Datacenter com Pacote HPC 2012 R2 Atualização 3 pré-instalado. Use esse nó principal para uma implantação de prova de conceito do Pacote HPC no Azure. Em seguida, você pode adicionar computação nós toohello cluster toorun HPC cargas de trabalho.
 
 > [!TIP]
-> Para implantar um cluster HPC Pack 2012 R2 completo no Azure que inclua o nó de cabeçalho e os nós de computação, é recomendável usar um método automatizado. As opções incluem o [script de implantação IaaS do HPC Pack](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) e o modelo do Resource Manager, como o [cluster HPC Pack para cargas de trabalho do Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/). Os modelos do Resource Manager também estão disponíveis para [clusters Microsoft HPC Pack 2016](https://github.com/MsHpcPack/HPCPack2016/tree/master/newcluster-templates). 
+> toodeploy um cluster de HPC Pack 2012 R2 completo no Azure que inclui o nó principal hello e nós de computação, recomendamos que você use um método automatizado. As opções incluem hello [script de implantação IaaS do HPC Pack](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) e modelos do Gerenciador de recursos, como Olá [cluster HPC Pack para cargas de trabalho do Windows](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/). Os modelos do Resource Manager também estão disponíveis para [clusters Microsoft HPC Pack 2016](https://github.com/MsHpcPack/HPCPack2016/tree/master/newcluster-templates). 
 > 
 > 
 
 ## <a name="planning-considerations"></a>Considerações sobre planejamento
-Conforme mostrado na figura a seguir, implante o nó principal do HPC Pack em um domínio do Active Directory em uma rede virtual do Azure.
+Conforme mostrado na figura a seguir de saudação, você implantar o nó principal do HPC Pack Olá em um domínio do Active Directory em uma rede virtual do Azure.
 
 ![Nó principal do Pacote HPC][headnode]
 
-* **Domínio do Active Directory**: o nó de cabeçalho do HPC Pack 2012 R2 deve ser adicionado a um domínio do Active Directory no Azure antes de iniciar os serviços do HPC na VM. Como mostrado neste artigo, para obter uma implantação prova de conceito, você pode promover a VM criada para o nó principal como controlador de domínio antes de iniciar os serviços do HPC. Outra opção é implantar um controlador de domínio e floresta separados no Azure aos quais você pode adicionar a VM de nó principal.
+* **Domínio do Active Directory**: hello HPC Pack 2012 R2 nó principal deve ser unida tooan domínio do Active Directory do Azure antes de iniciar os serviços HPC Olá no hello VM. Conforme mostrado neste artigo, para uma implantação de verificação de conceito, você pode promover Olá VM que você criou para o nó principal hello como um controlador de domínio antes de iniciar os serviços do HPC hello. Outra opção é toodeploy um controlador de domínio separadas e floresta no Azure toowhich ingressar Olá VM do nó principal.
 
-* **Modelo de implantação**: para a maioria das novas implantações, a Microsoft recomenda usar o modelo de implantação do Resource Manager. Este artigo pressupõe que você use esse modelo de implantação.
+* **Modelo de implantação**: na maioria das implantações de novo, a Microsoft recomenda que você use o modelo de implantação do Gerenciador de recursos de saudação. Este artigo pressupõe que você use esse modelo de implantação.
 
-* **Rede virtual do Azure**: ao usar o modelo de implantação do Resource Manager para implantar o nó de cabeçalho, você especifica ou cria uma rede virtual do Azure. Use a rede virtual se você precisar ingressar o nó principal em um domínio existente do Active Directory. Você também precisará dele posteriormente para adicionar VMs do nó de computação ao cluster.
+* **Rede virtual do Azure**: quando você usa Olá Gerenciador de recursos implantação modelo toodeploy Olá nó principal, você especificar ou criar uma rede virtual do Azure. Você usar a rede virtual Olá se você precisar toojoin Olá nó principal tooan domínio existente do Active Directory. Também precisar do nó de computação posterior tooadd VMs toohello cluster.
 
-## <a name="steps-to-create-the-head-node"></a>Etapas para criar o nó principal
-Veja a seguir as etapas de nível superior para usar o Portal do Azure para criar uma VM do Azure para o nó principal do HPC Pack usando o modelo de implantação do Resource Manager. 
+## <a name="steps-toocreate-hello-head-node"></a>Nó de cabeçalho etapas toocreate Olá
+A seguir é etapas de alto nível toouse Olá toocreate portal do Azure uma VM do Azure para o nó principal do HPC Pack hello usando o modelo de implantação do Gerenciador de recursos de saudação. 
 
-1. Se você quiser criar uma nova floresta do Active Directory no Azure com VMs do controlador de domínio separadas, uma opção será usar um [modelo do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc). Para uma prova de conceito simples da implantação, é suficiente omitir essa etapa e configurar a própria VM do nó principal como um controlador de domínio. Essa opções será descrita posteriormente neste artigo.
-2. Na [página HPC Pack 2012 R2 no Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) no Azure Marketplace, clique em **Criar Máquina Virtual**. 
-3. No portal, na página do **HPC Pack 2012 R2 no Windows Server 2012 R2**, selecione o modelo de implantação do **Resource Manager** e clique em **Criar**.
+1. Se você quiser toocreate uma nova floresta do Active Directory no Azure com máquinas virtuais do controlador de domínio separadas, uma opção é toouse uma [modelo do Gerenciador de recursos](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc). Para obter uma verificação simple da implantação do conceito, ele tem problema tooomit esta etapa e configurar o nó principal do hello própria máquina virtual como um controlador de domínio. Essa opções será descrita posteriormente neste artigo.
+2. Em Olá [HPC Pack 2012 R2 na página do Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) no hello Azure Marketplace, clique em **criar Máquina Virtual**. 
+3. No portal Olá Olá **HPC Pack 2012 R2 no Windows Server 2012 R2** página, selecione Olá **Gerenciador de recursos de** modelo de implantação e clique **criar**.
    
     ![Imagem do Pacote HPC][marketplace]
-4. Use o portal para definir as configurações e criar a VM. Se você ainda estiver conhecendo o Azure, siga o tutorial [Criar uma máquina virtual do Windows no Portal do Azure](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para uma implantação de prova de conceito, você geralmente pode aceitar as configurações padrão ou recomendadas.
+4. Usar as configurações de portal tooconfigure Olá Olá e criar hello VM. Se você for novo tooAzure, siga o tutorial Olá [criar uma máquina virtual do Windows no portal do Azure de saudação](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para uma implantação de verificação de conceito, você geralmente pode aceitar o padrão de saudação ou as configurações recomendadas.
    
    > [!NOTE]
-   > Se você quiser ingressar o nó principal em um domínio do Active Directory existente no Azure, verifique se você especificou a rede virtual para esse domínio ao criar a VM.
+   > Se você quiser toojoin Olá nó principal tooan existentes de domínio do Active Directory no Azure, certifique-se de que especificar a rede virtual Olá para esse domínio ao criar hello VM.
    > 
    > 
-5. Depois de criar a VM e quando ela estiver em execução, [conecte-se a ela](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) por meio da Área de Trabalho Remota. 
-6. Adicione a VM a uma floresta de domínio do Active Directory escolhendo uma das seguintes opções:
+5. Depois de criar hello VM e hello VM estiver em execução, [conectar toohello VM](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) por área de trabalho remota. 
+6. Associe a floresta de domínio do Active Directory do hello VM tooan escolhendo uma saudação as opções a seguir:
    
-   * Se você criou a VM em uma rede virtual do Azure com uma floresta de domínio existente, use o Gerenciador do servidor padrão ou as ferramentas do Windows PowerShell para ingressá-la na floresta. Em seguida, reinicie.
-   * Se você tiver criado a VM em uma nova rede virtual (sem uma floresta de domínio existente), promova a VM a controlador de domínio. Use as etapas padrão para instalar e configurar a função Serviços de Domínio do Active Directory no nó principal. Para obter etapas detalhadas, consulte [Instalar uma nova floresta do Active Directory no Windows Server 2012](https://technet.microsoft.com/library/jj574166.aspx).
-7. Depois que a VM estiver em execução e fizer parte de uma floresta do Active Directory, inicie os serviços do HPC Pack da seguinte maneira:
+   * Se você criou Olá VM em uma rede virtual do Azure com uma floresta de domínio existente, una floresta de toohello VM hello usando ferramentas padrão do Gerenciador do servidor ou o Windows PowerShell. Em seguida, reinicie.
+   * Se você criou Olá VM em uma nova rede virtual (sem uma floresta de domínio existente), em seguida, promova Olá VM como um controlador de domínio. Use as etapas padrão tooinstall e configurar a função de serviços de domínio do Active Directory de saudação no nó de cabeçalho de saudação. Para obter etapas detalhadas, consulte [Instalar uma nova floresta do Active Directory no Windows Server 2012](https://technet.microsoft.com/library/jj574166.aspx).
+7. Após Olá VM está em execução e unida tooan floresta do Active Directory, inicie serviços do HPC Pack Olá da seguinte maneira:
    
-    a. Conecte-se à VM do nó principal com uma conta de domínio que seja membro do grupo Administradores local. Por exemplo, use a conta de administrador que foi configurada quando você criou a VM do nó principal.
+    a. Conecte-se usando uma conta de domínio que seja membro do grupo de administradores local Olá VM com nó principal toohello. Por exemplo, use a conta de administrador Olá configurada quando você criou a VM do nó principal hello.
    
-    b. Para uma configuração de nó principal padrão, inicie o Windows PowerShell como administrador e digite o seguinte:
+    b. Para uma configuração de nó principal do padrão, inicie o Windows PowerShell como administrador e digite Olá a seguir:
    
     ```PowerShell
     & $env:CCP_HOME\bin\HPCHNPrepare.ps1 –DBServerInstance ".\ComputeCluster"
     ```
    
-    Pode levar vários minutos para que os serviços do Pacote HPC iniciem.
+    Pode levar vários minutos para toostart de serviços do HPC Pack hello.
    
     Para opções de configuração adicionais de nó principal, digite `get-help HPCHNPrepare.ps1`.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Agora, você pode trabalhar com o nó principal do cluster do Pacote HPC. Por exemplo, inicie o Gerenciador de Cluster do HPC e conclua a [Lista de Tarefas Pendentes de Implantação](https://technet.microsoft.com/library/jj884141.aspx).
-* Se você quiser aumentar a capacidade de computação do cluster sob demanda, adicione [nós de disparo contínuo do Azure](classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) em um serviço de nuvem. 
-* Tente executar uma carga de trabalho de teste no cluster. Para obter um exemplo, consulte o [guia de Introdução](https://technet.microsoft.com/library/jj884144)do Pacote HPC.
+* Agora você pode trabalhar com o nó principal de saudação do seu cluster de HPC Pack. Por exemplo, inicie o Gerenciador de Cluster de HPC e Olá completa [lista de tarefas de implantação](https://technet.microsoft.com/library/jj884141.aspx).
+* Se você quiser tooincrease Olá cluster de computação capacidade sob demanda, adicione [nós de disparo do Azure](classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) em um serviço de nuvem. 
+* Tente executar uma carga de trabalho de teste no cluster hello. Para obter um exemplo, consulte Olá HPC Pack [guia de Introdução](https://technet.microsoft.com/library/jj884144).
 
 <!--Image references-->
 [headnode]: ./media/hpcpack-cluster-headnode/headnode.png

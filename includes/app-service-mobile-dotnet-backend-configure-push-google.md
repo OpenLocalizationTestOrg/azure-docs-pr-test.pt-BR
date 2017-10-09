@@ -1,23 +1,23 @@
-Use o procedimento abaixo, que corresponde ao seu tipo de projeto de back-end&mdash;, um [back-end .NET](#dotnet) ou um [back-end Node.js](#nodejs).
+Use o procedimento de saudação que corresponde ao tipo de projeto de back-end&mdash;ou [.NET back-end](#dotnet) ou [Node. js back-end](#nodejs).
 
 ### <a name="dotnet"></a>Projeto de back-end do .NET
-1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**. Procure `Microsoft.Azure.NotificationHubs` e então clique em **Instalar**. Isso instala a biblioteca de cliente de Hubs de notificação.
-2. Na pasta Controladores, abra TodoItemController.cs e adicione as instruções a seguir `using` :
+1. No Visual Studio, clique com botão direito Olá servidor e clique em **gerenciar pacotes NuGet**. Procure `Microsoft.Azure.NotificationHubs` e então clique em **Instalar**. Isso instala a biblioteca de cliente Olá Hubs de notificação.
+2. Na pasta de controladores hello, abra TodoItemController.cs e adicione o seguinte Olá `using` instruções:
 
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
-3. Substitua o método `PostTodoItem` pelo seguinte código:  
+3. Substituir saudação `PostTodoItem` método com hello código a seguir:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
-            // Get the settings for the server project.
+            // Get hello settings for hello server project.
             HttpConfiguration config = this.Configuration;
 
             MobileAppSettingsDictionary settings =
                 this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-            // Get the Notification Hubs credentials for the Mobile App.
+            // Get hello Notification Hubs credentials for hello Mobile App.
             string notificationHubName = settings.NotificationHubName;
             string notificationHubConnection = settings
                 .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
@@ -31,26 +31,26 @@ Use o procedimento abaixo, que corresponde ao seu tipo de projeto de back-end&md
 
             try
             {
-                // Send the push notification and log the results.
+                // Send hello push notification and log hello results.
                 var result = await hub.SendGcmNativeNotificationAsync(androidNotificationPayload);
 
-                // Write the success result to the logs.
+                // Write hello success result toohello logs.
                 config.Services.GetTraceWriter().Info(result.State.ToString());
             }
             catch (System.Exception ex)
             {
-                // Write the failure result to the logs.
+                // Write hello failure result toohello logs.
                 config.Services.GetTraceWriter()
                     .Error(ex.Message, null, "Push.SendAsync Error");
             }
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-4. Republicar o projeto de servidor.
+4. Republicar o projeto do servidor de saudação.
 
 ### <a name="nodejs"></a>Projeto de back-end do Node.js
-1. Se você ainda não fez isso, [baixe o projeto de início rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Substitua o código existente no arquivo todoitem.js pelo código a seguir:
+1. Se você ainda não fez isso, [baixar o projeto de início rápido de saudação](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), ou use outro Olá [editor online no portal do Azure de saudação](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+2. Substitua o código existente de saudação no arquivo de todoitem.js Olá com os seguintes hello:
 
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -59,22 +59,22 @@ Use o procedimento abaixo, que corresponde ao seu tipo de projeto de back-end&md
         var table = azureMobileApps.table();
 
         table.insert(function (context) {
-        // For more information about the Notification Hubs JavaScript SDK,
+        // For more information about hello Notification Hubs JavaScript SDK,
         // see http://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
 
-        // Define the GCM payload.
+        // Define hello GCM payload.
         var payload = {
             "data": {
                 "message": context.item.text
             }
         };   
 
-        // Execute the insert.  The insert returns the results as a Promise,
-        // Do the push as a post-execute action within the promise flow.
+        // Execute hello insert.  hello insert returns hello results as a Promise,
+        // Do hello push as a post-execute action within hello promise flow.
         return context.execute()
             .then(function (results) {
-                // Only do the push if configured
+                // Only do hello push if configured
                 if (context.push) {
                     // Send a GCM native notification.
                     context.push.gcm.send(null, payload, function (error) {
@@ -85,7 +85,7 @@ Use o procedimento abaixo, que corresponde ao seu tipo de projeto de back-end&md
                         }
                     });
                 }
-                // Don't forget to return the results from the context.execute()
+                // Don't forget tooreturn hello results from hello context.execute()
                 return results;
             })
             .catch(function (error) {
@@ -95,5 +95,5 @@ Use o procedimento abaixo, que corresponde ao seu tipo de projeto de back-end&md
 
         module.exports = table;  
 
-    Isso envia uma notificação GCM que contém o item.text quando um novo item todo é inserido.
-3. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
+    Isso envia uma notificação de GCM que contém item.text hello quando um novo item de tarefas é inserido.
+3. Ao editar o arquivo hello no computador local, republicar o projeto do servidor de saudação.

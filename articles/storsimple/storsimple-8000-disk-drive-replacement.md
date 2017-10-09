@@ -1,6 +1,6 @@
 ---
-title: "Substituir uma unidade de disco em um dispositivo StorSimple da série 8000 | Microsoft Docs"
-description: "Explica como substituir uma unidade de disco em um compartimento primário StorSimple ou em um compartimento EBOD."
+title: "aaaReplace uma unidade de disco em um dispositivo da série StorSimple 8000 | Microsoft Docs"
+description: Explica como tooreplace um disco da unidade em um compartimento principal do StorSimple ou um compartimento EBOD.
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 073/2017
 ms.author: alkohli
-ms.openlocfilehash: bb259b626ecd4dcbaa8f1c465f1ece4516aa8881
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 09c1bf5e97adf54a609a868e921351bc63e00a83
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Substituir uma unidade de disco em um dispositivo StorSimple da série 8000
 
 ## <a name="overview"></a>Visão geral
-Este tutorial explica como remover e substituir uma unidade de disco rígido com defeito ou com falha em um dispositivo Microsoft Azure StorSimple. Para trocar uma unidade de disco, é necessário:
+Este tutorial explica como remover e substituir uma unidade de disco rígido com defeito ou com falha em um dispositivo Microsoft Azure StorSimple. tooreplace uma unidade de disco, você precisa:
 
-* Soltar o bloqueio antiviolação
-* Remover a unidade de disco
-* Instalar a unidade de disco de reposição
+* Solte o bloqueio inviolável Olá
+* Remova a unidade de disco de saudação
+* Instalar a unidade de disco de substituição Olá
 
 > [!IMPORTANT]
-> Antes de remover e substituir uma unidade de disco, examine as informações de segurança em [Substituição de componentes de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).
+> Antes de remover e substituir uma unidade de disco, revise as informações de segurança de saudação em [substituição de componentes de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).
  
 
-## <a name="disengage-the-antitamper-lock"></a>Soltar o bloqueio antiviolação
-Este procedimento explica como os bloqueios antiviolação em seu dispositivo StorSimple podem ser ativados ou desativados ao substituir as unidades de disco. Os bloqueios antiviolação são ajustados nas alças do suporte da unidade e são acessados por meio de uma abertura pequena na parte da trava da alça. As unidades são fornecidas com os bloqueios na posição travada.
+## <a name="disengage-hello-antitamper-lock"></a>Solte o bloqueio inviolável Olá
+Este procedimento explica como os bloqueios invioláveis de saudação em seu dispositivo StorSimple podem ser encaixados ou desencaixados ao substituir Olá unidades de disco. bloqueios invioláveis Olá são encaixados nas alças da portadora unidade hello e eles são acessados por meio de uma pequena abertura na seção de trava de saudação do identificador de saudação. As unidades são fornecidas com hello bloqueios conjunto toohello bloqueado posição.
 
-#### <a name="to-unlock-the-antitamper-lock"></a>Para destravar o bloqueio antiviolação
-1. Cuidadosamente, insira a chave de bloqueio (uma chave de fenda T10 "à prova de violações" fornecidos pela Microsoft) no encaixe da abertura da alça. 
+#### <a name="toounlock-hello-antitamper-lock"></a>bloqueio inviolável do toounlock Olá
+1. Insira cuidadosamente a chave de bloqueio de saudação (uma fenda T10 "inviolável" que a Microsoft forneceu) na abertura de saudação na alça de saudação e no soquete. 
    
-   Se o bloqueio antiviolação estiver ativado, o indicador vermelho ficará visível na abertura.
+   Se ativar o bloqueio inviolável hello, indicador Olá vermelho estará visível na abertura de saudação.
   
     ![Unidade de disco bloqueada](./media/storsimple-disk-drive-replacement/IC741056.png)
    
@@ -49,64 +49,64 @@ Este procedimento explica como os bloqueios antiviolação em seu dispositivo St
    |:--- |:--- |
    | 1 |Abertura do indicador |
    | 2 |Bloqueio antiviolação |
-2. Gire a chave no sentido anti-horário até que o indicador vermelho não esteja visível na abertura acima da chave.
-3. Remova a chave.
+2. Rotação da chave de saudação no sentido anti-horário até que o indicador vermelho de saudação não estiver visível na abertura de saudação acima chave hello.
+3. Remova a chave de saudação.
    
     ![Unidade de disco desbloqueada](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Figura 2** Unidade de disco desbloqueada
-4. A unidade de disco agora pode ser removida.
+4. unidade de disco Olá agora podem ser removida.
 
-Siga as etapas na ordem inversa para ativar o bloqueio.
+Siga as etapas de saudação no bloqueio de saudação tooengage inversa.
 
-## <a name="remove-the-disk-drive"></a>Remover a unidade de disco
+## <a name="remove-hello-disk-drive"></a>Remova a unidade de disco de saudação
 O dispositivo StorSimple dá suporte a uma configuração de espaços de armazenamento similar a RAID 10. Isso significa que ele pode operar normalmente com um disco com falha, unidade de estado sólido (SSD) ou unidade de disco rígido (HD).
 
 > [!IMPORTANT]
-> * Se o seu sistema tiver mais de um disco com falha, nunca remova mais de um SSD ou HDD do sistema. Isso pode resultar em perda de dados.
+> * Se o sistema tiver mais de um disco com falha, não remova mais de um SSD ou HDD do sistema hello em qualquer ponto no tempo. Isso pode resultar em perda de dados.
 > * Lembre-se de colocar um SSD de reposição em um slot que continha anteriormente um SSD. Da mesma forma, coloque um HDD de reposição em um slot que continha anteriormente um HDD.
-> * No Portal do Azure, os slots são numerados de 0 a 11. Portanto, se o portal mostra que um disco no slot 2 falhou, no dispositivo, localize o disco com falha no terceiro slot da parte superior esquerda.
+> * Em Olá portal do Azure, as entradas são numeradas de 0 a 11. Portanto, se o portal de saudação mostra que um disco no slot 2 falhou, no dispositivo Olá, procure Olá o disco com falha no terceiro slot de saudação do hello superior esquerdo.
 > 
 > 
 
-As unidades podem ser removidas e substituídas enquanto o sistema estiver funcionando.
+Unidades podem ser removidas e substituídas enquanto o sistema hello está funcionando.
 
-#### <a name="to-remove-a-drive"></a>Para remover uma unidade
-1. Para identificar o disco com falha, no Portal do Azure, acesse **Configurações > Integridade do hardware** no seu dispositivo. Como um disco pode falhar no compartimento primário e/ou em um compartimento EBOD (se você estiver usando um modelo 8600), observe o status dos discos em **Componentes compartilhados** e em **Componentes compartilhados de EBOD**. Um disco com falha em um compartimento será mostrado com  status vermelho.
-2. Localize as unidades na frente do compartimento primário ou do compartimento EBOD. 
-3. Se o disco estiver desbloqueado, prossiga para a próxima etapa. Se o disco estiver bloqueado, desbloqueie-o seguindo o procedimento [Desativar o bloqueio antiviolação](#disengage-the-antitamper-lock).
-4. Pressione a trava preta no módulo do suporte da unidade e puxe a alça do suporte da unidade para fora da parte frontal do chassi.
+#### <a name="tooremove-a-drive"></a>tooremove uma unidade
+1. Olá tooidentify falha de disco, em Olá portal do Azure, vá tooyour dispositivo **Configurações > integridade do Hardware**. Como um disco pode falhar no compartimento primário hello e/ou em um compartimento EBOD (se você estiver usando um modelo 8600), examinar status Olá de discos de saudação em **componentes compartilhados** e, em **componentes compartilhados do EBOD** . Um disco com falha em um compartimento será mostrado com  status vermelho.
+2. Localize Olá unidades na frente de saudação do compartimento principal hello ou compartimento do EBOD hello. 
+3. Se o disco Olá estiver desbloqueado, continue toohello próxima etapa. Se Olá disco estiver bloqueado, desbloqueá-lo seguindo o procedimento Olá [desencaixar o bloqueio inviolável Olá](#disengage-the-antitamper-lock).
+4. Pressione Olá preto trava no módulo Olá de portador de unidade e puxe a alça do portador da unidade Olá para fora da frente de saudação do chassi de saudação.
    
     ![Liberando a alça da unidade de disco](./media/storsimple-disk-drive-replacement/IC741051.png)
    
-    **Figura 3** Liberação da alça da unidade
-5. Quando a alça do suporte da unidade estiver totalmente estendida, deslize o suporte da unidade para fora do chassi. 
+    **Figura 3** liberando identificador de unidade de saudação
+5. Quando a alça do portador da unidade Olá estiver totalmente expandida, deslize o portador da unidade de saudação fora do chassi de saudação. 
    
     ![Deslizando o disco para fora da unidade de disco](./media/storsimple-disk-drive-replacement/IC741052.png)
    
-    **Figura 4** Deslizando a unidade de disco para fora do suporte
+    **Figura 4** deslizante Olá a unidade de disco fora da portadora Olá
 
-## <a name="install-the-replacement-disk-drive"></a>Instalar a unidade de disco de reposição
-Após uma falha de unidade em seu dispositivo StorSimple e depois que você removê-la, siga este procedimento para substituí-la por uma nova unidade.
+## <a name="install-hello-replacement-disk-drive"></a>Instalar a unidade de disco de substituição Olá
+Depois de uma unidade falhou no seu dispositivo StorSimple e removê-lo, siga este procedimento tooreplace com uma nova unidade.
 
-#### <a name="to-insert-a-drive"></a>Para inserir uma unidade
-1. Verifique se que a alça do suporte da unidade está totalmente estendida, conforme mostrado na imagem a seguir.
+#### <a name="tooinsert-a-drive"></a>tooinsert uma unidade
+1. Verifique a alça do portador da unidade hello está totalmente estendida, conforme mostrado no Olá a imagem a seguir.
    
     ![Unidade de disco com alça estendida](./media/storsimple-disk-drive-replacement/IC741044.png)
    
     **Figura 5** Unidade com alça estendida
-2. Deslize o suporte da unidade completamente para dentro do chassi.
+2. Deslize o portador da unidade de saudação todo caminho de saudação no chassi hello.
    
     ![Deslizando o disco para dentro do suporte da unidade de disco](./media/storsimple-disk-drive-replacement/IC741045.png)
    
-    **Figura 6** Deslizando o suporte da unidade para dentro do chassi
-3. Com o suporte da unidade inserido, feche a alça do suporte enquanto continua a empurrar o suporte da unidade para dentro do chassi, até que a alça se encaixe na posição travada.
-4. Use a chave de bloqueio que foi fornecida pela Microsoft (chave de fenda Torx à prova de violações) para prender a alça do suporte no lugar girando os parafusos um quarto de volta no sentido horário.
-5. Verifique se a substituição foi bem-sucedida e se a unidade está funcionando. Acesse o Portal do Azure e navegue para **Configurações** > **Integridade do hardware**. Em **Componentes compartilhados** ou **Componentes compartilhados de EBOD**, o status da unidade deverá ficar verde, indicando que ela está íntegra.
+    **Figura 6** portador da unidade de saudação deslizante no chassi Olá
+3. Com hello unidade operadora Olá inserido, feche unidade operadora identificador ao continuando toopush Olá portador da unidade no chassi hello, até que a alça do portador da unidade Olá chegue à posição bloqueada.
+4. Use Olá chave de bloqueio fornecida pela alça do portador da Microsoft (de fenda Torx inviolável) toosecure Olá no lugar ativando o parafuso de bloqueio Olá um quarto de volta no sentido horário.
+5. Verifique se Olá substituição foi bem-sucedida e unidade hello está funcionando. Acessar Olá portal do Azure e navegar muito**configurações** > **a integridade do Hardware**. Em **componentes compartilhados** ou **componentes compartilhados do EBOD**, status da unidade Olá deve estar verde, indicando que ele esteja íntegro.
 <!---Loc Comment: It seems it should say "Device settings > Hardware health" instead of "Settings > Hardware health"---->
    
    > [!NOTE]
-   > Pode levar várias horas até que o status do disco fique verde após a troca.
+   > Ele pode levar algumas horas para Olá disco status tooturn verde após a substituição de saudação.
   
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-8000-hardware-component-replacement.md).

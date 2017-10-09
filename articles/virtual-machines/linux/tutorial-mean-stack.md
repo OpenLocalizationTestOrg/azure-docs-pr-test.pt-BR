@@ -1,6 +1,6 @@
 ---
-title: Criar uma pilha MEAN em uma VM do Linux no Azure | Microsoft Docs
-description: Saiba como criar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure.
+title: "aaaCreate uma média de pilha em uma VM do Linux no Azure | Microsoft Docs"
+description: "Saiba como o Node. js (média), Express, AngularJS e toocreate um MongoDB pilha em uma VM do Linux no Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -16,34 +16,34 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 892d3481b4ec70fb8434cb25013c5cfd8ab85051
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 82a8e34e60d2bb6e6670ee007faa1113ea78b716
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Criar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure
 
-Este tutorial mostra como implementar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure. A pilha MEAN que será criada permite adição, exclusão e listagem de livros em um banco de dados. Você aprenderá como:
+Este tutorial mostra como o Node. js (média), Express, AngularJS e tooimplement um MongoDB pilha em uma VM do Linux no Azure. pilha de média de saudação que você cria permite adicionar, excluir e listar manuais em um banco de dados. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar uma VM do Linux
 > * Instalar o Node. js
-> * Instalar o MongoDB e configurar o servidor
-> * Instalar rotas do Expresso e de configuração para o servidor
-> * Acessar as rotas com AngularJS
-> * Executar o aplicativo
+> * Instalar o MongoDB e configurar o servidor de saudação
+> * Express de instalar e configurar o servidor de toohello de rotas
+> * Rotas de saudação do acesso com AngularJS
+> * Executar o aplicativo hello
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
+Se você escolher tooinstall e usa o hello CLI localmente, este tutorial requer que você está executando a versão de CLI do Azure Olá 2.0.4 ou posterior. Executar `az --version` toofind versão de saudação. Se você precisar tooinstall ou atualização, consulte [instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Criar uma VM do Linux
 
-Criar um grupo de recursos com o comando [az group create](https://docs.microsoft.com/cli/azure/group#create) e criar uma VM do Linux com o comando [az vm create](https://docs.microsoft.com/cli/azure/vm#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Criar um grupo de recursos com hello [criar grupo az](https://docs.microsoft.com/cli/azure/group#create) de comando e criar uma VM do Linux com hello [criar vm az](https://docs.microsoft.com/cli/azure/vm#create) comando. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
-O exemplo a seguir usa a CLI do Azure para criar um grupo de recursos chamado *myResourceGroupMEAN* no local *eastus*. Uma VM é criada com o nome *myVM* com chaves SSH, caso elas ainda não existam em um local de chave padrão. Para usar um conjunto específico de chaves, use a opção --ssh-key-value.
+Olá, exemplo a seguir usa Olá CLI do Azure toocreate um grupo de recursos denominado *myResourceGroupMEAN* em Olá *eastus* local. Uma VM é criada com o nome *myVM* com chaves SSH, caso elas ainda não existam em um local de chave padrão. toouse um conjunto específico de chaves, use hello – opção ssh-chave-valor.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMEAN --location eastus
@@ -57,7 +57,7 @@ az vm create \
 az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 ```
 
-Quando a VM tiver sido criada, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir: 
+Quando Olá VM tiver sido criado, Olá CLI do Azure mostra informações toohello semelhante exemplo a seguir: 
 
 ```azurecli-interactive
 {
@@ -71,9 +71,9 @@ Quando a VM tiver sido criada, a CLI do Azure mostrará informações semelhante
   "resourceGroup": "myResourceGroupMEAN"
 }
 ```
-Anote `publicIpAddress`. Esse endereço é usado para acessar a VM.
+Anote Olá `publicIpAddress`. Esse endereço é usado tooaccess Olá VM.
 
-Use o comando a seguir para criar uma sessão SSH com a VM. Certifique-se de usar o endereço IP público correto. Em nosso exemplo acima, o endereço IP era 13.72.77.9.
+A seguir Olá Use o comando toocreate uma sessão SSH com hello VM. Certifique-se de toouse Olá endereço IP público correto. Em nosso exemplo acima, o endereço IP era 13.72.77.9.
 
 ```bash
 ssh azureuser@13.72.77.9
@@ -81,25 +81,25 @@ ssh azureuser@13.72.77.9
 
 ## <a name="install-nodejs"></a>Instalar o Node. js
 
-O [Node.js](https://nodejs.org/en/) é um tempo de execução de JavaScript baseado no mecanismo de JavaScript V8 do Chrome. O Node.js é usado neste tutorial para configurar as rotas do Expresso e os controladores AngularJS.
+O [Node.js](https://nodejs.org/en/) é um tempo de execução de JavaScript baseado no mecanismo de JavaScript V8 do Chrome. Node. js é usado neste tutorial tooset Olá que roteia Express e controladores AngularJS.
 
-Na VM, usando o shell bash que você abriu com SSH, instale o Node.js.
+Em Olá VM, usando o shell bash Olá que você abriu com SSH, instale o Node. js.
 
 ```bash
 sudo apt-get install -y nodejs
 ```
 
-## <a name="install-mongodb-and-set-up-the-server"></a>Instalar o MongoDB e configurar o servidor
-O [MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, como JSON. Os campos em um banco de dados podem variar de um documento para outro e a estrutura de dados pode ser alterada ao longo do tempo. Em nosso aplicativo de exemplo, estamos adicionando registros de livros no MongoDB que contêm o nome do livro, o número ISBN, o autor e o número de páginas. 
+## <a name="install-mongodb-and-set-up-hello-server"></a>Instalar o MongoDB e configurar o servidor de saudação
+O [MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, como JSON. Campos em um banco de dados podem variar de documento toodocument e estrutura de dados pode ser alterada ao longo do tempo. Em nosso aplicativo de exemplo, estamos adicionando tooMongoDB de registros de catálogo que contêm o nome do catálogo, o número isbn, autor e número de páginas. 
 
-1. Na VM, usando o shell bash que você abriu com SSH, defina a chave do MongoDB.
+1. No hello VM, usando o shell bash Olá que você abriu com SSH, defina a chave do MongoDB de saudação.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
-2. Atualize o gerenciador de pacotes com a chave.
+2. Atualize Gerenciador de pacotes de saudação com chave hello.
   
     ```bash
     sudo apt-get update
@@ -111,27 +111,27 @@ O [MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, com
     sudo apt-get install -y mongodb
     ```
 
-4. Inicie o servidor.
+4. Servidor de saudação inicial.
 
     ```bash
     sudo service mongodb start
     ```
 
-5. Também precisamos instalar o pacote [body-parser](https://www.npmjs.com/package/body-parser-json) para nos ajudar a processar o JSON passado nas solicitações ao servidor.
+5. Também precisamos Olá tooinstall [corpo analisador](https://www.npmjs.com/package/body-parser-json) toohelp de pacote nos processar Olá JSON transmitido no servidor de toohello de solicitações.
 
-    Instale o gerenciador de pacotes npm.
+    Instale o Gerenciador de pacote de npm hello.
 
     ```bash
     sudo apt-get install npm
     ```
 
-    Instale o pacote body-parser.
+    Instale o pacote de analisador de corpo de saudação.
     
     ```bash
     sudo npm install body-parser
     ```
 
-6. Crie uma pasta chamada *Livros* e adicione nela um arquivo chamado *server.js*, que contém a configuração do servidor Web.
+6. Crie uma pasta chamada *manuais* e adicione um tooit arquivo denominado *server.js* que contém a configuração de saudação para Olá web server.
 
     ```node.js
     var express = require('express');
@@ -146,9 +146,9 @@ O [MongoDB](http://www.mongodb.com) armazena dados em documentos flexíveis, com
     });
     ```
 
-## <a name="install-express-and-set-up-routes-to-the-server"></a>Instalar rotas do Expresso e de configuração para o servidor
+## <a name="install-express-and-set-up-routes-toohello-server"></a>Express de instalar e configurar o servidor de toohello de rotas
 
-O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e flexível de Node.js que fornece recursos para aplicativos Web e móveis. O Expresso é usado neste tutorial para passar informações de livro para e do nosso banco de dados do MongoDB. [Mongoose](http://mongoosejs.com) fornece uma solução simples, com base em esquema para modelar seus dados de aplicativo. O Mongoose é usado neste tutorial para fornecer um esquema de livro para o banco de dados.
+O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e flexível de Node.js que fornece recursos para aplicativos Web e móveis. Express é usado em tooand de informações de catálogo este tutorial toopass de nosso banco de dados do MongoDB. [Mongoose](http://mongoosejs.com) fornece uma solução baseada em esquema direta toomodel os dados do aplicativo. Mongoose é usado neste tutorial tooprovide um esquema de catálogo para o banco de dados de saudação.
 
 1. Instale o Expresso e o Mongoose.
 
@@ -156,7 +156,7 @@ O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e
     sudo npm install express mongoose
     ```
 
-2. Na pasta *Livros*, crie uma pasta chamada *aplicativos* e adicione um arquivo chamado *routes.js* com as rotas expressas definidas.
+2. Em Olá *manuais* pasta, crie uma pasta chamada *aplicativos* e adicione um arquivo chamado *routes.js* com hello express rotas definidas.
 
     ```node.js
     var Book = require('./models/book');
@@ -186,7 +186,7 @@ O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e
         Book.findOneAndRemove(req.query, function(err, result) {
           if ( err ) throw err;
           res.json( {
-            message: "Successfully deleted the book",
+            message: "Successfully deleted hello book",
             book: result
           });
         });
@@ -198,7 +198,7 @@ O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e
     };
     ```
 
-3. Na pasta *aplicativos*, crie uma pasta chamada *modelos* e adicione um arquivo chamado *book.js* com a configuração de modelo de livro definida.  
+3. Em Olá *aplicativos* pasta, crie uma pasta chamada *modelos* e adicione um arquivo chamado *book.js* com configuração de modelo de catálogo Olá definida.  
 
     ```node.js
     var mongoose = require('mongoose');
@@ -216,11 +216,11 @@ O [Expresso](https://expressjs.com) é uma estrutura de aplicativo Web mínima e
     module.exports = mongoose.model('Book', bookSchema); 
     ```
 
-## <a name="access-the-routes-with-angularjs"></a>Acessar as rotas com AngularJS
+## <a name="access-hello-routes-with-angularjs"></a>Rotas de saudação do acesso com AngularJS
 
-O [AngularJS](https://angularjs.org) fornece uma estrutura da Web para criar exibições dinâmicas em seus aplicativos Web. Neste tutorial, usamos o AngularJS para conectar a nossa página da Web com o Expresso e realizar ações em nosso banco de dados de livro.
+O [AngularJS](https://angularjs.org) fornece uma estrutura da Web para criar exibições dinâmicas em seus aplicativos Web. Neste tutorial, usamos AngularJS tooconnect nossa página da web com o Express e executar ações em nosso banco de dados do catálogo.
 
-1. Altere o diretório de backup para *Livros* (`cd ../..`) e, em seguida, crie uma pasta chamada *pública* e adicione um arquivo chamado *script.js* com a configuração do controlador definida.
+1. Altere o diretório de saudação backup muito*manuais* (`cd ../..`) e, em seguida, crie uma pasta chamada *pública* e adicione um arquivo chamado *script. js* com controlador Olá configuração definida.
 
     ```node.js
     var app = angular.module('myApp', []);
@@ -262,7 +262,7 @@ O [AngularJS](https://angularjs.org) fornece uma estrutura da Web para criar exi
     });
     ```
     
-2. Na pasta *pública*, crie um arquivo chamado *index.html* com a página da Web definida.
+2. Em Olá *pública* pasta, crie um arquivo chamado *index* com a página de web hello definido.
 
     ```html
     <!doctype html>
@@ -315,27 +315,27 @@ O [AngularJS](https://angularjs.org) fornece uma estrutura da Web para criar exi
     </html>
     ```
 
-##  <a name="run-the-application"></a>Executar o aplicativo
+##  <a name="run-hello-application"></a>Executar o aplicativo hello
 
-1. Altere o diretório de backup para *Livros* (`cd ..`) e inicie o servidor executando este comando:
+1. Altere o diretório de saudação backup muito*manuais* (`cd ..`) e inicie o servidor de saudação executando este comando:
 
     ```bash
     nodejs server.js
     ```
 
-2. Abra um navegador da Web no endereço que você registrou para a VM. Por exemplo, *http://13.72.77.9:3300*. Você verá algo semelhante à página a seguir:
+2. Abra um endereço de toohello de navegador da web que você registrou para Olá VM. Por exemplo, *http://13.72.77.9:3300*. Você verá algo parecido com hello página a seguir:
 
     ![Registro de livro](media/tutorial-mean/meanstack-init.png)
 
-3. Insira dados nas caixas de texto e clique em **Adicionar**. Por exemplo:
+3. Inserir dados nas caixas de texto de saudação e clique em **adicionar**. Por exemplo:
 
     ![Adicionar registro de livro](media/tutorial-mean/meanstack-add.png)
 
-4. Depois de atualizar a página, você verá algo parecido com esta página:
+4. Depois de atualizar a página hello, você verá algo parecido com esta página:
 
     ![Listar registros de livro](media/tutorial-mean/meanstack-list.png)
 
-5. Você pode clicar em **Excluir** e remover o registro de livro do banco de dados.
+5. Você pode clicar em **excluir** e remover o registro de catálogo de saudação do banco de dados de saudação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -344,12 +344,12 @@ Neste tutorial, você criou um aplicativo Web que controla registros de livros u
 > [!div class="checklist"]
 > * Criar uma VM do Linux
 > * Instalar o Node. js
-> * Instalar o MongoDB e configurar o servidor
-> * Instalar rotas do Expresso e de configuração para o servidor
-> * Acessar as rotas com AngularJS
-> * Executar o aplicativo
+> * Instalar o MongoDB e configurar o servidor de saudação
+> * Express de instalar e configurar o servidor de toohello de rotas
+> * Rotas de saudação do acesso com AngularJS
+> * Executar o aplicativo hello
 
-Vá para o próximo tutorial para saber como proteger servidores Web com certificados SSL.
+Avançar toohello toolearn de tutorial Avançar como servidores de web toosecure com certificados SSL.
 
 > [!div class="nextstepaction"]
 > [Proteger servidor Web com SSL](tutorial-secure-web-server.md)

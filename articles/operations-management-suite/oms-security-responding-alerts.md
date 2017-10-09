@@ -1,6 +1,6 @@
 ---
-title: "Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite | Microsoft AzurDocs"
-description: "Este documento o ajuda a usar a opção de inteligência contra ameaças disponível na Segurança e Auditoria do OMS para monitorar e responder a alertas de segurança."
+title: "aaaMonitoring e respondendo tooSecurity alertas no Operations Management Suite solução de segurança e auditoria | Microsoft Docs"
+description: "Este documento ajuda você toouse Olá threat intelligence opção disponível no OMS segurança e auditoria toomonitor e responde a alertas de toosecurity."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: yurid
-ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3d92b6809b7bd934c889afc119e5e34ff2b85f1b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite
-Este documento o ajuda a usar a opção de inteligência contra ameaças disponível na Segurança e Auditoria do OMS para monitorar e responder a alertas de segurança.
+# <a name="monitoring-and-responding-toosecurity-alerts-in-operations-management-suite-security-and-audit-solution"></a>Monitorar e responder a alertas toosecurity no Operations Management Suite solução de segurança e auditoria
+Este documento ajuda você a usar a opção de inteligência de ameaça Olá disponível no OMS segurança e auditoria toomonitor e responder a alertas de toosecurity.
 
 ## <a name="what-is-oms"></a>O que é o OMS?
-O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem. Para obter mais informações sobre o OMS, leia o artigo [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem. Para obter mais informações sobre o OMS, leia o artigo de saudação [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="threat-intelligence"></a>Inteligência contra ameaças
-Em um ambiente empresarial no qual os usuários têm amplo acesso à rede e usam uma variedade de dispositivos para se conectar a dados corporativos, é fundamental que você possa monitorar de forma ativa seus recursos e responder rapidamente a incidentes de segurança. Isso é especificamente importante da perspectiva do ciclo de vida de segurança, pois algumas ameaças de segurança cibernética podem não gerar alertas nem atividades suspeitas que possam ser identificadas pelos controles técnicos tradicionais de segurança. 
+Em um ambiente corporativo em que os usuários tem acesso amplo toohello rede e usar uma variedade de dispositivos tooconnect toocorporate dados, é fundamental que você pode monitorar ativamente os recursos e responder rapidamente toosecurity incidentes. Isso é determinado importante da perspectiva de ciclo de vida de segurança Olá porque alguns segurança cibernética ameaças não podem gerar alertas ou atividades suspeitas que podem ser identificadas por controles técnicos tradicionais de segurança. 
 
-Ao usar a opção **Inteligência contra Ameaças** disponível na Segurança e Auditoria do OMS, os administradores de TI podem identificar as ameaças à segurança no ambiente, por exemplo, identificar se determinado computador faz parte de um [botnet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection). Os computadores podem se tornar nós em um botnet quando os invasores instalam de forma ilícita malware que se conecta secretamente esse computador ao comando e controle. Ela também pode identificar ameaças potenciais recebidas de canais de comunicação underground, como [darknet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection_honeypots_darkents). 
+Usando Olá **inteligência de ameaça** opção disponíveis no OMS segurança e auditoria, os administradores de TI pode identificar ameaças de segurança em ambiente hello, por exemplo, identificar se um determinado computador fizer parte de um [ botnet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection). Computadores podem ser nós em uma botnet quando os invasores forma ilícita instalar malware que secretamente se conecta a esse comando de toohello do computador e o controle. Ela também pode identificar ameaças potenciais recebidas de canais de comunicação underground, como [darknet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection_honeypots_darkents). 
 
-A fim de criar essa inteligência contra ameaças, a Segurança e Auditoria do OMS usam dados recebidos de várias fontes da Microsoft. A Segurança e Auditoria do OMS aproveitará esses dados para identificar ameaças potenciais ao seu ambiente.
+Em ordem toobuild essa inteligência de ameaça, o OMS segurança e auditoria usar dados provenientes de várias fontes em Microsoft. OMS segurança e auditoria utilizará esse dados tooidentify possíveis ameaças em seu ambiente.
 
-O painel Inteligência contra Ameaças é formado por três opções principais:
+Painel de inteligência de ameaça Olá é composto por três principais opções:
 
 * Servidores com o tráfego de saída mal-intencionado
 * Tipos de ameaças detectados
@@ -45,59 +45,59 @@ O painel Inteligência contra Ameaças é formado por três opções principais:
 > 
 > 
 
-### <a name="responding-to-security-alerts"></a>Respondendo a alertas de segurança
-Uma das etapas de um processo de [resposta a incidentes de segurança](https://technet.microsoft.com/library/cc512623.aspx) é identificar a severidade do comprometimento do(s) sistema(s). Nesta fase, você deverá realizar as seguintes tarefas:
+### <a name="responding-toosecurity-alerts"></a>Respondendo a alertas de toosecurity
+Uma das etapas de saudação de um [resposta a incidentes segurança](https://technet.microsoft.com/library/cc512623.aspx) processo é tooidentify severidade Olá Olá comprometimento do sistema. Nesta fase, você deve executar Olá tarefas a seguir:
 
-* Determinar a natureza do ataque
-* Determinar o ponto de ataque de origem
-* Determinar o objetivo do ataque. O ataque foi direcionado especificamente em sua organização para adquirir informações específicas ou foi aleatório?
-* Identificar os sistemas que foram comprometidos
-* Identificar os arquivos que foram acessados e determinar a confidencialidade desses arquivos
+* Determinar a natureza de saudação do ataque Olá
+* Determinar o ponto de ataque de saudação de origem
+* Determine a intenção de saudação do ataque hello. Olá ataque foi direcionado especificamente em informações específicas de tooacquire sua organização, ou foi aleatório?
+* Identificar os sistemas de saudação que tem sido comprometidos
+* Identificar arquivos Olá que foram acessados e determinam a confidencialidade Olá desses arquivos
 
-Você pode aproveitar as informações da **Inteligência contra Ameaças** na solução de Segurança e Auditoria do OMS para ajudar com essas tarefas. Siga as etapas abaixo para acessar estas opções da **Inteligência contra Ameaças** :
+Você pode aproveitar **inteligência de ameaça** informações toohelp de solução de segurança da OMS e auditoria essas tarefas. Siga as etapas de saudação abaixo tooaccess isso **inteligência de ameaça** opções:
 
-1. No painel principal do **Microsoft Operations Management Suite**, clique no bloco **Segurança e Auditoria**.
+1. Em Olá **Microsoft Operations Management Suite** clique de painel principal **segurança e auditoria** lado a lado.
    
     ![Segurança e Auditoria](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig1.png)
-2. No painel **Segurança e Auditoria**, você verá as opções **Inteligência de Ameaças** à direita, conforme mostrado abaixo:
+2. Em Olá **segurança e auditoria** painel, você verá Olá **inteligência de ameaça** opções na direita hello, conforme mostrado abaixo:
    
     ![Threat Intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig2-ga.png)
 
-Estes três blocos fornecerão uma visão geral das ameaças atuais. No **Servidor com tráfego de saída mal-intencionado** , você poderá identificar se há qualquer computador monitorado (dentro ou fora de sua rede) que esteja enviando tráfego mal-intencionado para a Internet. 
+Esses três blocos oferecem uma visão geral de ameaças de saudação atual. Em Olá **servidor com tráfego malicioso de saída** será capaz de tooidentify se houver qualquer computador que você está monitorando (dentro ou fora da sua rede) que é enviar tráfego mal-intencionado toohello da Internet. 
 
-O bloco **Tipos de ameaças detectados** mostra um resumo das ameaças que, atualmente estão “fora de controle”; se você clicar nesse bloco, verá mais detalhes sobre essas ameaças, conforme mostrado abaixo:
+Olá **detectado tipos de ameaças** bloco mostra um resumo de ameaças Olá atual "no Olá curinga", se você clicar nesse bloco você verá mais detalhes sobre essas ameaças como é mostrado abaixo:
 
 ![Tipos de ameaças detectados](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig3.png)
 
-É possível extrair mais informações sobre cada ameaça clicando nela. O exemplo abaixo mostra mais detalhes sobre o Botnet:
+É possível extrair mais informações sobre cada ameaça clicando nela. exemplo Hello abaixo mostra mais detalhes sobre Botnet:
 
 ![mais detalhes sobre uma ameaça](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig4.png)
 
-Conforme descrito no início desta seção, essas informações podem ser muito úteis durante um caso de resposta a incidentes. Elas também podem ser importantes durante uma investigação forense, na qual você precisa encontrar a origem do ataque, qual sistema foi comprometido e a linha do tempo. Neste relatório, você pode identificar com facilidade alguns detalhes básicos sobre o ataque, tais como: a origem do ataque, o IP local comprometido e o estado da sessão atual da conexão. 
+Conforme descrito no começo desta seção hello, essas informações podem ser muito útil durante um caso de resposta a incidentes. Ele também pode ser importante durante uma investigação forense, onde você precisa de fonte de saudação do toofind de ataque hello, qual sistema foi comprometido e Olá da linha do tempo. Nesse relatório, você pode identificar facilmente alguns detalhes importantes sobre ataque hello, tais como: Olá a origem do ataque hello, Olá IP local que foi comprometido e Olá estado da sessão atual da conexão de saudação. 
 
-O **mapa de inteligência contra ameaças** o ajudará a identificar os locais atuais em todo o mundo com tráfego mal-intencionado. Neste mapa, há setas laranja (entrada) e vermelhas (saídas) que identificam a direção do tráfego; se você clicar em um dessas setas, ela mostrará o tipo de ameaça e a direção do tráfego, conforme mostrado abaixo:
+Olá **mapa de inteligência de ameaça** ajudará você a tooidentify Olá locais atuais em todo o mundo de saudação que têm o tráfego mal-intencionado. Há laranja (entrada) e (saídas) setas vermelhas neste mapa que identificam a direção do tráfego hello, se você clicar em um dessas setas, ele mostrará tipo hello de ameaça e hello direção de tráfego, conforme mostrado abaixo:
 
 ![mapa do threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
 
 > [!NOTE]
-> Você pode ver uma demonstração sobre como usar essa funcionalidade durante um processo de resposta a incidentes assistindo à apresentação [Mitigar as ameaças de segurança de datacenter com investigação guiada usando o Operations Management Suite](https://myignite.microsoft.com/videos/5000) entregue no Microsoft Ignite.
+> Você pode ver uma demonstração sobre como toouse esse recurso durante a resposta a incidentes processo observando apresentação Olá [reduzir as ameaças de segurança do datacenter com investigação interativa usando o Operations Management Suite](https://myignite.microsoft.com/videos/5000) entregue no Microsoft Ignite.
 > 
 
-### <a name="responding-to-distinct-malicious-ip-accessed"></a>Respondendo a IP mal-intencionado distinto acessado
+### <a name="responding-toodistinct-malicious-ip-accessed"></a>Respondendo toodistinct IP mal-intencionados acessado
 Em alguns cenários, você pode observar um potencial IP mal-intencionado que foi acessado de um computador monitorado:
 
 ![mapa do threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
 
-Este e outros alertas na mesma categoria são gerados via Segurança do OMS, aproveitando a [Inteligência contra Ameaças da Microsoft](https://youtu.be/O4WtxgUrDc8). Os dados de Inteligência contra Ameaças são coletados pela Microsoft e também adquiridos dos principais provedores de inteligência contra ameaças. Esses dados são atualizados com frequência e adaptados para ameaças ágeis. Devido à sua natureza, ele deve ser combinado com outras fontes de informações de segurança durante a [investigação](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) de um alerta de segurança. 
+Este alerta e outros em Olá mesma categoria, são gerados por meio da segurança do OMS, aproveitando [Microsoft Threat Intelligence](https://youtu.be/O4WtxgUrDc8). Olá dados de inteligência de ameaça é coletada pela Microsoft, bem como adquirido dos principais provedores de inteligência de ameaça. Esses dados forem atualizados frequentemente e adaptada movendo toofast ameaças. Devido a natureza tooits, ele deve ser combinado com outras fontes de informações de segurança ao [investigando](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) um alerta de segurança. 
 
 ## <a name="customize-alerts-received-via-e-mail"></a>Personalizar alertas recebidos via email
 
-Você pode personalizar quais usuários em sua organização serão notificados quando os alertas de segurança forem disparados pela Segurança do OMS. Essa opção está disponível em Visão geral / Configurações no painel do OMS:
+Você pode personalizar quais usuários em sua organização serão notificados quando os alertas de segurança forem disparados pela Segurança do OMS. Essa opção está disponível em Visão geral / Olá de configurações no painel do OMS:
 
 ![Email](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig7.png)
 
 ## <a name="see-also"></a>Consulte também
-Neste documento, você aprendeu a usar a opção **Inteligência contra Ameaças** na solução de Segurança e Auditoria do OMS para responder a alertas de segurança. Para saber mais sobre a Segurança do OMS, veja os seguintes artigos:
+Neste documento, você aprendeu como Olá toouse **inteligência de ameaça** opção no OMS segurança e auditoria solução toorespond toosecurity os alertas. toolearn mais sobre a segurança do OMS, consulte Olá artigos a seguir:
 
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Introdução à solução de Segurança e Auditoria do Operations Management Suite](oms-security-getting-started.md)

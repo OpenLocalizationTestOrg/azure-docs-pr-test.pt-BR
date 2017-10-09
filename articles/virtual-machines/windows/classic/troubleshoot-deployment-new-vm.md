@@ -1,5 +1,5 @@
 ---
-title: "Solucionar problemas de implantação clássica de VM do Windows | Microsoft Docs"
+title: "aaaTroubleshoot clássico de implantação de VM do Windows | Microsoft Docs"
 description: "Solucionar problemas de implantação clássica ao criar uma nova máquina virtual Windows no Azure"
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
-ms.openlocfilehash: 990914e3d9541e8574ce6ba0bf6c996cb394470a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aa12cb013a18e0572fbef8b7ea69106dd47c1fd9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Solucionar problemas de implantação clássica ao criar uma nova máquina virtual Windows no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -27,66 +27,66 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para a versão do Resource Manager deste artigo, clique [aqui](../../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação. Para a versão do Gerenciador de recursos de saudação deste artigo, consulte [aqui](../../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>Coletar logs de auditoria
-Para iniciar a solução de problemas, colete os logs de auditoria para identificar o erro associado ao problema.
+toostart de solução de problemas, auditoria Olá coletar registra o erro de saudação de tooidentify associado Olá problema.
 
-No Portal do Azure, clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual Windows* > **Configurações** > **Logs de auditoria**.
+No portal do Azure de Olá, clique em **procurar** > **máquinas virtuais** > *sua máquina virtual do Windows*  >   **Configurações de** > **logs de auditoria**.
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** se o sistema operacional for Windows generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Windows especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
+**Y:** se Olá sistema operacional for Windows generalizado e ele é carregado e/ou capturado com hello generalizado configuração, não haja erros. Da mesma forma, se Olá SO é especializada do Windows, e ele é carregado e/ou capturado com hello especializado configuração, e não haja erros.
 
 **Erros de upload:**
 
-**N<sup>1</sup>:** se o sistema operacional for Windows generalizado e ele for carregado como especializado, você receberá um erro de tempo limite de provisionamento, com a VM paralisada na tela do OOBE.
+**N<sup>1</sup>:** se Olá sistema operacional for Windows generalizado e ele é carregado como especializado, você obterá um erro de tempo limite de provisionamento com hello VM presa na tela OOBE hello.
 
-**N<sup>2</sup>:** se o sistema operacional for Windows especializado e ele for carregado como generalizado, você receberá um erro de falha no provisionamento com a VM paralisada na tela do OOBE, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais.
+**N<sup>2</sup>:** se Olá SO é especializada do Windows, e ele é carregado como generalizado, você receberá um erro de falha de provisionamento com hello VM presa na tela OOBE Olá porque hello nova máquina virtual está em execução com o computador original Olá nome, nome de usuário e senha.
 
 **Resolução:**
 
-Para resolver ambos os erros, carregue o VHD original, disponível no local, com a mesma configuração usada para o sistema operacional (generalizado/especializado). Para carregar como generalizado, lembre-se de executar sysprep primeiro. Veja [Criar e carregar um VHD do Windows Server no Azure](createupload-vhd.md) para obter mais informações.
+tooresolve ambos esses erros, carregar Olá VHD original, disponível no local, com Olá a mesma configuração que para Olá SO (generalizado/especializado). tooupload como generalizado, lembre-se sysprep toorun primeiro. Consulte [criar e carregar um VHD do Windows Server tooAzure](createupload-vhd.md) para obter mais informações.
 
 **Erros de captura:**
 
-**N<sup>3</sup>:** se o sistema operacional for Windows generalizado e ele for capturado como especializado, você receberá um erro de tempo limite de provisionamento, pois a VM original não será utilizável, já que estará marcada como generalizada.
+**N<sup>3</sup>:** se Olá sistema operacional for Windows generalizada e ele é capturado como especializado, você obterá um erro de tempo limite de provisionamento porque Olá original VM não é utilizável que está marcado como generalizado.
 
-**N<sup>4</sup>:** se o sistema operacional for Windows especializado e ele for capturado como generalizado, você receberá um erro de falha no provisionamento, pois a nova VM estará em execução com o nome do computador, nome de usuário e senha originais. Além disso, a VM original não será utilizável, já que estará marcada como especializada.
+**N<sup>4</sup>:** se Olá SO é especializada do Windows, e eles são capturados como generalizado, você receberá um erro de falha no provisionamento porque hello nova máquina virtual está em execução com o nome do computador original hello, username e password. Além disso, Olá original VM não é utilizável porque ele está marcado como especializadas.
 
 **Resolução:**
 
-Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](capture-image.md) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
+tooresolve ambos esses erros, excluir imagem atual de saudação do portal de saudação e [recapturá-lo da saudação VHDs atuais](capture-image.md) com Olá a mesma configuração que para hello (generalizado/especializado) de sistema operacional.
 
 ## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: imagem personalizada/da galeria/do Marketplace; falha de alocação
-Esse erro ocorre em situações nas quais a nova solicitação de VM é enviada para um cluster que não tem espaço livre disponível para acomodar a solicitação ou que não dá suporte ao tamanho de VM solicitado. Não é possível combinar séries diferentes de VMs no mesmo serviço de nuvem. Portanto, se você desejar criar uma nova VM de um tamanho diferente do qual o serviço de nuvem pode dar suporte, a solicitação de computação falhará.
+Esse erro ocorre em situações quando nova solicitação de VM Olá é enviada tooa cluster que não tenha a solicitação de saudação do tooaccommodate de espaço livre disponível, ou não aceitar o tamanho da VM hello está sendo solicitado. Não é possível toomix outra série de VMs em Olá mesmo serviço de nuvem. Assim, se você quiser toocreate uma nova VM do que seu serviço de nuvem pode dar suporte a um tamanho diferente, Olá computação solicitação falhará.
 
-Dependendo das restrições do serviço de nuvem usado para criar a nova VM, você poderá encontrar um erro causado por uma das duas situações.
+Dependendo de restrições de Olá Olá do serviço de nuvem que você usar toocreate Olá nova VM, você pode encontrar um erro causado por uma das duas situações.
 
-**Causa 1:** o serviço de nuvem está fixo em um cluster específico ou está vinculado a um grupo de afinidades e, portanto, fixo em um cluster específico por design. Assim, há uma tentativa de fazer novas solicitações de recursos de computação nesse grupo de afinidades no mesmo cluster que hospeda os recursos existentes. No entanto, o mesmo cluster pode não dar suporte ao tamanho de VM solicitado ou pode não ter espaço suficiente disponível, resultando em um erro de alocação. Isso ocorre se os novos recursos forem criados por meio de um novo serviço de nuvem ou um serviço de nuvem existente.
+**Causa 1:** Olá serviço em nuvem é fixado tooa determinado cluster, ou é o grupo de afinidade tooan vinculado e tooa fixos, portanto, o cluster específico por design. Para solicitações de novos recursos de computação no grupo de afinidade serão tentadas por Olá mesmo cluster que hospedam os recursos existentes de saudação. No entanto, hello mesmo cluster talvez não suporte Olá solicitado tamanho da VM ou tiver espaço suficiente disponível, resultando em um erro de alocação. Isso é verdadeiro se o hello novos recursos são criados por meio de um novo serviço de nuvem ou um serviço de nuvem existente.
 
 **Resolução 1:**
 
 * Crie um novo serviço de nuvem e o associe a uma região ou a uma rede virtual baseada em região.
-* Crie uma nova VM no novo serviço de nuvem.
-  Se você receber um erro ao tentar criar um novo serviço de nuvem, tente novamente mais tarde ou altere a região do serviço de nuvem.
+* Crie uma nova VM no novo serviço de nuvem hello.
+  Se você receber um erro ao tentar toocreate um novo serviço de nuvem, tente novamente mais tarde ou alterar a região Olá Olá serviço de nuvem.
 
 > [!IMPORTANT]
-> Se você estava tentando criar uma nova VM em um serviço de nuvem existente, mas não conseguiu e precisou criar um novo serviço de nuvem para sua nova VM, é possível optar por consolidar todas as VMs no mesmo serviço de nuvem. Para fazer isso, exclua as VMs do serviço de nuvem existente e as recapture por meio de seus discos no novo serviço de nuvem. No entanto, é importante lembrar-se de que o novo serviço de nuvem terá um novo nome e VIP e, portanto, será necessário atualizá-los em todas as dependências que atualmente usam essas informações para o serviço de nuvem existente.
+> Se você estivesse tentando toocreate uma nova VM em um serviço de nuvem existente, mas não foi possível e tinha toocreate um novo serviço de nuvem para sua nova VM, você pode escolher tooconsolidate todas as suas VMs em Olá mesmo serviço de nuvem. Assim, toodo excluir Olá VMs no serviço de nuvem existente hello e recapturá-los de seus discos no novo serviço de nuvem hello. No entanto, é importante tooremember que novo serviço de nuvem Olá terá um novo nome e o VIP, portanto, será necessário tooupdate para todas as dependências de saudação que atualmente usam essas informações para o serviço de nuvem existente hello.
 > 
 > 
 
-**Causa 2:** o serviço de nuvem está associado a uma rede virtual vinculada a um grupo de afinidades e, portanto, está fixa em um cluster específico por design. Assim, há uma tentativa de fazer todas as novas solicitações de recursos de computação desse grupo de afinidades no mesmo cluster que hospeda os recursos existentes. No entanto, o mesmo cluster pode não dar suporte ao tamanho de VM solicitado ou pode não ter espaço suficiente disponível, resultando em um erro de alocação. Isso ocorre se os novos recursos forem criados por meio de um novo serviço de nuvem ou um serviço de nuvem existente.
+**Causa 2:** serviço de nuvem hello está associado uma rede virtual que é vinculado tooan grupo de afinidade, sendo tooa fixados cluster específico de design. Todas as novas solicitações de recursos de computação no grupo de afinidade, portanto, são feitas tentativas em Olá mesmo cluster que hospedam os recursos existentes de saudação. No entanto, hello mesmo cluster talvez não suporte Olá solicitado tamanho da VM ou tiver espaço suficiente disponível, resultando em um erro de alocação. Isso é verdadeiro se o hello novos recursos são criados por meio de um novo serviço de nuvem ou um serviço de nuvem existente.
 
 **Resolução 2:**
 
 * Crie uma nova rede virtual regional.
-* Crie a nova VM na nova rede virtual.
-* [Conecte sua rede virtual existente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) à nova rede virtual. Saiba mais sobre as [redes virtuais regionais](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Como alternativa, é possível [migrar a rede virtual baseada em grupo de afinidades para uma rede virtual regional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)e, em seguida, criar a nova VM.
+* Criar hello nova VM na nova rede virtual de saudação.
+* [Conecte-se a sua rede virtual existente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) toohello nova rede virtual. Saiba mais sobre as [redes virtuais regionais](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Como alternativa, você pode [migrar sua rede de virtual baseado em grupos de afinidade de rede virtual tooa regionais](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)e, em seguida, criar hello nova VM.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma máquina virtual Windows existente no Azure](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md).

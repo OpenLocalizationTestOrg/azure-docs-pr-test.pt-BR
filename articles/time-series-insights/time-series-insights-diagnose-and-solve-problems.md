@@ -1,6 +1,6 @@
 ---
-title: Diagnosticar e resolver problemas | Microsoft Docs
-description: Este tutorial aborda como diagnosticar e resolver problemas no ambiente do Time Series Insights
+title: aaaDiagnose e resolver problemas | Microsoft Docs
+description: "Este tutorial aborda como toodiagnose e solucionar problemas em seu ambiente de informações da série de tempo"
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -15,67 +15,67 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/24/2017
 ms.author: venkatja
-ms.openlocfilehash: 4b8d5fdab1744b2db658917f91d6dac05db30d2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 00893d4bec497f5f8bf7093be5b96f1844446d13
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no ambiente do Time Series Insights
 
 ## <a name="i-dont-see-my-data"></a>Não vejo meus dados
-Estes são alguns motivos pelos quais talvez você não consiga ver seus dados no ambiente do [Portal do Azure Time Series Insights](https://insights.timeseries.azure.com).
+Aqui estão algumas razões por que você não pode ver os dados no seu ambiente Olá [portal do Azure Insights de série de tempo](https://insights.timeseries.azure.com).
 
 ### <a name="your-event-source-doesnt-have-data-in-json-format"></a>A origem do evento não tem dados no formato JSON
 Atualmente, o Azure Time Series Insights dá suporte apenas a dados JSON. Para obter exemplos do JSON, consulte [Formas de JSON com suporte](time-series-insights-send-events.md#supported-json-shapes).
 
-### <a name="when-you-registered-your-event-source-you-didnt-provide-the-key-that-has-the-required-permission"></a>Ao registrar a origem do evento, você não forneceu a chave que tem a permissão necessária
-* Para o Hub IoT, você precisa fornecer a chave com a permissão de **conexão de serviço**.
+### <a name="when-you-registered-your-event-source-you-didnt-provide-hello-key-that-has-hello-required-permission"></a>Ao registrar a origem do evento, você não fornecer a chave Olá que tenha permissão de saudação necessária
+* Para um hub IoT, você precisa de chave de saudação tooprovide com **serviço conectar** permissão.
 
    ![Permissão de conexão de serviço do Hub IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
-   Conforme mostrado na imagem anterior, as políticas **iothubowner** e **service** funcionarão, pois ambas têm a permissão de **conexão de serviço**.
-* Para o hub de eventos, você precisa fornecer a chave que tem a permissão de **Escuta**.
+   Conforme mostrado na saudação anterior a imagem, qualquer uma das políticas de saudação **iothubowner** e **service** funcionaria, pois ambos têm **serviço se conectar** permissão.
+* Para um hub de eventos, você precisa de chave de saudação tooprovide com **escutar** permissão.
 
    ![Permissão de escuta do hub de eventos](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
 
-   Conforme mostrado na imagem anterior, qualquer uma das políticas **read** e **manage** funcionará, pois ambas têm a permissão de **Escuta**.
+   Conforme mostrado na saudação anterior a imagem, qualquer uma das políticas de saudação **ler** e **gerenciar** funcionaria, pois ambos têm **escutar** permissão.
 
-### <a name="the-provided-consumer-group-is-not-exclusive-to-time-series-insights"></a>O grupo de consumidores fornecido não é exclusivo para o Time Series Insights
-Para o Hub IoT ou o hub de eventos, durante o registro, solicitamos que você especifique o grupo de consumidores que deve ser usado para a leitura dos dados. Esse grupo de consumidores não deve ser compartilhado. Se ele for compartilhado, o hub de eventos subjacente desconectará automaticamente um dos leitores de forma aleatória.
+### <a name="hello-provided-consumer-group-is-not-exclusive-tootime-series-insights"></a>Olá fornecido o grupo de consumidores não é exclusivo tooTime série Insights
+Para um hub IoT ou um hub de eventos, durante o registro solicitamos que você toospecify grupo de consumidores de saudação que deve ser usado para ler os dados. Esse grupo de consumidores não deve ser compartilhado. Se ele for compartilhado, hub de eventos subjacente Olá automaticamente desconecta um dos leitores Olá aleatoriamente.
 
 ## <a name="i-see-my-data-but-theres-a-lag"></a>Consigo ver meus dados, mas há um retardo
-Estes são motivos pelos quais você pode ver dados parciais no ambiente do [Portal do Time Series Insights](https://insights.timeseries.azure.com).
+Aqui estão os motivos pelos quais você pode receber dados parciais no seu ambiente Olá [portal Insights de série de tempo](https://insights.timeseries.azure.com).
 
 ### <a name="your-environment-is-getting-throttled"></a>O ambiente está ficando restrito
-A limitação é imposta com base na capacidade e no tipo de SKU do ambiente. Todas as origens do evento no ambiente compartilham essa capacidade. Se a origem do evento do hub de eventos ou Hub IoT estiver enviando dados por push além dos limites impostos, você vê a limitação e um retardo.
+Olá limitação é aplicada com base no tipo de SKU e a capacidade do ambiente de saudação. Todas as fontes de evento no ambiente de saudação compartilham essa capacidade. Se a origem do evento Olá para o hub IoT ou hub de eventos é enviar dados além dos limites de saudação imposta, você verá a limitação e um atraso.
 
-O diagrama a seguir mostra um ambiente do Time Series Insights com um SKU S1 e uma capacidade 3. Ele pode ingressar 3 milhões de eventos por dia.
+Olá diagrama a seguir mostra um ambiente de informações da série de tempo que tenha um SKU de S1 e a capacidade de 3. Ele pode ingressar 3 milhões de eventos por dia.
 
 ![Capacidade atual do SKU do ambiente](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
 
-Suponha que esse ambiente está ingerindo mensagens de um hub de eventos com uma taxa de entrada mostrada no seguinte diagrama:
+Suponha que esse ambiente é ingestão de mensagens de um hub de eventos com taxa de entrada hello mostrada no diagrama a seguir de saudação:
 
 ![Taxa de entrada de exemplo para um hub de eventos](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
 
-Conforme mostrado no diagrama, a taxa de entrada diária é de ~67.000 mensagens. Essa taxa converte aproximadamente 46 mensagens a cada minuto. Se cada mensagem do hub de eventos for nivelada para um único evento do Time Series Insights, esse ambiente não terá nenhuma limitação. Se cada mensagem do hub de eventos for nivelada para 100 eventos do Time Series Insights, 4.600 eventos deverão ser ingeridos a cada minuto. Um ambiente de SKU S1 que tem uma capacidade 3 pode ingressar apenas 2.100 eventos por minuto (1 milhão de eventos por dia = 700 eventos por minuto em 3 unidades = 2.100 eventos por minuto). Portanto, você observa um retardo devido à limitação. 
+Conforme mostrado no diagrama hello, taxa diária de entrada hello está ~ 67,000 mensagens. Essa taxa converte aproximadamente too46 mensagens a cada minuto. Se cada mensagem de hub de eventos é bidimensional tooa único evento de informações da série de tempo, esse ambiente não vê nenhuma limitação. Se cada mensagem de hub de eventos é bidimensional too100 eventos de informações da série de tempo, em seguida, 4,600 eventos devem ser incluídos a cada minuto. Um ambiente de SKU S1 que tem uma capacidade 3 pode ingressar apenas 2.100 eventos por minuto (1 milhão de eventos por dia = 700 eventos por minuto em 3 unidades = 2.100 eventos por minuto). Portanto você pode ver um atraso toothrottling vencimento. 
 
 Para obter um entendimento de alto nível sobre como funciona a lógica de nivelamento, consulte a seção [Formas de JSON com suporte](time-series-insights-send-events.md#supported-json-shapes).
 
 #### <a name="recommended-steps"></a>Etapas recomendadas
-Para corrigir o retardo, aumente a capacidade do SKU do ambiente. Para obter mais informações, consulte [Como dimensionar o ambiente do Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+latência de saudação toofix, Olá aumentar capacidade do SKU do seu ambiente. Para obter mais informações, consulte [como tooscale seu ambiente de tempo série Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="youre-pushing-historical-data-and-causing-slow-ingress"></a>Você está enviando dados históricos e causando a entrada lenta
-Se você estiver se conectando a uma origem do evento existente, é provável que o Hub IoT ou o hub de eventos já contenha dados. Portanto, o ambiente inicia o pull dos dados desde o início do período de retenção de mensagens da origem do evento. 
+Se você estiver se conectando a uma origem do evento existente, é provável que o Hub IoT ou o hub de eventos já contenha dados. Portanto ambiente Olá inicia dados entre o início de saudação do período de retenção de mensagem da fonte de evento hello. 
 
-Esse comportamento é o comportamento padrão e não pode ser substituído. Você pode acionar a limitação e pode levar alguns instantes para a atualização da ingestão de dados históricos.
+Esse comportamento é o comportamento padrão de saudação e não pode ser substituído. Você pode envolver a limitação e pode demorar um pouco toocatch backup sobre a ingestão de dados históricos.
 
 #### <a name="recommended-steps"></a>Etapas recomendadas
-Para corrigir o retardo, execute as seguintes etapas:
-1. Aumente a capacidade do SKU para o valor máximo permitido (10, neste caso). Após o aumento da capacidade, o processo de entrada começa a ser atualizado muito mais rapidamente. É possível visualizar a rapidez da atualização por meio do gráfico de disponibilidade no [Portal do Time Series Insights](https://insights.timeseries.azure.com). Você é cobrado pelo aumento da capacidade.
-2. Depois que o retardo for atualizado, diminua a capacidade do SKU novamente para a taxa de entrada normal.
+latência de saudação toofix, Olá execute as etapas a seguir:
+1. Aumente Olá SKU capacidade toohello valor máximo permitido (10, neste caso). Depois de capacidade de saudação é aumentada, processo de entrada hello inicia aproximando muito mais rápido. Você pode visualizar rapidamente como estamos obtendo por meio do gráfico de disponibilidade Olá Olá [portal Insights de série de tempo](https://insights.timeseries.azure.com). Você é cobrado para Olá maior capacidade.
+2. Depois de latência de saudação é detectada, diminua a taxa de entrada normal Olá SKU capacidade tooyour voltar.
 
 ## <a name="my-event-sources-timestamp-property-name-setting-doesnt-work"></a>A configuração *nome da propriedade do carimbo de data/hora* de minha origem do evento não funciona
-Verifique se o nome e o valor estão em conformidade com as seguintes regras:
-* O nome da propriedade do carimbo de data/hora _diferencia maiúsculas de minúsculas_.
-* O valor da propriedade do carimbo de data/hora obtido da origem do evento, como uma cadeia de caracteres JSON, deve ter o formato _yyyy-MM-ddTHH:mm:ss.FFFFFFFK_. Um exemplo de uma cadeia de caracteres desse tipo é “2008-04-12T12:53Z”.
+Verifique se o hello nome e valor atendem toohello regras a seguir:
+* nome de propriedade de carimbo de hora Olá _diferencia maiusculas de minúsculas_.
+* valor da propriedade timestamp Olá que vêm de sua fonte de evento, como uma cadeia de caracteres JSON, deve ter o formato de saudação _AAAA-MM-ddTHH. FFFFFFFK_. Um exemplo de uma cadeia de caracteres desse tipo é “2008-04-12T12:53Z”.

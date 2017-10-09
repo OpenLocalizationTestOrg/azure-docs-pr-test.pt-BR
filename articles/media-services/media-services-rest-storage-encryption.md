@@ -1,6 +1,6 @@
 ---
-title: "Como criptografar seu conteúdo com a criptografia de armazenamento usando a API REST do AMS"
-description: "Saiba como criptografar seu conteúdo com criptografia de armazenamento usando as APIs REST do AMS."
+title: "aaaEncrypting seu conteúdo com criptografia de armazenamento usando a API de REST AMS"
+description: "Saiba como tooencrypt seu conteúdo com criptografia de armazenamento usando as APIs de REST AMS."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d5f8cb8dd1dcded76c9fededccc772d8102ccbad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Criptografia do seu conteúdo com criptografia de armazenamento
 
-Recomendamos que você criptografe seu conteúdo localmente usando a criptografia AES de 256 bits e, em seguida, o carregue no armazenamento do Azure no qual ele será armazenado e criptografado em repouso.
+É altamente recomendável tooencrypt o conteúdo localmente usando AES-256 bits de criptografia e, em seguida, carregá-lo tooAzure armazenamento onde serão armazenado criptografado em repouso.
 
-Este artigo fornece uma visão geral da criptografia de armazenamento do AMS e mostra como carregar o conteúdo de armazenamento criptografado:
+Este artigo fornece uma visão geral da criptografia de armazenamento AMS e mostra como o armazenamento de saudação tooupload conteúdo criptografado:
 
 * Crie uma chave de conteúdo.
-* Crie um ativo. Defina o AssetCreationOption como StorageEncryption ao criar o ativo.
+* Crie um ativo. Defina Olá AssetCreationOption tooStorageEncryption ao criar hello ativo.
   
-     Os ativos criptografados precisam ser associados às chaves de conteúdo.
-* Vincular a chave de conteúdo ao ativo.  
-* Defina os parâmetros relacionados à criptografia nas entidades AssetFile.
+     Ativos criptografados têm toobe associado às chaves de conteúdo.
+* Ativo de conteúdo toohello chave do link hello.  
+* Definir criptografia Olá relacionados parâmetros em entidades de AssetFile hello.
 
 ## <a name="considerations"></a>Considerações 
 
-Se você quiser entregar um ativo de armazenamento criptografado, configure a política de entrega do ativo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de entrega especificada. Para obter mais informações, confira a seção [Configuring Asset Delivery Policies](media-services-rest-configure-asset-delivery-policy.md)(Configurando as Políticas de Entrega de Ativos).
+Se você quiser toodeliver um ativo de armazenamento criptografado, você deve configurar a política de entrega do hello ativo. Antes do ativo pode ser transmitido, Olá streaming fluxos e criptografia de armazenamento de saudação do servidor remove o conteúdo usando Olá especificado a política de distribuição. Para obter mais informações, confira a seção [Configuring Asset Delivery Policies](media-services-rest-configure-asset-delivery-policy.md)(Configurando as Políticas de Entrega de Ativos).
 
 Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md). 
 
-## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
+## <a name="connect-toomedia-services"></a>Conectar os serviços de tooMedia
 
-Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como tooconnect toohello AMS API, consulte [Olá acesso API de serviços de mídia do Azure com a autenticação do AD do Azure](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
+>Após conectar-se toohttps://media.windows.net, você receberá um redirecionamento 301 que especifica outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes toohello novo URI.
 
 ## <a name="storage-encryption-overview"></a>Visão geral da criptografia de armazenamento
-A criptografia de armazenamento do AMS aplica a criptografia do modo **AES-CTR** no arquivo inteiro.  O modo AES-CTR é uma codificação de bloco que pode criptografar dados de comprimento arbitrário sem necessidade de preenchimento. Ela funciona criptografando um bloco de contador com o algoritmo AES e aplicando XOR à saída do AES com os dados para criptografar ou descriptografar.  O bloco de contador usado é construído copiando o valor do InitializationVector para bytes de 0 a 7 do valor do contador e 8 a 15 do valor do contador são definidos como zero. Do bloco de contador de 16 bytes, os bytes de 8 a 15 (ou seja, os bytes menos significativos) são usados como um inteiro sem sinal de 64 bits simples que é incrementado em um para cada bloco subsequente de dados processados e é mantido em ordem de byte da rede. Observe que, se esse número inteiro atingir o valor máximo (0xFFFFFFFFFFFFFFFF), incrementá-lo redefinirá o contador de bloco para zero (bytes 8 a 15) sem afetar os 64 bits do contador (ou seja, bytes de 0 a 7).   Para manter a segurança de criptografia do modo AES-CTR, o valor do InitializationVector de um determinado Identificador Chave para cada conteúdo deve ser exclusivo para cada arquivo e os arquivos devem ser menores do que 2^64 blocos em comprimento.  Isso serve para garantir que um valor de contador jamais seja reutilizado com uma determinada chave. Para obter mais informações sobre o modo CTR, confira [esta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (o artigo da wiki usa o termo "Nonce" em vez de "InitializationVector").
+aplica-se a criptografia de armazenamento Olá AMS **AES CTR** arquivo inteiro do modo criptografia toohello.  O modo AES-CTR é uma codificação de bloco que pode criptografar dados de comprimento arbitrário sem necessidade de preenchimento. Ele funciona por criptografia de um bloco de contador com o algoritmo AES de saudação e, em seguida, saída de hello ndo XOR de AES com hello dados tooencrypt ou descriptografar.  bloco de contador Olá usado é construído, copie o valor Olá Olá InitializationVector toobytes 0 too7 do valor do contador Olá e too15 bytes 8 do valor do contador Olá são definidos toozero. Olá 16 bytes contador do bloco de bytes 8 too15 (ou seja, bytes menos significantes Olá) são usados como um inteiro não assinado de 64 bits simples que é incrementado em um para cada bloco subsequente de dados processados e é mantido em ordem de bytes de rede. Observe que se esse número inteiro atingir o valor para máximo de saudação (0xFFFFFFFFFFFFFFFF), em seguida, incrementando-redefine Olá bloco contador toozero (too15 bytes 8) sem afetar outra Olá 64 bits do contador hello (ou seja, too7 bytes 0).   Na segurança de saudação de toomaintain de ordem de criptografia de modo Olá CTR AES, hello InitializationVector valor para um determinado identificador de chave para cada chave de conteúdo deve ser exclusivo para cada arquivo e arquivos devem ser menor que 2 ^ 64 blocos de comprimento.  Isso é tooensure que um valor de contador nunca é reutilizado com uma determinada chave. Para obter mais informações sobre o modo CTR hello, consulte [nesta página wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (artigo do wiki Olá usa o termo hello "Nonce" em vez de "InitializationVector").
 
-Use a **Criptografia de Armazenamento** para criptografar seu conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carregue-a no Armazenamento do Azure no qual ela é armazenada e criptografada em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+Use **criptografia de armazenamento** tooencrypt o conteúdo limpo localmente usando AES-256 bits de criptografia e, em seguida, carregá-lo tooAzure armazenamento onde ele está armazenado criptografado em repouso. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um tooencoding anterior do sistema de arquivos criptografados e, opcionalmente, criptografada novamente toouploading anterior como um novo ativo de saída. caso de uso primário Olá para criptografia de armazenamento é quando você deseja toosecure seus arquivos de mídia de entrada de alta qualidade com criptografia forte em rest no disco.
 
-Para entregar um ativo de armazenamento criptografado, você deve configurar a política de entrega do ativo para que o Serviços de Mídia saiba como você deseja distribuir seu conteúdo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de distribuição especificada (por exemplo, AES, criptografia comum ou sem criptografia).
+Ordem toodeliver um ativo de armazenamento criptografado, você deve configurar a política de distribuição do ativo Olá para que serviços de mídia saibam como você deseja toodeliver seu conteúdo. Antes do ativo pode ser transmitido, Olá streaming fluxos e criptografia de armazenamento de saudação do servidor remove o conteúdo usando Olá especificado política de entrega (por exemplo, AES, criptografia comum ou sem criptografia).
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Criar ContentKeys usadas para criptografia
-Os ativos criptografados precisam ser associados à chave de criptografia de armazenamento. Você deve criar a chave de conteúdo a ser usada para criptografia antes de criar os arquivos de ativo. Este artigo descreve como criar uma chave de conteúdo.
+Ativos criptografados têm toobe associado à chave de criptografia de armazenamento. Você deve criar hello conteúdo toobe chave usada para criptografia antes de criar hello arquivos de ativo. Esta seção descreve como toocreate uma chave de conteúdo.
 
-A seguir estão as etapas gerais para gerar chaves de conteúdo que você associará aos ativos que você deseja que sejam criptografados. 
+Olá, a seguir estão as etapas gerais para a geração de chaves de conteúdo que você associará ativos que você deseja toobe criptografado. 
 
 1. Na criptografia de armazenamento, gere uma chave AES de 32 bytes aleatoriamente. 
    
-    Esta será a chave de conteúdo para o seu ativo, o que significa que será necessário usar a mesma chave de conteúdo com todos os arquivos associados a esse ativo durante a descriptografia. 
-2. Chame os métodos [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para criptografar sua chave de conteúdo.
-3. Criptografe a chave de conteúdo com a chave pública do certificado X.509. 
+    Essa será a chave de conteúdo de saudação para seu ativo, o que significa que todos os arquivos associados com esse ativo será necessário toouse Olá a mesma chave de conteúdo durante a descriptografia. 
+2. Chamar hello [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) tooget métodos Olá certificado x. 509 correto que deve ser usado tooencrypt sua chave de conteúdo.
+3. Criptografe a chave de conteúdo com a chave pública de saudação do hello certificado x. 509. 
    
-   O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia.  Você pode ver um exemplo do .NET na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Crie um valor de soma de verificação calculado usando o identificador de chave e a chave de conteúdo. O exemplo de .NET a seguir calcula a soma de verificação usando a parte GUID do identificador de chave e a chave de conteúdo limpa.
+   SDK do Media Services .NET usa o RSA com OAEP ao usar a criptografia de saudação.  Você pode ver um exemplo .NET no hello [EncryptSymmetricKeyData função](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Crie um valor de soma de verificação calculado usando o identificador de chave de saudação e a chave de conteúdo. Olá .NET de exemplo a seguir calcula a soma de verificação de saudação usando Olá GUID parte do identificador de chave hello e Olá limpar chave de conteúdo.
 
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
         {
@@ -74,8 +74,8 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
 
             byte[] encryptedKeyId = null;
 
-            // Checksum is computed by AES-ECB encrypting the KID
-            // with the content key.
+            // Checksum is computed by AES-ECB encrypting hello KID
+            // with hello content key.
             using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
             {
                 rijndael.Mode = CipherMode.ECB;
@@ -93,22 +93,22 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
             return Convert.ToBase64String(retVal);
         }
 
-1. Crie a chave de conteúdo com os valores **EncryptedContentKey** (convertido em cadeia de caracteres codificada em base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** que você recebeu nas etapas anteriores.
+1. Criar chave de conteúdo Olá com hello **EncryptedContentKey** (convertido a cadeia de caracteres codificada toobase64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, e **Checksum** valores que você recebeu nas etapas anteriores.
 
-    Na criptografia de armazenamento, as propriedades a seguir devem ser incluídas no corpo da solicitação.
+    Para criptografia de armazenamento, hello propriedades a seguir devem ser incluídas no corpo da solicitação de saudação.
 
     Propriedade do corpo da solicitação    | Descrição
     ---|---
-    ID | A ID de ContentKey que nós mesmos geramos usando o seguinte formato, "nb:kid:UUID:<NEW GUID>".
-    ContentKeyType | Esse é o tipo de chave de conteúdo, como um inteiro para esta chave de conteúdo. Passamos o valor 1 para a criptografia de armazenamento.
-    EncryptedContentKey | Criamos um novo valor de chave de conteúdo, que é um valor de 256 bits (32 bytes). A chave é criptografada usando o certificado X.509 de criptografia de armazenamento que recuperamos dos Serviços de Mídia do Microsoft Azure por meio da execução de uma solicitação HTTP GET para os métodos GetProtectionKeyId e GetProtectionKey. Como um exemplo, confira o seguinte código do .NET: o método **EncryptSymmetricKeyData** definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | Essa é a ID da chave de proteção para o certificado X.509 de criptografia de armazenamento usado para criptografar nossa chave de conteúdo.
-    ProtectionKeyType | Esse é o tipo de criptografia para a chave de proteção usada para criptografar a chave de conteúdo. Em nosso exemplo, este valor será StorageEncryption(1).
-    Soma de verificação |A soma de verificação calculada por MD5 para a chave de conteúdo. Ela é calculada pela criptografia da ID de conteúdo com a chave de conteúdo. O exemplo de código demonstra como calcular a soma de verificação.
+    ID | Olá Id de ContentKey que podemos gerar nós usando Olá após formatar, "NB:<NEW GUID>".
+    ContentKeyType | Isso é o tipo de chave de conteúdo do hello como um inteiro para esta chave de conteúdo. Passamos o valor de saudação 1 para criptografia de armazenamento.
+    EncryptedContentKey | Criamos um novo valor de chave de conteúdo, que é um valor de 256 bits (32 bytes). chave de saudação é criptografada usando o certificado x. 509 de criptografia de armazenamento de saudação que recuperamos de serviços de mídia do Microsoft Azure, executando uma solicitação HTTP GET para hello GetProtectionKeyId e GetProtectionKey métodos. Por exemplo, consulte Olá código .NET a seguir: Olá **EncryptSymmetricKeyData** método definido [aqui](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    ProtectionKeyId | Isso é Olá id de chave de proteção para o certificado x. 509 de criptografia de armazenamento de saudação que foi usado tooencrypt a chave de conteúdo.
+    ProtectionKeyType | Este é o tipo de criptografia de saudação para chave de proteção de saudação que foi usado tooencrypt chave de conteúdo de saudação. Em nosso exemplo, este valor será StorageEncryption(1).
+    Soma de verificação |Olá MD5 soma de verificação calculada para a chave de conteúdo de saudação. Ela é computada criptografando a Id do conteúdo Olá com chave de conteúdo de saudação. o código de exemplo Hello demonstra como toocalculate Olá soma de verificação.
 
 
-### <a name="retrieve-the-protectionkeyid"></a>Recuperação de ProtectionKeyId
-O exemplo a seguir mostra como recuperar o ProtectionKeyId, uma impressão digital de certificado, para o certificado que você deve usar ao criptografar a chave de conteúdo. Conclua esta etapa para certificar-se de que você já tem o certificado apropriado em seu computador.
+### <a name="retrieve-hello-protectionkeyid"></a>Recuperar Olá ProtectionKeyId
+saudação de exemplo a seguir mostra como tooretrieve Olá ProtectionKeyId, uma impressão digital, Olá certificado você deve usar ao criptografar a chave de conteúdo. Faça essa toomake etapa-se de que você já tem o certificado apropriado Olá em seu computador.
 
 Solicitação:
 
@@ -138,8 +138,8 @@ Resposta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Recuperar ProtectionKey para o ProtectionKeyId
-O exemplo a seguir mostra como recuperar o certificado X.509 usando o ProtectionKeyId recebido na etapa anterior.
+### <a name="retrieve-hello-protectionkey-for-hello-protectionkeyid"></a>Recuperar hello ProtectionKey para Olá ProtectionKeyId
+Olá exemplo a seguir mostra como certificado de x. 509 Olá tooretrieve usando Olá ProtectionKeyId que você recebeu na etapa anterior hello.
 
 Solicitação:
 
@@ -172,12 +172,12 @@ Resposta:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-### <a name="create-the-content-key"></a>Criar a chave de conteúdo
-Depois de recuperar o certificado X.509 e usar sua chave pública para criptografar a chave de conteúdo, crie uma entidade **ContentKey** e defina seus valores de propriedade adequadamente.
+### <a name="create-hello-content-key"></a>Criar chave de conteúdo Olá
+Depois de recuperar o certificado x. 509 de saudação e usado seu tooencrypt de chave pública a chave de conteúdo, crie um **ContentKey** entidade e defina sua propriedade valores adequadamente.
 
-Um dos valores que você deve definir quando criar o conteúdo chave é o tipo. No caso da criptografia de armazenamento, o valor é '1'. 
+Um dos valores de saudação que você deve definir quando criar hello conteúdo de chave é o tipo de saudação. No caso de criptografia de armazenamento hello, o valor de saudação é '1'. 
 
-O exemplo a seguir mostra como criar um **ContentKey** com um **ContentKeyType** definido para criptografia de armazenamento ("1") e o **ProtectionKeyType** definido como "0", para indicar que a ID da chave de proteção é a impressão digital do certificado X.509.  
+Olá mostrado no exemplo a seguir como toocreate uma **ContentKey** com um **ContentKeyType** definido para criptografia de armazenamento ("1") e hello **ProtectionKeyType** definido muito "0" tooindicate que Olá Id da chave de proteção é a impressão digital do certificado Olá x. 509.  
 
 Solicitação
 
@@ -227,7 +227,7 @@ Resposta:
     "Checksum":"calculated checksum"}
 
 ## <a name="create-an-asset"></a>Criar um ativo
-O exemplo a seguir mostra como criar um ativo.
+Olá mostrado no exemplo a seguir como toocreate um ativo.
 
 **Solicitação HTTP**
 
@@ -245,7 +245,7 @@ O exemplo a seguir mostra como criar um ativo.
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte:
+Se for bem-sucedido, a seguir Olá será retornada:
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -273,8 +273,8 @@ Se for bem-sucedido, será retornado o seguinte:
        "StorageAccountName":"storagetestaccount001"
     }
 
-## <a name="associate-the-contentkey-with-an-asset"></a>Associar o ContentKey com um ativo
-Depois de criar o ContentKey, associe-o ao seu ativo usando a operação $links, conforme mostrado no exemplo a seguir:
+## <a name="associate-hello-contentkey-with-an-asset"></a>Associar a um ativo de saudação ContentKey
+Depois de criar hello ContentKey, associe-o seu ativo usando a operação de saudação $links, conforme mostrado no exemplo a seguir de saudação:
 
 Solicitação:
 
@@ -295,11 +295,11 @@ Resposta:
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Criar um AssetFile
-A entidade [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo e um ativo pode conter um ou vários arquivos de ativo. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
+Olá [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entidade representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo e um ativo pode conter um ou vários arquivos de ativo. tarefa do Media Services Encoder Olá falhará se um objeto de arquivo do ativo não está associado um arquivo digital em um contêiner de blob.
 
-Observe que a instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
+Observe que Olá **AssetFile** instância e o arquivo de mídia real Olá são dois objetos distintos. instância de AssetFile Olá contém metadados sobre o arquivo de mídia Olá, enquanto o arquivo de mídia Olá contém conteúdo de mídia real hello.
 
-Depois de carregar seu arquivo de mídia digital em um contêiner de blobs, você usará a solicitação HTTP **MERGE** para atualizar o AssetFile com informações sobre o arquivo de mídia (não mostrado neste tópico). 
+Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará Olá **mesclar** Olá tooupdate de solicitação HTTP AssetFile com informações sobre o arquivo de mídia (não mostrado neste tópico). 
 
 **Solicitação HTTP**
 

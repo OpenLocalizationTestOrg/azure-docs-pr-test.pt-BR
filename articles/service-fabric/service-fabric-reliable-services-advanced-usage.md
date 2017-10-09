@@ -1,5 +1,5 @@
 ---
-title: "Uso avançado dos Reliable Services | Microsoft Docs"
+title: "uso de aaaAdvanced de serviços confiáveis | Microsoft Docs"
 description: "Saiba mais sobre o uso avançado do Reliable Services do Service Fabric para obter maior flexibilidade em seus serviços."
 services: Service-Fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e6d6310a4deae9edcfcd76551e1337f0e39e9e5d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Uso avançado do modelo de programação de Serviços Confiáveis
-O Service Fabric do Azure simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este guia trata dos usos avançados dos Reliable Services para obter mais controle e flexibilidade sobre seus serviços. Antes de ler este guia, familiarize-se com [o do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-introduction.md).
+# <a name="advanced-usage-of-hello-reliable-services-programming-model"></a>O uso de serviços confiáveis hello, modelo de programação avançado
+O Service Fabric do Azure simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este guia aborda usos avançados de toogain serviços confiáveis mais controle e flexibilidade sobre seus serviços. Tooreading anterior guia, familiarize-se com [modelo de programação de serviços confiáveis Olá](service-fabric-reliable-services-introduction.md).
 
 Os serviços com e sem estado têm dois pontos de entrada principais para o código de usuário:
 
@@ -33,11 +33,11 @@ Para a maioria dos serviços, esses dois pontos de entrada são suficientes. Par
 ## <a name="stateless-service-instance-lifecycle"></a>Ciclo de vida de instância de serviço sem estado
 O ciclo de vida de um serviço sem estado é muito simples. Um serviço sem estado só pode ser aberto, fechado ou anulado. `RunAsync` em um serviço sem estado é executado quando uma instância de serviço é aberta e cancelado quando uma instância de serviço é fechada ou anulada.
 
-Embora `RunAsync` deva ser suficiente em quase todos os casos, os eventos abrir, fechar e anular em um serviço sem estado também estão disponíveis:
+Embora `RunAsync` devem ser suficientes em quase todos os casos, Olá abrir, fechar e eventos de anulação em um serviço sem monitoração de estado também estão disponíveis:
 
-* `Task OnOpenAsync(IStatelessServicePartition, CancellationToken) - C# / CompletableFuture<String> onOpenAsync(CancellationToken) - Java` OnOpenAsync é chamado quando a instância do serviço sem estado está prestes a ser usada. As tarefas de inicialização do serviço estendido podem ser iniciadas nesse momento.
-* `Task OnCloseAsync(CancellationToken) - C# / CompletableFuture onCloseAsync(CancellationToken) - Java` OnCloseAsync é chamado quando a instância do serviço sem estado está prestes a ser desligada de modo normal. Isso pode ocorrer quando o código de serviço estiver sendo atualizado, quando a instância do serviço estiver sendo movida devido ao balanceamento de carga ou quando for detectada uma falha temporária. OnCloseAsync pode ser usado para fechar todos os recursos com segurança, interromper todos os processamentos em segundo plano, terminar de salvar o estado externo ou fechar conexões existentes.
-* `void OnAbort() - C# / void onAbort() - Java` OnAbort é chamado quando a instância do serviço sem estado está sendo desligada de modo forçado. Ele geralmente é chamado quando é detectada uma falha permanente no nó ou quando a malha de serviço não pode gerenciar confiavelmente o ciclo de vida da instância do serviço devido a falhas internas.
+* `Task OnOpenAsync(IStatelessServicePartition, CancellationToken) - C# / CompletableFuture<String> onOpenAsync(CancellationToken) - Java`OnOpenAsync é chamado quando a instância de serviço sem monitoração de estado de saudação é sobre toobe usado. As tarefas de inicialização do serviço estendido podem ser iniciadas nesse momento.
+* `Task OnCloseAsync(CancellationToken) - C# / CompletableFuture onCloseAsync(CancellationToken) - Java`OnCloseAsync é chamado quando a instância de serviço sem monitoração de estado Olá vai toobe desligamento normalmente. Isso pode ocorrer quando o código do serviço hello está sendo atualizado, a instância do serviço hello está sendo movida devido tooload balanceamento ou for detectada uma falha temporária. OnCloseAsync pode ser usado toosafely fechar todos os recursos, parar qualquer processamento em segundo plano, terminar de salvar o estado externo ou fechar conexões existentes.
+* `void OnAbort() - C# / void onAbort() - Java`OnAbort é chamado quando a instância de serviço sem monitoração de estado hello está sendo desligada forçada. Isso geralmente é chamado quando uma falha permanente foi detectada no nó hello, ou quando o Service Fabric confiável não pode gerenciar o ciclo de vida da instância de serviço Olá devido a falhas de toointernal.
 
 ## <a name="stateful-service-replica-lifecycle"></a>Ciclo de vida de réplica de serviço com estado
 
@@ -46,15 +46,15 @@ Embora `RunAsync` deva ser suficiente em quase todos os casos, os eventos abrir,
 >
 >
 
-Um ciclo de vida de uma réplica de serviço com estado é muito mais complexo do que uma instância de serviço sem estado. Além dos eventos abrir, fechar e anular, uma réplica de serviço com estado sofre mudanças de função durante seu ciclo de vida. Quando uma réplica de serviço com estado muda de função, o evento `OnChangeRoleAsync` é disparado:
+Um ciclo de vida de uma réplica de serviço com estado é muito mais complexo do que uma instância de serviço sem estado. Além disso tooopen, feche e anular eventos, uma réplica de serviço com monitoração de estado sofre alterações de função durante seu ciclo de vida. Quando uma réplica de serviço com monitoração de estado altera funções, hello `OnChangeRoleAsync` evento é acionado:
 
-* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)` OnChangeRoleAsync é chamado quando a réplica de serviço com estado está alterando funções, por exemplo para primário ou secundário. Réplicas primárias recebem status de gravação (têm permissão para criar as Coleções Confiáveis e gravar nelas). Réplicas secundárias recebem status de leitura (podem somente ler das coleções confiáveis existentes). A maior parte do trabalho em um serviço com estado é executado na réplica primária. Réplicas secundárias podem realizar validação somente leitura, geração de relatórios, mineração de dados ou outros trabalhos somente leitura.
+* `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`OnChangeRoleAsync é chamado quando a réplica de serviço com monitoração de estado de saudação é alterar a função, por exemplo, tooprimary ou secundário. Réplicas primárias recebem status de gravação (são permitidos toocreate e gravar tooReliable coleções). Réplicas secundárias recebem status de leitura (podem somente ler das coleções confiáveis existentes). A maioria dos trabalho em um serviço com monitoração de estado é executado na réplica primária hello. Réplicas secundárias podem realizar validação somente leitura, geração de relatórios, mineração de dados ou outros trabalhos somente leitura.
 
-Em um serviço com estado, somente a réplica primária tem acesso de gravação para o estado e isso ocorre geralmente quando o serviço está executando o trabalho real. O método `RunAsync` em um serviço com estado é executado somente quando a réplica de serviço com estado é primária. O método `RunAsync` é cancelado quando a função de uma réplica primária é alterada para algo diferente de primária e também durante os eventos close e abort.
+Em um serviço com monitoração de estado, apenas réplica primária Olá tem acesso de gravação toostate e, portanto, geralmente quando Olá executa trabalho real. Olá `RunAsync` método em um serviço com monitoração de estado é executado somente quando a réplica de serviço com monitoração de estado de saudação é primária. Olá `RunAsync` método é cancelado quando as alterações de função da réplica primária longe primário, bem como durante a saudação fechar e anular eventos.
 
-O uso do evento `OnChangeRoleAsync` permite que você execute o trabalho dependendo da função da réplica, bem como em resposta à mudança de função.
+Usando Olá `OnChangeRoleAsync` evento permite tooperform trabalho dependendo da função de réplica, bem como alterações de toorole de resposta.
 
-Um serviço com estado também fornece os mesmos quatro eventos do ciclo de vida que o serviço sem estado, com a mesma semântica e casos de uso:
+Um serviço com monitoração de estado também fornece eventos de ciclo de vida de saudação quatro mesmo como um serviço sem monitoração de estado, com hello a mesma semântica e casos de uso:
 
 ```csharp
 * Task OnOpenAsync(IStatefulServicePartition, CancellationToken)
@@ -63,9 +63,9 @@ Um serviço com estado também fornece os mesmos quatro eventos do ciclo de vida
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para tópicos mais avançados relacionados ao Service Fabric, consulte os artigos a seguir:
+Para mais avançados tópicos relacionados tooService malha, consulte Olá artigos a seguir:
 
 * [Configurando Reliable Services com estado](service-fabric-reliable-services-configuration.md)
 * [Introdução à integridade da Malha do Serviço](service-fabric-health-introduction.md)
 * [Usando relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-* [Configurando serviços com o Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-configure-services.md)
+* [Configurando os serviços com hello Gerenciador de recursos de Cluster do serviço de malha](service-fabric-cluster-resource-manager-configure-services.md)

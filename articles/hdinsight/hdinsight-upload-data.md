@@ -1,6 +1,6 @@
 ---
-title: Carregar dados para trabalhos do Hadoop no HDInsight | Microsoft Docs
-description: Saiba como carregar e acessar os dados de trabalhos do Hadoop no HDInsight usando o Azure CLI, Azure Storage Explorer, Azure PowerShell, a linha de comando do Hadoop ou o Sqoop.
+title: dados de aaaUpload para trabalhos de Hadoop em HDInsight | Microsoft Docs
+description: "Saiba como tooupload e acessar dados para trabalhos de Hadoop no HDInsight usando Olá CLI do Azure, Azure Storage Explorer, Azure PowerShell, linha de comando do Hadoop hello ou Sqoop."
 keywords: hadoop de etl, inserindo dados no hadoop, carregar dados no hadoop
 services: hdinsight,storage
 documentationcenter: 
@@ -17,36 +17,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: jgao
-ms.openlocfilehash: 6867f96c8ea0e31ed0e682cef48e7aa5e3f65f86
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 15da602085d41c19789e34800f3d9e238d7d1de8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Hadoop no HDInsight
-O Azure HDInsight oferece um HDFS (Sistema de Arquivos Distribuído) do Hadoop completo no armazenamento de blob do Azure. Ele foi projetado como uma extensão HDFS para fornecer uma experiência perfeita aos clientes. Ele permite que o conjunto completo de componentes no ecossistema do Hadoop opere diretamente nos dados que ele gerencia. O armazenamento de blob do Azure e o HDFS são sistemas de arquivos distintos otimizados para armazenamento de dados e computação nesses dados. Para ver informações sobre os benefícios de usar o Armazenamento de Blobs do Azure, consulte [Usar o Armazenamento de Blobs do Azure com o HDInsight][hdinsight-storage].
+O Azure HDInsight oferece um HDFS (Sistema de Arquivos Distribuído) do Hadoop completo no armazenamento de blob do Azure. Ele foi projetado como uma extensão HDFS tooprovide uma perfeita experiência toocustomers. Ele permite que todo o conjunto de componentes em Olá Hadoop ecossistema toooperate diretamente nos dados de saudação gerencia hello. O armazenamento de blob do Azure e o HDFS são sistemas de arquivos distintos otimizados para armazenamento de dados e computação nesses dados. Para obter informações sobre os benefícios de saudação do uso de armazenamento de BLOBs do Azure, consulte [armazenamento de BLOBs do Azure Use com HDInsight][hdinsight-storage].
 
 **Pré-requisitos**
 
-Observe os seguintes requisitos antes de começar:
+Observe Olá requisito a seguir antes de começar:
 
 * Um cluster Azure HDInsight. Para obter instruções, consulte [Introdução ao Azure HDInsight][hdinsight-get-started] ou [Provisionar clusters HDInsight][hdinsight-provision].
 
 ## <a name="why-blob-storage"></a>Por que o armazenamento de blob?
-Os clusters do Azure HDInsight normalmente são implantados para executar trabalhos do MapReduce e são removidos quando esses trabalhos são concluídos. A manutenção dos dados nos clusters HDFS após a conclusão dos cálculos seria uma maneira cara de armazenar esses dados. O armazenamento de Blob do Azure é altamente disponível, escalonável, com alta capacidade, baixo custo e uma opção de armazenamento compartilhável para dados a serem processados usando o HDInsight. O armazenamento de dados em um blob permite que os clusters HDInsight usados para computação sejam liberados sem que ocorra perda de dados.
+HDInsight do Azure clusters normalmente são implantados toorun trabalhos de MapReduce e clusters hello serão descartados depois de concluir essas tarefas. Manter os dados de saudação em clusters HDFS Olá após a conclusão computações seria uma forma caro toostore esses dados. Armazenamento de BLOBs do Azure é altamente disponível, altamente escalonável e de alta capacidade, a opção de armazenamento de baixo custo e podem ser compartilhadas para dados que são processada usando HDInsight de toobe. Armazenando dados em um blob permite que os clusters de HDInsight Olá que são usados para computação toobe lançado com segurança sem perda de dados.
 
 ### <a name="directories"></a>Diretórios
-Os contêineres de armazenamento de blob do Azure armazenam dados como pares de chave/valor e não há nenhuma hierarquia de diretório. No entanto, o caractere "/" pode ser usado dentro do nome de chave para parecer que um arquivo está armazenado em uma estrutura de diretório. O HDInsight os vê como se fossem diretórios reais.
+Os contêineres de armazenamento de blob do Azure armazenam dados como pares de chave/valor e não há nenhuma hierarquia de diretório. No entanto hello "/" caractere pode ser usado em Olá nome da chave toomake ele aparece como se um arquivo é armazenado em uma estrutura de diretório. O HDInsight os vê como se fossem diretórios reais.
 
-Por exemplo, a chave de um blob pode ser *input/log1.txt*. Não existe nenhum diretório de "entrada" real, mas devido à presença do caractere "/" no nome da chave, ele parece um caminho de arquivo.
+Por exemplo, a chave de um blob pode ser *input/log1.txt*. Nenhum diretório real de "entrado" existe, mas devido a presença de toohello de saudação caractere "/" no nome da chave Olá, ele tem a aparência de saudação de um caminho de arquivo.
 
 Por isso, se você usar as ferramentas do Gerenciador do Azure, poderá perceber alguns arquivos de 0 byte. Esses arquivos têm duas finalidades:
 
-* Se houver pastas vazias, eles marcam a existência da pasta. O Armazenamento de blob do Azure é inteligente o suficiente para saber que se existir um blob denominado foo/bar, haverá uma pasta chamada **foo**. Mas se você desejar ter uma pasta vazia chamada **foo** , a única maneira de indicar isso é tendo esse arquivo de 0 byte especial no lugar.
-* Elas contêm alguns metadados especiais de que o sistema de arquivos Hadoop precisa, especialmente as permissões e os proprietários das pastas.
+* Se houver pastas vazias, eles marcam de existência de saudação da pasta hello. Armazenamento de BLOBs do Azure é bastante inteligente tooknow que exista um blob denominado foo/barra, há uma pasta chamada **foo**. Mas Olá toosignify de maneira somente uma pasta vazia chamada **foo** é ter esse arquivo especial de 0 byte em vigor.
+* Mantenham metadados especial que é necessário por Olá Hadoop sistema de arquivos, especialmente permissões hello e proprietários para pastas de saudação.
 
 ## <a name="command-line-utilities"></a>Utilitários de linha de comando
-A Microsoft fornece os seguintes utilitários para trabalhar com armazenamento de Blob do Azure:
+A Microsoft fornece Olá toowork utilitários com o armazenamento de BLOBs do Azure a seguir:
 
 | Ferramenta | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
@@ -56,58 +56,58 @@ A Microsoft fornece os seguintes utilitários para trabalhar com armazenamento d
 | [Comando do Hadoop](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Enquanto o CLI do Azure, o Azure PowerShell e o AzCopy podem ser usados fora do Azure, o comando Hadoop só está disponível no cluster HDInsight e só permite carregar dados do sistema de arquivos local para o armazenamento de Blob do Azure.
+> Embora Olá CLI do Azure, Azure PowerShell e AzCopy podem ser usados de fora do Azure, Olá Hadoop comando só está disponível no cluster do HDInsight hello e só permite carregar dados do sistema de arquivos local Olá para armazenamento de BLOBs do Azure.
 >
 >
 
 ### <a id="xplatcli"></a>Azure CLI
-O Azure CLI é uma ferramenta de plataforma cruzada que permite que você gerencie os serviços do Azure. Use as seguintes etapas para carregar dados no armazenamento de Blob do Azure:
+Olá CLI do Azure é uma ferramenta de plataforma cruzada que permite que você toomanage do Azure services. Use Olá armazenamento de Blob etapas tooupload dados tooAzure a seguir:
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-1. [Instalar e configurar o Azure CLI para Mac, Linux e Windows](../cli-install-nodejs.md).
-2. Abra um prompt de comando, bash ou outro shell e use os dados a seguir para autenticar a sua assinatura do Azure.
+1. [Instalar e configurar Olá CLI do Azure para Mac, Linux e Windows](../cli-install-nodejs.md).
+2. Abra um prompt de comando, bash ou outro shell e usar Olá tooauthenticate tooyour assinatura do Azure a seguir.
 
         azure login
 
-    Quando solicitado, insira o nome de usuário e senha para a sua assinatura.
-3. Use o seguinte comando para listar sites para as contas de armazenamento da sua assinatura:
+    Quando solicitado, digite Olá nome de usuário e senha para a sua assinatura.
+3. Digite hello contas de armazenamento de saudação do comando toolist para sua assinatura a seguir:
 
         azure storage account list
-4. Selecione a conta de armazenamento que contém o blob com que você deseja trabalhar e use o seguinte comando para recuperar a chave para esta conta:
+4. Conta de armazenamento Olá Select que contém o blob Olá toowork, você deseja usar Olá comando tooretrieve Olá chave desta conta a seguir:
 
         azure storage account keys list <storage-account-name>
 
-    Isso deve retornar as chaves **Primária** e **Secundária**. Copie o valor de chave **Primária** , já que ele será usado nas próximas etapas.
-5. Use o seguinte comando para recuperar uma lista de contêineres de blob na conta de armazenamento:
+    Isso deve retornar as chaves **Primária** e **Secundária**. Saudação de cópia **primário** valor de chave, pois ele será usado nas etapas Avançar hello.
+5. Use Olá tooretrieve comando uma lista de contêineres de blob na conta de armazenamento Olá a seguir:
 
         azure storage container list -a <storage-account-name> -k <primary-key>
-6. Use os seguintes comandos para carregar e baixar arquivos para o blob:
+6. Use Olá tooupload comandos a seguir e baixar arquivos toohello blob:
 
-   * Para carregar um arquivo:
+   * tooupload um arquivo:
 
            azure storage blob upload -a <storage-account-name> -k <primary-key> <source-file> <container-name> <blob-name>
-   * Para baixar um arquivo:
+   * toodownload um arquivo:
 
            azure storage blob download -a <storage-account-name> -k <primary-key> <container-name> <blob-name> <destination-file>
 
 > [!NOTE]
-> Se você for sempre trabalhar com a mesma conta de armazenamento, pode definir as seguintes variáveis de ambiente em vez de especificar a conta e a chave para cada comando:
+> Se você sempre trabalhará com hello mesma conta de armazenamento, você pode definir Olá seguintes variáveis de ambiente em vez de especificar a conta de saudação e a chave para cada comando:
 >
-> * **AZURE\_STORAGE\_ACCOUNT**: o nome da conta de armazenamento
-> * **AZURE\_STORAGE\_ACCESS\_KEY**: a chave da conta de armazenamento
+> * **AZURE\_armazenamento\_conta**: nome de conta de armazenamento Olá
+> * **AZURE\_armazenamento\_acesso\_chave**: chave de conta de armazenamento Olá
 >
 >
 
 ### <a id="powershell"></a>PowerShell do Azure
-O Azure PowerShell é um ambiente de script que você pode usar para controlar e automatizar a implantação e o gerenciamento de suas cargas de trabalho no Azure. Para saber mais sobre como configurar sua estação de trabalho para executar o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
+PowerShell do Azure é um ambiente de script que você pode usar toocontrol e automatizar a implantação de saudação e o gerenciamento de suas cargas de trabalho no Azure. Para obter informações sobre como configurar toorun sua estação de trabalho do PowerShell do Azure, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
-**Para carregar um arquivo local para o Armazenamento de Blob do Azure**
+**tooupload tooAzure um arquivo local armazenamento de Blob**
 
-1. Abra o console do PowerShell do Azure conforme instruído em [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
-2. Defina os valores das cinco primeiras variáveis no script a seguir:
+1. Console do Azure PowerShell Olá aberta com as instruções no [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+2. Defina valores Olá Olá cinco primeiros variáveis em Olá script a seguir:
 
         $resourceGroupName = "<AzureResourceGroupName>"
         $storageAccountName = "<StorageAccountName>"
@@ -116,41 +116,41 @@ O Azure PowerShell é um ambiente de script que você pode usar para controlar e
         $fileName ="<LocalFileName>"
         $blobName = "<BlobName>"
 
-        # Get the storage account key
+        # Get hello storage account key
         $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
-        # Create the storage context object
+        # Create hello storage context object
         $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
-        # Copy the file from local workstation to the Blob container
+        # Copy hello file from local workstation toohello Blob container
         Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -context $destContext
-3. Cole o script no console do Azure PowerShell para executá-lo para copiar o arquivo.
+3. Olá colar o script em hello Azure PowerShell console toorun-toocopy arquivo de saudação.
 
-Por exemplo, os scripts do PowerShell criados para funcionar com o HDInsight, consulte [Ferramentas HDInsight](https://github.com/blackmist/hdinsight-tools).
+Por exemplo, PowerShell scripts criados toowork com HDInsight, consulte [ferramentas HDInsight](https://github.com/blackmist/hdinsight-tools).
 
 ### <a id="azcopy"></a>AzCopy
-O AzCopy é uma ferramenta de linha de comando destinada a simplificar a tarefa de transferir dados de e para uma conta de Armazenamento do Azure. Você pode usá-lo como uma ferramenta independente ou incorporar essa ferramenta em um aplicativo existente. [Baixar o AzCopy][azure-azcopy-download].
+AzCopy é uma ferramenta de linha de comando que é projetado toosimplify tarefa de saudação de transferência de dados dentro e fora de uma conta de armazenamento do Azure. Você pode usá-lo como uma ferramenta independente ou incorporar essa ferramenta em um aplicativo existente. [Baixar o AzCopy][azure-azcopy-download].
 
-A sintaxe do AzCopy é:
+Olá sintaxe AzCopy é:
 
     AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 
 Para saber mais, consulte [AzCopy – Carregando/baixando arquivos para Blobs do Azure][azure-azcopy].
 
 ### <a id="commandline"></a>Linha de comando do Hadoop
-A linha de comando do Hadoop só é útil para armazenar dados no armazenamento de blob quando os dados já estão presentes no nó principal do cluster.
+linha de comando do Hadoop Olá só é útil para armazenar dados no armazenamento de blob quando dados saudação já estão presentes no nó principal do cluster hello.
 
-Para usar o comando Hadoop, primeiro você deve se conectar ao nó de cabeçalho usando um dos seguintes métodos:
+Saudação de toouse ordem Hadoop comando, você deve primeiro se conectar toohello um nó principal usando um dos métodos a seguir de saudação:
 
 * **HDInsight baseado em Windows**: [conecte-se usando a área de trabalho remota](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight baseado em Linux**: conecte-se usando SSH ([o comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
+* **HDInsight baseados em Linux**: conectar-se usando o SSH ([Olá comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md) ou [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
 
-Uma vez conectado, você pode usar a seguinte sintaxe para carregar um arquivo no armazenamento.
+Uma vez conectado, você pode usar o hello tooupload sintaxe toostorage um arquivo a seguir.
 
     hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 Por exemplo, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-Como o sistema de arquivos padrão para o HDInsight está no armazenamento de Blob do Azure, /example/data.txt está, na verdade, no armazenamento de Blob do Azure. Você também pode fazer referência ao arquivo como:
+Como sistema de arquivos padrão Olá para HDInsight está no armazenamento de BLOBs do Azure, /example/data.txt, na verdade, está no armazenamento de BLOBs do Azure. Você também pode consultar o arquivo toohello como:
 
     wasb:///example/data/data.txt
 
@@ -161,12 +161,12 @@ ou o
 Para obter uma lista dos outros comandos Hadoop que trabalham com os arquivos, consulte [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
-> Em clusters HBase, o tamanho do bloco padrão usado na gravação de dados é de 256 KB. Embora isso funcione bem com APIs HBase ou APIs REST, usar os comandos `hadoop` ou `hdfs dfs` para gravar dados com mais de, aproximadamente, 12 GB resulta em um erro. Confira a seção abaixo [Exceção de armazenamento para gravar no blob](#storageexception) para obter mais informações.
+> Em clusters de HBase, tamanho de bloco saudação padrão usado quando a gravação de dados é 256KB. Enquanto isso funciona bem quando usando APIs do HBase ou APIs REST, usando Olá `hadoop` ou `hdfs dfs` dados de toowrite comandos maiores ~ 12 GB resulta em um erro. Consulte Olá [exceção de armazenamento para gravação no blob](#storageexception) seção abaixo para obter mais informações.
 >
 >
 
 ## <a name="graphical-clients"></a>Clientes gráficos
-Também há vários aplicativos que fornecem uma interface gráfica para trabalhar com o Armazenamento do Azure. Segue uma lista de alguns desses aplicativos:
+Também há vários aplicativos que fornecem uma interface gráfica para trabalhar com o Armazenamento do Azure. a seguir Olá é uma lista de alguns desses aplicativos:
 
 | Cliente | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
@@ -178,46 +178,46 @@ Também há vários aplicativos que fornecem uma interface gráfica para trabalh
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 ### <a name="visual-studio-tools-for-hdinsight"></a>Ferramentas do Visual Studio para HDInsight
-Para saber mais, veja [Navegar nos recursos vinculados](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Para obter mais informações, consulte [recursos vinculados do hello navegar](hdinsight-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
 
 ### <a id="storageexplorer"></a>Gerenciador de Armazenamento do Azure
-*Gerenciador de Armazenamento do Azure* é uma ferramenta útil para inspecionar e alterar os dados nos blobs. É uma ferramenta de software livre que pode ser baixada em [http://storageexplorer.com/](http://storageexplorer.com/). O código-fonte está disponível também neste link.
+*Azure Storage Explorer* é uma ferramenta útil para inspecionar e alterar dados de saudação em blobs. É uma ferramenta de software livre que pode ser baixada em [http://storageexplorer.com/](http://storageexplorer.com/). Olá código-fonte está disponível a partir deste link também.
 
-Para usar a ferramenta, conheça sua chave e seu nome da conta de armazenamento do Azure. Para saber mais sobre como obter essas informações, confira a seção “Como exibir, copiar e regenerar chaves de acesso de armazenamento” em [Criar, gerenciar ou excluir uma conta de armazenamento][azure-create-storage-account].
+Antes de usar a ferramenta hello, você deve saber a sua chave de nome e uma conta de conta do armazenamento do Azure. Para obter instruções sobre como obter essas informações, consulte hello "como: exibir, copiar e regenerar as contas de armazenamento de chaves de acesso" seção [criar, gerenciar ou excluir uma conta de armazenamento][azure-create-storage-account].
 
-1. Execute o Azure Storage Explorer. Se esta for a primeira vez que você executou o Gerenciador de Armazenamento, será solicitado que você insira o **_Nome da conta de armazenamento** e a **Chave da conta de armazenamento**. Caso o tenha executado antes, use botão **Adicionar** para adicionar um novo nome e chave de conta de armazenamento.
+1. Execute o Azure Storage Explorer. Se isso for Olá primeira vez você executou Olá Storage Explorer, você será solicitado para Olá **nome da conta _Storage** e **chave da conta de armazenamento**. Se você tiver executado antes, use Olá **adicionar** botão tooadd um novo nome de conta de armazenamento e a chave.
 
-    Insira o nome e a chave da conta de armazenamento usada pelo cluster HDInsight e, depois, selecione **SALVAR E ABRIR**.
+    Digite hello nome e chave Olá conta de armazenamento usada por seu cluster HDInsight e, em seguida, selecione **Salvar & Abrir**.
 
     ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
-2. Na lista de contêineres, clique no nome do contêiner que está associado ao cluster HDInsight. Por padrão, esse é o nome do cluster do HDInsight, mas pode ser diferente se você inseriu um nome específico ao criar o cluster.
-3. Na barra de ferramentas, selecione o ícone de upload.
+2. Na lista de Olá da esquerda de toohello contêineres da interface de saudação, clique em nome Olá Olá do contêiner de que está associado ao seu cluster HDInsight. Por padrão, é o nome de saudação do cluster do HDInsight Olá, mas pode ser diferente se você digitou um nome específico ao criar o cluster de saudação.
+3. Na barra de ferramentas Olá, selecione o ícone de carregamento de saudação.
 
     ![Barra de ferramentas com ícone de upload destacado](./media/hdinsight-upload-data/toolbar.png)
-4. Especifique um arquivo para carregar e **Abrir**. Quando solicitado, selecione **Carregar** para carregar o arquivo para a raiz do contêiner de armazenamento. Se você desejar carregar o arquivo em um caminho específico, digite o caminho no campo **Destino** e selecione **Carregar**.
+4. Especifique um tooupload de arquivo e, em seguida, clique em **abrir**. Quando solicitado, selecione **carregar** raiz de toohello de arquivos tooupload Olá Olá do contêiner de armazenamento. Se você quiser caminho específico de tooa tooupload de arquivo hello, digite o caminho de saudação no hello **destino** campo e, em seguida, selecione **carregar**.
 
     ![Caixa de diálogo de upload do arquivo](./media/hdinsight-upload-data/fileupload.png)
 
-    Depois que o arquivo terminar de carregar, você pode usá-lo por meio dos trabalhos no cluster HDInsight.
+    Depois que o arquivo hello concluiu o carregamento, você pode usá-lo de trabalhos no cluster do HDInsight hello.
 
 ## <a name="mount-azure-blob-storage-as-local-drive"></a>Montar o Armazenamento de Blob do Azure como uma unidade Local
 Confira [Montar o Armazenamento de Blob do Azure como uma unidade Local](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ## <a name="services"></a>Serviços
 ### <a name="azure-data-factory"></a>Fábrica de dados do Azure
-A Fábrica de Dados do Azure é um serviço completamente gerenciado para compor serviços de armazenamento, processamento e movimentação de dados em pipelines de produção de dados simplificada, escalonável e confiável.
+Olá serviço fábrica de dados do Azure é um serviço totalmente gerenciado para compor serviços de movimentação de dados, processamento de dados e armazenamento de dados em pipelines de produção de dados simplificada, escalonável e confiável.
 
-O Azure Data Factory pode ser usado para mover dados para o Armazenamento de Blob do Azure, ou para criar pipelines de dados que usam diretamente os recursos do HDInsight como Hive e Pig.
+A fábrica de dados do Azure pode ser usado toomove dados no armazenamento de BLOBs do Azure, ou toocreate pipelines de dados que usam recursos de HDInsight diretamente como Hive e Pig.
 
-Para obter mais informações, consulte a [Documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+Para obter mais informações, consulte Olá [documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ### <a id="sqoop"></a>Apache Sqoop
-O Sqoop é uma ferramenta desenvolvida para transferir dados entre bancos de dados relacionais e o Hadoop. Você pode usá-lo para importar dados de um RDBMS (sistema de gerenciamento de banco de dados relacional), como SQL Server, MySQL ou Oracle para o HDFS (Sistema de Arquivos Distribuído) do Hadoop, transformar os dados no Hadoop com o MapReduce ou o Hive e, em seguida, exportar os dados de volta para um RDBMS.
+Sqoop é uma ferramenta desenvolvida de dados tootransfer entre Hadoop e bancos de dados relacionais. Você pode usá-lo tooimport dados de um sistema de gerenciamento de banco de dados relacional (RDBMS), como SQL Server, MySQL ou Oracle no sistema de arquivo hello distribuído de Hadoop (HDFS), transformar dados Olá no Hadoop MapReduce ou Hive e, em seguida, exportar dados de saudação volta para um RDBMS.
 
 Para obter mais informações, consulte [Usar Sqoop com HDInsight][hdinsight-use-sqoop].
 
 ## <a name="development-sdks"></a>SDKs de desenvolvimento
-O Armazenamento de Blob do Azure também pode ser acessado usando um SDK do Azure com as seguintes linguagens de programação:
+Armazenamento de BLOBs do Azure também pode ser acessado usando um SDK do Azure de saudação linguagens de programação a seguir:
 
 * .NET
 * Java
@@ -226,11 +226,11 @@ O Armazenamento de Blob do Azure também pode ser acessado usando um SDK do Azur
 * Python
 * Ruby
 
-Para obter mais informações sobre como instalar os SDKs do Azure, consulte [Downloads do Azure](https://azure.microsoft.com/downloads/)
+Para obter mais informações sobre como instalar os SDKs do Azure hello, consulte [downloads do Azure](https://azure.microsoft.com/downloads/)
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 ### <a id="storageexception"></a>Exceção de armazenamento para gravar no blob
-**Sintomas**: ao usar os comandos `hadoop` ou `hdfs dfs` para gravar arquivos que tenham aproximadamente 12 GB ou mais em um cluster HBase, você pode encontrar o seguinte erro:
+**Sintomas**: ao usar o hello `hadoop` ou `hdfs dfs` comandos toowrite arquivos que são ~ 12 GB ou maior, em um cluster HBase, você pode encontrar hello erro a seguir:
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
     copyFromLocal: java.io.IOException
@@ -243,7 +243,7 @@ Para obter mais informações sobre como instalar os SDKs do Azure, consulte [Do
             at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
             at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
             at java.lang.Thread.run(Thread.java:745)
-    Caused by: com.microsoft.azure.storage.StorageException: The request body is too large and exceeds the maximum permissible limit.
+    Caused by: com.microsoft.azure.storage.StorageException: hello request body is too large and exceeds hello maximum permissible limit.
             at com.microsoft.azure.storage.StorageException.translateException(StorageException.java:89)
             at com.microsoft.azure.storage.core.StorageRequest.materializeException(StorageRequest.java:307)
             at com.microsoft.azure.storage.core.ExecutionEngine.executeWithRetry(ExecutionEngine.java:182)
@@ -252,27 +252,27 @@ Para obter mais informações sobre como instalar os SDKs do Azure, consulte [Do
             at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
             ... 7 more
 
-**Causa**: os clusters HBase no HDInsight são padronizados para um tamanho de bloco de 256 KB na gravação no armazenamento do Azure. Embora isso funcione para APIs HBase ou APIs REST, resultará em erro no uso de utilitários de linha comando `hadoop` ou `hdfs dfs`.
+**Causa**: HBase em HDInsight clusters de tamanho de bloco de tooa padrão de 256 KB ao escrever armazenamento tooAzure. Enquanto isso funciona para APIs do HBase ou APIs REST, resultará em um erro ao usar o hello `hadoop` ou `hdfs dfs` utilitários de linha de comando.
 
-**Resolução**: use `fs.azure.write.request.size` para especificar um tamanho de bloco maior. Isso pode ser feito a cada uso com o parâmetro `-D`. Veja a seguir um exemplo de uso desse parâmetro com o comando `hadoop`:
+**Resolução**: Use `fs.azure.write.request.size` toospecify um maior tamanho de bloco. Você pode fazer isso em uma base por uso usando Olá `-D` parâmetro. Olá, a seguir é um exemplo que usa esse parâmetro com hello `hadoop` comando:
 
     hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
 
-Você também pode aumentar o valor de `fs.azure.write.request.size` globalmente usando Ambari. As etapas a seguir podem ser usadas para alterar o valor na interface de usuário do Ambari Web:
+Você também pode aumentar o valor de saudação do `fs.azure.write.request.size` global usando o Ambari. Olá etapas a seguir podem ser usado toochange valor de saudação em Olá da interface do usuário do Ambari Web:
 
-1. No navegador, acesse a interface de usuário do Ambari Web para seu cluster. Isto é, https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do seu cluster.
+1. Em seu navegador, vá toohello Ambari Web UI para seu cluster. Isso é https://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome de saudação do cluster.
 
-    Quando solicitado, insira o nome de administrador e a senha de administrador para o cluster.
-2. No lado esquerdo da tela, escolha **HDFS** e selecione a guia **Configurações**.
-3. No campo **Filtrar...**, insira `fs.azure.write.request.size`. Isso exibirá o campo e o valor atual no meio da página.
-4. Altere o valor de 262144 (256 KB) para o novo valor. Por exemplo, 4194304 (4 MB).
+    Quando solicitado, insira o nome de saudação do administrador e a senha para cluster Olá.
+2. Olá lado esquerdo da tela hello, selecione **HDFS**e, em seguida, selecione Olá **configurações** guia.
+3. Em Olá **filtro...**  , digite `fs.azure.write.request.size`. Isso exibirá o campo hello e o valor atual no meio de saudação da página de saudação.
+4. Altere o valor de saudação de 262144 (256KB) toohello novo valor. Por exemplo, 4194304 (4 MB).
 
-![Imagem de alteração de valor por meio da interface de usuário do Ambari Web](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
+![Imagem de alterar o valor de saudação por meio da interface do usuário do Ambari Web](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
-Para saber mais sobre como usar o Ambari, confira [Gerenciar clusters HDInsight interface de usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md).
+Para obter mais informações sobre como usar o Ambari, consulte [gerenciar clusters HDInsight usando Olá da interface do usuário do Ambari Web](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você compreende como obter dados no HDInsight, leia os seguintes artigos para aprender a executar uma análise:
+Agora que você sabe como ler dados tooget em HDInsight, Olá toolearn artigos a seguir como tooperform análise:
 
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
 * [Enviar trabalhos Hadoop de forma programática][hdinsight-submit-jobs]

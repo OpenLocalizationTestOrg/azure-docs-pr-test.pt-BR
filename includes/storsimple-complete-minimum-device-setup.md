@@ -1,39 +1,39 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Para concluir a configuração mínima do dispositivo StorSimple
-1. Na página de **Dispositivos** , selecione o dispositivo, clique na seta no nome do dispositivo para ir até a página específica do dispositivo. 
+#### <a name="toocomplete-hello-minimum-storsimple-device-setup"></a>configuração de dispositivos de StorSimple mínimo do toocomplete Olá
+1. Em Olá **dispositivos** página dispositivo selecione hello, clique em seta para baixo Olá na página de dispositivo específico Olá dispositivo nome toogo toohello. 
    
     ![Página de dispositivos com o dispositivo online](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
-2. Clique no início rápido do ícone ![Ícone de Inicialização Rápida](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) para acessar à página de início rápido do dispositivo. Clique em **Concluir a instalação do dispositivo** para iniciar o assistente **Configurar dispositivo**.
+2. Clique em início rápido do ícone ![ícone de início rápido](./media/storsimple-complete-minimum-device-setup/HCS_QuickStartIcon-include.png) tooaccess Olá página de início rápido do dispositivo. Clique em **concluir a instalação do dispositivo** toostart Olá **Configurar dispositivo** assistente.
    
     ![Página de início rápido do dispositivo](./media/storsimple-complete-minimum-device-setup/Device_Quick_Start_page_1M.png)
-3. Na página **Configurações Básicas** , faça o seguinte:
+3. Em Olá **configurações básicas** página, Olá a seguir:
    
-   1. Forneça um **nome amigável** para seu dispositivo. O nome do dispositivo padrão reflete as informações, tais como, o número de série e o modelo do dispositivo. Você pode atribuir um nome amigável de até 64 caracteres para gerenciar o dispositivo.
-   2. Defina o **fuso horário** com base na localização geográfica na qual o dispositivo está sendo implantado. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
-   3. Em **Configurações DNS**, forneça um endereço para o **Servidor DNS Secundário**. Se você estiver usando o IPv6, o campo será preenchido com base no prefixo IPv6 fornecido na interface do Windows PowerShell. 
-      Se o servidor DNS secundário não estiver configurado, você não poderá salvar a configuração do dispositivo.
-   4. Em interfaces habilitadas para o iSCSI, habilite pelo menos uma rede para o iSCSI. Pelo menos uma interface de rede deve ser habilitada para a nuvem e uma interface precisa ser habilitada para o iSCSI. Os DADOS 0 são automaticamente habilitados para a nuvem.
+   1. Forneça um **nome amigável** para seu dispositivo. nome do dispositivo padrão Olá reflete informações como o número de série e modelo do dispositivo hello. Você pode atribuir um nome amigável do backup too64 caracteres toomanage seu dispositivo.
+   2. Saudação de conjunto **fuso horário** com base em localização geográfica hello, no qual Olá dispositivo está sendo implantado. Seu dispositivo usará esse fuso horário para todas as operações agendadas.
+   3. Em **Configurações DNS**, forneça um endereço para o **Servidor DNS Secundário**. Se você estiver usando IPv6, o campo de saudação será preenchido com base no prefixo de IPv6 Olá fornecido na interface do Windows PowerShell hello. 
+      Se o servidor DNS secundário de saudação não está configurado, não será permitido toosave sua configuração de dispositivo.
+   4. Em interfaces habilitadas para o iSCSI, habilite pelo menos uma rede para o iSCSI. Pelo menos uma interface de rede precisa toobe habilitado para a nuvem e uma interface precisa toobe habilitada com iSCSI. Os DADOS 0 são automaticamente habilitados para a nuvem.
       
       ![Definições básicas da instalação mínima do dispositivo do StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupBasicSettings1-include.png)
-4. Clique no ícone de seta. ![Ícone de seta do StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
-5. Na página **Interfaces de Rede** , forneça endereços IP fixos para os Controladores 0 e 1. Se a interface DADOS 0 foi configurada para o IPv4, os endereços IP fixos precisam ser fornecidos no formato IPv4. Se você forneceu um prefixo para a configuração do IPv6, os endereços IP fixos serão preenchidos automaticamente nesses campos.
+4. Clique no ícone de seta hello. ![Ícone de seta do StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
+5. Em Olá **Interfaces de rede** , forneça Olá fixa endereços IP para o controlador 0 e 1. Se hello interface DATA 0 foi configurada para IPv4, hello fixa toobe de necessidade de endereços IP fornecido no hello formato IPv4. Se você tiver fornecido um prefixo para a configuração de IPv6, Olá endereços IP fixos será preenchido automaticamente nesses campos.
 
     > [!NOTE] 
-    > - Os endereços IP fixos do controlador precisam ser IPs gratuitos dentro da sub-rede acessível pelo endereço IP do dispositivo.
-    > - Os endereços IP fixos do controlador são usados para atender às atualizações para o dispositivo, portanto, os IPs fixos devem ser roteáveis e conseguir conectar-se à Internet.
+    > - endereços IP fixos do controlador de saudação toobe liberar IPs de sub-rede de saudação acessível pelo endereço IP do dispositivo hello.
+    > - Olá fixo de endereços IP para o controlador de saudação são usados para manutenção de dispositivo de toohello atualizações hello e portanto Olá IPs fixo deve ser roteáveis e capazes de tooconnect toohello da Internet.
 
     ![Interfaces de rede da instalação mínima do dispositivo do StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-1. Clique no ícone de verificação ![Ícone de verificação do StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
-   Você será retornado para a página **Início Rápido** do dispositivo.
+1. Clique o ícone de verificação Olá ![ícone de verificação de StorSimple](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
+   Você irá retornar o dispositivo toohello **início rápido** página.
    
    > [!NOTE]
-   > Você pode modificar todas as outras configurações do dispositivo a qualquer momento acessando a página **Configurar** do dispositivo.
+   > Você pode modificar Olá todas as outras configurações de dispositivo a qualquer momento acessando Olá **configurar** página.
    > 
    > 
 
 ![Vídeo disponível](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Vídeo disponível**
 
-Para assistir a um vídeo que demonstra como concluir a configuração mínima do dispositivo, clique [aqui](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
+toowatch um vídeo que demonstra como toocomplete Olá configuração mínima do dispositivo, clique em [aqui](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 

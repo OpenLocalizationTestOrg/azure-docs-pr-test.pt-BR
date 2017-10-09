@@ -1,5 +1,5 @@
 ---
-title: "Integração do SDK do Android do Azure Mobile Engagement"
+title: "aaaAzure integração do Mobile Engagement Android SDK"
 description: "Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,23 +14,23 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1f047f93fa8bc852b28c86e91d0c007a94fb4299
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: df5c82812fe0a242eaa5df8c906030237215b7eb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upgrade-procedures"></a>Procedimentos de atualização
-Se você já tiver integrado uma versão anterior do SDK no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
+Se você já tiver integrado uma versão mais antiga do nosso SDK em seu aplicativo, você tem Olá tooconsider pontos a seguir ao atualizar Olá SDK.
 
-Você precisará seguir vários procedimentos se perdeu várias versões do SDK. Por exemplo, se você migrar do 1.4.0 para 1.6.0 você tem que primeiro seguir o procedimento "de 1.4.0 a 1.5.0” e depois o procedimento "de 1.5.0 a 1.6.0".
+Você pode ter vários procedimentos de toofollow se perdidas várias versões do SDK de saudação. Por exemplo, se você migrar de 1.4.0 too1.6.0 ter toofirst siga hello "de 1.4.0 too1.5.0" procedimento e hello "de 1.5.0 too1.6.0" procedimento.
 
-Seja qual for a versão de atualização, você precisa substituir o `mobile-engagement-VERSION.jar` pelo novo.
+Qualquer versão de hello atualizar, você tem Olá tooreplace `mobile-engagement-VERSION.jar` com hello uma nova.
 
-## <a name="from-420-to-421"></a>De 4.2.0 a 4.2.1
-De fato, esta etapa pode ser realizada em qualquer versão do SDK; é uma melhoria de segurança quando as atividades de Alcance são integradas.
+## <a name="from-420-too421"></a>De 4.2.0 too4.2.1
+Esta etapa, na verdade, pode ser feita em qualquer versão do SDK do hello, é um aprimoramento de segurança ao integrar o alcance de atividades.
 
-Agora você deverá adicionar `exported="false"` a todas as atividades de Alcance.
+Agora você deve adicionar `exported="false"` tooall alcance atividades.
 
 As atividades de Alcance deverão ter esta aparência no `AndroidManifest.xml`:
 
@@ -61,13 +61,13 @@ As atividades de Alcance deverão ter esta aparência no `AndroidManifest.xml`:
               </intent-filter>
             </activity>
 
-## <a name="from-400-to-410"></a>De 4.0.0 a 4.1.0
-O SDK agora manipula o novo modelo de permissão para Android M.
+## <a name="from-400-too410"></a>De 4.0.0 too4.1.0
+Olá SDK agora identificador novo modelo de permissão do Android M.
 
 Se você usar os recursos de localização ou notificações de visão geral, leia [esta seção](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
 
-Além do novo modelo de permissão, podemos agora dar suporte a recursos locais de configuração em tempo de execução.
-Ainda somos compatíveis com os parâmetros de manifesto para o localização, mas agora foi preterido. Para usar a configuração de tempo de execução, remova as seções a seguir do seu ``AndroidManifest.xml``:
+Além disso toohello novo modelo de permissão, podemos agora oferecem suporte à configuração recursos de local em tempo de execução.
+Estamos ainda compatíveis com os parâmetros de manifesto da saudação para local, mas agora está obsoleta. configuração de tempo de execução toouse, a seguir remove Olá seções de sua ``AndroidManifest.xml``:
 
     <meta-data
       android:name="engagement:locationReport:lazyArea"
@@ -82,11 +82,11 @@ Ainda somos compatíveis com os parâmetros de manifesto para o localização, m
       android:name="engagement:locationReport:realTime:fine"
       android:value="true"/>
 
-e leia [este procedimento atualizado](mobile-engagement-android-integrate-engagement.md#location-reporting) para usar em vez disso, a configuração de tempo de execução.
+e ler [isso atualizado procedimento](mobile-engagement-android-integrate-engagement.md#location-reporting) toouse configuração de tempo de execução em vez disso.
 
-## <a name="from-300-to-400"></a>De 3.0.0 a 4.0.0
+## <a name="from-300-too400"></a>De 3.0.0 too4.0.0
 ### <a name="native-push"></a>Push nativo
-O push nativo (GCM/ADM) agora também é usado nas notificações de aplicativo para que você deve configurar as credenciais por push nativo para qualquer tipo de campanha de envio.
+Envio por push nativo (GCM/ADM) agora também é usado para em notificações de aplicativo para que você deve configurar credenciais de push nativo Olá para qualquer tipo de campanha de push.
 
 Caso ainda não o tenha feito, siga [este procedimento](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
@@ -130,7 +130,7 @@ Por
     </receiver>
 
 Possivelmente, agora existe uma tela de carregamento quando você clica em um anúncio (com texto/conteúdo da web) ou uma pesquisa.
-Você deve adicioná-lo para as campanhas funcionarem em 4.0.0:
+Você tem tooadd isso para esses toowork campanhas em 4.0.0:
 
     <activity
       android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
@@ -142,13 +142,13 @@ Você deve adicioná-lo para as campanhas funcionarem em 4.0.0:
     </activity>
 
 ### <a name="resources"></a>Recursos
-Insira o novo arquivo `res/layout/engagement_loading.xml` no seu projeto.
+Inserir saudação novo `res/layout/engagement_loading.xml` o arquivo no seu projeto.
 
-## <a name="from-240-to-300"></a>De 2.4.0 a 3.0.0
-O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Azure Mobile Engagement. Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para a 2.4.0 e depois aplicar o procedimento a seguir
+## <a name="from-240-too300"></a>De 2.4.0 too3.0.0
+Olá a seguir descrevem como toomigrate uma integração SDK da saudação Capptain serviço oferecido pelo Capptain SAS em um aplicativo da plataforma do Azure Mobile Engagement. Se você estiver migrando de uma versão anterior, consulte Olá Capptain site da web toomigrate too2.4.0 primeiro e depois aplicar Olá procedimento a seguir.
 
 > [!IMPORTANT]
-> O Capptain e o Mobile Engagement não são os mesmos serviços e o procedimento fornecido abaixo destaca apenas como migrar o aplicativo cliente. Migrar o SDK no aplicativo NÃO migrará os dados dos servidores Capptain para os servidores do Mobile Engagement.
+> Capptain Mobile Engagement não Olá mesmos serviços e são Olá procedimento indicado abaixo destaca somente como toomigrate Olá aplicativo cliente. Migrando Olá SDK no aplicativo hello não vai migrar seus dados do hello Capptain toohello Mobile Engagement de servidores.
 > 
 > 
 
@@ -156,42 +156,42 @@ O seguinte descreve como migrar uma integração do SDK do serviço Capptain ofe
 Substitua `capptain.jar` por `mobile-engagement-VERSION.jar` em sua pasta `libs`.
 
 ### <a name="resource-files"></a>Arquivos de recurso
-Cada arquivo de recursos que fornecemos (antecedidos por `capptain_`) precisa ser substituído por novos (prefixados com `engagement_`).
+Cada arquivo de recurso que fornecemos (antecedidos `capptain_`) toobe substituiu por Olá novos (prefixadas com `engagement_`).
 
-Se você personalizou os arquivos, precisará reaplicar sua personalização nos novos arquivos, **todos os identificadores nos arquivos de recursos também foram renomeados**.
+Se você personalizou os arquivos, você tem toore-aplicar a personalização nos novos arquivos de hello, **todos os identificadores de saudação em arquivos de recurso Olá também foram renomeados**.
 
 ### <a name="application-id"></a>ID do aplicativo
-Agora o Engagement usa uma cadeia de conexão para configurar os identificadores SDK, como o identificador do aplicativo.
+Agora o contrato usa um identificadores conexão cadeia de caracteres tooconfigure Olá SDK como identificador de aplicativo hello.
 
-Você precisa usar um método `EngagementAgent.init` em sua atividade de inicializador como este:
+Você tem toouse `EngagementAgent.init` método em sua atividade de iniciador como este:
 
             EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
             engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
             EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
+cadeia de caracteres de conexão de saudação para seu aplicativo é exibida no Portal do Azure.
 
-Remova todas as chamadas para `CapptainAgent.configure` já que o `EngagementAgent.init` substitui esse método.
+Remova qualquer chamada muito`CapptainAgent.configure` como `EngagementAgent.init` substitui esse método.
 
-O `appId` não pode ser configurado usando `AndroidManifest.xml`.
+Olá `appId` não podem ser configuradas usando `AndroidManifest.xml`.
 
 Remova esta seção de seu `AndroidManifest.xml` se você tiver:
 
             <meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
 ### <a name="java-api"></a>API Java
-Cada chamada a qualquer classe Java do nosso SDK precisa ser renomeada; por exemplo, `CapptainAgent.getInstance(this)` deve ser renomeado para `EngagementAgent.getInstance(this)`, `extends CapptainActivity` deve ser renomeado para `extends EngagementActivity`, etc...
+Cada chamada tooany classe Java do nosso SDK tem toobe renomeado; Por exemplo, `CapptainAgent.getInstance(this)` devem ser renomeados `EngagementAgent.getInstance(this)`, `extends CapptainActivity` devem ser renomeados `extends EngagementActivity` etc...
 
-Se elas tiverem sido integradas com arquivos de preferência do agente padrão, o nome de arquivo padrão é agora `engagement.agent` e a chave é `engagement:agent`.
+Se foram integradas com arquivos de preferência de agente padrão, o nome de arquivo hello padrão agora é `engagement.agent` e chave de saudação `engagement:agent`.
 
-Ao criar anúncios da Web, o associador de Javascript é agora `engagementReachContent`.
+Ao criar notificações de web, Olá Javascript associador agora é `engagementReachContent`.
 
 ### <a name="androidmanifestxml"></a>AndroidManifest.xml
-Ocorreram muitas alterações, o serviço não está mais compartilhado e muitos destinatários não são mais exportáveis.
+Muitas alterações aconteceu existe, serviço de saudação não é mais compartilhado e muitos destinatários não podem ser exportadas mais.
 
-Agora, a declaração de serviço é mais simples: remova o filtro intencional e todos os metadados de dentro dele e adicione `exportable=false`.
+declaração de serviço Olá agora é mais simples; Remover filtro intenção hello e todos os metadados dentro dele e adicionar `exportable=false`.
 
-Além disso, tudo é renomeado para usar o Engagement.
+Além disso, tudo o que é o contrato de toouse renomeado.
 
 Agora, ele deverá ficar parecido com:
 
@@ -201,7 +201,7 @@ Agora, ele deverá ficar parecido com:
               android:label="<Your application name>Service"
               android:process=":Engagement"/>
 
-Quando você desejar habilitar logs de teste, agora os metadados foram movidos para a marca de aplicativo e renomeados:
+Quando você quiser tooenable logs de teste, Olá metadados agora foi movido toohello marca de aplicativo e foi renomeado:
 
             <application>
 
@@ -211,7 +211,7 @@ Quando você desejar habilitar logs de teste, agora os metadados foram movidos p
 
             </application>
 
-Todos os outros metadados têm sido apenas renomeados, aqui está a lista completa (renomeie apenas aqueles que for usar):
+Todos os outros metadados apenas tem sido renomeados, aqui está a lista completa de saudação (claro renomear apenas Olá que você usar):
 
             <meta-data
               android:name="engagement:reportCrash"
@@ -259,7 +259,7 @@ Todos os outros metadados têm sido apenas renomeados, aqui está a lista comple
                 android:value="false"/>
             </activity>
 
-O acompanhamento do Google Play e do SmartAd foi removido do SDK, você só precisa removê-lo sem substituição:
+Controle do Google Play e SmartAd foi removida do SDK você que tooremove isso sem substituição:
 
             <meta-data 
                 android:name="capptain:track:installReferrerForwardList"
@@ -268,7 +268,7 @@ O acompanhamento do Google Play e do SmartAd foi removido do SDK, você só prec
                 android:name="capptain:track:adservers"
                 android:value="smartad" />
 
-As atividades do Reach agora são declaradas conforme segue:
+atividades de alcance Olá agora são declaradas como este:
 
             <activity
               android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"
@@ -297,9 +297,9 @@ As atividades do Reach agora são declaradas conforme segue:
               </intent-filter>
             </activity>
 
-Se tiver atividades do Reach personalizadas, você só precisa alterar as ações intencionais para corresponder a `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` ou `com.microsoft.azure.engagement.reach.intent.action.POLL`.
+Se você tiver atividades personalizadas de alcance, você precisa apenas toochange Olá ações intencionais toomatch `com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT` ou `com.microsoft.azure.engagement.reach.intent.action.POLL`.
 
-Os receptores de transmissão foram renomeados e agora adicionamos `exported=false`. Aqui está a lista completa de destinatários com a nova especificação (renomeie apenas aqueles que for usar):
+Olá receptores de transmissão foram renomeados, além de adicionarmos agora `exported=false`. Aqui está a lista completa Olá de receptores de saudação com nova especificação de Olá, (claro renomear apenas Olá que você usar):
 
             <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
               android:exported="false">
@@ -378,7 +378,7 @@ Os receptores de transmissão foram renomeados e agora adicionamos `exported=fal
               </intent-filter>
             </receiver>
 
-O receptor de acompanhamento foi removido, você precisará remover esta seção:
+Receptor de rastreamento tiver sido removido, para que você tenha tooremove nesta seção:
 
           <receiver android:name="com.ubikod.capptain.android.sdk.track.CapptainTrackReceiver">
             <intent-filter>
@@ -387,7 +387,7 @@ O receptor de acompanhamento foi removido, você precisará remover esta seção
             </intent-filter>
           </receiver>
 
-Observe que a declaração de sua implementação do receptor de difusão **EngagementMessageReceiver** mudou no `AndroidManifest.xml`. Isso ocorre porque a API envia e remove mensagens XMPP arbitrárias de entidades XMPP arbitrárias e a API envia e recebe mensagens entre dispositivos que foram removidos. Portanto, você também precisa excluir os seguintes retornos de chamada de sua implementação **EngagementMessageReceiver** :
+Observação a declaração de saudação da sua implementação de saudação difusão receptor **EngagementMessageReceiver** foi alterado em Olá `AndroidManifest.xml`. Isso ocorre porque toosend Olá API e remover XMPP arbitrário mensagens de entidades XMPP arbitrárias e Olá toosend API e receber mensagens entre os dispositivos foram removidos. Assim, você também tem Olá toodelete seguir retornos de chamada do seu **EngagementMessageReceiver** implementação:
 
             protected void onDeviceMessageReceived(android.content.Context context, java.lang.String deviceId, java.lang.String payload)
 
@@ -404,7 +404,7 @@ e
             sendXMPPMessage(android.os.Bundle msg)
 
 ### <a name="proguard"></a>ProGuard
-A configuração ProGuard pode ser afetada por mudanças de marca, as regras agora estão assim:
+Configuração ProGuard pode ser afetada pela rebranding Olá regras agora estão procurando como:
 
             -dontwarn android.**
             -keep class android.support.v4.** { *; }

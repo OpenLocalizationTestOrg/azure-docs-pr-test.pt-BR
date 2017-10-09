@@ -1,11 +1,11 @@
 ## <a name="overview-of-azure-resource-manager-templates"></a>Visão geral dos modelos do Gerenciador de Recursos do Azure
-O modelo do Azure Resource Manager permite especificar de forma declarativa a infraestrutura IaaS do Azure na linguagem JSON definindo as dependências entre recursos. Para obter uma visão geral detalhada dos Modelos do Azure Resource Manager, consulte os artigos abaixo:
+Modelos do Gerenciador de recursos do Azure permitem que você toodeclaratively especificar infraestrutura do Azure IaaS Olá no idioma de Json definindo dependências Olá entre os recursos. Para obter uma visão geral detalhada dos modelos do Gerenciador de recursos do Azure, consulte toohello artigo abaixo:
 
 [Visão geral do Grupo de Recursos](../articles/azure-resource-manager/resource-group-overview.md)
 
 ## <a name="sample-template-snippet-for-vm-extensions"></a>Trecho de código do modelo de exemplo para extensões de VM
-Implantar as extensões de VM como parte de um modelo do Azure Resource Manager exige uma especificação declarativa e a configuração da extensão no modelo.
-Veja abaixo o formato para especificar a configuração da extensão.
+Toodeclaratively implantar extensões de VM como parte de um modelo do Azure Resource Manager requer que você especifique configuração da extensão Olá no modelo de saudação.
+Aqui é o formato de saudação para especificar a configuração da extensão hello.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -24,11 +24,11 @@ Veja abaixo o formato para especificar a configuração da extensão.
       }
       }
 
-Como você pode ver no exemplo acima, o modelo de extensão contém duas partes principais:
+Como você pode ver da saudação acima, o modelo de extensão Olá contém duas partes principais:
 
 1. Nome da extensão, editor e versão
 2. Configuração da Extensão.
 
-## <a name="identifying-the-publisher-type-and-typehandlerversion-for-any-extension"></a>Identificando o editor, o tipo e a typeHandlerVersion de qualquer extensão
-As extensões de VM do Azure são publicadas pela Microsoft e por editores terceiros confiáveis, e cada extensão é identificada exclusivamente por seu editor, tipo e typeHandlerVersion. Elas podem ser determinadas da seguinte maneira:  
+## <a name="identifying-hello-publisher-type-and-typehandlerversion-for-any-extension"></a>Identificação de publicador hello, tipo e typeHandlerVersion para qualquer extensão
+Extensões VM do Azure são publicadas pela Microsoft e confiança 3º Publicadores de terceiros e cada extensão é identificada exclusivamente pelo seu typeHandlerVersion publisher, tipo e hello. Elas podem ser determinadas da seguinte maneira:  
 

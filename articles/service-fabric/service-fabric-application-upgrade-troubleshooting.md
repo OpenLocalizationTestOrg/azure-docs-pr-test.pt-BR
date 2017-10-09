@@ -1,6 +1,6 @@
 ---
-title: "Solucionando problemas de atualizações de aplicativo | Microsoft Docs"
-description: "Este artigo aborda alguns problemas comuns em torno da atualização de um aplicativo Service Fabric e como resolvê-los."
+title: "atualizações de aplicativo aaaTroubleshooting | Microsoft Docs"
+description: "Este artigo aborda alguns problemas comuns em torno de atualização de um aplicativo de malha do serviço e como tooresolve-los."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f7f6bc0c29e2b43fbc8e451c5a4a50110b78349e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0f56fa61db9b4e32824623f162dc1bfe7fda0f49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-application-upgrades"></a>Solucionar problemas de atualizações de aplicativo
-Este artigo aborda alguns dos problemas comuns na atualização de um aplicativo do Service Fabric e como resolvê-los.
+Este artigo aborda alguns dos problemas comuns de saudação em torno de atualizar um aplicativo do Azure Service Fabric e como tooresolve-los.
 
 ## <a name="troubleshoot-a-failed-application-upgrade"></a>Solucionar problemas de atualização de um aplicativo com falha
-Quando uma atualização falha, a saída do comando **Get-ServiceFabricApplicationUpgrade** contém informações adicionais para depurar a falha.  A lista a seguir especifica como as informações adicionais podem ser usadas:
+Quando uma atualização falhar, saída Olá Olá **Get-ServiceFabricApplicationUpgrade** comando contém informações adicionais de depuração falha hello.  Olá lista a seguir especifica como as informações adicionais de saudação podem ser usadas:
 
-1. Identificar o tipo de falha.
-2. Identificar o motivo da falha.
+1. Identifique o tipo de falha de saudação.
+2. Identificar o motivo da falha hello.
 3. Isolar um ou mais componentes com falha para saber mais.
 
-Essas informações estão disponíveis quando o Service Fabric detecta a falha, independentemente de a **FailureAction** reverter ou suspender a atualização.
+Essas informações estão disponíveis quando o Service Fabric detecta a falha de saudação independentemente de se hello **FailureAction** está de volta tooroll ou suspender atualização hello.
 
-### <a name="identify-the-failure-type"></a>Identificar o tipo de falha
-Na saída de **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifica o carimbo de hora (UTC) em que uma falha de atualização foi detectada pelo Service Fabric e **FailureAction** foi acionado. **FailureReason** identifica uma das três possíveis causas de alto nível da falha:
+### <a name="identify-hello-failure-type"></a>Identificar o tipo de falha de saudação
+Na saída de saudação do **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifica Olá carimbo de hora (UTC) em que uma falha de atualização foi detectada pela malha do serviço e  **FailureAction** foi disparado. **Motivo da falha** identifica um dos três possíveis causas de alto nível de falha de saudação:
 
-1. UpgradeDomainTimeout: indica que um determinado domínio de atualização demorou muito para ser concluído e **UpgradeDomainTimeout** expirou.
-2. OverallUpgradeTimeout: indica que a atualização global demorou muito para ser concluída e **UpgradeTimeout** expirou.
-3. HealthCheck: indica que, após a atualização de um domínio de atualização, o aplicativo permaneceu não íntegro de acordo com as políticas de integridade especificadas e **HealthCheckRetryTimeout** expirou.
+1. UpgradeDomainTimeout - indica que um determinado domínio de atualização demorou muito toocomplete e **UpgradeDomainTimeout** expirou.
+2. OverallUpgradeTimeout - indica que Olá geral da atualização demorou muito toocomplete e **UpgradeTimeout** expirou.
+3. Verificação de integridade - indica que, depois de atualizar um domínio de atualização, aplicativo hello permaneceu não íntegro de acordo com o toohello especificado diretivas de integridade e **HealthCheckRetryTimeout** expirou.
 
-Essas entradas somente são exibidas na saída quando a atualização falhar e começar a reversão. Outras Informações são exibidas dependendo do tipo de falha.
+Essas entradas só aparecem na saída de hello quando atualização Olá falha e começa a reversão. Informações adicionais são exibidas, dependendo do tipo de saudação de falha de saudação.
 
 ### <a name="investigate-upgrade-timeouts"></a>Investigar tempos limite de atualização
-As falhas de tempo de execução de atualização são geralmente causadas por problemas de disponibilidade do serviço. A saída após este parágrafo é típica de atualizações em que as réplicas ou instâncias de serviço não são iniciadas na nova versão do código. O campo **UpgradeDomainProgressAtFailure** captura um instantâneo de trabalhos de atualização pendentes no momento da falha.
+As falhas de tempo de execução de atualização são geralmente causadas por problemas de disponibilidade do serviço. saída de Hello este parágrafo a seguir é típica de atualizações de onde réplicas do serviço ou instâncias falharem toostart na nova versão do código Olá. Olá **UpgradeDomainProgressAtFailure** campo captura um instantâneo de qualquer trabalho de atualização pendente no momento de saudação da falha.
 
 ```
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -78,16 +78,16 @@ ForceRestart                   : False
 UpgradeReplicaSetCheckTimeout  : 00:00:00
 ```
 
-Neste exemplo, a atualização falhou no domínio de atualização *MYUD1* e duas partições (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* e *4b43f4d8-b26b-424e-9307-7a7a62e79750*) foram bloqueadas. As partições foram bloqueadas porque o tempo de execução não pôde colocar réplicas primárias (*WaitForPrimaryPlacement*) em nós de destino *Node1* e *Node4*.
+Neste exemplo, Olá Falha na atualização no domínio de atualização *MYUD1* e duas partições (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* e *4b43f4d8-b26b-424e-9307-7a7a62e79750*) foram presos. partições de saudação foram presos porque Olá runtime foi réplicas primárias tooplace não é possível (*WaitForPrimaryPlacement*) em nós de destino *Node1* e *Nó4*.
 
-O comando **Get-ServiceFabricNode** pode ser usado para verificar se esses dois nós estão no domínio de atualização *MYUD1*. O *UpgradePhase* diz *PostUpgradeSafetyCheck*, que significa que essas verificações de segurança estão ocorrendo depois que todos os nós no domínio de atualização concluíram a atualização. Todas essas informações combinadas apontam para um possível problema com a nova versão do código do aplicativo. Os problemas mais comuns são erros de serviço em aberto ou promoção para caminhos de código principal.
+Olá **Get-ServiceFabricNode** comando pode ser usado tooverify que esses dois nós estão no domínio de atualização *MYUD1*. Olá *UpgradePhase* diz *PostUpgradeSafetyCheck*, o que significa que essas verificações de segurança estão ocorrendo depois que todos os nós no domínio de atualização Olá concluída a atualização. Todas essas informações pontos tooa possível problema com a nova versão Olá Olá do código do aplicativo. problemas mais comuns de saudação são erros de serviço em Olá aberta ou caminhos de código tooprimary promoção.
 
-Uma *UpgradePhase* de *PreUpgradeSafetyCheck* significa que houve problemas na preparação do domínio de atualização antes de a atualização ser executada. Nesse caso, os problemas mais comuns são erros de serviço no fechamento ou rebaixamento de caminhos de código principal.
+Um *UpgradePhase* de *PreUpgradeSafetyCheck* significa que houve problemas de preparação de domínio de atualização de saudação antes que ela foi executada. Nesse caso, problemas mais comuns de saudação são erros de serviço em Olá feche ou rebaixamento de caminhos de código principal.
 
-O **UpgradeState** atual é *RollingBackCompleted*; portanto, a atualização original deve ter sido realizada com uma reversão **FailureAction**, que automaticamente reverteu a atualização em caso de falha. Se a atualização original tivesse sido realizada com um **FailureAction**manual, a atualização estaria em um estado suspenso para permitir a depuração dinâmica do aplicativo.
+Olá atual **UpgradeState** é *RollingBackCompleted*, de modo de atualização original Olá deve ter sido realizada com uma reversão **FailureAction**, que automaticamente reversão da atualização Olá em caso de falha. Se a atualização original Olá foi executada com um manual **FailureAction**, atualização de saudação em vez disso, será um tooallow estado suspenso ao vivo de depuração de aplicativo hello.
 
 ### <a name="investigate-health-check-failures"></a>Investigar falhas de verificação de integridade
-As falhas de verificação de integridade podem ser acionadas por vários problemas que podem ocorrer depois que todos os nós em um domínio de atualização terminam a atualização e passam por todas as verificações de segurança. A saída após este parágrafo é típica de uma falha na atualização devido a falhas de verificação de integridade. O campo **UnhealthyEvaluations** captura um instantâneo das verificações de integridade com falha no momento da atualização de acordo com a [política de integridade](service-fabric-health-introduction.md)especificada.
+As falhas de verificação de integridade podem ser acionadas por vários problemas que podem ocorrer depois que todos os nós em um domínio de atualização terminam a atualização e passam por todas as verificações de segurança. saída de Hello este parágrafo a seguir é típica de uma falha na atualização devido toofailed verificações de integridade. Olá **UnhealthyEvaluations** campo captura um instantâneo das verificações de integridade falhou em tempo de saudação da atualização Olá toohello especificado de acordo com [política de integridade](service-fabric-health-introduction.md).
 
 ```
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -141,22 +141,22 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 ```
 
-A investigação de falhas de verificação de integridade exige primeiro uma compreensão do modelo de integridade do Service Fabric. Mas mesmo sem essa compreensão detalhada, podemos ver que dois serviços não estão íntegros: *fabric:/DemoApp/Svc3* e *fabric:/DemoApp/Svc2*, junto com os relatórios de integridade de erro ("InjectedFault" nesse caso). Neste exemplo, dois de quatro serviços não estão íntegros, abaixo da meta padrão de 0% de não integridade (*MaxPercentUnhealthyServices*).
+Primeiro investigar falhas de verificação de integridade requer uma compreensão Olá Service Fabric do modelo de integridade. Mas mesmo sem tal uma compreensão detalhada, podemos ver que os dois serviços estão íntegros: *fabric: / DemoApp/Svc3* e *fabric: / DemoApp/Svc2*, juntamente com os relatórios de integridade de erro hello ("InjectedFault "nesse caso). Neste exemplo, duas de quatro serviços são não íntegros, que está abaixo do objectivo do saudação padrão de 0% não íntegro (*MaxPercentUnhealthyServices*).
 
-A atualização foi suspensa com falha, especificando um **FailureAction** manual quando iniciada a atualização. Esse modo permite investigar o sistema dinâmico no estado de falha antes de realizar qualquer outra ação.
+Olá atualização foi suspenso após a falha, especificando um **FailureAction** de manual quando iniciar Olá atualização. Esse modo permite que nós tooinvestigate Olá ao vivo sistema em estado de falha de saudação antes de realizar qualquer ação adicional.
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Recuperar de uma atualização suspensa
-Com uma reversão de **FailureAction**, não há nenhuma recuperação necessária, já que a atualização é revertida automaticamente após a falha. Com uma **FailureAction**manual, há várias opções de recuperação:
+Com uma reversão **FailureAction**, não há nenhuma recuperação é necessária, já que a atualização de saudação reverte automaticamente após a falha. Com uma **FailureAction**manual, há várias opções de recuperação:
 
 1.  disparar uma reversão
-2. Continuar com o restante da atualização manualmente
-3. Continuar a atualização monitorada
+2. Prossiga com o restante da saudação de atualização de saudação manualmente
+3. Olá retomar monitorado atualização
 
-O comando **Start-ServiceFabricApplicationRollback** pode ser usado a qualquer momento para iniciar a reversão do aplicativo. Depois que o comando retornar com êxito, a solicitação de reversão foi registrada no sistema e começa em breve.
+Olá **ServiceFabricApplicationRollback início** comando pode ser usado em qualquer toostart tempo Revertendo aplicativo hello. Depois que o comando Olá retorna com êxito, solicitação de reversão Olá foi registrada no sistema de saudação e inicia logo depois.
 
-O comando **ServiceFabricApplicationUpgrade retomar** pode ser usado para percorrer o restante da atualização manualmente, um domínio de atualização de cada vez. Nesse modo, somente verificações de segurança são executadas pelo sistema. Nenhuma outra verificação de integridade é executada. Esse comando só pode ser usado quando o *UpgradeState* mostra *RollingForwardPending*, o que significa que o domínio de atualização atual concluiu a atualização, mas o próximo ainda não foi iniciado (pendente).
+Olá **Resume-ServiceFabricApplicationUpgrade** comando pode ser usado tooproceed pelo restante Olá Olá atualizar manualmente, um domínio de atualização por vez. Nesse modo, as verificações de segurança só são executadas pelo sistema de saudação. Nenhuma outra verificação de integridade é executada. Este comando só pode ser usado quando hello *UpgradeState* mostra *RollingForwardPending*, que significa que esse domínio de atualização atual Olá terminou de atualizar mas hello lado um não foi iniciado (pendente).
 
-O comando **ServiceFabricApplicationUpgrade atualização** pode ser usado para retomar a atualização monitorada com a realização tanto da verificação de segurança quanto da de integridade.
+Olá **ServiceFabricApplicationUpgrade atualização** comando pode ser usado tooresume Olá monitorado atualização com verificações de integridade e segurança que está sendo executada.
 
 ```
 PS D:\temp> Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
@@ -180,36 +180,36 @@ ServiceTypeHealthPolicyMap              :
 PS D:\temp>
 ```
 
-A atualização continua no domínio de atualização no qual ela foi suspensa da última vez e usa os mesmos parâmetros de atualização e políticas de integridade de antes. Se necessário, qualquer um dos parâmetros de atualização e políticas de integridade mostrados na saída anterior poderá ser alterado no mesmo comando ao retomar a atualização. Neste exemplo, a atualização foi reiniciada no modo monitorado, com os parâmetros e as políticas de integridade inalteradas.
+atualização Olá continua no domínio de atualização Olá onde ele foi suspenso pela última vez e use Olá mesmo atualizar parâmetros e políticas de integridade como antes. Se necessário, qualquer um dos parâmetros de atualização de hello e diretivas de integridade mostradas Olá precede a saída pode ser alterado no hello mesmo comando quando sair da atualização de saudação. Neste exemplo, a atualização Olá foi retomada no modo monitorado, com parâmetros de saudação e políticas de integridade Olá inalteradas.
 
 ## <a name="further-troubleshooting"></a>Solução de problemas adicionais
-### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>O Service Fabric não está seguindo as políticas de integridade especificadas
+### <a name="service-fabric-is-not-following-hello-specified-health-policies"></a>Malha do serviço não é seguir Olá especificado diretivas de integridade
 Possível causa 1:
 
-O Service Fabric converte todas as porcentagens em números reais de entidades (por exemplo, réplicas, partições e serviços) para avaliação de integridade e sempre arredonda para cima para entidades inteiras. Por exemplo, se o máximo de *MaxPercentUnhealthyReplicasPerPartition* for 21% e houver cinco réplicas, o Service Fabric permitirá até duas réplicas não íntegras (ou seja, `Math.Ceiling (5*0.21)`). Portanto, as políticas de integridade devem ser definidas adequadamente.
+Service Fabric converte todas as porcentagens em números reais de entidades (por exemplo, réplicas, partições e serviços) para avaliação de integridade e sempre é arredondado para cima toowhole entidades. Por exemplo, se hello máximo *MaxPercentUnhealthyReplicasPerPartition* % 21 e há cinco réplicas, e a malha do serviço permite que até tootwo réplicas (ou seja,`Math.Ceiling (5*0.21)`). Portanto, as políticas de integridade devem ser definidas adequadamente.
 
 Possível causa 2:
 
-as políticas de integridade são especificadas em termos de percentuais do total de serviço e não em instâncias de serviço específicas. Por exemplo, antes de uma atualização, se um aplicativo tem quatro instâncias de serviço A, B, C e D, em que o serviço D não está íntegro, mas tem pouco impacto no aplicativo. Vamos ignorar o serviço conhecido não íntegro D durante a atualização e definir o parâmetro *MaxPercentUnhealthyServices* a 25%, supondo que apenas A, B e C precisem ser íntegros.
+as políticas de integridade são especificadas em termos de percentuais do total de serviço e não em instâncias de serviço específicas. Por exemplo, antes de uma atualização, se um aplicativo tem quatro instâncias A, B, C e D, de serviço onde o serviço D não está íntegro, mas com aplicativos de toohello pouco impacto. Queremos Olá tooignore conhecido não íntegro serviço D durante a parâmetro hello atualização e defina *MaxPercentUnhealthyServices* toobe 25%, supondo que somente A, B e C necessário toobe íntegro.
 
-No entanto, durante a atualização, D podem se tornar íntegro enquanto C se torna não íntegro. A atualização ainda teria êxito porque somente 25% dos serviços não estão íntegros. No entanto, isso poderia resultar em erros inesperados devido ao fato de C estar inesperadamente não íntegro em vez de D. Nessa situação, D deve ser modelado como um tipo diferente de serviço de A, B e C. Como as políticas de integridade são especificadas baseadas no tipo de serviço, podem ser aplicados limites de percentual de não integridade diferentes para diferentes serviços. 
+No entanto, durante a atualização de saudação D pode se tornar íntegra enquanto C se torna não íntegro. atualização Olá ainda terá sucesso porque somente 25% dos serviços de saudação estão em estado íntegro. No entanto, pode resultar em erros inesperados devido tooC sendo inesperadamente não íntegros, em vez de D. Nessa situação, D deve ser modelada como um tipo de serviço diferente de A, B e C. Como diretivas de integridade são especificadas por tipo de serviço, limites de porcentagem Íntegro diferentes podem ser aplicadas toodifferent serviços. 
 
-### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-the-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Eu não especifiquei uma política de integridade para a atualização do aplicativo, mas a atualização ainda falha em alguns tempos limite que nunca especifiquei
-Quando as políticas de integridade não são fornecidas para a solicitação de atualização, elas são tiradas do *ApplicationManifest.xml* da versão atual do aplicativo. Por exemplo, se você estiver atualizando o Aplicativo X da versão 1.0 para a versão 2.0, as políticas de integridade do aplicativo especificadas na versão 1.0 serão usadas. Se uma política de integridade diferente tiver que ser usada para a atualização, a política precisa ser especificada como parte da chamada de API de atualização de aplicativo. As políticas especificadas como parte da chamada à API somente se aplicam durante a atualização. Depois que a atualização é concluída, as políticas especificadas no *ApplicationManifest.xml* são usadas.
+### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-hello-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Eu não especificou uma diretiva de integridade para a atualização do aplicativo, mas a atualização Olá ainda falha por algum tempos limite que eu nunca especificado
+Quando as políticas de integridade não são fornecidas toohello solicitação de atualização, eles são tirados Olá *ApplicationManifest.xml* da versão atual do aplicativo hello. Por exemplo, se você estiver atualizando X aplicativo versão 1.0 tooversion 2.0, diretivas de integridade do aplicativo especificadas para a versão 1.0 são usadas. Se uma política de integridade de diferentes deve ser usada para atualização hello, política de saudação precisa toobe especificado como parte da chamada à API atualização aplicativo hello. Olá especificadas como parte da chamada de API de saudação de políticas se aplicam somente durante a atualização de saudação. Após a conclusão da atualização hello, políticas de saudação especificadas na Olá *ApplicationManifest.xml* são usados.
 
 ### <a name="incorrect-time-outs-are-specified"></a>Os tempos limite incorretos estão especificados
-Você pode já ter se perguntado sobre o que acontece quando os tempos limite são definidos de forma inconsistente. Por exemplo, você pode ter um *UpgradeTimeout* inferior ao *UpgradeDomainTimeout*. A resposta é que um erro é retornado. Erros serão retornados se *UpgradeDomainTimeout* for menor do que a soma de *HealthCheckWaitDuration* e *HealthCheckRetryTimeout* ou se *UpgradeDomainTimeout* for menor do que a soma de *HealthCheckWaitDuration* e *HealthCheckStableDuration*.
+Você pode já ter se perguntado sobre o que acontece quando os tempos limite são definidos de forma inconsistente. Por exemplo, você pode ter um *UpgradeTimeout* que é menor que Olá *UpgradeDomainTimeout*. resposta de saudação é que um erro será retornado. Os erros são retornados se hello *UpgradeDomainTimeout* é menor do que a soma de saudação do *HealthCheckWaitDuration* e *HealthCheckRetryTimeout*, ou se  *UpgradeDomainTimeout* é menor do que a soma de saudação do *HealthCheckWaitDuration* e *HealthCheckStableDuration*.
 
 ### <a name="my-upgrades-are-taking-too-long"></a>Minhas atualizações estão demorando muito
-O tempo para concluir uma atualização depende das verificações de integridade e dos tempos limite especificados. Verificações de integridade e tempos limite dependem de quanto tempo demora para copiar, implantar e estabilizar o aplicativo. Muita agressividade com tempos limite pode significar mais atualizações com falha e, portanto, recomendamos um início mais conservador com tempos limites mais longos.
+tempo de saudação para uma atualização toocomplete depende Olá verificações de integridade e o tempo limite especificado. Verificações de integridade e tempos limite depende de quanto tempo toocopy, implanta e estabilizar aplicativo hello. Muita agressividade com tempos limite pode significar mais atualizações com falha e, portanto, recomendamos um início mais conservador com tempos limites mais longos.
 
-Eis uma recapitulação de como os tempos limite interagem com os tempos de atualização:
+Aqui está um atualizador rápido sobre como os tempos limite de saudação interage com tempos de atualização de saudação:
 
 A atualização de um domínio de atualização não pode ser concluída mais rapidamente do que *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
 A falha de atualização não pode ocorrer mais rápido do que *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
-O tempo de atualização para um domínio de atualização é limitado pelo *UpgradeDomainTimeout*.  Se *HealthCheckRetryTimeout* e *HealthCheckStableDuration* são diferentes de zero e a integridade do aplicativo alterna entre boa e ruim, a atualização pode esgotar o tempo limite em *UpgradeDomainTimeout*. *UpgradeDomainTimeout* inicia a contagem regressiva quando a atualização do domínio de atualização atual começa.
+Olá tempo de atualização para um domínio de atualização é limitado pelo *UpgradeDomainTimeout*.  Se *HealthCheckRetryTimeout* e *HealthCheckStableDuration* são diferentes de zero e integridade de saudação do aplicativo hello mantém alternar, em seguida, a atualização Olá eventualmente expira em  *UpgradeDomainTimeout*. *UpgradeDomainTimeout* inicia a contagem regressiva uma vez Olá atualização para o domínio de atualização atual Olá começa.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
@@ -218,6 +218,6 @@ O tempo de atualização para um domínio de atualização é limitado pelo *Upg
 
 Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização](service-fabric-application-upgrade-parameters.md).
 
-Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serialização de Dados](service-fabric-application-upgrade-data-serialization.md).
+Verifique suas atualizações de aplicativo compatível aprendendo como toouse [serialização de dados](service-fabric-application-upgrade-data-serialization.md).
 
-Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
+Saiba como toouse funcionalidade avançada ao atualizar seu aplicativo referindo-se muito[tópicos avançados](service-fabric-application-upgrade-advanced.md).

@@ -1,6 +1,6 @@
 ---
-title: Use o Visual Studio e o .NET para consultar o Banco de Dados SQL do Azure | Microsoft Docs
-description: "Este tópico mostra como usar o Visual Studio para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL."
+title: aaaUse Visual Studio e .NET tooquery banco de dados do SQL Azure | Microsoft Docs
+description: "Este tópico mostra como toouse Visual Studio toocreate um programa que se conecta tooan banco de dados do SQL Azure e a consulta usando instruções Transact-SQL."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,67 +15,67 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 105dab17823a7e7f6957a604833f4ecad35c14bd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 038cfb9c680217dfeea5a9996a0abed88cc80559
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Usar o .NET (C#) com o Visual Studio para se conectar e consultar um banco de dados SQL do Azure
+# <a name="use-net-c-with-visual-studio-tooconnect-and-query-an-azure-sql-database"></a>Use o .NET (c#) com o Visual Studio tooconnect e consultar um banco de dados do SQL Azure
 
-Este tutorial de início rápido demonstra como usar o [.NET framework](https://www.microsoft.com/net/) para criar um programa C# com o Visual Studio para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
+Este tutorial de início rápido demonstra como Olá toouse [do .NET framework](https://www.microsoft.com/net/) toocreate c# programar com o banco de dados do Visual Studio tooconnect tooan SQL Azure e usar dados de tooquery de instruções Transact-SQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial de início rápido, tenha o seguinte:
+toocomplete rápido nesse tutorial de início, verifique se você tem o seguinte hello:
 
-- Um banco de dados SQL do Azure. Este início rápido usa os recursos criados em um destes inícios rápidos: 
+- Um banco de dados SQL do Azure. Esse início rápido usa recursos de saudação criados em um desses inícios rápidos: 
 
    - [Criar Banco de dados - Portal](sql-database-get-started-portal.md)
    - [Criar Banco de dados - CLI](sql-database-get-started-cli.md)
    - [Criar Banco de dados - PowerShell](sql-database-get-started-powershell.md)
 
-- Uma [regra de firewall no nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público do computador usado neste tutorial de início rápido.
+- Um [regra de firewall de nível de servidor](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) para o endereço IP público de saudação do computador Olá usar para este tutorial de início rápido.
 - Uma instalação do [Visual Studio Community 2017, Visual Studio Professional 2017 ou Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="sql-server-connection-information"></a>Informações de conexão do servidor SQL
 
-Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados SQL do Azure. Você precisará do nome totalmente qualificado do servidor, nome do banco de dados e informações de logon nos próximos procedimentos.
+Obter Olá conexão informações necessárias tooconnect toohello SQL Azure banco de dados. Será necessário o nome totalmente qualificado do servidor de saudação, nome do banco de dados e informações de logon em procedimentos Avançar hello.
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Selecione **Bancos de Dados SQL** no menu à esquerda e clique em seu banco de dados na página **Bancos de Dados SQL**. 
-3. Na página **Visão geral** do banco de dados, examine o nome totalmente qualificado do servidor, como mostrado na imagem a seguir. Você pode passar o mouse sobre o nome do servidor para abrir a opção **Clique para copiar**. 
+1. Faça logon no toohello [portal do Azure](https://portal.azure.com/).
+2. Selecione **bancos de dados SQL** no menu esquerdo do hello e clique em seu banco de dados em Olá **bancos de dados SQL** página. 
+3. Em Olá **visão geral** página do banco de dados, examine Olá nome totalmente qualificado do servidor conforme Olá a imagem a seguir. Você pode focalizar Olá toobring de nome de servidor backup Olá **clique toocopy** opção. 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Se você esquecer as informações de logon para o servidor do Banco de Dados SQL do Azure, navegue até a página do servidor do Banco de Dados SQL para exibir o nome de administrador do servidor. Você pode redefinir a senha, se necessário.
+4. Se você esquecer suas informações de logon do banco de dados SQL server, navegue toohello banco de dados do SQL server página tooview Olá administrador nome do servidor. Você pode redefinir a senha de saudação se necessário.
 
 5. Clique em **Mostrar cadeias de conexão de banco de dados**.
 
-6. Examine a cadeia de conexão completa do **ADO.NET**.
+6. Saudação de revisão completa **ADO.NET** cadeia de caracteres de conexão.
 
     ![Cadeia de conexão do ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
-> Você deve ter uma regra de firewall em vigor para o endereço IP público do computador em que você executa este tutorial. Se você estiver em um computador diferente ou se tiver um endereço IP público diferente, crie uma [regra de firewall no nível de servidor usando o portal do Azure](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
+> Você deve ter uma regra de firewall em vigor para o endereço IP público de saudação do computador Olá em que você executa este tutorial. Se você estiver em um computador diferente ou ter um endereço IP público diferente, crie um [regra de firewall de nível de servidor usando Olá portal do Azure](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
 >
   
 ## <a name="create-a-new-visual-studio-project"></a>Criar um novo projeto do Visual Studio
 
 1. No Visual Studio, escolha **Arquivo**, **Novo**, **Projeto**. 
-2. No diálogo **Novo Projeto** e expanda **Visual C#**.
-3. Selecione **Aplicativo de Console** e insira *sqltest* como o nome do projeto.
-4. Clique em **OK** para criar e abrir o novo projeto no Visual Studio
+2. Em Olá **novo projeto** caixa de diálogo e expanda **Visual C#**.
+3. Selecione **aplicativo de Console** e digite *sqltest* para nome do projeto hello.
+4. Clique em **Okey** toocreate e Olá Abrir novo projeto no Visual Studio
 4. No Gerenciador de Soluções, clique com o botão direito do mouse em **sqltest** e clique em **Gerenciar Pacotes NuGet**. 
-5. Em **Procurar**, procure ```System.Data.SqlClient``` e, quando encontrado, selecione-o.
-6. Na página **System.Data.SqlClient**, clique em **Instalar**.
-7. Quando a instalação for concluída, revise as alterações e então clique em **OK** para fechar a janela **Visualização**. 
+5. Em Olá **procurar**, procure ```System.Data.SqlClient``` e, quando encontrado, selecione-o.
+6. Em Olá **SqlClient** , clique em **instalar**.
+7. Quando Olá instalação for concluída, revise Olá alterações e, em seguida, clique em **Okey** tooclose Olá **visualização** janela. 
 8. Se uma janela **Aceitação da Licença** for exibida, clique em **Aceito**.
 
-## <a name="insert-code-to-query-sql-database"></a>Inserir código para consultar o banco de dados SQL
-1. Alternar para (ou abrir, se necessário) **Program.cs**
+## <a name="insert-code-tooquery-sql-database"></a>Insira o banco de dados SQL do código tooquery
+1. Alternar muito (ou abrir se necessário) **Program.cs**
 
-2. Substitua o conteúdo de **Program.cs** pelo código a seguir e adicione os valores apropriados para seu servidor, banco de dados, usuário e senha.
+2. Substitua o conteúdo de saudação do **Program.cs** com hello seguinte código e adicionar os valores apropriados para seu servidor, banco de dados, usuário e senha hello.
 
 ```csharp
 using System;
@@ -131,14 +131,14 @@ namespace sqltest
 }
 ```
 
-## <a name="run-the-code"></a>Executar o código
+## <a name="run-hello-code"></a>Executar o código de saudação
 
-1. Pressione **F5** para executar o aplicativo.
-2. Verifique se as 20 linhas superiores são retornadas e, em seguida, feche a janela do aplicativo.
+1. Pressione **F5** aplicativo hello de toorun.
+2. Verifique se que 20 linhas de saudação principais são retornadas e, em seguida, feche a janela do aplicativo hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [se conectar e consultar um banco de dados SQL do Azure usando o .NET core](sql-database-connect-query-dotnet-core.md) no Windows/Linux/macOS.  
-- Saiba mais sobre a [Introdução ao .NET Core no Windows/Linux/macOS usando a linha de comando](/dotnet/core/tutorials/using-with-xplat-cli).
-- Saiba como [Projetar seu primeiro banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md) ou [Projetar seu primeiro banco de dados SQL do Azure usando o .NET](sql-database-design-first-database-csharp.md).
+- Saiba como muito[se conectar e consultar um banco de dados do SQL Azure usando o .NET core](sql-database-connect-query-dotnet-core.md) no Linux/Windows/macOS.  
+- Saiba mais sobre [guia de Introdução ao .NET Core no Windows/Linux/macOS usando a linha de comando Olá](/dotnet/core/tutorials/using-with-xplat-cli).
+- Saiba como muito[criar seu primeiro banco de dados SQL do Azure usando o SSMS](sql-database-design-first-database.md) ou [criar seu primeiro banco de dados SQL do Azure usando o .NET](sql-database-design-first-database-csharp.md).
 - Para saber mais sobre o .NET, veja a [documentação do .NET](https://docs.microsoft.com/dotnet/).

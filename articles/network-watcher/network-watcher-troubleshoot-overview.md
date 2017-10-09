@@ -1,6 +1,6 @@
 ---
-title: "Introdução à solução de problemas do recurso no Observador de Rede do Azure | Microsoft Docs"
-description: "Essa página fornece uma visão geral das capacidades de solução de problemas do recurso do Observador de Rede"
+title: tooresource aaaIntroduction Solucionando problemas do observador de rede do Azure | Microsoft Docs
+description: "Esta página fornece uma visão geral dos recursos de solução de problemas do recurso Olá observador de rede"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 0d5091b682d1b25c47b224394bcc2c46366eeb2a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ccbe4c1c2364473aba06e709460d67c773cf25ae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
+# <a name="introduction-tooresource-troubleshooting-in-azure-network-watcher"></a>Introdução tooresource Solucionando problemas do observador de rede do Azure
 
-Os Gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais no Azure. Para garantir que a comunicação não seja quebrada, é essencial monitorar esses gateways e suas Conexões. O Observador de Rede fornece a capacidade de solucionar problemas das Conexões e dos Gateways de Rede Virtual. Ela pode ser chamada pelo Portal, pelo PowerShell, pela CLI ou pela API REST. Quando chamado, o Observador de Rede diagnostica a integridade da conexão ou do gateway de rede virtual e retorna os resultados adequados. Essa solicitação é uma transação de longa duração e os resultados são retornados quando o diagnóstico for concluído.
+Os Gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais no Azure. Esses gateways e suas conexões de monitoramento é fundamental tooensuring comunicação não é interrompida. Observador de rede fornece Olá recurso tootroubleshoot Gateways de rede Virtual e conexões. Isso pode ser chamado por meio do portal de saudação, o PowerShell, CLI ou API REST. Quando chamado, o observador de rede diagnostica integridade de saudação do gateway de rede virtual hello ou conexão e resultados de retorno Olá apropriado. Essa solicitação é uma transação de longa execução, resultados de saudação são retornados após a conclusão do diagnóstico de saudação.
 
 ![portal][2]
 
 ## <a name="results"></a>Resultados
 
-Os resultados preliminares retornados fornecem uma visão geral da integridade do recurso. Mais informações podem ser fornecidas sobre os recursos, como mostrado na seção a seguir:
+resultados de preliminar Olá retornados dão uma visão geral da integridade de saudação do recurso de saudação. Mais informações podem ser fornecidas para recursos, conforme mostrado no hello seção a seguir:
 
-A lista a seguir contém os valores retornados com a API de solução de problemas:
+Olá lista a seguir é valores hello retornados com hello solucionar problemas de API:
 
-* **startTime** - esse valor indica a hora que a chamada da API de solução de problemas começou.
-* **endTime** - esse valor indica a hora que a solução de problemas foi concluída.
+* **startTime** -este valor é tempo de saudação Olá solucionar chamada à API iniciada.
+* **endTime** -esse valor é o tempo de saudação quando a solução de problemas de saudação terminou.
 * **cod** - esse valor não é apresentado como UnHealthy (não íntegro), se houver uma única falha de diagnóstico.
-* **results** - é um conjunto de resultados retornados sobre a Conexão ou o gateway de rede virtual.
-    * **id** - esse valor indica o tipo da falha.
-    * **summary** - esse valor é um resumo da falha.
-    * **detailed** - esse valor fornece uma descrição detalhada da falha.
-    * **recommendedActions** - essa propriedade é um conjunto de ações recomendadas.
-      * **actionText** - esse valor contém o texto que descreve a ação a ser executada.
-      * **actionUri** - esse valor fornece o URI da documentação sobre como agir.
-      * **actionUriText** - esse valor é uma breve descrição do texto de ação.
+* **resultados** -resultados é um conjunto de resultados retornados no gateway de rede virtual de Conexão ou Olá Olá.
+    * **ID** -este valor é o tipo de falha de saudação.
+    * **Resumo** -esse valor é um resumo das falhas de saudação.
+    * **detalhadas** -esse valor fornece uma descrição detalhada da falha de saudação.
+    * **recommendedActions** -essa propriedade é uma coleção de ações recomendadas tootake.
+      * **actionText** -esse valor contém o texto de saudação que descreve quais tootake de ação.
+      * **actionUri** -esse valor fornece Olá URI toodocumentation sobre como tooact.
+      * **actionUriText** -esse valor é uma breve descrição de texto de ação de saudação.
 
-As tabelas a seguir mostram os diversos tipos de falha (id em resultados da lista anterior) que estão disponíveis e se a falha cria logs.
+Olá seguintes tabelas Mostrar Olá falha diferentes tipos (id em resultados de saudação anterior lista) que estão disponíveis e se a falha de saudação cria logs.
 
 ### <a name="gateway"></a>Gateway
 
@@ -54,12 +54,12 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não|
 | PlannedMaintenance |  A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento. | Não |
-| VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não |
-| PlatformInActive | Há um problema com a plataforma. | Não|
-| ServiceNotRunning | O serviço subjacente não está em execução. | Não|
-| NoConnectionsFoundForGateway | Não existe Conexões no gateway. Isso é apenas um aviso.| Não|
+| VipUnResponsive | É possível acessar a instância primária de saudação do hello Gateway. Isso acontece quando ocorre falha na investigação de integridade de saudação. | Não |
+| PlatformInActive | Há um problema com a plataforma de saudação. | Não|
+| ServiceNotRunning | serviço subjacente Olá não está em execução. | Não|
+| NoConnectionsFoundForGateway | Nenhuma conexão existe no gateway hello. Isso é apenas um aviso.| Não|
 | ConnectionsNotConnected | As conexões não estão conectadas. Isso é apenas um aviso.| Sim|
-| GatewayCPUUsageExceeded | O uso de CPU do Gateway atual é > 95%. | Sim |
+| GatewayCPUUsageExceeded | uso de CPU do Gateway atual Olá é > 95%. | Sim |
 
 ### <a name="connection"></a>Conexão
 
@@ -69,19 +69,19 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | GatewayNotFound | Não é possível localizar o Gateway ou o Gateway não está provisionado. |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção.  |Não|
 | UserDrivenUpdate | Uma atualização de um usuário está em andamento. Isso pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Não é possível acessar a instância primária do Gateway. Isso acontece quando a investigação de integridade falha. | Não |
+| VipUnResponsive | É possível acessar a instância primária de saudação do hello Gateway. Isso acontece quando ocorre falha na investigação de integridade de saudação. | Não |
 | ConnectionEntityNotFound | A configuração da Conexão está ausente. | Não |
-| ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não|
-| ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Sim |
-| ConnectionMarkedStandy | O serviço subjacente está marcado como em espera.| Sim|
+| ConnectionIsMarkedDisconnected | Olá Conexão está marcado como "desconectada". |Não|
+| ConnectionNotConfiguredOnGateway | serviço subjacente Olá não tem Olá que Conexão configurada. | Sim |
+| ConnectionMarkedStandy | Olá serviço subjacente é marcado como em espera.| Sim|
 | Autenticação | Incompatibilidade de chave pré-compartilhada. | Sim|
-| PeerReachability | O gateway correspondente não está acessível. | Sim|
-| IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
-| Erro WfpParse | Ocorreu um erro ao analisar o log WFP. |Sim|
+| PeerReachability | gateway do Hello correspondente não está acessível. | Sim|
+| IkePolicyMismatch | gateway de par de saudação tem políticas de IKE que não são suportadas pelo Azure. | Sim|
+| Erro WfpParse | Erro ao analisar logs WFP hello. |Sim|
 
 ## <a name="supported-gateway-types"></a>Tipos de gateway com suporte
 
-A lista a seguir mostra quais gateways e conexões têm suporte com a solução de problemas do Observador de Rede.
+Olá lista a seguir mostra suporte Olá mostra quais gateways e conexões são compatíveis com a solução de problemas do observador de rede.
 |  |  |
 |---------|---------|
 |**Tipos de gateway**   |         |
@@ -100,23 +100,23 @@ A lista a seguir mostra quais gateways e conexões têm suporte com a solução 
 
 ## <a name="log-files"></a>Arquivos de log
 
-Os arquivos de log para solução de problemas de recursos são armazenados em uma conta de armazenamento após a conclusão da solução de problemas de recursos. A imagem a seguir mostra o conteúdo de exemplo de uma chamada que resultou em um erro.
+arquivos de log de solução de problemas do Hello recursos são armazenados em uma conta de armazenamento após a conclusão da solução de problemas de recursos. Olá imagem a seguir mostra conteúdo de exemplo hello de uma chamada que resultou em erro.
 
 ![arquivo zip][1]
 
 > [!NOTE]
-> Em alguns casos, somente um subconjunto dos arquivos de log é gravado no armazenamento.
+> Em alguns casos, somente um subconjunto dos arquivos de log de saudação é gravado toostorage.
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, consulte [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento, acesse o link: [Gerenciador de armazenamento](http://storageexplorer.com/)
+Para obter instruções sobre como baixar os arquivos de contas de armazenamento do azure, consulte muito[Introdução ao armazenamento de BLOBs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Para obter mais informações sobre o Gerenciador de armazenamento podem ser encontradas aqui em Olá link a seguir: [Gerenciador de armazenamento](http://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
-O arquivo **ConnectionStats.txt** contém estatísticas gerais da Conexão, incluindo bytes de entrada e saída, status da Conexão e a hora que a Conexão foi estabelecida.
+Olá **ConnectionStats.txt** arquivo contém estatísticas gerais de saudação Conexão, incluindo bytes de entrada e saída, o status de Conexão e saudação de tempo de saudação Conexão foi estabelecida.
 
 > [!NOTE]
-> Se a chamada para a API de solução de problemas retornar como íntegra, o único item retornado no arquivo zip será um arquivo **ConnectionStats.txt**.
+> Se Olá toohello de chamada de API de solução de problemas retorna íntegro, a única coisa que Olá retornada no arquivo zip de saudação é um **ConnectionStats.txt** arquivo.
 
-O conteúdo desse arquivo é semelhante ao seguinte exemplo:
+conteúdo deste arquivo Hello é semelhante toohello exemplo a seguir:
 
 ```
 Connectivity State : Connected
@@ -128,7 +128,7 @@ Connected Since : 2/1/2017 8:22:06 PM
 
 ### <a name="cpustatstxt"></a>CPUStats.txt
 
-O arquivo **CPUStats.txt** contém o uso da CPU e memória disponível no momento do teste.  O conteúdo desse arquivo é semelhante ao seguinte exemplo:
+Olá **CPUStats.txt** arquivo contém o uso da CPU e memória disponível no momento de saudação do teste.  conteúdo deste arquivo Hello é semelhante toohello exemplo a seguir:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
@@ -136,9 +136,9 @@ Current CPU Usage : 0 % Current Memory Available : 641 MBs
 
 ### <a name="ikeerrorstxt"></a>IKEErrors.txt
 
-O arquivo **IKEErrors.txt** contém erros de IKE que foram encontrados durante o monitoramento.
+Olá **IKEErrors.txt** arquivo contendo quaisquer erros de IKE que foram encontrados durante o monitoramento.
 
-O exemplo a seguir mostra o conteúdo de um arquivo de IKEErrors.txt. Os erros podem ser diferentes dependendo do problema.
+Olá, exemplo a seguir mostra Olá conteúdo de um arquivo de IKEErrors.txt. Os erros podem ser diferentes dependendo do problema de saudação.
 
 ```
 Error: Authentication failed. Check shared key. Check crypto. Check lifetimes. 
@@ -149,13 +149,13 @@ Error: On-prem device sent invalid payload.
 
 ### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
-O arquivo de log **Scrubbed-wfpdiag.txt** contém o log wfp. Esse log contém o registro de descarte do pacote e de falhas de IKE/AuthIP.
+Olá **Scrubbed wfpdiag.txt** arquivo de log contém o log de wfp hello. Esse log contém o registro de descarte do pacote e de falhas de IKE/AuthIP.
 
-O exemplo a seguir mostra o conteúdo de um arquivo Scrubbed-wfpdiag.txt. Neste exemplo, a chave compartilhada de uma Conexão não está correta, como pode ser visto na 3ª linha da parte inferior. O exemplo a seguir é apenas um trecho do log inteiro, já que, dependendo do problema, o log pode ser demorado.
+Olá exemplo a seguir mostra conteúdo de saudação do arquivo de Scrubbed wfpdiag.txt de saudação. Neste exemplo, a chave compartilhada de saudação de uma Conexão não estava correto como pode ser visto na linha de 3ª Olá da parte inferior da saudação. saudação de exemplo a seguir é apenas um trecho de todo o log hello, como log Olá pode ser demorado, dependendo do problema de saudação.
 
 ```
 ...
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Deleted ICookie from the high priority thread pool list
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Deleted ICookie from hello high priority thread pool list
 [0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|IKE diagnostic event:
 [0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Event Header:
 [0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Timestamp: 1601-01-01T00:00:00.000Z
@@ -182,9 +182,9 @@ O exemplo a seguir mostra o conteúdo de um arquivo Scrubbed-wfpdiag.txt. Neste 
 
 ### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.sum
 
-O arquivo **wfpdiag.txt.sum** é um log que exibe buffers e eventos processados.
+Olá **wfpdiag.txt.sum** arquivo é um log mostrando buffers hello e eventos processados.
 
-O exemplo a seguir é o conteúdo de um arquivo wfpdiag.txt.sum.
+Olá, exemplo a seguir é Olá conteúdo de um arquivo de wfpdiag.txt.sum.
 ```
 Files Processed:
     C:\Resources\directory\924336c47dd045d5a246c349b8ae57f2.GatewayTenantWorker.DiagnosticsStorage\2017-02-02T17-34-23\wfpdiag.etl
@@ -212,7 +212,7 @@ Elapsed Time            330 sec
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como diagnosticar Gateways de VPN e Conexões por meio do Portal visitando [Solução de Problemas de Gateway – Portal do Azure](network-watcher-troubleshoot-manage-portal.md).
+Saiba como Gateways de VPN toodiagnose e conexões por meio de Olá portal visitando [solução de problemas do Gateway - portal do Azure](network-watcher-troubleshoot-manage-portal.md).
 <!--Image references-->
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png

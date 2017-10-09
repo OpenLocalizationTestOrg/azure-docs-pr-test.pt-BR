@@ -1,6 +1,6 @@
 ---
-title: "Criar uma VM Clássica do Linux usando a CLI do Azure 1.0 | Microsoft Docs"
-description: "Saiba como criar uma máquina virtual do Linux com a CLI do Azure 1.0 usando o modelo de implantação Clássico"
+title: "aaaCreate uma VM do Linux clássica usando Olá 1.0 da CLI do Azure | Microsoft Docs"
+description: "Saiba como toocreate uma máquina virtual de Linux com hello Azure CLI 1.0 usando Olá modelo de implantação clássico"
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 8ddbacbbb70c0cf1a2537fab4d981a316610a4d7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5c3c54e5d1444a79e8e609c76d04a3a621c8d03f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Como criar uma VM Clássica do Linux com a CLI do Azure 1.0
+# <a name="how-toocreate-a-classic-linux-vm-with-hello-azure-cli-10"></a>Como tooCreate uma VM do Linux clássica com hello 1.0 da CLI do Azure
 > [!IMPORTANT] 
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para a versão do Resource Manager, consulte [aqui](../create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação clássico hello. A Microsoft recomenda que mais novas implantações de usam o modelo do Gerenciador de recursos de saudação. Para a versão do Gerenciador de recursos de hello, consulte [aqui](../create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Este tópico descreve como criar uma VM (máquina virtual) do Linux com a CLI do Azure 1.0 usando o modelo de implantação Clássico. Vamos usar uma imagem do Linux das **IMAGENS** disponíveis no Azure. Os comandos da CLI do Azure 1.0 oferecem as seguintes opções de configuração, entre outras:
+Este tópico descreve como toocreate uma máquina virtual do Linux (VM) com o uso de hello Azure CLI 1.0 Olá modelo de implantação clássico. Podemos usar uma imagem do Linux do hello disponível **imagens** no Azure. comandos de saudação 1.0 da CLI do Azure oferecem Olá opções de configuração, entre outros:
 
-* Conectar a VM a uma rede virtual
-* Adicionar a VM a um serviço de nuvem existente
-* Adicionar a VM a uma conta de armazenamento existente
-* Adicionar a VM a um conjunto de disponibilidade ou local.
+* Conexão de rede virtual do hello VM tooa
+* Adicionar serviço de nuvem existente do hello VM tooan
+* Adicionar conta de armazenamento existente do hello VM tooan
+* Adicionar conjunto de disponibilidade Olá VM tooan ou local
 
 > [!IMPORTANT]
-> Se você quiser que sua VM use uma rede virtual para que possa se conectar às suas máquinas virtuais diretamente pelo nome do host ou estabelecer conexões entre locais, especifique a rede virtual ao criar a VM. Uma máquina virtual poderá ser configurada para ingressar em uma rede virtual somente quando você criar a VM. Para mais detalhes sobre redes virtuais, consulte [Visão geral da rede virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> Se você quiser toouse sua VM uma rede virtual para que possa conectar tooit diretamente pelo nome de host ou configurar conexões entre locais, certifique-se de que especificar rede virtual hello quando você cria Olá VM. Uma VM pode ser configurado toojoin uma rede virtual somente quando você cria Olá VM. Para mais detalhes sobre redes virtuais, consulte [Visão geral da rede virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 > 
 > 
 
-## <a name="how-to-create-a-linux-vm-using-the-classic-deployment-model"></a>Como criar uma VM do Linux usando o modelo de implantação Clássico
+## <a name="how-toocreate-a-linux-vm-using-hello-classic-deployment-model"></a>Como toocreate uma VM do Linux usando Olá modelo de implantação clássico
 [!INCLUDE [virtual-machines-create-LinuxVM](../../../../includes/virtual-machines-create-linuxvm.md)]
 

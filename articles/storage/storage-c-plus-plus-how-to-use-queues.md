@@ -1,6 +1,6 @@
 ---
-title: Como usar o armazenamento de filas (C++) | Microsoft Docs
-description: "Saiba como usar o serviço de armazenamento de filas no Azure. As amostras são escritas em C++."
+title: armazenamento de fila aaaHow toouse (C++) | Microsoft Docs
+description: "Saiba como toouse Olá serviço de armazenamento de fila no Azure. As amostras são escritas em C++."
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -14,22 +14,22 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
-ms.openlocfilehash: 85e4d95549ca5edd375f3b15971634e032a3962a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 755380824890ad83774e14d258975915e10cfede
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-queue-storage-from-c"></a>Como usar o armazenamento de filas do C++
+# <a name="how-toouse-queue-storage-from-c"></a>Como toouse armazenamento de fila de C++
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Visão geral
-Este guia irá lhe mostrar como executar cenários comuns usando o armazenamento de fila do Azure. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
+Este guia mostrará como tooperform cenários comuns usando Olá serviço de armazenamento de fila do Azure. exemplos de saudação são escritos em C++ e usam Olá [biblioteca de cliente de armazenamento do Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Olá cenários abordados incluem **inserindo**, **inspecionar**, **obtendo**, e **excluindo** Enfileirar mensagens, bem como  **criar e excluir filas**.
 
 > [!NOTE]
-> Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior. A versão recomendada é a Biblioteca de Clientes de Armazenamento 2.2.0, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](http://github.com/Azure/azure-storage-cpp/).
+> Destino dessa guia Olá biblioteca de cliente de armazenamento do Azure para a versão 1.0.0 de C++ e acima. Olá recomendado versão é a biblioteca de cliente de armazenamento 2.2.0, que está disponível por meio de [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](http://github.com/Azure/azure-storage-cpp/).
 > 
 > 
 
@@ -40,19 +40,19 @@ Este guia irá lhe mostrar como executar cenários comuns usando o armazenamento
 ## <a name="create-a-c-application"></a>Criar um aplicativo em C++
 Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo C++.
 
-Para isso, você precisará instalar a Biblioteca do Cliente de Armazenamento do Azure para C++ e criar uma conta de armazenamento do Azure em sua assinatura do Azure.
+toodo assim, você precisará tooinstall hello biblioteca de cliente de armazenamento do Azure para C++ e criar uma conta de armazenamento do Azure em sua assinatura do Azure.
 
-Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você pode usar os seguintes métodos:
+Olá tooinstall biblioteca de cliente de armazenamento do Azure para C++, você pode usar o hello métodos a seguir:
 
-* **Linux:** siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
-* **Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.
+* **Linux:** siga instruções Olá fornecidas em Olá [biblioteca de cliente de armazenamento do Azure para C++ Leiame](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) página.
+* **Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte Olá comando em Olá [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.
 
 ```  
 Install-Package wastorage
 ```
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de Filas
-Adicione as seguintes instruções include à parte superior do arquivo C++ no qual deseja usar as APIs de armazenamento do Azure para acessar as filas:  
+## <a name="configure-your-application-tooaccess-queue-storage"></a>Configurar seu aplicativo tooaccess armazenamento de fila
+Adicione a seguinte Olá incluem superior de toohello de instruções do arquivo de C++ de saudação onde você deseja que as filas de tooaccess APIs de armazenamento do Azure Olá toouse:  
 
 ```cpp
 #include <was/storage_account.h>
@@ -60,26 +60,26 @@ Adicione as seguintes instruções include à parte superior do arquivo C++ no q
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de armazenamento do Azure
-Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao ser executado em um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de acesso de armazenamento da conta de armazenamento listada no [Portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey*. Para obter informações sobre as contas de armazenamento e as chaves de acesso, consulte [Sobre as Contas de Armazenamento do Azure](storage-create-storage-account.md). Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:  
+Um cliente de armazenamento do Azure usa um pontos de extremidade de toostore de cadeia de caracteres de conexão de armazenamento e as credenciais para acessar os serviços de gerenciamento de dados. Quando em execução em um aplicativo cliente, você deve fornecer a cadeia de conexão de armazenamento Olá no hello formato a seguir, usando o nome de saudação da chave de acesso do armazenamento seu armazenamento conta e Olá Olá conta de armazenamento listada no hello [Portal do Azure](https://portal.azure.com)para Olá *AccountName* e *AccountKey* valores. Para obter informações sobre as contas de armazenamento e as chaves de acesso, consulte [Sobre as Contas de Armazenamento do Azure](storage-create-storage-account.md). Este exemplo mostra como você pode declarar uma cadeia de caracteres de conexão do campo estático toohold hello:  
 
 ```cpp
-// Define the connection-string with your values.
+// Define hello connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-Para testar seu aplicativo no computador local do Windows, você pode usar o emulador de armazenamento do [Microsoft Azure](storage-use-emulator.md) que é instalado com o [SDK do Azure](https://azure.microsoft.com/downloads/). O emulador de armazenamento é um utilitário que simula os serviços Blob, fila e tabela disponíveis no Azure em sua máquina de desenvolvimento local. Este exemplo mostra como você pode declarar um campo estático para manter a cadeia de conexão em seu emulador de armazenamento local:  
+tootest seu aplicativo no seu computador local do Windows, você pode usar o hello Microsoft Azure [emulador de armazenamento](storage-use-emulator.md) que é instalada com hello [SDK do Azure](https://azure.microsoft.com/downloads/). emulador de armazenamento Olá é um utilitário que simula os serviços de Blob, fila e tabela de saudação disponíveis no Azure em sua máquina de desenvolvimento local. Olá exemplo a seguir mostra como você pode declarar um emulador de armazenamento local do campo estático toohold Olá cadeia de caracteres conexão tooyour:  
 
 ```cpp
-// Define the connection-string with Azure Storage Emulator.
+// Define hello connection-string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Para iniciar o emulador de armazenamento do Azure, selecione o botão **Iniciar** ou pressione a tecla **Windows**. Comece digitando **Emulador de Armazenamento do Azure** e selecione **Emulador de Armazenamento do Microsoft Azure** na lista de aplicativos.
+emulador de armazenamento do Azure toostart hello, selecione Olá **iniciar** Olá botão ou pressione **Windows** chave. Comece digitando **emulador de armazenamento do Azure**e selecione **emulador de armazenamento do Microsoft Azure** da lista de saudação de aplicativos.
 
-Os exemplos abaixo pressupõem que você usou um desses dois métodos para obter a cadeia de conexão do armazenamento.
+Olá exemplos a seguir pressupõem que você usou uma cadeia de conexão de armazenamento esses dois métodos tooget hello.
 
 ## <a name="retrieve-your-connection-string"></a>Recuperar sua cadeia de conexão
-É possível usar a classe **cloud_storage_account** para representar as informações da conta de armazenamento. Para recuperar as informações da conta de armazenamento na cadeia de conexão de armazenamento, você pode usar o método **Analisar** .
+Você pode usar o hello **cloud_storage_account** classe toorepresent suas informações de conta de armazenamento. tooretrieve informações de cadeia de caracteres de conexão de armazenamento Olá da conta de armazenamento, você pode usar o hello **analisar** método.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -87,7 +87,7 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 ```
 
 ## <a name="how-to-create-a-queue"></a>Como criar uma fila
-Um objeto **cloud_queue_client** permite que você obtenha objetos de referência para as filas. O código a seguir cria um objeto **cloud_queue_client**.
+Um objeto **cloud_queue_client** permite que você obtenha objetos de referência para as filas. Olá código a seguir cria um **cloud_queue_client** objeto.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -97,115 +97,115 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 ```
 
-Use o objeto **cloud_queue_client** para obter uma referência para a fila que você deseja usar. Você poderá criar a fila se ela não existir.
+Saudação de uso **cloud_queue_client** tooget uma fila de toohello de referência que você deseja toouse do objeto. Você pode criar a fila de saudação se ele não existir.
 
 ```cpp
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Create the queue if it doesn't already exist.
+// Create hello queue if it doesn't already exist.
  queue.create_if_not_exists();  
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Como inserir uma mensagem em uma fila
-Para inserir uma mensagem em uma fila existente, primeiro crie uma nova **cloud_queue_message**. Em seguida, chame o método **add_message**. Uma **cloud_queue_message** pode ser criada a partir de uma cadeia de caracteres ou de uma matriz de **bytes**. Este é o código que cria uma fila (se ela não existir) e insere a mensagem 'Hello, World':
+tooinsert uma mensagem em uma fila existente, primeiro crie um novo **cloud_queue_message**. Em seguida, chame Olá **add_message** método. Uma **cloud_queue_message** pode ser criada a partir de uma cadeia de caracteres ou de uma matriz de **bytes**. Aqui está o código que cria uma fila (se não existir) e a mensagem de saudação inserções 'Hello, World':
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Create the queue if it doesn't already exist.
+// Create hello queue if it doesn't already exist.
 queue.create_if_not_exists();
 
-// Create a message and add it to the queue.
+// Create a message and add it toohello queue.
 azure::storage::cloud_queue_message message1(U("Hello, World"));
 queue.add_message(message1);  
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Como inspecionar a próxima mensagem
-Você pode espiar a mensagem na frente de uma fila sem removê-la da fila chamando o método **peek_message**.
+## <a name="how-to-peek-at-hello-next-message"></a>Como: espiar a próxima mensagem de saudação
+Você pode inspecionar mensagem de saudação na frente de saudação de uma fila sem removê-la da fila de saudação por chamada hello **peek_message** método.
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Peek at the next message.
+// Peek at hello next message.
 azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 
-// Output the message content.
+// Output hello message content.
 std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como alterar o conteúdo de uma mensagem em fila
-Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem representar uma tarefa de trabalho, você poderá usar esse recurso para atualizar o status da tarefa de trabalho. O código a seguir atualiza a mensagem da fila com novo conteúdo e define o tempo limite de visibilidade para estender mais 60 segundos. Isso salva o estado do trabalho associado à mensagem e dá ao cliente mais um minuto para continuar trabalhando na mensagem. Você pode usar essa técnica para acompanhar fluxos de trabalho de várias etapas em mensagens em fila, sem a necessidade de começar desde o início, caso uma etapa de processamento falhar devido a uma falha de hardware ou de software. Normalmente, você mantém uma contagem de repetições e, se a mensagem for repetida mais de n vezes, você a exclui. Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.
+## <a name="how-to-change-hello-contents-of-a-queued-message"></a>Como: alterar o conteúdo de saudação de uma mensagem na fila
+Você pode alterar o conteúdo de saudação de um mensagem no local na fila de saudação. Se a mensagem de saudação representa uma tarefa de trabalho, você pode usar esse status do recurso tooupdate Olá da tarefa de trabalho hello. saudação de código a seguir atualiza a mensagem da fila de saudação com novo conteúdo e conjuntos Olá tooextend de tempo limite de visibilidade outro 60 segundos. Isso salva o estado de saudação do trabalho associado à mensagem de saudação e fornece cliente Olá outro toocontinue minuto trabalhando na mensagem de saudação. Você pode usar esta técnica tootrack várias etapas os fluxos de trabalho na fila de mensagens, sem ter que toostart através do hello início se uma etapa de processamento falhar devido a falha de toohardware ou software. Normalmente, você mantém uma contagem de tentativa e se a mensagem de saudação é repetida mais de n vezes, você deve excluí-lo. Isso protege contra uma mensagem que dispara um erro do aplicativo sempre que for processada.
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_conection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Get the message from the queue and update the message contents.
-// The visibility timeout "0" means make it visible immediately.
-// The visibility timeout "60" means the client can get another minute to continue
-// working on the message.
+// Get hello message from hello queue and update hello message contents.
+// hello visibility timeout "0" means make it visible immediately.
+// hello visibility timeout "60" means hello client can get another minute toocontinue
+// working on hello message.
 azure::storage::cloud_queue_message changed_message = queue.get_message();
 
 changed_message.set_content(U("Changed message"));
 queue.update_message(changed_message, std::chrono::seconds(60), true);
 
-// Output the message content.
+// Output hello message content.
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>Como remover a próxima mensagem da fila
-Seu código remove uma mensagem de um fila em duas etapas. Ao chamar **get_message**, você recebe a próxima mensagem em uma fila. A mensagem retornada de **get_message** torna-se invisível para qualquer outro código que lê mensagens nessa fila. Para concluir a remoção da mensagem da fila, chame também **delete_message**. Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código chama **delete_message** logo depois que a mensagem é processada.
+## <a name="how-to-de-queue-hello-next-message"></a>Como: eliminação da fila de mensagem de saudação do próxima
+Seu código remove uma mensagem de um fila em duas etapas. Quando você chama **get_message**, obter próxima mensagem de saudação em uma fila. Uma mensagem retornada de **get_message** se torna invisível tooany outro código de leitura de mensagens dessa fila. toofinish mensagem de saudação remover da fila hello, você também deve chamar **delete_message**. Esse processo de duas etapas de remoção de uma mensagem garante que se seu código falha tooprocess que uma mensagem devido a falha de toohardware ou software, outra instância do seu código pode obter Olá a mesma mensagem e tente novamente. Seu código chama **delete_message** logo depois que a mensagem de saudação foi processada.
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Get the next message.
+// Get hello next message.
 azure::storage::cloud_queue_message dequeued_message = queue.get_message();
 std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() << std::endl;
 
-// Delete the message.
+// Delete hello message.
 queue.delete_message(dequeued_message);
 ```
 
 ## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Como: aproveitar as opções adicionais para remover mensagens da fila
-Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **get_messages** para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para **get_messages**, qualquer mensagem não excluída ficará visível novamente.
+Há duas maneiras de personalizar a recuperação da mensagem de uma fila. Primeiro, você pode obter um lote de mensagens (até too32). Em seguida, você pode definir um tempo limite de invisibilidade maiores ou menores, permitindo que o código mais ou menos tempo toofully processam cada mensagem. Olá, exemplo de código a seguir usa Olá **get_messages** mensagens tooget 20 de método em uma chamada. Em seguida, ele processa cada mensagem usando um loop **for** . Ele também define minutos de toofive de tempo limite de invisibilidade de saudação para cada mensagem. Observe que Olá 5 minutos é iniciado para todas as mensagens com hello a mesma hora, após 5 minutos se passaram desde chamada hello muito**get_messages**, qualquer mensagem que não foram excluídas se tornará visível novamente.
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
 // Dequeue some queue messages (maximum 32 at a time) and set their visibility timeout to
@@ -213,33 +213,33 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
 azure::storage::queue_request_options options;
 azure::storage::operation_context context;
 
-// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
+// Retrieve 20 messages from hello queue with a visibility timeout of 300 seconds.
 std::vector<azure::storage::cloud_queue_message> messages = queue.get_messages(20, std::chrono::seconds(300), options, context);
 
 for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 {
-    // Display the contents of the message.
+    // Display hello contents of hello message.
     std::wcout << U("Get: ") << it->content_as_string() << std::endl;
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Como obter o comprimento da fila
-Você pode obter uma estimativa do número de mensagens em uma fila. O método **download_attributes** solicita que o serviço de fila recupere os atributos da fila, incluindo a contagem de mensagens. O método **approximate_message_count** obtém o número aproximado de mensagens na fila.
+## <a name="how-to-get-hello-queue-length"></a>Como: obter o comprimento da fila de saudação
+Você pode obter uma estimativa do número de saudação de mensagens em uma fila. Olá **download_attributes** método solicita tooretrieve de serviço de fila Olá atributos da fila hello, incluindo o número de mensagens de saudação. Olá **approximate_message_count** método obtém o número aproximado de saudação de mensagens na fila de saudação.
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// Fetch the queue attributes.
+// Fetch hello queue attributes.
 queue.download_attributes();
 
-// Retrieve the cached approximate message count.
+// Retrieve hello cached approximate message count.
 int cachedMessageCount = queue.approximate_message_count();
 
 // Display number of messages.
@@ -247,27 +247,27 @@ std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::e
 ```
 
 ## <a name="how-to-delete-a-queue"></a>Como excluir uma fila
-Para excluir uma fila e todas as mensagens contidas nela, chame o método **delete_queue_if_exists** no objeto de fila.
+toodelete uma fila e todas as mensagens de saudação contidas nele, chamada hello **delete_queue_if_exists** método no objeto de fila de saudação.
 
 ```cpp
 // Retrieve storage account from connection-string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-// Create the queue client.
+// Create hello queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 
-// Retrieve a reference to a queue.
+// Retrieve a reference tooa queue.
 azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
-// If the queue exists and delete it.
+// If hello queue exists and delete it.
 queue.delete_queue_if_exists();  
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber mais sobre o armazenamento do Azure.
+Agora que você aprendeu as Noções básicas de saudação do armazenamento de fila, siga essas toolearn links mais sobre o armazenamento do Azure.
 
-* [Como usar o Armazenamento de Blobs do C++](storage-c-plus-plus-how-to-use-blobs.md)
-* [Como usar o Armazenamento de Tabelas do C++](storage-c-plus-plus-how-to-use-tables.md)
+* [Como toouse armazenamento de Blob de C++](storage-c-plus-plus-how-to-use-blobs.md)
+* [Como toouse o armazenamento de tabela do C++](storage-c-plus-plus-how-to-use-tables.md)
 * [Listar recursos de Armazenamento do Azure em C++](storage-c-plus-plus-enumeration.md)
 * [Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
 * [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)

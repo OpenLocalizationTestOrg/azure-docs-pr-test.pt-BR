@@ -1,5 +1,5 @@
 ---
-title: "Backups do Banco de Dados SQL do Azure automáticos e com redundância geográfica | Microsoft Docs"
+title: "backups de automático, com redundância geográfica de banco de dados SQL aaaAzure | Microsoft Docs"
 description: "O Banco de dados SQL cria automaticamente um backup de banco de dados local a cada poucos minutos e usa o armazenamento com redundância geográfica de acesso de leitura do Azure para redundância geográfica."
 services: sql-database
 documentationcenter: 
@@ -15,66 +15,66 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 88ee5b5c4a57b67190f3da2ebc8aed0964b804d5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 8aff5356e8142707dd7cd2533a4aa5ea8fec866d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre backups automáticos de Banco de Dados SQL
 
-O Banco de Dados SQL cria automaticamente backups do banco de dados e usa o RA-GRS (armazenamento com redundância geográfica de acesso de leitura) do Azure para fornecer redundância geográfica. Esses backups são criados automaticamente e sem nenhum custo adicional. Você não precisa fazer nada para que isso ocorra. Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Se você desejar manter backups em seu próprio contêiner de armazenamento, configure uma política de retenção de backup de longo prazo. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+Banco de dados SQL cria backups de banco de dados e usa a redundância geográfica de armazenamento com redundância geográfica de acesso de leitura do Azure (RA-GRS) tooprovide automaticamente. Esses backups são criados automaticamente e sem nenhum custo adicional. Você não precisa toodo nada toomake-los acontecem. Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Se você quiser tookeep backups no seu próprio contêiner de armazenamento, você pode configurar uma política de retenção de backup de longo prazo. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
 ## <a name="what-is-a-sql-database-backup"></a>O que é um backup de Banco de Dados SQL?
 
-O Banco de Dados SQL usa a tecnologia do SQL Server para criar backups [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](https://msdn.microsoft.com/library/ms175526.aspx) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx). Os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. Os backups de log de transações, com os backups completos e diferenciais, permitem restaurar um banco de dados para um ponto no tempo específico e para o mesmo servidor que hospeda o banco de dados. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
+Banco de dados SQL usa o SQL Server tecnologia toocreate [completo](https://msdn.microsoft.com/library/ms186289.aspx), [diferencial](https://msdn.microsoft.com/library/ms175526.aspx), e [log de transações](https://msdn.microsoft.com/library/ms191429.aspx) backups. backups de log de transações Olá geralmente ocorrem a cada 5 a 10 minutos, com frequência de saudação com base no nível de desempenho de saudação e a quantidade de atividade de banco de dados. Os backups de log de transações com backups diferenciais e completos, permitem que você toorestore um toohello de point-in-time específico do banco de dados tooa mesmo servidor que hospeda o banco de dados de saudação. Quando você restaurar um banco de dados, Olá descobre serviço qual completo, diferencial e backups de log de transação necessário toobe restaurado.
 
 
 Use esses backups para:
 
-* Restaurar um banco de dados para um ponto no tempo dentro do período de retenção. Essa operação criará um novo banco de dados no mesmo servidor do banco de dados original.
-* Restaure um banco de dados excluído para a hora em que ele foi excluído ou em qualquer momento dentro do período de retenção. O banco de dados excluído pode ser restaurado apenas no mesmo servidor em que o banco de dados original foi criado.
-* Restaure um banco de dados para outra região geográfica. Isso permite a recuperação de um desastre geográfico quando você não consegue acessar o servidor nem o banco de dados. Ele cria um novo banco de dados em qualquer servidor existente do mundo. 
-* Restaure um banco de dados de um backup específico armazenado no cofre dos Serviços de Recuperação do Azure. Isso permite restaurar uma versão antiga do banco de dados para atender a uma solicitação de conformidade ou para executar uma versão antiga do aplicativo. Consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
-* Para executar uma restauração, consulte [Restaurar um banco de dados de backups](sql-database-recovery-using-backups.md).
+* Restaure um banco de dados tooa point-in-time dentro do período de retenção de saudação. Esta operação criará um novo banco de dados em Olá mesmo servidor como banco de dados original hello.
+* Restaure um tempo de toohello excluído do banco de dados que foi excluído ou a qualquer momento dentro do período de retenção de saudação. banco de dados de saudação excluído só pode ser restaurado no hello mesmo servidor onde o banco de dados original Olá foi criado.
+* Restaure uma região geográfica do banco de dados tooanother. Isso permite que você toorecover de desastres geográficas quando você não pode acessar o servidor e o banco de dados. Ele cria um novo banco de dados em qualquer servidor existente em qualquer lugar no Olá, mundo. 
+* Restaure um banco de dados de um backup específico armazenado no cofre dos Serviços de Recuperação do Azure. Isso permite que você toorestore uma versão antiga do banco de dados de saudação toosatisfy uma solicitação de conformidade ou toorun uma versão antiga do aplicativo hello. Consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+* tooperform uma restauração, consulte [restaurar o banco de dados de backups](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
-> No armazenamento do Azure, o termo *replicação* refere-se a copiar arquivos de uma localização para outra. A *replicação de banco de dados* do SQL refere-se a manter vários bancos de dados secundários sincronizados com o banco de dados primário. 
+> No armazenamento do Azure, o termo de saudação *replicação* refere-se a arquivos de toocopying de tooanother de um local. Do SQL *replicação de banco de dados* refere-se tookeeping toomultiple bancos de dados secundários sincronizados com o banco de dados primário. 
 > 
 
 ## <a name="how-much-backup-storage-is-included-at-no-cost"></a>Quanto armazenamento de backup é incluído sem custo adicional?
-O Banco de Dados SQL fornece até 200% de seu armazenamento máximo de banco de dados provisionado como armazenamento de backup, sem custo adicional. Por exemplo, se você tiver uma instância de banco de dados Standard com tamanho provisionado de 250 GB, você terá 500 GB de espaço de armazenamento para backup sem custo adicional. Se seu banco de dados exceder o armazenamento de backup fornecido, você poderá optar por reduzir o período de retenção entrando em contato com o suporte do Azure. Outra opção é pagar por armazenamento de backup extra, que é cobrado segundo a taxa padrão de RA-GRS (Armazenamento com Redundância Geográfica com Acesso de Leitura). 
+Banco de dados SQL fornece o too200% do armazenamento máximo de banco de dados configurado como armazenamento de backup sem custo adicional. Por exemplo, se você tiver uma instância de banco de dados Standard com tamanho provisionado de 250 GB, você terá 500 GB de espaço de armazenamento para backup sem custo adicional. Se seu banco de dados exceder Olá fornecido o armazenamento de backup, você pode escolher o período de retenção de saudação tooreduce entrando em contato com o suporte do Azure. Outra opção é toopay extra para armazenamento de backup que será cobrado na taxa padrão de acesso de leitura geograficamente redundantes (RA-GRS) hello. 
 
 ## <a name="how-often-do-backups-happen"></a>Com que frequência os backups ocorrem?
-Os backups de banco de dados completos ocorrem semanalmente, os backups de banco de dados diferenciais geralmente ocorrem em horários determinados e os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos. O primeiro backup completo é agendado imediatamente após a criação de um banco de dados. Normalmente ele é concluído em 30 minutos, mas pode levar mais tempo quando o banco de dados tem um tamanho significativo. Por exemplo, o backup inicial pode levar mais tempo para um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup completo, todos os outros backups são agendados automaticamente e gerenciados de forma silenciosa em segundo plano. O tempo exato de todos os backups de banco de dados é determinado pelo serviço do Banco de Dados SQL, pois ele equilibra a carga de trabalho geral do sistema. 
+Os backups de banco de dados completos ocorrem semanalmente, os backups de banco de dados diferenciais geralmente ocorrem em horários determinados e os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos. primeiro backup completo de saudação é agendado imediatamente após a criação de um banco de dados. Normalmente é concluída em 30 minutos, mas pode levar mais tempo quando o banco de dados de saudação é de tamanho significativo. Por exemplo, backup de saudação inicial pode levar mais tempo em um banco de dados restaurado ou uma cópia do banco de dados. Após o primeiro backup de completo hello, todos os outros backups sejam agendados automaticamente e gerenciados silenciosamente em segundo plano da saudação. tempo de saudação exato de todos os backups de banco de dados é determinado pela Olá serviço de banco de dados SQL de saldos de saudação geral carga de trabalho do sistema. 
 
-A replicação geográfica do armazenamento de backup ocorre com base no agendamento de replicação do Armazenamento do Azure.
+replicação geográfica de armazenamento de backup de saudação ocorre com base no agendamento de replicação de armazenamento do Azure hello.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>Por quanto tempo meus backups são armazenados?
-Cada backup do Banco de Dados SQL tem um período de retenção que se baseia na [camada de serviço](sql-database-service-tiers.md) do banco de dados. O período de retenção para um banco de dados na:
+Cada backup de banco de dados SQL tem um período de retenção com base no hello [da camada de serviço](sql-database-service-tiers.md) de banco de dados de saudação. período de retenção de saudação para um banco de dados do:
 
 
 * A camada de serviço Básico é de 7 dias.
 * Camada de serviço Standard é de 35 dias.
 * Camada de serviço Premium é de 35 dias.
 
-Se você fizer o downgrade do banco de dados das camadas de serviço Standard ou Premium para Básico, os backups serão salvos por sete dias. Todos os backups existentes com mais de sete dias não estarão mais disponíveis. 
+Se você reduzir o banco de dados de saudação padrão ou tooBasic de camadas de serviço Premium, backups de saudação são salvos por sete dias. Todos os backups existentes com mais de sete dias não estarão mais disponíveis. 
 
-Se você atualizar seu banco de dados da camada de serviço Básico para Standard ou Premium, o Banco de Dados SQL manterá os backups existentes até tenham 35 dias. Isso armazena os backups novos à medida que eles ocorrem durante 35 dias.
+Se você atualizar o banco de dados de tooStandard de nível de serviço básico hello ou Premium, o banco de dados SQL mantém backups existentes até que eles sejam 35 dias. Isso armazena os backups novos à medida que eles ocorrem durante 35 dias.
 
-Se você excluir um banco de dados, o Banco de Dados SQL manterá os backups da mesma maneira que faria para um banco de dados online. Por exemplo, vamos supor que você exclui um banco de dados Básico que tenha um período de retenção de sete dias. Um backup com quatro dias será salvo por mais três dias.
+Se você excluir um banco de dados, o banco de dados SQL mantém backups Olá no hello mesma maneira que faria para um banco de dados online. Por exemplo, vamos supor que você exclui um banco de dados Básico que tenha um período de retenção de sete dias. Um backup com quatro dias será salvo por mais três dias.
 
 > [!IMPORTANT]
-> Se você excluir o SQL Server do Azure que hospeda Bancos de Dados SQL, todos os bancos de dados que pertencem a esse servidor também serão excluídos e não poderão ser recuperados. Você não pode restaurar um servidor excluído.
+> Se você excluir hello Azure do SQL server que hospeda bancos de dados SQL, todos os bancos de dados que pertencem a toohello servidor também são excluídos e não podem ser recuperados. Você não pode restaurar um servidor excluído.
 > 
 
-## <a name="how-to-extend-the-backup-retention-period"></a>Como estender o período de retenção de backup?
-Caso seu aplicativo precise que os backups estejam disponíveis por um período mais longo, é possível estender o período de retenção interno, configurando a política de retenção de backup de longo prazo em bancos de dados individuais (política LTR). Isso permite que você estenda o período de retenção interno de 35 dias para até 10 anos. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+## <a name="how-tooextend-hello-backup-retention-period"></a>Como tooextend Olá backup período de retenção?
+Se seu aplicativo requer que os backups de saudação estão disponíveis para o período de tempo você pode estender o período de retenção internas Olá Configurando a política de retenção de backup de longo prazo Olá para bancos de dados individuais (política LTR). Isso permite que você período de retenção de it criados de saudação do tooextend de anos de too10 tooup 35 dias. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
-Depois de adicionar a política LTR a um banco de dados usando o portal do Azure ou uma API, os backups de banco de dados completos semanais serão copiados automaticamente para seu próprio Cofre do Serviço de Backup do Azure. Caso seu banco de dados esteja criptografado com TDE, os backups serão criptografados automaticamente em repouso.  O Cofre de Serviços excluirá automaticamente os backups expirados com base em seu carimbo de data/hora e na política LTR.  Portanto, você não precisa gerenciar o agendamento de backup nem se preocupar com a limpeza dos arquivos antigos. A API de restauração dá suporte aos backups armazenados no cofre, contanto que o cofre esteja na mesma assinatura do banco de dados SQL. Você pode usar o Portal do Azure ou o PowerShell para acessar esses backups.
+Depois de adicionar Olá LTR política tooa banco de dados usando o portal do Azure ou API, backups de banco de dados completo semanal hello serão automaticamente copiado tooyour possui o serviço de cofre do Azure Backup. Se seu banco de dados for criptografado com backups de saudação TDE automaticamente são criptografados em repouso.  Olá Cofre de serviços excluirá automaticamente seus backups expiradas com base em seu carimbo de hora e hello política LTR.  Para que você não precisam de agendamento de backup toomanage hello ou preocupações sobre limpeza de saudação do hello arquivos antigos. Olá restauração API dá suporte a backups armazenados no hello cofre como cofre hello está em Olá mesma assinatura que o banco de dados SQL. Você pode usar Olá portal do Azure ou o PowerShell tooaccess esses backups.
 
 > [!TIP]
-> Para um guia de instruções, consulte [Configurar e restaurar de uma retenção de backup de longo prazo do Banco de Dados SQL do Azure](sql-database-long-term-backup-retention-configure.md)
+> Para um tooguide como, consulte [configurar e a restauração da retenção de backup de longo prazo do banco de dados SQL](sql-database-long-term-backup-retention-configure.md)
 >
 
 ## <a name="are-backups-encrypted"></a>Os backups são criptografados?
@@ -83,8 +83,8 @@ Quando a TDE está habilitada para um banco de dados SQL do Azure, os backups ta
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. Para saber mais sobre as outras soluções de continuidade dos negócios do Banco de Dados SQL do Azure, consulte [Visão geral da continuidade dos negócios](sql-database-business-continuity.md).
-- Para restaurar para um determinado ponto no tempo usando o Portal do Azure, consulte [Restaurar um banco de dados para um ponto no tempo usando o Portal do Azure](sql-database-recovery-using-backups.md).
-- Para restaurar para um determinado ponto no tempo usando o PowerShell, consulte [Restaurar um banco de dados para um ponto no tempo usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Para configurar, gerenciar e restaurar de retenção de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o Portal do Azure, consulte [Gerenciar retenção de backup de longo prazo usando o Portal do Azure](sql-database-long-term-backup-retention-configure.md).
-- Para configurar, gerenciar e restaurar de retenção de longo prazo de backups automatizados em um cofre dos Serviços de Recuperação do Azure usando o PowerShell, consulte [Gerenciar retenção de backup de longo prazo usando o PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Os backups de banco de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade dos negócios, porque eles protegem seus dados contra exclusão ou corrupção acidentais. toolearn sobre Olá outras soluções de continuidade de negócios do Azure SQL Database, consulte [visão geral de continuidade de negócios](sql-database-business-continuity.md).
+- toorestore tooa pontual usando Olá portal do Azure, consulte [restaurar banco de dados tooa ponto no tempo usando o portal do Azure de saudação](sql-database-recovery-using-backups.md).
+- toorestore tooa ponto no tempo usando o PowerShell, consulte [restaurar o banco de dados tooa ponto no tempo usando o PowerShell](scripts/sql-database-restore-database-powershell.md).
+- tooconfigure, gerenciem e restaurem de retenção de longo prazo de backups automáticos em um cofre de serviços de recuperação do Azure usando hello Azure portal, consulte [gerenciar usando o armazenamento de backup a longo prazo Olá portal do Azure](sql-database-long-term-backup-retention-configure.md).
+- tooconfigure, gerenciar e restaurar a partir de retenção de longo prazo de backups automáticos em um cofre de serviços de recuperação do Azure usando o PowerShell, consulte [gerenciar a retenção de backup a longo prazo, usando o PowerShell](sql-database-long-term-backup-retention-configure.md).

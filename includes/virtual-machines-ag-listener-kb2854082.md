@@ -1,13 +1,13 @@
-A seguir, se algum servidor no cluster estiver executando o Windows Server 2008 R2 ou o Windows Server 2012, você deverá verificar se o hotfix [KB2854082](http://support.microsoft.com/kb/2854082) está instalado em cada um dos servidores locais ou nas VMs do Azure que fazem parte do cluster. Qualquer servidor ou VM que esteja no  cluster, mas não no grupo de disponibilidade, também deverá ter esse hotfix instalado.
+Em seguida, se todos os servidores no cluster Olá estiver executando o Windows Server 2008 R2 ou Windows Server 2012, você deve verificar esse hotfix Olá [KB2854082](http://support.microsoft.com/kb/2854082) é instalado em cada um dos servidores de locais de saudação ou máquinas virtuais do Azure que fazem parte do cluster hello. Qualquer servidor ou VM que está em cluster hello, mas não no grupo de disponibilidade hello, também deverá ter esse hotfix instalado.
 
-Na sessão da área de trabalho remota para cada um de nós do cluster, baixe [KB2854082](http://support.microsoft.com/kb/2854082) para um diretório local. Em seguida, instale o hotfix em cada um dos nós do cluster, em sequência. Se o serviço do cluster está sendo executado no nó do cluster, o servidor é reiniciado no final da instalação do hotfix.
+Na Olá sessão de área de trabalho remota para cada um de nós de cluster de saudação, baixe [KB2854082](http://support.microsoft.com/kb/2854082) tooa diretório de local. Em seguida, instale o hotfix de Olá em cada nó de cluster, em sequência. Se o serviço de cluster hello está sendo executado no nó de cluster Olá, servidor de saudação será reiniciado no final de saudação da instalação do hotfix hello.
 
 > [!WARNING]
-> Parar o serviço de cluster ou reiniciar o servidor afeta a integridade de quorum do seu cluster e o grupo de disponibilidade, e pode fazer com que o cluster fique offline. Para manter a alta disponibilidade do seu cluster durante a instalação, verifique se:
+> Parar o serviço de cluster hello ou reiniciar o servidor de saudação afeta a integridade do quorum de saudação do seu grupo de disponibilidade do cluster e hello e pode causar o toogo de cluster offline. toomaintain Olá alta disponibilidade do seu cluster durante a instalação, verifique se:
 > 
-> * O cluster está na integridade de quorum ideal. 
-> * Antes de instalar o hotfix em qualquer nó, todos os nós de cluster estão online.
-> * Antes de instalar o hotfix em qualquer outro nó do cluster deixe que a instalação do hotfix seja executada até o fim em um nó, incluindo a reinicialização completa do servidor.
+> * cluster de saudação está na integridade de quorum ideal. 
+> * Antes de instalar o hotfix hello em qualquer nó, todos os nós de cluster estão online.
+> * Antes de instalar o hotfix hello em qualquer outro nó no cluster hello, permitir Olá hotfix instalação toorun toocompletion em um nó, incluindo reinicialização completa Olá servidor.
 > 
 > 
 

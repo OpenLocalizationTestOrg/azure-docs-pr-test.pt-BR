@@ -5,15 +5,15 @@ Este tópico descreve como:
 
 * Injetar dados em uma VM (máquina virtual) do Azure quando está sendo provisionada.
 * Recuperá-los para Windows e Linux.
-* Usar ferramentas especiais em alguns sistemas para detectar e identificar dados personalizados automaticamente.
+* Use ferramentas especiais disponíveis em alguns sistemas toodetect e manipular dados personalizados automaticamente.
 
 > [!NOTE]
-> Este artigo descreve como injetar dados personalizados usando uma VM criada com a API do Gerenciamento de Serviços do Azure. Para aprender a usar a API do Gerenciamento de Recursos do Azure, consulte [o modelo de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> Este artigo descreve os dados como personalizada pode ser inserida por meio de uma máquina virtual criada com hello API de gerenciamento de serviços do Azure. toosee como toouse Olá API de gerenciamento de recursos do Azure, consulte [modelo de exemplo hello](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 > 
 > 
 
 ## <a name="injecting-custom-data-into-your-azure-virtual-machine"></a>Injetando dados personalizados na máquina virtual do Azure
-No momento, esse recurso tem suporte apenas na [Interface de Linha de Comando do Azure](https://github.com/Azure/azure-xplat-cli). Vamos criar um arquivo `custom-data.txt` que contém os dados para então inseri-los na VM durante o provisionamento. Embora você possa usar qualquer uma das opções para o comando `azure vm create` , a abordagem demonstrada é muito básica:
+Esse recurso é suportado apenas em Olá [Interface de linha de comando do Azure](https://github.com/Azure/azure-xplat-cli). Aqui criamos uma `custom-data.txt` arquivo que contém os dados, e então insira que em toohello VM durante o provisionamento. Embora você possa usar qualquer uma das opções de saudação para Olá `azure vm create` comando seguinte Olá demonstra uma abordagem muito básica:
 
 ```
     azure vm create <vmname> <vmimage> <username> <password> \  
@@ -22,30 +22,30 @@ No momento, esse recurso tem suporte apenas na [Interface de Linha de Comando do
 ```
 
 
-## <a name="using-custom-data-in-the-virtual-machine"></a>Usando dados personalizados na máquina virtual
-* Se sua VM do Azure for do Windows, o arquivo de dados personalizado estará salvo em `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Embora tenha sido codificado com base64 para transferência do computador local para a nova VM, ele é decodificado automaticamente e pode ser aberto imediatamente.
+## <a name="using-custom-data-in-hello-virtual-machine"></a>Usando dados personalizados na máquina virtual de saudação
+* Se sua VM do Azure é uma VM com base em Windows, o arquivo de dados personalizados de saudação é salvo muito`%SYSTEMDRIVE%\AzureData\CustomData.bin`. Embora fosse tootransfer codificada em base64 de saudação computador local toohello nova VM, ela será automaticamente decodificado e pode ser aberta ou usada imediatamente.
   
   > [!NOTE]
-  > Se já existir, o arquivo será substituído. A segurança no diretório é definida como **Sistema:Controle Total** e **Administratores:Controle Total**.
+  > Se o arquivo hello existir, ele será substituído. segurança de saudação no diretório de saudação está definida muito**System: Full Control** e **Administrators: Full Control**.
   > 
   > 
-* Se sua VM do Azure for uma VM do Linux, o arquivo de dados personalizado se encontrará em um dos dois locais a seguir dependendo da sua distribuição. Os dados serão codificados com base64, portanto, você precisará decodificar os dados primeiro:
+* Se sua VM do Azure é uma VM com base em Linux, em seguida, o arquivo de dados personalizados Olá estará localizado em um dos seguintes Olá coloca dependendo de sua distribuição. dados saudação podem ser codificada em base64, portanto, dados de saudação toodecode talvez seja necessário primeiro:
   
   * `/var/lib/waagent/ovf-env.xml`
   * `/var/lib/waagent/CustomData`
   * `/var/lib/cloud/instance/user-data.txt` 
 
 ## <a name="cloud-init-on-azure"></a>Cloud-init no Azure
-Se a sua VM do Azure for de uma imagem do Ubuntu ou CoreOS, você poderá usar o CustomData para enviar um cloud-config para cloud-init. Ou, se o arquivo de dados personalizado for um script, cloud-init poderá simplesmente executá-lo.
+Se sua VM do Azure for de uma imagem Ubuntu ou CoreOS, você pode usar CustomData toosend toocloud-init uma configuração de nuvem. Ou, se o arquivo de dados personalizado for um script, cloud-init poderá simplesmente executá-lo.
 
 ### <a name="ubuntu-cloud-images"></a>Imagens de nuvem do Ubuntu
-Na maioria das imagens do Linux do Azure você editaria "/etc/waagent.conf" para configurar o disco de recurso temporário e o arquivo de troca. Consulte o [Guia de usuário agente do Linux do Azure](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para saber mais.
+Na maioria das imagens do Linux do Azure, você edita "/ etc/waagent.conf" arquivo de disco e a troca de recursos temporário de saudação do tooconfigure. Consulte o [Guia de usuário agente do Linux do Azure](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para saber mais.
 
-No entanto, nas Imagens de Nuvem do Ubuntu, devemos usar cloud-init para configurar o disco de recurso (ou seja, o disco "efêmero") e a partição de troca. Consulte a seguinte página no wiki do Ubuntu para obter mais detalhes: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+No entanto, nas imagens de nuvem do Ubuntu hello, você deve usar init nuvem tooconfigure Olá recursos disco (ou seja, Olá "efêmera") e troca de partição. Consulte Olá página a seguir no wiki do Ubuntu Olá para obter mais detalhes: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
 ## <a name="next-steps-using-cloud-init"></a>Próximas etapas: usando cloud-init
-Para obter mais informações, consulte [Documentação de cloud-init para Ubuntu](https://help.ubuntu.com/community/CloudInit).
+Para obter mais informações, consulte Olá [documentação nuvem init para Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
 [Referência da API REST de gerenciamento para adicionar serviço de função](http://msdn.microsoft.com/library/azure/jj157186.aspx)

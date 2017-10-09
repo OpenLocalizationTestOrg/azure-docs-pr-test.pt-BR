@@ -1,6 +1,6 @@
 ---
-title: "Como aumentar a simultaneidade de um serviço Web do Azure Machine Learning | Microsoft Docs"
-description: "Como aumentar a simultaneidade de um serviço Web do Azure Machine Learning adicionando mais pontos de extremidade."
+title: "simultaneidade de tooincrease aaaHow de um serviço web de aprendizado de máquina do Azure | Microsoft Docs"
+description: "Saiba como tooincrease simultaneidade de um aprendizado de máquina do Azure de serviço web com a adição de pontos de extremidade adicionais."
 services: machine-learning
 documentationcenter: 
 author: neerajkh
@@ -15,29 +15,29 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: neerajkh
-ms.openlocfilehash: 013354515d841003c912ac0338690dd975a79ef7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e2ad16ec766820a64f36c31232f6a33a79196af4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>Dimensionando um serviço Web do Azure Machine Learning adicionando mais pontos de extremidade
 > [!NOTE]
-> Este tópico descreve técnicas aplicáveis a um serviço Web do Machine Learning **clássico**. 
+> Este tópico descreve tooa aplicável técnicas **clássico** serviço Web de aprendizado de máquina. 
 > 
 > 
 
-Por padrão, cada serviço Web publicado é configurado para oferecer suporte a 20 solicitações simultâneas, podendo chegar a 200. Embora o portal clássico do Azure forneça uma maneira de definir esse valor, o Azure Machine Learning otimiza essa configuração automaticamente para fornecer o melhor desempenho ao serviço Web e o valor do portal é ignorado. 
+Por padrão, cada serviço Web publicado é configurado toosupport 20 solicitações simultâneas e pode ser de até 200 solicitações simultâneas. Enquanto Olá portal clássico do Azure fornece uma maneira tooset esse valor, aprendizado de máquina do Azure automaticamente otimiza Olá configuração tooprovide Olá melhor desempenho para o serviço web e valor portal Olá será ignorado. 
 
-Se você planeja chamar a API com uma carga maior que o valor suportado de 200 para o Máximo de Chamadas Simultâneas, é preciso criar vários pontos de extremidade no mesmo serviço Web. Você pode, então, distribuir a carga aleatoriamente entre todos eles.
+Se você planejar toocall Olá API com uma carga maior que dará suporte a um valor de chamadas simultâneas máx de 200, você deve criar vários pontos de extremidade em Olá mesmo serviço da Web. Você pode, então, distribuir a carga aleatoriamente entre todos eles.
 
-O dimensionamento de um serviço Web é uma tarefa comum. Entre os motivos para dimensionar estão oferecer suporte a mais de 200 solicitações simultâneas, aumentar a disponibilidade por meio de vários pontos de extremidade ou fornecer pontos de extremidade separados ao serviço Web. Você pode aumentar a escala adicionando mais pontos de extremidade para o serviço Web por meio do [portal clássico do Azure](https://manage.windowsazure.com/) ou pelo portal do [serviço Web do Azure Machine Learning](https://services.azureml.net/).
+Olá a expansão de um serviço Web é uma tarefa comum. Alguns motivos tooscale são toosupport mais de 200 solicitações simultâneas, aumentar a disponibilidade por meio de vários pontos de extremidade ou fornecer pontos de extremidade separados para o serviço web de saudação. Você pode aumentar a escala Olá adicionando pontos de extremidade adicionais para Olá mesmo serviço da Web por meio de [portal clássico do Azure](https://manage.windowsazure.com/) ou hello [serviço de Web de aprendizado de máquina do Azure](https://services.azureml.net/) portal.
 
 Para saber mais sobre a adição de novos pontos de extremidade, consulte [Criando pontos de extremidade](machine-learning-create-endpoint.md).
 
-Tenha em mente que usar uma contagem de simultaneidade alta pode ser prejudicial se você não estiver chamando a API com uma taxa correspondentemente alta. Você pode ver tempos limite esporádicos e/ou picos na latência se colocar uma carga relativamente baixa em uma API configurada para alta carga.
+Tenha em mente que pode ser prejudicial, se você não estiver chamando Olá API com uma taxa alta de forma correspondente usando uma contagem de alta simultaneidade. Talvez você veja esporádica tempos limite de e/ou picos na latência Olá se você colocar uma carga relativamente baixa em uma API configurada para alta carga.
 
-As APIs síncronas são normalmente usadas em situações onde uma baixa latência é desejada. A latência aqui indica o tempo necessário para a API concluir uma solicitação e não se responsabiliza por quaisquer atrasos na rede. Digamos que você tenha uma API com uma latência de 50 ms. Para consumir totalmente a capacidade disponível com alto nível de limitação e o Máximo de Chamadas Simultâneas = 20, você precisa chamar esta API 20 * 1000 / 50 = 400 vezes por segundo. Estendendo isso ainda mais, um Máximo de Chamadas Simultâneas de 200 permite que você chame a API 4000 vezes por segundo, supondo que a latência seja de 50 ms.
+Olá que APIs síncronas são geralmente usados em situações onde uma baixa latência é desejada. Latência aqui implica em tempo de saudação que demora para uma solicitação de toocomplete Olá API e não se responsabiliza por quaisquer atrasos de rede. Digamos que você tenha uma API com uma latência de 50 ms. toofully consomem a capacidade disponível Olá com alto nível de limitação e chamadas simultâneas máx. = 20, você precisa toocall essa API 20 * 1000 / 400 = 50 vezes por segundo. Um máximo de chamadas simultâneas de 200 estendendo isso ainda mais, permite que você toocall Olá API 4000 vezes por segundo, supondo que uma latência de 50 ms.
 
 <!--Image references-->
 [1]: ./media/machine-learning-scaling-webservice/machlearn-1.png

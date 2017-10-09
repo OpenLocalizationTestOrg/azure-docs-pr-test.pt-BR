@@ -1,6 +1,6 @@
 ---
-title: "Modelagem e exploração de dados avançados com o Spark | Microsoft Docs"
-description: "Use o HDInsight Spark para fazer a exploração de dados e treinar modelos de classificação e regressão binários usando a validação cruzada e a otimização de hiperparâmetro."
+title: "aaaAdvanced a exploração de dados e modelagem com Spark | Microsoft Docs"
+description: "Use a exploração de dados do HDInsight Spark toodo e treinar modelos de classificação e regressão binários usando a otimização de validação cruzada e hyperparameter."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: e6bf6bd3c905f077841ef166540337a251b91ad1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 055c342857fd732633cec9810de69cee61db973d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados avançados com o Spark
 [!INCLUDE [machine-learning-spark-modeling](../../includes/machine-learning-spark-modeling.md)]
 
-Este passo a passo usa o HDInsight Spark para executar a exploração de dados e treinar a classificação binária e os modelos de regressão usando validação cruzada e otimização de hiperparâmetro em uma amostra do conjunto de dados de corridas e tarifas de táxi em Nova York de 2013. Ele o orienta ao longo das etapas do [Processo de Ciência de Dados](http://aka.ms/datascienceprocess), de ponta a ponta, usando um cluster HDInsight Spark para processamento e blobs do Azure para armazenar os dados e os modelos. O processo explora e visualiza os dados transferidos de um Blob de Armazenamento do Azure e prepara os dados para criar modelos preditivos. Python foi usado para codificar a solução e mostrar os gráficos relevantes. Esses modelos são compilados usando o kit de ferramentas Spark MLlib para executar tarefas de classificação binária e modelagem de regressão. 
+Este passo a passo usa HDInsight Spark toodo exploração e treinar binária e classificação de dados usando a validação cruzada de modelos de regressão e otimização de hyperparameter em uma amostra de saudação NYC táxi viagem e passagens de conjunto de dados de 2013. Lhe orienta pelas etapas de saudação do hello [processo de ciência de dados](http://aka.ms/datascienceprocess), cluster de ponta a ponta, usando um HDInsight Spark para processamento e modelos de dados e Olá Olá toostore de blobs do Azure. processo de saudação explora e visualiza os dados transferidos de um Blob de armazenamento do Azure e, em seguida, prepara Olá dados toobuild modelos de previsão. Python foi usado toocode Olá solução e tooshow Olá relevantes gráficos. Esses modelos são compilados usando classificação binária do toodo Olá Spark MLlib Kit de ferramentas e tarefas de modelagem de regressão. 
 
-* A tarefa de **classificação binária** consiste em prever se uma gorjeta é paga ou não pela corrida. 
-* A tarefa de **regressão** consiste em prever o valor da gorjeta com base em outros recursos de gorjeta. 
+* Olá **classificação binária** tarefa é toopredict ou não uma dica é pago para viagem hello. 
+* Olá **regressão** tarefa é toopredict Olá Olá dica com base em outros recursos de dica. 
 
-As etapas de modelagem também contêm código que mostra como treinar, avaliar e salvar cada tipo de modelo. O tópico aborda alguns dos mesmos assuntos como o tópico [Modelagem e exploração de dados com Spark](machine-learning-data-science-spark-data-exploration-modeling.md). Porém, ele é mais "avançado", já que também utiliza a validação cruzada com a varredura de hiperparâmetro para treinar modelos de classificação e regressão ideal precisos. 
+etapas de modelagem Olá também contêm código que mostra como tootrain, avaliar e salvar cada tipo de modelo. Olá tópico aborda algumas das Olá mesmo Terra como Olá [exploração de dados e modelagem com Spark](machine-learning-data-science-spark-data-exploration-modeling.md) tópico. Mas ele é mais "Avançado" que também utiliza a validação cruzada com hyperparameter varredura tootrain modelos de classificação e regressão de maneira ideal precisos. 
 
-**CV (Validação cruzada)** é uma técnica que avalia quão bem um modelo treinado em um conjunto de dados conhecido é generalizado para prever os recursos dos conjuntos de dados nos quais ele não foi treinado.  Uma implementação comum usada aqui é dividir um conjunto de dados em partições K e, em seguida, treinar o modelo em um estilo round-robin em todas, exceto uma das partições. Avaliamos a capacidade do modelo de prever com precisão quando testado em relação ao conjunto de dados independente na partição que não foi usada para treinar o modelo.
+**Validação cruzada (VC)** é uma técnica que avalia como um modelo treinado em um conjunto conhecido de dados generaliza toopredicting Olá recursos de conjuntos de dados no qual ele não foi treinado.  Uma implementação comum usada aqui é toodivide um conjunto de dados em K dobras e, em seguida, treinar o modelo de saudação de forma round robin em apenas uma das partições de saudação. capacidade de saudação do hello modelo tooprediction com precisão quando testados no conjunto de dados independentes no modelo dobra não usado tootrain Olá Olá será avaliada.
 
-**Otimização do hiperparâmetro** é o problema de escolher um conjunto de hiperparâmetros para um algoritmo de aprendizado, normalmente com o objetivo de otimizar uma medida de desempenho do algoritmo em um conjunto de dados independente. **Hiperparâmetros** são valores que devem ser especificados fora do procedimento de treinamento do modelo. As suposições sobre esses valores podem afetar a flexibilidade e a precisão dos modelos. As árvores de decisão têm hiperparâmetros, por exemplo, como a profundidade desejada e o número de folhas na árvore. As SVMs (Máquinas de Vetor de Suporte) exigem a configuração de um termo de penalidade de classificação incorreta. 
+**Otimização de Hyperparameter** Olá problema de escolher um conjunto de hiperparâmetros para um algoritmo de aprendizado, geralmente com a meta de saudação de otimizar uma medida de desempenho do algoritmo Olá em um conjunto de dados independente. **Hiperparâmetros** são valores que devem ser especificados fora do procedimento de treinamento de modelo de saudação. Suposições sobre esses valores podem afetar a flexibilidade de saudação e precisão dos modelos de saudação. Árvores de decisão têm hiperparâmetros, por exemplo, como Olá desejado profundidade e número de folhas na árvore de saudação. As SVMs (Máquinas de Vetor de Suporte) exigem a configuração de um termo de penalidade de classificação incorreta. 
 
-Uma maneira comum de executar a otimização de hiperparâmetro usada aqui é uma pesquisa de grade ou um **limpeza de parâmetro**. Isso consiste em realizar uma pesquisa detalhada pelos valores de um subconjunto especificado do espaço do hiperparâmetro para um algoritmo de aprendizado. A validação cruzada pode fornecer uma métrica de desempenho para classificar os resultados ideais produzidos pelo algoritmo de pesquisa de grade. A CV usada com a limpeza do hiperparâmetro limita os problemas como sobreajuste de um modelo de dados de treinamento para que o modelo mantenha a capacidade de se aplicar ao conjunto de dados geral do qual os dados de treinamento foram extraídos.
+Uma otimização de hyperparameter de tooperform forma comum usada aqui é uma pesquisa de grade, ou um **varredura de parâmetro**. Isso consiste em executar uma pesquisa detalhada por meio de valores de saudação um subconjunto especificado de espaço de hyperparameter Olá para um algoritmo de aprendizado. Validação cruzada pode fornecer um toosort de métrica de desempenho os resultados ideais de Olá produzido pelo algoritmo de pesquisa de grade hello. VC usado com ajuda a varredura de hyperparameter problemas de limite como sobreajuste um tootraining de dados de modelo para que o modelo hello mantém Olá capacidade tooapply toohello conjunto geral de dados do qual Olá dados de treinamento foi extraídos.
 
-Os modelos que usamos incluem regressão logística e linear, florestas aleatórias e árvores aumentadas gradientes:
+os modelos de saudação que usamos incluem gradientes árvores aumentadas, florestas aleatórias e regressão logística e linear:
 
-* [Regressão linear com SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) é um modelo de regressão linear que usa um método SGD (Stochastic Gradient Descent) para otimização e dimensionamento de recursos para prever os valores das gorjetas pagas. 
-* [Regressão logística com LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) ou regressão "logit" é um modelo de regressão que pode ser usado quando a variável dependente é categórica para fazer a classificação de dados. LBFGS é um algoritmo de otimização quase Newton que aproxima o algoritmo BFGS (Broyden–Fletcher–Goldfarb–Shanno) usando uma quantidade limitada de memória do computador e que é amplamente usado no aprendizado de máquina.
-* [Florestas aleatórias](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) são conjuntos de árvores de decisão.  Elas combinam várias árvores de decisão para reduzir o risco de superajuste. Florestas aleatórias são usadas para classificação e regressão e podem manipular recursos categóricos e podem ser estendidas para a configuração de classificação multiclasse. Elas não exigem o dimensionamento de recursos e são capazes de capturar não linearidades e interações de recursos. As florestas aleatórias são um dos modelos de aprendizado de máquina com maior taxa de sucesso para classificação e regressão.
-* [GBTs (árvores com aumento gradiente)](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) são conjuntos de árvores de decisão. As GBTs treinam árvores de decisão iterativamente para minimizar uma função de perda. As GBTs são usadas para regressão e classificação e podem lidar com recursos categóricos, não exigem o dimensionamento de recursos e podem capturar não linearidades e interações de recursos. Elas também podem ser usadas em uma configuração de classificação multiclasse.
+* [Regressão linear com SGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) é um modelo de regressão linear que usa um método descendente gradiente Estocástico (SGD) e para a otimização e recurso de dimensionamento quantidades de dica de saudação toopredict pago. 
+* [Regressão logística com LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) ou regressão "logit", é um modelo de regressão que pode ser usado quando a variável dependente de saudação é categórica toodo a classificação de dados. LBFGS é um algoritmo de otimização de quase-Newton que aproxima o algoritmo Broyden – Fletcher – Goldfarb – Shanno (BFGS) de saudação usando uma quantidade limitada de memória do computador e que é amplamente usada no aprendizado de máquina.
+* [Florestas aleatórias](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) são conjuntos de árvores de decisão.  Elas combinam muitas decisões árvores tooreduce Olá risco de superajuste. Florestas aleatórias são usadas para classificação e regressão e podem lidar com recursos categóricos e configuração de classificação multiclasse toohello podem ser estendidas. Eles não exigem recurso escala e são capazes de toocapture não linearidades e interações de recurso. Florestas aleatórias são um dos modelos de classificação e regressão de aprendizado de máquina mais bem-sucedida de saudação.
+* [GBTs (árvores com aumento gradiente)](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) são conjuntos de árvores de decisão. Árvores de decisão de treinar GBTs iterativamente toominimize uma função de perda. GBTs são usados para classificação e regressão pode lidar com recursos categóricos, não requerem o dimensionamento de recurso e são capazes de toocapture não linearidades e interações de recursos. Elas também podem ser usadas em uma configuração de classificação multiclasse.
 
-Os exemplos de modelagem usando CV e limpeza de hiperparâmetro são mostrados para o problema de classificação binária. Exemplos mais simples (sem limpezas de parâmetro) são apresentados no tópico principal para tarefas de regressão. Mas no apêndice, a validação usando a rede elástica para regressão linear e a CV com a limpeza de parâmetros usando a regressão de floresta aleatória também são apresentadas. A **rede elástica** é um método de regressão regularizado para ajustar os modelos de regressão linear que combina linearmente as métricas L1 e L2 como penalidades dos métodos [laço](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) e [ressalto](https://en.wikipedia.org/wiki/Tikhonov_regularization).   
+Varredura de exemplos do uso de VC e Hyperparameter de modelagem são mostradas para problema de classificação binária hello. Os exemplos mais simples (sem varredura de parâmetro) são apresentados no tópico principal de Olá para tarefas de regressão. Mas, no Apêndice hello, validação usando net Elástico para regressão linear e VC com o uso de varredura de parâmetro de regressão de floresta aleatório também é apresentada. Olá **elástica net** é um método de regressão regularizada para ajuste de regressão linear que modelos linearmente combina as métricas de L1 e L2 hello como penalidades de saudação [Laço](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) e [Montanhas](https://en.wikipedia.org/wiki/Tikhonov_regularization) métodos.   
 
 > [!NOTE]
-> Embora o kit de ferramentas Spark MLlib tenha sido projetado para trabalhar com grandes conjuntos de dados, uma amostra relativamente pequena (cerca de 30 Mb usando 170 mil linhas, cerca de 0,1% do conjunto de dados original NYC) foi usada por conveniência. O exercício fornecido aqui é executado com eficiência (em cerca de 10 minutos) em um cluster HDInsight com dois nós de trabalho. O mesmo código, com pequenas modificações, pode ser usado para processar conjuntos de dados maiores, com as modificações apropriadas para armazenar dados na memória em cache e alterar o tamanho do cluster.
+> Embora o Kit de ferramentas do hello Spark MLlib toowork projetado em grandes conjuntos de dados, um exemplo relativamente pequeno (aproximadamente 30 Mb usando 170 mil linhas, cerca de 0,1% de saudação original NYC dataset) é usado aqui para sua conveniência. Exercício Olá fornecido aqui é executado com eficiência (em cerca de 10 minutos) em um cluster de HDInsight com 2 nós de trabalho. Olá mesmo código, com pequenas modificações, pode ser usado tooprocess-conjuntos de dados maiores, com as modificações apropriadas para o cache de dados na memória e alterar o tamanho do cluster hello.
 > 
 > 
 
 ## <a name="setup-spark-clusters-and-notebooks"></a>Instalação: blocos de notas e clusters do Spark
-As etapas de configuração e o código são fornecidos neste passo a passo para usar um HDInsight Spark 1.6. Porém, notebooks Jupyter são fornecidos tanto para o HDInsight Spark 1.6 quanto para os clusters Spark 2.0. Uma descrição de notebooks e links são fornecidos em [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub que os contém. No entanto, o código mostrado aqui e nos notebooks vinculados é genérico e funcionarão em qualquer cluster Spark. Se você não estiver usando o HDInsight Spark, as etapas de configuração e gerenciamento do cluster poderão ser ligeiramente diferentes do que é mostrado aqui. Para sua conveniência, aqui estão os links para os blocos de notas Jupyter para Spark 1.6 e 2.0 para execução no kernel pyspark do servidor de bloco de notas Jupyter:
+As etapas de configuração e o código são fornecidos neste passo a passo para usar um HDInsight Spark 1.6. Porém, notebooks Jupyter são fornecidos tanto para o HDInsight Spark 1.6 quanto para os clusters Spark 2.0. Uma descrição da saudação toothem de anotações e links são fornecidos no hello [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) para o repositório do GitHub Olá que os contém. Além disso, Olá código aqui e em blocos de anotações Olá vinculado é genérico e deve funcionar em qualquer cluster do Spark. Se você não estiver usando o HDInsight Spark, as etapas de configuração e gerenciamento de cluster Olá podem ser ligeiramente diferentes da que é mostrado aqui. Para sua conveniência, aqui estão Olá links toohello Jupyter blocos de anotações para Spark 1.6 e 2.0 toobe executar no kernel do pyspark de saudação do servidor de Jupyter Notebook de saudação:
 
 ### <a name="spark-16-notebooks"></a>Blocos de notas Spark 1.6
 
@@ -59,26 +59,26 @@ As etapas de configuração e o código são fornecidos neste passo a passo para
 
 ### <a name="spark-20-notebooks"></a>Blocos de notas Spark 2.0
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este arquivo fornece informações sobre como executar exploração, modelagem e pontuação de dados em clusters Spark 2.0.
+[Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): este arquivo fornece informações sobre como a exploração de dados tooperform, modelagem e pontuação no Spark 2.0 clusters.
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="setup-storage-locations-libraries-and-the-preset-spark-context"></a>Instalação: locais de armazenamento, bibliotecas e o contexto predefinido do Spark
-O Spark pode ler e gravar em um Blob de Armazenamento do Azure (também conhecido como WASB). Portanto, qualquer dado existente armazenado lá pode ser processado usando o Spark, e os resultados podem ser armazenados novamente no WASB.
+## <a name="setup-storage-locations-libraries-and-hello-preset-spark-context"></a>Programa de instalação: Olá, bibliotecas e locais de armazenamento predefinição contexto Spark
+Spark é capaz de tooAzure tooread e gravar o Blob de armazenamento (também conhecido como WASB). Para qualquer um dos seus dados existentes armazenados podem ser processadas usando Spark e Olá resultados armazenados em WASB.
 
-Para salvar arquivos ou modelos no WASB, o caminho deve ser especificado corretamente. O contêiner padrão anexado ao cluster Spark pode ser referenciado usando um caminho que começa com: “wasb:///”. Outros locais são referenciados por "wasb://".
+toosave modelos ou os arquivos em WASB, o caminho Olá precisa toobe especificado corretamente. Olá padrão contêiner anexado toohello Spark cluster pode ser referenciado usando um caminho começando com: "wasb: / / /". Outros locais são referenciados por "wasb://".
 
 ### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>Definir caminhos de diretório para locais de armazenamento no WASB
-O exemplo de código a seguir especifica o local dos dados a serem lidos e o caminho do diretório de armazenamento de modelo em que a saída do modelo será salva:
+Olá, exemplo de código a seguir especifica o local de saudação de Olá toobe de dados de leitura e Olá caminho para a saída do modelo Olá modelo armazenamento diretório toowhich Olá é salvo:
 
-    # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
+    # SET PATHS tooFILE LOCATIONS: DATA AND MODEL STORAGE
 
     # LOCATION OF TRAINING DATA
     taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
 
 
-    # SET THE MODEL STORAGE DIRECTORY PATH 
-    # NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
+    # SET hello MODEL STORAGE DIRECTORY PATH 
+    # NOTE THAT hello FINAL BACKSLASH IN hello PATH IS NEEDED.
     modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
     # PRINT START TIME
@@ -90,7 +90,7 @@ O exemplo de código a seguir especifica o local dos dados a serem lidos e o cam
 datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 
 ### <a name="import-libraries"></a>Importar bibliotecas
-Importe as bibliotecas necessárias com o código a seguir:
+Importe bibliotecas necessárias com hello código a seguir:
 
     # LOAD PYSPARK LIBRARIES
     import pyspark
@@ -109,28 +109,28 @@ Importe as bibliotecas necessárias com o código a seguir:
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Contexto predefinido do Spark e palavras mágicas do PySpark
-Os kernels PySpark fornecidos com os notebooks Jupyter têm contextos predefinidos. Portanto, não é necessário definir explicitamente os contextos Spark ou Hive antes de começar a trabalhar com o aplicativo que você está desenvolvendo. Esses contextos estão disponíveis para você por padrão. Esses contextos são:
+kernels PySpark de saudação que são fornecidos com blocos de anotações do Jupyter tem um contexto de predefinição. Portanto não é necessário tooset Olá Spark ou Hive contextos explicitamente antes de começar a trabalhar com o aplicativo hello que você está desenvolvendo. Esses contextos estão disponíveis para você por padrão. Esses contextos são:
 
 * sc - para o Spark 
 * sqlContext - para o Hive
 
-O kernel PySpark fornece algumas “palavras mágicas” predefinidas, que são comandos especiais que podem ser chamados com %%. Há dois comandos que são usados nesses exemplos de código.
+Olá PySpark kernel fornece algumas predefinidas "magics", que são comandos especiais que podem ser chamados com % %. Há dois comandos que são usados nesses exemplos de código.
 
-* **%%local** Especifica que o código nas linhas posteriores é executado localmente. O código deve ser um código Python válido.
-* **%%sql -o <variable name>** Executa uma consulta do Hive no sqlContext. Se o parâmetro -o for transmitido, o resultado da consulta será persistido no contexto %%local do Python como um quadro de dados do Pandas.
+* **% % local** Especifica que o código de saudação em linhas subsequentes é toobe executado localmente. O código deve ser um código Python válido.
+* **% % -o do sql <variable name>**  executa uma consulta de Hive em Olá sqlContext. Se Olá -o parâmetro for passado, resultado de saudação de consulta de saudação é mantido no Olá % % contexto Python local como um DataFrame Pandas.
 
-Para saber mais sobre os kernels para notebooks Jupyter e as "palavras mágicas" predefinidas que eles fornecem, confira [Kernels disponíveis para notebooks Jupyter com clusters Linux do HDInsight Spark no HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Para obter mais informações sobre kernels Olá para blocos de anotações do Jupyter e hello predefinidas "magics" que eles fornecem, consulte [clusters Kernels disponíveis para blocos de anotações do Jupyter com Linux do HDInsight Spark no HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="data-ingestion-from-public-blob"></a>Ingestão de dados do blob público:
-A primeira etapa no processo de ciência de dados é ingerir os dados a serem analisados de fontes nas quais eles residem para seu ambiente de modelagem e exploração de dados. Esse ambiente é o Spark neste passo a passo. Esta seção contém o código para concluir uma série de tarefas:
+Olá, primeira etapa no processo de ciência de dados Olá é tooingest Olá dados toobe analisado de fontes de onde ele reside em seu ambiente de modelagem e exploração de dados. Esse ambiente é o Spark neste passo a passo. Esta seção contém Olá código toocomplete uma série de tarefas:
 
-* ingerir a amostra de dados a ser modelada
-* ler o conjunto de dados (armazenado como um arquivo .tsv)
-* formatar e limpar os dados
+* Olá toobe de exemplo de dados modelado de ingestão
+* ler no conjunto de dados entrada hello (armazenado como um arquivo. tsv)
+* formato e dados saudação normal
 * criar e armazenar objetos em cache (RDDs ou quadros de dados) na memória
 * registrá-lo como uma tabela temporária no contexto do SQL.
 
-Aqui está o código para ingestão de dados.
+Este é o código de saudação para ingestão de dados.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -138,7 +138,7 @@ Aqui está o código para ingestão de dados.
     # IMPORT FILE FROM PUBLIC BLOB
     taxi_train_file = sc.textFile(taxi_train_file_loc)
 
-    # GET SCHEMA OF THE FILE FROM HEADER
+    # GET SCHEMA OF hello FILE FROM HEADER
     schema_string = taxi_train_file.first()
     fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
     fields[7].dataType = IntegerType() #Pickup hour
@@ -175,33 +175,33 @@ Aqui está o código para ingestão de dados.
         .drop('direct_distance').drop('surcharge')\
         .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
 
-    # CACHE & MATERIALIZE DATA-FRAME IN MEMORY. GOING THROUGH AND COUNTING NUMBER OF ROWS MATERIALIZES THE DATA-FRAME IN MEMORY
+    # CACHE & MATERIALIZE DATA-FRAME IN MEMORY. GOING THROUGH AND COUNTING NUMBER OF ROWS MATERIALIZES hello DATA-FRAME IN MEMORY
     taxi_df_train_cleaned.cache()
     taxi_df_train_cleaned.count()
 
     # REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
     taxi_df_train_cleaned.registerTempTable("taxi_train")
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+    # PRINT HOW MUCH TIME IT TOOK tooRUN hello CELL
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **SAÍDA**
 
-Tempo necessário para executar a célula acima: 276,62 segundos
+Tempo gasto tooexecute acima célula: 276.62 segundos
 
 ## <a name="data-exploration--visualization"></a>Visualização e exploração de dados
-Depois que os dados forem incluídos no Spark, a próxima etapa no processo de ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, podemos examinar os dados de táxi usando consultas SQL e plotar as variáveis de destino e os recursos em potencial para inspeção visual. Especificamente, plotamos a frequência das contagens de passageiros em corridas de táxi, a frequência de gorjetas e como as gorjetas variam de acordo com o valor e o tipo de pagamento.
+Quando dados saudação foi colocados no Spark, hello próxima etapa no processo de ciência de dados Olá é toogain de compreensão mais profunda dos dados Olá por meio de exploração e visualização. Nesta seção, podemos examinar dados de táxi hello usando consultas SQL e recursos em potencial e variáveis de destino de saudação de plotagem para inspeção visual. Especificamente, podemos plotar frequência Olá passageiro de contagens de em viagens táxi, a frequência de saudação de quantidades de ponta e como dicas variam de acordo com o tipo e a quantidade de pagamento.
 
-### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Plotar um histograma de frequências de contagens de passageiros na amostra de corridas de táxi
-Este código e os trechos de código posteriores usam as palavras mágicas do SQL para consultar a amostra e as palavras mágicas locais para plotar os dados.
+### <a name="plot-a-histogram-of-passenger-count-frequencies-in-hello-sample-of-taxi-trips"></a>Plotar um histograma de frequências de contagem de passageiro no exemplo hello de viagens táxi
+Esse código e trechos de código subsequentes usam exemplo do SQL tooquery magic hello e os dados de saudação do tooplot magic local.
 
-* A **mágica do SQL (`%%sql`)** O kernel HDInsight PySpark dá suporte a consultas do HiveQL fáceis e embutidas no sqlContext. O argumento (-o VARIABLE_NAME) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Isso significa que ele está disponível no modo local.
-* A **`%%local`** é usada para executar o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a mágica `%%local` após a mágica `%%sql -o` ser usada para executar uma consulta. O parâmetro -o persistiria a saída da consulta SQL localmente. Em seguida, a mágica `%%local` dispara o próximo conjunto de trechos de código para ser executado localmente em relação à saída de consultas SQL persistida localmente. A saída é visualizada automaticamente após a execução do código.
+* **Magic SQL (`%%sql`)** hello HDInsight PySpark kernel dá suporte a fácil embutido HiveQL consultas em relação a saudação sqlContext. saudação (-o VARIABLE_NAME) argumento persiste saída Olá de consulta do SQL hello como um DataFrame Pandas no servidor do Jupyter hello. Isso significa que ele está disponível no modo local hello.
+* Olá  **`%%local` mágico** é usado toorun código localmente no servidor de Jupyter hello, que é Olá um nó principal do cluster do HDInsight hello. Normalmente, você usa `%%local` magic após Olá `%%sql -o` magic é usado toorun uma consulta. parâmetro -o de Hello persistir Olá saída de hello SQL consulta localmente. Em seguida, Olá `%%local` gatilhos magic Olá próximo conjunto de toorun de trechos de código localmente em relação a saída de hello de consultas SQL Olá persistiu localmente. saída de Hello é visualizada automaticamente depois de executar código hello.
 
-Essa consulta recupera as corridas por contagem de passageiros. 
+Essa consulta recupera viagens Olá por contagem de passageiro. 
 
     # PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
 
@@ -210,23 +210,23 @@ Essa consulta recupera as corridas por contagem de passageiros.
     SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
 
 
-Esse código cria um quadro de dados local da saída da consulta e plota os dados. A palavra mágica `%%local` cria um quadro de dados local, `sqlResults`, que pode ser usado para plotar com matplotlib. 
+Esse código cria um quadro de dados local de saída da consulta hello e plota dados saudação. Olá `%%local` mágico cria um local-quadro de dados, `sqlResults`, que pode ser usado para plotar com matplotlib. 
 
 > [!NOTE]
-> Essas palavras mágicas do PySpark são usadas várias vezes neste passo a passo. Se a quantidade de dados for grande, você deverá obter uma amostra para criar um quadro de dados que se ajusta na memória local.
+> Essas palavras mágicas do PySpark são usadas várias vezes neste passo a passo. Se a quantidade de saudação de dados for grande, você deve exemplo toocreate um quadro de dados que pode caber na memória local.
 > 
 > 
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER
     %%local
 
-    # USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
-    # CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
+    # USE hello JUPYTER AUTO-PLOTTING FEATURE tooCREATE INTERACTIVE FIGURES. 
+    # CLICK ON hello TYPE OF PLOT tooBE GENERATED (E.G. LINE, AREA, BAR ETC.)
     sqlResults
 
-Este é o código para plotar as corridas por contagens de passageiros
+Aqui está viagens de Olá Olá código tooplot por passageiro contagens
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     import matplotlib.pyplot as plt
     %matplotlib inline
@@ -244,10 +244,10 @@ Este é o código para plotar as corridas por contagens de passageiros
 
 ![Frequência de corridas por contagem de passageiros](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
 
-É possível selecionar entre vários tipos diferentes de visualizações (Tabela, Pizza, Linha, Área ou Barra) usando os botões de menu **Tipo** no notebook. A plotagem de Barras é mostrada aqui.
+Você pode selecionar entre vários tipos diferentes de visualizações (tabela, pizza, linha, área ou barra) usando Olá **tipo** botões de menu no bloco de anotações de saudação. gráfico de barras Olá é mostrado aqui.
 
 ### <a name="plot-a-histogram-of-tip-amounts-and-how-tip-amount-varies-by-passenger-count-and-fare-amounts"></a>Plote um histograma de valores de gorjetas e como o valor das gorjetas varia pelas tarifas e contagens de passageiros.
-Use uma consulta SQL para obter amostra de dados.
+Usar um banco de dados consulta toosample do SQL.
 
     # SQL SQUERY
     %%sql -q -o sqlResults
@@ -262,9 +262,9 @@ Use uma consulta SQL para obter amostra de dados.
         AND tip_amount < 25
 
 
-Esta célula de código usa a consulta SQL para criar três plotagens dos dados.
+Esta célula código usa Olá consulta toocreate três gráficos Olá de dados do SQL.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     %matplotlib inline
 
@@ -302,17 +302,17 @@ Esta célula de código usa a consulta SQL para criar três plotagens dos dados.
 ![Valor de gorjeta por valor de tarifa](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
 ## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Engenharia de recursos, transformação e preparação de dados para a modelagem
-Esta seção descreve e fornece o código para os procedimentos usados para preparar dados para uso na modelagem ML. Ela mostra como realizar as seguintes tarefas:
+Esta seção descreve e fornece código Olá para procedimentos usados tooprepare dados para uso em modelagem ML. Ele mostra como as tarefas de saudação toodo a seguir:
 
 * Criar um novo recurso por meio do particionamento de horários em compartimentos de tempo de tráfego
 * Indexar e fazer a codificação one-hot dos recursos categóricos
 * Criar objetos de ponto rotulado para entrada em funções de ML
-* Criar uma subamostragem aleatória dos dados e dividi-la em conjuntos de treinamento e teste
+* Cria uma amostragem aleatória de subgrupos de dados hello e dividi-lo em treinamento e conjuntos de teste
 * Dimensionamento de recursos
 * Armazenar objetos em cache na memória
 
 ### <a name="create-a-new-feature-by-partitioning-traffic-times-into-bins"></a>Criar um novo recurso por meio do particionamento de horários de tráfego em compartimentos
-Este código mostra como criar um novo recurso particionando horários de tráfego em compartimentos e como armazenar em cache o quadro de dados resultante na memória. O armazenamento em cache proporciona um tempo de execução melhor, em que os RDDs (Conjuntos de Dados Resilientes Distribuídos) e quadros de dados são usados repetidamente. Portanto, armazenamos em cache RDDs e quadros de dados em vários estágios no passo a passo.
+Esse código mostra como toocreate um novo recurso por meio do particionamento tráfego vezes em compartimentos e como toocache Olá resultante quadro de dados na memória. Cache leva tempo de execução tooimproved onde resiliente distribuídas conjuntos de dados (RDDs) e quadros de dados são usados repetidamente. Portanto, armazenamos em cache RDDs e quadros de dados em vários estágios no passo a passo.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     sqlStatement = """
@@ -328,8 +328,8 @@ Este código mostra como criar um novo recurso particionando horários de tráfe
     taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
 
     # CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
-    # THE .COUNT() GOES THROUGH THE ENTIRE DATA-FRAME,
-    # MATERIALIZES IT IN MEMORY, AND GIVES THE COUNT OF ROWS.
+    # hello .COUNT() GOES THROUGH hello ENTIRE DATA-FRAME,
+    # MATERIALIZES IT IN MEMORY, AND GIVES hello COUNT OF ROWS.
     taxi_df_train_with_newFeatures.cache()
     taxi_df_train_with_newFeatures.count()
 
@@ -338,11 +338,11 @@ Este código mostra como criar um novo recurso particionando horários de tráfe
 126050
 
 ### <a name="index-and-one-hot-encode-categorical-features"></a>Indexar e fazer a codificação one-hot dos recursos categóricos
-Esta seção mostra como indexar ou codificar recursos categóricos para entrada nas funções de modelagem. As funções de modelagem e previsão de MLlib exigem que recursos que tenham dados de entrada categóricos sejam indexados ou codificados antes do uso. 
+Esta seção mostra como tooindex ou codificar recursos categóricos para entrada em Olá funções da modelagem. Olá modelagem e prever a funções de MLlib exigem que os recursos com dados categóricos de entrada ser indexados ou codificados toouse anterior. 
 
-Dependendo do modelo, você precisa indexá-lo ou codificá-lo de maneiras diferentes. Por exemplo, modelos de regressão linear e logística exigem codificação one-hot, em que, por exemplo, um recurso com três categorias pode ser expandido em três colunas de recursos, em que cada uma contém 0 ou 1, dependendo da categoria de uma observação. A MLlib fornece a função [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) para executar a codificação one-hot. Esse codificador mapeia uma coluna de índices de rótulo para uma coluna de vetores binários com, no máximo, um valor único. Essa codificação permite que os algoritmos que esperam recursos valiosos numéricos, por exemplo a regressão logística, sejam aplicados em recursos categóricos.
+Dependendo do modelo de hello, você precisa tooindex ou codificá-los de maneiras diferentes. Por exemplo, modelos de regressão Linear e logística exigem hot uma codificação, onde, por exemplo, um recurso com três categorias pode ser expandido em três colunas de recurso, com cada contendo 0 ou 1 dependendo da categoria de saudação de uma observação. Fornece MLlib [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) toodo hot uma codificação de função. Este codificador mapeia uma coluna da coluna de tooa de índices de rótulo de vetores de binários, no máximo um único um valor. Essa codificação permite que os algoritmos que esperam recursos com valores numéricos, como a regressão logística, recursos de toocategorical toobe aplicado.
 
-Aqui está o código para indexar e codificar recursos categóricos:
+Aqui está o hello tooindex de código e codificar recursos categóricos:
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -352,7 +352,7 @@ Aqui está o código para indexar e codificar recursos categóricos:
 
     # INDEX AND ENCODE VENDOR_ID
     stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
-    model = stringIndexer.fit(taxi_df_train_with_newFeatures) # Input data-frame is the cleaned one from above
+    model = stringIndexer.fit(taxi_df_train_with_newFeatures) # Input data-frame is hello cleaned one from above
     indexed = model.transform(taxi_df_train_with_newFeatures)
     encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
     encoded1 = encoder.transform(indexed)
@@ -381,17 +381,17 @@ Aqui está o código para indexar e codificar recursos categóricos:
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **SAÍDA**
 
-Tempo necessário para executar a célula acima: 3,14 segundos
+Tempo gasto tooexecute acima célula: segundos 3.14
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Criar objetos de ponto rotulado para entrada em funções de ML
-Esta seção contém códigos que mostram como indexar dados categóricos de texto como tipos de dados de ponto rotulado e como codificá-los. Essa ação os prepara para serem usados em treinamentos e testes de regressão logística de MLlib e outros modelos de classificação. Objetos de ponto rotulados são RDDs (Conjuntos de Dados Resilientes Distribuídos) formatados de uma maneira que é necessária como dados de entrada pela maioria dos algoritmos de ML no MLlib. Um [ponto rotulado](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) é um vetor local, denso ou esparso, associado a um rótulo/resposta.
+Esta seção contém o código que mostra como o tipo de dados de texto categóricos tooindex como um rótulo de ponto de dados e como tooencode-lo. Isso prepara toobe usado tootrain e teste MLlib Regressão logística e outros modelos de classificação. Objetos de ponto rotulados são RDDs (Conjuntos de Dados Resilientes Distribuídos) formatados de uma maneira que é necessária como dados de entrada pela maioria dos algoritmos de ML no MLlib. Um [ponto rotulado](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) é um vetor local, denso ou esparso, associado a um rótulo/resposta.
 
-Este é o código para indexar e codificar recursos de texto para a classificação binária.
+Aqui está o hello tooindex de código e codificar os recursos de texto para classificação binária.
 
     # FUNCTIONS FOR BINARY CLASSIFICATION
 
@@ -415,7 +415,7 @@ Este é o código para indexar e codificar recursos de texto para a classificaç
         return  labPt
 
 
-Este é o código para codificar e indexar recursos de texto categórico para a análise de regressão linear.
+Aqui está o código de saudação tooencode e o índice de recursos categóricos texto para análise de regressão linear.
 
     # FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
 
@@ -437,8 +437,8 @@ Este é o código para codificar e indexar recursos de texto categórico para a 
         return  labPt
 
 
-### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Criar uma subamostragem aleatória dos dados e dividi-la em conjuntos de treinamento e teste
-Esse código cria uma amostragem aleatória dos dados (o valor de 25% é usado aqui). Embora não seja necessário para este exemplo, devido ao tamanho do conjunto de dados, demonstramos como é possível obter amostras de dados. Em seguida, você saberá como usá-lo para resolver seus próprios problemas, se necessário. Quando as amostras são grandes, isso pode economizar um tempo significativo durante o treinamento de modelos. Em seguida, dividimos o exemplo em uma parte de treinamento (75% aqui) e uma parte de teste (25% aqui) para usar na classificação e na modelagem de regressão.
+### <a name="create-a-random-sub-sampling-of-hello-data-and-split-it-into-training-and-testing-sets"></a>Cria uma amostragem aleatória de subgrupos de dados hello e dividi-lo em treinamento e conjuntos de teste
+Esse código cria uma amostragem aleatória de dados de saudação (25% é usado aqui). Embora não seja necessário para este exemplo devido toohello tamanho do conjunto de dados hello, demonstraremos como de exemplo dados Olá aqui. Você sabe como toouse-lo para seus próprios problemas se necessário. Quando as amostras são grandes, isso pode economizar um tempo significativo durante o treinamento de modelos. Em seguida, dividiremos exemplo hello em uma parte de treinamento (75% aqui) e um teste toouse de parte (25% aqui) de classificação e modelagem de regressão.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -475,21 +475,21 @@ Esse código cria uma amostragem aleatória dos dados (o valor de 25% é usado a
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **SAÍDA**
 
-Tempo necessário para executar a célula acima: 0,31 segundo
+Tempo gasto tooexecute acima célula: 0.31 segundos
 
 ### <a name="feature-scaling"></a>Dimensionamento de recursos
-O dimensionamento de recursos, também conhecido como normalização de dados, faz com que recursos com valores amplamente distribuídos não tenham peso excessivo na função objetiva. O código para o dimensionamento de recursos usa [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) para dimensionar os recursos para variância de unidade. Ele é fornecido pela MLlib para uso na regressão linear com SGD (Stochastic Gradient Descent). O SGD é um algoritmo popular de treinamento de uma grande variedade de outros modelos de aprendizado de máquina, como regressões regularizadas ou SVM (máquinas de vetor de suporte).   
+Dimensionamento de recurso, também conhecido como normalização de dados assegura que os recursos com valores amplamente distribuídos são não fornecido excessiva pesar na função objetivo hello. código para o recurso de dimensionamento Hello usa Olá [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) variação de toounit tooscale Olá recursos. Ele é fornecido pela MLlib para uso na regressão linear com SGD (Stochastic Gradient Descent). O SGD é um algoritmo popular de treinamento de uma grande variedade de outros modelos de aprendizado de máquina, como regressões regularizadas ou SVM (máquinas de vetor de suporte).   
 
 > [!TIP]
-> Observamos que o algoritmo LinearRegressionWithSGD é sensível ao dimensionamento de recursos.   
+> Encontramos Olá LinearRegressionWithSGD algoritmo toobe toofeature confidencial dimensionamento.   
 > 
 > 
 
-Veja o código para escalar as variáveis para uso com o algoritmo SGD linear regularizado.
+Aqui está a variáveis de tooscale Olá código para uso com o algoritmo SGD linear Olá regularizada.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -516,14 +516,14 @@ Veja o código para escalar as variáveis para uso com o algoritmo SGD linear re
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **SAÍDA**
 
-Tempo necessário para executar a célula acima: 11,67 segundos
+Tempo gasto tooexecute acima célula: 11.67 segundos
 
 ### <a name="cache-objects-in-memory"></a>Armazenar objetos em cache na memória
-O tempo necessário para treinamento e teste dos algoritmos de ML pode ser reduzido armazenando-se em cache os objetos de quadro de dados de entrada usados para classificação, regressão e recursos dimensionados.
+tempo Olá para treinamento e teste de algoritmos ML pode ser reduzido ao armazenar em cache o quadro de dados de entrada hello objetos usados para classificação, regressão e recursos de escala.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -547,14 +547,14 @@ O tempo necessário para treinamento e teste dos algoritmos de ML pode ser reduz
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **SAÍDA** 
 
-Tempo necessário para executar a célula acima: 0,13 segundo
+Tempo gasto tooexecute acima célula: 0,13 segundos
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>Prever se uma gorjeta é paga ou não com modelos de classificação binária
-Esta seção mostra como usar três modelos para a tarefa de classificação binária de prever se uma gorjeta é paga ou não por uma corrida de táxi. Os modelos apresentados são:
+Esta seção mostra como usar três modelos para tarefa de classificação binária Olá de prever se uma dica é pago por uma viagem táxi ou não. modelos de saudação apresentados são:
 
 * Regressão logística 
 * Floresta aleatória
@@ -566,24 +566,24 @@ Cada seção de código de compilação de modelo é dividida em etapas:
 2. **Modelar a avaliação** em um conjunto de dados de teste com métricas
 3. **Salvar modelo** no blob para consumo futuro
 
-Mostraremos como fazer a CV (validação cruzada) com a limpeza de parâmetro de duas maneiras:
+Vamos mostrar como toodo validação cruzada (VC) com o parâmetro de varredura de duas maneiras:
 
-1. Usando o código personalizado **genérico** que pode ser aplicado a qualquer algoritmo na MLlib e a quaisquer conjuntos de parâmetros em um algoritmo. 
-2. Usando a **função de pipeline CrossValidator do pySpark**. Observe que o CrossValidator tem algumas limitações para o Spark 1.5.0: 
+1. Usando **genérico** código personalizado que pode ser aplicado tooany algoritmo no parâmetro MLlib e tooany define em um algoritmo. 
+2. Usando Olá **pySpark função do pipeline de CrossValidator**. Observe que o CrossValidator tem algumas limitações para o Spark 1.5.0: 
    
    * Os modelos de pipeline não podem ser salvos/persistidos para consumo futuro.
    * Não pode ser usado para todos os parâmetros em um modelo.
    * Não pode ser usado para todos os algoritmos MLlib.
 
-### <a name="generic-cross-validation-and-hyperparameter-sweeping-used-with-the-logistic-regression-algorithm-for-binary-classification"></a>Limpeza de hiperparâmetro e validação cruzada genérica usadas com o algoritmo de regressão logística para classificação binária
-O código nesta seção mostra como treinar, avaliar e salvar um modelo de regressão logística com [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) que prevê se uma gorjeta será paga ou não por uma corrida no conjunto de dados de corridas e tarifas de táxi de Nova York. O modelo é treinado usando a CV (validação cruzada) e a limpeza de hiperparâmetro implementada com o código personalizado que pode ser aplicado a qualquer um dos algoritmos de aprendizado na MLlib.   
+### <a name="generic-cross-validation-and-hyperparameter-sweeping-used-with-hello-logistic-regression-algorithm-for-binary-classification"></a>Genérico cruzado validação e limpeza hyperparameter usado com o algoritmo de regressão logística Olá para classificação binária
+código de saudação nesta seção mostra como tootrain, avaliar e salvar um modelo de regressão logística com [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) que prevê se ou não uma dica é pago por uma viagem Olá NYC táxi o conjunto de dados de processamento e passagens. modelo de saudação é treinado usando cruzada limpeza hyperparameter implementado com código personalizado que pode ser aplicado tooany de saudação MLlib algoritmos de aprendizado e validação (CV).   
 
 > [!NOTE]
-> A execução desse código personalizado de CV pode levar vários minutos.
+> execução de saudação desse código personalizado do VC pode levar vários minutos.
 > 
 > 
 
-**Treinar o modelo de regressão logística usando a CV e a limpeza de hiperparâmetro**
+**Treinar o modelo de regressão logística hello usando VC e limpeza de hyperparameter**
 
     # LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
 
@@ -602,7 +602,7 @@ O código nesta seção mostra como treinar, avaliar e salvar um modelo de regre
     paramGrid = list(ParameterGrid(grid))
     numModels = len(paramGrid)
 
-    # SET NUM FOLDS AND NUM PARAMETER SETS TO SWEEP ON
+    # SET NUM FOLDS AND NUM PARAMETER SETS tooSWEEP ON
     nFolds = 3;
     h = 1.0 / nFolds;
     metricSum = np.zeros(numModels);
@@ -652,16 +652,16 @@ O código nesta seção mostra como treinar, avaliar e salvar um modelo de regre
                                                   intercept=True)
 
 
-    # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-    # NOTE: There are 20 coefficient terms for the 10 features, 
-    #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+    # PRINT COEFFICIENTS AND INTERCEPT OF hello MODEL
+    # NOTE: There are 20 coefficient terms for hello 10 features, 
+    #       and hello different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
     print("Coefficients: " + str(logitBest.weights))
     print("Intercept: " + str(logitBest.intercept))
 
     # PRINT ELAPSED TIME    
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **SAÍDA**
@@ -670,11 +670,11 @@ Coeficientes: [0,0082065285375, -0,0223675576104, -0,0183812028036, -3,481245780
 
 Interceptação: -0,0111216486893
 
-Tempo necessário para executar a célula acima: 14,43 segundos
+Tempo gasto tooexecute acima célula: 14.43 segundos
 
-**Avaliar o modelo de classificação binária com métricas padrão**
+**Avaliar o modelo de classificação binária Olá com métricas padrão**
 
-O código nesta seção mostra como avaliar um modelo de regressão logística em um conjunto dados de teste, incluindo uma plotagem da curva ROC.
+código Olá nesta seção mostra como tooevaluate uma regressão logística de modelo em um teste-conjunto de dados, incluindo um gráfico de saudação curva ROC.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -714,7 +714,7 @@ O código nesta seção mostra como avaliar um modelo de regressão logística e
     # PRINT ELAPSED TIME    
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **SAÍDA**
@@ -731,22 +731,22 @@ Cancelamento = 0,984174341679
 
 Pontuação F1 = 0,984174341679
 
-Tempo necessário para executar a célula acima: 2,67 segundos
+Tempo gasto tooexecute acima célula: 2,67 segundos
 
-**Plote a curva ROC.**
+**Plote curva ROC hello.**
 
-O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para plotagem. Veja o código.
+Olá *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula de saudação anterior. *tmp_results* pode ser usado toodo consultas e resultados de saída em Olá sqlResults-quadro de dados para plotar. Aqui está o código de saudação.
 
     # QUERY RESULTS                              
     %%sql -q -o sqlResults
     SELECT * from tmp_results
 
 
-Este é o código para fazer previsões e plotar a curva ROC.
+Aqui está o previsões de toomake código hello e Olá plotagem ROC curva.
 
     # MAKE PREDICTIONS AND PLOT ROC-CURVE
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES                              
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES                              
     %%local
     %matplotlib inline
     from sklearn.metrics import roc_curve,auc
@@ -776,7 +776,7 @@ Este é o código para fazer previsões e plotar a curva ROC.
 
 **Persistir o modelo em um blob para consumo futuro**
 
-O código nesta seção mostra como salvar o modelo de regressão logística para consumo.
+código Olá nesta seção mostra como modelo de regressão logística de saudação toosave para consumo.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -794,18 +794,18 @@ O código nesta seção mostra como salvar o modelo de regressão logística par
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds";
 
 
 **SAÍDA**
 
-Tempo necessário para executar a célula acima: 34,57 segundos
+Tempo gasto tooexecute acima célula: 34.57 segundos
 
 ### <a name="use-mllibs-crossvalidator-pipeline-function-with-logistic-regression-elastic-regression-model"></a>Usar a função de pipeline CrossValidator da MLlib com o modelo de regressão logística (Regressão elástica)
-O código nesta seção mostra como treinar, avaliar e salvar um modelo de regressão logística com [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) que prevê se uma gorjeta será paga ou não por uma corrida no conjunto de dados de corridas e tarifas de táxi de Nova York. O modelo é treinado usando a CV (validação cruzada) e a limpeza de hiperparâmetro implementada com a função de pipeline CrossValidator da MLlib para CV com limpeza de parâmetro.   
+código de saudação nesta seção mostra como tootrain, avaliar e salvar um modelo de regressão logística com [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) que prevê se ou não uma dica é pago por uma viagem Olá NYC táxi o conjunto de dados de processamento e passagens. modelo de saudação é treinado usando validação cruzada (VC) e limpeza hyperparameter implementados com hello MLlib CrossValidator função de pipeline para VC com varredura de parâmetro.   
 
 > [!NOTE]
-> A execução desse código de CV da MLlib pode levar vários minutos.
+> execução de saudação do código MLlib VC pode levar vários minutos.
 > 
 > 
 
@@ -835,7 +835,7 @@ O código nesta seção mostra como treinar, avaliar e salvar um modelo de regre
                         evaluator=BinaryClassificationEvaluator(),
                         numFolds=3)
 
-    # CONVERT TO DATA-FRAME: THIS DOES NOT RUN ON RDDs
+    # CONVERT tooDATA-FRAME: THIS DOES NOT RUN ON RDDs
     trainDataFrame = sqlContext.createDataFrame(oneHotTRAINbinary, ["features", "label"])
 
     # TRAIN WITH CROSS-VALIDATION
@@ -851,23 +851,23 @@ O código nesta seção mostra como treinar, avaliar e salvar um modelo de regre
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds";
 
 **SAÍDA**
 
-Tempo necessário para executar a célula acima: 107,98 segundos
+Tempo gasto tooexecute acima célula: 107.98 segundos
 
-**Plote a curva ROC.**
+**Plote curva ROC hello.**
 
-O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para plotagem. Veja o código.
+Olá *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula de saudação anterior. *tmp_results* pode ser usado toodo consultas e resultados de saída em Olá sqlResults-quadro de dados para plotar. Aqui está o código de saudação.
 
     # QUERY RESULTS
     %%sql -q -o sqlResults
     SELECT label, prediction, probability from tmp_results
 
-Este é o código para plotar a curva ROC.
+Aqui está a curva ROC Olá código tooplot hello.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES 
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES 
     %%local
     from sklearn.metrics import roc_curve,auc
 
@@ -894,7 +894,7 @@ Este é o código para plotar a curva ROC.
 ![Curva ROC de regressão logística usando CrossValidator da MLlib](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/mllib-crossvalidator-roc-curve.png)
 
 ### <a name="random-forest-classification"></a>Classificação de floresta aleatória
-O código nesta seção mostra como treinar, avaliar e salvar uma regressão de floresta aleatória que prevê se uma gorjeta é paga ou não por uma corrida no conjunto de dados de corridas e tarifas de táxi de Nova York.
+código Olá nesta seção mostra como tootrain, avaliar e salvar uma regressão de floresta aleatório que prevê se ou não uma dica é pago por uma viagem Olá NYC táxi viagem e passagens conjunto de dados.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -913,7 +913,7 @@ O código nesta seção mostra como treinar, avaliar e salvar uma regressão de 
                                            categoricalFeaturesInfo=categoricalFeaturesInfo,
                                            numTrees=25, featureSubsetStrategy="auto",
                                            impurity='gini', maxDepth=5, maxBins=32)
-    ## UN-COMMENT IF YOU WANT TO PRING TREES
+    ## UN-COMMENT IF YOU WANT tooPRING TREES
     #print('Learned classification forest model:')
     #print(rfModel.toDebugString())
 
@@ -935,17 +935,17 @@ O código nesta seção mostra como treinar, avaliar e salvar uma regressão de 
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **SAÍDA**
 
 Área sob ROC = 0,985336538462
 
-Tempo necessário para executar a célula acima: 26,72 segundos
+Tempo gasto tooexecute acima célula: 26.72 segundos
 
 ### <a name="gradient-boosting-trees-classification"></a>Classificação de árvores de ampliação de gradiente
-O código nesta seção mostra como treinar, avaliar e salvar um modelo de árvores de ampliação de gradiente que prevê se uma gorjeta é paga ou não por uma corrida no conjunto de dados de corridas e tarifas de táxi de Nova York.
+código Olá nesta seção mostra como tootrain, avaliar e salvar um modelo de árvores de ampliação gradiente que prevê se ou não uma dica é pago por uma viagem Olá NYC táxi viagem e passagens conjunto de dados.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -958,7 +958,7 @@ O código nesta seção mostra como treinar, avaliar e salvar um modelo de árvo
 
     gbtModel = GradientBoostedTrees.trainClassifier(indexedTRAINbinary, categoricalFeaturesInfo=categoricalFeaturesInfo,
                                                     numIterations=10)
-    ## UNCOMMENT IF YOU WANT TO PRINT TREE DETAILS
+    ## UNCOMMENT IF YOU WANT tooPRINT TREE DETAILS
     #print('Learned classification GBT model:')
     #print(bgtModel.toDebugString())
 
@@ -980,38 +980,38 @@ O código nesta seção mostra como treinar, avaliar e salvar um modelo de árvo
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **SAÍDA**
 
 Área sob ROC = 0,985336538462
 
-Tempo necessário para executar a célula acima: 28,13 segundos
+Tempo gasto tooexecute acima célula: 28.13 segundos
 
 ## <a name="predict-tip-amount-with-regression-models-not-using-cv"></a>Prever valores de gorjetas com modelos de regressão (não usando CV)
-Esta seção mostra como usar três modelos para a tarefa de regressão de prever o valor da gorjeta paga por uma corrida de táxi com base em outros recursos de gorjeta. Os modelos apresentados são:
+Esta seção mostra como usar três modelos para tarefa de regressão Olá: prever Olá dica quantidade pagada para uma viagem de táxi com base em outros recursos de dica. modelos de saudação apresentados são:
 
 * Regressão linear regularizada
 * Floresta aleatória
 * Árvores de Ampliação de Gradiente
 
-Esses modelos foram descritos na introdução. Cada seção de código de compilação de modelo é dividida em etapas: 
+Esses modelos foram descritos na introdução de saudação. Cada seção de código de compilação de modelo é dividida em etapas: 
 
 1. **Modelar os dados de treinamento** com um conjunto de parâmetros
 2. **Modelar a avaliação** em um conjunto de dados de teste com métricas
 3. **Salvar modelo** no blob para consumo futuro   
 
-> OBSERVAÇÃO DO AZURE: a validação cruzada não é usada com os três modelos de regressão nesta seção, já que isso foi mostrado em detalhes para os modelos de regressão logística. Um exemplo que mostra como usar a CV com a Rede Elástica para a regressão linear é fornecido no Apêndice desse tópico.
+> Observação do AZURE: As validação cruzada não é usada com três modelos de regressão Olá nesta seção, pois isso foi mostrado em detalhes para modelos de regressão logística hello. Um exemplo que mostra como toouse VC com Elástico Net para regressão linear é fornecida no hello Apêndice deste tópico.
 > 
-> OBSERVAÇÃO DO AZURE: em nossa experiência, pode haver problemas com convergência de modelos LinearRegressionWithSGD, e os parâmetros precisam ser alterados/otimizados cuidadosamente para a obtenção de um modelo válido. O dimensionamento de variáveis ajuda significativamente com a convergência. A regressão da rede elástica, mostrada no Apêndice deste tópico, também pode ser usada em vez de LinearRegressionWithSGD.
+> Observação do AZURE: Em nossa experiência, pode haver problemas com convergência de LinearRegressionWithSGD modelos e parâmetros necessário toobe alterado/otimizado cuidadosamente para obter um modelo válido. O dimensionamento de variáveis ajuda significativamente com a convergência. Elástico regressão net, mostrado Olá apêndice toothis tópico, também pode ser usado em vez de LinearRegressionWithSGD.
 > 
 > 
 
 ### <a name="linear-regression-with-sgd"></a>Regressão linear com SGD
-O código nesta seção mostra como usar recursos dimensionados para treinar uma regressão linear que usa SGD (Stochastic Gradient Descent) para otimização e como pontuar, avaliar e salvar o modelo no WASB (Armazenamento de Blobs do Azure).
+Olá código nesta seção mostra como toouse dimensionado recursos tootrain uma regressão linear usa descendente do gradiente estocástico (SGD) para a otimização, e como tooscore, avaliar e Salvar modelo Olá no armazenamento de Blob do Azure (WASB).
 
 > [!TIP]
-> Em nossa experiência, pode haver problemas com a convergência de modelos LinearRegressionWithSGD, e os parâmetros precisam ser alterados/otimizados cuidadosamente para a obtenção de um modelo válido. O dimensionamento de variáveis ajuda significativamente com a convergência.
+> Em nossa experiência, pode haver problemas com convergência de saudação de LinearRegressionWithSGD modelos e parâmetros necessário toobe alterado/otimizado cuidadosamente para obter um modelo válido. O dimensionamento de variáveis ajuda significativamente com a convergência.
 > 
 > 
 
@@ -1025,12 +1025,12 @@ O código nesta seção mostra como usar recursos dimensionados para treinar uma
     from pyspark.mllib.evaluation import RegressionMetrics
     from scipy import stats
 
-    # USE SCALED FEATURES TO TRAIN MODEL
+    # USE SCALED FEATURES tooTRAIN MODEL
     linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
 
-    # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-    # NOTE: There are 20 coefficient terms for the 10 features, 
-    #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+    # PRINT COEFFICIENTS AND INTERCEPT OF hello MODEL
+    # NOTE: There are 20 coefficient terms for hello 10 features, 
+    #       and hello different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
     print("Coefficients: " + str(linearModel.weights))
     print("Intercept: " + str(linearModel.intercept))
 
@@ -1051,7 +1051,7 @@ O código nesta seção mostra como usar recursos dimensionados para treinar uma
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **SAÍDA**
 
@@ -1063,13 +1063,13 @@ RMSE = 1,23485131376
 
 R-sqr = 0,597963951127
 
-Tempo necessário para executar a célula acima: 38,62 segundos
+Tempo gasto tooexecute acima célula: 38.62 segundos
 
 ### <a name="random-forest-regression"></a>Regressão de Floresta Aleatória
-O código nesta seção mostra como treinar, avaliar e salvar um modelo de floresta aleatória que prevê o valor da gorjeta para os dados de corridas de táxi de Nova York.   
+código Olá nesta seção mostra como tootrain, avaliar e salvar um modelo de floresta aleatório que prevê a quantidade de dica de saudação dados de viagem táxi NYC.   
 
 > [!NOTE]
-> A validação cruzada com a limpeza de parâmetro usando código personalizado é fornecida no apêndice.
+> A validação cruzada com o parâmetro de varredura usando código personalizado é fornecida no Apêndice hello.
 > 
 > 
 
@@ -1089,7 +1089,7 @@ O código nesta seção mostra como treinar, avaliar e salvar um modelo de flore
     rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
                                         numTrees=25, featureSubsetStrategy="auto",
                                         impurity='variance', maxDepth=10, maxBins=32)
-    # UN-COMMENT IF YOU WANT TO PRING TREES
+    # UN-COMMENT IF YOU WANT tooPRING TREES
     #print('Learned classification forest model:')
     #print(rfModel.toDebugString())
 
@@ -1111,7 +1111,7 @@ O código nesta seção mostra como treinar, avaliar e salvar um modelo de flore
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 **SAÍDA**
 
@@ -1119,12 +1119,12 @@ RMSE = 0,931981967875
 
 R-sqr = 0,733445485802
 
-Tempo necessário para executar a célula acima: 25,98 segundos
+Tempo gasto tooexecute acima célula: 25.98 segundos
 
 ### <a name="gradient-boosting-trees-regression"></a>Regressão de árvores de ampliação de gradiente
-O código nesta seção mostra como treinar, avaliar e salvar um modelo de árvores de ampliação de gradiente que prevê o valor da gorjeta para os dados de corridas de táxi de Nova York.
+código Olá nesta seção mostra como tootrain, avaliar e salvar um modelo de árvores de ampliação gradiente que prevê a quantidade de dica de saudação dados de viagem táxi NYC.
 
-* * Treinar e avaliar * *
+**Treinar e avaliar**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1161,7 +1161,7 @@ O código nesta seção mostra como treinar, avaliar e salvar um modelo de árvo
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **SAÍDA**
@@ -1170,11 +1170,11 @@ RMSE = 0,928172197114
 
 R-sqr = 0,732680354389
 
-Tempo necessário para executar a célula acima: 20,9 segundos
+Tempo gasto tooexecute acima célula: 20.9 segundos
 
 **Plotar**
 
-*tmp_results* é registrado como uma tabela do Hive na célula anterior. Os resultados da tabela são gerados no quadro de dados *sqlResults* para plotagem. Veja o código
+*tmp_results* é registrado como uma tabela Hive na célula anterior hello. Resultados da tabela de saudação são saída Olá *sqlResults* quadro de dados para plotar. Aqui está o código de saudação
 
     # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -1183,9 +1183,9 @@ Tempo necessário para executar a célula acima: 20,9 segundos
     SELECT * from tmp_results
 
 
-Este é o código para plotar os dados usando o servidor do Jupyter.
+Aqui está a dados Olá código tooplot hello usando Olá Jupyter server.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     import numpy as np
 
@@ -1202,10 +1202,10 @@ Este é o código para plotar os dados usando o servidor do Jupyter.
 ![Actual-vs-predicted-tip-amounts](./media/machine-learning-data-science-spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
 ## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Apêndice: Tarefas de regressão adicionais usando a validação cruzada com limpezas de parâmetro
-Este apêndice contém o código que mostra como fazer a CV usando rede elástica para regressão linear e como fazer a CV com a limpeza de parâmetro usando o código personalizado para a regressão de floresta aleatória.
+Este apêndice contém mostrando código como toodo VC usando net Elástico para regressão linear e como toodo VC com parâmetro de varredura usando código personalizado para regressão de floresta aleatório.
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>Validação cruzada usando a rede elástica para a regressão linear
-O código nesta seção mostra como fazer a validação cruzada usando a rede elástica para a regressão linear e como avaliar o modelo em relação aos dados de teste.
+código Olá nesta seção mostra como toodo cruzada validação usando elástica net para regressão linear e como tooevaluate Olá modelo com base em dados de teste.
 
     ###  CV USING ELASTIC NET FOR LINEAR REGRESSION
 
@@ -1229,7 +1229,7 @@ O código nesta seção mostra como fazer a validação cruzada usando a rede el
                                   .build() 
 
     # DEFINE PIPELINE 
-    # SIMPLY THE MODEL HERE, WITHOUT TRANSFORMATIONS
+    # SIMPLY hello MODEL HERE, WITHOUT TRANSFORMATIONS
     pipeline = Pipeline(stages=[lr])
 
     # DEFINE CV WITH PARAMETER SWEEP
@@ -1238,7 +1238,7 @@ O código nesta seção mostra como fazer a validação cruzada usando a rede el
                         evaluator=RegressionEvaluator(),
                         numFolds=3)
 
-    # CONVERT TO DATA FRAME, AS CROSSVALIDATOR WON'T RUN ON RDDS
+    # CONVERT tooDATA FRAME, AS CROSSVALIDATOR WON'T RUN ON RDDS
     trainDataFrame = sqlContext.createDataFrame(oneHotTRAINreg, ["features", "label"])
 
     # TRAIN WITH CROSS-VALIDATION
@@ -1249,34 +1249,34 @@ O código nesta seção mostra como fazer a validação cruzada usando a rede el
     testDataFrame = sqlContext.createDataFrame(oneHotTESTreg, ["features", "label"])
 
     # MAKE PREDICTIONS ON TEST DOCUMENTS
-    # cvModel uses the best model found (lrModel).
+    # cvModel uses hello best model found (lrModel).
     predictionAndLabels = cv_model.transform(testDataFrame)
 
-    # CONVERT TO DF AND SAVE REGISER DF AS TABLE
+    # CONVERT tooDF AND SAVE REGISER DF AS TABLE
     predictionAndLabels.registerTempTable("tmp_results");
 
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **SAÍDA**
 
-Tempo necessário para executar a célula acima: 161,21 segundos
+Tempo gasto tooexecute acima célula: 161.21 segundos
 
 **Avaliar com a métrica R-SQR**
 
-*tmp_results* é registrado como uma tabela do Hive na célula anterior. Os resultados da tabela são gerados no quadro de dados *sqlResults* para plotagem. Veja o código
+*tmp_results* é registrado como uma tabela Hive na célula anterior hello. Resultados da tabela de saudação são saída Olá *sqlResults* quadro de dados para plotar. Aqui está o código de saudação
 
     # SELECT RESULTS
     %%sql -q -o sqlResults
     SELECT label,prediction from tmp_results
 
 
-Este é o código para calcular o R-sqr.
+Aqui está a saudação código toocalculate sqr R.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+    # RUN hello CODE LOCALLY ON hello JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
     from scipy import stats
 
@@ -1291,7 +1291,7 @@ Este é o código para calcular o R-sqr.
 R-sqr = 0,619184907088
 
 ### <a name="cross-validation-with-parameter-sweep-using-custom-code-for-random-forest-regression"></a>Validação cruzada com limpeza de parâmetro usando o código personalizado para a regressão de floresta aleatória
-O código nesta seção mostra como fazer a validação cruzada com a limpeza de parâmetro usando o código personalizado para a regressão de floresta aleatória e como avaliar o modelo em relação aos dados de teste.
+código Olá nesta seção mostra como toodo validação cruzada com varredura de parâmetro usando código personalizado para regressão de floresta aleatório e como tooevaluate Olá modelo com base em dados de teste.
 
     # RECORD START TIME
     timestart= datetime.datetime.now()
@@ -1310,7 +1310,7 @@ O código nesta seção mostra como fazer a validação cruzada com a limpeza de
     ## SPECIFY LEVELS OF CATEGORICAL VARIBLES
     categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
 
-    # SPECIFY NUMFOLDS AND ARRAY TO HOLD METRICS
+    # SPECIFY NUMFOLDS AND ARRAY tooHOLD METRICS
     nFolds = 3;
     numModels = len(paramGrid)
     h = 1.0 / nFolds;
@@ -1370,7 +1370,7 @@ O código nesta seção mostra como fazer a validação cruzada com a limpeza de
     # PRINT ELAPSED TIME
     timeend = datetime.datetime.now()
     timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+    print "Time taken tooexecute above cell: " + str(timedelta) + " seconds"; 
 
 
 **SAÍDA**
@@ -1379,10 +1379,10 @@ RMSE = 0,906972198262
 
 R-sqr = 0,740751197012
 
-Tempo necessário para executar a célula acima: 69,17 segundos
+Tempo gasto tooexecute acima célula: 69.17 segundos
 
 ### <a name="clean-up-objects-from-memory-and-print-model-locations"></a>Limpar objetos da memória e imprimir os locais de modelo
-Use `unpersist()` para excluir objetos armazenados em cache na memória.
+Use `unpersist()` toodelete objetos armazenados em cache na memória.
 
     # UNPERSIST OBJECTS CACHED IN MEMORY
 
@@ -1413,7 +1413,7 @@ Use `unpersist()` para excluir objetos armazenados em cache na memória.
 
 PythonRDD[122] em RDD em PythonRDD.scala:43
 
-* * Caminho de impressão para arquivos de modelo a ser usado no bloco de anotações de consumo. * * Para consumir e classificar um conjunto de dados independente, você precisa copiar e colar esses nomes de arquivo em "notebook de consumo".
+* * Impressão caminho toomodel arquivos toobe usado no bloco de anotações de consumo de saudação. * * tooconsume e pontuação um independente de-conjunto de dados, você precisa toocopy e cole esses nomes de arquivo hello "Bloco de anotações de consumo".
 
     # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
     print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
@@ -1439,7 +1439,7 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52_18.827237"
 
 ## <a name="whats-next"></a>O que vem a seguir?
-Agora que criou modelos de regressão e classificação com o Spark MlLib, você está pronto para aprender a classificar e avaliar os modelos.
+Agora que você criou modelos de classificação e regressão com hello Spark MlLib, você está pronto toolearn como tooscore e avaliar esses modelos.
 
-**Consumo de modelos:** para aprender a pontuar e avaliar os modelos de classificação e regressão criados neste tópico, confira [Pontuar modelos de aprendizado de máquina criados no Spark](machine-learning-data-science-spark-model-consumption.md).
+**Consumo de modelo:** toolearn como tooscore e avaliar modelos de classificação e regressão de saudação criados neste tópico, consulte [pontuação e avaliar modelos de aprendizado de máquina criados Spark](machine-learning-data-science-spark-model-consumption.md).
 

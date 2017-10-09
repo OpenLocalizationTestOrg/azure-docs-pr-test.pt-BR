@@ -1,5 +1,5 @@
 ---
-title: "Implantar recursos de computação do Windows com os modelos do Azure Resource Manager | Microsoft Docs"
+title: "aaaDeploying recursos de computação do Windows com modelos do Gerenciador de recursos do Azure | Microsoft Docs"
 description: "Tutorial principal de DotNet da máquina virtual do Azure"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a8b888195e52ea9669922a6a00a873025f3c375
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dee228a492b08053713829e156e5b5ba304d7588
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-architecture-with-azure-resource-manager-templates-for-windows-vms"></a>Arquitetura de aplicativos com modelos do Azure Resource Manager para VMs Windows
 
-Ao desenvolver uma implantação do Azure Resource Manager, os requisitos de computação precisam ser mapeados para os serviços e recursos do Azure. Se um aplicativo consistir em vários pontos de extremidade http, um banco de dados e um serviço de cache de dados, os recursos do Azure que hospedam cada desses componentes precisarão ser racionalizados. Por exemplo, o aplicativo de Loja de Música de exemplo inclui um aplicativo Web hospedado em uma máquina virtual e um banco de dados SQL, hospedado no banco de dados SQL do Azure. 
+Ao desenvolver uma implantação do Azure Resource Manager, requisitos de computação necessário toobe mapeado tooAzure recursos e serviços. Se um aplicativo consiste em vários pontos de extremidade http, um banco de dados e um serviço de cache de dados, hello recursos do Azure que hospedam cada um desses componentes precisa toobe planejada. Por exemplo, o aplicativo de repositório de música de exemplo hello inclui um aplicativo web que é hospedado em uma máquina virtual e um banco de dados SQL, que é hospedado no banco de dados do SQL Azure. 
 
-Este documento fornece detalhes sobre como os recursos de computação da Loja de Música são configurados no modelo do Azure Resource Manager de exemplo. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Este documento fornece detalhes sobre como os recursos de computação do repositório de música Olá são configurados no modelo de Gerenciador de recursos do Azure do exemplo hello. Todas as dependências e configurações exclusivas são realçadas. Para melhor experiência de hello, pré-implante uma instância do hello solução tooyour assinatura do Azure e trabalha junto com o modelo do Azure Resource Manager hello. modelo completo Olá pode ser encontrado aqui – [implantação de repositório de música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="virtual-machine"></a>Máquina Virtual
-O aplicativo de Loja de Música inclui um aplicativo Web em que os clientes podem procurar e comprar músicas. Embora haja vários serviços do Azure que podem hospedar aplicativos Web, para este exemplo, uma máquina virtual é usada. Usando o modelo de Loja de Música de exemplo, uma máquina virtual é implantada, um servidor Web é instalado e o site da Loja de Música é instalado e configurado. Neste artigo, apenas a implantação de máquina virtual é detalhada. A configuração do servidor Web e do aplicativo é detalhada em um artigo posterior.
+saudação de aplicativo de repositório de música inclui um aplicativo da web onde os clientes podem procurar e comprar músicas. Embora haja vários serviços do Azure que podem hospedar aplicativos Web, para este exemplo, uma máquina virtual é usada. Usando o modelo de repositório de música de exemplo hello, uma máquina virtual é implantada, instalar um servidor web e site do repositório de música Olá instalado e configurado. Para a mesma Olá deste artigo, somente a implantação de máquina virtual Olá é detalhada. configuração de saudação do servidor de web hello e aplicativo hello é detalhada em um artigo posterior.
 
-Uma máquina virtual pode ser adicionada a um modelo usando o Assistente para Adicionar Novos Recursos do Visual Studio ou inserindo JSON válido no modelo de implantação. Ao implantar uma máquina virtual, também são necessários vários recursos relacionados. Se usar o Visual Studio para criar o modelo, esses recursos serão criados para você. Se construir manualmente o modelo, esses recursos precisarão ser inseridos e configurados.
+Modelo tooa usando o Visual Studio adicionar novos recursos do assistente, ou inserindo um JSON válido no modelo de implantação de saudação do hello pode ser adicionada a uma máquina virtual. Ao implantar uma máquina virtual, também são necessários vários recursos relacionados. Se usar o modelo do Visual Studio toocreate hello, esses recursos são criados para você. Se construir manualmente modelo hello, esses recursos devem toobe inserido e configurado.
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [JSON de máquina virtual](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L285).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [JSON de máquina Virtual](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L285).
 
 ```json
 {
@@ -62,14 +62,14 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [JSON d
 }
 ```
 
-Uma vez implantado, as propriedades da máquina virtual podem ser vistas no portal do Azure.
+Uma vez implantado, propriedades de máquina virtual Olá podem ser vistas no hello portal do Azure.
 
 ![Máquina Virtual](./media/dotnet-core-2-architecture/vm-win.png)
 
 ## <a name="storage-account"></a>Conta de armazenamento
-Contas de armazenamento têm muitos recursos e opções de armazenamento. Para o contexto de máquinas virtuais do Azure, uma conta de armazenamento mantém os discos rígidos virtuais da máquina virtual e discos de dados adicionais. O exemplo de Loja de Música inclui uma conta de armazenamento para manter o disco rígido virtual de cada máquina virtual na implantação. 
+Contas de armazenamento têm muitos recursos e opções de armazenamento. Contexto Olá máquinas virtuais do Azure, uma conta de armazenamento contém discos rígidos virtuais de saudação da máquina virtual de saudação e discos de dados adicionais. exemplo de repositório de música Hello inclui um armazenamento conta toohold Olá disco rígido virtual de cada máquina virtual na implantação de saudação. 
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Conta de armazenamento](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L98).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [conta de armazenamento](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L98).
 
 ```json
 {
@@ -86,9 +86,9 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Conta 
 }
 ```
 
-Uma conta de armazenamento é associada uma máquina virtual dentro da declaração de modelo do Resource Manager da máquina virtual. 
+Uma conta de armazenamento é associado uma máquina virtual dentro da declaração de modelo Olá Gerenciador de recursos de máquina virtual de saudação. 
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Associação de máquina virtual e conta de armazenamento](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L321).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [associação de máquina Virtual e a conta de armazenamento](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L321).
 
 ```json
 "osDisk": {
@@ -101,20 +101,20 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Associ
 }
 ```
 
-Após a implantação, a conta de armazenamento pode ser exibida no portal do Azure.
+Após a implantação, a conta de armazenamento Olá pode ser exibida no hello portal do Azure.
 
 ![Conta de armazenamento](./media/dotnet-core-2-architecture/storacct-win.png)
 
-Clique no contêiner de blob da conta de armazenamento; o arquivo de driver de disco rígido virtual para cada máquina virtual implantada com o modelo pode ser visto.
+Clicar em um contêiner de blob de conta de armazenamento hello, arquivo de disco rígido virtual Olá para cada máquina virtual implantada com o modelo de saudação pode ser visto.
 
 ![Discos rígidos virtuais](./media/dotnet-core-2-architecture/vhd-win.png)
 
 Para obter mais informações sobre o Armazenamento do Azure, consulte a [documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/).
 
 ## <a name="virtual-network"></a>Rede Virtual
-Se uma máquina virtual requer uma rede interna, como a capacidade de se comunicar com outras máquinas virtuais e recursos do Azure, uma Rede Virtual do Azure é necessária.  Uma rede virtual não torna a máquina virtual acessível pela Internet. A conectividade pública exige um endereço IP público, que é detalhado posteriormente nesta série.
+Se uma máquina virtual requer uma rede interna, como Olá capacidade toocommunicate com outras máquinas virtuais e os recursos do Azure, uma rede Virtual do Azure é necessária.  Uma rede virtual não faz a máquina virtual de saudação acessível pela internet de hello. A conectividade pública exige um endereço IP público, que é detalhado posteriormente nesta série.
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Rede virtual e sub-redes](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L126).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [rede Virtual e sub-redes](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L126).
 
 ```json
 {
@@ -149,14 +149,14 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Rede v
 }
 ```
 
-No portal do Azure, a rede virtual é semelhante à imagem a seguir. Observe que todas as máquinas virtuais implantadas com o modelo estão conectadas à rede virtual.
+De Olá portal do Azure, rede virtual Olá parece Olá a imagem a seguir. Observe que todas as máquinas virtuais implantadas com o modelo de saudação rede virtual toohello anexado.
 
 ![Rede Virtual](./media/dotnet-core-2-architecture/vnet-win.png)
 
 ## <a name="network-interface"></a>Interface de rede
- Um adaptador de rede conecta uma máquina virtual a uma rede virtual, mais especificamente a uma sub-rede que foi definida na rede virtual. 
+ Uma interface de rede se conecta a uma rede virtual da máquina virtual tooa, mais especificamente sub-rede tooa que foi definido na rede virtual hello. 
 
- Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Adaptador de rede](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L156).
+ Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [Interface de rede](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L156).
 
 ```json
 {
@@ -203,9 +203,9 @@ No portal do Azure, a rede virtual é semelhante à imagem a seguir. Observe que
 }
 ```
 
-Cada recurso de máquina virtual inclui um perfil de rede. O adaptador de rede está associado a uma máquina virtual neste perfil.  
+Cada recurso de máquina virtual inclui um perfil de rede. interface de rede Hello está associado a máquina virtual de saudação neste perfil.  
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Perfil de rede da máquina virtual](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L330).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [perfil de rede da máquina Virtual](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L330).
 
 ```json
 "networkProfile": {
@@ -217,18 +217,18 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Perfil
 }
 ```
 
-No portal do Azure, o adaptador de rede é semelhante à imagem a seguir. O endereço IP interno e a associação da máquina virtual podem ser vistos no recurso de adaptador de rede.
+De Olá portal do Azure, interface de rede Olá parece Olá a imagem a seguir. endereço IP interno de saudação e associação de máquina virtual Olá podem ser vistos no recurso de interface de rede de saudação.
 
 ![Interface de rede](./media/dotnet-core-2-architecture/nic-win.png)
 
 Para obter mais informações sobre Redes Virtuais do Azure, consulte [Documentação da Rede Virtual do Azure](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 ## <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
-Além de uma máquina virtual que hospeda o site de Loja de Música, um banco de dados SQL do Azure é implantado para hospedar o banco de dados da Loja de Música. A vantagem de usar o banco de dados SQL do Azure aqui é que um segundo conjunto de máquinas virtuais não é necessário, e a escala e a disponibilidade baseiam-se no serviço.
+Além disso, tooa máquina de virtual que hospeda o site do repositório de música hello, um banco de dados do SQL Azure é o banco de dados de repositório de música de Olá toohost implantado. vantagem de saudação do uso de banco de dados do SQL Azure aqui é que um segundo conjunto de máquinas virtuais não é necessário e escala e disponibilidade baseia-se no serviço de saudação.
 
-Um banco de dados SQL do Azure pode ser adicionado usando o Assistente para Adicionar Novos Recursos do Visual Studio ou inserindo JSON válido no modelo. O recurso SQL Server inclui um nome de usuário e uma senha que tenha direitos administrativos na instância do SQL. Além disso, um recurso de firewall do SQL é adicionado. Por padrão, os aplicativos hospedados no Azure são capazes de se conectar com a instância do SQL. Para permitir que o aplicativo externo como um SQL Server Management Studio se conecte à instância do SQL, o firewall precisa ser configurado. Para fins de demonstração da Loja de Música, a configuração padrão é suficiente. 
+Um banco de dados do SQL Azure pode ser adicionado usando Olá Visual Studio adicionar novos recursos do assistente, ou inserindo um JSON válido em um modelo. saudação de recurso do SQL Server inclui um nome de usuário e senha que recebeu direitos administrativos na instância do SQL hello. Além disso, um recurso de firewall do SQL é adicionado. Por padrão, os aplicativos hospedados no Azure são capaz de tooconnect com a instância do SQL hello. aplicativo externo tooallow tal um SQL Server Management studio tooconnect toohello instância do SQL, firewall Olá precisa toobe configurado. Para bem Olá de demonstração do repositório de música Olá, a configuração padrão de saudação é suficiente. 
 
-Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Banco de dados SQL do Azure](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L379).
+Siga este exemplo JSON do link toosee Olá no modelo do Gerenciador de recursos de hello – [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L379).
 
 ```json
 {
@@ -262,7 +262,7 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Banco 
 }
 ```
 
-Um modo de exibição do SQL Server e do banco de dados MusicStore como visto no portal do Azure.
+Uma exibição de saudação SQL server e banco de dados MusicStore como visto no hello portal do Azure.
 
 ![SQL Server](./media/dotnet-core-2-architecture/sql-win.png)
 

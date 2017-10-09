@@ -1,6 +1,6 @@
 ---
-title: Gerenciar volumes na StorSimple Virtual Array | Microsoft Docs
-description: "Descreve o Gerenciador de Dispositivos StorSimple e explica como usá-lo para gerenciar volumes em sua Matriz Virtual StorSimple."
+title: volumes aaaManage na matriz Virtual StorSimple | Microsoft Docs
+description: "Descreve Olá Gerenciador de dispositivos do StorSimple e explica como toouse-toomanage volumes no StorSimple Virtual Array."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a507bf1866952cb79fa6334fed80c88cd207cd0a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 46aa6d7508b3e62f75a3b78ed73302b88320a0f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos StorSimple para gerenciar volumes na Matriz Virtual StorSimple
+# <a name="use-storsimple-device-manager-service-toomanage-volumes-on-hello-storsimple-virtual-array"></a>Toomanage volumes serviço Gerenciador de dispositivos de StorSimple uso Olá matriz Virtual StorSimple
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial explica como usar o serviço Gerenciador de Dispositivos StorSimple para criar e gerenciar volumes na Matriz Virtual StorSimple.
+Este tutorial explica como toouse Olá toocreate de serviço do Gerenciador de dispositivos do StorSimple e gerenciar volumes no StorSimple Virtual Array.
 
-O serviço Gerenciador de Dispositivos StorSimple é uma extensão do portal do Azure que permite gerenciar a solução StorSimple em uma única interface da Web. Além de gerenciar compartilhamentos e volumes, você pode usar o serviço Gerenciador de Dispositivos StorSimple para exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup.
+saudação de serviço do Gerenciador de dispositivos do StorSimple é uma extensão em Olá portal do Azure que permite que você gerencie sua solução StorSimple de uma única interface da web. Em adição toomanaging compartilhamentos e volumes, você pode usar tooview de serviço do Gerenciador de dispositivos de StorSimple hello e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup hello.
 
 ## <a name="volume-types"></a>Tipos de volumes
 
 Os volumes do StorSimple podem ser:
 
-* **Fixados localmente**: os dados nesses volumes permanecerão sempre na matriz e não transbordam para a nuvem.
-* **Em camadas**: os dados nesses volumes podem transbordar para a nuvem. Quando você cria um volume em camadas, aproximadamente 10% do espaço é provisionado na camada de local e 90% do espaço é provisionado na nuvem. Por exemplo, se você provisionar um volume de 1 TB, 100 GB residiria no espaço local e 900 GB seria usado na nuvem quando os dados fossem distribuídos em camadas. Isso, por sua vez, implica que se você ficar sem todo o espaço local no dispositivo, não poderá provisionar um volume em camadas (porque 10% necessários na camada local não estarão disponíveis).
+* **Localmente afixado**: dados nesses volumes permanece na matriz de saudação sempre e não despejar toohello nuvem.
+* **Em camadas**: dados nesses volumes podem despejar toohello nuvem. Quando você cria um volume em camadas, aproximadamente 10% do espaço de saudação é provisionado na camada local hello e 90% do espaço de saudação é provisionado na nuvem hello. Por exemplo, se você provisionar um volume de 1 TB, 100 GB reside no espaço local hello e 900 GB é usado na nuvem hello quando Olá camadas de dados. Por sua vez, isso significa que se você ficar sem todo o espaço local Olá no dispositivo hello, você não pode provisionar um volume em camadas (porque Olá 10% necessário no local de saudação camada não estará disponível).
 
 ### <a name="provisioned-capacity"></a>Capacidade provisionada
-Consulte a tabela a seguir para saber a capacidade máxima provisionada para cada tipo de volume.
+Consulte toohello para máxima capacidade provisionada para cada tipo de volume a tabela a seguir.
 
 | **Identificador de limite**                                       | **Limite**     |
 |------------------------------------------------------------|---------------|
@@ -45,23 +45,23 @@ Consulte a tabela a seguir para saber a capacidade máxima provisionada para cad
 | Tamanho mínimo de um volume fixado localmente                    | 50 GB         |
 | Tamanho máximo de um volume fixado localmente                    | 500 GB        |
 
-## <a name="the-volumes-blade"></a>A página Volumes
-O menu **Volumes** na sua folha de resumo do serviço StorSimple exibe a lista de volumes de armazenamento em determinada matriz StorSimple e permite gerenciá-los.
+## <a name="hello-volumes-blade"></a>folha de Volumes Olá
+Olá **Volumes** menu na sua folha de resumo de serviço do StorSimple exibe a lista de saudação de volumes de armazenamento em uma determinada matriz de StorSimple e permite que você toomanage-los.
 
 ![Folha Volumes](./media/storsimple-virtual-array-manage-volumes/volumes-blade.png)
 
 Um volume consiste em uma série de atributos:
 
-* **Nome** – Um nome descritivo que deve ser exclusivo e que ajuda a identificar o volume.
-* **Status** – Pode ser online ou offline. Se um volume estiver offline, não é visível para os iniciadores (servidores) que têm permissão de acesso para usar o volume.
-* **Tipo** – Indica se o volume é **Em camadas** (o padrão) ou **Afixados localmente**.
-* **Capacidade** – especifica a quantidade de dados usados em comparação com a quantidade total de dados que podem ser armazenados pelo inicializador (servidor).
-* **Backup** – no caso da Matriz Virtual StorSimple, todos os volumes são habilitados para backup automaticamente.
-* **Hosts conectados** – especifica os iniciadores (servidores) que podem acessar o volume.
+* **Nome do volume** – um nome descritivo que deve ser exclusivo e ajuda a identificar o volume de saudação.
+* **Status** – Pode ser online ou offline. Se o volume estiver offline, não é visível tooinitiators (servidores) que têm permissão de acesso toouse Olá volume.
+* **Tipo** – indica se o volume de saudação é **em camadas** (Olá padrão) ou **localmente afixado**.
+* **Capacidade** – Especifica Olá quantidade de dados usados como toohello em comparação com a quantidade total de dados que podem ser armazenados pelo iniciador da saudação (servidor).
+* **Backup** – no caso de Olá matriz Virtual StorSimple, todos os volumes são habilitados automaticamente para o backup.
+* **Conectado hosts** – Especifica os iniciadores de saudação (servidores) que têm permissão de acesso toothis volume.
 
 ![Detalhes dos volumes](./media/storsimple-virtual-array-manage-volumes/volume-details.png)
 
-Use as instruções neste tutorial para executar as seguintes tarefas:
+Use as instruções de saudação este Olá tooperform tutorial tarefas a seguir:
 
 * Adicionar um volume
 * Modificar um volume
@@ -70,51 +70,51 @@ Use as instruções neste tutorial para executar as seguintes tarefas:
 
 ## <a name="add-a-volume"></a>Adicionar um volume
 
-1. Na folha Resumo do serviço StorSimple, clique em **+ Adicionar volume** na barra de comandos. Isso abre a folha **Adicionar volume**.
+1. Na folha resumida do serviço do StorSimple de saudação, clique em **+ Adicionar volume** na barra de comandos de saudação. Isso abre a saudação **Adicionar volume** folha.
    
     ![Adicionar volume](./media/storsimple-virtual-array-manage-volumes/add-volume.png)
-2. Na folha **Adicionar volume**, faça o seguinte:
+2. Em Olá **Adicionar volume** folha, Olá a seguir:
    
-   * No campo **Nome do volume**, insira um nome exclusivo para o seu volume. O nome deve ser uma cadeia de caracteres contendo entre 3 e 127 caracteres.
-   * Na lista suspensa **Tipo**, especifique se deseja criar um volume **Em camadas** ou **Fixado localmente**. Para as cargas de trabalho que exigem garantias locais, latências baixas e um melhor desempenho, selecione **Volume fixado localmente**. Para todos os outros dados, selecione volume **Em camadas**.
-   * No campo **Capacidade**, especifique o tamanho do volume. Um volume em camadas deve ter entre 500 GB e 5 TB e um volume fixado localmente deve ter entre 50 GB e 500 GB.
-   * * Clique em **Hosts conectados**, selecione um ACR (registro de controle de acesso) correspondente ao iniciador iSCSI ao qual você deseja conectar esse volume e clique em **Selecionar**.
-3. Para adicionar um novo host conectado, clique em **Adicionar novo**, insira um nome para o host e seu IQN (nome qualificado) iSCSI e clique em **Adicionar**.
+   * Em Olá **nome do Volume** campo, digite um nome exclusivo para seu volume. nome da saudação deve ser uma cadeia de caracteres com 3 caracteres too127.
+   * Em Olá **tipo** suspensa lista, especifique se toocreate um **em camadas** ou **localmente afixado** volume. Para as cargas de trabalho que exigem garantias locais, latências baixas e um melhor desempenho, selecione **Volume fixado localmente**. Para todos os outros dados, selecione volume **Em camadas**.
+   * Em Olá **capacidade** , especifique o tamanho de saudação do volume de saudação. Um volume em camadas deve ter entre 500 GB e 5 TB e um volume fixado localmente deve ter entre 50 GB e 500 GB.
+   * * Clique em **conectado hosts**, selecione um acesso controle ACR (registro) correspondente toohello iniciador iSCSI que você deseja tooconnect toothis volume e, em seguida, clique em **selecione**.
+3. tooadd um novo host conectado, clique em **adicionar novo**, insira um nome de host de saudação e o iSCSI IQN (nome qualificado) e depois clique em **adicionar**.
    
     ![Adicionar volume](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
-4. Quando você tiver terminado de configurar o volume, clique em **Criar**. Um volume será criado com as configurações especificadas e você verá uma notificação quando ele for criado com êxito. Por padrão, o backup estará habilitado para o volume.
-5. Para confirmar se o volume foi criado com êxito, vá para a folha **Volumes** . Você deve ver o volume listado.
+4. Quando você tiver terminado de configurar o volume, clique em **Criar**. Um volume será criado com hello especificado as configurações e você verá uma notificação de êxito na criação de Olá Olá mesmo. Por padrão, backup será habilitado para o volume de saudação.
+5. tooconfirm que Olá volume foi criado com êxito, vá toohello **Volumes** folha. Você deve ver o volume de saudação listado.
    
     ![Criação do volume bem-sucedida](./media/storsimple-virtual-array-manage-volumes/volume-success.png)
 
 ## <a name="modify-a-volume"></a>Modificar um volume
 
-Modifica um volume quando você precisa alterar os hosts que acessam o volume. Os outros atributos de um volume não poderão ser modificados depois que o volume for criado.
+Modifique um volume quando você precisa toochange Olá hosts que acessam o volume de saudação. Olá outros atributos de um volume não podem ser modificados após a criação de volume hello.
 
-#### <a name="to-modify-a-volume"></a>Para modificar um volume
+#### <a name="toomodify-a-volume"></a>toomodify um volume
 
-1. Na configuração **Volumes** na folha de resumo do serviço StorSimple, selecione a matriz virtual no qual reside o volume que você deseja modificar.
-2. **Selecione** o volume e clique em **Hosts conectados** para exibir o host conectado atualmente e modificá-lo para um servidor diferente.
+1. De saudação **Volumes** configuração na folha do resumida de serviço do StorSimple hello, selecione Olá array virtual no qual Olá volume desejar toomodify reside.
+2. **Selecione** Olá volume e clique em **conectado hosts** tooview Olá host conectado no momento e modificá-lo tooa outro servidor.
    
     ![Editar volume](./media/storsimple-virtual-array-manage-volumes/volume-edit-acr.png)
-3. Salve suas alterações clicando na barra de comandos **Salvar**. As configurações especificadas serão aplicadas e você verá uma notificação.
+3. Salvar as alterações clicando Olá **salvar** barra de comandos. As configurações especificadas serão aplicadas e você verá uma notificação.
 
 ## <a name="take-a-volume-offline"></a>Colocar um volume offline
 
-Talvez seja necessário colocar um volume offline quando você estiver planejando modificá-lo ou excluí-lo. Quando um volume está offline, não está disponível para acesso de leitura / gravação. Você precisará colocar o volume offline no host e no dispositivo.
+Talvez seja necessário tootake um volume offline quando você estiver planejando toomodify-lo ou exclua-lo. Quando um volume está offline, não está disponível para acesso de leitura / gravação. Você precisará tootake Olá volume offline no host hello, bem como no dispositivo de saudação.
 
-#### <a name="to-take-a-volume-offline"></a>Para colocar um volume offline
+#### <a name="tootake-a-volume-offline"></a>tootake um volume offline
 
-1. Certifique-se de que o volume em questão não está em uso antes de colocá-lo offline.
-2. Coloque o volume offline no host primeiro. Isso elimina qualquer risco de corrupção de dados no volume. Para etapas específicas, consulte as instruções do sistema operacional do host.
-3. Depois que o volume no host ficar offline, coloque o volume no dispositivo offline executando as seguintes etapas:
+1. Certifique-se de que o volume de saudação em questão não está em uso antes de colocá-lo offline.
+2. Olá primeiro coloque volume offline no host de saudação. Isso eliminará qualquer risco potencial de corrupção de dados no volume de saudação. Para etapas específicas, consulte as instruções de toohello para seu sistema operacional do host.
+3. Depois de volume Olá Olá host estiver offline, coloque o volume de saudação na matriz de saudação offline executando Olá etapas a seguir:
    
-   * Na configuração **Volumes** na folha de resumo do serviço StorSimple, selecione a matriz virtual no qual reside o volume que você deseja colocar offline.
-   * **Selecione** o volume e clique em **...** (como alternativa, clique com o botão direito do mouse nesta linha) e, no menu de contexto, selecione **Colocar offline**.
+   * De saudação **Volumes** configuração na folha do resumida de serviço do StorSimple hello, selecione Olá array virtual no qual Olá volume desejar tootake offline reside.
+   * **Selecione** Olá volume e clique em **...**  (como alternativa, clique na linha) e no menu de contexto hello, selecione **colocar offline**.
      
         ![Volume offline](./media/storsimple-virtual-array-manage-volumes/volume-offline.png)
-   * Examine as informações na folha **Colocar offline** e confirme a aceitação da operação. Clique em **Colocar offline** para desativar o volume. Você verá uma notificação da operação em andamento.
-   * Para confirmar se o volume foi colocado offline com êxito, vá para a folha **Volumes** . Você deve ver o status do volume como offline.
+   * Revise as informações de Olá Olá **colocar offline** folha e confirmar a aceitação da operação de saudação. Clique em **colocar offline** tootake volume de saudação offline. Você verá uma notificação de operação de saudação em andamento.
+   * tooconfirm volume Olá com êxito foi colocado offline, vá toohello **Volumes** folha. Você deve ver o status de saudação do volume de saudação como offline.
      
        ![Confirmação de volume offline](./media/storsimple-virtual-array-manage-volumes/volume-offline-confirm.png)
 
@@ -125,18 +125,18 @@ Talvez seja necessário colocar um volume offline quando você estiver planejand
 > 
 > 
 
-Conclua as seguintes etapas para excluir um volume.
+Concluir Olá etapas toodelete um volume a seguir.
 
-#### <a name="to-delete-a-volume"></a>Para excluir um volume
+#### <a name="toodelete-a-volume"></a>toodelete um volume
 
-1. Na configuração **Volumes** na folha de resumo do serviço StorSimple, selecione a matriz virtual na qual reside o volume que você deseja excluir.
-2. **Selecione** o volume e clique em **...** (como alternativa, clique com o botão direito do mouse nesta linha) e, no menu de contexto, selecione **Excluir**.
+1. De saudação **Volumes** configuração na folha do resumida de serviço do StorSimple hello, selecione Olá array virtual no qual Olá volume desejar toodelete reside.
+2. **Selecione** Olá volume e clique em **...**  (como alternativa, clique na linha) e no menu de contexto hello, selecione **excluir**.
    
     ![Excluir volume](./media/storsimple-virtual-array-manage-volumes/volume-delete.png)
-3. Verifique o status do volume que deseja excluir. Se o volume que você deseja excluir não estiver offline, coloque-o offline em primeiro lugar, seguindo as etapas em [Colocar um volume offline](#take-a-volume-offline).
-4. Quando a confirmação for solicitada na folha **Excluir**, aceite a confirmação e clique em **Excluir**. O volume será excluído e a folha **Volumes** mostrará a lista atualizada de volumes na matriz virtual.
+3. Verificar o status de saudação do volume Olá deseja toodelete. Se o volume Olá toodelete desejado não estiver offline, etapas-lo offline Olá primeiro, o seguinte [colocar um volume offline](#take-a-volume-offline).
+4. Quando for solicitada a confirmação no hello **excluir** folha, aceite a confirmação de saudação e clique em **excluir**. volume de saudação será excluída e Olá **Volumes** folha mostrará a lista de saudação atualizada de volumes em matriz virtual hello.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [Clonar um volume StorSimple](storsimple-virtual-array-clone.md).
+Saiba como muito[clonar um volume StorSimple](storsimple-virtual-array-clone.md).
 
